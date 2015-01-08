@@ -1,0 +1,33 @@
+{
+  "name": "imdikator",
+  "version": "0.0.0",
+  "private": "true",
+  "description": "Imdikator",
+  "main": "index.js",
+  "author": "Bengler AS",
+  "scripts": {
+    "start": "proxyreload ./app.js --port=3000 --throttle=150"
+  },
+  "dependencies": {
+    "6to5": "^2.2.0",
+    "6to5ify": "^3.0.0",
+    "bourbon": "0.0.2",
+    "browserify": "^8.0.2",
+    "defaults": "^1.0.0",
+    "domready": "~1.0.4",
+    "envify": "^3.2.0",
+    "error-capture-middleware": "0.0.2",
+    "express": "^4.10.6",
+    "helmet": "^0.5.4",
+    "node-sass": "^2.0.0-beta",
+    "react": "^0.12.2",
+    "rebundler": "0.0.4",
+    "spawn-stream": "^1.0.2",
+    "staticr": "^1.0.8",
+    "xhr": "^2.0.0"
+  },
+  "devDependencies": {
+    "proxyreload": "git://github.com/bjoerge/proxyreload",
+    "quickreload": "^1.0.0-alpha.3"
+  }
+}

@@ -1,4 +1,4 @@
-require("6to5/register")({
+require("babel-core/register")({
   experimental: true
 });
 
@@ -24,8 +24,8 @@ if (config.env === 'development') {
 
 if (config.env === 'development') {
   var serve = require("staticr/serve");
-  app.use(serve.js(require("./static-routes/browserify-bundles")));
-  app.use(serve.css(require("./static-routes/stylesheets")));
+  app.use(serve(require("./static-routes/browserify-bundles")));
+  app.use(serve(require("./static-routes/stylesheets")));
 }
 
 if (config.env === 'development') {

@@ -4,8 +4,9 @@ var path = require("path");
 var SpawnStream = require("spawn-stream");
 
 var env = require("../config").env;
+var collapser = require('bundle-collapser/plugin');
 
-var to5ify = require("6to5ify");
+var babelify = require("babelify");
 
 function createBundle(entry) {
 
@@ -17,28 +18,31 @@ function createBundle(entry) {
       debug:         env == 'development',
       fullPaths:     env == 'development'
     })
-      .transform(to5ify.configure({
+      .transform(babelify.configure({
         experimental: true
       }))
       .transform('envify', {global: true});
   });
 }
 
+var UGLIFY_CMD = require.resolve('uglify-js/bin/uglifyjs');
+
 function uglify() {
-  return SpawnStream(require.resolve('uglify-js/bin/uglifyjs'), [
+  return SpawnStream(UGLIFY_CMD, [
     '--compress',
     '--mangle',
     '--screw-ie8'
   ]);
 }
 
-var main = createBundle(require.resolve('../bundles//default.js'));
+var main = createBundle(require.resolve('../bundles//default.jsx'));
+
 module.exports = {
   "/bundles/default.js": function() {
     var b = main();
 
     if (env !== 'development') {
-      b.plugin('bundle-collapser/plugin');
+      b.plugin(collapser);
     }
 
     var stream = b.bundle();

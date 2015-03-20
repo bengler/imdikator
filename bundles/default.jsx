@@ -1,4 +1,4 @@
-require("6to5/polyfill");
+require("babel-core/polyfill");
 
 const React = require("react");
 

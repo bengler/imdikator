@@ -7,7 +7,7 @@ module.exports = React.createClass({
       <div>
         <h1>Hello world!</h1>
         <p>
-          Someting did render here.
+          <div className="bullet--primary">This is a test</div>
         </p>
       </div>
     )

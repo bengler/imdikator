@@ -11,6 +11,7 @@
   "dependencies": {
     "babel-core": "^4.7.16",
     "babelify": "^5.0.4",
+    "bluebird": "^2.9.14",
     "bourbon": "4.2.1",
     "browserify": "^9.0.3",
     "bundle-collapser": "^1.1.4",
@@ -30,7 +31,10 @@
     "xhr": "^2.0.1"
   },
   "devDependencies": {
+    "csv-parse": "^0.1.0",
+    "lodash": "^3.5.0",
     "proxyreload": "git://github.com/bjoerge/proxyreload",
-    "quickreload": "^1.0.0-alpha.3"
+    "quickreload": "^1.0.0-alpha.3",
+    "request": "^2.53.0"
   }
 }

@@ -2257,6 +2257,11 @@
         }
       }
     },
+    "imdi-no": {
+      "version": "0.0.0",
+      "from": "git+ssh://git@github.com:bengler/imdi-no",
+      "resolved": "git+ssh://git@github.com:bengler/imdi-no#c56191882f27b6f9c4c926c7a710754cbb84f09f"
+    },
     "node-sass": {
       "version": "3.0.0-alpha.0",
       "from": "node-sass@>=3.0.0-alpha <4.0.0",

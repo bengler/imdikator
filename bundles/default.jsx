@@ -6,4 +6,7 @@ const React = require("react");
 
 const Something = require("../components/Something.jsx");
 
-React.render(<Something/>, document.getElementById("something"));
+const something = document.getElementById("something");
+if (something) {
+  React.render(<Something/>, something);
+}

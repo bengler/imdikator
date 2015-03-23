@@ -1,2 +1,12 @@
 @import "blank";
-@import "4__blocks/_bullet";
+
+body {
+  background-color: $_canvas-grey;
+}
+
+.imdikator-box {
+  background-color: $_white;
+  box-shadow: 0 0 5px rgba(#333, .1);
+  margin-bottom: $spacing;
+  padding: $spacing $spacing--large;
+}

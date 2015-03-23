@@ -2260,7 +2260,7 @@
     "imdi-no": {
       "version": "0.0.0",
       "from": "git+ssh://git@github.com:bengler/imdi-no",
-      "resolved": "git+ssh://git@github.com:bengler/imdi-no#c56191882f27b6f9c4c926c7a710754cbb84f09f"
+      "resolved": "git+ssh://git@github.com:bengler/imdi-no#265ee9f635c4c77f6a452e249c48df6b4df6fb83"
     },
     "node-sass": {
       "version": "3.0.0-alpha.0",

@@ -13,25 +13,19 @@ module.exports = {
     var opts = {
       file: path.join(__dirname, "/../stylesheets/main.scss"),
       outFile: '/stylesheets/main.css',
-      sourceMap: true,
-      sourceMapEmbed: true,
+      sourceMap: config.env === 'development',
+      sourceMapEmbed: config.env === 'development',
       sourceMapContents: true,
       sourceComments: config.env === 'development',
-      omitSourceMapUrl: true,
       outputStyle: config.env === 'development' ? 'nested' : 'compressed',
       includePaths: imdino.includePaths
     };
+
     sass.render(opts, (err, result)=> {
       if (err) {
         return callback(err)
       }
-
-      if (!result.map.version) {
-        return callback(null, result.css);
-      }
-
-      var comment = "/*# sourceMappingURL=data:application/json;base64," + toBase64(JSON.stringify(result.map)) + "*/";
-      callback(null, result.css + "\n" + comment);
+      callback(null, result.css);
     });
   }
 };

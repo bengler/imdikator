@@ -37,7 +37,7 @@ module.exports = React.createClass({
         let zippedYears = time.map( (e,i) => {
           return {
             x: e, 
-            y: firstDimension[key].enhet.personer[i]
+            y: +(firstDimension[key].enhet.personer[i])
           };
         })
 
@@ -70,9 +70,7 @@ module.exports = React.createClass({
   		return (<div> Fetching data </div>);
   	}
 
-    console.info(this.props.item.chartKind);
     const Chart = charts[this.props.item.chartKind];
-    console.info(Chart);
 
   	return (
       <div>

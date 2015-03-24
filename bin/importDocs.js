@@ -28,11 +28,17 @@ const importGroups = function(url) {
 
 const mungeLine = function(line) {
 	line = _.omit(line, (e) => e == '');
-	if ("dimensions" in line) {
-		line.dimensions = line.dimensions.split(',');
-		line.dimensions = line.dimensions.map( (e) => _.trim(e));
-	}
+
+	Object.keys(line).forEach( (key) => {
+		line[key] = line[key].split(',');
+		line[key] = line[key].map( (e) => _.trim(e));
+	});
+
 	return line
+}
+
+const splitAndTrim = function(line) {
+
 }
 
 const parseGroups = function(lines) {

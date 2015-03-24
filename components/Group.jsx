@@ -10,10 +10,12 @@ module.exports = React.createClass({
     })
 
     return (
-      <div className="imdikator-group">
-      	{JSON.stringify(this.props)}
-        <h1>{this.props.title}</h1>
+      <div className="imdikator-list__group">
+        <h3>{this.props.title}</h3>
       	{items}
+        <pre>
+         {JSON.stringify(this.props)}
+        </pre>
       </div>
     )
   }

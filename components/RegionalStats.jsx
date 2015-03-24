@@ -7,7 +7,7 @@ module.exports = React.createClass({
   render() {
 
     return (
-      <div>
+      <div className="imdikator-list__wrapper">
         <Groups groupData={this.props.groupData} />
       </div>
     )

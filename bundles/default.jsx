@@ -19,23 +19,19 @@ const firstChart = Groups[1].items[0];
 
 console.log(firstChart);
 
- function getStats() {
-	return get('/api/query', {
-	  table: "befolkning_hovedgruppe",
-	  regions: ["K0102"],
-	  dimensions: ["innvkat_5"],
-	  time: ["1986", "1987"]
-	})
-    .then(res => res.json);
+function getStats(query) {
+  return get('/api/query', query).then(res => res.json);
 }
 
-getStats().then( (data)=> {
-	const ChartComponent = charts[firstChart.chartKind];
-	const chartEl = document.createElement("div");
-  React.render(<RegionalStats data={data}/>, chartEl);
-  document.getElementById('imdikator').appendChild(chartEl);
+getStats({
+  table: "befolkning_hovedgruppe",
+  regions: ["K0102"],
+  dimensions: ["innvkat_5"],
+  time: ["1986", "1987"]
 })
-
-// if (something) {
-//   React.render(<Something/>, something);
-// }
+  .then((data)=> {
+    const ChartComponent = charts[firstChart.chartKind];
+    const chartEl = document.createElement("div");
+    React.render(<RegionalStats data={data}/>, chartEl);
+    document.getElementById('imdikator').appendChild(chartEl);
+  });

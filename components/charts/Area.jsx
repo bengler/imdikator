@@ -14,7 +14,7 @@ module.exports = React.createClass({
     return (
       <div>
         <AreaChart
-          margins={{top: 10, right: 20, bottom: 40, left: 145}}
+          margins={{top: 10, right: 20, bottom: 40, left: 80}}
           legend={true}
           data={this.props.data}
           width={800}

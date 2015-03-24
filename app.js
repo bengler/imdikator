@@ -30,11 +30,11 @@ if (config.env === 'development') {
 
 if (config.env === 'development') {
   var capture = require("error-capture-middleware");
-  app.use("/browser", capture.js());
-  app.use("/stylesheets", capture.css());
+  app.use(capture.js());
+  app.use(capture.css());
 }
 
-app.use("/api", require("./api"))
+app.use("/api", require("./api"));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

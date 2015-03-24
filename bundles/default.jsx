@@ -41,5 +41,3 @@ getStats().then( (data)=> {
 // if (something) {
 //   React.render(<Something/>, something);
 // }
-
-

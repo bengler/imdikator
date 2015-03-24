@@ -4,7 +4,6 @@ require("./webfontconfig");
 const a11y = require('react-a11y');
 const config = require("../config");
 
-console.log(config)
 if (config.env === 'development') {
   a11y();
 }

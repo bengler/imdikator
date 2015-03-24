@@ -9,11 +9,11 @@ if (config.env === 'development') {
   a11y();
 }
 
-
 const React = require("react");
 
 const charts = require("../components/charts");
 const Groups = require("../data/groups.json");
+const RegionalStats = require("../components/RegionalStats");
 
 const firstChart = Groups[1].items[0];
 
@@ -32,11 +32,9 @@ console.log(firstChart);
 getStats().then( (data)=> {
 	const ChartComponent = charts[firstChart.chartKind];
 	const chartEl = document.createElement("div");
-	React.render(<ChartComponent data={data}/>, chartEl);
-	document.body.appendChild(chartEl);
+  React.render(<RegionalStats data={data}/>, chartEl);
+  document.getElementById('imdikator').appendChild(chartEl);
 })
-
-
 
 // if (something) {
 //   React.render(<Something/>, something);

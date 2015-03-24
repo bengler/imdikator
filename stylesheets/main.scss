@@ -12,17 +12,17 @@ body {
 }
 
 .imdikator-list {
-  &--wrapper {
+  &__wrapper {
     margin: 0 $spacing--large;
     padding: 0;
   }
-  &--item {
+  &__item {
     @extend h3;
     line-height: $factor-line-height * 2;
     display: block;
     border-bottom: 4px solid $_white;
   }
-  &--expand-button {
+  &__expand-button {
     border: none;
     font-size: $font-size--xlarge;
     color: $_black--light;
@@ -30,14 +30,15 @@ body {
     line-height: 1.5em;
     transition-property: transform;
     transition-duration: .1s;
-    &.expanded, &:hover {
+    //imdikator-list__expand-button--expanded
+    &--expanded, &:hover {
       transform: rotate(45deg);
     }
   }
 
 }
 
-.imdikator-graph--graph {
+.imdikator-graph__graph {
   min-height: 500px;
   text {
     font-size: 11px;
@@ -45,21 +46,23 @@ body {
   }
 }
 
+// D3 Graph
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: $_black;
   shape-rendering: crispEdges;
 }
 
 .bar {
-  fill: steelblue;
+  fill: $_purple;
 }
 
 .x.axis path {
   display: none;
 }
 
+// Graph colors
 .graph-color-0 { fill: $_purple; }
 .graph-color-1 { fill: $_violet; }
 .graph-color-2 { fill: $_color-male; }

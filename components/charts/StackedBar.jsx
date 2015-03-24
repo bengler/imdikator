@@ -1,4 +1,7 @@
 const React = require("react");
+const rd3 = require('react-d3');
+
+
 
 module.exports = React.createClass({
   displayName: 'Something',
@@ -6,11 +9,11 @@ module.exports = React.createClass({
 
   },
   render() {
+    console.info(this.props.data);
     return (
       <div>
-        <h1>Hello world!</h1>
+        <h2>I am a stacked barchart</h2>
         <p>
-          <div onClick={this.onClick}>Clickme</div>
           <div className="bullet--primary">This is a test</div>
         </p>
       </div>

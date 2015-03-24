@@ -1,6 +1,7 @@
 require("babel-core/polyfill");
 require("./webfontconfig");
 
+const {get} = require("../lib/request");
 const a11y = require('react-a11y');
 const config = require("../config");
 
@@ -8,20 +9,37 @@ if (config.env === 'development') {
   a11y();
 }
 
+
 const React = require("react");
 
-const Something = require("../components/Something.jsx");
+const charts = require("../components/charts");
+const Groups = require("../data/groups.json");
 
-const something = document.getElementById("something");
-if (something) {
-  React.render(<Something/>, something);
+const firstChart = Groups[1].items[0];
+
+console.log(firstChart);
+
+function getStats() {
+	return get('/api/query', {
+	  table: "befolkning_hovedgruppe",
+	  regions: ["K0102"],
+	  dimensions: ["innvkat_5"],
+	  time: ["1986", "1987"]
+	}).then(res => res.json);
 }
 
-const {get} = require("../lib/request");
+getStats().then( (data)=> {
+	const ChartComponent = charts[firstChart.chartKind];
+	const chartEl = document.createElement("div");
+	React.render(<ChartComponent data={data}/>, chartEl);
+	document.body.appendChild(chartEl);
 
-get('/api/query', {
-  table: "befolkning_hovedgruppe",
-  regions: ["K0102"],
-  dimensions: ["innvkat_5"],
-  time: ["1986", "1987"]
-}).then(res => console.log(res.json));
+})
+
+
+
+// if (something) {
+//   React.render(<Something/>, something);
+// }
+
+

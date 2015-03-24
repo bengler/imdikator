@@ -31,6 +31,7 @@
     "node-sass": "^3.0.0-alpha",
     "react": "^0.12.2",
     "react-a11y": "0.0.6",
+    "react-d3": "^0.3.0",
     "rebundler": "0.0.4",
     "spawn-stream": "^1.0.2",
     "staticr": "^2.1.2",

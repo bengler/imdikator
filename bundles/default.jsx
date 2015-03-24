@@ -19,7 +19,7 @@ const firstChart = Groups[1].items[0];
 
 console.log(firstChart);
 
-function getStats() {
+ function getStats() {
 	return get('/api/query', {
 	  table: "befolkning_hovedgruppe",
 	  regions: ["K0102"],
@@ -34,7 +34,6 @@ getStats().then( (data)=> {
 	const chartEl = document.createElement("div");
 	React.render(<ChartComponent data={data}/>, chartEl);
 	document.body.appendChild(chartEl);
-
 })
 
 

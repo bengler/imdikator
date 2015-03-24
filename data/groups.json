@@ -10,17 +10,6 @@
       {
         "table": "befolkning_hovedgruppe",
         "dimensions": [
-          "innvkat_5",
-          "kjonn"
-        ],
-        "time": "current",
-        "defaultUnit": "prosent",
-        "chartKind": "stackedBar",
-        "isExpanded": "yes"
-      },
-      {
-        "table": "befolkning_hovedgruppe",
-        "dimensions": [
           "innvkat_5"
         ],
         "time": "all",
@@ -33,20 +22,7 @@
   {
     "groupKind": "chart",
     "title": "Aldersfordeling",
-    "items": [
-      {
-        "table": "befolkning_alder",
-        "dimensions": [
-          "innvkat_3",
-          "alder_grupper",
-          "kjonn"
-        ],
-        "time": "current",
-        "defaultUnit": "prosent",
-        "chartKind": "populationPyramid",
-        "isExpanded": "yes"
-      }
-    ]
+    "items": []
   },
   {
     "groupKind": "chart",

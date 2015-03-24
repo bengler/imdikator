@@ -16,7 +16,6 @@ module.exports = React.createClass({
 		  dimensions: item.dimensions,
 		  time: item.time
 		}).then((res) => {
-      console.info(res); 
       return this.mungeData(res.json);
     })
   },
@@ -31,7 +30,14 @@ module.exports = React.createClass({
       // - Handle more dimensions
       // - Handle different units than "personer"
 
-      const firstDimension = data.data[region][this.props.item.dimensions[0]]
+      const dimension = this.props.item.dimensions[0];
+
+      const firstDimension = data.data[region][dimension];
+
+      // - Only valid when the skip is addressing the single dimension
+      this.props.item.skip.forEach( (skip) => {
+        delete firstDimension[skip.split(".")[1]];        
+      });
 
       Object.keys(firstDimension).forEach( (key, i)=> {
         let zippedYears = time.map( (e,i) => {
@@ -46,8 +52,6 @@ module.exports = React.createClass({
           values: zippedYears
         });
       });
-
-      console.info();
     })
 
     return result;
@@ -72,13 +76,13 @@ module.exports = React.createClass({
 
     const Chart = charts[this.props.item.chartKind];
 
+    // <pre>
+    //   {JSON.stringify(this.state.data, null, 2)}
+    // </pre>
+
   	return (
       <div>
         <Chart data={this.state.data}/>
-
-        <pre>
-          {JSON.stringify(this.state.data, null, 2)}
-        </pre>
       </div>
     )
   }

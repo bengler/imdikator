@@ -9,13 +9,14 @@ module.exports = React.createClass({
     	return <ItemDataFetcher item={item} regions={this.props.regions} />
     })
 
+    // <pre>
+    //  {JSON.stringify(this.props)}
+    // </pre>
+
     return (
       <div className="imdikator-list__group">
         <h3>{this.props.title}</h3>
       	{items}
-        <pre>
-         {JSON.stringify(this.props)}
-        </pre>
       </div>
     )
   }

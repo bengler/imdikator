@@ -11,18 +11,6 @@ module.exports = React.createClass({
   },
   render() {
 
-    const data = [
-      {
-        name: "foo",
-        values: [{x: 10, y:20}, {x: 20, y:30}]
-      },
-      {
-        name: "bar",
-        values: [{x: 10, y:-20}, {x: 20, y:15}]
-      }
-    ] 
-
-
     return (
       <div>
         <AreaChart
@@ -32,7 +20,6 @@ module.exports = React.createClass({
           width={800}
           height={300}
           xAxisTickInterval={{unit: 'year', interval: 5}}
-          title="Area Chart"
         />
       </div>
     )

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@bengler/imdi-dataset": {
-      "version": "1.0.9",
+      "version": "1.0.10",
       "from": "@bengler/imdi-dataset@latest",
       "dependencies": {
         "babel": {
@@ -126,7 +126,7 @@
                         },
                         "inherits": {
                           "version": "2.0.1",
-                          "from": "inherits@>=2.0.1 <2.1.0",
+                          "from": "inherits@>=2.0.0 <3.0.0",
                           "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
                         }
                       }

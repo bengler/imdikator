@@ -1,7 +1,6 @@
 require("babel-core/polyfill");
 require("./webfontconfig");
 
-const {get} = require("../lib/request");
 const a11y = require('react-a11y');
 const config = require("../config");
 
@@ -11,27 +10,9 @@ if (config.env === 'development') {
 
 const React = require("react");
 
-const charts = require("../components/charts");
-const Groups = require("../data/groups.json");
+const groupData = require("../data/groups.json");
 const RegionalStats = require("../components/RegionalStats");
 
-const firstChart = Groups[1].items[0];
+var el = document.getElementById('imdikator');
+React.render(<RegionalStats groupData={groupData}/>, el);
 
-console.log(firstChart);
-
-function getStats(query) {
-  return get('/api/query', query).then(res => res.json);
-}
-
-getStats({
-  table: "befolkning_hovedgruppe",
-  regions: ["K0102"],
-  dimensions: ["innvkat_5"],
-  time: ["1986", "1987"]
-})
-  .then((data)=> {
-    const ChartComponent = charts[firstChart.chartKind];
-    const chartEl = document.createElement("div");
-    React.render(<RegionalStats data={data}/>, chartEl);
-    document.getElementById('imdikator').appendChild(chartEl);
-  });

@@ -5,9 +5,10 @@ const Groups = require("./Groups.jsx");
 module.exports = React.createClass({
   displayName: 'RegionalStats',
   render() {
+
     return (
       <div>
-        <Groups/>
+        <Groups groupData={this.props.groupData} />
       </div>
     )
   }

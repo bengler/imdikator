@@ -5,12 +5,14 @@ const Group = require("./Group.jsx");
 module.exports = React.createClass({
   displayName: 'Groups',
   render() {
+
+    const groups = this.props.groupData.map( (group)=> {
+      return <Group title={group.title} items={group.items} />
+    })
+
     return (
       <div>
-        <Group />
-        <Group />
-        <Group />
-        <Group />
+        {groups}
       </div>
     )
   }

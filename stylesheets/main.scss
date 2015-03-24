@@ -38,8 +38,11 @@ body {
 }
 
 .imdikator-graph--graph {
-  border: 1px solid red;
   min-height: 500px;
+  text {
+    font-size: 11px;
+    fill: $_black;
+  }
 }
 
 .axis path,
@@ -56,3 +59,13 @@ body {
 .x.axis path {
   display: none;
 }
+
+.graph-color-0 { fill: $_purple; }
+.graph-color-1 { fill: $_violet; }
+.graph-color-2 { fill: $_color-male; }
+.graph-color-3 { fill: $_color-female; }
+.graph-color-4 { fill: $_orange; }
+.graph-color-5 { fill: $_orange--dark; }
+.graph-color-6 { fill: $_blue; }
+.graph-color-7 { fill: $_green; }
+.graph-color-8 { fill: $_green; }

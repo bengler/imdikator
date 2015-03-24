@@ -85,8 +85,10 @@
   <footer class="wrapper">footer</footer>
   <script>
 
+  var elementWidth = document.getElementById('graph').offsetWidth;
+
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      width = 900 - margin.left - margin.right,
+      width = elementWidth - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
   var x = d3.scale.ordinal()
@@ -96,7 +98,7 @@
       .rangeRound([height, 0]);
 
   var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range(["#9c0d61", "#7555a3", "#1986e0", "#e23939", "#2eb0d1", "#9cbc42", "#ff523b"]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -154,7 +156,7 @@
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.y1); })
         .attr("height", function(d) { return y(d.y0) - y(d.y1); })
-        .style("fill", function(d) { return color(d.name); });
+        .attr('class', function(d,i) { return 'graph-color-'+i;});
 
     var legend = svg.selectAll(".legend")
         .data(color.domain().slice().reverse())
@@ -166,7 +168,7 @@
         .attr("x", width - 18)
         .attr("width", 18)
         .attr("height", 18)
-        .style("fill", color);
+        .attr('class', function(d,i) { return 'graph-color-'+i;});
 
     legend.append("text")
         .attr("x", width - 24)

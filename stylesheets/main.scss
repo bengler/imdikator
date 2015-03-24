@@ -15,13 +15,24 @@ body {
   &--wrapper {
     margin: 0 $spacing--large;
     padding: 0;
-
   }
   &--item {
     @extend h3;
     line-height: $factor-line-height * 2;
     display: block;
     border-bottom: 4px solid $_white;
+  }
+  &--expand-button {
+    border: none;
+    font-size: $font-size--xlarge;
+    color: $_black--light;
+    overflow: hidden;
+    line-height: 2;
+    transition-property: transform;
+    transition-duration: .1s;
+    &.expanded, &:hover {
+      transform: rotate(45deg);
+    }
   }
 
 }

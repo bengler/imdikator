@@ -49,7 +49,7 @@ const parseGroups = function(lines) {
 				title: line.title, 
 				items: []
 			};
-		} else if (Object.keys(line).length > 0) {
+		} else if (Object.keys(line).length > 0 && line.groupKind != "#") { // # in groupKind is skip notation
 			currentGroup.items.push(line);
 		}
 	})

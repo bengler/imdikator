@@ -22,10 +22,35 @@ module.exports = React.createClass({
   },
 
   mungeData(data) {
-    data.time = this.convertYearsToDate(data.time);
-    
+    const time = this.convertYearsToDate(data.time);
 
-    return data
+    let result = [];
+
+    this.props.regions.forEach( (region)=> {
+      // TODO:
+      // - Handle more dimensions
+      // - Handle different units than "personer"
+
+      const firstDimension = data.data[region][this.props.item.dimensions[0]]
+
+      Object.keys(firstDimension).forEach( (key, i)=> {
+        let zippedYears = time.map( (e,i) => {
+          return {
+            x: e, 
+            y: firstDimension[key].enhet.personer[i]
+          };
+        })
+
+        result.push( {
+          name: key,
+          values: zippedYears
+        });
+      });
+
+      console.info();
+    })
+
+    return result;
   },
 
   convertYearsToDate(years) {
@@ -44,11 +69,18 @@ module.exports = React.createClass({
   	if (!this.state.data) {
   		return (<div> Fetching data </div>);
   	}
-    
-  	console.log(this.state.data);
+
+    console.info(this.props.item.chartKind);
+    const Chart = charts[this.props.item.chartKind];
+    console.info(Chart);
+
   	return (
       <div>
-        {JSON.stringify(this.state.data)}
+        <Chart data={this.state.data}/>
+
+        <pre>
+          {JSON.stringify(this.state.data, null, 2)}
+        </pre>
       </div>
     )
   }

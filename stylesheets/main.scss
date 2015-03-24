@@ -27,7 +27,7 @@ body {
     font-size: $font-size--xlarge;
     color: $_black--light;
     overflow: hidden;
-    line-height: 2;
+    line-height: 1.5em;
     transition-property: transform;
     transition-duration: .1s;
     &.expanded, &:hover {
@@ -35,4 +35,24 @@ body {
     }
   }
 
+}
+
+.imdikator-graph--graph {
+  border: 1px solid red;
+  min-height: 500px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
 }

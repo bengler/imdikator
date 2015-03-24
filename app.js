@@ -34,6 +34,8 @@ if (config.env === 'development') {
   app.use("/stylesheets", capture.css());
 }
 
+app.use("/api", require("./api"))
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;

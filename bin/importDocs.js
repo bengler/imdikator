@@ -29,9 +29,12 @@ const importGroups = function(url) {
 const mungeLine = function(line) {
 	line = _.omit(line, (e) => e == '');
 
-	Object.keys(line).forEach( (key) => {
-		line[key] = line[key].split(',');
-		line[key] = line[key].map( (e) => _.trim(e));
+	const splitFields = ["dimensions", "skip"];
+	splitFields.forEach( (e) => {
+		if (e in line) { 
+			line[e] = line[e].split(',');
+			line[e] = line[e].map( (e) => _.trim(e));
+		}
 	});
 
 	return line

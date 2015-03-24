@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@bengler/imdi-dataset": {
-      "version": "1.0.7",
+      "version": "1.0.8",
       "from": "@bengler/imdi-dataset@latest",
       "dependencies": {
         "babel": {

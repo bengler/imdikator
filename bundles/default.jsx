@@ -25,7 +25,8 @@ function getStats() {
 	  regions: ["K0102"],
 	  dimensions: ["innvkat_5"],
 	  time: ["1986", "1987"]
-	}).then(res => res.json);
+	})
+    .then(res => res.json);
 }
 
 getStats().then( (data)=> {

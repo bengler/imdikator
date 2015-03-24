@@ -13,7 +13,7 @@
     "upgrade-imdi-no": "npm i -S git+ssh://git@github.com:bengler/imdi-no && npm ls imdi-no && echo 'Upgraded imdi-no. Remember to run \"npm shrink --dev\" before committing!\n'"
   },
   "dependencies": {
-    "@bengler/imdi-dataset": "^1.0.7",
+    "@bengler/imdi-dataset": "^1.0.8",
     "babel-core": "^4.7.16",
     "babelify": "^5.0.4",
     "bluebird": "^2.9.14",

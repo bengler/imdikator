@@ -7,12 +7,15 @@ const {DB} = require("@bengler/imdi-dataset");
 const db = new DB(require("./dataset/tree.json"));
 
 
-router.get("/query", function(req, res) {
-  console.log(req.query)
-  res.json(db.query(req.query));
+router.get("/query", function (req, res, next) {
+  db.query(req.query)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(next);
 });
 
-router.use(function(err, req, res, next) {
+router.use(function (err, req, res, next) {
   res.json({
     error: err.message,
     stack: config.env === 'development' && err.stack

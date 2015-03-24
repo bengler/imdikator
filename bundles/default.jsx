@@ -14,5 +14,5 @@ const groupData = require("../data/groups.json");
 const RegionalStats = require("../components/RegionalStats");
 
 var el = document.getElementById('imdikator');
-React.render(<RegionalStats groupData={groupData}/>, el);
+React.render(<RegionalStats groupData={groupData} regions={["K0301"]}/>, el);
 

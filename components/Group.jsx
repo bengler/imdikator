@@ -6,7 +6,7 @@ module.exports = React.createClass({
   render() {
 
     const items = this.props.items.map( (item)=> {
-    	return <ItemDataFetcher item={item} />
+    	return <ItemDataFetcher item={item} regions={this.props.regions} />
     })
 
     return (

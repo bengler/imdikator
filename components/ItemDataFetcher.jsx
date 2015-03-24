@@ -12,10 +12,26 @@ module.exports = React.createClass({
   fetchData(item) {
 		return get('/api/query', {
 		  table: item.table,
-		  regions: ["K0102"],
+		  regions: this.props.regions,
 		  dimensions: item.dimensions,
 		  time: item.time
-		}).then(res => res.json);
+		}).then((res) => {
+      console.info(res); 
+      return this.mungeData(res.json);
+    })
+  },
+
+  mungeData(data) {
+    data.time = this.convertYearsToDate(data.time);
+    
+
+    return data
+  },
+
+  convertYearsToDate(years) {
+    return years.map( (e) => {
+      return new Date(e)
+    });
   },
 
   componentDidMount() {
@@ -28,7 +44,12 @@ module.exports = React.createClass({
   	if (!this.state.data) {
   		return (<div> Fetching data </div>);
   	}
+    
   	console.log(this.state.data);
-  	return <div/>
+  	return (
+      <div>
+        {JSON.stringify(this.state.data)}
+      </div>
+    )
   }
 });

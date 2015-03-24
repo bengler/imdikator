@@ -7,7 +7,7 @@ module.exports = React.createClass({
   render() {
 
     const groups = this.props.groupData.map( (group)=> {
-      return <Group title={group.title} items={group.items} />
+      return <Group title={group.title} items={group.items} regions={this.props.regions} />
     })
 
     return (

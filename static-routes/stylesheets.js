@@ -33,7 +33,8 @@ module.exports = {
 fs.readdirSync(imdino.paths.gfx).forEach(file => {
 
   const fullPath = path.join(imdino.paths.gfx, file);
-  const httpPath = path.join('gfx', file);
+  //const httpPath = path.join('gfx', file);
+  const httpPath = path.join('/imdi-no/_themes/blank/gfx', file);
 
   module.exports[httpPath] = function() {
     return fs.createReadStream(fullPath);

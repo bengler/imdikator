@@ -47,6 +47,12 @@ body {
   }
 }
 
+.imdikator-preamble {
+  font-size: $font-size--medium;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 // D3 Graph
 .axis path,
 .axis line {
@@ -62,6 +68,9 @@ body {
 .x.axis path {
   display: none;
 }
+
+// Trumps
+.center { text-align: center; }
 
 // Graph colors
 .graph-color-0 { fill: $_purple; }

@@ -2,14 +2,36 @@ const React = require("react");
 
 const Groups = require("./Groups.jsx");
 
+var municipality = {
+  name: "Oslo kommune",
+  refugees_qty_pr_thousand: 4,
+  refugees_percent: 15
+}
+
+var RefugeesLink = React.createClass({
+  displayName: 'RegionalStats',
+  render() {
+    return (
+      <a href="#">innvandrere</a>
+    )
+  }
+});
+
 module.exports = React.createClass({
   displayName: 'RegionalStats',
   render() {
-
     return (
       <div className="imdikator-list__wrapper">
-        <p className="imdikator-preamble">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium quam vel est vulputate, quis accumsan risus tincidunt. Suspendisse bibendum placerat laoreet. In imperdiet in neque quis dignissim. Phasellus quis magna aliquet, euismod nulla eu, viverra lectus. Phasellus vehicula ultricies laoreet. Etiam at rhoncus elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        <Groups groupData={this.props.groupData} regions={this.props.regions} />
+        <h1 className="center">{municipality}</h1>
+        <p className="imdikator-preamble">
+          {municipality.name} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
+          {municipality.refugees_percent}% av innvandrerne i kommunen er flyktninger.<br/>
+          Kommunen oppfyller ikke kravene til <a href="#">norskundervisning</a>.<br/>
+        </p>
+        <div className="center">
+          <a className="button">Lag faktaark for {municipality.name}</a>
+        </div>
+        <Groups groupData={this.props.groupData} regions={this.props.regions} municipality={municipality} />
       </div>
     )
   }

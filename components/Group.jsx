@@ -15,7 +15,7 @@ module.exports = React.createClass({
 
     return (
       <div className="imdikator-list__group">
-        <h3>{this.props.title}</h3>
+        <h3>{this.props.title} i {this.props.municipality.name}</h3>
       	{items}
       </div>
     )

@@ -28,7 +28,7 @@ module.exports = React.createClass({
     });
 
     return (
-      <div className="imdikator--table">
+      <div className="imdikator-table">
         <div className={imdikatorTableExpanderClasses}>
           <div role="button" onClick={this.toggle}>
             Vis tabell

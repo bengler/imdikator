@@ -115,26 +115,28 @@ body {
   }
 }
 
-.imdikator-table__table {
-  display: none;
-  &.opened {
-    display: table;
+.imdikator-table {
+  padding-bottom: $spacing;
+  &__table {
+    display: none;
+    &.opened {
+      display: table;
+    }
   }
-}
 
-.imdikator-table__expander {
-  background-color: $_canvas-grey;
-  padding: $spacing--small;
-  i {
-    float: right;
+  &__expander {
+    background-color: $_canvas-grey;
+    padding: $spacing--small;
+    i {
+      float: right;
+    }
+    &.opened {
+      
+    }
   }
-  &.opened {
-    
+  table {
+    width: 100%;
   }
-}
-
-.imdikator-table table {
-  width: 100%;
 }
 
 // D3 Graph

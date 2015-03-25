@@ -99,6 +99,17 @@ body {
   height: 10em;
 }
 
+.imdikator-list__functions {
+  font-size: $font-size--xsmall;
+  a {
+    margin-right: 1em;
+    &:last-child {
+      float: right;
+      margin-right: 0;
+    }
+  }
+}
+
 // D3 Graph
 .axis path,
 .axis line {

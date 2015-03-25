@@ -38,6 +38,14 @@ module.exports = React.createClass({
           {this.props.title} i {this.props.municipality.name}
         </h3>
       	{items}
+
+        <div className="imdikator-list__functions">
+          <a href="#">Last ned bilde</a>
+          <a href="#">Last ned Excel-fil (csv)</a>
+          <a href="#">Del denne statistikken</a>
+          <a href="#">Om tallene</a>
+        </div>
+
       </div>
     )
   }

@@ -17,7 +17,7 @@ module.exports = React.createClass({
 
     let classes = cx({
       "table": true,
-      "table table--fluid": true,
+      "table--fluid": true,
       "imdikator-table__table": true,
       "opened": this.state.opened
     });
@@ -56,7 +56,7 @@ module.exports = React.createClass({
               <td className="table--cell__right">200.000</td>
               <td className="table--cell__right">300.000</td>
               <td className="table--cell__right">400.000</td>
-              <td>500.000</td>
+              <td className="table--cell__right">500.000</td>
             </tr>
             <tr>
               <td>Row header</td>

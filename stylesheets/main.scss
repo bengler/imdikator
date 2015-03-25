@@ -118,7 +118,7 @@ body {
 .imdikator-table__table {
   display: none;
   &.opened {
-    display: block;
+    display: table;
   }
 }
 

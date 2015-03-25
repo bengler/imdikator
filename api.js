@@ -11,7 +11,10 @@ function parseQueryTime(queryTime) {
     return db.getAllPossibleTimes()
   }
   if (queryTime == 'current') {
-    return Promise.resolve([new Date().getFullYear()]);
+    return Promise.resolve(['2013']);
+  }
+  if (!Array.isArray(queryTime)) {
+    return Promise.reject(new Error("The parameter 'time' should be all, current or an array of years"))
   }
   return Promise.resolve(queryTime)
 }
@@ -33,8 +36,8 @@ router.get("/query", function (req, res, next) {
       .then(data => {
         res.json(data);
       })
-      .catch(next);
-  });
+  })
+    .catch(next);
 });
 
 router.use(function (err, req, res, next) {

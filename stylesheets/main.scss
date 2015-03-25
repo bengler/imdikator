@@ -9,7 +9,11 @@ body {
   background-color: $_white;
   box-shadow: 0 0 5px rgba(#333, .1);
   margin-bottom: $spacing;
-  padding: $spacing $spacing--large;
+  padding: $spacing $spacing;
+
+  @include query-min($screen-lg) {
+    padding: $spacing $spacing--large;
+  }
 }
 
 .imdikator-list {

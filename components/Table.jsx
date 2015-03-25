@@ -6,7 +6,7 @@ module.exports = React.createClass({
   render() {
 
     return (
-      <div className="table__wrapper">
+      <div className="imdikator-table">
         <div className="imdikator-table__expander">
           Vis tabell
           <i>Arrow</i>
@@ -25,27 +25,27 @@ module.exports = React.createClass({
           <tbody>
             <tr>
               <td>Row header</td>
-              <td>100.000</td>
-              <td>200.000</td>
-              <td>300.000</td>
-              <td>400.000</td>
+              <td class="table--cell__right">100.000</td>
+              <td class="table--cell__right">200.000</td>
+              <td class="table--cell__right">300.000</td>
+              <td class="table--cell__right">400.000</td>
+              <td class="table--cell__right">500.000</td>
+            </tr>
+            <tr>
+              <td>Row header</td>
+              <td class="table--cell__right">100.000</td>
+              <td class="table--cell__right">200.000</td>
+              <td class="table--cell__right">300.000</td>
+              <td class="table--cell__right">400.000</td>
               <td>500.000</td>
             </tr>
             <tr>
               <td>Row header</td>
-              <td>100.000</td>
-              <td>200.000</td>
-              <td>300.000</td>
-              <td>400.000</td>
-              <td>500.000</td>
-            </tr>
-            <tr>
-              <td>Row header</td>
-              <td>100.000</td>
-              <td>200.000</td>
-              <td>300.000</td>
-              <td>400.000</td>
-              <td>500.000</td>
+              <td class="table--cell__right">100.000</td>
+              <td class="table--cell__right">200.000</td>
+              <td class="table--cell__right">300.000</td>
+              <td class="table--cell__right">400.000</td>
+              <td class="table--cell__right">500.000</td>
             </tr>
           </tbody>        
         </table>

@@ -12,7 +12,7 @@ var RefugeesLink = React.createClass({
   displayName: 'RegionalStats',
   render() {
     return (
-      <a href="#">innvandrere</a>
+      <a href="#" role="button">innvandrere</a>
     )
   }
 });
@@ -29,7 +29,7 @@ module.exports = React.createClass({
           Kommunen oppfyller ikke kravene til <a href="#">norskundervisning</a>.<br/>
         </p>
         <div className="center">
-          <a className="button">Lag faktaark for {municipality.name}</a>
+          <a className="button" role="button">Lag faktaark for {municipality.name}</a>
         </div>
         <Groups groupData={this.props.groupData} regions={this.props.regions} municipality={municipality} />
       </div>

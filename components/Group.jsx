@@ -23,8 +23,8 @@ module.exports = React.createClass({
   displayName: 'Group',
   render() {
 
-    const items = this.props.items.map( (item)=> {
-    	return <ItemDataFetcher item={item} regions={this.props.regions} />
+    const items = this.props.items.map( (item, i)=> {
+    	return <ItemDataFetcher key={i} item={item} regions={this.props.regions} />
     })
 
     // <pre>
@@ -40,10 +40,10 @@ module.exports = React.createClass({
       	{items}
 
         <div className="imdikator-list__functions">
-          <a href="#">Last ned bilde</a>
-          <a href="#">Last ned Excel-fil (csv)</a>
-          <a href="#">Del denne statistikken</a>
-          <a href="#">Om tallene</a>
+          <a href="#" role="button">Last ned bilde</a>
+          <a href="#" role="button">Last ned Excel-fil (csv)</a>
+          <a href="#" role="button">Del denne statistikken</a>
+          <a href="#" role="button">Om tallene</a>
         </div>
 
       </div>

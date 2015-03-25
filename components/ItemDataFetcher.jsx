@@ -27,6 +27,8 @@ module.exports = React.createClass({
 
     let result = [];
 
+    console.info(data);
+
     this.props.regions.forEach( (region)=> {
       // TODO:
       // - Handle more dimensions
@@ -37,9 +39,11 @@ module.exports = React.createClass({
       const firstDimension = data.data[region][dimension];
 
       // - Only valid when the skip is addressing the single dimension
-      this.props.item.skip.forEach( (skip) => {
-        delete firstDimension[skip.split(".")[1]];        
-      });
+      if (this.props.item.skip) {
+        this.props.item.skip.forEach( (skip) => {
+          delete firstDimension[skip.split(".")[1]];        
+        });
+      }
 
       Object.keys(firstDimension).forEach( (key, i)=> {
         let zippedYears = time.map( (e,i) => {
@@ -75,6 +79,8 @@ module.exports = React.createClass({
   	if (!this.state.data) {
   		return (<Loader>Fetching data…</Loader>);
   	}
+
+    console.info(this.props.item.chartKind);
 
     const Chart = charts[this.props.item.chartKind];
 

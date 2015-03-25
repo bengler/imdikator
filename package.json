@@ -10,7 +10,8 @@
     "update-fork": "(test -z $NODE_ENV || test $NODE_ENV == 'development') && (echo 'Updating imdi-fork, hang on...\n' && rm -Rf .imdi-fork.tmp && git clone --quiet git@github.com:bengler/imdi-no .imdi-fork.tmp && cd .imdi-fork.tmp && git checkout --quiet master && git pull --rebase git@github.com:netliferesearch/imdi-no.git master && git push origin master && cd .. && rm -Rf .imdi-fork.tmp) || echo ''",
     "_postinstall": "npm --silent run update-fork && npm --silent run check-imdi-no-dep",
     "check-imdi-no-dep": "test $(npm ls | grep 'imdi-no#' | cut -d '#' -f 2- | cut -d ')' -f 1) != $(git ls-remote git@github.com:bengler/imdi-no.git | grep refs/heads/master | cut -f 1) && (printf 'A new version of bengler/imdi-no is available. Do you want to upgrade? [Y/n]: '; read -r -e answer; if [[ $answer = '' || $answer = [yY] ]]; then npm run upgrade-imdi-no; fi) || echo 'imdi-no dependency is already at latest.\n'",
-    "upgrade-imdi-no": "npm i -S git+ssh://git@github.com:bengler/imdi-no && npm ls imdi-no && echo 'Upgraded imdi-no. Remember to run \"npm shrink --dev\" before committing!\n'"
+    "upgrade-imdi-no": "npm i -S git+ssh://git@github.com:bengler/imdi-no && npm ls imdi-no && echo 'Upgraded imdi-no. Remember to run \"npm shrink --dev\" before committing!\n'",
+    "import-areas": "babel-node --experimental ./bin/importAreas"
   },
   "dependencies": {
     "@bengler/imdi-dataset": "^1.0.11",

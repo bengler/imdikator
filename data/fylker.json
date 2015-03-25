@@ -1,0 +1,82 @@
+[
+  {
+    "tittel": "Østfold",
+    "kode": "01"
+  },
+  {
+    "tittel": "Akershus",
+    "kode": "02"
+  },
+  {
+    "tittel": "Oslo",
+    "kode": "03"
+  },
+  {
+    "tittel": "Hedmark",
+    "kode": "04"
+  },
+  {
+    "tittel": "Oppland",
+    "kode": "05"
+  },
+  {
+    "tittel": "Buskerud",
+    "kode": "06"
+  },
+  {
+    "tittel": "Vestfold",
+    "kode": "07"
+  },
+  {
+    "tittel": "Telemark",
+    "kode": "08"
+  },
+  {
+    "tittel": "Aust-Agder",
+    "kode": "09"
+  },
+  {
+    "tittel": "Vest-Agder",
+    "kode": "10"
+  },
+  {
+    "tittel": "Rogaland",
+    "kode": "11"
+  },
+  {
+    "tittel": "Hordaland",
+    "kode": "12"
+  },
+  {
+    "tittel": "Sogn og Fjordane",
+    "kode": "14"
+  },
+  {
+    "tittel": "Møre og Romsdal",
+    "kode": "15"
+  },
+  {
+    "tittel": "Sør-Trøndelag",
+    "kode": "16"
+  },
+  {
+    "tittel": "Nord-Trøndelag",
+    "kode": "17"
+  },
+  {
+    "tittel": "Nordland",
+    "kode": "18"
+  },
+  {
+    "tittel": "Troms Romsa",
+    "kode": "19"
+  },
+  {
+    "tittel": "Finnmark Finnmárku",
+    "kode": "20"
+  },
+  {
+    "tittel": "Uoppgitt",
+    "kode": "99"
+  }
+]

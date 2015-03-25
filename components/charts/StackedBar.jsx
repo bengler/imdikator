@@ -1,6 +1,6 @@
 const React = require("react");
 const rd3 = require('react-d3');
-
+const BarChart = rd3.BarChart;
 
 
 module.exports = React.createClass({
@@ -12,10 +12,13 @@ module.exports = React.createClass({
     console.info(this.props.data);
     return (
       <div>
-        <h2>I am a stacked barchart</h2>
-        <p>
-          <div className="bullet--primary">This is a test</div>
-        </p>
+        <BarChart
+          margins={{top: 10, right: 20, bottom: 40, left: 80}}
+          legend={true}
+          data={this.props.data}
+          width={800}
+          height={300}
+        />
       </div>
     )
   }

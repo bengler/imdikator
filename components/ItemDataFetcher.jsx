@@ -38,26 +38,37 @@ module.exports = React.createClass({
 
       const firstDimension = data.data[region][dimension];
 
-      // - Only valid when the skip is addressing the single dimension
+      // HACK:
+      // - Only valid when the skip is addressing the single first dimension. No pruning of leaves.
       if (this.props.item.skip) {
         this.props.item.skip.forEach( (skip) => {
           delete firstDimension[skip.split(".")[1]];        
         });
       }
 
-      Object.keys(firstDimension).forEach( (key, i)=> {
-        let zippedYears = time.map( (e,i) => {
-          return {
-            x: e, 
-            y: +(firstDimension[key].enhet.personer[i])
-          };
-        })
 
-        result.push( {
-          name: key,
-          values: zippedYears
-        });
+      Object.keys(firstDimension).forEach( (key, i)=> {
+
+        if (time.length == 1) {
+          result.push( {
+            name: key,
+            value: firstDimension[key].personer[0]
+          });
+        } else {
+          var values = time.map( (e,i) => {
+            return {
+              x: e, 
+              y: +(firstDimension[key].personer[i])
+            };
+          })
+          result.push( {
+            name: key,
+            values: values
+          });
+        }
+
       });
+
     })
 
     return result;
@@ -84,14 +95,23 @@ module.exports = React.createClass({
 
     const Chart = charts[this.props.item.chartKind];
 
-    // <pre>
-    //   {JSON.stringify(this.state.data, null, 2)}
-    // </pre>
 
   	return (
       <div>
         <Chart data={this.mungeData(this.state.data)}/>
+
+        <pre>
+          {JSON.stringify(this.props.item, null, 2)}
+        </pre>
+        <pre>
+          {JSON.stringify(this.state.data, null, 2)}
+        </pre>
+        <pre>
+          {JSON.stringify(this.mungeData(this.state.data, null, 2))}
+        </pre>
+
         <Table data={this.state.data}/>
+
       </div>
     )
   }

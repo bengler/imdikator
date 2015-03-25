@@ -1,8 +1,6 @@
 const React = require("react");
 const rd3 = require('react-d3');
 const AreaChart = rd3.AreaChart;
-const LineChart = rd3.LineChart;
-const ScatterChart = rd3.ScatterChart;
 
 module.exports = React.createClass({
   displayName: 'AreaChart',

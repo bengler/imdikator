@@ -22,7 +22,7 @@ module.exports = React.createClass({
   render() {
     return (
       <div className="imdikator-list__wrapper">
-        <h1 className="center">{municipality}</h1>
+        <h1 className="center">{municipality.name}</h1>
         <p className="imdikator-preamble">
           {municipality.name} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
           {municipality.refugees_percent}% av innvandrerne i kommunen er flyktninger.<br/>

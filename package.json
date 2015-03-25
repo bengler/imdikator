@@ -32,7 +32,7 @@
     "qs": "^2.4.1",
     "react": "^0.12.2",
     "react-a11y": "0.0.6",
-    "react-d3": "^0.3.0",
+    "react-d3": "git://github.com/bengler/react-d3",
     "rebundler": "0.0.4",
     "spawn-stream": "^1.0.2",
     "staticr": "^2.1.2",
@@ -44,6 +44,7 @@
     "lodash": "^3.5.0",
     "proxyreload": "git://github.com/bjoerge/proxyreload",
     "quickreload": "^1.0.0-alpha.3",
+    "reactify": "^1.1.0",
     "request": "^2.53.0"
   }
 }

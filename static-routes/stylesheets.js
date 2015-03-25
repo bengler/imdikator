@@ -10,7 +10,7 @@ module.exports = {
   "/stylesheets/main.css": function (callback) {
 
     const opts = {
-      file:               path.join(__dirname, "/../stylesheets/main.scss"),
+      file:               require.resolve("../stylesheets/main.scss"),
       outFile:            '/stylesheets/main.css',
       includePaths:       imdino.includePaths,
 

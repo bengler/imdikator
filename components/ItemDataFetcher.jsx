@@ -3,6 +3,7 @@ const charts = require("./charts/");
 const {get} = require("../lib/request");
 
 const Loader = require("./Loader.jsx");
+const Table = require("./Table.jsx");
 
 module.exports = React.createClass({
   displayName: 'ItemDataFetch',
@@ -84,6 +85,7 @@ module.exports = React.createClass({
   	return (
       <div>
         <Chart data={this.mungeData(this.state.data)}/>
+        <Table data={this.state.data}/>
       </div>
     )
   }

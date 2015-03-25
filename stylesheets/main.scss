@@ -5,6 +5,7 @@ body {
 }
 
 .imdikator-box {
+  width: 100%;
   background-color: $_white;
   box-shadow: 0 0 5px rgba(#333, .1);
   margin-bottom: $spacing;
@@ -13,8 +14,8 @@ body {
 
 .imdikator-list {
   &__wrapper {
-    margin: 0 $spacing--large;
-    padding: 0;
+    // margin: 0 $spacing--large;
+    // padding: 0;
   }
   &__group {
     @extend .imdikator-box;
@@ -108,6 +109,10 @@ body {
       margin-right: 0;
     }
   }
+}
+
+.imdikator-table table {
+  width: 100%;
 }
 
 // D3 Graph

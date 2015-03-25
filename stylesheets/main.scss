@@ -115,6 +115,13 @@ body {
   }
 }
 
+.imdikator-table__table {
+  display: none;
+  &.opened {
+    display: block;
+  }
+}
+
 .imdikator-table table {
   width: 100%;
 }

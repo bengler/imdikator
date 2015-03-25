@@ -1,17 +1,36 @@
-const React = require("react");
+const React = require("react/addons");
+const cx = React.addons.classSet;
 
 module.exports = React.createClass({
   displayName: 'Table',
   
+  getInitialState() {
+    return {opened: false};
+  },
+
+  toggle() {
+    console.log("toggle");
+    this.setState({opened: !this.state.opened});
+  },
+  
   render() {
+
+    let classes = cx({
+      "table": true,
+      "table table--fluid": true,
+      "imdikator-table__table": true,
+      "opened": this.state.opened
+    });
 
     return (
       <div className="imdikator-table">
         <div className="imdikator-table__expander">
-          Vis tabell
-          <i>Arrow</i>
+          <div role="button" onClick={this.toggle}>
+            Vis tabell
+            <i>Arrow</i>
+          </div>
         </div>
-        <table className="table table--fluid">
+        <table className={classes}>
           <thead>
             <tr>
               <th>Label</th>
@@ -25,27 +44,27 @@ module.exports = React.createClass({
           <tbody>
             <tr>
               <td>Row header</td>
-              <td class="table--cell__right">100.000</td>
-              <td class="table--cell__right">200.000</td>
-              <td class="table--cell__right">300.000</td>
-              <td class="table--cell__right">400.000</td>
-              <td class="table--cell__right">500.000</td>
+              <td className="table--cell__right">100.000</td>
+              <td className="table--cell__right">200.000</td>
+              <td className="table--cell__right">300.000</td>
+              <td className="table--cell__right">400.000</td>
+              <td className="table--cell__right">500.000</td>
             </tr>
             <tr>
               <td>Row header</td>
-              <td class="table--cell__right">100.000</td>
-              <td class="table--cell__right">200.000</td>
-              <td class="table--cell__right">300.000</td>
-              <td class="table--cell__right">400.000</td>
+              <td className="table--cell__right">100.000</td>
+              <td className="table--cell__right">200.000</td>
+              <td className="table--cell__right">300.000</td>
+              <td className="table--cell__right">400.000</td>
               <td>500.000</td>
             </tr>
             <tr>
               <td>Row header</td>
-              <td class="table--cell__right">100.000</td>
-              <td class="table--cell__right">200.000</td>
-              <td class="table--cell__right">300.000</td>
-              <td class="table--cell__right">400.000</td>
-              <td class="table--cell__right">500.000</td>
+              <td className="table--cell__right">100.000</td>
+              <td className="table--cell__right">200.000</td>
+              <td className="table--cell__right">300.000</td>
+              <td className="table--cell__right">400.000</td>
+              <td className="table--cell__right">500.000</td>
             </tr>
           </tbody>        
         </table>

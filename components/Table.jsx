@@ -15,7 +15,12 @@ module.exports = React.createClass({
   
   render() {
 
-    let classes = cx({
+    let imdikatorTableExpanderClasses = cx({
+      "imdikator-table__expander": true,
+      "opened": this.state.opened
+    });
+
+    let tableClasses = cx({
       "table": true,
       "table--fluid": true,
       "imdikator-table__table": true,
@@ -23,22 +28,22 @@ module.exports = React.createClass({
     });
 
     return (
-      <div className="imdikator-table">
-        <div className="imdikator-table__expander">
+      <div className="imdikator--table">
+        <div className={imdikatorTableExpanderClasses}>
           <div role="button" onClick={this.toggle}>
             Vis tabell
             <i>Arrow</i>
           </div>
         </div>
-        <table className={classes}>
+        <table className={tableClasses}>
           <thead>
             <tr>
               <th>Label</th>
-              <th>Header 1</th>
-              <th>Header 2</th>
-              <th>Header 3</th>
-              <th>Header 4</th>
-              <th>Header 5</th>
+              <th className="table--cell__right">Header 1</th>
+              <th className="table--cell__right">Header 2</th>
+              <th className="table--cell__right">Header 3</th>
+              <th className="table--cell__right">Header 4</th>
+              <th className="table--cell__right">Header 5</th>
             </tr>
           </thead>
           <tbody>

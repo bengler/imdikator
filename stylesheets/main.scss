@@ -122,6 +122,17 @@ body {
   }
 }
 
+.imdikator-table__expander {
+  background-color: $_canvas-grey;
+  padding: $spacing--small;
+  i {
+    float: right;
+  }
+  &.opened {
+    
+  }
+}
+
 .imdikator-table table {
   width: 100%;
 }

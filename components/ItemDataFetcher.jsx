@@ -17,9 +17,8 @@ module.exports = React.createClass({
 		  regions: this.props.regions,
 		  dimensions: item.dimensions,
 		  time: item.time
-		}).then((res) => {
-      return this.mungeData(res.json);
-    })
+		})
+    .then(res => res.json);
   },
 
   mungeData(data) {
@@ -84,7 +83,7 @@ module.exports = React.createClass({
 
   	return (
       <div>
-        <Chart data={this.state.data}/>
+        <Chart data={this.mungeData(this.state.data)}/>
       </div>
     )
   }

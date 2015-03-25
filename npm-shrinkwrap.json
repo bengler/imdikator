@@ -5182,7 +5182,7 @@
     "react-d3": {
       "version": "0.3.0",
       "from": "git://github.com/bengler/react-d3",
-      "resolved": "git://github.com/bengler/react-d3#1fedfe0c215108fc37cc53398cb84fbd6d65f483",
+      "resolved": "git://github.com/bengler/react-d3#02f0c4a1beeb17981e08fe120f1a1daec798d19e",
       "dependencies": {
         "d3": {
           "version": "3.5.5",

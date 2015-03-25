@@ -2,6 +2,8 @@ const React = require("react");
 const charts = require("./charts/");
 const {get} = require("../lib/request");
 
+const Loader = require("./Loader.jsx");
+
 module.exports = React.createClass({
   displayName: 'ItemDataFetch',
 
@@ -71,7 +73,7 @@ module.exports = React.createClass({
 
   render() {
   	if (!this.state.data) {
-  		return (<div> Fetching data </div>);
+  		return (<Loader>Fetching data…</Loader>);
   	}
 
     const Chart = charts[this.props.item.chartKind];

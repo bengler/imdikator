@@ -24,7 +24,7 @@ const kommunes = require("../data/kommuner.json")
       code: k.kode,
       type: 'kommune'
     }
-  });
+  }).sort((k1, k2) => k1.title.localeCompare(k2.title));
 const fylkes = require("../data/fylker.json")
   .map(fylke => {
     return {
@@ -35,18 +35,22 @@ const fylkes = require("../data/fylker.json")
     }
   });
 
-const regions = kommunes.concat(fylkes);
+const regions = kommunes;//.concat(fylkes);
 const oslo = kommunes.find(k => k.regionCode == "K0301");
 
-function render() {
-  const selectedRegion = (document.location.hash.substring(1)).toLowerCase();
+function changeRegion(e) {
+  document.location.hash = e.target.value
+}
 
-  const region = regions.find(k => {
-    return k.title.toLowerCase() == selectedRegion ||
-      k.regionCode.toLowerCase() == selectedRegion ||
-      k.code == selectedRegion
+function render() {
+  const hashRegion = (document.location.hash.substring(1)).toLowerCase();
+
+  const selectedRegion = regions.find(k => {
+    return k.title.toLowerCase() == hashRegion ||
+      k.regionCode.toLowerCase() == hashRegion ||
+      k.code == hashRegion
   });
-  if (!region) {
+  if (!selectedRegion) {
     return React.render((
       <div>
         Fant ikke region {selectedRegion}. Du kan heller prøve en av disse:
@@ -58,10 +62,28 @@ function render() {
       </div>
     ), el);
   }
-  React.render(<RegionalStats groupData={groupData} regions={[region || oslo]}/>, el);
+
+  React.render((
+    <div>
+      <select style={{float: 'right'}} value={selectedRegion.title} onChange={changeRegion}>
+        {regions.map(region => {
+          return (
+            <option value={region.title} style={{listStyleType: 'none'}}>
+              {region.title} {region.type} {region.code}
+            </option>
+          )
+        })}
+      </select>
+      <RegionalStats groupData={groupData} regions={[selectedRegion || oslo]}/>
+    </div>
+  ), el);
 }
 
-on(window, 'hashchange', render);
+on(window, 'hashchange', (e)=> {
+  if (document.location.hash.trim() !== '') {
+    render();
+  }
+});
 
 if (!document.location.hash.substring(1)) {
   document.location.hash = "oslo"

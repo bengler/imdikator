@@ -30,7 +30,9 @@
           "innvkat_5.alle",
           "innvkat_5.befolkningen_ellers"
         ],
-        "time": "all",
+        "time": [
+          "all"
+        ],
         "defaultUnit": "person",
         "isExpanded": "yes"
       }

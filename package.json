@@ -47,6 +47,7 @@
     "proxyreload": "git://github.com/bjoerge/proxyreload",
     "quickreload": "^1.0.0-alpha.3",
     "reactify": "^1.1.0",
-    "request": "^2.53.0"
+    "request": "^2.53.0",
+    "rx": "^2.4.6"
   }
 }

@@ -1,162 +1,74 @@
 [
   {
-    "tittel": "Gamle Oslo",
-    "kode": "030101"
+    "code": "30101",
+    "name": "Gamle Oslo"
   },
   {
-    "tittel": "Grünerløkka",
-    "kode": "030102"
+    "code": "30102",
+    "name": "Grünerløkka"
   },
   {
-    "tittel": "Sagene",
-    "kode": "030103"
+    "code": "30103",
+    "name": "Sagene"
   },
   {
-    "tittel": "St.Hanshaugen",
-    "kode": "030104"
+    "code": "30104",
+    "name": "St. Hanshaugen"
   },
   {
-    "tittel": "Frogner",
-    "kode": "030105"
+    "code": "30105",
+    "name": "Frogner"
   },
   {
-    "tittel": "Ullern",
-    "kode": "030106"
+    "code": "30106",
+    "name": "Ullern"
   },
   {
-    "tittel": "Vestre Aker",
-    "kode": "030107"
+    "code": "30107",
+    "name": "Veste Aker"
   },
   {
-    "tittel": "Nordre Aker",
-    "kode": "030108"
+    "code": "30108",
+    "name": "Nordre Aker"
   },
   {
-    "tittel": "Bjerke",
-    "kode": "030109"
+    "code": "30109",
+    "name": "Bjerke"
   },
   {
-    "tittel": "Grorud",
-    "kode": "030110"
+    "code": "30110",
+    "name": "Grorud"
   },
   {
-    "tittel": "Stovner",
-    "kode": "030111"
+    "code": "30111",
+    "name": "Stovner"
   },
   {
-    "tittel": "Alna",
-    "kode": "030112"
+    "code": "30112",
+    "name": "Alna"
   },
   {
-    "tittel": "Østensjø",
-    "kode": "030113"
+    "code": "30113",
+    "name": "Østensjø"
   },
   {
-    "tittel": "Nordstrand",
-    "kode": "030114"
+    "code": "30114",
+    "name": "Nordstrand"
   },
   {
-    "tittel": "Søndre Nordstrand",
-    "kode": "030115"
+    "code": "30115",
+    "name": "Søndre Nordstrand"
   },
   {
-    "tittel": "Sentrum",
-    "kode": "030116"
+    "code": "30116",
+    "name": "Sentrum"
   },
   {
-    "tittel": "Marka",
-    "kode": "030117"
+    "code": "30117",
+    "name": "Marka"
   },
   {
-    "tittel": "Uoppgitt",
-    "kode": "030199"
-  },
-  {
-    "tittel": "Hundvåg",
-    "kode": "110301"
-  },
-  {
-    "tittel": "Tasta",
-    "kode": "110302"
-  },
-  {
-    "tittel": "Eiganes og Våland",
-    "kode": "110303"
-  },
-  {
-    "tittel": "Madla",
-    "kode": "110304"
-  },
-  {
-    "tittel": "Storhaug",
-    "kode": "110305"
-  },
-  {
-    "tittel": "Hillevåg",
-    "kode": "110306"
-  },
-  {
-    "tittel": "Hinna",
-    "kode": "110307"
-  },
-  {
-    "tittel": "Uoppgitt",
-    "kode": "110399"
-  },
-  {
-    "tittel": "Arna",
-    "kode": "120101"
-  },
-  {
-    "tittel": "Bergenhus",
-    "kode": "120102"
-  },
-  {
-    "tittel": "Fana",
-    "kode": "120103"
-  },
-  {
-    "tittel": "Fyllingsdalen",
-    "kode": "120104"
-  },
-  {
-    "tittel": "Laksevåg",
-    "kode": "120105"
-  },
-  {
-    "tittel": "Ytrebygda",
-    "kode": "120106"
-  },
-  {
-    "tittel": "Årstad",
-    "kode": "120107"
-  },
-  {
-    "tittel": "Åsane",
-    "kode": "120108"
-  },
-  {
-    "tittel": "Uoppgitt",
-    "kode": "120199"
-  },
-  {
-    "tittel": "Midtbyen",
-    "kode": "160101"
-  },
-  {
-    "tittel": "Østbyen",
-    "kode": "160102"
-  },
-  {
-    "tittel": "Lerkendal",
-    "kode": "160103"
-  },
-  {
-    "tittel": "Heimdal",
-    "kode": "160104"
-  },
-  {
-    "tittel": "Uoppgitt",
-    "kode": "160199"
+    "code": "30199",
+    "name": "Uoppgitt bydel Oslo"
   }
 ]

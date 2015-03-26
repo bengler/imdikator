@@ -19,21 +19,13 @@ var el = document.getElementById('imdikator');
 const kommunes = require("../data/kommuner.json")
   .map(k => {
     return {
-      title: k.tittel,
-      regionCode: 'K' + k.kode,
-      code: k.kode,
+      name: k.name,
+      regionCode: `K${k.code}`,
+      code: k.code,
       type: 'kommune'
     }
-  }).sort((k1, k2) => k1.title.localeCompare(k2.title));
-const fylkes = require("../data/fylker.json")
-  .map(fylke => {
-    return {
-      title: fylke.tittel,
-      regionCode: 'F' + fylke.kode,
-      code: fylke.kode,
-      type: 'fylke'
-    }
-  });
+  })
+  .sort((k1, k2) => k1.name.localeCompare(k2.name));
 
 const regions = kommunes;//.concat(fylkes);
 const oslo = kommunes.find(k => k.regionCode == "K0301");
@@ -46,7 +38,7 @@ function render() {
   const hashRegion = (document.location.hash.substring(1)).toLowerCase();
 
   const selectedRegion = regions.find(k => {
-    return k.title.toLowerCase() == hashRegion ||
+    return k.name.toLowerCase() == hashRegion ||
       k.regionCode.toLowerCase() == hashRegion ||
       k.code == hashRegion
   });
@@ -56,7 +48,7 @@ function render() {
         Fant ikke region {selectedRegion}. Du kan heller prøve en av disse:
         <ul>
           {regions.map(region => {
-            return <li><a href={'#'+region.title}>{region.type}: {region.regionCode} / {region.title}</a></li>
+            return <li><a href={'#'+region.name}>{region.type}: {region.regionCode} / {region.name}</a></li>
           })}
         </ul>
       </div>
@@ -65,11 +57,11 @@ function render() {
 
   React.render((
     <div>
-      <select style={{float: 'right'}} value={selectedRegion.title} onChange={changeRegion}>
+      <select style={{float: 'right'}} value={selectedRegion.name} onChange={changeRegion}>
         {regions.map(region => {
           return (
-            <option value={region.title} style={{listStyleType: 'none'}}>
-              {region.title} {region.type} {region.code}
+            <option value={region.name} style={{listStyleType: 'none'}}>
+              {region.name} {region.type} {region.code}
             </option>
           )
         })}

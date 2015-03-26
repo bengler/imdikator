@@ -1,82 +1,86 @@
 [
   {
-    "tittel": "Østfold",
-    "kode": "01"
+    "code": "1",
+    "name": "Østfold"
   },
   {
-    "tittel": "Akershus",
-    "kode": "02"
+    "code": "2",
+    "name": "Akershus"
   },
   {
-    "tittel": "Oslo",
-    "kode": "03"
+    "code": "3",
+    "name": "Oslo"
   },
   {
-    "tittel": "Hedmark",
-    "kode": "04"
+    "code": "4",
+    "name": "Hedmark"
   },
   {
-    "tittel": "Oppland",
-    "kode": "05"
+    "code": "5",
+    "name": "Oppland"
   },
   {
-    "tittel": "Buskerud",
-    "kode": "06"
+    "code": "6",
+    "name": "Buskerud"
   },
   {
-    "tittel": "Vestfold",
-    "kode": "07"
+    "code": "7",
+    "name": "Vestfold"
   },
   {
-    "tittel": "Telemark",
-    "kode": "08"
+    "code": "8",
+    "name": "Telemark"
   },
   {
-    "tittel": "Aust-Agder",
-    "kode": "09"
+    "code": "9",
+    "name": "Aust-Agder"
   },
   {
-    "tittel": "Vest-Agder",
-    "kode": "10"
+    "code": "10",
+    "name": "Vest-Agder"
   },
   {
-    "tittel": "Rogaland",
-    "kode": "11"
+    "code": "11",
+    "name": "Rogaland"
   },
   {
-    "tittel": "Hordaland",
-    "kode": "12"
+    "code": "12",
+    "name": "Hordaland"
   },
   {
-    "tittel": "Sogn og Fjordane",
-    "kode": "14"
+    "code": "14",
+    "name": "Sogn og Fjordane"
   },
   {
-    "tittel": "Møre og Romsdal",
-    "kode": "15"
+    "code": "15",
+    "name": "Møre og Romsdal"
   },
   {
-    "tittel": "Sør-Trøndelag",
-    "kode": "16"
+    "code": "16",
+    "name": "Sør-Trøndelag"
   },
   {
-    "tittel": "Nord-Trøndelag",
-    "kode": "17"
+    "code": "17",
+    "name": "Nord-Trøndelag"
   },
   {
-    "tittel": "Nordland",
-    "kode": "18"
+    "code": "18",
+    "name": "Nordland"
   },
   {
-    "tittel": "Troms Romsa",
-    "kode": "19"
+    "code": "19",
+    "name": "Troms"
   },
   {
-    "tittel": "Finnmark Finnmárku",
-    "kode": "20"
+    "code": "20",
+    "name": "Finnmark"
   },
   {
-    "tittel": "Uoppgitt",
-    "kode": "99"
+    "code": "99",
+    "name": "Uoppgitt fylke"
+  },
+  {
+    "code": "00",
+    "name": "Hele landet"
   }
 ]

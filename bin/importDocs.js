@@ -1,7 +1,6 @@
 
 var request = require('request');
 var parse = require('csv-parse');
-var bluebird = require('csv-parse');
 var Promise = require('bluebird');
 var _ = require('lodash');
 var fs = require('fs');

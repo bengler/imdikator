@@ -1,80 +1,109 @@
 const Bluebird = require('bluebird');
 const fs = require('fs');
-const {pick, range} = require('lodash');
+const Rx = require('rx');
+const _pick = require('lodash').pick;
 
-const request = Bluebird.promisify(require('request'));
-const writeFile = Bluebird.promisify(require('fs').writeFile);
+const writeFile = Bluebird.promisify(fs.writeFile);
+const csv = require('csv-parse');
+
+const log = console.log.bind(console);
+
+const CSV_FILE_FYLKER_KOMMUNER = "./import/regioninndeling-fylker-kommuner.csv";
+const CSV_FILE_KOMMUNER_BYDELER = "./import/regioninndeling-kommuner-bydeler.csv";
 
 
-const API_URL_KOMMUNE = "http://hotell.difi.no/api/json/ssb/regioner/kommuner";
-const API_URL_FYLKE = "http://hotell.difi.no/api/json/ssb/regioner/fylke";
-const API_URL_BYDEL = "http://hotell.difi.no/api/json/ssb/regioner/bydel";
+const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER);
 
-const OUT_FILE_KOMMUNE = "./data/kommuner.json";
-const OUT_FILE_FYLKE = "./data/fylker.json";
-const OUT_FILE_BYDEL = "./data/bydeler.json";
+const fylker = parsedRegions
+  .distinct(region => region.Fylkenr)
+  .map(pick('Fylkenr', 'Fylkenavn'))
+  .map(renameKeys({
+    Fylkenr: 'code',
+    Fylkenavn: 'name'
+  }))
+  .toArray()
+  .flatMap(serializeTo('./data/fylker.json'))
 
-function pageFetcher(url) {
-  return function fetchPage(page) {
-    return request(`${url}?page=${page}`).then(([response, body])=> {
-      if (response.statusCode < 200 || response.statusCode > 299) {
-        return Bluebird.reject(new Error(`HTTP Error ${response.statusCode}: ${body}`))
-      }
-      return JSON.parse(body)
+const kommuner = parsedRegions
+  .distinct(region => region.Kommunenr)
+  .map(pick('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008'))
+  .map(renameKeys({
+    Kommunenr: 'code',
+    Kommunenavn: 'name',
+    Fylkenr: 'fylkeCode',
+    IMDiRegion: 'imdiRegion',
+    Næringsregionnr: 'naeringsRegionCode',
+    Sentralitet_nr_2008: 'centralityNumber',
+    Sentralitet_kat_2008: 'centralityName'
+  }))
+    .toArray()
+    .flatMap(serializeTo('./data/kommuner.json'))
+
+const naeringsregioner = parsedRegions
+  .distinct(region => region['Næringsregionnr'])
+  .map(pick('Næringsregionnr', 'Næringsregion_ navn'))
+  .map(renameKeys({
+    Næringsregionnr: 'code',
+    "Næringsregion_ navn": 'code',
+    Kommunenr: 'municipalityCode',
+  }))
+  .toArray()
+  .flatMap(serializeTo('./data/naeringsregioner.json'))
+
+const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
+  .distinct(region => region.bydelsnr)
+  .map(pick('bydelsnr','bydelsnavn'))
+  .map(renameKeys({
+    bydelsnr: 'code',
+    bydelsnavn: 'name',
+    Kommunenr: 'kommuneCode'
+  }))
+  .toArray()
+  .flatMap(serializeTo('./data/bydeler.json'))
+
+naeringsregioner.subscribe(res => log("Wrote %s næringsregioner to %s", res.entries.length, res.file));
+kommuner.subscribe(res => log("Wrote %s kommuner to %s", res.entries.length, res.file));
+bydeler.subscribe(res => log("Wrote %s bydeler to %s", res.entries.length, res.file));
+fylker.subscribe(res => log("Wrote %s fylker to %s", res.entries.length, res.file));
+
+// A few helper functions
+
+function csvToObjects(file) {
+  const rows = Rx.Node.fromReadableStream(fs.createReadStream(file).pipe(csv()));
+  return rows
+    .skip(1)
+    .withLatestFrom(rows.take(1), (row, header) => {
+      return row.reduce((rowObj, cell, i) => {
+        // Map header[i] => row[i]
+        rowObj[header[i]] = cell;
+        return rowObj;
+      }, {});
     });
-  };
 }
 
-const fetchKommunePage = pageFetcher(API_URL_KOMMUNE);
+function renameKeys(keyNamesMap) {
+  return function(object) {
+    const knownKeyNames = Object.keys(keyNamesMap);
+    return Object.keys(object).reduce((renamed, key)=> {
+      if (!knownKeyNames.includes(key)) {
+        throw new Error("Don't know what to rename the key '"+key+"' to");;
+      }
+      renamed[keyNamesMap[key]] = object[key];
+      return renamed;
+    }, {});
+  }
+}
 
-const fetchKommuner = fetchKommunePage(1)
-  .then(firstPage => {
-    return Bluebird.map(range(2, firstPage.pages+1), fetchKommunePage).then(pages => [firstPage, ...pages]);
-  })
-  .then(allPages => {
-    return allPages
-      .map(page => page.entries)
-      .map(entries => entries.map(entry => pick(entry, 'tittel', 'kode')))
-      .reduce((acc, entries) => acc.concat(entries), [])
-  })
-  .tap(entries => {
-    return writeFile(OUT_FILE_KOMMUNE, JSON.stringify(entries, null, 2))
-  });
+function pick(...keys) {
+  return function pick(object) {
+    return _pick(object, ...keys)
+  }
+}
 
-
-const fetchBydelPage = pageFetcher(API_URL_BYDEL);
-
-const fetchBydeler = fetchBydelPage(1)
-  .then(firstPage => {
-    return Bluebird.map(range(2, firstPage.pages+1), fetchBydelPage).then(pages => [firstPage, ...pages]);
-  })
-  .then(allPages => {
-    return allPages
-      .map(page => page.entries)
-      .map(entries => entries.map(entry => pick(entry, 'tittel', 'kode')))
-      .reduce((acc, entries) => acc.concat(entries), [])
-  })
-  .tap(entries => {
-    return writeFile(OUT_FILE_BYDEL, JSON.stringify(entries, null, 2))
-  });
-
-const fetchFylke = request(API_URL_FYLKE)
-    .then(([response, body]) => {
-      const entries = JSON.parse(body).entries;
-      return entries.map(entry => pick(entry, 'tittel', 'kode'));
-    })
-    .tap(entries => {
-      return writeFile(OUT_FILE_FYLKE, JSON.stringify(entries, null, 2))
+function serializeTo(file) {
+  return function serialize(entries) {
+    return writeFile(file, JSON.stringify(entries, null, 2)).then(() => {
+      return {file, entries}
     });
-
-Bluebird
-  .join(fetchKommuner, fetchFylke, fetchBydeler)
-  .then(([kommuner, fylker, bydeler])=> {
-    console.log(`Done!`);
-    console.log(`  Imported ${fylker.length} fylker.`);
-    console.log(`  Imported ${kommuner.length} kommuner.`);
-    console.log(`  Imported ${bydeler.length} bydeler.`);
-  })
-  .catch(e => {
-    throw e;
-  });
+  }
+}

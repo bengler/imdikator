@@ -5616,6 +5616,11 @@
         }
       }
     },
+    "rx": {
+      "version": "2.4.6",
+      "from": "rx@*",
+      "resolved": "https://registry.npmjs.org/rx/-/rx-2.4.6.tgz"
+    },
     "spawn-stream": {
       "version": "1.0.2",
       "from": "https://registry.npmjs.org/spawn-stream/-/spawn-stream-1.0.2.tgz",

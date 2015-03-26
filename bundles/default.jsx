@@ -39,7 +39,7 @@ const regions = kommunes.concat(fylkes);
 const oslo = kommunes.find(k => k.regionCode == "K0301");
 
 function render() {
-  const selectedRegion = (document.location.hash.substring(1) || 'K0301').toLowerCase();
+  const selectedRegion = (document.location.hash.substring(1)).toLowerCase();
 
   const region = regions.find(k => {
     return k.title.toLowerCase() == selectedRegion ||
@@ -63,4 +63,9 @@ function render() {
 
 on(window, 'hashchange', render);
 
-render();
+if (!document.location.hash.substring(1)) {
+  document.location.hash = "oslo"
+}
+else {
+  render();
+}

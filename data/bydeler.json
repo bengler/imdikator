@@ -1,0 +1,162 @@
+[
+  {
+    "tittel": "Gamle Oslo",
+    "kode": "030101"
+  },
+  {
+    "tittel": "Grünerløkka",
+    "kode": "030102"
+  },
+  {
+    "tittel": "Sagene",
+    "kode": "030103"
+  },
+  {
+    "tittel": "St.Hanshaugen",
+    "kode": "030104"
+  },
+  {
+    "tittel": "Frogner",
+    "kode": "030105"
+  },
+  {
+    "tittel": "Ullern",
+    "kode": "030106"
+  },
+  {
+    "tittel": "Vestre Aker",
+    "kode": "030107"
+  },
+  {
+    "tittel": "Nordre Aker",
+    "kode": "030108"
+  },
+  {
+    "tittel": "Bjerke",
+    "kode": "030109"
+  },
+  {
+    "tittel": "Grorud",
+    "kode": "030110"
+  },
+  {
+    "tittel": "Stovner",
+    "kode": "030111"
+  },
+  {
+    "tittel": "Alna",
+    "kode": "030112"
+  },
+  {
+    "tittel": "Østensjø",
+    "kode": "030113"
+  },
+  {
+    "tittel": "Nordstrand",
+    "kode": "030114"
+  },
+  {
+    "tittel": "Søndre Nordstrand",
+    "kode": "030115"
+  },
+  {
+    "tittel": "Sentrum",
+    "kode": "030116"
+  },
+  {
+    "tittel": "Marka",
+    "kode": "030117"
+  },
+  {
+    "tittel": "Uoppgitt",
+    "kode": "030199"
+  },
+  {
+    "tittel": "Hundvåg",
+    "kode": "110301"
+  },
+  {
+    "tittel": "Tasta",
+    "kode": "110302"
+  },
+  {
+    "tittel": "Eiganes og Våland",
+    "kode": "110303"
+  },
+  {
+    "tittel": "Madla",
+    "kode": "110304"
+  },
+  {
+    "tittel": "Storhaug",
+    "kode": "110305"
+  },
+  {
+    "tittel": "Hillevåg",
+    "kode": "110306"
+  },
+  {
+    "tittel": "Hinna",
+    "kode": "110307"
+  },
+  {
+    "tittel": "Uoppgitt",
+    "kode": "110399"
+  },
+  {
+    "tittel": "Arna",
+    "kode": "120101"
+  },
+  {
+    "tittel": "Bergenhus",
+    "kode": "120102"
+  },
+  {
+    "tittel": "Fana",
+    "kode": "120103"
+  },
+  {
+    "tittel": "Fyllingsdalen",
+    "kode": "120104"
+  },
+  {
+    "tittel": "Laksevåg",
+    "kode": "120105"
+  },
+  {
+    "tittel": "Ytrebygda",
+    "kode": "120106"
+  },
+  {
+    "tittel": "Årstad",
+    "kode": "120107"
+  },
+  {
+    "tittel": "Åsane",
+    "kode": "120108"
+  },
+  {
+    "tittel": "Uoppgitt",
+    "kode": "120199"
+  },
+  {
+    "tittel": "Midtbyen",
+    "kode": "160101"
+  },
+  {
+    "tittel": "Østbyen",
+    "kode": "160102"
+  },
+  {
+    "tittel": "Lerkendal",
+    "kode": "160103"
+  },
+  {
+    "tittel": "Heimdal",
+    "kode": "160104"
+  },
+  {
+    "tittel": "Uoppgitt",
+    "kode": "160199"
+  }
+]

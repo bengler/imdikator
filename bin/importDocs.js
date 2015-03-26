@@ -29,7 +29,8 @@ const importGroups = function(url) {
 const mungeLine = function(line) {
 	line = _.omit(line, (e) => e == '');
 
-	const splitFields = ["dimensions", "skip"];
+	// Do not convert time to array if only a single word!
+	const splitFields = ["dimensions", "skip", "time"];
 	splitFields.forEach( (e) => {
 		if (e in line) { 
 			line[e] = line[e].split(',');

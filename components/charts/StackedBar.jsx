@@ -12,7 +12,7 @@ module.exports = React.createClass({
     console.info(this.props.data);
     return (
       <div>
-        <BarChart
+        <StackedBarChart
           margins={{top: 10, right: 20, bottom: 40, left: 80}}
           legend={true}
           data={this.props.data}

@@ -27,8 +27,7 @@ module.exports = React.createClass({
 
     let result = [];
 
-    console.info(data);
-
+    // Ok, we aren't dealing with more than a single region
     this.props.regions.forEach( (region)=> {
       // TODO:
       // - Handle more dimensions
@@ -46,13 +45,11 @@ module.exports = React.createClass({
         });
       }
 
-
       Object.keys(firstDimension).forEach( (key, i)=> {
-
         if (time.length == 1) {
           result.push( {
-            name: key,
-            value: firstDimension[key].personer[0]
+            label: key,
+            value: +(firstDimension[key].personer[0])
           });
         } else {
           var values = time.map( (e,i) => {
@@ -91,10 +88,7 @@ module.exports = React.createClass({
   		return (<Loader>Fetching data…</Loader>);
   	}
 
-    console.info(this.props.item.chartKind);
-
     const Chart = charts[this.props.item.chartKind];
-
 
   	return (
       <div>

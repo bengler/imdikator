@@ -13,13 +13,14 @@ module.exports = React.createClass({
   },
 
   fetchData(item) {
-		return get('/api/query', {
-		  table: item.table,
-		  regions: this.props.regions,
-		  dimensions: item.dimensions,
-		  time: item.time
-		})
-    .then(res => res.json);
+    const query = {
+      table: item.table,
+      regions: this.props.regions.map(r => r.regionCode),
+      dimensions: item.dimensions,
+      time: item.time
+    };
+    console.log(query)
+    return get('/api/query', query).then(res => res.json);
   },
 
   mungeData(data) {
@@ -35,7 +36,7 @@ module.exports = React.createClass({
 
       const dimension = this.props.item.dimensions[0];
 
-      const firstDimension = data.data[region][dimension];
+      const firstDimension = data.data[region.regionCode][dimension];
 
       // HACK:
       // - Only valid when the skip is addressing the single first dimension. No pruning of leaves.

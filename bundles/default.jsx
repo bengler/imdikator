@@ -25,17 +25,38 @@ const kommunes = require("../data/kommuner.json")
       type: 'kommune'
     }
   });
+const fylkes = require("../data/fylker.json")
+  .map(fylke => {
+    return {
+      title: fylke.tittel,
+      regionCode: 'F' + fylke.kode,
+      code: fylke.kode,
+      type: 'fylke'
+    }
+  });
 
+const regions = kommunes.concat(fylkes);
 const oslo = kommunes.find(k => k.regionCode == "K0301");
 
 function render() {
-  const kommuneFromHash = document.location.hash.substring(1).toLowerCase();
+  const selectedRegion = (document.location.hash.substring(1) || 'K0301').toLowerCase();
 
-  let region;
-  if (kommuneFromHash) {
-    region = kommunes.find(k => {
-      return k.title.toLowerCase() == kommuneFromHash || k.regionCode.toLowerCase() == kommuneFromHash || k.code == kommuneFromHash
-    });
+  const region = regions.find(k => {
+    return k.title.toLowerCase() == selectedRegion ||
+      k.regionCode.toLowerCase() == selectedRegion ||
+      k.code == selectedRegion
+  });
+  if (!region) {
+    return React.render((
+      <div>
+        Fant ikke region {selectedRegion}. Du kan heller prøve en av disse:
+        <ul>
+          {regions.map(region => {
+            return <li>{region.type}: {region.regionCode} / {region.title}</li>
+          })}
+        </ul>
+      </div>
+    ), el);
   }
   React.render(<RegionalStats groupData={groupData} regions={[region || oslo]}/>, el);
 }

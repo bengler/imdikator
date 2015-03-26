@@ -69,7 +69,7 @@ const parseGroups = function(lines) {
 console.log("Reading components");
 importGroups(groupsUrl).then( (result) => {
 	const groupDict = parseGroups(result);
-	fs.writeFileSync(outFile, JSON.stringify(groupDict));
+	fs.writeFileSync(outFile, JSON.stringify(groupDict, null, 2));
 }).catch( (error) => {
 	console.log("Could not fetch: " + error)
 });

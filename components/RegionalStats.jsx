@@ -19,17 +19,28 @@ var RefugeesLink = React.createClass({
 
 module.exports = React.createClass({
   displayName: 'RegionalStats',
+  propTypes: {
+    regions: React.PropTypes.arrayOf(React.PropTypes.shape({
+      title: React.PropTypes.string.isRequired,
+      regionCode: React.PropTypes.string.isRequired,
+      type: React.PropTypes.string.isRequired
+    })).isRequired
+  },
   render() {
+    const {regions} = this.props;
+    // Todo: only show the first region we got for now. We need to figure out how to combine several areas into one
+    const region = regions[0];
     return (
       <div className="imdikator-list__wrapper">
-        <h1 className="center">{municipality.name}</h1>
+        {regions.length > 1 && <p>Hei, du har inkludert flere regioner. Dette virker ikke ennå.</p>}
+        <h1 className="center">{region.title}</h1>
         <p className="imdikator-preamble">
-          {municipality.name} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
+          {region.title} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
           {municipality.refugees_percent}% av innvandrerne i kommunen er flyktninger.<br/>
           Kommunen oppfyller ikke kravene til <a href="#">norskundervisning</a>.<br/>
         </p>
         <div className="center">
-          <a className="button" role="button">Lag faktaark for {municipality.name}</a>
+          <a className="button" role="button">Lag faktaark for {region.title}</a>
         </div>
         <Groups groupData={this.props.groupData} regions={this.props.regions} municipality={municipality} />
       </div>

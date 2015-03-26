@@ -14,9 +14,17 @@ const RegionalStats = require("../components/RegionalStats");
 
 var el = document.getElementById('imdikator');
 
-const oslo = require("../data/kommuner.json")
-  .map(k => ({title: k.tittel, regionCode: 'K'+k.kode, code: k.kode}))
-  .find(k => k.regionCode == "K0301");
+const kommunes = require("../data/kommuner.json")
+  .map(k => {
+    return {
+      title: k.tittel,
+      regionCode: 'K' + k.kode,
+      code: k.kode,
+      type: 'kommune'
+    }
+  });
+
+const oslo = kommunes.find(k => k.regionCode == "K0301");
 
 React.render(<RegionalStats groupData={groupData} regions={[oslo]}/>, el);
 

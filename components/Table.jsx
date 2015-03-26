@@ -30,10 +30,10 @@ module.exports = React.createClass({
     return (
       <div className="imdikator-table">
         <div className={imdikatorTableExpanderClasses}>
-          <div role="button" onClick={this.toggle}>
+          <a href="javascript://" onClick={this.toggle}>
             Vis tabell
             <i>Arrow</i>
-          </div>
+          </a>
         </div>
         <table className={tableClasses}>
           <thead>

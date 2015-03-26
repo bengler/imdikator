@@ -44,10 +44,10 @@ module.exports = React.createClass({
       	{items}
 
         <div className="imdikator-list__functions">
-          <a href="#" role="button">Last ned bilde</a>
-          <a href="#" role="button">Last ned Excel-fil (csv)</a>
-          <a href="#" role="button">Del denne statistikken</a>
-          <a href="#" role="button">Om tallene</a>
+          <a href="javascript://">Last ned bilde</a>
+          <a href="javascript://">Last ned Excel-fil (csv)</a>
+          <a href="javascript://">Del denne statistikken</a>
+          <a href="javascript://">Om tallene</a>
         </div>
 
       </div>

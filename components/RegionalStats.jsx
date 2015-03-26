@@ -12,7 +12,7 @@ var RefugeesLink = React.createClass({
   displayName: 'RegionalStats',
   render() {
     return (
-      <a href="#" role="button">innvandrere</a>
+      <a href="javascript://">innvandrere</a>
     )
   }
 });

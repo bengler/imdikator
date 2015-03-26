@@ -52,7 +52,7 @@ function render() {
         Fant ikke region {selectedRegion}. Du kan heller prøve en av disse:
         <ul>
           {regions.map(region => {
-            return <li>{region.type}: {region.regionCode} / {region.title}</li>
+            return <li><a href={'#'+region.title}>{region.type}: {region.regionCode} / {region.title}</a></li>
           })}
         </ul>
       </div>

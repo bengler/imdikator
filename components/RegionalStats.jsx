@@ -42,7 +42,7 @@ module.exports = React.createClass({
         <div className="center">
           <a className="button" role="button">Lag faktaark for {region.title}</a>
         </div>
-        <Groups groupData={this.props.groupData} regions={this.props.regions} municipality={municipality} />
+        <Groups groupData={this.props.groupData} regions={regions}/>
       </div>
     )
   }

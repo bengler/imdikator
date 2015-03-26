@@ -6,7 +6,7 @@ const Loader = require("./Loader.jsx");
 const Table = require("./Table.jsx");
 
 module.exports = React.createClass({
-  displayName: 'ItemDataFetch',
+  displayName: 'ItemDataFetcher',
 
   getInitialState() {
   	return {};
@@ -19,7 +19,6 @@ module.exports = React.createClass({
       dimensions: item.dimensions,
       time: item.time
     };
-    console.log(query)
     return get('/api/query', query).then(res => res.json);
   },
 
@@ -82,6 +81,21 @@ module.exports = React.createClass({
   	this.fetchData(this.props.item).then( (data)=> {
   		this.setState({data: data});
   	});
+  },
+  componentWillReceiveProps(nextProps) {
+    const currRegions = this.props.regions.map(r => r.regionCode);
+    const nextRegions = nextProps.regions.map(r => r.regionCode);
+    const changed = currRegions.length != nextRegions.length || currRegions.some((r, i)=> r !== nextRegions[i]);
+    if (changed) {
+      this.setState({data: null});
+    }
+  },
+  componentDidUpdate() {
+    if (!this.state.data) {
+      this.fetchData(this.props.item).then(data => {
+        this.setState({data: data});
+      })
+    }
   },
 
   render() {

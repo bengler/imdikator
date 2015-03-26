@@ -22,20 +22,24 @@ var Select = React.createClass({
 module.exports = React.createClass({
   displayName: 'Group',
   render() {
+    const {regions} = this.props;
 
     const items = this.props.items.map( (item, i)=> {
-    	return <ItemDataFetcher key={i} item={item} regions={this.props.regions} />
-    })
+    	return <ItemDataFetcher key={i} item={item} regions={regions} />
+    });
 
     // <pre>
     //  {JSON.stringify(this.props)}
     // </pre>
 
+    // Todo: handle multiple regions
+    const region = regions[0];
+
     return (
       <div className="imdikator-list__group">
         <Select className="right"/>
         <h3>
-          {this.props.title} i {this.props.municipality.name}
+          {this.props.title} i {region.title}
         </h3>
       	{items}
 

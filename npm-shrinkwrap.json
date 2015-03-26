@@ -2599,6 +2599,11 @@
         }
       }
     },
+    "dom-event": {
+      "version": "0.0.4",
+      "from": "dom-event@*",
+      "resolved": "https://registry.npmjs.org/dom-event/-/dom-event-0.0.4.tgz"
+    },
     "domready": {
       "version": "1.0.7",
       "from": "https://registry.npmjs.org/domready/-/domready-1.0.7.tgz",

@@ -109,7 +109,6 @@ module.exports = React.createClass({
       <div>
         <Chart data={this.mungeData(this.state.data)}/>
 
-        {/*
         <pre>
           {JSON.stringify(this.props.item, null, 2)}
         </pre>
@@ -119,7 +118,7 @@ module.exports = React.createClass({
         <pre>
           {JSON.stringify(this.mungeData(this.state.data, null, 2))}
         </pre>
-         */}
+
         <Table data={this.state.data}/>
 
       </div>

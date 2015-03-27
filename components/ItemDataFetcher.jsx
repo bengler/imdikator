@@ -9,7 +9,7 @@ module.exports = React.createClass({
   displayName: 'ItemDataFetcher',
 
   getInitialState() {
-  	return {};
+    return {};
   },
 
   fetchData(item) {
@@ -28,7 +28,7 @@ module.exports = React.createClass({
     let result = [];
 
     // Ok, we aren't dealing with more than a single region
-    this.props.regions.forEach( (region)=> {
+    this.props.regions.forEach((region)=> {
       // TODO:
       // - Handle more dimensions
       // - Handle different units than "personer"
@@ -40,30 +40,16 @@ module.exports = React.createClass({
       // HACK:
       // - Only valid when the skip is addressing the single first dimension. No pruning of leaves.
       if (this.props.item.skip) {
-        this.props.item.skip.forEach( (skip) => {
-          delete firstDimension[skip.split(".")[1]];        
+        this.props.item.skip.forEach((skip) => {
+          delete firstDimension[skip.split(".")[1]];
         });
       }
 
-      Object.keys(firstDimension).forEach( (key, i)=> {
-        if (time.length == 1) {
-          result.push( {
-            label: key,
-            value: +(firstDimension[key].personer[0])
-          });
-        } else {
-          var values = time.map( (e,i) => {
-            return {
-              x: e, 
-              y: +(firstDimension[key].personer[i])
-            };
-          })
-          result.push( {
-            name: key,
-            values: values
-          });
-        }
-
+      Object.keys(firstDimension).forEach((key, i)=> {
+        const values = time.map((e, i) => {
+          return +firstDimension[key].personer[i];
+        });
+        result.push([key, ...values]);
       });
 
     })
@@ -72,15 +58,15 @@ module.exports = React.createClass({
   },
 
   convertYearsToDate(years) {
-    return years.map( (e) => {
+    return years.map((e) => {
       return new Date(e)
     });
   },
 
   componentDidMount() {
-  	this.fetchData(this.props.item).then( (data)=> {
-  		this.setState({data: data});
-  	});
+    this.fetchData(this.props.item).then((data)=> {
+      this.setState({data: data});
+    });
   },
   componentWillReceiveProps(nextProps) {
     const currRegions = this.props.regions.map(r => r.regionCode);
@@ -99,13 +85,13 @@ module.exports = React.createClass({
   },
 
   render() {
-  	if (!this.state.data) {
-  		return (<Loader>Fetching data…</Loader>);
-  	}
+    if (!this.state.data) {
+      return (<Loader>Fetching data…</Loader>);
+    }
 
     const Chart = charts[this.props.item.chartKind];
 
-  	return (
+    return (
       <div>
         <Chart data={this.mungeData(this.state.data)}/>
 

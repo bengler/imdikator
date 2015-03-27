@@ -22,6 +22,7 @@
     "bourbon": "4.2.1",
     "browserify": "^9.0.3",
     "bundle-collapser": "^1.1.4",
+    "c3": "^0.4.10",
     "defaults": "^1.0.2",
     "dom-event": "0.0.4",
     "domready": "~1.0.7",

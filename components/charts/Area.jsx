@@ -1,25 +1,35 @@
 const React = require("react");
-const rd3 = require('react-d3');
-const AreaChart = rd3.AreaChart;
+const c3 = require('c3');
 
 module.exports = React.createClass({
   displayName: 'AreaChart',
   onClick() {
 
   },
-  render() {
+  componentDidMount() {
+    const groups = this.props.data.map(d => d[0]);
+    this.renderChart();
+    this.chart = c3.generate({
+      bindto: this.getDOMNode(),
+      data: {
+        columns: this.props.data,
+        types: groups.reduce((types, g) => {
+          types[g] = 'area'
+          // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
+          return types;
+        }, {}),
+        groups: [groups]
+      }
+    });
+  },
+  componentDidUpdate() {
+    this.renderChart();
+  },
+  renderChart() {
 
-    return (
-      <div>
-        <AreaChart
-          margins={{top: 10, right: 20, bottom: 40, left: 80}}
-          legend={true}
-          data={this.props.data}
-          width={800}
-          height={300}
-          xAxisTickInterval={{unit: 'year', interval: 5}}
-        />
-      </div>
-    )
+  },
+  render() {
+    console.log(this.props.data)
+    return <div/>
   }
 });

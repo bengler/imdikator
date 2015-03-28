@@ -4,23 +4,6 @@
     "title": "Befolkningssammensetning",
     "items": [
       {
-        "chartKind": "stackedBar",
-        "table": "befolkning_hovedgruppe",
-        "dimensions": [
-          "innvkat_5",
-          "kjonn"
-        ],
-        "skip": [
-          "innvkat_5.alle",
-          "innvkat_5.befolkningen_ellers"
-        ],
-        "time": [
-          "2014"
-        ],
-        "defaultUnit": "prosent",
-        "isExpanded": "yes"
-      },
-      {
         "chartKind": "area",
         "table": "befolkning_hovedgruppe_tidsserie",
         "dimensions": [

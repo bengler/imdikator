@@ -19,14 +19,33 @@ module.exports = React.createClass({
     this.renderChart();
   },
   renderChart() {
-    const groups = this.props.data.map(d => d[0]);
+
+    const firstDimension = this.props.data[this.props.item.dimensions[0]];
+    const groups = Object.keys(firstDimension);
+
+    const chartData = groups.map ((group)=> {
+      return [group].concat(firstDimension[group].personer)
+    })
+
+    console.info(chartData);
+
     this.chart.load({
-      columns: this.props.data,
+      columns: chartData,
       types: groups.reduce((types, g) => {
         types[g] = 'area'
         // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
         return types;
-      }, {}),
+      }, {
+        axis : {
+          time : {
+              type : 'timeseries',
+              tick: {
+                  format: function (x) { return x.getFullYear(); }
+                //format: '%Y' // format string is also available for timeseries data
+              }
+          }
+        }
+      }),
       groups: [groups]
     })
   },

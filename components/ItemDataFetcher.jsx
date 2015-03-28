@@ -23,38 +23,39 @@ module.exports = React.createClass({
   },
 
   mungeData(data) {
+
+
     const time = this.convertYearsToDate(data.time);
 
     let result = [];
 
     // Ok, we aren't dealing with more than a single region
-    this.props.regions.forEach((region)=> {
-      // TODO:
-      // - Handle more dimensions
-      // - Handle different units than "personer"
+    const region = this.props.regions[0].regionCode;
+    data = data.data[region];
 
-      const dimension = this.props.item.dimensions[0];
+    // TODO:
+    // - Handle more dimensions
+    // - Handle different units than "personer"
+    const dimension = this.props.item.dimensions[0];
+    const firstDimension = data[dimension];
 
-      const firstDimension = data.data[region.regionCode][dimension];
-
-      // HACK:
-      // - Only valid when the skip is addressing the single first dimension. No pruning of leaves.
-      if (this.props.item.skip) {
-        this.props.item.skip.forEach((skip) => {
-          delete firstDimension[skip.split(".")[1]];
-        });
-      }
-
-      Object.keys(firstDimension).forEach((key, i)=> {
-        const values = time.map((e, i) => {
-          return +firstDimension[key].personer[i];
-        });
-        result.push([key, ...values]);
+    // Todo:
+    // - Only valid when the skip is addressing the single first dimension. No pruning of leaves.
+    if (this.props.item.skip) {
+      this.props.item.skip.forEach((skip) => {
+        delete firstDimension[skip.split(".")[1]];
       });
+    }
 
-    })
+      // Object.keys(firstDimension).forEach((key, i)=> {
+      //   const values = time.map((e, i) => {
+      //     return +firstDimension[key].personer[i];
+      //   });
+      //   result.push([key, ...values]);
+      // });
 
-    return result;
+
+    return data;
   },
 
   convertYearsToDate(years) {
@@ -91,15 +92,16 @@ module.exports = React.createClass({
 
     const Chart = charts[this.props.item.chartKind];
 
+        // <pre>
+        //   {JSON.stringify(this.state.data, null, 2)}
+        // </pre>
+
     return (
       <div>
-        <Chart data={this.mungeData(this.state.data)}/>
+        <Chart item={this.props.item} data={this.mungeData(this.state.data)}/>
 
         <pre>
           {JSON.stringify(this.props.item, null, 2)}
-        </pre>
-        <pre>
-          {JSON.stringify(this.state.data, null, 2)}
         </pre>
         <pre>
           {JSON.stringify(this.mungeData(this.state.data, null, 2))}

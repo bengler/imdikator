@@ -24,9 +24,6 @@ module.exports = React.createClass({
 
   mungeData(data) {
 
-
-    const time = this.convertYearsToDate(data.time);
-
     let result = [];
 
     // Ok, we aren't dealing with more than a single region
@@ -64,6 +61,13 @@ module.exports = React.createClass({
     });
   },
 
+  convertYearsToISO(years) {
+    return years.map((e) => {
+      return e + "-01-01"
+    });
+  },
+
+
   componentDidMount() {
     this.fetchData(this.props.item).then((data)=> {
       this.setState({data: data});
@@ -98,7 +102,7 @@ module.exports = React.createClass({
 
     return (
       <div>
-        <Chart item={this.props.item} data={this.mungeData(this.state.data)}/>
+        <Chart item={this.props.item} time={this.convertYearsToISO(this.state.data.time)} data={this.mungeData(this.state.data)}/>
 
         <pre>
           {JSON.stringify(this.props.item, null, 2)}

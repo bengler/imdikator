@@ -10,7 +10,8 @@ module.exports = React.createClass({
     this.chart = c3.generate({
       bindto: this.getDOMNode(),
       data: {
-        columns: []
+        x: 'x',
+        json: {}
       }
     });
     this.renderChart();
@@ -23,31 +24,34 @@ module.exports = React.createClass({
     const firstDimension = this.props.data[this.props.item.dimensions[0]];
     const groups = Object.keys(firstDimension);
 
-    const chartData = groups.map ((group)=> {
-      return [group].concat(firstDimension[group].personer)
-    })
+    const chartData = groups.reduce((series, g) => {
+      series[g] = firstDimension[g].personer;
+      return series;
+    }, {})
 
-    console.info(chartData);
+    chartData.x = this.props.time;
+
+    console.log(this.props.data);
+    console.log(chartData)
 
     this.chart.load({
-      columns: chartData,
+      json: chartData,
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+              format: '%Y-%m-%d'
+          }
+        }
+      },
       types: groups.reduce((types, g) => {
         types[g] = 'area'
         // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
         return types;
-      }, {
-        axis : {
-          time : {
-              type : 'timeseries',
-              tick: {
-                  format: function (x) { return x.getFullYear(); }
-                //format: '%Y' // format string is also available for timeseries data
-              }
-          }
-        }
-      }),
+      }, {}),
       groups: [groups]
-    })
+    });
+
   },
   render() {
     return <div/>

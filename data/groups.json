@@ -3,6 +3,35 @@
     "groupKind": "chart",
     "title": "Befolkningssammensetning",
     "items": [
+      // {
+      //   "chartKind": "bar",
+      //   "table": "voksne_videregaende",
+      //   "dimensions": [
+      //     "voksneigrunnsk"
+      //   ],
+      //   "time": [
+      //     "current"
+      //   ],
+      //   "defaultUnit": "prosent",
+      //   "isExpanded": "yes"
+      // },
+      {
+        "chartKind": "stackedBar",
+        "table": "befolkning_hovedgruppe",
+        "dimensions": [
+          "innvkat_5",
+          "kjonn"
+        ],
+        "skip": [
+          "innvkat_5.alle",
+          "innvkat_5.befolkningen_ellers"
+        ],
+        "time": [
+          "2014"
+        ],
+        "defaultUnit": "prosent",
+        "isExpanded": "yes"
+      },
       {
         "chartKind": "area",
         "table": "befolkning_hovedgruppe_tidsserie",
@@ -34,6 +63,46 @@
   {
     "groupKind": "chart",
     "title": "Innvandrernes opprinnelse",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Innvandrernes botid",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Befolkningens utdanningsnivå",
+    "items": []
+  },
+  {
+    "groupKind": "fact",
+    "title": "Bosatte flyktninger",
+    "items": []
+  },
+  {
+    "groupKind": "fact",
+    "title": "Voksne elever i videregående opplæring",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Barn i barnehage",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Grunnskole - Gjennomsnittige grunnskolepoeng",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Elever i videregående skole",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Videregående skole - fullføring innen fem år",
     "items": []
   }
 ]

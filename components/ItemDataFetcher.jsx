@@ -44,14 +44,6 @@ module.exports = React.createClass({
       });
     }
 
-      // Object.keys(firstDimension).forEach((key, i)=> {
-      //   const values = time.map((e, i) => {
-      //     return +firstDimension[key].personer[i];
-      //   });
-      //   result.push([key, ...values]);
-      // });
-
-
     return data;
   },
 
@@ -95,14 +87,18 @@ module.exports = React.createClass({
     }
 
     const Chart = charts[this.props.item.chartKind];
+    console.info(Chart);
 
         // <pre>
         //   {JSON.stringify(this.state.data, null, 2)}
         // </pre>
 
+    const time = this.convertYearsToISO(this.state.data.time);
+    const chartData = this.mungeData(this.state.data);
+
     return (
       <div>
-        <Chart item={this.props.item} time={this.convertYearsToISO(this.state.data.time)} data={this.mungeData(this.state.data)}/>
+        <Chart item={this.props.item} time={time} data={chartData}/>
 
         <pre>
           {JSON.stringify(this.props.item, null, 2)}

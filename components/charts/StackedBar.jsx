@@ -2,24 +2,57 @@ const React = require("react");
 const rd3 = require('react-d3');
 const BarChart = rd3.BarChart;
 
+const c3 = require('c3');
 
 module.exports = React.createClass({
-  displayName: 'Something',
+  displayName: 'AreaChart',
   onClick() {
 
   },
+  componentDidMount() {
+    this.chart = c3.generate({
+      bindto: this.getDOMNode(),
+      data: {
+        json: []
+      },
+      axis: {
+        x: {
+          type: 'category'
+        }
+      }
+    });
+    this.renderChart();
+  },
+  componentDidUpdate() {
+    this.renderChart();
+  },
+  renderChart() {
+    const firstDimension = this.props.data[this.props.item.dimensions[0]];
+    const firstGroups = Object.keys(firstDimension);
+    const secondDimensionName = this.props.item.dimensions[1];
+    const secondGroups = Object.keys(firstDimension[firstGroups[0]][this.props.item.dimensions[1]]);
+
+    let chartData = {}
+    secondGroups.forEach((second)=> {
+      chartData[second] = []
+      firstGroups.forEach((first)=> {
+        chartData[second].push(firstDimension[first][secondDimensionName][second].personer)
+      });
+    });
+
+    // console.info(groups);
+    // console.info(chartData);
+
+    this.chart.load({
+      json: chartData,
+      type: "bar",
+      categories: firstGroups,
+    });
+
+    this.chart.groups([secondGroups]);
+
+  },
   render() {
-    console.info(this.props.data);
-    return (
-      <div>
-        <StackedBarChart
-          margins={{top: 10, right: 20, bottom: 40, left: 80}}
-          legend={true}
-          data={this.props.data}
-          width={800}
-          height={300}
-        />
-      </div>
-    )
+    return <div/>
   }
 });

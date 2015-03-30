@@ -15,12 +15,12 @@ module.exports = React.createClass({
       },
       axis: {
         x: {
-            type: 'timeseries',
-            tick: {
-                format: '%Y'
-            }
+          type: 'timeseries',
+          tick: {
+              format: '%Y'
+          }
         }
-    }
+      }
     });
     this.renderChart();
   },
@@ -38,16 +38,12 @@ module.exports = React.createClass({
     
     chartData.x = this.props.time;
 
-    console.info(groups);
-    console.info(chartData);
+    // console.info(groups);
+    // console.info(chartData);
 
     this.chart.load({
       json: chartData,
-      types: groups.reduce((types, g) => {
-        types[g] = 'area'
-        // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
-        return types;
-      }, {}),
+      type: 'area',
       groups: [groups]
     });
 

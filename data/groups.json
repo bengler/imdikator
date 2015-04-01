@@ -3,18 +3,18 @@
     "groupKind": "chart",
     "title": "Befolkningssammensetning",
     "items": [
-      // {
-      //   "chartKind": "bar",
-      //   "table": "voksne_videregaende",
-      //   "dimensions": [
-      //     "voksneigrunnsk"
-      //   ],
-      //   "time": [
-      //     "current"
-      //   ],
-      //   "defaultUnit": "prosent",
-      //   "isExpanded": "yes"
-      // },
+      {
+        "chartKind": "bar",
+        "table": "voksne_videregaende",
+        "dimensions": [
+          "voksneigrunnsk"
+        ],
+        "time": [
+          "current"
+        ],
+        "defaultUnit": "prosent",
+        "isExpanded": "yes"
+      },
       {
         "chartKind": "stackedBar",
         "table": "befolkning_hovedgruppe",

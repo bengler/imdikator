@@ -19,9 +19,7 @@ function createBundle(entry) {
       debug:         env == 'development',
       fullPaths:     env == 'development'
     })
-      .transform(babelify.configure({
-        experimental: true
-      }))
+      .transform(babelify)
       .transform('envify', {global: true});
   });
 }

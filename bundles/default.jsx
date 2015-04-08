@@ -1,4 +1,4 @@
-require("babel-core/polyfill");
+require("babel/polyfill");
 
 const a11y = require('react-a11y');
 const config = require("../config");

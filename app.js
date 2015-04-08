@@ -1,4 +1,4 @@
-require("babel-core/register");
+require("babel/register");
 
 var express = require('express');
 var path = require('path');

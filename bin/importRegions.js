@@ -36,8 +36,14 @@ const kommuner = parsedRegions
     Sentralitet_nr_2008: 'centralityNumber',
     Sentralitet_kat_2008: 'centralityName'
   }))
-    .toArray()
-    .flatMap(serializeTo('./data/kommuner.json'))
+  .map(kommune => {
+    if (kommune.name === "Oslo kommune") {
+      kommune.name = "Oslo"
+    }
+    return kommune;
+  })
+  .toArray()
+  .flatMap(serializeTo('./data/kommuner.json'))
 
 const naeringsregioner = parsedRegions
   .distinct(region => region['Næringsregionnr'])
@@ -52,7 +58,7 @@ const naeringsregioner = parsedRegions
 
 const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   .distinct(region => region.bydelsnr)
-  .map(pick('bydelsnr','bydelsnavn'))
+  .map(pick('bydelsnr', 'bydelsnavn'))
   .map(renameKeys({
     bydelsnr: 'code',
     bydelsnavn: 'name',
@@ -82,11 +88,11 @@ function csvToObjects(file) {
 }
 
 function renameKeys(keyNamesMap) {
-  return function(object) {
+  return function (object) {
     const knownKeyNames = Object.keys(keyNamesMap);
     return Object.keys(object).reduce((renamed, key)=> {
       if (!knownKeyNames.includes(key)) {
-        throw new Error("Don't know what to rename the key '"+key+"' to");;
+        throw new Error("Don't know what to rename the key '" + key + "' to");
       }
       renamed[keyNamesMap[key]] = object[key];
       return renamed;

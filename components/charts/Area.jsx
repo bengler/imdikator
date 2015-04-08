@@ -41,8 +41,9 @@ module.exports = React.createClass({
     this.chart.load({
       json: chartData,
       type: 'area',
-      groups: [groups]
     });
+
+    this.chart.groups([groups]);
 
   },
   render() {

@@ -44,7 +44,7 @@ const naeringsregioner = parsedRegions
   .map(pick('Næringsregionnr', 'Næringsregion_ navn'))
   .map(renameKeys({
     Næringsregionnr: 'code',
-    "Næringsregion_ navn": 'code',
+    "Næringsregion_ navn": 'name',
     Kommunenr: 'municipalityCode',
   }))
   .toArray()

@@ -87,20 +87,8 @@ module.exports = React.createClass({
       return (<Loader>Fetching data…</Loader>);
     }
 
-    console.info(this.state.data);
-
     const Chart = charts[this.props.item.chartKind];
 
-        // <pre>
-        //   {JSON.stringify(this.state.data, null, 2)}
-        // </pre>
-
-        // <pre>
-        //   {JSON.stringify(this.props.item, null, 2)}
-        // </pre>
-        // <pre>
-        //   {JSON.stringify(chartData, null, 2)}
-        // </pre>
 
 
     const time = this.convertYearsToISO(this.state.data.time);
@@ -108,6 +96,17 @@ module.exports = React.createClass({
 
     return (
       <div>
+        {
+        // <pre>
+        //   {JSON.stringify(this.state.data, null, 2)}
+        // </pre>
+        // <pre>
+        //   {JSON.stringify(chartData, null, 2)}
+        // </pre>
+        // <pre>
+        //   {JSON.stringify(this.props.item, null, 2)}
+        // </pre>
+        }
         <Chart item={this.props.item} time={time} data={chartData}/>
         <Table data={this.state.data}/>
 

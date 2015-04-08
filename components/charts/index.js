@@ -1,6 +1,6 @@
 
 const charts = {
-	stackedBar: require("./StackedBar.jsx"),
+	bar: require("./Bar.jsx"),
 	area: require("./Area.jsx")
 }
 

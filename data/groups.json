@@ -5,18 +5,6 @@
     "items": [
       {
         "chartKind": "bar",
-        "table": "voksne_videregaende",
-        "dimensions": [
-          "voksneigrunnsk"
-        ],
-        "time": [
-          "current"
-        ],
-        "defaultUnit": "prosent",
-        "isExpanded": "yes"
-      },
-      {
-        "chartKind": "stackedBar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
           "innvkat_5",
@@ -58,7 +46,19 @@
   {
     "groupKind": "chart",
     "title": "Innvandringsgrunn og kjønn",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "befolkning_innvandringsgrunn",
+        "dimensions": [
+          "innvgrunn_5",
+          "kjonn"
+        ],
+        "time": [
+          "2014"
+        ]
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -68,7 +68,23 @@
   {
     "groupKind": "chart",
     "title": "Innvandrernes botid",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "befolkning_botid",
+        "dimensions": [
+          "botid_5",
+          "vreg_3"
+        ],
+        "skip": [
+          "botid_5.alle"
+        ],
+        "time": [
+          "2014"
+        ],
+        "defaultUnit": "person"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -76,8 +92,29 @@
     "items": []
   },
   {
-    "groupKind": "fact",
-    "title": "Bosatte flyktninger",
+    "groupKind": "chart",
+    "title": "Flytting til og fra kommunen",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Sekundærflytting blant flytktninger",
+    "items": [
+      {
+        "chartKind": "area",
+        "table": "bosetting",
+        "dimensions": [
+          "bosetting"
+        ],
+        "time": [
+          "all"
+        ]
+      }
+    ]
+  },
+  {
+    "groupKind": "chart",
+    "title": "Introduksjonsprogram deltagere",
     "items": []
   },
   {

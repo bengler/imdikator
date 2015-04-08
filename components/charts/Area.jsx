@@ -38,9 +38,6 @@ module.exports = React.createClass({
     
     chartData.x = this.props.time;
 
-    // console.info(groups);
-    // console.info(chartData);
-
     this.chart.load({
       json: chartData,
       type: 'area',

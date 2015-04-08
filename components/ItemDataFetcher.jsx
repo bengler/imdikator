@@ -23,12 +23,12 @@ module.exports = React.createClass({
   },
 
   mungeData(data) {
-
     let result = [];
 
     // Ok, we aren't dealing with more than a single region
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
+
 
     // TODO:
     // - Handle more dimensions
@@ -59,12 +59,12 @@ module.exports = React.createClass({
     });
   },
 
-
   componentDidMount() {
     this.fetchData(this.props.item).then((data)=> {
       this.setState({data: data});
     });
   },
+
   componentWillReceiveProps(nextProps) {
     const currRegions = this.props.regions.map(r => r.regionCode);
     const nextRegions = nextProps.regions.map(r => r.regionCode);
@@ -73,6 +73,7 @@ module.exports = React.createClass({
       this.setState({data: null});
     }
   },
+
   componentDidUpdate() {
     if (!this.state.data) {
       this.fetchData(this.props.item).then(data => {
@@ -86,12 +87,21 @@ module.exports = React.createClass({
       return (<Loader>Fetching data…</Loader>);
     }
 
+    console.info(this.state.data);
+
     const Chart = charts[this.props.item.chartKind];
-    console.info(Chart);
 
         // <pre>
         //   {JSON.stringify(this.state.data, null, 2)}
         // </pre>
+
+        // <pre>
+        //   {JSON.stringify(this.props.item, null, 2)}
+        // </pre>
+        // <pre>
+        //   {JSON.stringify(chartData, null, 2)}
+        // </pre>
+
 
     const time = this.convertYearsToISO(this.state.data.time);
     const chartData = this.mungeData(this.state.data);
@@ -99,14 +109,6 @@ module.exports = React.createClass({
     return (
       <div>
         <Chart item={this.props.item} time={time} data={chartData}/>
-
-        <pre>
-          {JSON.stringify(this.props.item, null, 2)}
-        </pre>
-        <pre>
-          {JSON.stringify(this.mungeData(this.state.data, null, 2))}
-        </pre>
-
         <Table data={this.state.data}/>
 
       </div>

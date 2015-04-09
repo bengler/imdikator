@@ -40,8 +40,12 @@ router.get("/query", function (req, res, next) {
 });
 
 router.use(function (err, req, res, next) {
-  res.json({
-    error: err.message,
-    stack: config.env === 'development' && err.stack
+  if (req.accepts('json', 'html') === 'html') return next(err);
+  res.status(500).json({
+    error: {
+      message: err.message,
+      stack: config.env === 'development' && err.stack
+    }
   });
-});
+})
+;

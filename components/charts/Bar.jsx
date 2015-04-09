@@ -1,6 +1,4 @@
 const React = require("react");
-const rd3 = require('react-d3');
-const BarChart = rd3.BarChart;
 
 const c3 = require('c3');
 

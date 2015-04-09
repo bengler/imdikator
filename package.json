@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@bengler/imdi-dataset": "^1.0.11",
-    "babel": "^5.0.10",
+    "babel": "^5.0.12",
     "babelify": "^6.0.2",
     "bluebird": "^2.9.14",
     "body-parser": "^1.12.2",

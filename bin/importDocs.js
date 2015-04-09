@@ -29,19 +29,15 @@ const mungeLine = function(line) {
 	line = _.omit(line, (e) => e == '');
 
 	// Do not convert time to array if only a single word!
-	const splitFields = ["dimensions", "skip", "time"];
+	const splitFields = ["dimensions", "time"];
 	splitFields.forEach( (e) => {
 		if (e in line) { 
-			line[e] = line[e].split(',');
+			line[e] = line[e].split(';');
 			line[e] = line[e].map( (e) => _.trim(e));
 		}
 	});
 
 	return line
-}
-
-const splitAndTrim = function(line) {
-
 }
 
 const parseGroups = function(lines) {

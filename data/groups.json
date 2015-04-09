@@ -7,12 +7,8 @@
         "chartKind": "bar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
-          "innvkat_5",
+          "innvkat_5:innvandrere, befolkningen_ellers, norskfodte_m_innvf",
           "kjonn"
-        ],
-        "skip": [
-          "innvkat_5.alle",
-          "innvkat_5.befolkningen_ellers"
         ],
         "time": [
           "2014"
@@ -24,11 +20,8 @@
         "chartKind": "area",
         "table": "befolkning_hovedgruppe_tidsserie",
         "dimensions": [
-          "innvkat_5"
-        ],
-        "skip": [
-          "innvkat_5.alle",
-          "innvkat_5.befolkningen_ellers"
+          "innvkat_5:innvandrere, befolkningen_ellers, norskfodte_m_innvf",
+          "kjonn"
         ],
         "time": [
           "all"
@@ -75,9 +68,6 @@
         "dimensions": [
           "botid_5",
           "vreg_3"
-        ],
-        "skip": [
-          "botid_5.alle"
         ],
         "time": [
           "2014"

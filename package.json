@@ -14,7 +14,7 @@
     "import-regions": "babel-node ./bin/importRegions"
   },
   "dependencies": {
-    "@bengler/imdi-dataset": "^1.0.11",
+    "@bengler/imdi-dataset": "^1.2.3",
     "babel": "^5.0.12",
     "babelify": "^6.0.2",
     "bluebird": "^2.9.14",

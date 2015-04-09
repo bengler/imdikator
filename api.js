@@ -3,8 +3,7 @@ const config = require("./config");
 //const bodyParser = require('body-parser');
 //router.use(bodyParser.urlencoded());
 
-const {DB} = require("@bengler/imdi-dataset");
-const db = new DB(require("./dataset/tree.json"));
+const db = require("@bengler/imdi-dataset");
 
 function parseQueryTime(queryTime) {
   if (queryTime == 'all') {

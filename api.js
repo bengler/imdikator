@@ -4,7 +4,6 @@ const config = require("./config");
 //router.use(bodyParser.urlencoded());
 
 const db = require("@bengler/imdi-dataset");
-console.log(db)
 
 function parseQueryTime(queryTime) {
   if (queryTime == 'all') {

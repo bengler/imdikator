@@ -35,7 +35,13 @@ function changeRegion(e) {
 }
 
 function render() {
+
   const hashRegion = (document.location.hash.substring(1)).toLowerCase();
+
+  if (hashRegion === 'd3bubble') {
+    const D3Bubble = require("../components/charts/D3Bubble.jsx");
+    return React.render(<D3Bubble/>, el);
+  }
 
   const selectedRegion = regions.find(k => {
     return k.name.toLowerCase() == hashRegion ||

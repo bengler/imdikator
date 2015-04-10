@@ -4,6 +4,7 @@ const {get} = require("../lib/request");
 
 const Loader = require("./Loader.jsx");
 const Table = require("./Table.jsx");
+const QueryDimension = require("@bengler/imdi-dataset").QueryDimension;
 
 module.exports = React.createClass({
   displayName: 'ItemDataFetcher',
@@ -16,7 +17,7 @@ module.exports = React.createClass({
     const query = {
       table: item.table,
       regions: this.props.regions.map(r => r.regionCode),
-      dimensions: item.dimensions,
+      dimensions: item.dimensions.map(QueryDimension.stringify),
       time: item.time
     };
     return get('/api/query', query).then(res => res.json);

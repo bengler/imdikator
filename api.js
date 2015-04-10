@@ -1,5 +1,6 @@
 const router = module.exports = require("express").Router();
 const config = require("./config");
+const QueryDimension = require("@bengler/imdi-dataset").QueryDimension;
 //const bodyParser = require('body-parser');
 //router.use(bodyParser.urlencoded());
 
@@ -22,6 +23,7 @@ function parseQueryTime(table, queryTime) {
 function prepareQuery(query) {
 
   const parsedQueryTime = parseQueryTime(query.table, query.time);
+  const parsedQueryDimensions = query.dimensions.map(QueryDimension.parse);
 
   return parsedQueryTime.then(time => {
     return Object.assign({}, query, {

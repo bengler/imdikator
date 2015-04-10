@@ -1,27 +1,33 @@
 
 const request = require('request');
 const parse = require('csv-parse');
+const http = require('http');
 const Promise = require('bluebird');
 const _ = require('lodash');
 const fs = require('fs');
 const parseQueryDimension = require('@bengler/imdi-dataset').parseQueryDimension;
 
-const groupsUrl = "https://docs.google.com/a/bengler.no/spreadsheets/d/1Wm0yF_Rs6VLW9dS_nZgbJrt2ymXEiaFVKBvhUae6lRs"
+const groupsUrl = "https://docs.google.com/e/bengler.no/spreadsheets/d/1Wm0yF_Rs6VLW9dS_nZgbJrt2ymXEiaFVKBvhUae6lRs"
 const outFile = "./data/groups.json"
 
 const csvSuffix = "/export?format=csv"
 
 const importGroups = function(url) {
 	url += csvSuffix;
-	return new Promise( (resolve, reject) => {
+	return new Promise((resolve, reject) => {
 		request(url, (error, response, body) => {
-		  if (!error && response.statusCode == 200) {
-				parse(body, {comment: '#', columns: true}, (err, output) => {
-					resolve(output);
-				});
-		  } else {
-		  	reject(error);
-		  }
+      if (error) {
+        return reject(error);
+      }
+      if (response.statusCode < 200 || response.statusCode > 299) {
+        return reject(new Error(`HTTP Error ${response.statusCode} ${http.STATUS_CODES[response.statusCode]}. Response body: \n ${body}`))
+      }
+      parse(body, {comment: '#', columns: true}, (err, output) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(output);
+      });
 		})
 	});
 }
@@ -75,6 +81,6 @@ importGroups(groupsUrl).then( (result) => {
 	const groupDict = parseGroups(result);
 	fs.writeFileSync(outFile, JSON.stringify(groupDict, null, 2));
 }).catch( (error) => {
-	console.log("Could not fetch: " + error)
+	console.log("Could not fetch: " + error.stack)
 });
 

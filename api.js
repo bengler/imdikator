@@ -3,11 +3,12 @@ const config = require("./config");
 //const bodyParser = require('body-parser');
 //router.use(bodyParser.urlencoded());
 
-const db = require("@bengler/imdi-dataset");
+const DB = require("@bengler/imdi-dataset").DB;
+const db = new DB(require("@bengler/imdi-dataset/data"));
 
-function parseQueryTime(queryTime) {
+function parseQueryTime(table, queryTime) {
   if (queryTime == 'all') {
-    return db.getAllPossibleTimes()
+    return db.getAllPossibleTimesForTable(table)
   }
   if (queryTime == 'current') {
     return Promise.resolve(['2013']);
@@ -20,7 +21,7 @@ function parseQueryTime(queryTime) {
 
 function prepareQuery(query) {
 
-  const parsedQueryTime = parseQueryTime(query.time);
+  const parsedQueryTime = parseQueryTime(query.table, query.time);
 
   return parsedQueryTime.then(time => {
     return Object.assign({}, query, {

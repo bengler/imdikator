@@ -15,7 +15,7 @@
     "import-groups": "babel-node ./bin/importGroups"
   },
   "dependencies": {
-    "@bengler/imdi-dataset": "^1.2.6",
+    "@bengler/imdi-dataset": "^3.0.1",
     "babel": "^5.0.12",
     "babelify": "^6.0.2",
     "bluebird": "^2.9.14",

@@ -17,7 +17,7 @@
           },
           {
             "label": "kjonn",
-            "all": true
+            "any": true
           }
         ],
         "time": [
@@ -60,11 +60,11 @@
         "dimensions": [
           {
             "label": "innvgrunn_5",
-            "all": true
+            "any": true
           },
           {
             "label": "kjonn",
-            "all": true
+            "any": true
           }
         ],
         "time": [
@@ -88,11 +88,11 @@
         "dimensions": [
           {
             "label": "botid_5",
-            "all": true
+            "any": true
           },
           {
             "label": "vreg_3",
-            "all": true
+            "any": true
           }
         ],
         "time": [
@@ -122,7 +122,7 @@
         "dimensions": [
           {
             "label": "bosetting",
-            "all": true
+            "any": true
           }
         ],
         "time": "all"

@@ -17,7 +17,7 @@ function classes(root) {
 }
 
 module.exports = React.createClass({
-  displayName: 'AreaChart',
+  displayName: 'Bubble',
   componentDidMount() {
     this.renderChart();
   },

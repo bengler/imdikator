@@ -11,8 +11,8 @@ function parseQueryTime(table, queryTime) {
   if (queryTime == 'all') {
     return db.getAllPossibleTimesForTable(table)
   }
-  if (queryTime == 'current') {
-    return Promise.resolve(['2013']);
+  if (queryTime == 'latest') {
+    return db.getAllPossibleTimesForTable(table).then(times => times.slice(-1));
   }
   if (!Array.isArray(queryTime)) {
     return Promise.reject(new Error("The parameter 'time' should be all, current or an array of years"))

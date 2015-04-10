@@ -37,10 +37,6 @@
               "befolkningen_ellers",
               "norskfodte_m_innvf"
             ]
-          },
-          {
-            "label": "kjonn",
-            "all": true
           }
         ],
         "time": "all",

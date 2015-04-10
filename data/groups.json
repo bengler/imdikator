@@ -7,8 +7,18 @@
         "chartKind": "bar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
-          "innvkat_5:innvandrere, befolkningen_ellers, norskfodte_m_innvf",
-          "kjonn"
+          {
+            "label": "innvkat_5",
+            "include": [
+              "innvandrere",
+              "befolkningen_ellers",
+              "norskfodte_m_innvf"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "all": true
+          }
         ],
         "time": [
           "2014"
@@ -20,12 +30,20 @@
         "chartKind": "area",
         "table": "befolkning_hovedgruppe_tidsserie",
         "dimensions": [
-          "innvkat_5:innvandrere, befolkningen_ellers, norskfodte_m_innvf",
-          "kjonn"
+          {
+            "label": "innvkat_5",
+            "include": [
+              "innvandrere",
+              "befolkningen_ellers",
+              "norskfodte_m_innvf"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "all": true
+          }
         ],
-        "time": [
-          "all"
-        ],
+        "time": "all",
         "defaultUnit": "person",
         "isExpanded": "yes"
       }
@@ -44,8 +62,14 @@
         "chartKind": "bar",
         "table": "befolkning_innvandringsgrunn",
         "dimensions": [
-          "innvgrunn_5",
-          "kjonn"
+          {
+            "label": "innvgrunn_5",
+            "all": true
+          },
+          {
+            "label": "kjonn",
+            "all": true
+          }
         ],
         "time": [
           "2014"
@@ -66,8 +90,14 @@
         "chartKind": "bar",
         "table": "befolkning_botid",
         "dimensions": [
-          "botid_5",
-          "vreg_3"
+          {
+            "label": "botid_5",
+            "all": true
+          },
+          {
+            "label": "vreg_3",
+            "all": true
+          }
         ],
         "time": [
           "2014"
@@ -94,11 +124,12 @@
         "chartKind": "area",
         "table": "bosetting",
         "dimensions": [
-          "bosetting"
+          {
+            "label": "bosetting",
+            "all": true
+          }
         ],
-        "time": [
-          "all"
-        ]
+        "time": "all"
       }
     ]
   },

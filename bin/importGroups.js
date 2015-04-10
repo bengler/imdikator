@@ -1,9 +1,10 @@
 
-var request = require('request');
-var parse = require('csv-parse');
-var Promise = require('bluebird');
-var _ = require('lodash');
-var fs = require('fs');
+const request = require('request');
+const parse = require('csv-parse');
+const Promise = require('bluebird');
+const _ = require('lodash');
+const fs = require('fs');
+const parseQueryDimension = require('@bengler/imdi-dataset').parseQueryDimension;
 
 const groupsUrl = "https://docs.google.com/a/bengler.no/spreadsheets/d/1Wm0yF_Rs6VLW9dS_nZgbJrt2ymXEiaFVKBvhUae6lRs"
 const outFile = "./data/groups.json"
@@ -25,18 +26,26 @@ const importGroups = function(url) {
 	});
 }
 
+function trim(s) {
+	return s ? s.trim() : s;
+}
+
 const mungeLine = function(line) {
 	line = _.omit(line, (e) => e == '');
 
-	// Do not convert time to array if only a single word!
-	const splitFields = ["dimensions", "time"];
-	splitFields.forEach( (e) => {
-		if (e in line) { 
-			line[e] = line[e].split(';');
-			line[e] = line[e].map( (e) => _.trim(e));
-		}
-	});
+	if ('dimensions' in line) {
+		line.dimensions = line.dimensions.split(';').map(trim).filter(Boolean).map(parseQueryDimension);
+	}
 
+	if ('time' in line) {
+		const parsedTime = line.time.split(',').map(trim).filter(Boolean);
+		if (parsedTime.length === 1 && !(/^\d+$/.test(parsedTime))) {
+			line.time = parsedTime[0];
+		}
+		else {
+			line.time = parsedTime;
+		}
+	}
 	return line
 }
 

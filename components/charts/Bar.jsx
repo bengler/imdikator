@@ -25,10 +25,10 @@ module.exports = React.createClass({
     this.renderChart();
   },
   renderChart() {
-    const firstDimension = this.props.data[this.props.item.dimensions[0]];
+    const firstDimension = this.props.data[this.props.item.dimensions[0].label];
     const firstGroups = Object.keys(firstDimension);
-    const secondDimensionName = this.props.item.dimensions[1];
-    const secondGroups = Object.keys(firstDimension[firstGroups[0]][this.props.item.dimensions[1]]);
+    const secondDimensionName = this.props.item.dimensions[1].label;
+    const secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
 
     let chartData = {}
     secondGroups.forEach((second)=> {

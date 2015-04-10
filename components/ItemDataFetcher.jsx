@@ -33,7 +33,7 @@ module.exports = React.createClass({
     // TODO:
     // - Handle more dimensions
     // - Handle different units than "personer"
-    const dimension = this.props.item.dimensions[0];
+    const dimension = this.props.item.dimensions[0].label;
     const firstDimension = data[dimension];
 
     // Todo:

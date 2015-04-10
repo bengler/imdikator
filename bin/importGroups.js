@@ -5,9 +5,9 @@ const http = require('http');
 const Promise = require('bluebird');
 const _ = require('lodash');
 const fs = require('fs');
-const parseQueryDimension = require('@bengler/imdi-dataset').parseQueryDimension;
+const QueryDimension = require('@bengler/imdi-dataset').QueryDimension;
 
-const groupsUrl = "https://docs.google.com/e/bengler.no/spreadsheets/d/1Wm0yF_Rs6VLW9dS_nZgbJrt2ymXEiaFVKBvhUae6lRs"
+const groupsUrl = "https://docs.google.com/a/bengler.no/spreadsheets/d/1Wm0yF_Rs6VLW9dS_nZgbJrt2ymXEiaFVKBvhUae6lRs"
 const outFile = "./data/groups.json"
 
 const csvSuffix = "/export?format=csv"
@@ -39,11 +39,11 @@ function trim(s) {
 const mungeLine = function(line) {
 	line = _.omit(line, (e) => e == '');
 
-	if ('dimensions' in line) {
-		line.dimensions = line.dimensions.split(';').map(trim).filter(Boolean).map(parseQueryDimension);
+	if (line.dimensions) {
+		line.dimensions = line.dimensions.split(';').map(trim).filter(Boolean).map(QueryDimension.parse);
 	}
 
-	if ('time' in line) {
+	if (line.time) {
 		const parsedTime = line.time.split(',').map(trim).filter(Boolean);
 		if (parsedTime.length === 1 && !(/^\d+$/.test(parsedTime))) {
 			line.time = parsedTime[0];

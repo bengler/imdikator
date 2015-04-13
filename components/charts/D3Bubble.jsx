@@ -1,21 +1,6 @@
 const React = require("react");
 const d3 = require('d3');
 
-// part of http://bl.ocks.org/mbostock/4063269
-const flare = require("./flare.json");
-// Returns a flattened hierarchy containing all leaf nodes under the root.
-function classes(root) {
-  const classes = [];
-
-  function recurse(name, node) {
-    if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-    else classes.push({packageName: name, className: node.name, value: node.size});
-  }
-
-  recurse(null, root);
-  return {children: classes};
-}
-
 module.exports = React.createClass({
   displayName: 'Bubble',
   componentDidMount() {
@@ -24,7 +9,25 @@ module.exports = React.createClass({
   componentDidUpdate() {
     this.renderChart();
   },
+
+  flatten(root) {
+    console.info(root);
+    let data = root[this.props.item.dimensions[0].label];
+    const classes = [];
+
+    Object.keys(data).forEach((key)=> {
+      classes.push( {
+        value: data[key].personer[0],
+        name: key,
+        className: key
+      })
+    });
+
+    return {children: classes};
+  },
+
   renderChart() {
+
     const diameter = 960;
     const format = d3.format(",d");
     const color = d3.scale.category20c();
@@ -40,7 +43,7 @@ module.exports = React.createClass({
       .attr("class", "bubble");
 
     const node = svg.selectAll(".node")
-      .data(bubble.nodes(classes(flare))
+      .data(bubble.nodes(this.flatten(this.props.data))
         .filter(d => !d.children))
         .enter()
           .append("g")

@@ -17,12 +17,13 @@
           },
           {
             "label": "kjonn",
-            "any": true
+            "include": [
+              "0",
+              "1"
+            ]
           }
         ],
-        "time": [
-          "2014"
-        ],
+        "time": "latest",
         "defaultUnit": "prosent",
         "isExpanded": "yes"
       },
@@ -64,7 +65,10 @@
           },
           {
             "label": "kjonn",
-            "any": true
+            "include": [
+              "0",
+              "1"
+            ]
           }
         ],
         "time": [
@@ -76,7 +80,21 @@
   {
     "groupKind": "chart",
     "title": "Innvandrernes opprinnelse",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bubble",
+        "table": "befolkning_opprinnelsesland",
+        "dimensions": [
+          {
+            "label": "landbakgrunn",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "person",
+        "isExpanded": "yes"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -88,11 +106,19 @@
         "dimensions": [
           {
             "label": "botid_5",
-            "any": true
+            "include": [
+              "alle",
+              "0-4",
+              "5-9",
+              "10+"
+            ]
           },
           {
             "label": "vreg_3",
-            "any": true
+            "include": [
+              "1",
+              "2"
+            ]
           }
         ],
         "time": [
@@ -115,19 +141,7 @@
   {
     "groupKind": "chart",
     "title": "Sekundærflytting blant flytktninger",
-    "items": [
-      {
-        "chartKind": "area",
-        "table": "bosetting",
-        "dimensions": [
-          {
-            "label": "bosetting",
-            "any": true
-          }
-        ],
-        "time": "all"
-      }
-    ]
+    "items": []
   },
   {
     "groupKind": "chart",

@@ -3,7 +3,7 @@ const cx = React.addons.classSet;
 
 module.exports = React.createClass({
   displayName: 'Table',
-  
+
   getInitialState() {
     return {opened: false};
   },
@@ -12,11 +12,11 @@ module.exports = React.createClass({
     console.log("toggle");
     this.setState({opened: !this.state.opened});
   },
-  
+
   render() {
 
     let imdikatorTableExpanderClasses = cx({
-      "imdikator-table__expander": true,
+      "table-toggle": true,
       "opened": this.state.opened
     });
 
@@ -27,12 +27,16 @@ module.exports = React.createClass({
       "opened": this.state.opened
     });
 
+    let tableToggleClasses = cx({
+      "table-toggle__toggle": true,
+      "table-toggle__toggle--close": this.state.opened
+    });
+
     return (
       <div className="imdikator-table">
         <div className={imdikatorTableExpanderClasses}>
-          <a href="javascript://" onClick={this.toggle}>
+          <a className={tableToggleClasses} href="javascript://" onClick={this.toggle}>
             Vis tabell
-            <i>Arrow</i>
           </a>
         </div>
         <table className={tableClasses}>
@@ -71,7 +75,7 @@ module.exports = React.createClass({
               <td className="table--cell__right">400.000</td>
               <td className="table--cell__right">500.000</td>
             </tr>
-          </tbody>        
+          </tbody>
         </table>
       </div>
     )

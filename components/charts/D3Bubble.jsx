@@ -11,7 +11,6 @@ module.exports = React.createClass({
   },
 
   flatten(root) {
-    console.info(root);
     let data = root[this.props.item.dimensions[0].label];
     const classes = [];
 

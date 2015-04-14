@@ -26,24 +26,9 @@ module.exports = React.createClass({
   mungeData(data) {
     let result = [];
 
-    // Ok, we aren't dealing with more than a single region
+    // Ok, we aren't dealing with more than a single region yet
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
-
-
-    // TODO:
-    // - Handle more dimensions
-    // - Handle different units than "personer"
-    const dimension = this.props.item.dimensions[0].label;
-    const firstDimension = data[dimension];
-
-    // Todo:
-    // - Only valid when the skip is addressing the single first dimension. No pruning of leaves.
-    if (this.props.item.skip) {
-      this.props.item.skip.forEach((skip) => {
-        delete firstDimension[skip.split(".")[1]];
-      });
-    }
 
     return data;
   },

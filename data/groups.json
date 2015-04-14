@@ -24,8 +24,7 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "prosent",
-        "isExpanded": "yes"
+        "defaultUnit": "personer"
       },
       {
         "chartKind": "area",
@@ -41,8 +40,7 @@
           }
         ],
         "time": "all",
-        "defaultUnit": "person",
-        "isExpanded": "yes"
+        "defaultUnit": "personer"
       }
     ]
   },
@@ -71,9 +69,8 @@
             ]
           }
         ],
-        "time": [
-          "2014"
-        ]
+        "time": "latest",
+        "defaultUnit": "personer"
       }
     ]
   },
@@ -91,8 +88,7 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "person",
-        "isExpanded": "yes"
+        "defaultUnit": "personer"
       }
     ]
   },
@@ -121,10 +117,8 @@
             ]
           }
         ],
-        "time": [
-          "2014"
-        ],
-        "defaultUnit": "person"
+        "time": "latest",
+        "defaultUnit": "personer"
       }
     ]
   },
@@ -160,10 +154,8 @@
             ]
           }
         ],
-        "time": [
-          "2013"
-        ],
-        "defaultUnit": "person"
+        "time": "latest",
+        "defaultUnit": "prosent"
       },
       {
         "title": "Innvandrere",
@@ -193,10 +185,8 @@
             ]
           }
         ],
-        "time": [
-          "2013"
-        ],
-        "defaultUnit": "person"
+        "time": "latest",
+        "defaultUnit": "prosent"
       },
       {
         "title": "Befolkningen ellers",
@@ -226,10 +216,8 @@
             ]
           }
         ],
-        "time": [
-          "2013"
-        ],
-        "defaultUnit": "person"
+        "time": "latest",
+        "defaultUnit": "prosent"
       }
     ]
   },

@@ -50,10 +50,14 @@ module.exports = React.createClass({
       // Assumes nested groups follow same schema. Probes the first key.
       let secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
 
+      console.info(this.props.unit);
+      console.info(data);
+
       secondGroups.forEach((second)=> {
         chartData[second] = []
         firstGroups.forEach((first)=> {
-          chartData[second].push(firstDimension[first][secondDimensionName][second].personer)
+          chartData[second].push(firstDimension[first][secondDimensionName][second][this.props.unit][0])
+          console.info(firstDimension[first][secondDimensionName][second][this.props.unit][0]);
         });
       });
       this.chart.groups([secondGroups]);

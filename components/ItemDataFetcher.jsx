@@ -93,6 +93,8 @@ module.exports = React.createClass({
     const time = this.convertYearsToISO(this.state.data.time);
     const chartData = this.mungeData(this.state.data);
 
+    const unit = this.props.item.defaultUnit;
+
     return (
       <div>
         {
@@ -109,7 +111,7 @@ module.exports = React.createClass({
 
         {this.props.item.title && <h4>{this.props.item.title}</h4>}
 
-        <Chart item={this.props.item} time={time} data={chartData}/>
+        <Chart item={this.props.item} unit={unit} time={time} data={chartData}/>
         <Table data={this.state.data}/>
 
       </div>

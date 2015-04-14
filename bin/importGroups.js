@@ -1,5 +1,5 @@
 
-const request = require('request');
+const request = require('../lib/request');
 const parse = require('csv-parse');
 const http = require('http');
 const Promise = require('bluebird');
@@ -14,15 +14,9 @@ const csvSuffix = "/export?format=csv"
 
 const importGroups = function(url) {
 	url += csvSuffix;
-	return new Promise((resolve, reject) => {
-		request(url, (error, response, body) => {
-      if (error) {
-        return reject(error);
-      }
-      if (response.statusCode < 200 || response.statusCode > 299) {
-        return reject(new Error(`HTTP Error ${response.statusCode} ${http.STATUS_CODES[response.statusCode]}. Response body: \n ${body}`))
-      }
-      parse(body, {comment: '#', columns: true}, (err, output) => {
+  return request.get(url).then(response => {
+    return new Promise((resolve, reject) => {
+      parse(response.body, {comment: '#', columns: true}, (err, output) => {
         if (err) {
           return reject(err);
         }
@@ -65,8 +59,8 @@ const parseGroups = function(lines) {
 				groups.push(currentGroup);
 			}
 			currentGroup = {
-				groupKind: line.groupKind, 
-				title: line.title, 
+				groupKind: line.groupKind,
+				title: line.title,
 				items: []
 			};
 		} else if (Object.keys(line).length > 0 && line.groupKind != "#") { // # in groupKind is skip notation
@@ -79,7 +73,12 @@ const parseGroups = function(lines) {
 console.log("Reading components");
 importGroups(groupsUrl).then( (result) => {
 	const groupDict = parseGroups(result);
-	fs.writeFileSync(outFile, JSON.stringify(groupDict, null, 2));
+	fs.writeFile(outFile, JSON.stringify(groupDict, null, 2), function(err) {
+    if (err) {
+      throw err;
+    }
+    console.log("Done!")
+  });
 }).catch( (error) => {
 	console.log("Could not fetch: " + error.stack)
 });

@@ -131,7 +131,107 @@
   {
     "groupKind": "chart",
     "title": "Befolkningens utdanningsnivå",
-    "items": []
+    "items": [
+      {
+        "title": "Alle",
+        "chartKind": "bar",
+        "table": "utdanningsniva",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle"
+            ]
+          },
+          {
+            "label": "utd_4",
+            "include": [
+              "grunnskole",
+              "vgs",
+              "universitet_og_hogskole",
+              "uoppgitt_ingen"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": [
+          "2013"
+        ],
+        "defaultUnit": "person"
+      },
+      {
+        "title": "Innvandrere",
+        "chartKind": "bar",
+        "table": "utdanningsniva",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "innvandrere"
+            ]
+          },
+          {
+            "label": "utd_4",
+            "include": [
+              "grunnskole",
+              "vgs",
+              "universitet_og_hogskole",
+              "uoppgitt_ingen"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": [
+          "2013"
+        ],
+        "defaultUnit": "person"
+      },
+      {
+        "title": "Befolkningen ellers",
+        "chartKind": "bar",
+        "table": "utdanningsniva",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "utd_4",
+            "include": [
+              "grunnskole",
+              "vgs",
+              "universitet_og_hogskole",
+              "uoppgitt_ingen"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": [
+          "2013"
+        ],
+        "defaultUnit": "person"
+      }
+    ]
   },
   {
     "groupKind": "chart",

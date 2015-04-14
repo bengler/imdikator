@@ -26,7 +26,7 @@ module.exports = React.createClass({
   mungeData(data) {
     let result = [];
 
-    // Ok, we aren't dealing with more than a single region yet
+    // We aren't dealing with more than a single region yet
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
 

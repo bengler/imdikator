@@ -44,6 +44,25 @@ body {
     }
   }
 }
+
+.imdikator-graph-functions {
+  font-size: $font-size--xsmall;
+  &__item {
+    display: inline-block;
+    .icon {
+      margin-bottom: -0.25em;
+    }
+    &:last-child {
+      float: right;
+      margin-right: 0;
+    }
+  }
+  a {
+    margin-left: 0.2em;
+    margin-right: 1em;
+  }
+}
+
 .imdikator-graph__graph {
   min-height: 500px;
   text {
@@ -104,16 +123,6 @@ body {
   height: 10em;
 }
 
-.imdikator-list__functions {
-  font-size: $font-size--xsmall;
-  a {
-    margin-right: 1em;
-    &:last-child {
-      float: right;
-      margin-right: 0;
-    }
-  }
-}
 
 .imdikator-table {
   padding-bottom: $spacing;
@@ -131,7 +140,7 @@ body {
       float: right;
     }
     &.opened {
-      
+
     }
   }
   table {
@@ -168,5 +177,3 @@ body {
 .graph-color-6 { fill: $_blue; }
 .graph-color-7 { fill: $_green; }
 .graph-color-8 { fill: $_green; }
-
-

@@ -43,11 +43,24 @@ module.exports = React.createClass({
         </h3>
       	{items}
 
-        <div className="imdikator-list__functions">
-          <a href="javascript://">Last ned bilde</a>
-          <a href="javascript://">Last ned Excel-fil (csv)</a>
-          <a href="javascript://">Del denne statistikken</a>
-          <a href="javascript://">Om tallene</a>
+        <div className="imdikator-graph-functions">
+          <div className="imdikator-graph-functions__item">
+            <span className="icon icon--download"></span>
+            <a href="javascript://">Last ned bilde</a>
+          </div>
+          <div className="imdikator-graph-functions__item">
+            <span className="icon icon--download"></span>
+            <a href="javascript://">Last ned Excel-fil (csv)</a>
+          </div>
+          <div className="imdikator-graph-functions__item">
+            <span className="icon icon--share"></span>
+            <a href="javascript://">Del denne statistikken</a>
+          </div>
+
+          <div className="imdikator-graph-functions__item">
+            <span className="icon icon--info"></span>
+            <a href="javascript://">Om tallene</a>
+          </div>
         </div>
 
       </div>

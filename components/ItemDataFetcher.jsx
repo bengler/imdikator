@@ -1,4 +1,5 @@
 const React = require("react");
+const dotty = require("dotty");
 const charts = require("./charts/");
 const {get} = require("../lib/request");
 
@@ -30,7 +31,22 @@ module.exports = React.createClass({
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
 
+    this.props.units = Object.keys(this.getUnits(data, this.props.item.dimensions));
+
     return data;
+  },
+
+  getUnits(data, dimensions) {
+    dimensions.forEach((d)=> {
+      data = this.skipDimension(data, d.label);
+    })
+    return data;
+  },
+
+  skipDimension(data, dimension) {
+    data = data[dimension];
+    const key = Object.keys(data)[0];
+    return data[key];
   },
 
   convertYearsToDate(years) {
@@ -74,9 +90,6 @@ module.exports = React.createClass({
     }
 
     const Chart = charts[this.props.item.chartKind];
-
-
-
     const time = this.convertYearsToISO(this.state.data.time);
     const chartData = this.mungeData(this.state.data);
 

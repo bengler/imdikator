@@ -25,8 +25,6 @@ module.exports = React.createClass({
     this.renderChart();
   },
   renderChart() {
-    console.info(this.props.item.dimensions);
-    console.info(this.props.data);
 
     let dimensions = this.props.item.dimensions;
     let data = this.props.data;
@@ -41,7 +39,6 @@ module.exports = React.createClass({
 
       data = dotty.search(data, "*.*")[0];
       dimensions = dimensions.slice(1,3);
-      console.info("hullo");
     }
 
     if (dimensions.length == 2) {
@@ -62,16 +59,11 @@ module.exports = React.createClass({
       this.chart.groups([secondGroups]);
     }
 
-    // console.info(groups);
-    // console.info(chartData);
-
     this.chart.load({
       json: chartData,
       type: "bar",
       categories: firstGroups,
     });
-
-
   },
   render() {
     return <div/>

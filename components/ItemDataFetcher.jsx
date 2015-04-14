@@ -93,6 +93,9 @@ module.exports = React.createClass({
         //   {JSON.stringify(this.props.item, null, 2)}
         // </pre>
         }
+
+        {this.props.item.title && <h4>{this.props.item.title}</h4>}
+
         <Chart item={this.props.item} time={time} data={chartData}/>
         <Table data={this.state.data}/>
 

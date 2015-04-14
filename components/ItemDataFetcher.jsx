@@ -1,7 +1,7 @@
 const React = require("react");
 const dotty = require("dotty");
 const charts = require("./charts/");
-const {get} = require("../lib/request");
+const json = require("../lib/json");
 
 const Loader = require("./Loader.jsx");
 const Table = require("./Table.jsx");
@@ -21,7 +21,11 @@ module.exports = React.createClass({
       dimensions: item.dimensions.map(QueryDimension.stringify),
       time: item.time
     };
-    return get('/api/query', query).then(res => res.json);
+    return json.get('/api/query', query)
+      .then(res => res.json)
+      .catch(error => {
+        console.log('Error', e)
+      });
   },
 
   mungeData(data) {

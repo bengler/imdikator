@@ -53,7 +53,7 @@ E.g:
     "time": ["2011"]
 }
 ```
-### Response
+### Response:
 ```json
 {
   "table": "videregaende_fullfort",

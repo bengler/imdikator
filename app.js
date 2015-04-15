@@ -32,7 +32,7 @@ if (config.env === 'development') {
   app.use(capture.css());
 }
 
-app.use("/api", require("./api"));
+app.use("/api/v1", require("./api"));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

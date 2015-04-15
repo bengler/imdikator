@@ -21,7 +21,7 @@ module.exports = React.createClass({
       dimensions: item.dimensions.map(QueryDimension.stringify),
       time: item.time
     };
-    return json.get('/api/query', query)
+    return json.get('/api/v1/query', query)
       .then(res => res.json)
       .catch(error => {
         console.log('Error', e)

@@ -66,11 +66,7 @@ module.exports = React.createClass({
     this.chart.load({
       json: chartData,
       type: "bar",
-      categories: firstGroups,
-      colors: {
-        '0': '#f00',
-        '1': '#0f0'
-      }
+      categories: firstGroups
     });
   },
   render() {

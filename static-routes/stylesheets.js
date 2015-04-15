@@ -21,9 +21,6 @@ module.exports = {
       outputStyle:        development ? 'nested' : 'compressed'
     };
 
-    console.log('types', sass.types);
-
-
     sass.render(opts, (err, result)=> {
       if (err) {
         return callback(err)

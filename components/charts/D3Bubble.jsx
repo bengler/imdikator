@@ -57,7 +57,7 @@ module.exports = React.createClass({
 
       node.append("circle")
         .attr("r", d => d.r)
-        .style("fill", d => color(d.className));
+        .style("fill", d => color(2));
 
       node.append("text")
         .attr("dy", ".3em")

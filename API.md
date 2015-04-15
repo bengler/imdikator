@@ -1,7 +1,7 @@
 
 # `GET /api/v1/query?<params>`
 
-Example: 
+E.g: 
 
 `curl 'http://localhost:3000/api/v1/query?table=befolkning_hovedgruppe&regions%5B0%5D=K0301&dimensions%5B0%5D=innvkat_5%3Ainnvandrere%2Cbefolkningen_ellers%2Cnorskfodte_m_innvf&dimensions%5B1%5D=kjonn%3A0%2C1&time=latest'`
 

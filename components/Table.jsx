@@ -28,8 +28,8 @@ module.exports = React.createClass({
     });
 
     let tableToggleClasses = cx({
-      "table-toggle__toggle": true,
-      "table-toggle__toggle--close": this.state.opened
+      "toggle": true,
+      "toggle--close": this.state.opened
     });
 
     return (

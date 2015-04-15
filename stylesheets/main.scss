@@ -54,12 +54,7 @@ body {
 
 .imdikator-graph-functions {
   font-size: $font-size--medium;
-  &__item {
-    &:last-child {
-      float: right;
-      margin-right: 0;
-    }
-  }
+
 }
 
 .imdikator-graph__graph {

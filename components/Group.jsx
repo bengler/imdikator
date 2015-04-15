@@ -43,25 +43,33 @@ module.exports = React.createClass({
         </h3>
       	{items}
 
-        <div className="imdikator-graph-functions">
-          <div className="imdikator-graph-functions__item">
-            <span className="icon icon--download"></span>
-            <a href="javascript://">Last ned bilde</a>
-          </div>
-          <div className="imdikator-graph-functions__item">
-            <span className="icon icon--download"></span>
-            <a href="javascript://">Last ned Excel-fil (csv)</a>
-          </div>
-          <div className="imdikator-graph-functions__item">
-            <span className="icon icon--share"></span>
-            <a href="javascript://">Del denne statistikken</a>
-          </div>
+        <ul className="imdikator-graph-functions list--inline">
+          <li className="imdikator-graph-functions__item">
+            <a href="javascript://" className="tool-link">
+              <span className="icon icon--download"></span>
+              Last ned bilde
+            </a>
+          </li>
+          <li className="imdikator-graph-functions__item">
+            <a href="javascript://" className="tool-link">
+              <span className="icon icon--download"></span>
+              Last ned Excel-fil (csv)
+            </a>
+          </li>
+          <li className="imdikator-graph-functions__item">
+            <a href="javascript://" className="tool-link">
+              <span className="icon icon--share"></span>
+              Del denne statistikken
+            </a>
+          </li>
 
-          <div className="imdikator-graph-functions__item">
-            <span className="icon icon--info"></span>
-            <a href="javascript://">Om tallene</a>
-          </div>
-        </div>
+          <li className="imdikator-graph-functions__item">
+            <a href="javascript://" className="tool-link">
+              <span className="icon icon--info"></span>
+              Om tallene
+            </a>
+          </li>
+        </ul>
 
       </div>
     )

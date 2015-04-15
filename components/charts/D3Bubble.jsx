@@ -1,5 +1,6 @@
 const React = require("react");
 const d3 = require('d3');
+const ProfileColors = require('./ProfileColors');
 
 module.exports = React.createClass({
   displayName: 'Bubble',
@@ -29,7 +30,9 @@ module.exports = React.createClass({
 
     const diameter = 960;
     const format = d3.format(",d");
-    const color = d3.scale.category20c();
+    // const color = d3.scale.category20c();
+    const color = d3.scale.ordinal()
+      .range(ProfileColors.all);
 
     const bubble = d3.layout.pack()
       .sort(null)
@@ -54,7 +57,7 @@ module.exports = React.createClass({
 
       node.append("circle")
         .attr("r", d => d.r)
-        .style("fill", d => color(d.packageName));
+        .style("fill", d => color(d.className));
 
       node.append("text")
         .attr("dy", ".3em")

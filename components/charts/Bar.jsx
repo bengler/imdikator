@@ -1,6 +1,7 @@
-const React = require("react");
+const React = require('react');
 const c3 = require('c3');
 const dotty = require('dotty');
+const ProfileColors = require('./ProfileColors');
 
 module.exports = React.createClass({
   displayName: 'AreaChart',
@@ -24,6 +25,14 @@ module.exports = React.createClass({
   componentDidUpdate() {
     this.renderChart();
   },
+  colorsToDict(variables, colors) {
+    let result = {};
+    variables.forEach((key, i)=> {
+      result[key] = colors[i];
+    });
+    console.info(result);
+    return result;
+  },
   renderChart() {
 
     let dimensions = this.props.item.dimensions;
@@ -32,11 +41,7 @@ module.exports = React.createClass({
     let chartData = {};
     let firstGroups = [];
 
-    let cutoff = false;
-
     if (dimensions.length == 3) {
-      cutoff = true;
-
       data = dotty.search(data, "*.*")[0];
       dimensions = dimensions.slice(1,3);
     }
@@ -50,25 +55,34 @@ module.exports = React.createClass({
       // Assumes nested groups follow same schema. Probes the first key.
       let secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
 
-      console.info(this.props.unit);
-      console.info(data);
+      if (dimensions[dimensions.length-1].label == "kjonn") {
+        var colors = this.colorsToDict(secondGroups, ProfileColors.gender);
+      } else {
+        var colors = this.colorsToDict(secondGroups, ProfileColors.all);
+      }
 
       secondGroups.forEach((second)=> {
         chartData[second] = []
         firstGroups.forEach((first)=> {
           chartData[second].push(firstDimension[first][secondDimensionName][second][this.props.unit][0])
-          console.info(firstDimension[first][secondDimensionName][second][this.props.unit][0]);
         });
       });
+
       if (this.props.stacked) {
         this.chart.groups([secondGroups]);
       }
+
     }
+
+    // if (this.props.unit == "prosent") {
+    //   this.chart.axis.max(99);
+    // }
 
     this.chart.load({
       json: chartData,
       type: "bar",
-      categories: firstGroups
+      categories: firstGroups,
+      colors: colors
     });
   },
   render() {

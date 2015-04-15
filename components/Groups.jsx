@@ -11,7 +11,7 @@ module.exports = React.createClass({
     })
 
     return (
-      <div className="groups">
+      <div className="imdikator-groups">
         {groups}
       </div>
     )

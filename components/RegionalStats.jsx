@@ -31,18 +31,22 @@ module.exports = React.createClass({
     // Todo: only show the first region we got for now. We need to figure out how to combine several areas into one
     const region = regions[0];
     return (
-      <div className="imdikator-list__wrapper">
-        {regions.length > 1 && <p>Hei, du har inkludert flere regioner. Dette virker ikke ennå.</p>}
-        <h1 className="center">{region.name}</h1>
-        <p className="imdikator-preamble">
-          {region.name} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
-          {municipality.refugees_percent}% av innvandrerne i kommunen er flyktninger.<br/>
-          Kommunen oppfyller ikke kravene til <a href="#">norskundervisning</a>.<br/>
-        </p>
-        <div className="center">
-          <a className="button" role="button">Lag faktaark for {region.name}</a>
+      <div>
+        <div className="wrapper">
+          {regions.length > 1 && <p>Hei, du har inkludert flere regioner. Dette virker ikke ennå.</p>}
+          <h1>{region.name}</h1>
+          <p className="imdikator-preamble">
+            {region.name} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
+            {municipality.refugees_percent}% av innvandrerne i kommunen er flyktninger.<br/>
+            Kommunen oppfyller ikke kravene til <a href="#">norskundervisning</a>.<br/>
+          </p>
+          <div className="">
+            <a className="button" role="button">Lag faktaark for {region.name}</a>
+          </div>
         </div>
-        <Groups groupData={this.props.groupData} regions={regions}/>
+        <div className="imdikator-list__wrapper">
+          <Groups groupData={this.props.groupData} regions={regions}/>
+        </div>
       </div>
     )
   }

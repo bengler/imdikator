@@ -43,7 +43,9 @@ module.exports = React.createClass({
       type: 'area',
     });
 
-    this.chart.groups([groups]);
+    if (this.props.stacked) {
+      this.chart.groups([groups]);
+    }
 
   },
   render() {

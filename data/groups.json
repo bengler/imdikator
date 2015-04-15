@@ -4,7 +4,7 @@
     "title": "Befolkningssammensetning",
     "items": [
       {
-        "chartKind": "bar",
+        "chartKind": "stackedBar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
           {
@@ -27,7 +27,7 @@
         "defaultUnit": "personer"
       },
       {
-        "chartKind": "area",
+        "chartKind": "stackedArea",
         "table": "befolkning_hovedgruppe_tidsserie",
         "dimensions": [
           {
@@ -54,7 +54,7 @@
     "title": "Innvandringsgrunn og kjønn",
     "items": [
       {
-        "chartKind": "bar",
+        "chartKind": "stackedBar",
         "table": "befolkning_innvandringsgrunn",
         "dimensions": [
           {
@@ -97,7 +97,7 @@
     "title": "Innvandrernes botid",
     "items": [
       {
-        "chartKind": "bar",
+        "chartKind": "stackedBar",
         "table": "befolkning_botid",
         "dimensions": [
           {
@@ -228,7 +228,12 @@
   },
   {
     "groupKind": "chart",
-    "title": "Sekundærflytting blant flytktninger",
+    "title": "Sekundærflytting blant flyktninger",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Bosatte flyktninger",
     "items": []
   },
   {

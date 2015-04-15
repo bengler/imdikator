@@ -60,7 +60,9 @@ module.exports = React.createClass({
           console.info(firstDimension[first][secondDimensionName][second][this.props.unit][0]);
         });
       });
-      this.chart.groups([secondGroups]);
+      if (this.props.stacked) {
+        this.chart.groups([secondGroups]);
+      }
     }
 
     this.chart.load({

@@ -94,6 +94,7 @@ module.exports = React.createClass({
     }
 
     const Chart = charts[this.props.item.chartKind];
+    const stacked = this.props.item.chartKind == "stackedBar" || this.props.item.chartKind == "stackedArea";
     const time = this.convertYearsToISO(this.state.data.time);
     const chartData = this.mungeData(this.state.data);
 
@@ -115,7 +116,7 @@ module.exports = React.createClass({
 
         {this.props.item.title && <h4>{this.props.item.title}</h4>}
 
-        <Chart item={this.props.item} unit={unit} time={time} data={chartData}/>
+        <Chart item={this.props.item} stacked={stacked} unit={unit} time={time} data={chartData}/>
         <Table data={this.state.data}/>
 
       </div>

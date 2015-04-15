@@ -1,18 +1,15 @@
 const request = require('../lib/request');
-const http = require('http');
+const fetchGoogleSheetExport = require('../lib/fetchGoogleSheetExport');
 const csv = require('csv-parse');
 const fs = require('fs');
 const RxNode = require('rx-node');
 const Rx = require('rx');
 const debug = require('debug')("imdikator:import-labels");
 
-const DOCS_URL = `https://docs.google.com/spreadsheets/d/1VEn9mXBh630Ww1ZsVkF-ykQ5E2Z7rBbFNDy_bjK7F0o/export`;
-const DOC_ID = `1VEn9mXBh630Ww1ZsVkF-ykQ5E2Z7rBbFNDy_bjK7F0o`;
+const SHEET_KEY = '1VEn9mXBh630Ww1ZsVkF-ykQ5E2Z7rBbFNDy_bjK7F0o';
+const SHEET_GID = 1205232570;
 
-function fetchSheetExport({format, gid}) {
-  return request.get(DOCS_URL, {format: format || 'csv', id: DOC_ID, gid})
-}
-const outFile = "./data/tables.json";
+const OUTFILE = "./data/tables.json";
 
 function csvToObjects(rs) {
   const rows = RxNode.fromReadableStream(rs.pipe(csv()));
@@ -27,11 +24,7 @@ function csvToObjects(rs) {
     });
 }
 
-const TABLES_SHEET_ID = 1205232570;
-const VARIABLES_SHEET_ID = 385917427;
-
-
-const tables = csvToObjects(fetchSheetExport(TABLES_SHEET_ID))
+const tables = csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
   .map(row => {
     const mappings = {
       Tabellnr: "id",
@@ -49,7 +42,7 @@ const tables = csvToObjects(fetchSheetExport(TABLES_SHEET_ID))
   .tap(debug)
   .toArray()
   .flatMap(tables => {
-    return Rx.Observable.fromNodeCallback(fs.writeFile)(outFile, JSON.stringify(tables, null, 2));
+    return Rx.Observable.fromNodeCallback(fs.writeFile)(OUTFILE, JSON.stringify(tables, null, 2));
   })
   .subscribe(()=> {
     console.log("Done")

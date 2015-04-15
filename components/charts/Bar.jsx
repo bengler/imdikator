@@ -30,7 +30,7 @@ module.exports = React.createClass({
     let data = this.props.data;
 
     let chartData = {};
-    let firstGroups = []; 
+    let firstGroups = [];
 
     let cutoff = false;
 
@@ -67,6 +67,10 @@ module.exports = React.createClass({
       json: chartData,
       type: "bar",
       categories: firstGroups,
+      colors: {
+        '0': '#f00',
+        '1': '#0f0'
+      }
     });
   },
   render() {

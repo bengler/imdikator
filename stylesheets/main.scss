@@ -178,3 +178,10 @@ body {
 .graph-color-6 { fill: $_blue; }
 .graph-color-7 { fill: $_green; }
 .graph-color-8 { fill: $_green; }
+
+.c3-target-bar-color--male path{
+  fill: $_color-male !important;
+}
+.c3-target-bar-color--female path {
+  fill: $_color-female !important;
+}

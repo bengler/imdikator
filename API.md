@@ -10,10 +10,10 @@ GET /api/v1/query?:params
 
 ```json
 {
-  table: "videregaende_fullfort",
-  regions: ["F1"],
-  dimensions: ["kjonn:1", "innvkat_5:innvandrere"],
-  time: ["2011"]
+  "table": "videregaende_fullfort",
+  "regions": ["F1"],
+  "dimensions": ["kjonn:1", "innvkat_5:innvandrere"],
+  "time": ["2011"]
 }
 ```
 
@@ -21,16 +21,16 @@ GET /api/v1/query?:params
 
 ```json
 {
-  table: 'videregaende_fullfort',
-  time: ['2011'],
-  data: {
+  "table": "videregaende_fullfort",
+  "time": ["2011"],
+  "data": {
     "F1": {
-      kjonn: {
+      "kjonn": {
         "1": {
-          innvkat_5: {
-            innvandrere: {
-              personer: ["139"],
-              prosent: ["39"]
+          "innvkat_5": {
+            "innvandrere": {
+              "personer": ["139"],
+              "prosent": ["39"]
             }
           }
         }

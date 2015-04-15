@@ -1,4 +1,3 @@
-const request = require('../lib/request');
 const fetchGoogleSheetExport = require('../lib/fetchGoogleSheetExport');
 const csv = require('csv-parse');
 const fs = require('fs');

@@ -41,10 +41,6 @@ module.exports = React.createClass({
     let chartData = {};
     let firstGroups = [];
 
-    if (dimensions.length == 3) {
-      data = dotty.search(data, "*.*")[0];
-      dimensions = dimensions.slice(1,3);
-    }
 
     if (dimensions.length == 2) {
       let firstDimension = data[dimensions[0].label];

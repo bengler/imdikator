@@ -35,6 +35,11 @@ module.exports = React.createClass({
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
 
+    while(Object.keys(data[Object.keys(data)[0]]).length == 1) {
+      data = dotty.search(data, "*.*")[0];
+      this.props.item.dimensions = this.props.item.dimensions.slice(1,this.props.item.dimensions.length);
+    }
+
     this.props.units = Object.keys(this.getUnits(data, this.props.item.dimensions));
 
     return data;

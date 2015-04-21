@@ -4,27 +4,27 @@
     "description": "Innvandringskategori femdelt",
     "variables": [
       {
-        "name": "hele befolkningen",
+        "title": "hele befolkningen",
         "label": "alle",
         "comment": "Konvensjonen er å legge til suffix med antall kategorier i variabelen hvis det er flere av samme inndelsingstype (femdelt verdensregion, åttedelt verdensregion, osv)"
       },
       {
-        "name": "innvandrere",
+        "title": "innvandrere",
         "label": "innvandrere",
         "comment": "Innvandrer-kategorien er definert likt i alle innvkat."
       },
       {
-        "name": "befolkningen ellers,",
+        "title": "befolkningen ellers,",
         "label": "befolkningen_ellers",
         "comment": "befolkningen ellers er definert likt i innvkat_5 og innvkat_3"
       },
       {
-        "name": "norskfødte med innvandrerforeldre",
+        "title": "norskfødte med innvandrerforeldre",
         "label": "norskfodte_m_innvf",
         "comment": "norskfødte er definert likt i innvkat_5 og innvkat_4."
       },
       {
-        "name": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
+        "title": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
         "label": "bef_u_innv_og_norskf"
       }
     ]
@@ -34,16 +34,16 @@
     "description": "Innvandringskategori tredelt",
     "variables": [
       {
-        "name": "hele befolkningen",
+        "title": "hele befolkningen",
         "label": "alle"
       },
       {
-        "name": "innvandrere",
+        "title": "innvandrere",
         "label": "innvandrere",
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       },
       {
-        "name": "befolkningen ellers",
+        "title": "befolkningen ellers",
         "label": "befolkningen_ellers",
         "comment": "innvkat_3.bef = innvkat_5.bef"
       }
@@ -54,21 +54,21 @@
     "description": "innvandringskategori firedelt",
     "variables": [
       {
-        "name": "hele befolkningen",
+        "title": "hele befolkningen",
         "label": "alle"
       },
       {
-        "name": "innvandrere",
+        "title": "innvandrere",
         "label": "innvandrere",
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       },
       {
-        "name": "norskfødte med innvandrerforeldre",
+        "title": "norskfødte med innvandrerforeldre",
         "label": "norskfodte_m_innvf",
         "comment": "innvkat_4.norsfodte = innvkat_5.norskfodte"
       },
       {
-        "name": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
+        "title": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
         "label": "bef_u_innv_og_norskf",
         "comment": "innvkat_4.bef_u_innv_og_norskf = innvkat_5.bef_u_innv_og_norskf"
       }
@@ -79,11 +79,11 @@
     "description": "innvandringskategori todelt",
     "variables": [
       {
-        "name": "hele befolkningen",
+        "title": "hele befolkningen",
         "label": "alle"
       },
       {
-        "name": "innvandrere",
+        "title": "innvandrere",
         "label": "innvandrere",
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       }
@@ -94,16 +94,16 @@
     "description": "Kjønn",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle",
         "comment": "alle er definert inn som et kjønn"
       },
       {
-        "name": "kvinne",
+        "title": "kvinne",
         "label": "0"
       },
       {
-        "name": "mann",
+        "title": "mann",
         "label": "1"
       }
     ]
@@ -113,12 +113,12 @@
     "description": "todelt verdensregion",
     "variables": [
       {
-        "name": "EU, EØS, etc (Landgruppe 1 hos SSB)",
+        "title": "EU, EØS, etc (Landgruppe 1 hos SSB)",
         "label": "1",
         "comment": "alle er ikke definert inn her, da dette er en tom mengde/manglende data i tabellene vi har."
       },
       {
-        "name": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
+        "title": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
         "label": "2"
       }
     ]
@@ -128,17 +128,17 @@
     "description": "tredelt verdensregion",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle",
         "comment": "denne er den samme som vreg_2, men har en alle-kategori. Er brukt i tilfeller hvor innholdet egentlig ikke vil gi mening. Eks. i tabell 8: vreg_3.alle og innvkat_3.befolkningen_ellers er befolkningen som ikke er innvandrere sine flyttinger. disse har ikke definert landbakgrunn, men får det oppgitt?"
       },
       {
-        "name": "EU, EØS, etc (Landgruppe 1 hos SSB)",
+        "title": "EU, EØS, etc (Landgruppe 1 hos SSB)",
         "label": "1",
         "comment": "vreg_3.1=vreg_2.1"
       },
       {
-        "name": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
+        "title": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
         "label": "2",
         "comment": "vreg_3.2=vreg_2.2"
       }
@@ -149,23 +149,23 @@
     "description": "femdelt verdensregion",
     "variables": [
       {
-        "name": "Europa eks. Tyrkia",
+        "title": "Europa eks. Tyrkia",
         "label": "europa"
       },
       {
-        "name": "Asia inkl. Tyrkia",
+        "title": "Asia inkl. Tyrkia",
         "label": "asia"
       },
       {
-        "name": "Afrika",
+        "title": "Afrika",
         "label": "afrika"
       },
       {
-        "name": "Nord-Amerika og Oseania",
+        "title": "Nord-Amerika og Oseania",
         "label": "nord_amerika_oseania"
       },
       {
-        "name": "Sør- og Mellom-Amerika",
+        "title": "Sør- og Mellom-Amerika",
         "label": "sor_og_mellom_amerika"
       }
     ]
@@ -175,39 +175,39 @@
     "description": "åttedelt verdensregion",
     "variables": [
       {
-        "name": "Norden",
+        "title": "Norden",
         "label": "norden"
       },
       {
-        "name": "Vest-Europa ellers",
+        "title": "Vest-Europa ellers",
         "label": "vest_europa"
       },
       {
-        "name": "EU-land i Øst-Europa",
+        "title": "EU-land i Øst-Europa",
         "label": "eu_ost_europa"
       },
       {
-        "name": "Øst-Europa ellers",
+        "title": "Øst-Europa ellers",
         "label": "ost_europa_ellers"
       },
       {
-        "name": "Nord-Amerika \nog Oseania",
+        "title": "Nord-Amerika \nog Oseania",
         "label": "nord_amerika_oseania"
       },
       {
-        "name": "Asia (inkl. Tyrkia)",
+        "title": "Asia (inkl. Tyrkia)",
         "label": "asia"
       },
       {
-        "name": "Afrika",
+        "title": "Afrika",
         "label": "afrika"
       },
       {
-        "name": "Sør- og \nMellom-Amerika",
+        "title": "Sør- og \nMellom-Amerika",
         "label": "sor_og_mellom_amerika"
       },
       {
-        "name": "Alle",
+        "title": "Alle",
         "label": "alle"
       }
     ]
@@ -217,23 +217,23 @@
     "description": "botid i Norge (femdelt)",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "name": "0-4",
+        "title": "0-4",
         "label": "0-4"
       },
       {
-        "name": "5-9",
+        "title": "5-9",
         "label": "5-9"
       },
       {
-        "name": "10+",
+        "title": "10+",
         "label": "10+"
       },
       {
-        "name": "uoppgitt",
+        "title": "uoppgitt",
         "label": "uoppgitt"
       }
     ]
@@ -243,15 +243,15 @@
     "description": "botid i Norge (tredelt)",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "name": "0-4",
+        "title": "0-4",
         "label": "0-4"
       },
       {
-        "name": "5+",
+        "title": "5+",
         "label": "5+"
       }
     ]
@@ -261,15 +261,15 @@
     "description": "alder ved innvandring",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "name": "0-6",
+        "title": "0-6",
         "label": "0-6"
       },
       {
-        "name": "7+",
+        "title": "7+",
         "label": "7+"
       }
     ]
@@ -279,15 +279,15 @@
     "description": "Sekundærflytting",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "name": "ja",
+        "title": "ja",
         "label": "ja"
       },
       {
-        "name": "nei",
+        "title": "nei",
         "label": "nei"
       }
     ]
@@ -297,39 +297,39 @@
     "description": "Flyttinger til og fra kommuner",
     "variables": [
       {
-        "name": "Innvandring",
+        "title": "Innvandring",
         "label": "innvandring"
       },
       {
-        "name": "utvandring",
+        "title": "utvandring",
         "label": "utvandring"
       },
       {
-        "name": "nettoinnvandring",
+        "title": "nettoinnvandring",
         "label": "nettoinnvandring"
       },
       {
-        "name": "innflytting",
+        "title": "innflytting",
         "label": "innflytting"
       },
       {
-        "name": "utflytting",
+        "title": "utflytting",
         "label": "utflytting"
       },
       {
-        "name": "nettoinnflytting",
+        "title": "nettoinnflytting",
         "label": "nettoinnflytting"
       },
       {
-        "name": "innvandring + innflytting",
+        "title": "innvandring + innflytting",
         "label": "innvandring_og_innflytting"
       },
       {
-        "name": "utvandring+utflytting",
+        "title": "utvandring+utflytting",
         "label": "utvandring_og_utflytting"
       },
       {
-        "name": "netto innvandring+netto innflytting",
+        "title": "netto innvandring+netto innflytting",
         "label": "nettoinnvandring_og_nettoinnflytting"
       }
     ]
@@ -339,16 +339,16 @@
     "description": "Barn i barnehage",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle",
         "comment": "Satt på samme rad som barnikommune - fungerer det?"
       },
       {
-        "name": "minoritetssprok",
+        "title": "minoritetssprok",
         "label": "minoritetssprok"
       },
       {
-        "name": "majoritetssprok",
+        "title": "majoritetssprok",
         "label": "majoritetssprok"
       }
     ]
@@ -358,16 +358,16 @@
     "description": "Barn i kommunen (alle, med innvandringsbakgrunn eks. utvalgte land, barn ellers)",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle",
         "comment": "Satt på samme linje som bbhg"
       },
       {
-        "name": "innvandrerbakgr",
+        "title": "innvandrerbakgr",
         "label": "innvandrerbakgr"
       },
       {
-        "name": "barn ellers",
+        "title": "barn ellers",
         "label": "barn_ellers"
       }
     ]
@@ -377,27 +377,27 @@
     "description": "Barnealder",
     "variables": [
       {
-        "name": "1-5 år",
+        "title": "1-5 år",
         "label": "1-5"
       },
       {
-        "name": "1 år",
+        "title": "1 år",
         "label": "1"
       },
       {
-        "name": "2 år",
+        "title": "2 år",
         "label": "2"
       },
       {
-        "name": "3 år",
+        "title": "3 år",
         "label": "3"
       },
       {
-        "name": "4 år",
+        "title": "4 år",
         "label": "4"
       },
       {
-        "name": "5 år",
+        "title": "5 år",
         "label": "5"
       }
     ]
@@ -407,16 +407,16 @@
     "description": "Barnehagedeltakelse i prosent (barn i barnehage/barn i kommune)",
     "variables": [
       {
-        "name": "alle barn",
+        "title": "alle barn",
         "label": "alle_barn",
         "comment": "Satt på samme rad som bbhg og barnikommune"
       },
       {
-        "name": "minoritetsspråklige",
+        "title": "minoritetsspråklige",
         "label": "minoritetsspraklige"
       },
       {
-        "name": "barn ellers",
+        "title": "barn ellers",
         "label": "barn_ellers"
       }
     ]
@@ -426,7 +426,7 @@
     "description": "Gjennomsnittlige grunnskolepoeng (en indikator)",
     "variables": [
       {
-        "name": "antall poeng",
+        "title": "antall poeng",
         "label": "antall_poeng"
       }
     ]
@@ -436,15 +436,15 @@
     "description": "språkbakgrunn",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "name": "minoritetsspråklige (eks. utvalgte land)",
+        "title": "minoritetsspråklige (eks. utvalgte land)",
         "label": "minoritet"
       },
       {
-        "name": "ikke-minoritetsspråklige (ink. utvalgte land)",
+        "title": "ikke-minoritetsspråklige (ink. utvalgte land)",
         "label": "ikke_minoritet"
       }
     ]
@@ -454,11 +454,11 @@
     "description": "voksne i grunnskolen",
     "variables": [
       {
-        "name": "alle",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "name": "minoritetsspråklig",
+        "title": "minoritetsspråklig",
         "label": "minoritetsspraklige"
       }
     ]
@@ -468,22 +468,22 @@
     "description": "Utdanning på fire nivåer",
     "variables": [
       {
-        "name": "grunnskole",
+        "title": "grunnskole",
         "label": "grunnskole",
         "comment": "udt_4.g = udt_6.g"
       },
       {
-        "name": "vgs",
+        "title": "vgs",
         "label": "vgs",
         "comment": "udt_4.vgs = udt_6.vgs"
       },
       {
-        "name": "universitets og høgskole",
+        "title": "universitets og høgskole",
         "label": "universitet_og_hogskole",
         "comment": "udt_4.universitet = udt_6.universitet"
       },
       {
-        "name": "uoppgitt/ingen",
+        "title": "uoppgitt/ingen",
         "label": "uoppgitt_ingen",
         "comment": "udt_4.uoppgitt = udt_6.uoppgitt"
       }
@@ -494,27 +494,27 @@
     "description": "Seksdelt utdanningsnivå",
     "variables": [
       {
-        "name": "grunnskole",
+        "title": "grunnskole",
         "label": "grunnskole"
       },
       {
-        "name": "vgs",
+        "title": "vgs",
         "label": "vgs"
       },
       {
-        "name": "universitet og høgskole i alt",
+        "title": "universitet og høgskole i alt",
         "label": "universitet_og_hogskole"
       },
       {
-        "name": "universitet og høgskole kort",
+        "title": "universitet og høgskole kort",
         "label": "universitet_og_hogskole_kort"
       },
       {
-        "name": "universitet og høgskole lang",
+        "title": "universitet og høgskole lang",
         "label": "universitet_og_hogskole_lang"
       },
       {
-        "name": "uoppgitt/ingen",
+        "title": "uoppgitt/ingen",
         "label": "uoppgitt_ingen"
       }
     ]
@@ -524,15 +524,15 @@
     "description": "fordelig på spor",
     "variables": [
       {
-        "name": "spor 1",
+        "title": "spor 1",
         "label": "spor_1"
       },
       {
-        "name": "spor2",
+        "title": "spor2",
         "label": "spor_2"
       },
       {
-        "name": "spor 3",
+        "title": "spor 3",
         "label": "spor_3"
       }
     ]
@@ -542,15 +542,15 @@
     "description": "Rettighetsgruppe ift opplæring i norsk og samfunnskunnskap",
     "variables": [
       {
-        "name": "rett og plikt til opplæring i norsk og samfunnskunnskap",
+        "title": "rett og plikt til opplæring i norsk og samfunnskunnskap",
         "label": "rett_og_plikt"
       },
       {
-        "name": "plikt til opplæring i norsk og samfunnskunnskap",
+        "title": "plikt til opplæring i norsk og samfunnskunnskap",
         "label": "plikt"
       },
       {
-        "name": "rett til opplæring i norsk og samfunnskunnskap",
+        "title": "rett til opplæring i norsk og samfunnskunnskap",
         "label": "rett"
       }
     ]
@@ -560,7 +560,7 @@
     "description": "antall asylsøkere i opplæring i norsk og samfunnskunnskap",
     "variables": [
       {
-        "name": "antall asylsøkere i norsk og samfunnskunnskap",
+        "title": "antall asylsøkere i norsk og samfunnskunnskap",
         "label": "ant_asyl"
       }
     ]
@@ -570,7 +570,7 @@
     "description": "antall analfabeter i opplæring i norsk og samfunnskunnskap",
     "variables": [
       {
-        "name": "analfabeter i opplæring i norsk og samfunnskunnskap",
+        "title": "analfabeter i opplæring i norsk og samfunnskunnskap",
         "label": "ant_analfebet"
       }
     ]
@@ -580,7 +580,7 @@
     "description": "gjennomsnittlig antall norsktimer",
     "variables": [
       {
-        "name": "gjennomsnittlig antall norsktimer",
+        "title": "gjennomsnittlig antall norsktimer",
         "label": "snitt_time_norsk"
       }
     ]
@@ -590,31 +590,31 @@
     "description": "funksjonell aldersinndeling (0-5, )",
     "variables": [
       {
-        "name": "aldersfordeling i hele befolkningen",
+        "title": "aldersfordeling i hele befolkningen",
         "label": "0-5"
       },
       {
-        "name": "",
+        "title": "",
         "label": "6-15"
       },
       {
-        "name": "",
+        "title": "",
         "label": "16-19"
       },
       {
-        "name": "",
+        "title": "",
         "label": "20-29"
       },
       {
-        "name": "",
+        "title": "",
         "label": "30-54"
       },
       {
-        "name": "",
+        "title": "",
         "label": "55-66"
       },
       {
-        "name": "",
+        "title": "",
         "label": "67+"
       }
     ]
@@ -624,23 +624,23 @@
     "description": "femdelt innvandringsgrunn",
     "variables": [
       {
-        "name": "innvandringsgrunn",
+        "title": "innvandringsgrunn",
         "label": "alle"
       },
       {
-        "name": "",
+        "title": "",
         "label": "arbeid"
       },
       {
-        "name": "",
+        "title": "",
         "label": "flukt"
       },
       {
-        "name": "",
+        "title": "",
         "label": "familie"
       },
       {
-        "name": "",
+        "title": "",
         "label": "annet_uoppgitt"
       }
     ]
@@ -650,55 +650,55 @@
     "description": "årsak til avslutning av intro",
     "variables": [
       {
-        "name": "avsluttningsårsaker av introduksjonsprogrammet",
+        "title": "avsluttningsårsaker av introduksjonsprogrammet",
         "label": "alle"
       },
       {
-        "name": "",
+        "title": "",
         "label": "arbeid"
       },
       {
-        "name": "",
+        "title": "",
         "label": "hoyere_utd"
       },
       {
-        "name": "",
+        "title": "",
         "label": "vg_utd"
       },
       {
-        "name": "",
+        "title": "",
         "label": "grunnskole"
       },
       {
-        "name": "",
+        "title": "",
         "label": "navtiltak"
       },
       {
-        "name": "",
+        "title": "",
         "label": "lonnstilsk"
       },
       {
-        "name": "",
+        "title": "",
         "label": "tiltak_utenfor_nav"
       },
       {
-        "name": "",
+        "title": "",
         "label": "flyttet"
       },
       {
-        "name": "",
+        "title": "",
         "label": "helse"
       },
       {
-        "name": "",
+        "title": "",
         "label": "trygd"
       },
       {
-        "name": "",
+        "title": "",
         "label": "sos_stonad"
       },
       {
-        "name": "",
+        "title": "",
         "label": "annet"
       }
     ]
@@ -708,19 +708,19 @@
     "description": "aldersinndeling arbeidsfør alder",
     "variables": [
       {
-        "name": "aldersinndeling arbeidsfør alder",
+        "title": "aldersinndeling arbeidsfør alder",
         "label": "alle_18-69"
       },
       {
-        "name": "",
+        "title": "",
         "label": "18-29"
       },
       {
-        "name": "",
+        "title": "",
         "label": "30-54"
       },
       {
-        "name": "",
+        "title": "",
         "label": "55-69"
       }
     ]
@@ -730,7 +730,7 @@
     "description": "Personer som ikke er i arbeid eller utdanning (personer)",
     "variables": [
       {
-        "name": "antall personer som ikke er i arbeid eller utdanning",
+        "title": "antall personer som ikke er i arbeid eller utdanning",
         "label": ""
       }
     ]
@@ -740,15 +740,15 @@
     "description": "todelt aldersinndeling etter grunnskole",
     "variables": [
       {
-        "name": "antall prsoner i aldersgruppen 16-66",
+        "title": "antall prsoner i aldersgruppen 16-66",
         "label": "alle"
       },
       {
-        "name": "",
+        "title": "",
         "label": "16-25"
       },
       {
-        "name": "",
+        "title": "",
         "label": "26-66"
       }
     ]
@@ -758,7 +758,7 @@
     "description": "Gjennomsnittsinntekt",
     "variables": [
       {
-        "name": "gjennomsnittsinntekt",
+        "title": "gjennomsnittsinntekt",
         "label": "alle"
       }
     ]
@@ -768,7 +768,7 @@
     "description": "Personer med vedvarende lavinntekt",
     "variables": [
       {
-        "name": "antall personer med vedvarende lavinntekt",
+        "title": "antall personer med vedvarende lavinntekt",
         "label": "alle"
       }
     ]
@@ -778,7 +778,7 @@
     "description": "Personer som mottar sosialhjelp",
     "variables": [
       {
-        "name": "Personer som mottar sosialhjelp",
+        "title": "Personer som mottar sosialhjelp",
         "label": "alle"
       }
     ]
@@ -788,43 +788,43 @@
     "description": "Tilskuddstype",
     "variables": [
       {
-        "name": "Totalt tilskudd",
+        "title": "Totalt tilskudd",
         "label": "totalt"
       },
       {
-        "name": "Integreringstilskudd for år 1 og år 2-5",
+        "title": "Integreringstilskudd for år 1 og år 2-5",
         "label": "inttilsk_1-5"
       },
       {
-        "name": "Integreringstilskudd for år 1",
+        "title": "Integreringstilskudd for år 1",
         "label": "inttilsk_1"
       },
       {
-        "name": "Integreringstilskudd for år 2-5",
+        "title": "Integreringstilskudd for år 2-5",
         "label": "inttilsk_2-5"
       },
       {
-        "name": "Tilskudd til bosetting av personer med alvorlige funksjonshemminger og adferdsvansker",
+        "title": "Tilskudd til bosetting av personer med alvorlige funksjonshemminger og adferdsvansker",
         "label": "funkhem"
       },
       {
-        "name": "Tilskudd til opplæring i norsk og samfunnskunnskap for voksne innvandrere",
+        "title": "Tilskudd til opplæring i norsk og samfunnskunnskap for voksne innvandrere",
         "label": "norsk-samf_tilsk"
       },
       {
-        "name": "Særskilt kommunalt tilskudd ved bosetting av enslige mindreårige flyktninger",
+        "title": "Særskilt kommunalt tilskudd ved bosetting av enslige mindreårige flyktninger",
         "label": "em_tilsk"
       },
       {
-        "name": "Barnehagetilskudd, engangstilskudd for barn i alderen 0-5 år",
+        "title": "Barnehagetilskudd, engangstilskudd for barn i alderen 0-5 år",
         "label": "barnehage_tilsk"
       },
       {
-        "name": "Ekstra engangstilskudd for personer over 60 år ved bosetting",
+        "title": "Ekstra engangstilskudd for personer over 60 år ved bosetting",
         "label": "eldre_tilsk"
       },
       {
-        "name": "Skoletilskudd (etterslep)",
+        "title": "Skoletilskudd (etterslep)",
         "label": "skole_tilsk"
       }
     ]
@@ -834,35 +834,35 @@
     "description": "Bosetting",
     "variables": [
       {
-        "name": "Anmodning om bosetting fra IMDi",
+        "title": "Anmodning om bosetting fra IMDi",
         "label": "anmodning"
       },
       {
-        "name": "Vedtak om bosetting gjort av kommunen",
+        "title": "Vedtak om bosetting gjort av kommunen",
         "label": "vedtak"
       },
       {
-        "name": "Faktisk bosatt i kommunen",
+        "title": "Faktisk bosatt i kommunen",
         "label": "bosatt"
       },
       {
-        "name": "Bosatt siste år per 1000 innbyggere ved inngangen til neste år",
+        "title": "Bosatt siste år per 1000 innbyggere ved inngangen til neste år",
         "label": "bosatt_per_1000"
       },
       {
-        "name": "andel bosatte  av antall anmodede",
+        "title": "andel bosatte  av antall anmodede",
         "label": "bosatt_av_anmodede"
       },
       {
-        "name": "andel bosatte av antall vedtak",
+        "title": "andel bosatte av antall vedtak",
         "label": "bosatt_av_vedtak"
       },
       {
-        "name": "Bosatt totalt siste tre år",
+        "title": "Bosatt totalt siste tre år",
         "label": "bosatt_siste_trear"
       },
       {
-        "name": "Bosatt per 1000 siste tre år",
+        "title": "Bosatt per 1000 siste tre år",
         "label": "bosatt_per_1000_snitt_trear"
       }
     ]
@@ -872,7 +872,7 @@
     "description": "Bydelsnummer",
     "variables": [
       {
-        "name": "bydel_nr",
+        "title": "bydel_nr",
         "label": "bydel_nr"
       }
     ]
@@ -882,7 +882,7 @@
     "description": "Fylkesnummer",
     "variables": [
       {
-        "name": "fylke_nr",
+        "title": "fylke_nr",
         "label": "fylke_nr"
       }
     ]
@@ -892,7 +892,7 @@
     "description": "Kommunenummer",
     "variables": [
       {
-        "name": "kommune_nr",
+        "title": "kommune_nr",
         "label": "kommune_nr"
       }
     ]
@@ -902,7 +902,7 @@
     "description": "Næringsregionnummer",
     "variables": [
       {
-        "name": "naringsgregion_nr",
+        "title": "naringsgregion_nr",
         "label": "naringsgregion_nr"
       }
     ]
@@ -912,24 +912,24 @@
     "description": "Enheter for tall",
     "variables": [
       {
-        "name": "Personer",
+        "title": "Personer",
         "label": "personer",
         "comment": "Også brukt i tabell 8, hvor enhet.flyttinger kunne vært aktuell, tabell 30 hvor det er barn, t33 hvor det er elever, t7 hvor det flyktninger, t34 elever"
       },
       {
-        "name": "Prosent",
+        "title": "Prosent",
         "label": "prosent"
       },
       {
-        "name": "Kroner",
+        "title": "Kroner",
         "label": "kroner"
       },
       {
-        "name": "Gjennomsnitt",
+        "title": "Gjennomsnitt",
         "label": "gjennomsnitt"
       },
       {
-        "name": "Promille",
+        "title": "Promille",
         "label": "promille"
       }
     ]
@@ -939,7 +939,7 @@
     "description": "Utbetalt tilskudd",
     "variables": [
       {
-        "name": "?",
+        "title": "?",
         "label": "?"
       }
     ]
@@ -949,987 +949,987 @@
     "description": "landbakgrunn",
     "variables": [
       {
-        "name": "Alle land",
+        "title": "Alle land",
         "label": "001"
       },
       {
-        "name": "Danmark",
+        "title": "Danmark",
         "label": "101"
       },
       {
-        "name": "Grønland",
+        "title": "Grønland",
         "label": "102"
       },
       {
-        "name": "Finland",
+        "title": "Finland",
         "label": "103"
       },
       {
-        "name": "Færøyene",
+        "title": "Færøyene",
         "label": "104"
       },
       {
-        "name": "Island",
+        "title": "Island",
         "label": "105"
       },
       {
-        "name": "Sverige",
+        "title": "Sverige",
         "label": "106"
       },
       {
-        "name": "Albania",
+        "title": "Albania",
         "label": "111"
       },
       {
-        "name": "Belgia",
+        "title": "Belgia",
         "label": "112"
       },
       {
-        "name": "Bulgaria",
+        "title": "Bulgaria",
         "label": "113"
       },
       {
-        "name": "Andorra",
+        "title": "Andorra",
         "label": "114"
       },
       {
-        "name": "Estland",
+        "title": "Estland",
         "label": "115"
       },
       {
-        "name": "Frankrike",
+        "title": "Frankrike",
         "label": "117"
       },
       {
-        "name": "Gibraltar",
+        "title": "Gibraltar",
         "label": "118"
       },
       {
-        "name": "Hellas",
+        "title": "Hellas",
         "label": "119"
       },
       {
-        "name": "Hviterussland",
+        "title": "Hviterussland",
         "label": "120"
       },
       {
-        "name": "Irland",
+        "title": "Irland",
         "label": "121"
       },
       {
-        "name": "Kroatia",
+        "title": "Kroatia",
         "label": "122"
       },
       {
-        "name": "Italia",
+        "title": "Italia",
         "label": "123"
       },
       {
-        "name": "Latvia",
+        "title": "Latvia",
         "label": "124"
       },
       {
-        "name": "Malta",
+        "title": "Malta",
         "label": "126"
       },
       {
-        "name": "Nederland",
+        "title": "Nederland",
         "label": "127"
       },
       {
-        "name": "Liechtenstein",
+        "title": "Liechtenstein",
         "label": "128"
       },
       {
-        "name": "Luxembourg",
+        "title": "Luxembourg",
         "label": "129"
       },
       {
-        "name": "Monaco",
+        "title": "Monaco",
         "label": "130"
       },
       {
-        "name": "Polen",
+        "title": "Polen",
         "label": "131"
       },
       {
-        "name": "Portugal",
+        "title": "Portugal",
         "label": "132"
       },
       {
-        "name": "Romania",
+        "title": "Romania",
         "label": "133"
       },
       {
-        "name": "San Marino",
+        "title": "San Marino",
         "label": "134"
       },
       {
-        "name": "Litauen",
+        "title": "Litauen",
         "label": "136"
       },
       {
-        "name": "Spania",
+        "title": "Spania",
         "label": "137"
       },
       {
-        "name": "Moldova",
+        "title": "Moldova",
         "label": "138"
       },
       {
-        "name": "Storbritannia",
+        "title": "Storbritannia",
         "label": "139"
       },
       {
-        "name": "Russland",
+        "title": "Russland",
         "label": "140"
       },
       {
-        "name": "Sveits",
+        "title": "Sveits",
         "label": "141"
       },
       {
-        "name": "Tyrkia",
+        "title": "Tyrkia",
         "label": "143"
       },
       {
-        "name": "Tyskland",
+        "title": "Tyskland",
         "label": "144"
       },
       {
-        "name": "Slovenia",
+        "title": "Slovenia",
         "label": "146"
       },
       {
-        "name": "Ukraina",
+        "title": "Ukraina",
         "label": "148"
       },
       {
-        "name": "Ungarn",
+        "title": "Ungarn",
         "label": "152"
       },
       {
-        "name": "Østerrike",
+        "title": "Østerrike",
         "label": "153"
       },
       {
-        "name": "Vatikanstaten",
+        "title": "Vatikanstaten",
         "label": "154"
       },
       {
-        "name": "Bosnia-Hercegovina",
+        "title": "Bosnia-Hercegovina",
         "label": "155"
       },
       {
-        "name": "Makedonia",
+        "title": "Makedonia",
         "label": "156"
       },
       {
-        "name": "Slovakia",
+        "title": "Slovakia",
         "label": "157"
       },
       {
-        "name": "Tsjekkia",
+        "title": "Tsjekkia",
         "label": "158"
       },
       {
-        "name": "Serbia",
+        "title": "Serbia",
         "label": "159"
       },
       {
-        "name": "Montenegro",
+        "title": "Montenegro",
         "label": "160"
       },
       {
-        "name": "Kosovo",
+        "title": "Kosovo",
         "label": "161"
       },
       {
-        "name": "Guernsey",
+        "title": "Guernsey",
         "label": "162"
       },
       {
-        "name": "Jersey",
+        "title": "Jersey",
         "label": "163"
       },
       {
-        "name": "Man",
+        "title": "Man",
         "label": "164"
       },
       {
-        "name": "Algerie",
+        "title": "Algerie",
         "label": "203"
       },
       {
-        "name": "Angola",
+        "title": "Angola",
         "label": "204"
       },
       {
-        "name": "Botswana",
+        "title": "Botswana",
         "label": "205"
       },
       {
-        "name": "St. Helena",
+        "title": "St. Helena",
         "label": "209"
       },
       {
-        "name": "Det britiske territoriet i Indiahavet",
+        "title": "Det britiske territoriet i Indiahavet",
         "label": "213"
       },
       {
-        "name": "Burundi",
+        "title": "Burundi",
         "label": "216"
       },
       {
-        "name": "Komorene",
+        "title": "Komorene",
         "label": "220"
       },
       {
-        "name": "Benin",
+        "title": "Benin",
         "label": "229"
       },
       {
-        "name": "Ekvatorial-Guinea",
+        "title": "Ekvatorial-Guinea",
         "label": "235"
       },
       {
-        "name": "Elfenbeinskysten",
+        "title": "Elfenbeinskysten",
         "label": "239"
       },
       {
-        "name": "Eritrea",
+        "title": "Eritrea",
         "label": "241"
       },
       {
-        "name": "Etiopia",
+        "title": "Etiopia",
         "label": "246"
       },
       {
-        "name": "Egypt",
+        "title": "Egypt",
         "label": "249"
       },
       {
-        "name": "Djibouti",
+        "title": "Djibouti",
         "label": "250"
       },
       {
-        "name": "Gabon",
+        "title": "Gabon",
         "label": "254"
       },
       {
-        "name": "Gambia",
+        "title": "Gambia",
         "label": "256"
       },
       {
-        "name": "Ghana",
+        "title": "Ghana",
         "label": "260"
       },
       {
-        "name": "Guinea",
+        "title": "Guinea",
         "label": "264"
       },
       {
-        "name": "Guinea-Bissau",
+        "title": "Guinea-Bissau",
         "label": "266"
       },
       {
-        "name": "Kamerun",
+        "title": "Kamerun",
         "label": "270"
       },
       {
-        "name": "Kapp Verde",
+        "title": "Kapp Verde",
         "label": "273"
       },
       {
-        "name": "Kenya",
+        "title": "Kenya",
         "label": "276"
       },
       {
-        "name": "Kongo-Brazzaville",
+        "title": "Kongo-Brazzaville",
         "label": "278"
       },
       {
-        "name": "Kongo",
+        "title": "Kongo",
         "label": "279"
       },
       {
-        "name": "Lesotho",
+        "title": "Lesotho",
         "label": "281"
       },
       {
-        "name": "Liberia",
+        "title": "Liberia",
         "label": "283"
       },
       {
-        "name": "Libya",
+        "title": "Libya",
         "label": "286"
       },
       {
-        "name": "Madagaskar",
+        "title": "Madagaskar",
         "label": "289"
       },
       {
-        "name": "Malawi",
+        "title": "Malawi",
         "label": "296"
       },
       {
-        "name": "Mali",
+        "title": "Mali",
         "label": "299"
       },
       {
-        "name": "Marokko",
+        "title": "Marokko",
         "label": "303"
       },
       {
-        "name": "Vest-Sahara",
+        "title": "Vest-Sahara",
         "label": "304"
       },
       {
-        "name": "Mauritania",
+        "title": "Mauritania",
         "label": "306"
       },
       {
-        "name": "Mauritius",
+        "title": "Mauritius",
         "label": "307"
       },
       {
-        "name": "Namibia",
+        "title": "Namibia",
         "label": "308"
       },
       {
-        "name": "Niger",
+        "title": "Niger",
         "label": "309"
       },
       {
-        "name": "Nigeria",
+        "title": "Nigeria",
         "label": "313"
       },
       {
-        "name": "Mosambik",
+        "title": "Mosambik",
         "label": "319"
       },
       {
-        "name": "Mayotte",
+        "title": "Mayotte",
         "label": "322"
       },
       {
-        "name": "Réunion",
+        "title": "Réunion",
         "label": "323"
       },
       {
-        "name": "Zimbabwe",
+        "title": "Zimbabwe",
         "label": "326"
       },
       {
-        "name": "Rwanda",
+        "title": "Rwanda",
         "label": "329"
       },
       {
-        "name": "São Tomé og Príncipe",
+        "title": "São Tomé og Príncipe",
         "label": "333"
       },
       {
-        "name": "Senegal",
+        "title": "Senegal",
         "label": "336"
       },
       {
-        "name": "Den sentralafrikanske republikk",
+        "title": "Den sentralafrikanske republikk",
         "label": "337"
       },
       {
-        "name": "Seychellene",
+        "title": "Seychellene",
         "label": "338"
       },
       {
-        "name": "Sierra Leone",
+        "title": "Sierra Leone",
         "label": "339"
       },
       {
-        "name": "Somalia",
+        "title": "Somalia",
         "label": "346"
       },
       {
-        "name": "Sør-Sudan",
+        "title": "Sør-Sudan",
         "label": "355"
       },
       {
-        "name": "Sudan",
+        "title": "Sudan",
         "label": "356"
       },
       {
-        "name": "Swaziland",
+        "title": "Swaziland",
         "label": "357"
       },
       {
-        "name": "Sør-Afrika",
+        "title": "Sør-Afrika",
         "label": "359"
       },
       {
-        "name": "Tanzania",
+        "title": "Tanzania",
         "label": "369"
       },
       {
-        "name": "Tsjad",
+        "title": "Tsjad",
         "label": "373"
       },
       {
-        "name": "Togo",
+        "title": "Togo",
         "label": "376"
       },
       {
-        "name": "Tunisia",
+        "title": "Tunisia",
         "label": "379"
       },
       {
-        "name": "Uganda",
+        "title": "Uganda",
         "label": "386"
       },
       {
-        "name": "Zambia",
+        "title": "Zambia",
         "label": "389"
       },
       {
-        "name": "Burkina Faso",
+        "title": "Burkina Faso",
         "label": "393"
       },
       {
-        "name": "Afghanistan",
+        "title": "Afghanistan",
         "label": "404"
       },
       {
-        "name": "Armenia",
+        "title": "Armenia",
         "label": "406"
       },
       {
-        "name": "Aserbajdsjan",
+        "title": "Aserbajdsjan",
         "label": "407"
       },
       {
-        "name": "Bahrain",
+        "title": "Bahrain",
         "label": "409"
       },
       {
-        "name": "Bangladesh",
+        "title": "Bangladesh",
         "label": "410"
       },
       {
-        "name": "Bhutan",
+        "title": "Bhutan",
         "label": "412"
       },
       {
-        "name": "Brunei",
+        "title": "Brunei",
         "label": "416"
       },
       {
-        "name": "Myanmar",
+        "title": "Myanmar",
         "label": "420"
       },
       {
-        "name": "Sri Lanka",
+        "title": "Sri Lanka",
         "label": "424"
       },
       {
-        "name": "De forente arabiske emirater",
+        "title": "De forente arabiske emirater",
         "label": "426"
       },
       {
-        "name": "Filippinene",
+        "title": "Filippinene",
         "label": "428"
       },
       {
-        "name": "Georgia",
+        "title": "Georgia",
         "label": "430"
       },
       {
-        "name": "Taiwan",
+        "title": "Taiwan",
         "label": "432"
       },
       {
-        "name": "Hongkong",
+        "title": "Hongkong",
         "label": "436"
       },
       {
-        "name": "India",
+        "title": "India",
         "label": "444"
       },
       {
-        "name": "Indonesia",
+        "title": "Indonesia",
         "label": "448"
       },
       {
-        "name": "Irak",
+        "title": "Irak",
         "label": "452"
       },
       {
-        "name": "Iran",
+        "title": "Iran",
         "label": "456"
       },
       {
-        "name": "Israel",
+        "title": "Israel",
         "label": "460"
       },
       {
-        "name": "Japan",
+        "title": "Japan",
         "label": "464"
       },
       {
-        "name": "Jordan",
+        "title": "Jordan",
         "label": "476"
       },
       {
-        "name": "Kambodsja",
+        "title": "Kambodsja",
         "label": "478"
       },
       {
-        "name": "Kasakhstan",
+        "title": "Kasakhstan",
         "label": "480"
       },
       {
-        "name": "Kina",
+        "title": "Kina",
         "label": "484"
       },
       {
-        "name": "Nord-Korea",
+        "title": "Nord-Korea",
         "label": "488"
       },
       {
-        "name": "Sør-Korea",
+        "title": "Sør-Korea",
         "label": "492"
       },
       {
-        "name": "Kuwait",
+        "title": "Kuwait",
         "label": "496"
       },
       {
-        "name": "Kypros",
+        "title": "Kypros",
         "label": "500"
       },
       {
-        "name": "Kirgisistan",
+        "title": "Kirgisistan",
         "label": "502"
       },
       {
-        "name": "Laos",
+        "title": "Laos",
         "label": "504"
       },
       {
-        "name": "Libanon",
+        "title": "Libanon",
         "label": "508"
       },
       {
-        "name": "Macao",
+        "title": "Macao",
         "label": "510"
       },
       {
-        "name": "Malaysia",
+        "title": "Malaysia",
         "label": "512"
       },
       {
-        "name": "Maldivene",
+        "title": "Maldivene",
         "label": "513"
       },
       {
-        "name": "Mongolia",
+        "title": "Mongolia",
         "label": "516"
       },
       {
-        "name": "Oman",
+        "title": "Oman",
         "label": "520"
       },
       {
-        "name": "Palestina",
+        "title": "Palestina",
         "label": "524"
       },
       {
-        "name": "Nepal",
+        "title": "Nepal",
         "label": "528"
       },
       {
-        "name": "Pakistan",
+        "title": "Pakistan",
         "label": "534"
       },
       {
-        "name": "Øst-Timor",
+        "title": "Øst-Timor",
         "label": "537"
       },
       {
-        "name": "Qatar",
+        "title": "Qatar",
         "label": "540"
       },
       {
-        "name": "Saudi-Arabia",
+        "title": "Saudi-Arabia",
         "label": "544"
       },
       {
-        "name": "Singapore",
+        "title": "Singapore",
         "label": "548"
       },
       {
-        "name": "Tadsjikistan",
+        "title": "Tadsjikistan",
         "label": "550"
       },
       {
-        "name": "Turkmenistan",
+        "title": "Turkmenistan",
         "label": "552"
       },
       {
-        "name": "Usbekistan",
+        "title": "Usbekistan",
         "label": "554"
       },
       {
-        "name": "Syria",
+        "title": "Syria",
         "label": "564"
       },
       {
-        "name": "Thailand",
+        "title": "Thailand",
         "label": "568"
       },
       {
-        "name": "Vietnam",
+        "title": "Vietnam",
         "label": "575"
       },
       {
-        "name": "Jemen",
+        "title": "Jemen",
         "label": "578"
       },
       {
-        "name": "De amerikanske Jomfruøyene",
+        "title": "De amerikanske Jomfruøyene",
         "label": "601"
       },
       {
-        "name": "Barbados",
+        "title": "Barbados",
         "label": "602"
       },
       {
-        "name": "Antigua og Barbuda",
+        "title": "Antigua og Barbuda",
         "label": "603"
       },
       {
-        "name": "Belize",
+        "title": "Belize",
         "label": "604"
       },
       {
-        "name": "Bahamas",
+        "title": "Bahamas",
         "label": "605"
       },
       {
-        "name": "Bermuda",
+        "title": "Bermuda",
         "label": "606"
       },
       {
-        "name": "De britiske Jomfruøyene",
+        "title": "De britiske Jomfruøyene",
         "label": "608"
       },
       {
-        "name": "Canada",
+        "title": "Canada",
         "label": "612"
       },
       {
-        "name": "Caymanøyene",
+        "title": "Caymanøyene",
         "label": "613"
       },
       {
-        "name": "Costa Rica",
+        "title": "Costa Rica",
         "label": "616"
       },
       {
-        "name": "Cuba",
+        "title": "Cuba",
         "label": "620"
       },
       {
-        "name": "Dominica",
+        "title": "Dominica",
         "label": "622"
       },
       {
-        "name": "Den dominikanske republikk",
+        "title": "Den dominikanske republikk",
         "label": "624"
       },
       {
-        "name": "Grenada",
+        "title": "Grenada",
         "label": "629"
       },
       {
-        "name": "Guadeloupe",
+        "title": "Guadeloupe",
         "label": "631"
       },
       {
-        "name": "Guatemala",
+        "title": "Guatemala",
         "label": "632"
       },
       {
-        "name": "Haiti",
+        "title": "Haiti",
         "label": "636"
       },
       {
-        "name": "Honduras",
+        "title": "Honduras",
         "label": "644"
       },
       {
-        "name": "Jamaica",
+        "title": "Jamaica",
         "label": "648"
       },
       {
-        "name": "Martinique",
+        "title": "Martinique",
         "label": "650"
       },
       {
-        "name": "Mexico",
+        "title": "Mexico",
         "label": "652"
       },
       {
-        "name": "Montserrat",
+        "title": "Montserrat",
         "label": "654"
       },
       {
-        "name": "Aruba",
+        "title": "Aruba",
         "label": "657"
       },
       {
-        "name": "Sint Maarten",
+        "title": "Sint Maarten",
         "label": "658"
       },
       {
-        "name": "Bonaire, Sint Eustatius og Saba",
+        "title": "Bonaire, Sint Eustatius og Saba",
         "label": "659"
       },
       {
-        "name": "Anguilla",
+        "title": "Anguilla",
         "label": "660"
       },
       {
-        "name": "Curaçao",
+        "title": "Curaçao",
         "label": "661"
       },
       {
-        "name": "Nicaragua",
+        "title": "Nicaragua",
         "label": "664"
       },
       {
-        "name": "Panama",
+        "title": "Panama",
         "label": "668"
       },
       {
-        "name": "El Salvador",
+        "title": "El Salvador",
         "label": "672"
       },
       {
-        "name": "Saint-Pierre-et-Miquelon",
+        "title": "Saint-Pierre-et-Miquelon",
         "label": "676"
       },
       {
-        "name": "Saint Kitts og Nevis",
+        "title": "Saint Kitts og Nevis",
         "label": "677"
       },
       {
-        "name": "Saint Lucia",
+        "title": "Saint Lucia",
         "label": "678"
       },
       {
-        "name": "Saint Vincent og Grenadinene",
+        "title": "Saint Vincent og Grenadinene",
         "label": "679"
       },
       {
-        "name": "Trinidad og Tobago",
+        "title": "Trinidad og Tobago",
         "label": "680"
       },
       {
-        "name": "Turks- og Caicosøyene",
+        "title": "Turks- og Caicosøyene",
         "label": "681"
       },
       {
-        "name": "USA",
+        "title": "USA",
         "label": "684"
       },
       {
-        "name": "Puerto Rico",
+        "title": "Puerto Rico",
         "label": "685"
       },
       {
-        "name": "Saint-Martin",
+        "title": "Saint-Martin",
         "label": "686"
       },
       {
-        "name": "Saint-Barthélemy",
+        "title": "Saint-Barthélemy",
         "label": "687"
       },
       {
-        "name": "Argentina",
+        "title": "Argentina",
         "label": "705"
       },
       {
-        "name": "Bolivia",
+        "title": "Bolivia",
         "label": "710"
       },
       {
-        "name": "Brasil",
+        "title": "Brasil",
         "label": "715"
       },
       {
-        "name": "Guyana",
+        "title": "Guyana",
         "label": "720"
       },
       {
-        "name": "Chile",
+        "title": "Chile",
         "label": "725"
       },
       {
-        "name": "Colombia",
+        "title": "Colombia",
         "label": "730"
       },
       {
-        "name": "Ecuador",
+        "title": "Ecuador",
         "label": "735"
       },
       {
-        "name": "Falklandsøyene",
+        "title": "Falklandsøyene",
         "label": "740"
       },
       {
-        "name": "Fransk Guyana",
+        "title": "Fransk Guyana",
         "label": "745"
       },
       {
-        "name": "Paraguay",
+        "title": "Paraguay",
         "label": "755"
       },
       {
-        "name": "Peru",
+        "title": "Peru",
         "label": "760"
       },
       {
-        "name": "Surinam",
+        "title": "Surinam",
         "label": "765"
       },
       {
-        "name": "Uruguay",
+        "title": "Uruguay",
         "label": "770"
       },
       {
-        "name": "Venezuela",
+        "title": "Venezuela",
         "label": "775"
       },
       {
-        "name": "Amerikansk Samoa",
+        "title": "Amerikansk Samoa",
         "label": "802"
       },
       {
-        "name": "Australia",
+        "title": "Australia",
         "label": "805"
       },
       {
-        "name": "Salomonøyene",
+        "title": "Salomonøyene",
         "label": "806"
       },
       {
-        "name": "Christmasøya",
+        "title": "Christmasøya",
         "label": "807"
       },
       {
-        "name": "Kokosøyene",
+        "title": "Kokosøyene",
         "label": "808"
       },
       {
-        "name": "Cookøyene",
+        "title": "Cookøyene",
         "label": "809"
       },
       {
-        "name": "Fiji",
+        "title": "Fiji",
         "label": "811"
       },
       {
-        "name": "Vanuatu",
+        "title": "Vanuatu",
         "label": "812"
       },
       {
-        "name": "Tonga",
+        "title": "Tonga",
         "label": "813"
       },
       {
-        "name": "Fransk Polynesia",
+        "title": "Fransk Polynesia",
         "label": "814"
       },
       {
-        "name": "Kiribati",
+        "title": "Kiribati",
         "label": "815"
       },
       {
-        "name": "Tuvalu",
+        "title": "Tuvalu",
         "label": "816"
       },
       {
-        "name": "Guam",
+        "title": "Guam",
         "label": "817"
       },
       {
-        "name": "Nauru",
+        "title": "Nauru",
         "label": "818"
       },
       {
-        "name": "USAs ytre småøyer",
+        "title": "USAs ytre småøyer",
         "label": "819"
       },
       {
-        "name": "New Zealand",
+        "title": "New Zealand",
         "label": "820"
       },
       {
-        "name": "Niue",
+        "title": "Niue",
         "label": "821"
       },
       {
-        "name": "Norfolkøya",
+        "title": "Norfolkøya",
         "label": "822"
       },
       {
-        "name": "Mikronesiaføderasjonen",
+        "title": "Mikronesiaføderasjonen",
         "label": "826"
       },
       {
-        "name": "Papua Ny-Guinea",
+        "title": "Papua Ny-Guinea",
         "label": "827"
       },
       {
-        "name": "Pitcairn",
+        "title": "Pitcairn",
         "label": "828"
       },
       {
-        "name": "Tokelau",
+        "title": "Tokelau",
         "label": "829"
       },
       {
-        "name": "Samoa",
+        "title": "Samoa",
         "label": "830"
       },
       {
-        "name": "Wallis- og Futunaøyene",
+        "title": "Wallis- og Futunaøyene",
         "label": "832"
       },
       {
-        "name": "Ny-Caledonia",
+        "title": "Ny-Caledonia",
         "label": "833"
       },
       {
-        "name": "Marshalløyene",
+        "title": "Marshalløyene",
         "label": "835"
       },
       {
-        "name": "Palau",
+        "title": "Palau",
         "label": "839"
       },
       {
-        "name": "Nord-Marianene",
+        "title": "Nord-Marianene",
         "label": "840"
       },
       {
-        "name": "Statsløs",
+        "title": "Statsløs",
         "label": "980"
       },
       {
-        "name": "Uoppgitt",
+        "title": "Uoppgitt",
         "label": "990"
       },
       {
-        "name": "Andre",
+        "title": "Andre",
         "label": "970"
       }
     ]

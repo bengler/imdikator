@@ -13,7 +13,7 @@ const OUTFILE = "./data/dimensions.json";
 const mappings = {
   Variabelbeskrivelse: 'description',
   'Kort variabelnavn': 'name',
-  'Menneskelesbar variabelkategorier': 'variable',
+  'Menneskelesbar variabelkategorier': 'variableTitle',
   'Maskinlesbar kortkategori': 'variableLabel',
   'Sammenslått': 'merged',
   'brukt i tabellnr': 'tables',
@@ -35,7 +35,7 @@ const dimensions = rows.filter(row => row.name && row.description).map(row => {
 rows
   .map(variable => {
     return {
-      name: variable.variable,
+      title: variable.variableTitle,
       label: variable.variableLabel,
       //merged: variable.merged || undefined,
       //tables: variable.tables.split(",").filter(Boolean),

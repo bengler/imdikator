@@ -30,7 +30,6 @@ module.exports = React.createClass({
     variables.forEach((key, i)=> {
       result[key] = colors[i];
     });
-    console.info(result);
     return result;
   },
   renderChart() {

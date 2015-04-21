@@ -72,7 +72,7 @@ function render(path) {
           )
         })}
       </select>
-      <RegionalStats groupData={groupData} regions={[selectedRegion || oslo]}/>
+      <RegionalStats groupData={groupData} regions={[selectedRegion]}/>
     </div>
   ), el);
 }

@@ -7,6 +7,7 @@ const ChartParamsStore = require("../stores/ChartParams");
 
 const Loader = require("./Loader.jsx");
 const DataActions = require("../actions/DataActions");
+const Navigation = require("../actions/Navigation");
 const Table = require("./Table.jsx");
 
 function makeId() {
@@ -89,7 +90,6 @@ module.exports = React.createClass({
   },
 
   componentDidMount() {
-    this.setState({key: makeId()})
     this.fetchData();
   },
 
@@ -101,6 +101,14 @@ module.exports = React.createClass({
     });
   },
 
+  handleUnitSelected(e) {
+    // Serializestate
+    let state = { 
+      unit: e.target.value,
+      id: this._id };
+
+    Navigation.updateNavigation(state)
+  },
 
   componentWillReceiveProps(nextProps) {
     const currRegions = this.props.regions.map(r => r.regionCode);
@@ -119,13 +127,14 @@ module.exports = React.createClass({
       return (<div><pre>Error: {this.state.error.stack}</pre></div>);
     }
 
-
     const Chart = charts[this.props.item.chartKind];
     const stacked = this.props.item.chartKind == "stackedBar" || this.props.item.chartKind == "stackedArea";
     const time = this.convertYearsToISO(this.state.data.time);
     const {data, units, dimensions} = this.mungeData(this.state.data);
 
     const unit = this.props.item.defaultUnit;
+
+    console.info(units);
 
     return (
       <div>
@@ -142,6 +151,14 @@ module.exports = React.createClass({
         }
 
         {this.props.item.title && <h4>{this.props.item.title}</h4>}
+
+        {units.map((unit)=> {
+          return (
+            <button value={unit} onClick={this.handleUnitSelected}>
+              {unit}
+            </button>
+          )
+        })}
 
         <Chart dimensions={dimensions} stacked={stacked} unit={unit} time={time} data={data}/>
         <Table data={data}/>

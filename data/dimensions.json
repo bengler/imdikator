@@ -6,61 +6,26 @@
       {
         "name": "hele befolkningen",
         "label": "alle",
-        "merged": "innvkat_5.alle",
-        "tables": [
-          "1",
-          "34",
-          "35",
-          "92"
-        ],
         "comment": "Konvensjonen er å legge til suffix med antall kategorier i variabelen hvis det er flere av samme inndelsingstype (femdelt verdensregion, åttedelt verdensregion, osv)"
       },
       {
         "name": "innvandrere",
         "label": "innvandrere",
-        "merged": "innvkat_5.innvandrere",
-        "tables": [
-          "1",
-          "34",
-          "35",
-          "92"
-        ],
         "comment": "Innvandrer-kategorien er definert likt i alle innvkat."
       },
       {
         "name": "befolkningen ellers,",
         "label": "befolkningen_ellers",
-        "merged": "innvkat_5.befolkningen_ellers",
-        "tables": [
-          "1",
-          "34",
-          "35",
-          "92"
-        ],
         "comment": "befolkningen ellers er definert likt i innvkat_5 og innvkat_3"
       },
       {
         "name": "norskfødte med innvandrerforeldre",
         "label": "norskfodte_m_innvf",
-        "merged": "innvkat_5.norskfodte_m_innvf",
-        "tables": [
-          "1",
-          "34",
-          "35",
-          "92"
-        ],
         "comment": "norskfødte er definert likt i innvkat_5 og innvkat_4."
       },
       {
         "name": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
-        "label": "bef_u_innv_og_norskf",
-        "merged": "innvkat_5.bef_u_innv_og_norskf",
-        "tables": [
-          "1",
-          "34",
-          "35",
-          "92"
-        ]
+        "label": "bef_u_innv_og_norskf"
       }
     ]
   },
@@ -70,49 +35,16 @@
     "variables": [
       {
         "name": "hele befolkningen",
-        "label": "alle",
-        "merged": "innvkat_3.alle",
-        "tables": [
-          "4",
-          "8",
-          "37",
-          "90",
-          "91",
-          "60",
-          "61.2",
-          "64"
-        ]
+        "label": "alle"
       },
       {
         "name": "innvandrere",
         "label": "innvandrere",
-        "merged": "innvkat_3.innvandrere",
-        "tables": [
-          "4",
-          "8",
-          "37",
-          "90",
-          "91",
-          "60",
-          "61.2",
-          "64"
-        ],
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       },
       {
         "name": "befolkningen ellers",
         "label": "befolkningen_ellers",
-        "merged": "innvkat_3.befolkningen_ellers",
-        "tables": [
-          "4",
-          "8",
-          "37",
-          "90",
-          "91",
-          "60",
-          "61.2",
-          "64"
-        ],
         "comment": "innvkat_3.bef = innvkat_5.bef"
       }
     ]
@@ -123,41 +55,21 @@
     "variables": [
       {
         "name": "hele befolkningen",
-        "label": "alle",
-        "merged": "innvkat_4.alle",
-        "tables": [
-          "33",
-          "31"
-        ]
+        "label": "alle"
       },
       {
         "name": "innvandrere",
         "label": "innvandrere",
-        "merged": "innvkat_4.innvandrere",
-        "tables": [
-          "33",
-          "31"
-        ],
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       },
       {
         "name": "norskfødte med innvandrerforeldre",
         "label": "norskfodte_m_innvf",
-        "merged": "innvkat_4.norskfodte_m_innvf",
-        "tables": [
-          "33",
-          "31"
-        ],
         "comment": "innvkat_4.norsfodte = innvkat_5.norskfodte"
       },
       {
         "name": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
         "label": "bef_u_innv_og_norskf",
-        "merged": "innvkat_4.bef_u_innv_og_norskf",
-        "tables": [
-          "33",
-          "31"
-        ],
         "comment": "innvkat_4.bef_u_innv_og_norskf = innvkat_5.bef_u_innv_og_norskf"
       }
     ]
@@ -168,13 +80,11 @@
     "variables": [
       {
         "name": "hele befolkningen",
-        "label": "alle",
-        "tables": []
+        "label": "alle"
       },
       {
         "name": "innvandrere",
         "label": "innvandrere",
-        "tables": [],
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       }
     ]
@@ -186,49 +96,15 @@
       {
         "name": "alle",
         "label": "alle",
-        "merged": "kjonn.alle",
-        "tables": [
-          "1",
-          "2",
-          "4",
-          "5",
-          "33",
-          "34",
-          "35",
-          "37",
-          "60"
-        ],
         "comment": "alle er definert inn som et kjønn"
       },
       {
         "name": "kvinne",
-        "label": "0",
-        "merged": "kjonn.0",
-        "tables": [
-          "1",
-          "2",
-          "4",
-          "5",
-          "33",
-          "34",
-          "35",
-          "37"
-        ]
+        "label": "0"
       },
       {
         "name": "mann",
-        "label": "1",
-        "merged": "kjonn.1",
-        "tables": [
-          "1",
-          "2",
-          "4",
-          "5",
-          "33",
-          "34",
-          "35",
-          "37"
-        ]
+        "label": "1"
       }
     ]
   },
@@ -239,19 +115,11 @@
       {
         "name": "EU, EØS, etc (Landgruppe 1 hos SSB)",
         "label": "1",
-        "merged": "vreg_2.1",
-        "tables": [
-          "2"
-        ],
         "comment": "alle er ikke definert inn her, da dette er en tom mengde/manglende data i tabellene vi har."
       },
       {
         "name": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
-        "label": "2",
-        "merged": "vreg_2.2",
-        "tables": [
-          "2"
-        ]
+        "label": "2"
       }
     ]
   },
@@ -262,34 +130,16 @@
       {
         "name": "alle",
         "label": "alle",
-        "merged": "vreg_3.alle",
-        "tables": [
-          "6",
-          "8",
-          "31"
-        ],
         "comment": "denne er den samme som vreg_2, men har en alle-kategori. Er brukt i tilfeller hvor innholdet egentlig ikke vil gi mening. Eks. i tabell 8: vreg_3.alle og innvkat_3.befolkningen_ellers er befolkningen som ikke er innvandrere sine flyttinger. disse har ikke definert landbakgrunn, men får det oppgitt?"
       },
       {
         "name": "EU, EØS, etc (Landgruppe 1 hos SSB)",
         "label": "1",
-        "merged": "vreg_3.1",
-        "tables": [
-          "6",
-          "8",
-          "31"
-        ],
         "comment": "vreg_3.1=vreg_2.1"
       },
       {
         "name": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
         "label": "2",
-        "merged": "vreg_3.2",
-        "tables": [
-          "6",
-          "8",
-          "31"
-        ],
         "comment": "vreg_3.2=vreg_2.2"
       }
     ]
@@ -300,43 +150,23 @@
     "variables": [
       {
         "name": "Europa eks. Tyrkia",
-        "label": "europa",
-        "merged": "vreg_5.europa",
-        "tables": [
-          "2"
-        ]
+        "label": "europa"
       },
       {
         "name": "Asia inkl. Tyrkia",
-        "label": "asia",
-        "merged": "vreg_5.asia",
-        "tables": [
-          "2"
-        ]
+        "label": "asia"
       },
       {
         "name": "Afrika",
-        "label": "afrika",
-        "merged": "vreg_5.afrika",
-        "tables": [
-          "2"
-        ]
+        "label": "afrika"
       },
       {
         "name": "Nord-Amerika og Oseania",
-        "label": "nord_amerika_oseania",
-        "merged": "vreg_5.nord_amerika_oseania",
-        "tables": [
-          "2"
-        ]
+        "label": "nord_amerika_oseania"
       },
       {
         "name": "Sør- og Mellom-Amerika",
-        "label": "sor_og_mellom_amerika",
-        "merged": "vreg_5.sor_og_mellom_amerika",
-        "tables": [
-          "2"
-        ]
+        "label": "sor_og_mellom_amerika"
       }
     ]
   },
@@ -346,84 +176,39 @@
     "variables": [
       {
         "name": "Norden",
-        "label": "norden",
-        "merged": "vreg_8.norden",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "norden"
       },
       {
         "name": "Vest-Europa ellers",
-        "label": "vest_europa",
-        "merged": "vreg_8.vest_europa",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "vest_europa"
       },
       {
         "name": "EU-land i Øst-Europa",
-        "label": "eu_ost_europa",
-        "merged": "vreg_8.eu_ost_europa",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "eu_ost_europa"
       },
       {
         "name": "Øst-Europa ellers",
-        "label": "ost_europa_ellers",
-        "merged": "vreg_8.ost_europa_ellers",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "ost_europa_ellers"
       },
       {
         "name": "Nord-Amerika \nog Oseania",
-        "label": "nord_amerika_oseania",
-        "merged": "vreg_8.nord_amerika_oseania",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "nord_amerika_oseania"
       },
       {
         "name": "Asia (inkl. Tyrkia)",
-        "label": "asia",
-        "merged": "vreg_8.asia",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "asia"
       },
       {
         "name": "Afrika",
-        "label": "afrika",
-        "merged": "vreg_8.afrika",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "afrika"
       },
       {
         "name": "Sør- og \nMellom-Amerika",
-        "label": "sor_og_mellom_amerika",
-        "merged": "vreg_8.sor_og_mellom_amerika",
-        "tables": [
-          "2",
-          "63.3"
-        ]
+        "label": "sor_og_mellom_amerika"
       },
       {
         "name": "Alle",
-        "label": "alle",
-        "merged": "vreg_8.alle",
-        "tables": [
-          "63",
-          "3"
-        ]
+        "label": "alle"
       }
     ]
   },
@@ -433,46 +218,23 @@
     "variables": [
       {
         "name": "alle",
-        "label": "alle",
-        "merged": "botid_5.alle",
-        "tables": [
-          "6"
-        ]
+        "label": "alle"
       },
       {
         "name": "0-4",
-        "label": "0-4",
-        "merged": "botid_5.0-4",
-        "tables": [
-          "6",
-          "62"
-        ]
+        "label": "0-4"
       },
       {
         "name": "5-9",
-        "label": "5-9",
-        "merged": "botid_5.5-9",
-        "tables": [
-          "6",
-          "62"
-        ]
+        "label": "5-9"
       },
       {
         "name": "10+",
-        "label": "10+",
-        "merged": "botid_5.10+",
-        "tables": [
-          "6",
-          "62"
-        ]
+        "label": "10+"
       },
       {
         "name": "uoppgitt",
-        "label": "uoppgitt",
-        "merged": "botid_5.uoppgitt",
-        "tables": [
-          "6"
-        ]
+        "label": "uoppgitt"
       }
     ]
   },
@@ -482,27 +244,15 @@
     "variables": [
       {
         "name": "alle",
-        "label": "alle",
-        "merged": "botid_3.alle",
-        "tables": [
-          "7"
-        ]
+        "label": "alle"
       },
       {
         "name": "0-4",
-        "label": "0-4",
-        "merged": "botid_3.0-4",
-        "tables": [
-          "7"
-        ]
+        "label": "0-4"
       },
       {
         "name": "5+",
-        "label": "5+",
-        "merged": "botid_3.5+",
-        "tables": [
-          "7"
-        ]
+        "label": "5+"
       }
     ]
   },
@@ -512,21 +262,15 @@
     "variables": [
       {
         "name": "alle",
-        "label": "alle",
-        "merged": "invalder_3.alle",
-        "tables": []
+        "label": "alle"
       },
       {
         "name": "0-6",
-        "label": "0-6",
-        "merged": "invalder_3.0-6",
-        "tables": []
+        "label": "0-6"
       },
       {
         "name": "7+",
-        "label": "7+",
-        "merged": "invalder_3.7+",
-        "tables": []
+        "label": "7+"
       }
     ]
   },
@@ -536,27 +280,15 @@
     "variables": [
       {
         "name": "alle",
-        "label": "alle",
-        "merged": "forste_bosettingskommune.alle",
-        "tables": [
-          "7"
-        ]
+        "label": "alle"
       },
       {
         "name": "ja",
-        "label": "ja",
-        "merged": "forste_bosettingskommune.ja",
-        "tables": [
-          "7"
-        ]
+        "label": "ja"
       },
       {
         "name": "nei",
-        "label": "nei",
-        "merged": "forste_bosettingskommune.nei",
-        "tables": [
-          "7"
-        ]
+        "label": "nei"
       }
     ]
   },
@@ -566,75 +298,39 @@
     "variables": [
       {
         "name": "Innvandring",
-        "label": "innvandring",
-        "merged": "flytting.innvandring",
-        "tables": [
-          "8"
-        ]
+        "label": "innvandring"
       },
       {
         "name": "utvandring",
-        "label": "utvandring",
-        "merged": "flytting.utvandring",
-        "tables": [
-          "8"
-        ]
+        "label": "utvandring"
       },
       {
         "name": "nettoinnvandring",
-        "label": "nettoinnvandring",
-        "merged": "flytting.nettoinnvandring",
-        "tables": [
-          "8"
-        ]
+        "label": "nettoinnvandring"
       },
       {
         "name": "innflytting",
-        "label": "innflytting",
-        "merged": "flytting.innflytting",
-        "tables": [
-          "8"
-        ]
+        "label": "innflytting"
       },
       {
         "name": "utflytting",
-        "label": "utflytting",
-        "merged": "flytting.utflytting",
-        "tables": [
-          "8"
-        ]
+        "label": "utflytting"
       },
       {
         "name": "nettoinnflytting",
-        "label": "nettoinnflytting",
-        "merged": "flytting.nettoinnflytting",
-        "tables": [
-          "8"
-        ]
+        "label": "nettoinnflytting"
       },
       {
         "name": "innvandring + innflytting",
-        "label": "innvandring_og_innflytting",
-        "merged": "flytting.innvandring_og_innflytting",
-        "tables": [
-          "8"
-        ]
+        "label": "innvandring_og_innflytting"
       },
       {
         "name": "utvandring+utflytting",
-        "label": "utvandring_og_utflytting",
-        "merged": "flytting.utvandring_og_utflytting",
-        "tables": [
-          "8"
-        ]
+        "label": "utvandring_og_utflytting"
       },
       {
         "name": "netto innvandring+netto innflytting",
-        "label": "nettoinnvandring_og_nettoinnflytting",
-        "merged": "flytting.nettoinnvandring_og_nettoinnflytting",
-        "tables": [
-          "8"
-        ]
+        "label": "nettoinnvandring_og_nettoinnflytting"
       }
     ]
   },
@@ -645,33 +341,15 @@
       {
         "name": "alle",
         "label": "alle",
-        "merged": "bbhg.alle",
-        "tables": [
-          "(UTDATERT",
-          " erstatte med språkbakgrunn",
-          " tidligere bruk i 30)"
-        ],
         "comment": "Satt på samme rad som barnikommune - fungerer det?"
       },
       {
         "name": "minoritetssprok",
-        "label": "minoritetssprok",
-        "merged": "bbhg.minoritetssprok",
-        "tables": [
-          "(UTDATERT",
-          " erstatte med språkbakgrunn",
-          " tidligere bruk i 30)"
-        ]
+        "label": "minoritetssprok"
       },
       {
         "name": "majoritetssprok",
-        "label": "majoritetssprok",
-        "merged": "bbhg.majoritetssprok",
-        "tables": [
-          "(UTDATERT",
-          " erstatte med språkbakgrunn",
-          " tidligere bruk i 30)"
-        ]
+        "label": "majoritetssprok"
       }
     ]
   },
@@ -682,27 +360,15 @@
       {
         "name": "alle",
         "label": "alle",
-        "merged": "barnikommune.alle",
-        "tables": [
-          "30"
-        ],
         "comment": "Satt på samme linje som bbhg"
       },
       {
         "name": "innvandrerbakgr",
-        "label": "innvandrerbakgr",
-        "merged": "barnikommune.innvandrerbakgr",
-        "tables": [
-          "30"
-        ]
+        "label": "innvandrerbakgr"
       },
       {
         "name": "barn ellers",
-        "label": "barn_ellers",
-        "merged": "barnikommune.barn_ellers",
-        "tables": [
-          "30"
-        ]
+        "label": "barn_ellers"
       }
     ]
   },
@@ -712,51 +378,27 @@
     "variables": [
       {
         "name": "1-5 år",
-        "label": "1-5",
-        "merged": "bhgalder.1-5",
-        "tables": [
-          "30"
-        ]
+        "label": "1-5"
       },
       {
         "name": "1 år",
-        "label": "1",
-        "merged": "bhgalder.1",
-        "tables": [
-          "30"
-        ]
+        "label": "1"
       },
       {
         "name": "2 år",
-        "label": "2",
-        "merged": "bhgalder.2",
-        "tables": [
-          "30"
-        ]
+        "label": "2"
       },
       {
         "name": "3 år",
-        "label": "3",
-        "merged": "bhgalder.3",
-        "tables": [
-          "30"
-        ]
+        "label": "3"
       },
       {
         "name": "4 år",
-        "label": "4",
-        "merged": "bhgalder.4",
-        "tables": [
-          "30"
-        ]
+        "label": "4"
       },
       {
         "name": "5 år",
-        "label": "5",
-        "merged": "bhgalder.5",
-        "tables": [
-          "30"
-        ]
+        "label": "5"
       }
     ]
   },
@@ -767,33 +409,15 @@
       {
         "name": "alle barn",
         "label": "alle_barn",
-        "merged": "bhgdeltakelse.alle_barn",
-        "tables": [
-          "(UTDATERT",
-          " erstatte med språkbakgrunn",
-          " tidligere bruk i 30)"
-        ],
         "comment": "Satt på samme rad som bbhg og barnikommune"
       },
       {
         "name": "minoritetsspråklige",
-        "label": "minoritetsspraklige",
-        "merged": "bhgdeltakelse.minoritetsspraklige",
-        "tables": [
-          "(UTDATERT",
-          " erstatte med språkbakgrunn",
-          " tidligere bruk i 30)"
-        ]
+        "label": "minoritetsspraklige"
       },
       {
         "name": "barn ellers",
-        "label": "barn_ellers",
-        "merged": "bhgdeltakelse.barn_ellers",
-        "tables": [
-          "(UTDATERT",
-          " erstatte med språkbakgrunn",
-          " tidligere bruk i 30)"
-        ]
+        "label": "barn_ellers"
       }
     ]
   },
@@ -803,9 +427,7 @@
     "variables": [
       {
         "name": "antall poeng",
-        "label": "antall_poeng",
-        "merged": "grskpoeng.antall_poeng",
-        "tables": []
+        "label": "antall_poeng"
       }
     ]
   },
@@ -815,30 +437,15 @@
     "variables": [
       {
         "name": "alle",
-        "label": "alle",
-        "merged": "spraak.alle",
-        "tables": [
-          "30",
-          "36"
-        ]
+        "label": "alle"
       },
       {
         "name": "minoritetsspråklige (eks. utvalgte land)",
-        "label": "minoritet",
-        "merged": "spraak.minoritet",
-        "tables": [
-          "30",
-          "36"
-        ]
+        "label": "minoritet"
       },
       {
         "name": "ikke-minoritetsspråklige (ink. utvalgte land)",
-        "label": "ikke_minoritet",
-        "merged": "spraak.ikke_minoritet",
-        "tables": [
-          "30",
-          "36"
-        ]
+        "label": "ikke_minoritet"
       }
     ]
   },
@@ -848,21 +455,11 @@
     "variables": [
       {
         "name": "alle",
-        "label": "alle",
-        "merged": "voksneigrunnsk.alle",
-        "tables": [
-          "(UTDATERT",
-          " tidligere brukt i 36)"
-        ]
+        "label": "alle"
       },
       {
         "name": "minoritetsspråklig",
-        "label": "minoritetsspraklige",
-        "merged": "voksneigrunnsk.minoritetsspraklige",
-        "tables": [
-          "(UTDATERT",
-          " tidligere brukt i 36)"
-        ]
+        "label": "minoritetsspraklige"
       }
     ]
   },
@@ -873,37 +470,21 @@
       {
         "name": "grunnskole",
         "label": "grunnskole",
-        "merged": "utd_4.grunnskole",
-        "tables": [
-          "37.kommune"
-        ],
         "comment": "udt_4.g = udt_6.g"
       },
       {
         "name": "vgs",
         "label": "vgs",
-        "merged": "utd_4.vgs",
-        "tables": [
-          "37.kommune"
-        ],
         "comment": "udt_4.vgs = udt_6.vgs"
       },
       {
         "name": "universitets og høgskole",
         "label": "universitet_og_hogskole",
-        "merged": "utd_4.universitet_og_hogskole",
-        "tables": [
-          "37.kommune"
-        ],
         "comment": "udt_4.universitet = udt_6.universitet"
       },
       {
         "name": "uoppgitt/ingen",
         "label": "uoppgitt_ingen",
-        "merged": "utd_4.uoppgitt_ingen",
-        "tables": [
-          "37.kommune"
-        ],
         "comment": "udt_4.uoppgitt = udt_6.uoppgitt"
       }
     ]
@@ -914,51 +495,27 @@
     "variables": [
       {
         "name": "grunnskole",
-        "label": "grunnskole",
-        "merged": "utd_6.grunnskole",
-        "tables": [
-          "37"
-        ]
+        "label": "grunnskole"
       },
       {
         "name": "vgs",
-        "label": "vgs",
-        "merged": "utd_6.vgs",
-        "tables": [
-          "37"
-        ]
+        "label": "vgs"
       },
       {
         "name": "universitet og høgskole i alt",
-        "label": "universitet_og_hogskole",
-        "merged": "utd_6.universitet_og_hogskole",
-        "tables": [
-          "37"
-        ]
+        "label": "universitet_og_hogskole"
       },
       {
         "name": "universitet og høgskole kort",
-        "label": "universitet_og_hogskole_kort",
-        "merged": "utd_6.universitet_og_hogskole_kort",
-        "tables": [
-          "37"
-        ]
+        "label": "universitet_og_hogskole_kort"
       },
       {
         "name": "universitet og høgskole lang",
-        "label": "universitet_og_hogskole_lang",
-        "merged": "utd_6.universitet_og_hogskole_lang",
-        "tables": [
-          "37"
-        ]
+        "label": "universitet_og_hogskole_lang"
       },
       {
         "name": "uoppgitt/ingen",
-        "label": "uoppgitt_ingen",
-        "merged": "utd_6.uoppgitt_ingen",
-        "tables": [
-          "37"
-        ]
+        "label": "uoppgitt_ingen"
       }
     ]
   },
@@ -968,18 +525,15 @@
     "variables": [
       {
         "name": "spor 1",
-        "label": "spor_1",
-        "tables": []
+        "label": "spor_1"
       },
       {
         "name": "spor2",
-        "label": "spor_2",
-        "tables": []
+        "label": "spor_2"
       },
       {
         "name": "spor 3",
-        "label": "spor_3",
-        "tables": []
+        "label": "spor_3"
       }
     ]
   },
@@ -989,18 +543,15 @@
     "variables": [
       {
         "name": "rett og plikt til opplæring i norsk og samfunnskunnskap",
-        "label": "rett_og_plikt",
-        "tables": []
+        "label": "rett_og_plikt"
       },
       {
         "name": "plikt til opplæring i norsk og samfunnskunnskap",
-        "label": "plikt",
-        "tables": []
+        "label": "plikt"
       },
       {
         "name": "rett til opplæring i norsk og samfunnskunnskap",
-        "label": "rett",
-        "tables": []
+        "label": "rett"
       }
     ]
   },
@@ -1010,8 +561,7 @@
     "variables": [
       {
         "name": "antall asylsøkere i norsk og samfunnskunnskap",
-        "label": "ant_asyl",
-        "tables": []
+        "label": "ant_asyl"
       }
     ]
   },
@@ -1021,8 +571,7 @@
     "variables": [
       {
         "name": "analfabeter i opplæring i norsk og samfunnskunnskap",
-        "label": "ant_analfebet",
-        "tables": []
+        "label": "ant_analfebet"
       }
     ]
   },
@@ -1032,8 +581,7 @@
     "variables": [
       {
         "name": "gjennomsnittlig antall norsktimer",
-        "label": "snitt_time_norsk",
-        "tables": []
+        "label": "snitt_time_norsk"
       }
     ]
   },
@@ -1043,59 +591,31 @@
     "variables": [
       {
         "name": "aldersfordeling i hele befolkningen",
-        "label": "0-5",
-        "merged": "alder_grupper.0-5",
-        "tables": [
-          "4"
-        ]
+        "label": "0-5"
       },
       {
         "name": "",
-        "label": "6-15",
-        "merged": "alder_grupper.6-15",
-        "tables": [
-          "4"
-        ]
+        "label": "6-15"
       },
       {
         "name": "",
-        "label": "16-19",
-        "merged": "alder_grupper.16-19",
-        "tables": [
-          "4"
-        ]
+        "label": "16-19"
       },
       {
         "name": "",
-        "label": "20-29",
-        "merged": "alder_grupper.20-29",
-        "tables": [
-          "4"
-        ]
+        "label": "20-29"
       },
       {
         "name": "",
-        "label": "30-54",
-        "merged": "alder_grupper.30-54",
-        "tables": [
-          "4"
-        ]
+        "label": "30-54"
       },
       {
         "name": "",
-        "label": "55-66",
-        "merged": "alder_grupper.55-66",
-        "tables": [
-          "4"
-        ]
+        "label": "55-66"
       },
       {
         "name": "",
-        "label": "67+",
-        "merged": "alder_grupper.67+",
-        "tables": [
-          "4"
-        ]
+        "label": "67+"
       }
     ]
   },
@@ -1105,48 +625,23 @@
     "variables": [
       {
         "name": "innvandringsgrunn",
-        "label": "alle",
-        "merged": "innvgrunn_5.alle",
-        "tables": [
-          "5",
-          "60"
-        ]
+        "label": "alle"
       },
       {
         "name": "",
-        "label": "arbeid",
-        "merged": "innvgrunn_5.arbeid",
-        "tables": [
-          "5",
-          "60"
-        ]
+        "label": "arbeid"
       },
       {
         "name": "",
-        "label": "flukt",
-        "merged": "innvgrunn_5.flukt",
-        "tables": [
-          "5",
-          "60"
-        ]
+        "label": "flukt"
       },
       {
         "name": "",
-        "label": "familie",
-        "merged": "innvgrunn_5.familie",
-        "tables": [
-          "5",
-          "60"
-        ]
+        "label": "familie"
       },
       {
         "name": "",
-        "label": "annet_uoppgitt",
-        "merged": "innvgrunn_5.annet_uoppgitt",
-        "tables": [
-          "5",
-          "60"
-        ]
+        "label": "annet_uoppgitt"
       }
     ]
   },
@@ -1156,68 +651,55 @@
     "variables": [
       {
         "name": "avsluttningsårsaker av introduksjonsprogrammet",
-        "label": "alle",
-        "tables": []
+        "label": "alle"
       },
       {
         "name": "",
-        "label": "arbeid",
-        "tables": []
+        "label": "arbeid"
       },
       {
         "name": "",
-        "label": "hoyere_utd",
-        "tables": []
+        "label": "hoyere_utd"
       },
       {
         "name": "",
-        "label": "vg_utd",
-        "tables": []
+        "label": "vg_utd"
       },
       {
         "name": "",
-        "label": "grunnskole",
-        "tables": []
+        "label": "grunnskole"
       },
       {
         "name": "",
-        "label": "navtiltak",
-        "tables": []
+        "label": "navtiltak"
       },
       {
         "name": "",
-        "label": "lonnstilsk",
-        "tables": []
+        "label": "lonnstilsk"
       },
       {
         "name": "",
-        "label": "tiltak_utenfor_nav",
-        "tables": []
+        "label": "tiltak_utenfor_nav"
       },
       {
         "name": "",
-        "label": "flyttet",
-        "tables": []
+        "label": "flyttet"
       },
       {
         "name": "",
-        "label": "helse",
-        "tables": []
+        "label": "helse"
       },
       {
         "name": "",
-        "label": "trygd",
-        "tables": []
+        "label": "trygd"
       },
       {
         "name": "",
-        "label": "sos_stonad",
-        "tables": []
+        "label": "sos_stonad"
       },
       {
         "name": "",
-        "label": "annet",
-        "tables": []
+        "label": "annet"
       }
     ]
   },
@@ -1227,27 +709,19 @@
     "variables": [
       {
         "name": "aldersinndeling arbeidsfør alder",
-        "label": "alle_18-69",
-        "merged": "arbeidsalder_18-69.alle_18-69",
-        "tables": []
+        "label": "alle_18-69"
       },
       {
         "name": "",
-        "label": "18-29",
-        "merged": "arbeidsalder_18-69.18-29",
-        "tables": []
+        "label": "18-29"
       },
       {
         "name": "",
-        "label": "30-54",
-        "merged": "arbeidsalder_18-69.30-54",
-        "tables": []
+        "label": "30-54"
       },
       {
         "name": "",
-        "label": "55-69",
-        "merged": "arbeidsalder_18-69.55-69",
-        "tables": []
+        "label": "55-69"
       }
     ]
   },
@@ -1257,8 +731,7 @@
     "variables": [
       {
         "name": "antall personer som ikke er i arbeid eller utdanning",
-        "label": "",
-        "tables": []
+        "label": ""
       }
     ]
   },
@@ -1268,27 +741,15 @@
     "variables": [
       {
         "name": "antall prsoner i aldersgruppen 16-66",
-        "label": "alle",
-        "merged": "aldersinndeling_etter_grskole.alle",
-        "tables": [
-          "66"
-        ]
+        "label": "alle"
       },
       {
         "name": "",
-        "label": "16-25",
-        "merged": "aldersinndeling_etter_grskole.16-25",
-        "tables": [
-          "66"
-        ]
+        "label": "16-25"
       },
       {
         "name": "",
-        "label": "26-66",
-        "merged": "aldersinndeling_etter_grskole.26-66",
-        "tables": [
-          "66"
-        ]
+        "label": "26-66"
       }
     ]
   },
@@ -1298,8 +759,7 @@
     "variables": [
       {
         "name": "gjennomsnittsinntekt",
-        "label": "alle",
-        "tables": []
+        "label": "alle"
       }
     ]
   },
@@ -1309,8 +769,7 @@
     "variables": [
       {
         "name": "antall personer med vedvarende lavinntekt",
-        "label": "alle",
-        "tables": []
+        "label": "alle"
       }
     ]
   },
@@ -1320,8 +779,7 @@
     "variables": [
       {
         "name": "Personer som mottar sosialhjelp",
-        "label": "alle",
-        "tables": []
+        "label": "alle"
       }
     ]
   },
@@ -1331,63 +789,43 @@
     "variables": [
       {
         "name": "Totalt tilskudd",
-        "label": "totalt",
-        "merged": "tilskudd_til_kommuner.totalt",
-        "tables": []
+        "label": "totalt"
       },
       {
         "name": "Integreringstilskudd for år 1 og år 2-5",
-        "label": "inttilsk_1-5",
-        "merged": "tilskudd_til_kommuner.inttilsk_1-5",
-        "tables": []
+        "label": "inttilsk_1-5"
       },
       {
         "name": "Integreringstilskudd for år 1",
-        "label": "inttilsk_1",
-        "merged": "tilskudd_til_kommuner.inttilsk_1",
-        "tables": []
+        "label": "inttilsk_1"
       },
       {
         "name": "Integreringstilskudd for år 2-5",
-        "label": "inttilsk_2-5",
-        "merged": "tilskudd_til_kommuner.inttilsk_2-5",
-        "tables": []
+        "label": "inttilsk_2-5"
       },
       {
         "name": "Tilskudd til bosetting av personer med alvorlige funksjonshemminger og adferdsvansker",
-        "label": "funkhem",
-        "merged": "tilskudd_til_kommuner.funkhem",
-        "tables": []
+        "label": "funkhem"
       },
       {
         "name": "Tilskudd til opplæring i norsk og samfunnskunnskap for voksne innvandrere",
-        "label": "norsk-samf_tilsk",
-        "merged": "tilskudd_til_kommuner.norsk-samf_tilsk",
-        "tables": []
+        "label": "norsk-samf_tilsk"
       },
       {
         "name": "Særskilt kommunalt tilskudd ved bosetting av enslige mindreårige flyktninger",
-        "label": "em_tilsk",
-        "merged": "tilskudd_til_kommuner.em_tilsk",
-        "tables": []
+        "label": "em_tilsk"
       },
       {
         "name": "Barnehagetilskudd, engangstilskudd for barn i alderen 0-5 år",
-        "label": "barnehage_tilsk",
-        "merged": "tilskudd_til_kommuner.barnehage_tilsk",
-        "tables": []
+        "label": "barnehage_tilsk"
       },
       {
         "name": "Ekstra engangstilskudd for personer over 60 år ved bosetting",
-        "label": "eldre_tilsk",
-        "merged": "tilskudd_til_kommuner.eldre_tilsk",
-        "tables": []
+        "label": "eldre_tilsk"
       },
       {
         "name": "Skoletilskudd (etterslep)",
-        "label": "skole_tilsk",
-        "merged": "tilskudd_til_kommuner.skole_tilsk",
-        "tables": []
+        "label": "skole_tilsk"
       }
     ]
   },
@@ -1397,51 +835,35 @@
     "variables": [
       {
         "name": "Anmodning om bosetting fra IMDi",
-        "label": "anmodning",
-        "merged": "bosetting.anmodning",
-        "tables": []
+        "label": "anmodning"
       },
       {
         "name": "Vedtak om bosetting gjort av kommunen",
-        "label": "vedtak",
-        "merged": "bosetting.vedtak",
-        "tables": []
+        "label": "vedtak"
       },
       {
         "name": "Faktisk bosatt i kommunen",
-        "label": "bosatt",
-        "merged": "bosetting.bosatt",
-        "tables": []
+        "label": "bosatt"
       },
       {
         "name": "Bosatt siste år per 1000 innbyggere ved inngangen til neste år",
-        "label": "bosatt_per_1000",
-        "merged": "bosetting.bosatt_per_1000",
-        "tables": []
+        "label": "bosatt_per_1000"
       },
       {
         "name": "andel bosatte  av antall anmodede",
-        "label": "bosatt_av_anmodede",
-        "merged": "bosetting.bosatt_av_anmodede",
-        "tables": []
+        "label": "bosatt_av_anmodede"
       },
       {
         "name": "andel bosatte av antall vedtak",
-        "label": "bosatt_av_vedtak",
-        "merged": "bosetting.bosatt_av_vedtak",
-        "tables": []
+        "label": "bosatt_av_vedtak"
       },
       {
         "name": "Bosatt totalt siste tre år",
-        "label": "bosatt_siste_trear",
-        "merged": "bosetting.bosatt_siste_trear",
-        "tables": []
+        "label": "bosatt_siste_trear"
       },
       {
         "name": "Bosatt per 1000 siste tre år",
-        "label": "bosatt_per_1000_snitt_trear",
-        "merged": "bosetting.bosatt_per_1000_snitt_trear",
-        "tables": []
+        "label": "bosatt_per_1000_snitt_trear"
       }
     ]
   },
@@ -1451,8 +873,7 @@
     "variables": [
       {
         "name": "bydel_nr",
-        "label": "bydel_nr",
-        "tables": []
+        "label": "bydel_nr"
       }
     ]
   },
@@ -1462,8 +883,7 @@
     "variables": [
       {
         "name": "fylke_nr",
-        "label": "fylke_nr",
-        "tables": []
+        "label": "fylke_nr"
       }
     ]
   },
@@ -1473,8 +893,7 @@
     "variables": [
       {
         "name": "kommune_nr",
-        "label": "kommune_nr",
-        "tables": []
+        "label": "kommune_nr"
       }
     ]
   },
@@ -1484,8 +903,7 @@
     "variables": [
       {
         "name": "naringsgregion_nr",
-        "label": "naringsgregion_nr",
-        "tables": []
+        "label": "naringsgregion_nr"
       }
     ]
   },
@@ -1496,68 +914,23 @@
       {
         "name": "Personer",
         "label": "personer",
-        "merged": "enhet.personer",
-        "tables": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "30",
-          "33",
-          "34",
-          "35",
-          "36",
-          "37",
-          "92",
-          "31",
-          "9",
-          "60"
-        ],
         "comment": "Også brukt i tabell 8, hvor enhet.flyttinger kunne vært aktuell, tabell 30 hvor det er barn, t33 hvor det er elever, t7 hvor det flyktninger, t34 elever"
       },
       {
         "name": "Prosent",
-        "label": "prosent",
-        "merged": "enhet.prosent",
-        "tables": [
-          "1",
-          "7",
-          "34",
-          "35",
-          "36",
-          "37",
-          "91",
-          "92",
-          "60"
-        ]
+        "label": "prosent"
       },
       {
         "name": "Kroner",
-        "label": "kroner",
-        "merged": "enhet.kroner",
-        "tables": [
-          "90"
-        ]
+        "label": "kroner"
       },
       {
         "name": "Gjennomsnitt",
-        "label": "gjennomsnitt",
-        "merged": "enhet.gjennomsnitt",
-        "tables": [
-          "31"
-        ]
+        "label": "gjennomsnitt"
       },
       {
         "name": "Promille",
-        "label": "promille",
-        "merged": "enhet.promille",
-        "tables": [
-          "9"
-        ]
+        "label": "promille"
       }
     ]
   },
@@ -1567,8 +940,7 @@
     "variables": [
       {
         "name": "?",
-        "label": "?",
-        "tables": []
+        "label": "?"
       }
     ]
   },
@@ -1578,1971 +950,987 @@
     "variables": [
       {
         "name": "Alle land",
-        "label": "001",
-        "merged": "landbakgrunn.001",
-        "tables": [
-          "3"
-        ]
+        "label": "001"
       },
       {
         "name": "Danmark",
-        "label": "101",
-        "merged": "landbakgrunn.101",
-        "tables": [
-          "3"
-        ]
+        "label": "101"
       },
       {
         "name": "Grønland",
-        "label": "102",
-        "merged": "landbakgrunn.102",
-        "tables": [
-          "3"
-        ]
+        "label": "102"
       },
       {
         "name": "Finland",
-        "label": "103",
-        "merged": "landbakgrunn.103",
-        "tables": [
-          "3"
-        ]
+        "label": "103"
       },
       {
         "name": "Færøyene",
-        "label": "104",
-        "merged": "landbakgrunn.104",
-        "tables": [
-          "3"
-        ]
+        "label": "104"
       },
       {
         "name": "Island",
-        "label": "105",
-        "merged": "landbakgrunn.105",
-        "tables": [
-          "3"
-        ]
+        "label": "105"
       },
       {
         "name": "Sverige",
-        "label": "106",
-        "merged": "landbakgrunn.106",
-        "tables": [
-          "3"
-        ]
+        "label": "106"
       },
       {
         "name": "Albania",
-        "label": "111",
-        "merged": "landbakgrunn.111",
-        "tables": [
-          "3"
-        ]
+        "label": "111"
       },
       {
         "name": "Belgia",
-        "label": "112",
-        "merged": "landbakgrunn.112",
-        "tables": [
-          "3"
-        ]
+        "label": "112"
       },
       {
         "name": "Bulgaria",
-        "label": "113",
-        "merged": "landbakgrunn.113",
-        "tables": [
-          "3"
-        ]
+        "label": "113"
       },
       {
         "name": "Andorra",
-        "label": "114",
-        "merged": "landbakgrunn.114",
-        "tables": [
-          "3"
-        ]
+        "label": "114"
       },
       {
         "name": "Estland",
-        "label": "115",
-        "merged": "landbakgrunn.115",
-        "tables": [
-          "3"
-        ]
+        "label": "115"
       },
       {
         "name": "Frankrike",
-        "label": "117",
-        "merged": "landbakgrunn.117",
-        "tables": [
-          "3"
-        ]
+        "label": "117"
       },
       {
         "name": "Gibraltar",
-        "label": "118",
-        "merged": "landbakgrunn.118",
-        "tables": [
-          "3"
-        ]
+        "label": "118"
       },
       {
         "name": "Hellas",
-        "label": "119",
-        "merged": "landbakgrunn.119",
-        "tables": [
-          "3"
-        ]
+        "label": "119"
       },
       {
         "name": "Hviterussland",
-        "label": "120",
-        "merged": "landbakgrunn.120",
-        "tables": [
-          "3"
-        ]
+        "label": "120"
       },
       {
         "name": "Irland",
-        "label": "121",
-        "merged": "landbakgrunn.121",
-        "tables": [
-          "3"
-        ]
+        "label": "121"
       },
       {
         "name": "Kroatia",
-        "label": "122",
-        "merged": "landbakgrunn.122",
-        "tables": [
-          "3"
-        ]
+        "label": "122"
       },
       {
         "name": "Italia",
-        "label": "123",
-        "merged": "landbakgrunn.123",
-        "tables": [
-          "3"
-        ]
+        "label": "123"
       },
       {
         "name": "Latvia",
-        "label": "124",
-        "merged": "landbakgrunn.124",
-        "tables": [
-          "3"
-        ]
+        "label": "124"
       },
       {
         "name": "Malta",
-        "label": "126",
-        "merged": "landbakgrunn.126",
-        "tables": [
-          "3"
-        ]
+        "label": "126"
       },
       {
         "name": "Nederland",
-        "label": "127",
-        "merged": "landbakgrunn.127",
-        "tables": [
-          "3"
-        ]
+        "label": "127"
       },
       {
         "name": "Liechtenstein",
-        "label": "128",
-        "merged": "landbakgrunn.128",
-        "tables": [
-          "3"
-        ]
+        "label": "128"
       },
       {
         "name": "Luxembourg",
-        "label": "129",
-        "merged": "landbakgrunn.129",
-        "tables": [
-          "3"
-        ]
+        "label": "129"
       },
       {
         "name": "Monaco",
-        "label": "130",
-        "merged": "landbakgrunn.130",
-        "tables": [
-          "3"
-        ]
+        "label": "130"
       },
       {
         "name": "Polen",
-        "label": "131",
-        "merged": "landbakgrunn.131",
-        "tables": [
-          "3"
-        ]
+        "label": "131"
       },
       {
         "name": "Portugal",
-        "label": "132",
-        "merged": "landbakgrunn.132",
-        "tables": [
-          "3"
-        ]
+        "label": "132"
       },
       {
         "name": "Romania",
-        "label": "133",
-        "merged": "landbakgrunn.133",
-        "tables": [
-          "3"
-        ]
+        "label": "133"
       },
       {
         "name": "San Marino",
-        "label": "134",
-        "merged": "landbakgrunn.134",
-        "tables": [
-          "3"
-        ]
+        "label": "134"
       },
       {
         "name": "Litauen",
-        "label": "136",
-        "merged": "landbakgrunn.136",
-        "tables": [
-          "3"
-        ]
+        "label": "136"
       },
       {
         "name": "Spania",
-        "label": "137",
-        "merged": "landbakgrunn.137",
-        "tables": [
-          "3"
-        ]
+        "label": "137"
       },
       {
         "name": "Moldova",
-        "label": "138",
-        "merged": "landbakgrunn.138",
-        "tables": [
-          "3"
-        ]
+        "label": "138"
       },
       {
         "name": "Storbritannia",
-        "label": "139",
-        "merged": "landbakgrunn.139",
-        "tables": [
-          "3"
-        ]
+        "label": "139"
       },
       {
         "name": "Russland",
-        "label": "140",
-        "merged": "landbakgrunn.140",
-        "tables": [
-          "3"
-        ]
+        "label": "140"
       },
       {
         "name": "Sveits",
-        "label": "141",
-        "merged": "landbakgrunn.141",
-        "tables": [
-          "3"
-        ]
+        "label": "141"
       },
       {
         "name": "Tyrkia",
-        "label": "143",
-        "merged": "landbakgrunn.143",
-        "tables": [
-          "3"
-        ]
+        "label": "143"
       },
       {
         "name": "Tyskland",
-        "label": "144",
-        "merged": "landbakgrunn.144",
-        "tables": [
-          "3"
-        ]
+        "label": "144"
       },
       {
         "name": "Slovenia",
-        "label": "146",
-        "merged": "landbakgrunn.146",
-        "tables": [
-          "3"
-        ]
+        "label": "146"
       },
       {
         "name": "Ukraina",
-        "label": "148",
-        "merged": "landbakgrunn.148",
-        "tables": [
-          "3"
-        ]
+        "label": "148"
       },
       {
         "name": "Ungarn",
-        "label": "152",
-        "merged": "landbakgrunn.152",
-        "tables": [
-          "3"
-        ]
+        "label": "152"
       },
       {
         "name": "Østerrike",
-        "label": "153",
-        "merged": "landbakgrunn.153",
-        "tables": [
-          "3"
-        ]
+        "label": "153"
       },
       {
         "name": "Vatikanstaten",
-        "label": "154",
-        "merged": "landbakgrunn.154",
-        "tables": [
-          "3"
-        ]
+        "label": "154"
       },
       {
         "name": "Bosnia-Hercegovina",
-        "label": "155",
-        "merged": "landbakgrunn.155",
-        "tables": [
-          "3"
-        ]
+        "label": "155"
       },
       {
         "name": "Makedonia",
-        "label": "156",
-        "merged": "landbakgrunn.156",
-        "tables": [
-          "3"
-        ]
+        "label": "156"
       },
       {
         "name": "Slovakia",
-        "label": "157",
-        "merged": "landbakgrunn.157",
-        "tables": [
-          "3"
-        ]
+        "label": "157"
       },
       {
         "name": "Tsjekkia",
-        "label": "158",
-        "merged": "landbakgrunn.158",
-        "tables": [
-          "3"
-        ]
+        "label": "158"
       },
       {
         "name": "Serbia",
-        "label": "159",
-        "merged": "landbakgrunn.159",
-        "tables": [
-          "3"
-        ]
+        "label": "159"
       },
       {
         "name": "Montenegro",
-        "label": "160",
-        "merged": "landbakgrunn.160",
-        "tables": [
-          "3"
-        ]
+        "label": "160"
       },
       {
         "name": "Kosovo",
-        "label": "161",
-        "merged": "landbakgrunn.161",
-        "tables": [
-          "3"
-        ]
+        "label": "161"
       },
       {
         "name": "Guernsey",
-        "label": "162",
-        "merged": "landbakgrunn.162",
-        "tables": [
-          "3"
-        ]
+        "label": "162"
       },
       {
         "name": "Jersey",
-        "label": "163",
-        "merged": "landbakgrunn.163",
-        "tables": [
-          "3"
-        ]
+        "label": "163"
       },
       {
         "name": "Man",
-        "label": "164",
-        "merged": "landbakgrunn.164",
-        "tables": [
-          "3"
-        ]
+        "label": "164"
       },
       {
         "name": "Algerie",
-        "label": "203",
-        "merged": "landbakgrunn.203",
-        "tables": [
-          "3"
-        ]
+        "label": "203"
       },
       {
         "name": "Angola",
-        "label": "204",
-        "merged": "landbakgrunn.204",
-        "tables": [
-          "3"
-        ]
+        "label": "204"
       },
       {
         "name": "Botswana",
-        "label": "205",
-        "merged": "landbakgrunn.205",
-        "tables": [
-          "3"
-        ]
+        "label": "205"
       },
       {
         "name": "St. Helena",
-        "label": "209",
-        "merged": "landbakgrunn.209",
-        "tables": [
-          "3"
-        ]
+        "label": "209"
       },
       {
         "name": "Det britiske territoriet i Indiahavet",
-        "label": "213",
-        "merged": "landbakgrunn.213",
-        "tables": [
-          "3"
-        ]
+        "label": "213"
       },
       {
         "name": "Burundi",
-        "label": "216",
-        "merged": "landbakgrunn.216",
-        "tables": [
-          "3"
-        ]
+        "label": "216"
       },
       {
         "name": "Komorene",
-        "label": "220",
-        "merged": "landbakgrunn.220",
-        "tables": [
-          "3"
-        ]
+        "label": "220"
       },
       {
         "name": "Benin",
-        "label": "229",
-        "merged": "landbakgrunn.229",
-        "tables": [
-          "3"
-        ]
+        "label": "229"
       },
       {
         "name": "Ekvatorial-Guinea",
-        "label": "235",
-        "merged": "landbakgrunn.235",
-        "tables": [
-          "3"
-        ]
+        "label": "235"
       },
       {
         "name": "Elfenbeinskysten",
-        "label": "239",
-        "merged": "landbakgrunn.239",
-        "tables": [
-          "3"
-        ]
+        "label": "239"
       },
       {
         "name": "Eritrea",
-        "label": "241",
-        "merged": "landbakgrunn.241",
-        "tables": [
-          "3"
-        ]
+        "label": "241"
       },
       {
         "name": "Etiopia",
-        "label": "246",
-        "merged": "landbakgrunn.246",
-        "tables": [
-          "3"
-        ]
+        "label": "246"
       },
       {
         "name": "Egypt",
-        "label": "249",
-        "merged": "landbakgrunn.249",
-        "tables": [
-          "3"
-        ]
+        "label": "249"
       },
       {
         "name": "Djibouti",
-        "label": "250",
-        "merged": "landbakgrunn.250",
-        "tables": [
-          "3"
-        ]
+        "label": "250"
       },
       {
         "name": "Gabon",
-        "label": "254",
-        "merged": "landbakgrunn.254",
-        "tables": [
-          "3"
-        ]
+        "label": "254"
       },
       {
         "name": "Gambia",
-        "label": "256",
-        "merged": "landbakgrunn.256",
-        "tables": [
-          "3"
-        ]
+        "label": "256"
       },
       {
         "name": "Ghana",
-        "label": "260",
-        "merged": "landbakgrunn.260",
-        "tables": [
-          "3"
-        ]
+        "label": "260"
       },
       {
         "name": "Guinea",
-        "label": "264",
-        "merged": "landbakgrunn.264",
-        "tables": [
-          "3"
-        ]
+        "label": "264"
       },
       {
         "name": "Guinea-Bissau",
-        "label": "266",
-        "merged": "landbakgrunn.266",
-        "tables": [
-          "3"
-        ]
+        "label": "266"
       },
       {
         "name": "Kamerun",
-        "label": "270",
-        "merged": "landbakgrunn.270",
-        "tables": [
-          "3"
-        ]
+        "label": "270"
       },
       {
         "name": "Kapp Verde",
-        "label": "273",
-        "merged": "landbakgrunn.273",
-        "tables": [
-          "3"
-        ]
+        "label": "273"
       },
       {
         "name": "Kenya",
-        "label": "276",
-        "merged": "landbakgrunn.276",
-        "tables": [
-          "3"
-        ]
+        "label": "276"
       },
       {
         "name": "Kongo-Brazzaville",
-        "label": "278",
-        "merged": "landbakgrunn.278",
-        "tables": [
-          "3"
-        ]
+        "label": "278"
       },
       {
         "name": "Kongo",
-        "label": "279",
-        "merged": "landbakgrunn.279",
-        "tables": [
-          "3"
-        ]
+        "label": "279"
       },
       {
         "name": "Lesotho",
-        "label": "281",
-        "merged": "landbakgrunn.281",
-        "tables": [
-          "3"
-        ]
+        "label": "281"
       },
       {
         "name": "Liberia",
-        "label": "283",
-        "merged": "landbakgrunn.283",
-        "tables": [
-          "3"
-        ]
+        "label": "283"
       },
       {
         "name": "Libya",
-        "label": "286",
-        "merged": "landbakgrunn.286",
-        "tables": [
-          "3"
-        ]
+        "label": "286"
       },
       {
         "name": "Madagaskar",
-        "label": "289",
-        "merged": "landbakgrunn.289",
-        "tables": [
-          "3"
-        ]
+        "label": "289"
       },
       {
         "name": "Malawi",
-        "label": "296",
-        "merged": "landbakgrunn.296",
-        "tables": [
-          "3"
-        ]
+        "label": "296"
       },
       {
         "name": "Mali",
-        "label": "299",
-        "merged": "landbakgrunn.299",
-        "tables": [
-          "3"
-        ]
+        "label": "299"
       },
       {
         "name": "Marokko",
-        "label": "303",
-        "merged": "landbakgrunn.303",
-        "tables": [
-          "3"
-        ]
+        "label": "303"
       },
       {
         "name": "Vest-Sahara",
-        "label": "304",
-        "merged": "landbakgrunn.304",
-        "tables": [
-          "3"
-        ]
+        "label": "304"
       },
       {
         "name": "Mauritania",
-        "label": "306",
-        "merged": "landbakgrunn.306",
-        "tables": [
-          "3"
-        ]
+        "label": "306"
       },
       {
         "name": "Mauritius",
-        "label": "307",
-        "merged": "landbakgrunn.307",
-        "tables": [
-          "3"
-        ]
+        "label": "307"
       },
       {
         "name": "Namibia",
-        "label": "308",
-        "merged": "landbakgrunn.308",
-        "tables": [
-          "3"
-        ]
+        "label": "308"
       },
       {
         "name": "Niger",
-        "label": "309",
-        "merged": "landbakgrunn.309",
-        "tables": [
-          "3"
-        ]
+        "label": "309"
       },
       {
         "name": "Nigeria",
-        "label": "313",
-        "merged": "landbakgrunn.313",
-        "tables": [
-          "3"
-        ]
+        "label": "313"
       },
       {
         "name": "Mosambik",
-        "label": "319",
-        "merged": "landbakgrunn.319",
-        "tables": [
-          "3"
-        ]
+        "label": "319"
       },
       {
         "name": "Mayotte",
-        "label": "322",
-        "merged": "landbakgrunn.322",
-        "tables": [
-          "3"
-        ]
+        "label": "322"
       },
       {
         "name": "Réunion",
-        "label": "323",
-        "merged": "landbakgrunn.323",
-        "tables": [
-          "3"
-        ]
+        "label": "323"
       },
       {
         "name": "Zimbabwe",
-        "label": "326",
-        "merged": "landbakgrunn.326",
-        "tables": [
-          "3"
-        ]
+        "label": "326"
       },
       {
         "name": "Rwanda",
-        "label": "329",
-        "merged": "landbakgrunn.329",
-        "tables": [
-          "3"
-        ]
+        "label": "329"
       },
       {
         "name": "São Tomé og Príncipe",
-        "label": "333",
-        "merged": "landbakgrunn.333",
-        "tables": [
-          "3"
-        ]
+        "label": "333"
       },
       {
         "name": "Senegal",
-        "label": "336",
-        "merged": "landbakgrunn.336",
-        "tables": [
-          "3"
-        ]
+        "label": "336"
       },
       {
         "name": "Den sentralafrikanske republikk",
-        "label": "337",
-        "merged": "landbakgrunn.337",
-        "tables": [
-          "3"
-        ]
+        "label": "337"
       },
       {
         "name": "Seychellene",
-        "label": "338",
-        "merged": "landbakgrunn.338",
-        "tables": [
-          "3"
-        ]
+        "label": "338"
       },
       {
         "name": "Sierra Leone",
-        "label": "339",
-        "merged": "landbakgrunn.339",
-        "tables": [
-          "3"
-        ]
+        "label": "339"
       },
       {
         "name": "Somalia",
-        "label": "346",
-        "merged": "landbakgrunn.346",
-        "tables": [
-          "3"
-        ]
+        "label": "346"
       },
       {
         "name": "Sør-Sudan",
-        "label": "355",
-        "merged": "landbakgrunn.355",
-        "tables": [
-          "3"
-        ]
+        "label": "355"
       },
       {
         "name": "Sudan",
-        "label": "356",
-        "merged": "landbakgrunn.356",
-        "tables": [
-          "3"
-        ]
+        "label": "356"
       },
       {
         "name": "Swaziland",
-        "label": "357",
-        "merged": "landbakgrunn.357",
-        "tables": [
-          "3"
-        ]
+        "label": "357"
       },
       {
         "name": "Sør-Afrika",
-        "label": "359",
-        "merged": "landbakgrunn.359",
-        "tables": [
-          "3"
-        ]
+        "label": "359"
       },
       {
         "name": "Tanzania",
-        "label": "369",
-        "merged": "landbakgrunn.369",
-        "tables": [
-          "3"
-        ]
+        "label": "369"
       },
       {
         "name": "Tsjad",
-        "label": "373",
-        "merged": "landbakgrunn.373",
-        "tables": [
-          "3"
-        ]
+        "label": "373"
       },
       {
         "name": "Togo",
-        "label": "376",
-        "merged": "landbakgrunn.376",
-        "tables": [
-          "3"
-        ]
+        "label": "376"
       },
       {
         "name": "Tunisia",
-        "label": "379",
-        "merged": "landbakgrunn.379",
-        "tables": [
-          "3"
-        ]
+        "label": "379"
       },
       {
         "name": "Uganda",
-        "label": "386",
-        "merged": "landbakgrunn.386",
-        "tables": [
-          "3"
-        ]
+        "label": "386"
       },
       {
         "name": "Zambia",
-        "label": "389",
-        "merged": "landbakgrunn.389",
-        "tables": [
-          "3"
-        ]
+        "label": "389"
       },
       {
         "name": "Burkina Faso",
-        "label": "393",
-        "merged": "landbakgrunn.393",
-        "tables": [
-          "3"
-        ]
+        "label": "393"
       },
       {
         "name": "Afghanistan",
-        "label": "404",
-        "merged": "landbakgrunn.404",
-        "tables": [
-          "3"
-        ]
+        "label": "404"
       },
       {
         "name": "Armenia",
-        "label": "406",
-        "merged": "landbakgrunn.406",
-        "tables": [
-          "3"
-        ]
+        "label": "406"
       },
       {
         "name": "Aserbajdsjan",
-        "label": "407",
-        "merged": "landbakgrunn.407",
-        "tables": [
-          "3"
-        ]
+        "label": "407"
       },
       {
         "name": "Bahrain",
-        "label": "409",
-        "merged": "landbakgrunn.409",
-        "tables": [
-          "3"
-        ]
+        "label": "409"
       },
       {
         "name": "Bangladesh",
-        "label": "410",
-        "merged": "landbakgrunn.410",
-        "tables": [
-          "3"
-        ]
+        "label": "410"
       },
       {
         "name": "Bhutan",
-        "label": "412",
-        "merged": "landbakgrunn.412",
-        "tables": [
-          "3"
-        ]
+        "label": "412"
       },
       {
         "name": "Brunei",
-        "label": "416",
-        "merged": "landbakgrunn.416",
-        "tables": [
-          "3"
-        ]
+        "label": "416"
       },
       {
         "name": "Myanmar",
-        "label": "420",
-        "merged": "landbakgrunn.420",
-        "tables": [
-          "3"
-        ]
+        "label": "420"
       },
       {
         "name": "Sri Lanka",
-        "label": "424",
-        "merged": "landbakgrunn.424",
-        "tables": [
-          "3"
-        ]
+        "label": "424"
       },
       {
         "name": "De forente arabiske emirater",
-        "label": "426",
-        "merged": "landbakgrunn.426",
-        "tables": [
-          "3"
-        ]
+        "label": "426"
       },
       {
         "name": "Filippinene",
-        "label": "428",
-        "merged": "landbakgrunn.428",
-        "tables": [
-          "3"
-        ]
+        "label": "428"
       },
       {
         "name": "Georgia",
-        "label": "430",
-        "merged": "landbakgrunn.430",
-        "tables": [
-          "3"
-        ]
+        "label": "430"
       },
       {
         "name": "Taiwan",
-        "label": "432",
-        "merged": "landbakgrunn.432",
-        "tables": [
-          "3"
-        ]
+        "label": "432"
       },
       {
         "name": "Hongkong",
-        "label": "436",
-        "merged": "landbakgrunn.436",
-        "tables": [
-          "3"
-        ]
+        "label": "436"
       },
       {
         "name": "India",
-        "label": "444",
-        "merged": "landbakgrunn.444",
-        "tables": [
-          "3"
-        ]
+        "label": "444"
       },
       {
         "name": "Indonesia",
-        "label": "448",
-        "merged": "landbakgrunn.448",
-        "tables": [
-          "3"
-        ]
+        "label": "448"
       },
       {
         "name": "Irak",
-        "label": "452",
-        "merged": "landbakgrunn.452",
-        "tables": [
-          "3"
-        ]
+        "label": "452"
       },
       {
         "name": "Iran",
-        "label": "456",
-        "merged": "landbakgrunn.456",
-        "tables": [
-          "3"
-        ]
+        "label": "456"
       },
       {
         "name": "Israel",
-        "label": "460",
-        "merged": "landbakgrunn.460",
-        "tables": [
-          "3"
-        ]
+        "label": "460"
       },
       {
         "name": "Japan",
-        "label": "464",
-        "merged": "landbakgrunn.464",
-        "tables": [
-          "3"
-        ]
+        "label": "464"
       },
       {
         "name": "Jordan",
-        "label": "476",
-        "merged": "landbakgrunn.476",
-        "tables": [
-          "3"
-        ]
+        "label": "476"
       },
       {
         "name": "Kambodsja",
-        "label": "478",
-        "merged": "landbakgrunn.478",
-        "tables": [
-          "3"
-        ]
+        "label": "478"
       },
       {
         "name": "Kasakhstan",
-        "label": "480",
-        "merged": "landbakgrunn.480",
-        "tables": [
-          "3"
-        ]
+        "label": "480"
       },
       {
         "name": "Kina",
-        "label": "484",
-        "merged": "landbakgrunn.484",
-        "tables": [
-          "3"
-        ]
+        "label": "484"
       },
       {
         "name": "Nord-Korea",
-        "label": "488",
-        "merged": "landbakgrunn.488",
-        "tables": [
-          "3"
-        ]
+        "label": "488"
       },
       {
         "name": "Sør-Korea",
-        "label": "492",
-        "merged": "landbakgrunn.492",
-        "tables": [
-          "3"
-        ]
+        "label": "492"
       },
       {
         "name": "Kuwait",
-        "label": "496",
-        "merged": "landbakgrunn.496",
-        "tables": [
-          "3"
-        ]
+        "label": "496"
       },
       {
         "name": "Kypros",
-        "label": "500",
-        "merged": "landbakgrunn.500",
-        "tables": [
-          "3"
-        ]
+        "label": "500"
       },
       {
         "name": "Kirgisistan",
-        "label": "502",
-        "merged": "landbakgrunn.502",
-        "tables": [
-          "3"
-        ]
+        "label": "502"
       },
       {
         "name": "Laos",
-        "label": "504",
-        "merged": "landbakgrunn.504",
-        "tables": [
-          "3"
-        ]
+        "label": "504"
       },
       {
         "name": "Libanon",
-        "label": "508",
-        "merged": "landbakgrunn.508",
-        "tables": [
-          "3"
-        ]
+        "label": "508"
       },
       {
         "name": "Macao",
-        "label": "510",
-        "merged": "landbakgrunn.510",
-        "tables": [
-          "3"
-        ]
+        "label": "510"
       },
       {
         "name": "Malaysia",
-        "label": "512",
-        "merged": "landbakgrunn.512",
-        "tables": [
-          "3"
-        ]
+        "label": "512"
       },
       {
         "name": "Maldivene",
-        "label": "513",
-        "merged": "landbakgrunn.513",
-        "tables": [
-          "3"
-        ]
+        "label": "513"
       },
       {
         "name": "Mongolia",
-        "label": "516",
-        "merged": "landbakgrunn.516",
-        "tables": [
-          "3"
-        ]
+        "label": "516"
       },
       {
         "name": "Oman",
-        "label": "520",
-        "merged": "landbakgrunn.520",
-        "tables": [
-          "3"
-        ]
+        "label": "520"
       },
       {
         "name": "Palestina",
-        "label": "524",
-        "merged": "landbakgrunn.524",
-        "tables": [
-          "3"
-        ]
+        "label": "524"
       },
       {
         "name": "Nepal",
-        "label": "528",
-        "merged": "landbakgrunn.528",
-        "tables": [
-          "3"
-        ]
+        "label": "528"
       },
       {
         "name": "Pakistan",
-        "label": "534",
-        "merged": "landbakgrunn.534",
-        "tables": [
-          "3"
-        ]
+        "label": "534"
       },
       {
         "name": "Øst-Timor",
-        "label": "537",
-        "merged": "landbakgrunn.537",
-        "tables": [
-          "3"
-        ]
+        "label": "537"
       },
       {
         "name": "Qatar",
-        "label": "540",
-        "merged": "landbakgrunn.540",
-        "tables": [
-          "3"
-        ]
+        "label": "540"
       },
       {
         "name": "Saudi-Arabia",
-        "label": "544",
-        "merged": "landbakgrunn.544",
-        "tables": [
-          "3"
-        ]
+        "label": "544"
       },
       {
         "name": "Singapore",
-        "label": "548",
-        "merged": "landbakgrunn.548",
-        "tables": [
-          "3"
-        ]
+        "label": "548"
       },
       {
         "name": "Tadsjikistan",
-        "label": "550",
-        "merged": "landbakgrunn.550",
-        "tables": [
-          "3"
-        ]
+        "label": "550"
       },
       {
         "name": "Turkmenistan",
-        "label": "552",
-        "merged": "landbakgrunn.552",
-        "tables": [
-          "3"
-        ]
+        "label": "552"
       },
       {
         "name": "Usbekistan",
-        "label": "554",
-        "merged": "landbakgrunn.554",
-        "tables": [
-          "3"
-        ]
+        "label": "554"
       },
       {
         "name": "Syria",
-        "label": "564",
-        "merged": "landbakgrunn.564",
-        "tables": [
-          "3"
-        ]
+        "label": "564"
       },
       {
         "name": "Thailand",
-        "label": "568",
-        "merged": "landbakgrunn.568",
-        "tables": [
-          "3"
-        ]
+        "label": "568"
       },
       {
         "name": "Vietnam",
-        "label": "575",
-        "merged": "landbakgrunn.575",
-        "tables": [
-          "3"
-        ]
+        "label": "575"
       },
       {
         "name": "Jemen",
-        "label": "578",
-        "merged": "landbakgrunn.578",
-        "tables": [
-          "3"
-        ]
+        "label": "578"
       },
       {
         "name": "De amerikanske Jomfruøyene",
-        "label": "601",
-        "merged": "landbakgrunn.601",
-        "tables": [
-          "3"
-        ]
+        "label": "601"
       },
       {
         "name": "Barbados",
-        "label": "602",
-        "merged": "landbakgrunn.602",
-        "tables": [
-          "3"
-        ]
+        "label": "602"
       },
       {
         "name": "Antigua og Barbuda",
-        "label": "603",
-        "merged": "landbakgrunn.603",
-        "tables": [
-          "3"
-        ]
+        "label": "603"
       },
       {
         "name": "Belize",
-        "label": "604",
-        "merged": "landbakgrunn.604",
-        "tables": [
-          "3"
-        ]
+        "label": "604"
       },
       {
         "name": "Bahamas",
-        "label": "605",
-        "merged": "landbakgrunn.605",
-        "tables": [
-          "3"
-        ]
+        "label": "605"
       },
       {
         "name": "Bermuda",
-        "label": "606",
-        "merged": "landbakgrunn.606",
-        "tables": [
-          "3"
-        ]
+        "label": "606"
       },
       {
         "name": "De britiske Jomfruøyene",
-        "label": "608",
-        "merged": "landbakgrunn.608",
-        "tables": [
-          "3"
-        ]
+        "label": "608"
       },
       {
         "name": "Canada",
-        "label": "612",
-        "merged": "landbakgrunn.612",
-        "tables": [
-          "3"
-        ]
+        "label": "612"
       },
       {
         "name": "Caymanøyene",
-        "label": "613",
-        "merged": "landbakgrunn.613",
-        "tables": [
-          "3"
-        ]
+        "label": "613"
       },
       {
         "name": "Costa Rica",
-        "label": "616",
-        "merged": "landbakgrunn.616",
-        "tables": [
-          "3"
-        ]
+        "label": "616"
       },
       {
         "name": "Cuba",
-        "label": "620",
-        "merged": "landbakgrunn.620",
-        "tables": [
-          "3"
-        ]
+        "label": "620"
       },
       {
         "name": "Dominica",
-        "label": "622",
-        "merged": "landbakgrunn.622",
-        "tables": [
-          "3"
-        ]
+        "label": "622"
       },
       {
         "name": "Den dominikanske republikk",
-        "label": "624",
-        "merged": "landbakgrunn.624",
-        "tables": [
-          "3"
-        ]
+        "label": "624"
       },
       {
         "name": "Grenada",
-        "label": "629",
-        "merged": "landbakgrunn.629",
-        "tables": [
-          "3"
-        ]
+        "label": "629"
       },
       {
         "name": "Guadeloupe",
-        "label": "631",
-        "merged": "landbakgrunn.631",
-        "tables": [
-          "3"
-        ]
+        "label": "631"
       },
       {
         "name": "Guatemala",
-        "label": "632",
-        "merged": "landbakgrunn.632",
-        "tables": [
-          "3"
-        ]
+        "label": "632"
       },
       {
         "name": "Haiti",
-        "label": "636",
-        "merged": "landbakgrunn.636",
-        "tables": [
-          "3"
-        ]
+        "label": "636"
       },
       {
         "name": "Honduras",
-        "label": "644",
-        "merged": "landbakgrunn.644",
-        "tables": [
-          "3"
-        ]
+        "label": "644"
       },
       {
         "name": "Jamaica",
-        "label": "648",
-        "merged": "landbakgrunn.648",
-        "tables": [
-          "3"
-        ]
+        "label": "648"
       },
       {
         "name": "Martinique",
-        "label": "650",
-        "merged": "landbakgrunn.650",
-        "tables": [
-          "3"
-        ]
+        "label": "650"
       },
       {
         "name": "Mexico",
-        "label": "652",
-        "merged": "landbakgrunn.652",
-        "tables": [
-          "3"
-        ]
+        "label": "652"
       },
       {
         "name": "Montserrat",
-        "label": "654",
-        "merged": "landbakgrunn.654",
-        "tables": [
-          "3"
-        ]
+        "label": "654"
       },
       {
         "name": "Aruba",
-        "label": "657",
-        "merged": "landbakgrunn.657",
-        "tables": [
-          "3"
-        ]
+        "label": "657"
       },
       {
         "name": "Sint Maarten",
-        "label": "658",
-        "merged": "landbakgrunn.658",
-        "tables": [
-          "3"
-        ]
+        "label": "658"
       },
       {
         "name": "Bonaire, Sint Eustatius og Saba",
-        "label": "659",
-        "merged": "landbakgrunn.659",
-        "tables": [
-          "3"
-        ]
+        "label": "659"
       },
       {
         "name": "Anguilla",
-        "label": "660",
-        "merged": "landbakgrunn.660",
-        "tables": [
-          "3"
-        ]
+        "label": "660"
       },
       {
         "name": "Curaçao",
-        "label": "661",
-        "merged": "landbakgrunn.661",
-        "tables": [
-          "3"
-        ]
+        "label": "661"
       },
       {
         "name": "Nicaragua",
-        "label": "664",
-        "merged": "landbakgrunn.664",
-        "tables": [
-          "3"
-        ]
+        "label": "664"
       },
       {
         "name": "Panama",
-        "label": "668",
-        "merged": "landbakgrunn.668",
-        "tables": [
-          "3"
-        ]
+        "label": "668"
       },
       {
         "name": "El Salvador",
-        "label": "672",
-        "merged": "landbakgrunn.672",
-        "tables": [
-          "3"
-        ]
+        "label": "672"
       },
       {
         "name": "Saint-Pierre-et-Miquelon",
-        "label": "676",
-        "merged": "landbakgrunn.676",
-        "tables": [
-          "3"
-        ]
+        "label": "676"
       },
       {
         "name": "Saint Kitts og Nevis",
-        "label": "677",
-        "merged": "landbakgrunn.677",
-        "tables": [
-          "3"
-        ]
+        "label": "677"
       },
       {
         "name": "Saint Lucia",
-        "label": "678",
-        "merged": "landbakgrunn.678",
-        "tables": [
-          "3"
-        ]
+        "label": "678"
       },
       {
         "name": "Saint Vincent og Grenadinene",
-        "label": "679",
-        "merged": "landbakgrunn.679",
-        "tables": [
-          "3"
-        ]
+        "label": "679"
       },
       {
         "name": "Trinidad og Tobago",
-        "label": "680",
-        "merged": "landbakgrunn.680",
-        "tables": [
-          "3"
-        ]
+        "label": "680"
       },
       {
         "name": "Turks- og Caicosøyene",
-        "label": "681",
-        "merged": "landbakgrunn.681",
-        "tables": [
-          "3"
-        ]
+        "label": "681"
       },
       {
         "name": "USA",
-        "label": "684",
-        "merged": "landbakgrunn.684",
-        "tables": [
-          "3"
-        ]
+        "label": "684"
       },
       {
         "name": "Puerto Rico",
-        "label": "685",
-        "merged": "landbakgrunn.685",
-        "tables": [
-          "3"
-        ]
+        "label": "685"
       },
       {
         "name": "Saint-Martin",
-        "label": "686",
-        "merged": "landbakgrunn.686",
-        "tables": [
-          "3"
-        ]
+        "label": "686"
       },
       {
         "name": "Saint-Barthélemy",
-        "label": "687",
-        "merged": "landbakgrunn.687",
-        "tables": [
-          "3"
-        ]
+        "label": "687"
       },
       {
         "name": "Argentina",
-        "label": "705",
-        "merged": "landbakgrunn.705",
-        "tables": [
-          "3"
-        ]
+        "label": "705"
       },
       {
         "name": "Bolivia",
-        "label": "710",
-        "merged": "landbakgrunn.710",
-        "tables": [
-          "3"
-        ]
+        "label": "710"
       },
       {
         "name": "Brasil",
-        "label": "715",
-        "merged": "landbakgrunn.715",
-        "tables": [
-          "3"
-        ]
+        "label": "715"
       },
       {
         "name": "Guyana",
-        "label": "720",
-        "merged": "landbakgrunn.720",
-        "tables": [
-          "3"
-        ]
+        "label": "720"
       },
       {
         "name": "Chile",
-        "label": "725",
-        "merged": "landbakgrunn.725",
-        "tables": [
-          "3"
-        ]
+        "label": "725"
       },
       {
         "name": "Colombia",
-        "label": "730",
-        "merged": "landbakgrunn.730",
-        "tables": [
-          "3"
-        ]
+        "label": "730"
       },
       {
         "name": "Ecuador",
-        "label": "735",
-        "merged": "landbakgrunn.735",
-        "tables": [
-          "3"
-        ]
+        "label": "735"
       },
       {
         "name": "Falklandsøyene",
-        "label": "740",
-        "merged": "landbakgrunn.740",
-        "tables": [
-          "3"
-        ]
+        "label": "740"
       },
       {
         "name": "Fransk Guyana",
-        "label": "745",
-        "merged": "landbakgrunn.745",
-        "tables": [
-          "3"
-        ]
+        "label": "745"
       },
       {
         "name": "Paraguay",
-        "label": "755",
-        "merged": "landbakgrunn.755",
-        "tables": [
-          "3"
-        ]
+        "label": "755"
       },
       {
         "name": "Peru",
-        "label": "760",
-        "merged": "landbakgrunn.760",
-        "tables": [
-          "3"
-        ]
+        "label": "760"
       },
       {
         "name": "Surinam",
-        "label": "765",
-        "merged": "landbakgrunn.765",
-        "tables": [
-          "3"
-        ]
+        "label": "765"
       },
       {
         "name": "Uruguay",
-        "label": "770",
-        "merged": "landbakgrunn.770",
-        "tables": [
-          "3"
-        ]
+        "label": "770"
       },
       {
         "name": "Venezuela",
-        "label": "775",
-        "merged": "landbakgrunn.775",
-        "tables": [
-          "3"
-        ]
+        "label": "775"
       },
       {
         "name": "Amerikansk Samoa",
-        "label": "802",
-        "merged": "landbakgrunn.802",
-        "tables": [
-          "3"
-        ]
+        "label": "802"
       },
       {
         "name": "Australia",
-        "label": "805",
-        "merged": "landbakgrunn.805",
-        "tables": [
-          "3"
-        ]
+        "label": "805"
       },
       {
         "name": "Salomonøyene",
-        "label": "806",
-        "merged": "landbakgrunn.806",
-        "tables": [
-          "3"
-        ]
+        "label": "806"
       },
       {
         "name": "Christmasøya",
-        "label": "807",
-        "merged": "landbakgrunn.807",
-        "tables": [
-          "3"
-        ]
+        "label": "807"
       },
       {
         "name": "Kokosøyene",
-        "label": "808",
-        "merged": "landbakgrunn.808",
-        "tables": [
-          "3"
-        ]
+        "label": "808"
       },
       {
         "name": "Cookøyene",
-        "label": "809",
-        "merged": "landbakgrunn.809",
-        "tables": [
-          "3"
-        ]
+        "label": "809"
       },
       {
         "name": "Fiji",
-        "label": "811",
-        "merged": "landbakgrunn.811",
-        "tables": [
-          "3"
-        ]
+        "label": "811"
       },
       {
         "name": "Vanuatu",
-        "label": "812",
-        "merged": "landbakgrunn.812",
-        "tables": [
-          "3"
-        ]
+        "label": "812"
       },
       {
         "name": "Tonga",
-        "label": "813",
-        "merged": "landbakgrunn.813",
-        "tables": [
-          "3"
-        ]
+        "label": "813"
       },
       {
         "name": "Fransk Polynesia",
-        "label": "814",
-        "merged": "landbakgrunn.814",
-        "tables": [
-          "3"
-        ]
+        "label": "814"
       },
       {
         "name": "Kiribati",
-        "label": "815",
-        "merged": "landbakgrunn.815",
-        "tables": [
-          "3"
-        ]
+        "label": "815"
       },
       {
         "name": "Tuvalu",
-        "label": "816",
-        "merged": "landbakgrunn.816",
-        "tables": [
-          "3"
-        ]
+        "label": "816"
       },
       {
         "name": "Guam",
-        "label": "817",
-        "merged": "landbakgrunn.817",
-        "tables": [
-          "3"
-        ]
+        "label": "817"
       },
       {
         "name": "Nauru",
-        "label": "818",
-        "merged": "landbakgrunn.818",
-        "tables": [
-          "3"
-        ]
+        "label": "818"
       },
       {
         "name": "USAs ytre småøyer",
-        "label": "819",
-        "merged": "landbakgrunn.819",
-        "tables": [
-          "3"
-        ]
+        "label": "819"
       },
       {
         "name": "New Zealand",
-        "label": "820",
-        "merged": "landbakgrunn.820",
-        "tables": [
-          "3"
-        ]
+        "label": "820"
       },
       {
         "name": "Niue",
-        "label": "821",
-        "merged": "landbakgrunn.821",
-        "tables": [
-          "3"
-        ]
+        "label": "821"
       },
       {
         "name": "Norfolkøya",
-        "label": "822",
-        "merged": "landbakgrunn.822",
-        "tables": [
-          "3"
-        ]
+        "label": "822"
       },
       {
         "name": "Mikronesiaføderasjonen",
-        "label": "826",
-        "merged": "landbakgrunn.826",
-        "tables": [
-          "3"
-        ]
+        "label": "826"
       },
       {
         "name": "Papua Ny-Guinea",
-        "label": "827",
-        "merged": "landbakgrunn.827",
-        "tables": [
-          "3"
-        ]
+        "label": "827"
       },
       {
         "name": "Pitcairn",
-        "label": "828",
-        "merged": "landbakgrunn.828",
-        "tables": [
-          "3"
-        ]
+        "label": "828"
       },
       {
         "name": "Tokelau",
-        "label": "829",
-        "merged": "landbakgrunn.829",
-        "tables": [
-          "3"
-        ]
+        "label": "829"
       },
       {
         "name": "Samoa",
-        "label": "830",
-        "merged": "landbakgrunn.830",
-        "tables": [
-          "3"
-        ]
+        "label": "830"
       },
       {
         "name": "Wallis- og Futunaøyene",
-        "label": "832",
-        "merged": "landbakgrunn.832",
-        "tables": [
-          "3"
-        ]
+        "label": "832"
       },
       {
         "name": "Ny-Caledonia",
-        "label": "833",
-        "merged": "landbakgrunn.833",
-        "tables": [
-          "3"
-        ]
+        "label": "833"
       },
       {
         "name": "Marshalløyene",
-        "label": "835",
-        "merged": "landbakgrunn.835",
-        "tables": [
-          "3"
-        ]
+        "label": "835"
       },
       {
         "name": "Palau",
-        "label": "839",
-        "merged": "landbakgrunn.839",
-        "tables": [
-          "3"
-        ]
+        "label": "839"
       },
       {
         "name": "Nord-Marianene",
-        "label": "840",
-        "merged": "landbakgrunn.840",
-        "tables": [
-          "3"
-        ]
+        "label": "840"
       },
       {
         "name": "Statsløs",
-        "label": "980",
-        "merged": "landbakgrunn.980",
-        "tables": [
-          "3"
-        ]
+        "label": "980"
       },
       {
         "name": "Uoppgitt",
-        "label": "990",
-        "merged": "landbakgrunn.990",
-        "tables": [
-          "3"
-        ]
+        "label": "990"
       },
       {
         "name": "Andre",
-        "label": "970",
-        "merged": "landbakgrunn.970",
-        "tables": [
-          "3"
-        ]
+        "label": "970"
       }
     ]
   }

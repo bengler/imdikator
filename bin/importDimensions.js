@@ -37,8 +37,8 @@ rows
     return {
       name: variable.variable,
       label: variable.variableLabel,
-      merged: variable.merged || undefined,
-      tables: variable.tables.split(",").filter(Boolean),
+      //merged: variable.merged || undefined,
+      //tables: variable.tables.split(",").filter(Boolean),
       comment: variable.comment || undefined
     };
   })

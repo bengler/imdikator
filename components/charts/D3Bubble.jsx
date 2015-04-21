@@ -39,7 +39,7 @@ module.exports = React.createClass({
       .size([diameter, diameter])
       .padding(1.5);
 
-    const svg = d3.select(this.getDOMNode()).append("svg")
+    const svg = d3.select(this.getDOMNode())
       .attr("width", diameter)
       .attr("height", diameter)
       .attr("class", "bubble");
@@ -66,6 +66,6 @@ module.exports = React.createClass({
 
   },
   render() {
-    return <div/>
+    return <svg/>
   }
 });

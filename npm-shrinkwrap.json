@@ -2678,6 +2678,11 @@
       "from": "https://registry.npmjs.org/c3/-/c3-0.4.10.tgz",
       "resolved": "https://registry.npmjs.org/c3/-/c3-0.4.10.tgz"
     },
+    "classnames": {
+      "version": "1.2.0",
+      "from": "classnames@*",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-1.2.0.tgz"
+    },
     "csv-parse": {
       "version": "0.1.0",
       "from": "https://registry.npmjs.org/csv-parse/-/csv-parse-0.1.0.tgz",
@@ -6157,6 +6162,11 @@
       "version": "1.0.0",
       "from": "rx-node@*",
       "resolved": "https://registry.npmjs.org/rx-node/-/rx-node-1.0.0.tgz"
+    },
+    "sigmund": {
+      "version": "1.0.0",
+      "from": "sigmund@*",
+      "resolved": "https://registry.npmjs.org/sigmund/-/sigmund-1.0.0.tgz"
     },
     "spawn-stream": {
       "version": "1.0.2",

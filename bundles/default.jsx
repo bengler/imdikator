@@ -4,15 +4,15 @@ const config = require("../config");
 const React = require("react");
 const groupData = require("../data/groups.json");
 const RegionalStats = require("../components/RegionalStats");
-const NavActions = require("../actions/Navigation");
-const LocationStore = require("../stores/Location");
+const NavActions = require("../actions/NavigationActions");
+const UrlStore = require("../stores/UrlStore");
 
 if (config.env === 'development') {
   const a11y = require('react-a11y');
   a11y();
 }
 
-var el = document.getElementById('imdikator');
+const el = document.getElementById('imdikator');
 
 const kommunes = require("../data/kommuner.json")
   .map(k => {
@@ -32,16 +32,11 @@ function changeRegion(e) {
   NavActions.navigate('/'+e.target.value)
 }
 
-LocationStore.listen(render);
+UrlStore.listen(function render(url) {
 
-function render(path) {
+  console.log('render top level, ', url)
 
-  const pathRegion = path.replace(/^\//, '').toLowerCase();
-
-  if (pathRegion === 'd3bubble') {
-    const D3Bubble = require("../components/charts/D3Bubble.jsx");
-    return React.render(<D3Bubble/>, el);
-  }
+  const pathRegion = url.path.replace(/^\//, '').toLowerCase();
 
   const selectedRegion = regions.find(k => {
     return k.name.toLowerCase() == pathRegion ||
@@ -66,7 +61,7 @@ function render(path) {
       <select style={{float: 'right'}} value={selectedRegion.name} onChange={changeRegion}>
         {regions.map(region => {
           return (
-            <option value={region.name} style={{listStyleType: 'none'}}>
+            <option value={region.name}>
               {region.name} {region.type} {region.code}
             </option>
           )
@@ -75,6 +70,6 @@ function render(path) {
       <RegionalStats groupData={groupData} regions={[selectedRegion]}/>
     </div>
   ), el);
-}
+});
 
 NavActions.navigate(document.location.hash.substring(1) || "/oslo");

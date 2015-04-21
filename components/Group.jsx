@@ -25,7 +25,8 @@ module.exports = React.createClass({
     const {regions} = this.props;
 
     const items = this.props.items.map( (item, i)=> {
-    	return <ItemDataFetcher key={i} item={item} regions={regions} />
+      const key = this.props.id+'-'+i;
+      return <ItemDataFetcher id={key} key={key} item={item} regions={regions} />
     });
 
     // <pre>

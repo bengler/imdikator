@@ -1,6 +1,6 @@
 const React = require("react");
-
 const Groups = require("./Groups.jsx");
+const PureRenderMixin = require('react/addons').addons.PureRenderMixin;
 
 var municipality = {
   name: "Oslo kommune",
@@ -18,6 +18,7 @@ var RefugeesLink = React.createClass({
 });
 
 module.exports = React.createClass({
+  mixins: [PureRenderMixin],
   displayName: 'RegionalStats',
   propTypes: {
     regions: React.PropTypes.arrayOf(React.PropTypes.shape({

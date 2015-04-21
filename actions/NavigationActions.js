@@ -1,6 +1,6 @@
 const Reflux = require("reflux");
-const Qs = require("qs");
 const url = require("url");
+const qs = require("qs");
 const {on, off} = require('dom-event');
 
 function readPathFromHash() {
@@ -8,22 +8,28 @@ function readPathFromHash() {
 }
 
 const NavActions = module.exports = Reflux.createActions([
-  "navigate", "updateNavigation"
+  "navigate",
+  "setParamsForChart"
 ]);
 
 NavActions.navigate.listen(path => {
   if (path !== readPathFromHash()) {
-  	// TODO: Add pushstate
+  	// TODO: Use pushstate instead of hash
     document.location.hash = path;
   }
 });
 
-NavActions.updateNavigation.listen((state) => {
+NavActions.setParamsForChart.listen((chartId, params) => {
 	const currentParsedUrl = url.parse(readPathFromHash(), true);
-	console.log(currentParsedUrl);
+  const currentQuery = qs.parse(currentParsedUrl.search.substring(1));
 
-	// document.location.hash = Qs.stringify(state);
-})
+  NavActions.navigate(url.format({
+    pathname: currentParsedUrl.pathname,
+    search: qs.stringify(Object.assign({}, currentQuery, {
+      [chartId]: params
+    }))
+  }))
+});
 
 on(window, 'hashchange', (e)=> {
   // TODO: Add pushstate

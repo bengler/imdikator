@@ -31,12 +31,5 @@ module.exports = Reflux.createStore({
           data: json
         })
       })
-      .catch(error => {
-        this.trigger({
-          id: id,
-          state: 'error',
-          error: error
-        })
-      })
   }
 });

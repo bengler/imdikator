@@ -2,32 +2,40 @@ const React = require("react");
 const dotty = require("dotty");
 const charts = require("./charts/");
 const Reflux = require("reflux");
-const DataStore = require("../stores/Data");
-const ChartParamsStore = require("../stores/ChartParams");
+const DataStore = require("../stores/ChartDataStore");
+const classNames = require("classnames");
+const ChartParamsStore = require("../stores/ChartParamsStore");
 
 const Loader = require("./Loader.jsx");
 const DataActions = require("../actions/DataActions");
-const Navigation = require("../actions/Navigation");
+const Navigation = require("../actions/NavigationActions");
 const Table = require("./Table.jsx");
-
-function makeId() {
-  return Math.random().toString(32).substring(2)
-}
+const PureRenderMixin = require('react/addons').addons.PureRenderMixin;
 
 module.exports = React.createClass({
   displayName: 'ItemDataFetcher',
 
   mixins: [
+    PureRenderMixin,
     Reflux.listenTo(DataStore, "onDataChange"),
     Reflux.listenTo(ChartParamsStore, "onChartParamsChange")
   ],
 
   getInitialState() {
-    return {loading: true};
+    // Todo: fix sync issue w params store
+    const chartParams = ChartParamsStore.getLast();
+    return {
+      loading: true,
+      selectedUnit: chartParams && chartParams[this.getId()] && chartParams[this.getId()].unit
+    };
+  },
+
+  getId() {
+    return this.props.id
   },
 
   onDataChange(data) {
-    if (data.id !== this._id) {
+    if (data.id !== this.getId()) {
       return;
     }
     this.setState({
@@ -39,9 +47,12 @@ module.exports = React.createClass({
   },
 
   onChartParamsChange(chartParams) {
-    this.setState({
-      chartParams: chartParams[this._id]
-    });
+    if (chartParams[this.getId()]) {
+      this.setState({
+        selectedUnit: chartParams[this.getId()].unit
+      });
+
+    }
   },
 
   mungeData(data) {
@@ -67,7 +78,7 @@ module.exports = React.createClass({
   getUnits(data, dimensions) {
     dimensions.forEach((d)=> {
       data = this.skipDimension(data, d.label);
-    })
+    });
     return data;
   },
 
@@ -75,12 +86,6 @@ module.exports = React.createClass({
     data = data[dimension];
     const key = Object.keys(data)[0];
     return data[key];
-  },
-
-  convertYearsToDate(years) {
-    return years.map((e) => {
-      return new Date(e)
-    });
   },
 
   convertYearsToISO(years) {
@@ -94,29 +99,14 @@ module.exports = React.createClass({
   },
 
   fetchData() {
-    this._id = makeId();
-    DataActions.onFetchData(this._id, {
+    DataActions.fetchData(this.getId(), {
       item: this.props.item,
       regions: this.props.regions
     });
   },
 
-  handleUnitSelected(e) {
-    // Serializestate
-    let state = { 
-      unit: e.target.value,
-      id: this._id };
-
-    Navigation.updateNavigation(state)
-  },
-
-  componentWillReceiveProps(nextProps) {
-    const currRegions = this.props.regions.map(r => r.regionCode);
-    const nextRegions = nextProps.regions.map(r => r.regionCode);
-    const changed = currRegions.length != nextRegions.length || currRegions.some((r, i)=> r !== nextRegions[i]);
-    if (changed) {
-      this.setState({data: null});
-    }
+  handleUnitSelected(unit) {
+    Navigation.setParamsForChart(this.getId(), {unit: unit})
   },
 
   render() {
@@ -132,10 +122,7 @@ module.exports = React.createClass({
     const time = this.convertYearsToISO(this.state.data.time);
     const {data, units, dimensions} = this.mungeData(this.state.data);
 
-    const unit = this.props.item.defaultUnit;
-
-    console.info(units);
-
+    const selectedUnit = this.state.selectedUnit || this.props.item.defaultUnit;
     return (
       <div>
         {
@@ -152,15 +139,15 @@ module.exports = React.createClass({
 
         {this.props.item.title && <h4>{this.props.item.title}</h4>}
 
-        {units.map((unit)=> {
+        {units.length > 1 && units.map(unit => {
           return (
-            <button value={unit} onClick={this.handleUnitSelected}>
+            <button type="button" className={classNames({selected: selectedUnit == unit })} onClick={()=> this.handleUnitSelected(unit)}>
               {unit}
             </button>
           )
         })}
 
-        <Chart dimensions={dimensions} stacked={stacked} unit={unit} time={time} data={data}/>
+        <Chart dimensions={dimensions} stacked={stacked} unit={selectedUnit} time={time} data={data}/>
         <Table data={data}/>
 
       </div>

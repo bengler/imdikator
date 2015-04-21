@@ -28,7 +28,7 @@ module.exports = React.createClass({
     this.renderChart();
   },
   renderChart() {
-    const firstDimension = this.props.data[this.props.item.dimensions[0].label];
+    const firstDimension = this.props.data[this.props.dimensions[0].label];
     const groups = Object.keys(firstDimension);
 
     let chartData = groups.reduce((series, g) => {

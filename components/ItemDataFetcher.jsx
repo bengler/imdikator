@@ -35,14 +35,19 @@ module.exports = React.createClass({
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
 
+    let dimensions = [].concat(this.props.item.dimensions);
     while(Object.keys(data[Object.keys(data)[0]]).length == 1) {
       data = dotty.search(data, "*.*")[0];
-      this.props.item.dimensions = this.props.item.dimensions.slice(1,this.props.item.dimensions.length);
+      dimensions = dimensions.slice(1,dimensions.length);
     }
 
-    this.props.units = Object.keys(this.getUnits(data, this.props.item.dimensions));
+    const units = Object.keys(this.getUnits(data, dimensions));
 
-    return data;
+    return {
+      data: data,
+      units: units,
+      dimensions: dimensions
+    };
   },
 
   getUnits(data, dimensions) {
@@ -98,10 +103,11 @@ module.exports = React.createClass({
       return (<Loader>Fetching data…</Loader>);
     }
 
+
     const Chart = charts[this.props.item.chartKind];
     const stacked = this.props.item.chartKind == "stackedBar" || this.props.item.chartKind == "stackedArea";
     const time = this.convertYearsToISO(this.state.data.time);
-    const chartData = this.mungeData(this.state.data);
+    const {data, items, dimensions} = this.mungeData(this.state.data);
 
     const unit = this.props.item.defaultUnit;
 
@@ -121,8 +127,8 @@ module.exports = React.createClass({
 
         {this.props.item.title && <h4>{this.props.item.title}</h4>}
 
-        <Chart item={this.props.item} stacked={stacked} unit={unit} time={time} data={chartData}/>
-        <Table data={this.state.data}/>
+        <Chart dimensions={dimensions} stacked={stacked} unit={unit} time={time} data={data}/>
+        <Table data={data}/>
 
       </div>
     )

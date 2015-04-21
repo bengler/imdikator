@@ -12,7 +12,7 @@ module.exports = React.createClass({
   },
 
   flatten(root) {
-    let data = root[this.props.item.dimensions[0].label];
+    let data = root[this.props.dimensions[0].label];
     const classes = [];
 
     Object.keys(data).forEach((key)=> {

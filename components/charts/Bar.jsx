@@ -35,7 +35,7 @@ module.exports = React.createClass({
   },
   renderChart() {
 
-    let dimensions = this.props.item.dimensions;
+    let dimensions = this.props.dimensions;
     let data = this.props.data;
 
     let chartData = {};

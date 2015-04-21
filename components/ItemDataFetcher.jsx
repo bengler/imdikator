@@ -1,36 +1,49 @@
 const React = require("react");
 const dotty = require("dotty");
 const charts = require("./charts/");
-const json = require("../lib/json");
+const Reflux = require("reflux");
+const DataStore = require("../stores/Data");
+const ChartParamsStore = require("../stores/ChartParams");
 
 const Loader = require("./Loader.jsx");
+const DataActions = require("../actions/DataActions");
 const Table = require("./Table.jsx");
-const QueryDimension = require("@bengler/imdi-dataset").QueryDimension;
+
+function makeId() {
+  return Math.random().toString(32).substring(2)
+}
 
 module.exports = React.createClass({
   displayName: 'ItemDataFetcher',
 
+  mixins: [
+    Reflux.listenTo(DataStore, "onDataChange"),
+    Reflux.listenTo(ChartParamsStore, "onChartParamsChange")
+  ],
+
   getInitialState() {
-    return {};
+    return {loading: true};
   },
 
-  fetchData(item) {
-    const query = {
-      table: item.table,
-      regions: this.props.regions.map(r => r.regionCode),
-      dimensions: item.dimensions.map(QueryDimension.stringify),
-      time: item.time
-    };
-    return json.get('/api/v1/query', query)
-      .then(res => res.json)
-      .catch(error => {
-        console.log('Error', e)
-      });
+  onDataChange(data) {
+    if (data.id !== this._id) {
+      return;
+    }
+    this.setState({
+      loading: data.state == 'loading',
+      done: data.state == 'done',
+      error: data.error,
+      data: data.data
+    });
+  },
+
+  onChartParamsChange(chartParams) {
+    this.setState({
+      chartParams: chartParams[this._id]
+    });
   },
 
   mungeData(data) {
-    let result = [];
-
     // We aren't dealing with more than a single region yet
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
@@ -76,10 +89,18 @@ module.exports = React.createClass({
   },
 
   componentDidMount() {
-    this.fetchData(this.props.item).then((data)=> {
-      this.setState({data: data});
+    this.setState({key: makeId()})
+    this.fetchData();
+  },
+
+  fetchData() {
+    this._id = makeId();
+    DataActions.onFetchData(this._id, {
+      item: this.props.item,
+      regions: this.props.regions
     });
   },
+
 
   componentWillReceiveProps(nextProps) {
     const currRegions = this.props.regions.map(r => r.regionCode);
@@ -90,24 +111,19 @@ module.exports = React.createClass({
     }
   },
 
-  componentDidUpdate() {
-    if (!this.state.data) {
-      this.fetchData(this.props.item).then(data => {
-        this.setState({data: data});
-      })
-    }
-  },
-
   render() {
-    if (!this.state.data) {
+    if (this.state.loading) {
       return (<Loader>Fetching data…</Loader>);
+    }
+    if (this.state.error) {
+      return (<div><pre>Error: {this.state.error.stack}</pre></div>);
     }
 
 
     const Chart = charts[this.props.item.chartKind];
     const stacked = this.props.item.chartKind == "stackedBar" || this.props.item.chartKind == "stackedArea";
     const time = this.convertYearsToISO(this.state.data.time);
-    const {data, items, dimensions} = this.mungeData(this.state.data);
+    const {data, units, dimensions} = this.mungeData(this.state.data);
 
     const unit = this.props.item.defaultUnit;
 

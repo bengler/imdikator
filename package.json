@@ -45,6 +45,7 @@
     "react-a11y": "0.0.6",
     "react-d3": "git://github.com/bengler/react-d3",
     "rebundler": "0.0.4",
+    "reflux": "^0.2.7",
     "spawn-stream": "^1.0.2",
     "staticr": "^2.1.2",
     "uglify-js": "^2.4.17",

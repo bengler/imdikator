@@ -1,18 +1,16 @@
 require("babel/polyfill");
 
-const a11y = require('react-a11y');
 const config = require("../config");
-
-if (config.env === 'development') {
-  a11y();
-}
-
-const {on, off} = require('dom-event');
-
 const React = require("react");
-
 const groupData = require("../data/groups.json");
 const RegionalStats = require("../components/RegionalStats");
+const NavActions = require("../actions/Navigation");
+const LocationStore = require("../stores/Location");
+
+if (config.env === 'development') {
+  const a11y = require('react-a11y');
+  a11y();
+}
 
 var el = document.getElementById('imdikator');
 
@@ -31,22 +29,24 @@ const regions = kommunes;//.concat(fylkes);
 const oslo = kommunes.find(k => k.regionCode == "K0301");
 
 function changeRegion(e) {
-  document.location.hash = e.target.value
+  NavActions.navigate('/'+e.target.value)
 }
 
-function render() {
+LocationStore.listen(render);
 
-  const hashRegion = (document.location.hash.substring(1)).toLowerCase();
+function render(path) {
 
-  if (hashRegion === 'd3bubble') {
+  const pathRegion = path.replace(/^\//, '').toLowerCase();
+
+  if (pathRegion === 'd3bubble') {
     const D3Bubble = require("../components/charts/D3Bubble.jsx");
     return React.render(<D3Bubble/>, el);
   }
 
   const selectedRegion = regions.find(k => {
-    return k.name.toLowerCase() == hashRegion ||
-      k.regionCode.toLowerCase() == hashRegion ||
-      k.code == hashRegion
+    return k.name.toLowerCase() == pathRegion ||
+      k.regionCode.toLowerCase() == pathRegion ||
+      k.code == pathRegion
   });
   if (!selectedRegion) {
     return React.render((
@@ -77,15 +77,4 @@ function render() {
   ), el);
 }
 
-on(window, 'hashchange', (e)=> {
-  if (document.location.hash.trim() !== '') {
-    render();
-  }
-});
-
-if (!document.location.hash.substring(1)) {
-  document.location.hash = "oslo"
-}
-else {
-  render();
-}
+NavActions.navigate(document.location.hash.substring(1) || "/oslo");

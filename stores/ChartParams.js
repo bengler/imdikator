@@ -6,8 +6,8 @@ const Store = module.exports = Reflux.createStore({
   listenables: NavActions,
   onNavigate(path){
 
-    const params = qs.decode(path);
+    //const params = qs.decode(path);
 
-    this.trigger(params);
+    //this.trigger(params);
   }
 });

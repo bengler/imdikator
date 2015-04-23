@@ -1,11 +1,9 @@
 const React = require("react");
 const c3 = require('c3');
+const profileColors = require('../../lib/profileColors');
 
 module.exports = React.createClass({
   displayName: 'AreaChart',
-  onClick() {
-
-  },
   componentDidMount() {
     this.chart = c3.generate({
       bindto: this.getDOMNode(),
@@ -37,10 +35,12 @@ module.exports = React.createClass({
     }, {})
     
     chartData.x = this.props.time;
+    const colors = profileColors.colorsToDict(groups, profileColors.all);
 
     this.chart.load({
       json: chartData,
       type: 'area',
+      colors: colors
     });
 
     if (this.props.stacked) {

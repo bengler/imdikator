@@ -1,7 +1,7 @@
 const React = require('react');
 const c3 = require('c3');
 const dotty = require('dotty');
-const ProfileColors = require('./ProfileColors');
+const profileColors = require('../../lib/profileColors');
 
 module.exports = React.createClass({
   displayName: 'AreaChart',
@@ -25,13 +25,6 @@ module.exports = React.createClass({
   componentDidUpdate() {
     this.renderChart();
   },
-  colorsToDict(variables, colors) {
-    let result = {};
-    variables.forEach((key, i)=> {
-      result[key] = colors[i];
-    });
-    return result;
-  },
   renderChart() {
 
     let dimensions = this.props.dimensions;
@@ -39,7 +32,6 @@ module.exports = React.createClass({
 
     let chartData = {};
     let firstGroups = [];
-
 
     if (dimensions.length == 2) {
       let firstDimension = data[dimensions[0].label];
@@ -51,9 +43,10 @@ module.exports = React.createClass({
       let secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
 
       if (dimensions[dimensions.length-1].label == "kjonn") {
-        var colors = this.colorsToDict(secondGroups, ProfileColors.gender);
+        var colors = profileColors.colorsToDict(secondGroups, profileColors.gender);
+        console.info(colors);
       } else {
-        var colors = this.colorsToDict(secondGroups, ProfileColors.all);
+        var colors = profileColors.colorsToDict(secondGroups, profileColors.all);
       }
 
       secondGroups.forEach((second)=> {
@@ -66,7 +59,6 @@ module.exports = React.createClass({
       if (this.props.stacked) {
         this.chart.groups([secondGroups]);
       }
-
     }
 
     // if (this.props.unit == "prosent") {

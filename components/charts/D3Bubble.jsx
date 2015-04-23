@@ -1,6 +1,6 @@
 const React = require("react");
 const d3 = require('d3');
-const ProfileColors = require('./ProfileColors');
+const ProfileColors = require('../../lib/profileColors');
 
 module.exports = React.createClass({
   displayName: 'Bubble',
@@ -22,9 +22,10 @@ module.exports = React.createClass({
         className: key
       })
     });
-
+  
     return {children: classes};
   },
+
 
   renderChart() {
 

@@ -79,12 +79,52 @@
     "title": "Innvandrernes opprinnelse",
     "items": [
       {
+        "title": "På land",
         "chartKind": "bubble",
         "table": "befolkning_opprinnelsesland",
         "dimensions": [
           {
             "label": "landbakgrunn",
             "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      },
+      {
+        "title": "På verdensregion",
+        "chartKind": "bar",
+        "table": "befolkning_verdensregion",
+        "dimensions": [
+          {
+            "label": "vreg_5",
+            "any": true
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "alle"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      },
+      {
+        "title": "Verden delt i to",
+        "chartKind": "bar",
+        "table": "befolkning_verdensregion",
+        "dimensions": [
+          {
+            "label": "vreg_2",
+            "any": true
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
           }
         ],
         "time": "latest",
@@ -228,7 +268,20 @@
   {
     "groupKind": "chart",
     "title": "Sekundærflytting blant flyktninger",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "flyktning_botid_flytting",
+        "dimensions": [
+          {
+            "label": "botid_3, forste_bosettingskommune",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",

@@ -16,7 +16,8 @@
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
-    "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions"
+    "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
+    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
   },
   "dependencies": {
     "@bengler/imdi-dataset": "^4.1.0",

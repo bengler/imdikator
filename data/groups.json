@@ -263,7 +263,57 @@
   {
     "groupKind": "chart",
     "title": "Flytting til og fra kommunen",
-    "items": []
+    "items": [
+      {
+        "title": "Innvandring",
+        "chartKind": "bar",
+        "table": "befolkning_flytting",
+        "dimensions": [
+          {
+            "label": "flytting",
+            "any": true
+          },
+          {
+            "label": "innvkat_3",
+            "any": true
+          },
+          {
+            "label": "vreg_3",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "debug": "yes",
+        "defaultUnit": "personer"
+      },
+      {
+        "title": "Utvandring",
+        "chartKind": "bar",
+        "table": "befolkning_flytting",
+        "dimensions": [
+          {
+            "label": "flytting",
+            "include": [
+              "utvandring"
+            ]
+          },
+          {
+            "label": "innvkat_3",
+            "any": true
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "time": "latest",
+        "debug": "yes",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -274,8 +324,18 @@
         "table": "flyktning_botid_flytting",
         "dimensions": [
           {
-            "label": "botid_3, forste_bosettingskommune",
-            "any": true
+            "label": "botid_3",
+            "include": [
+              "0-4",
+              "5+"
+            ]
+          },
+          {
+            "label": "forste_bosettingskommune",
+            "include": [
+              "ja",
+              "nei"
+            ]
           }
         ],
         "time": "latest",

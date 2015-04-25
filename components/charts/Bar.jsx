@@ -30,6 +30,8 @@ module.exports = React.createClass({
     let dimensions = this.props.dimensions;
     let data = this.props.data;
 
+    console.info(data);
+
     let chartData = {};
     let firstGroups = [];
 
@@ -44,7 +46,6 @@ module.exports = React.createClass({
 
       if (dimensions[dimensions.length-1].label == "kjonn") {
         var colors = profileColors.colorsToDict(secondGroups, profileColors.gender);
-        console.info(colors);
       } else {
         var colors = profileColors.colorsToDict(secondGroups, profileColors.all);
       }
@@ -64,6 +65,10 @@ module.exports = React.createClass({
     // if (this.props.unit == "prosent") {
     //   this.chart.axis.max(99);
     // }
+
+    console.info(chartData);
+    console.info(firstGroups);
+
 
     this.chart.load({
       json: chartData,

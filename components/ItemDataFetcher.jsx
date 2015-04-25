@@ -62,7 +62,7 @@ module.exports = React.createClass({
 
     let dimensions = [].concat(this.props.item.dimensions);
 
-    console.info(data);
+    console.info("Data we got:", data);
 
     while(Object.keys(data[Object.keys(data)[0]]).length == 1) {
       data = dotty.search(data, "*.*")[0];

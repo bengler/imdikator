@@ -1,5 +1,10 @@
 [
   {
+    "groupKind": "main",
+    "title": "Befolkning",
+    "items": []
+  },
+  {
     "groupKind": "chart",
     "title": "Befolkningssammensetning",
     "items": [
@@ -89,7 +94,8 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
+        "defaultUnit": "personer",
+        "issue": "mangler en måte å ekskludere 1"
       },
       {
         "title": "På verdensregion",
@@ -108,7 +114,8 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
+        "defaultUnit": "personer",
+        "issue": "trenger å klappes sammen til 1 dimensjon"
       },
       {
         "title": "Verden delt i to",
@@ -160,6 +167,49 @@
         "defaultUnit": "personer"
       }
     ]
+  },
+  {
+    "groupKind": "chart",
+    "title": "Flytting til og fra kommunen",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Sekundærflytting blant flyktninger",
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "flyktning_botid_flytting",
+        "dimensions": [
+          {
+            "label": "botid_3",
+            "include": [
+              "0-4",
+              "5+"
+            ]
+          },
+          {
+            "label": "forste_bosettingskommune",
+            "include": [
+              "ja",
+              "nei"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
+  },
+  {
+    "groupKind": "chart",
+    "title": "Bosatte flyktninger",
+    "items": []
+  },
+  {
+    "groupKind": "main",
+    "title": "Utdanning og kvalifisering",
+    "items": []
   },
   {
     "groupKind": "chart",
@@ -262,91 +312,121 @@
   },
   {
     "groupKind": "chart",
-    "title": "Flytting til og fra kommunen",
+    "title": "Introduksjonsprogram",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Norskopplæring - oppstart og omfang",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Voksne elever i grunnskolen",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Voksne elever i grunnskolen",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Etter introduksjonsprogrammet - arbeid, utdannig eller trygd",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Introduksjonsprgoram - direkte avslutning",
     "items": [
       {
-        "title": "Innvandring",
-        "chartKind": "bar",
-        "table": "befolkning_flytting",
+        "chartKind": "stackedBar",
+        "table": "intro_avslutning_direkte",
         "dimensions": [
           {
-            "label": "flytting",
-            "any": true
+            "label": "avslutning_arsak_8",
+            "include": [
+              "alle",
+              "kvalifisering",
+              "gr_skole",
+              "utdanning",
+              "arbeid",
+              "sos_stnd",
+              "trygd_annen",
+              "annet"
+            ]
           },
           {
-            "label": "innvkat_3",
-            "any": true
-          },
-          {
-            "label": "vreg_3",
-            "any": true
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
           }
         ],
         "time": "latest",
-        "debug": "yes",
         "defaultUnit": "personer"
+      }
+    ]
+  },
+  {
+    "groupKind": "chart",
+    "title": "Barnehagedeltagelse",
+    "items": [
+      {
+        "title": "Forhold alle / minoriteter",
+        "chartKind": "bar",
+        "table": "barnehagedeltakelse",
+        "dimensions": [
+          {
+            "label": "spraak",
+            "include": [
+              "alle",
+              "minoritet"
+            ]
+          },
+          {
+            "label": "bhgalder",
+            "include": [
+              "1-5"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "hm, ikke prosent for ikke-minoritet"
       },
       {
-        "title": "Utvandring",
         "chartKind": "bar",
-        "table": "befolkning_flytting",
+        "table": "barnehagedeltakelse",
         "dimensions": [
           {
-            "label": "flytting",
+            "label": "spraak",
             "include": [
-              "utvandring"
+              "minoritet"
             ]
           },
           {
-            "label": "innvkat_3",
-            "any": true
-          },
-          {
-            "label": "vreg_3",
+            "label": "bhgalder",
             "include": [
               "1",
-              "2"
+              "2",
+              "3",
+              "4",
+              "5"
             ]
           }
         ],
         "time": "latest",
-        "debug": "yes",
-        "defaultUnit": "personer"
+        "defaultUnit": "personer",
+        "debug": "TRUE"
       }
     ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sekundærflytting blant flyktninger",
-    "items": [
-      {
-        "chartKind": "bar",
-        "table": "flyktning_botid_flytting",
-        "dimensions": [
-          {
-            "label": "botid_3",
-            "include": [
-              "0-4",
-              "5+"
-            ]
-          },
-          {
-            "label": "forste_bosettingskommune",
-            "include": [
-              "ja",
-              "nei"
-            ]
-          }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Bosatte flyktninger",
-    "items": []
   },
   {
     "groupKind": "chart",

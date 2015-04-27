@@ -30,26 +30,32 @@ module.exports = React.createClass({
     let dimensions = this.props.dimensions;
     let data = this.props.data;
 
-    console.info(data);
+    if (this.props.debug) console.info("Before transform in bar:", data);
+    if (this.props.debug) console.info("And with dimensions:", dimensions);
+
 
     let chartData = {};
     let firstGroups = [];
 
+    let firstDimension = data[dimensions[0].label];
+    firstGroups = Object.keys(firstDimension);
+
+    var colorGroups = firstGroups;
+
     if (dimensions.length == 2) {
-      let firstDimension = data[dimensions[0].label];
-
-      firstGroups = Object.keys(firstDimension);
-      let secondDimensionName = dimensions[1].label;
-
+      var secondDimensionName = dimensions[1].label;
       // Assumes nested groups follow same schema. Probes the first key.
-      let secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
+      var secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
+      colorGroups = secondGroups;
+    }
 
-      if (dimensions[dimensions.length-1].label == "kjonn") {
-        var colors = profileColors.colorsToDict(secondGroups, profileColors.gender);
-      } else {
-        var colors = profileColors.colorsToDict(secondGroups, profileColors.all);
-      }
+    if (dimensions[dimensions.length-1].label == "kjonn") {
+      var colors = profileColors.colorsToDict(colorGroups, profileColors.gender);
+    } else {
+      var colors = profileColors.colorsToDict(colorGroups, profileColors.all);
+    }
 
+    if (secondGroups) {
       secondGroups.forEach((second)=> {
         chartData[second] = []
         firstGroups.forEach((first)=> {
@@ -60,14 +66,21 @@ module.exports = React.createClass({
       if (this.props.stacked) {
         this.chart.groups([secondGroups]);
       }
+
+    } else {
+      firstGroups.forEach((first)=> {
+        console.info(first, firstDimension[first]);
+        chartData[first] = [firstDimension[first][this.props.unit][0]];
+      });
     }
 
     // if (this.props.unit == "prosent") {
     //   this.chart.axis.max(99);
     // }
 
-    console.info(chartData);
-    console.info(firstGroups);
+    if (this.props.debug) console.info("Chartdata:", chartData);
+    if (this.props.debug) console.info("Firstgroups:", firstGroups);
+
 
 
     this.chart.load({

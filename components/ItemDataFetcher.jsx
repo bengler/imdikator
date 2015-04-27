@@ -62,7 +62,7 @@ module.exports = React.createClass({
 
     let dimensions = [].concat(this.props.item.dimensions);
 
-    console.info("Data we got:", data);
+    if (this.props.item.debug) console.info("Data we got:", data);
 
     while(Object.keys(data[Object.keys(data)[0]]).length == 1) {
       data = dotty.search(data, "*.*")[0];
@@ -150,7 +150,7 @@ module.exports = React.createClass({
           )
         })}
 
-        <Chart dimensions={dimensions} stacked={stacked} unit={selectedUnit} time={time} data={data}/>
+        <Chart dimensions={dimensions} stacked={stacked} unit={selectedUnit} time={time} debug={this.props.item.debug} data={data}/>
         <Table data={data}/>
 
       </div>

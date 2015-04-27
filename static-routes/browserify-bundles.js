@@ -15,7 +15,7 @@ function createBundle(entry) {
       cache:         cache,
       packageCache:  pkgCache,
       extensions:    ['.jsx'],
-      noParse:       [require.resolve("../dataset/tree.json")],
+      noParse:       [],
       debug:         env == 'development',
       fullPaths:     env == 'development'
     })

@@ -7,6 +7,11 @@ const data = require('../dataset/tree.json');
 
 let tablesInUse = [];
 
+let tableMetaDict = tableMetadata.reduce( ((p,n)=> {
+	p[n.label] = n;
+	return p;
+}), {});
+
 groups.forEach((g) => {
 	g.items.forEach((t) => {
 		tablesInUse[t.table] = t;
@@ -26,7 +31,7 @@ console.info("----")
 
 let tableDescriptions = [];
 
-outstandingTables.forEach((tableName)=> {
+outstandingTables.forEach((tableName) => {
 
 	let table = data[tableName];
 	let tableDimensions = deletePlaceNames(byFirstKey(byFirstKey(table)));
@@ -40,11 +45,20 @@ outstandingTables.forEach((tableName)=> {
 		return v.label + ":" + v.include.join(",");
 	}).join(";")
 
+	let metaLookup = tableMetaDict[tableName];
+	let meta = {};
+	if (metaLookup) {
+		meta.name = metaLookup.name;
+		meta.descripton = metaLookup.descripton;
+		meta.category = metaLookup.category;
+	} else {
+		console.info("Coult not find metadata for " + tableName);
+	}
 
 	tableDescriptions.push({
 		table: tableName,
-		specString: specString
-		// variables: variables
+		specString: specString,
+		meta: meta
 	})
 
 });

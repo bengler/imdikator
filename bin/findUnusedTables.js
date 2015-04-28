@@ -3,7 +3,7 @@ console.info("Om nom nom");
 const dotty = require("dotty");
 const groups = require('../data/groups.json');
 const tableMetadata = require('../data/tables.json');
-const data = require('../dataset/tree.json');
+const data = require('../node_modules/@bengler/imdi-dataset/out/tree.json');
 
 let tablesInUse = [];
 

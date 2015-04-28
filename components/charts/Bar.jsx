@@ -69,7 +69,7 @@ module.exports = React.createClass({
 
     } else {
       firstGroups.forEach((first)=> {
-        console.info(first, firstDimension[first]);
+        if (this.props.debug) console.info(first, firstDimension[first]);
         chartData[first] = [firstDimension[first][this.props.unit][0]];
       });
     }
@@ -80,7 +80,6 @@ module.exports = React.createClass({
 
     if (this.props.debug) console.info("Chartdata:", chartData);
     if (this.props.debug) console.info("Firstgroups:", firstGroups);
-
 
 
     this.chart.load({

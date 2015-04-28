@@ -95,7 +95,7 @@
         ],
         "time": "latest",
         "defaultUnit": "personer",
-        "issue": "mangler en måte å ekskludere 1"
+        "issue": "API: mangler en måte å ekskludere 1"
       },
       {
         "title": "På verdensregion",
@@ -115,7 +115,7 @@
         ],
         "time": "latest",
         "defaultUnit": "personer",
-        "issue": "trenger å klappes sammen til 1 dimensjon"
+        "issue": "Should be bubbles – needs to be only one dimension so collapse outermost"
       },
       {
         "title": "Verden delt i to",
@@ -313,7 +313,23 @@
   {
     "groupKind": "chart",
     "title": "Introduksjonsprogram",
-    "items": []
+    "items": [
+      {
+        "chartKind": "stackedBar",
+        "table": "intro_deltakere",
+        "dimensions": [
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -323,7 +339,24 @@
   {
     "groupKind": "chart",
     "title": "Norskopplæring - oppstart og omfang",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "norsk_deltakere",
+        "dimensions": [
+          {
+            "label": "rettigheter_introlov_nosfk",
+            "any": true
+          },
+          {
+            "label": "kjonn",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -399,9 +432,10 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent",
-        "issue": "hm, ikke prosent for ikke-minoritet"
+        "issue": "hm, ikke prosent for ikke-minoritet i datasettet, warum?"
       },
       {
+        "title": "Minoritetsspråklige i barnehage / alder",
         "chartKind": "bar",
         "table": "barnehagedeltakelse",
         "dimensions": [
@@ -424,7 +458,48 @@
         ],
         "time": "latest",
         "defaultUnit": "personer",
-        "debug": "TRUE"
+        "issue": "API error : values are of form \"1 793\""
+      }
+    ]
+  },
+  {
+    "groupKind": "chart",
+    "title": "Gjennomsnittlige grunnskolepoeng",
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "grunnskolepoeng",
+        "dimensions": [
+          {
+            "label": "innvkat_4",
+            "include": [
+              "bef_u_innv_og_norskf"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle"
+            ]
+          },
+          {
+            "label": "innvalder_3",
+            "include": [
+              "alle"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer",
+        "debug": "TRUE",
+        "issue": "Spør IMDIa"
       }
     ]
   },

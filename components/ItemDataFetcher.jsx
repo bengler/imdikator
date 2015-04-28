@@ -64,7 +64,7 @@ module.exports = React.createClass({
 
     if (this.props.item.debug) console.info("Data we got:", data);
 
-    while(Object.keys(data[Object.keys(data)[0]]).length == 1) {
+    while(Object.keys(data[Object.keys(data)[0]]).length == 1 && typeof data === 'object') {
       data = dotty.search(data, "*.*")[0];
       dimensions = dimensions.slice(1,dimensions.length);
     }

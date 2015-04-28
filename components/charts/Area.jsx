@@ -30,10 +30,10 @@ module.exports = React.createClass({
     const groups = Object.keys(firstDimension);
 
     let chartData = groups.reduce((series, g) => {
-      series[g] = firstDimension[g].personer;
+      series[g] = firstDimension[g][this.props.unit];
       return series;
     }, {})
-    
+
     chartData.x = this.props.time;
     const colors = profileColors.colorsToDict(groups, profileColors.all);
 

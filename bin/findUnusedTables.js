@@ -93,7 +93,7 @@ function searchTable(tableDimensions, variables, level) {
 }
 
 function deletePlaceNames(obj) {
-	const deleteMe = ["bydel_nr", "fylke_nr", "fylke_navn", "kommune_nr", "Kommune_navn"];
+	const deleteMe = ["bydel_nr", "bydel_navn", "fylke_nr", "fylke_navn", "kommune_nr", "Kommune_navn"];
 	deleteMe.forEach((d)=> delete obj[d]);
 	return obj;
 }

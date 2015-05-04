@@ -12,6 +12,9 @@ const outFile = "./data/groups.json"
 
 const csvSuffix = "/export?format=csv"
 
+// Mute all channels except debug
+const SOLO = true;
+
 const importGroups = function(url) {
 	url += csvSuffix;
   return request.get(url).then(response => {
@@ -64,7 +67,10 @@ const parseGroups = function(lines) {
 				items: []
 			};
 		} else if (Object.keys(line).length > 0 && line.groupKind != "#") { // # in groupKind is skip notation
-			currentGroup.items.push(line);
+
+			if (SOLO && line.debug) {
+				currentGroup.items.push(line);
+			}
 		}
 	})
 	return groups;

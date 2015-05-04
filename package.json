@@ -7,6 +7,7 @@
   "author": "Bengler AS",
   "scripts": {
     "start": "babel-node ./bin/server.js",
+    "test": "mocha -r babel/register test",
     "//start": "proxyreload ./app.js --port=3000 --throttle=150",
     "bloat": "staticr --stdout --route /bundles/default.js static-routes/browserify-bundles.js | discify --open",
     "update-fork": "(test -z $NODE_ENV || test $NODE_ENV == 'development') && (echo 'Updating imdi-fork, hang on...\n' && rm -Rf .imdi-fork.tmp && git clone --quiet git@github.com:bengler/imdi-no .imdi-fork.tmp && cd .imdi-fork.tmp && git checkout --quiet master && git pull --no-rebase --no-edit git@github.com:netliferesearch/imdi-no.git master && git push origin master && cd .. && rm -Rf .imdi-fork.tmp) || echo ''",
@@ -66,6 +67,8 @@
     "reactify": "^1.1.0",
     "request": "^2.53.0",
     "rx": "^2.5.2",
-    "rx-node": "^1.0.0"
+    "rx-node": "^1.0.0",
+    "mocha": "^2.2.1",
+    "chai": "^2.1.2"
   }
 }

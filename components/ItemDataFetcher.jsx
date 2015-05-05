@@ -12,6 +12,8 @@ const Navigation = require("../actions/NavigationActions");
 const Table = require("./Table.jsx");
 const PureRenderMixin = require('react/addons').addons.PureRenderMixin;
 
+const treeTools = require("../lib/treeTools");
+
 module.exports = React.createClass({
   displayName: 'ItemDataFetcher',
 
@@ -51,44 +53,34 @@ module.exports = React.createClass({
       this.setState({
         selectedUnit: chartParams[this.getId()].unit
       });
-
     }
   },
 
   mungeData(data) {
-    // We aren't dealing with more than a single region yet
+
+    // Chop. We aren't dealing with more than a single region yet
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
 
-    let dimensions = [].concat(this.props.item.dimensions);
+    if (this.props.item.debug) console.info("Data we got (sans regions):", data);
+    data = treeTools.pruneSingularCategories(data);
+    const depths = treeTools.probeDepths(data);
 
-    if (this.props.item.debug) console.info("Data we got:", data);
+    const chartData = treeTools.extractChartData(data);
 
-    while(Object.keys(data[Object.keys(data)[0]]).length == 1 && typeof data === 'object') {
-      data = dotty.search(data, "*.*")[0];
-      dimensions = dimensions.slice(1,dimensions.length);
-    }
+    if (this.props.item.debug) console.info("After prune:", data);
+    if (this.props.item.debug) console.info("… and as chart data:", chartData);
 
-    const units = Object.keys(this.getUnits(data, dimensions));
+    const units = treeTools.findUnits(data);
+
+    if (this.props.item.debug) console.info("With depths:", depths);
+    if (this.props.item.debug) console.info("… with units:", units);
 
     return {
       data: data,
-      units: units,
-      dimensions: dimensions
+      chartData: chartData,
+      units: units
     };
-  },
-
-  getUnits(data, dimensions) {
-    dimensions.forEach((d)=> {
-      data = this.skipDimension(data, d.label);
-    });
-    return data;
-  },
-
-  skipDimension(data, dimension) {
-    data = data[dimension];
-    const key = Object.keys(data)[0];
-    return data[key];
   },
 
   convertYearsToISO(years) {
@@ -123,9 +115,10 @@ module.exports = React.createClass({
     const Chart = charts[this.props.item.chartKind];
     const stacked = this.props.item.chartKind == "stackedBar" || this.props.item.chartKind == "stackedArea";
     const time = this.convertYearsToISO(this.state.data.time);
-    const {data, units, dimensions} = this.mungeData(this.state.data);
+    const {data, chartData, units} = this.mungeData(this.state.data);
 
     const selectedUnit = this.state.selectedUnit || this.props.item.defaultUnit;
+
     return (
       <div>
         {
@@ -150,7 +143,7 @@ module.exports = React.createClass({
           )
         })}
 
-        <Chart dimensions={dimensions} stacked={stacked} unit={selectedUnit} time={time} debug={this.props.item.debug} data={data}/>
+        <Chart chartData={chartData} stacked={stacked} unit={selectedUnit} time={time} debug={this.props.item.debug} data={data}/>
         <Table data={data}/>
 
       </div>

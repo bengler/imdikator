@@ -3,7 +3,9 @@ const c3 = require('c3');
 const profileColors = require('../../lib/profileColors');
 
 module.exports = React.createClass({
+
   displayName: 'AreaChart',
+
   componentDidMount() {
     this.chart = c3.generate({
       bindto: this.getDOMNode(),
@@ -22,33 +24,35 @@ module.exports = React.createClass({
     });
     this.renderChart();
   },
+
   componentDidUpdate() {
     this.renderChart();
   },
+
   renderChart() {
-    const firstDimension = this.props.data[this.props.dimensions[0].label];
-    const groups = Object.keys(firstDimension);
+    const chartData = this.props.chartData;
+    const colors = profileColors.colorsToDict(chartData[0].values, profileColors.all);
 
-    let chartData = groups.reduce((series, g) => {
-      series[g] = firstDimension[g][this.props.unit];
-      return series;
-    }, {})
+    console.info(chartData[0].data[this.props.unit]);
 
-    chartData.x = this.props.time;
-    const colors = profileColors.colorsToDict(groups, profileColors.all);
-
-    this.chart.load({
-      json: chartData,
+    let chartSpec = {
+      json: chartData[0].data[this.props.unit],
       type: 'area',
       colors: colors
-    });
+    }
+
+    chartSpec.json.x = this.props.time;
+
+    this.chart.load(chartSpec);
 
     if (this.props.stacked) {
-      this.chart.groups([groups]);
+      this.chart.groups([chartData[0].values]);
     }
 
   },
+
   render() {
     return <div/>
   }
+
 });

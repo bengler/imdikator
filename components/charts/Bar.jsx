@@ -14,6 +14,11 @@ module.exports = React.createClass({
       data: {
         json: []
       },
+      bar: {
+        width: {
+            ratio: 0.7 // this makes bar width 50% of length between ticks
+        }
+      },
       axis: {
         x: {
           type: 'category'
@@ -27,67 +32,26 @@ module.exports = React.createClass({
   },
   renderChart() {
 
-    let dimensions = this.props.dimensions;
-    let data = this.props.data;
+    let chartData = this.props.chartData;
 
-    if (this.props.debug) console.info("Before transform in bar:", data);
-    if (this.props.debug) console.info("And with dimensions:", dimensions);
-
-
-    let chartData = {};
-    let firstGroups = [];
-
-    let firstDimension = data[dimensions[0].label];
-    firstGroups = Object.keys(firstDimension);
-
-    var colorGroups = firstGroups;
-
-    if (dimensions.length == 2) {
-      var secondDimensionName = dimensions[1].label;
-      // Assumes nested groups follow same schema. Probes the first key.
-      var secondGroups = Object.keys(firstDimension[firstGroups[0]][secondDimensionName]);
-      colorGroups = secondGroups;
-    }
-
-    if (dimensions[dimensions.length-1].label == "kjonn") {
-      var colors = profileColors.colorsToDict(colorGroups, profileColors.gender);
+    if (chartData[0].category == "kjonn") {
+      var colors = profileColors.colorsToDict(chartData[0].values, profileColors.gender);
     } else {
-      var colors = profileColors.colorsToDict(colorGroups, profileColors.all);
+      var colors = profileColors.colorsToDict(chartData[0].values, profileColors.all);
     }
 
-    if (secondGroups) {
-      secondGroups.forEach((second)=> {
-        chartData[second] = []
-        firstGroups.forEach((first)=> {
-          chartData[second].push(firstDimension[first][secondDimensionName][second][this.props.unit][0])
-        });
-      });
-
-      if (this.props.stacked) {
-        this.chart.groups([secondGroups]);
-      }
-
-    } else {
-      firstGroups.forEach((first)=> {
-        if (this.props.debug) console.info(first, firstDimension[first]);
-        chartData[first] = [firstDimension[first][this.props.unit][0]];
-      });
-    }
-
-    // if (this.props.unit == "prosent") {
-    //   this.chart.axis.max(99);
-    // }
-
-    if (this.props.debug) console.info("Chartdata:", chartData);
-    if (this.props.debug) console.info("Firstgroups:", firstGroups);
-
-
-    this.chart.load({
-      json: chartData,
+    let chartSetup = {
+      json: chartData[0].data[this.props.unit],
       type: "bar",
-      categories: firstGroups,
       colors: colors
-    });
+    }
+
+    if (chartData.length == 2) {
+      chartSetup.categories = chartData[1].values;
+    }
+
+    this.chart.load(chartSetup);
+
   },
   render() {
     return <div/>

@@ -11,27 +11,22 @@ module.exports = React.createClass({
     this.renderChart();
   },
 
-  flatten(root) {
-    let data = root[this.props.dimensions[0].label];
-    const classes = [];
-
-    Object.keys(data).forEach((key)=> {
-      classes.push( {
-        value: data[key].personer[0],
-        name: key,
-        className: key
-      })
-    });
-  
+  flatten(chartData) {
+    let dataByUnit = chartData[0].data[this.props.unit];
+    let classes = Object.keys(dataByUnit).map( (k)=> {
+      return {
+        value: dataByUnit[k],
+        name: k,
+        className: k
+      }
+    })
     return {children: classes};
   },
-
 
   renderChart() {
 
     const diameter = 960;
     const format = d3.format(",d");
-    // const color = d3.scale.category20c();
     const color = d3.scale.ordinal()
       .range(ProfileColors.all);
 
@@ -46,7 +41,7 @@ module.exports = React.createClass({
       .attr("class", "bubble");
 
     const node = svg.selectAll(".node")
-      .data(bubble.nodes(this.flatten(this.props.data))
+      .data(bubble.nodes(this.flatten(this.props.chartData))
         .filter(d => !d.children))
         .enter()
           .append("g")

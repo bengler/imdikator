@@ -13,6 +13,21 @@ describe('TreeTools', ()=> {
 		});
 	});
 
+	describe('#probeDepth', ()=> {
+		it("measures the correct trivial depth", ()=> {
+			return assert.equal(
+				treeTools.probeDepths(mockTrees.pruneNone),
+				2);
+		});
+
+		it("measures correctly at varying depths", ()=> {
+			return assert.deepEqual(
+				treeTools.probeDepths(mockTrees.depthMeasure),
+				[3,2]);
+		});
+
+	});
+
 	describe('#pruneSingularCategories', ()=> {
 
 		it("does not prune when pruning is not warranted. does not mangle data.", ()=> {
@@ -34,4 +49,28 @@ describe('TreeTools', ()=> {
 		});
 
 	});
+
+	describe('#extractChartData', ()=> {
+
+		it("extracts the multidimensional data like it should", ()=> {
+			return assert.deepEqual(
+				treeTools.extractChartData(mockTrees.pruneNone),
+				mockTrees.pruneNoneForChart);
+		});
+
+		it("extracts the one dimensional data like it should", ()=> {
+			return assert.deepEqual(
+				treeTools.extractChartData(mockTrees.pruneA2result),
+				mockTrees.pruneA2resultForChart);
+		});
+
+		it("extracts time series data like it should", ()=> {
+			return assert.deepEqual(
+				treeTools.extractChartData(mockTrees.timeSeriesSource),
+				mockTrees.timeSeriesChartData);
+		});
+
+
+	});
+
 });

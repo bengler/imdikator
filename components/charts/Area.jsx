@@ -33,8 +33,6 @@ module.exports = React.createClass({
     const chartData = this.props.chartData;
     const colors = profileColors.colorsToDict(chartData[0].values, profileColors.all);
 
-    console.info(chartData[0].data[this.props.unit]);
-
     let chartSpec = {
       json: chartData[0].data[this.props.unit],
       type: 'area',

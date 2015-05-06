@@ -1,14 +1,15 @@
 @import "blank";
 @import "c3";
 
-body {
 
+// Note: hack to remove 
+body {
+  width: 100% !important;
 }
 
 .imdikator-box {
   width: 100%;
   background-color: $_white;
-  box-shadow: 0 0 5px rgba(#333, .1);
   margin-bottom: $spacing;
   padding: $spacing $spacing;
 
@@ -21,7 +22,7 @@ body {
   &__wrapper {
     // margin: 0 $spacing--large;
     padding: $spacing--large;
-    background: #f5f5f5;
+    background: #fff;
   }
   &__group {
     @extend .imdikator-box;
@@ -56,6 +57,7 @@ body {
 }
 
 .imdikator-graph__graph {
+  background-color: $_white;
   min-height: 500px;
   text {
     font-size: 11px;
@@ -169,9 +171,4 @@ body {
 .graph-color-7 { fill: $_green; }
 .graph-color-8 { fill: $_green; }
 
-.c3-target-bar-color--male path{
-  fill: $_color-male !important;
-}
-.c3-target-bar-color--female path {
-  fill: $_color-female !important;
-}
+

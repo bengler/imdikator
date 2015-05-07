@@ -3699,7 +3699,7 @@
     },
     "imdi-no": {
       "version": "0.0.0",
-      "from": "git+ssh://git@github.com/bengler/imdi-no.git",
+      "from": "git+ssh://git@github.com/bengler/imdi-no.git#d5a2e704503748a187475a1bc47060ffdc035a57",
       "resolved": "git+ssh://git@github.com/bengler/imdi-no.git#d5a2e704503748a187475a1bc47060ffdc035a57"
     },
     "lodash": {

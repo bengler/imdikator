@@ -14,7 +14,7 @@ module.exports = React.createClass({
       },
       bar: {
         width: {
-            ratio: 0.7 // this makes bar width 50% of length between ticks
+            ratio: 0.5 // this makes bar width 50% of length between ticks
         }
       },
       axis: {

@@ -38,7 +38,7 @@ module.exports = React.createClass({
 
     return (
       <div className="imdikator-list__group">
-        <Select className="right"/>
+        <Select className="right" />
         <h3 className="imdikator-list__heading">
           {this.props.title}
         </h3>
@@ -46,27 +46,27 @@ module.exports = React.createClass({
       	 {items}
         </div>
 
-        <ul className="imdikator-graph-functions list--inline">
-          <li className="imdikator-graph-functions__item">
+        <ul className="imdikator-graph__functions">
+          <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
               <span className="icon icon--download"></span>
               Last ned bilde
             </a>
           </li>
-          <li className="imdikator-graph-functions__item">
+          <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
               <span className="icon icon--download"></span>
               Last ned Excel-fil (csv)
             </a>
           </li>
-          <li className="imdikator-graph-functions__item">
+          <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
               <span className="icon icon--share"></span>
               Del denne statistikken
             </a>
           </li>
 
-          <li className="imdikator-graph-functions__item">
+          <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
               <span className="icon icon--info"></span>
               Om tallene

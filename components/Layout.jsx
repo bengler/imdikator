@@ -6,12 +6,6 @@ module.exports = React.createClass({
       <head lang="en">
         <meta charSet="UTF-8"/>
         <title>Imdikator testbed</title>
-        <link
-          rel="stylesheet"
-          href="//f.fontdeck.com/s/css/wMErktaKFxpwhaGE/Bm0r6zK5/example.com/53663.css"
-          type="text/css"
-          />
-
         <script src="/bundles/default.js" async></script>
         <link rel="stylesheet" href="/stylesheets/main.css"/>
         <link rel="stylesheet" href="/c3.css"/>

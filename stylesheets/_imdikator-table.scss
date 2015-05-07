@@ -6,20 +6,23 @@
       display: table;
     }
   }
+  &__toggle {
+    font-size: $font-size--regular;
+
+    border: none;
+    i {
+      color: $color-primary;
+      margin-right: $spacing--xsmall;
+    }
+    span {
+      @extend a;
+      color: $color-text--grey;
+      border-color: $color-text--grey;
+    }
+
+  }
 
   &__expander {
-    background-color: $_canvas-grey;
     padding: $spacing--small;
-    i {
-      float: right;
-    }
-    &.opened {
-
-    }
   }
-
-  table {
-    width: 100%;
-  }
-  
 }

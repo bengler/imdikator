@@ -16,7 +16,7 @@ module.exports = React.createClass({
   render() {
 
     let imdikatorTableExpanderClasses = cx({
-      "table-toggle": true,
+      "imdikator-table__expander": true,
       "opened": this.state.opened
     });
 
@@ -28,15 +28,16 @@ module.exports = React.createClass({
     });
 
     let tableToggleClasses = cx({
-      "toggle": true,
-      "toggle--close": this.state.opened
+      "imdikator-table__toggle": true,
+      "imdikator-table__toggle--close": this.state.opened
     });
 
     return (
       <div className="imdikator-table">
         <div className={imdikatorTableExpanderClasses}>
           <a className={tableToggleClasses} href="javascript://" onClick={this.toggle}>
-            Vis tabell
+            <i className="icon-chevron-down"></i>
+            <span>Vis tabell</span>
           </a>
         </div>
         <table className={tableClasses}>

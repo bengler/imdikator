@@ -10,8 +10,21 @@
   &__functions {
     font-size: $font-size--medium;
     @extend .list--inline;
+    padding: $spacing--medium 0;
     &__item {
-      // .tool-link
+      margin-right: $spacing--small;
+      .tool-link {
+        color: $color-text--grey;
+        border: none;
+      }
+      span {
+        display: inline-block;
+        border-bottom: 1px solid $color-text--grey;
+      }
+      .icon  {
+        color: $color-primary;
+        margin-right: $spacing--xsmall;
+      }
     }
   }
 }

@@ -49,27 +49,27 @@ module.exports = React.createClass({
         <ul className="imdikator-graph__functions">
           <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
-              <span className="icon icon--download"></span>
-              Last ned bilde
+              <i className="icon icon-inbox"></i>
+              <span>Last ned bilde</span>
             </a>
           </li>
           <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
-              <span className="icon icon--download"></span>
-              Last ned Excel-fil (csv)
+              <i className="icon icon-inbox"></i>
+              <span>Last ned Excel-fil (csv)</span>
             </a>
           </li>
           <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
-              <span className="icon icon--share"></span>
-              Del denne statistikken
+              <i className="icon icon-share"></i>
+              <span>Del denne statistikken</span>
             </a>
           </li>
 
           <li className="imdikator-graph__functions__item">
             <a href="javascript://" className="tool-link">
-              <span className="icon icon--info"></span>
-              Om tallene
+              <i className="icon icon-paper"></i>
+              <span>Om tallene</span>
             </a>
           </li>
         </ul>

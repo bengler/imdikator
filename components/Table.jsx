@@ -37,7 +37,7 @@ module.exports = React.createClass({
         <div className={imdikatorTableExpanderClasses}>
           <a className={tableToggleClasses} href="javascript://" onClick={this.toggle}>
             <i className="icon-chevron-down"></i>
-            <span>Vis tabell</span>
+            {this.state.opened ? (<span>Skjul</span>) : (<span>Vis tabell</span>) }
           </a>
         </div>
         <table className={tableClasses}>

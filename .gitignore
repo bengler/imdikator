@@ -3,3 +3,7 @@ npm-debug.log
 .imdi-fork.tmp
 node_modules
 dataset/*
+public/bundles
+public/gfx
+public/imdi-no
+public/stylesheets

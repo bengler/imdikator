@@ -18,7 +18,8 @@
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
-    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
+    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",
+    "compile-assets": "staticr --require babel/register public ./static-routes "
   },
   "dependencies": {
     "@bengler/imdi-dataset": "^4.1.3",

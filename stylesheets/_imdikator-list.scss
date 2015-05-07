@@ -3,6 +3,7 @@
     padding: $spacing--large;
     background: #fff;
     @extend .wrapper;
+
   }
   &__group {
     @extend .box;
@@ -13,6 +14,7 @@
     line-height: $factor-line-height * 2;
     display: block;
     border-bottom: 4px solid $_white;
+
   }
   &__main-content {
     background-color: $_white;
@@ -21,6 +23,9 @@
   }
   &__heading {
     margin-bottom: $spacing--large;
+    &__icon {
+      margin-right: .5em;
+    }
   }
   &__expand-button {
     border: none;

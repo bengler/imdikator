@@ -40,7 +40,7 @@ module.exports = React.createClass({
       <div className="imdikator-list__group">
         <Select className="right"/>
         <h3 className="imdikator-list__heading">
-          {this.props.title} i {region.name}
+          {this.props.title}
         </h3>
         <div className="imdikator-list__main-content">
       	 {items}

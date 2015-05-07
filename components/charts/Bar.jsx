@@ -5,9 +5,7 @@ const profileColors = require('../../lib/profileColors');
 
 module.exports = React.createClass({
   displayName: 'AreaChart',
-  onClick() {
 
-  },
   componentDidMount() {
     this.chart = c3.generate({
       bindto: this.getDOMNode(),
@@ -27,9 +25,11 @@ module.exports = React.createClass({
     });
     this.renderChart();
   },
+
   componentDidUpdate() {
     this.renderChart();
   },
+
   renderChart() {
 
     let chartData = this.props.chartData;
@@ -48,7 +48,16 @@ module.exports = React.createClass({
 
     if (chartData.length == 2) {
       chartSetup.categories = chartData[1].values;
+
+      if (this.props.stacked !== undefined) {   
+        console.info("Fear me. Foer I am stacked.", this.props.stacked);
+        this.chart.groups([chartData[0].values]);   
+      }
+
+    } else {
+      chartSetup.categories = [""];
     }
+
 
     this.chart.load(chartSetup);
 

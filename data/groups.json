@@ -414,7 +414,7 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
+        "defaultUnit": "prosent"
       }
     ]
   },

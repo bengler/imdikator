@@ -335,22 +335,88 @@
   {
     "groupKind": "chart",
     "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "norsk_prover",
+        "dimensions": [
+          {
+            "label": "spraaknivaa",
+            "any": true
+          },
+          {
+            "label": "provetype",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
     "title": "Norskopplæring - oppstart og omfang",
-    "items": []
+    "items": [
+      {
+        "chartKind": "stackedBar",
+        "table": "norsk_deltakere",
+        "dimensions": [
+          {
+            "label": "rettigheter_introlov_nosfk",
+            "any": true
+          },
+          {
+            "label": "kjonn",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
     "title": "Voksne elever i grunnskolen",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "voksne_grunnskole",
+        "dimensions": [
+          {
+            "label": "spraak",
+            "include": [
+              "alle"
+            ]
+          },
+          {
+            "label": "undervisning_grskole",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
     "title": "Voksne elever i grunnskolen",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "voksne_videregaende",
+        "dimensions": [
+          {
+            "label": "spraak",
+            "any": true
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "personer"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -744,12 +810,104 @@
   {
     "groupKind": "chart",
     "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "arbledige_innvkat_land",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "lopsided"
+      },
+      {
+        "chartKind": "bar",
+        "table": "arbledige_innvkat_land",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "innvandrere"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle",
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "lopsided"
+      }
+    ]
   },
   {
     "groupKind": "chart",
     "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "ikke_arbutd_innvkat_land",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "lopsided"
+      },
+      {
+        "chartKind": "bar",
+        "table": "ikke_arbutd_innvkat_land",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "innvandrere"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle",
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "lopsided"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -787,12 +945,104 @@
   {
     "groupKind": "chart",
     "title": "Inntektsnivå – gjennomsnittsinntekt",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "gjennomsnittsinntekt",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "kroner",
+        "issue": "lopsided"
+      },
+      {
+        "chartKind": "bar",
+        "table": "gjennomsnittsinntekt",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "innvandrere"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle",
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "kroner",
+        "issue": "lopsided"
+      }
+    ]
   },
   {
     "groupKind": "chart",
     "title": "Personer med vedvarende lavinntekt",
-    "items": []
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "vedvarende_lavinntekt",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "lopsided"
+      },
+      {
+        "chartKind": "bar",
+        "table": "vedvarende_lavinntekt",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "innvandrere"
+            ]
+          },
+          {
+            "label": "vreg_3",
+            "include": [
+              "alle",
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "lopsided"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -807,8 +1057,7 @@
             "include": [
               "innvandrere",
               "befolkningen_ellers",
-              "norskfodte_m_innvf",
-              "bef_u_innv_og_norskf"
+              "norskfodte_m_innvf"
             ]
           },
           {
@@ -823,6 +1072,11 @@
         "defaultUnit": "prosent"
       }
     ]
+  },
+  {
+    "groupKind": "main",
+    "title": "Ellers",
+    "items": []
   },
   {
     "groupKind": "chart",

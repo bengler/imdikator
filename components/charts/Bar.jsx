@@ -50,7 +50,6 @@ module.exports = React.createClass({
       chartSetup.categories = chartData[1].values;
 
       if (this.props.stacked !== undefined) {   
-        console.info("Fear me. Foer I am stacked.", this.props.stacked);
         this.chart.groups([chartData[0].values]);   
       }
 

@@ -43,11 +43,11 @@ module.exports = React.createClass({
           <thead>
             <tr>
               <th>Label</th>
-              <th className="table--cell__right">Header 1</th>
-              <th className="table--cell__right">Header 2</th>
-              <th className="table--cell__right">Header 3</th>
-              <th className="table--cell__right">Header 4</th>
-              <th className="table--cell__right">Header 5</th>
+              <th className="">Header 1</th>
+              <th className="">Header 2</th>
+              <th className="">Header 3</th>
+              <th className="">Header 4</th>
+              <th className="">Header 5</th>
             </tr>
           </thead>
           <tbody>

@@ -42,7 +42,9 @@ module.exports = React.createClass({
         <h3 className="imdikator-list__heading">
           {this.props.title} i {region.name}
         </h3>
-      	{items}
+        <div className="imdikator-list__main-content">
+      	 {items}
+        </div>
 
         <ul className="imdikator-graph-functions list--inline">
           <li className="imdikator-graph-functions__item">

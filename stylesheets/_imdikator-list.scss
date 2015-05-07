@@ -1,0 +1,38 @@
+.imdikator-list {
+  &__wrapper {
+    padding: $spacing--large;
+    background: #fff;
+    @extend .wrapper;
+  }
+  &__group {
+    @extend .box;
+    background-color: $_canvas-grey;
+  }
+  &__item {
+    @extend h3;
+    line-height: $factor-line-height * 2;
+    display: block;
+    border-bottom: 4px solid $_white;
+  }
+  &__main-content {
+    background-color: $_white;
+    padding: $spacing;
+    overflow: hidden;
+  }
+  &__heading {
+    margin-bottom: $spacing--large;
+  }
+  &__expand-button {
+    border: none;
+    font-size: $font-size--xlarge;
+    color: $_black--light;
+    overflow: hidden;
+    line-height: 1.5em;
+    transition-property: transform;
+    transition-duration: .1s;
+    //imdikator-list__expand-button--expanded
+    &--expanded, &:hover {
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -22,10 +22,10 @@
     overflow: hidden;
   }
   &__heading {
-    margin-bottom: $spacing--large;
-    &__icon {
-      margin-right: .5em;
-    }
+    margin-bottom: $spacing;
+  }
+  &__icon {
+    margin-right: .5em;
   }
   &__expand-button {
     border: none;

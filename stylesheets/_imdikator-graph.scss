@@ -10,7 +10,7 @@
   &__functions {
     font-size: $font-size--medium;
     @extend .list--inline;
-    padding: $spacing--medium 0;
+    padding-top: $spacing;
     &__item {
       margin-right: $spacing--small;
       .tool-link {

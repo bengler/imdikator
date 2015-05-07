@@ -41,7 +41,7 @@ module.exports = React.createClass({
         <Select className="right" />
           <div className="toggle imdikator-list__toggle"></div>
         <h3 className="imdikator-list__heading">
-          <i className="icon icon-search imdikator-list__heading__icon"></i>
+          <i className="icon icon-search imdikator-list__icon"></i>
           {this.props.title}
 
         </h3>

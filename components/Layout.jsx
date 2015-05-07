@@ -13,7 +13,6 @@ module.exports = React.createClass({
           />
 
         <script src="/bundles/default.js" async></script>
-        <script src="/quickreload.js" async></script>
         <link rel="stylesheet" href="/stylesheets/main.css"/>
         <link rel="stylesheet" href="/c3.css"/>
       </head>

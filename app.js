@@ -20,8 +20,7 @@ if (config.env === 'development') {
 
 if (config.env === 'development') {
   var serve = require("staticr/serve");
-  app.use(serve(require("./static-routes/browserify-bundles")));
-  app.use(serve(require("./static-routes/stylesheets")));
+  app.use(serve(require("./static-routes")));
 }
 
 if (config.env === 'development') {

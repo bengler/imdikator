@@ -1,10 +1,11 @@
 const sass = require('node-sass');
 const path = require('path');
 const config = require('../config');
-const fs = require('fs');
 const imdino = require('imdi-no');
 
 const development = config.env === 'development';
+
+console.log(imdino.paths.scss)
 
 module.exports = {
   "/stylesheets/main.css": function (callback) {
@@ -12,7 +13,7 @@ module.exports = {
     const opts = {
       file:               require.resolve("../stylesheets/main.scss"),
       outFile:            '/stylesheets/main.css',
-      includePaths:       imdino.includePaths,
+      includePaths:       [imdino.paths.scss],
 
       sourceMap:          development,
       sourceMapEmbed:     development,
@@ -29,18 +30,3 @@ module.exports = {
     });
   }
 };
-
-fs.readdirSync(imdino.paths.gfx).forEach(file => {
-
-  const fullPath = path.join(imdino.paths.gfx, file);
-  const httpPaths = [
-    path.join('/imdi-no/_themes/blank/gfx', file),
-    path.join('/gfx', file)
-  ];
-
-  httpPaths.forEach(httpPath => {
-    module.exports[httpPath] = function() {
-      return fs.createReadStream(fullPath);
-    }
-  });
-});

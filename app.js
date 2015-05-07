@@ -15,8 +15,7 @@ app.use(helmet.ienoopen());
 app.set('query parser', 'extended');
 
 if (config.env === 'development') {
-  var quickreload = require("quickreload");
-  app.use(quickreload());
+  app.use(require("quickreload")({server: app}));
 }
 
 if (config.env === 'development') {
@@ -30,6 +29,13 @@ if (config.env === 'development') {
   app.use(capture.js());
   app.use(capture.css());
 }
+
+var React = require('react');
+var Layout = require('./components/Layout.jsx');
+var rendered = React.renderToStaticMarkup(React.createElement(Layout));
+app.get("/", function(req, res) {
+  res.status(200).send(rendered);
+});
 
 app.use("/api/v1", require("./api"));
 

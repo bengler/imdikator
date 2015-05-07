@@ -1,6 +1,6 @@
 [
   {
-    "groupKind": "main",
+    "groupKind": "heading",
     "title": "Befolkning",
     "items": []
   },
@@ -208,7 +208,7 @@
     "items": []
   },
   {
-    "groupKind": "main",
+    "groupKind": "heading",
     "title": "Utdanning og kvalifisering",
     "items": []
   },
@@ -631,7 +631,7 @@
     ]
   },
   {
-    "groupKind": "main",
+    "groupKind": "heading",
     "title": "Arbeid",
     "items": []
   },
@@ -938,7 +938,7 @@
     ]
   },
   {
-    "groupKind": "main",
+    "groupKind": "heading",
     "title": "Levekår",
     "items": []
   },
@@ -1074,7 +1074,7 @@
     ]
   },
   {
-    "groupKind": "main",
+    "groupKind": "heading",
     "title": "Ellers",
     "items": []
   },

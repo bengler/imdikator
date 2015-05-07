@@ -106,7 +106,7 @@ module.exports = React.createClass({
 
   render() {
     if (this.state.loading) {
-      return (<Loader>Fetching data…</Loader>);
+      return (<Loader>Henter data…</Loader>);
     }
     if (this.state.error) {
       return (<div><pre>Error: {this.state.error.stack}</pre></div>);

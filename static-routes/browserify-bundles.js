@@ -16,7 +16,8 @@ function createBundle(entry) {
       packageCache:  pkgCache,
       extensions:    ['.jsx'],
       noParse:       [],
-      debug:         env == 'development',
+      // todo investigate why setting this to false fails with 'Uncaught TypeError: Cannot read property 'ending' of undefined' in production
+      debug:         true || env == 'development',
       fullPaths:     env == 'development'
     })
       .transform(babelify)

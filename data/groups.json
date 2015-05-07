@@ -368,7 +368,10 @@
           },
           {
             "label": "kjonn",
-            "any": true
+            "include": [
+              "0",
+              "1"
+            ]
           }
         ],
         "time": "latest",
@@ -425,7 +428,7 @@
   },
   {
     "groupKind": "chart",
-    "title": "Introduksjonsprgoram - direkte avslutning",
+    "title": "Introduksjonsprogram - direkte avslutning",
     "items": [
       {
         "chartKind": "stackedBar",

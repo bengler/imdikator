@@ -57,24 +57,13 @@ module.exports = React.createClass({
   },
 
   mungeData(data) {
-
     // Chop. We aren't dealing with more than a single region yet
     const region = this.props.regions[0].regionCode;
     data = data.data[region];
-
-    if (this.props.item.debug) console.info("Data we got (sans regions):", data);
+    data = treeTools.relabelTree(data);
     data = treeTools.pruneSingularCategories(data);
-    const depths = treeTools.probeDepths(data);
-
-    const chartData = treeTools.extractChartData(data);
-
-    if (this.props.item.debug) console.info("After prune:", data);
-    if (this.props.item.debug) console.info("… and as chart data:", chartData);
-
     const units = treeTools.findUnits(data);
-
-    if (this.props.item.debug) console.info("With depths:", depths);
-    if (this.props.item.debug) console.info("… with units:", units);
+    const chartData = treeTools.extractChartData(data);
 
     return {
       data: data,
@@ -133,8 +122,6 @@ module.exports = React.createClass({
         // </pre>
         }
 
-        {this.props.item.title && <h4>{this.props.item.title}</h4>}
-
         {units.length > 1 && units.map(unit => {
           return (
             <button type="button" className={classNames({selected: selectedUnit == unit })} onClick={()=> this.handleUnitSelected(unit)}>
@@ -142,6 +129,8 @@ module.exports = React.createClass({
             </button>
           )
         })}
+
+        {this.props.item.title && <h4>{this.props.item.title}</h4>}
 
         <Chart chartData={chartData} stacked={stacked} unit={selectedUnit} time={time} debug={this.props.item.debug} data={data}/>
         <Table data={data}/>

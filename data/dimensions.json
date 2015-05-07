@@ -171,44 +171,53 @@
     ]
   },
   {
-    "name": "vreg_8",
+    "name": "vreg_9",
     "description": "åttedelt verdensregion",
     "variables": [
       {
         "title": "Norden",
-        "label": "norden"
+        "label": "norden",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Vest-Europa ellers",
-        "label": "vest_europa"
+        "label": "vest_europa",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "EU-land i Øst-Europa",
-        "label": "eu_ost_europa"
+        "label": "eu_ost_europa",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Øst-Europa ellers",
-        "label": "ost_europa_ellers"
+        "label": "ost_europa_ellers",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Nord-Amerika \nog Oseania",
-        "label": "nord_amerika_oseania"
+        "label": "nord_amerika_oseania",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Asia (inkl. Tyrkia)",
-        "label": "asia"
+        "label": "asia",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Afrika",
-        "label": "afrika"
+        "label": "afrika",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Sør- og \nMellom-Amerika",
-        "label": "sor_og_mellom_amerika"
+        "label": "sor_og_mellom_amerika",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       },
       {
         "title": "Alle",
-        "label": "alle"
+        "label": "alle",
+        "comment": "NAVNEBYTTE fra vreg_8 til vreg_9"
       }
     ]
   },
@@ -450,6 +459,28 @@
     ]
   },
   {
+    "name": "undervisning_grskole",
+    "description": "undervisningsform i grunnskole",
+    "variables": [
+      {
+        "title": "mottar enten grunnskoleopplæring eller spesialundervisning eller begge deler (alle)",
+        "label": "alle"
+      },
+      {
+        "title": "mottar både grunnskoleopplæring og spesialundervisning",
+        "label": "grskole_og_spesial"
+      },
+      {
+        "title": "mottar kun grunnskoleopplæring",
+        "label": "kun_grunnskoleoppl"
+      },
+      {
+        "title": "mottar kun spesialundervisning",
+        "label": "kun_spesialund"
+      }
+    ]
+  },
+  {
     "name": "voksneigrunnsk",
     "description": "voksne i grunnskolen",
     "variables": [
@@ -460,6 +491,22 @@
       {
         "title": "minoritetsspråklig",
         "label": "minoritetsspraklige"
+      },
+      {
+        "title": "voksne ellers",
+        "label": "voksne_ellers"
+      },
+      {
+        "title": "kun mottar grunnskoleopplæring",
+        "label": "kun_grunnskoleoppl"
+      },
+      {
+        "title": "kun mottar spesialundervisning",
+        "label": "kun_spesialund"
+      },
+      {
+        "title": "både mottar grunnskoleopplæring og spesialundervisning",
+        "label": "bade_grunnskoleoppl_og_spesialund"
       }
     ]
   },
@@ -538,9 +585,13 @@
     ]
   },
   {
-    "name": "rettplikt_plikt_rett",
+    "name": "rettigheter_introlov_nosfk",
     "description": "Rettighetsgruppe ift opplæring i norsk og samfunnskunnskap",
     "variables": [
+      {
+        "title": "alle med rettigheter til opplæring i norsk og samfunnskunnskap etter introduksjonsloven",
+        "label": "alle"
+      },
       {
         "title": "rett og plikt til opplæring i norsk og samfunnskunnskap",
         "label": "rett_og_plikt"
@@ -552,6 +603,58 @@
       {
         "title": "rett til opplæring i norsk og samfunnskunnskap",
         "label": "rett"
+      }
+    ]
+  },
+  {
+    "name": "spraaknivaa",
+    "description": "Språknivå på prøver",
+    "variables": [
+      {
+        "title": "alle",
+        "label": "alle"
+      },
+      {
+        "title": "B1",
+        "label": "b1"
+      },
+      {
+        "title": "A2",
+        "label": "a2"
+      },
+      {
+        "title": "A1",
+        "label": "a1"
+      },
+      {
+        "title": "under A1",
+        "label": "under_a1"
+      },
+      {
+        "title": "ikke vurdert",
+        "label": "ikke_vurdert"
+      }
+    ]
+  },
+  {
+    "name": "provetype",
+    "description": "Prøvetype",
+    "variables": [
+      {
+        "title": "Muntlig",
+        "label": "muntlig"
+      },
+      {
+        "title": "Lytteforståelse",
+        "label": "lytting"
+      },
+      {
+        "title": "Leseforståelse",
+        "label": "lese"
+      },
+      {
+        "title": "Skriftlig framstilling",
+        "label": "skriftlig"
       }
     ]
   },
@@ -590,31 +693,31 @@
     "description": "funksjonell aldersinndeling (0-5, )",
     "variables": [
       {
-        "title": "aldersfordeling i hele befolkningen",
+        "title": "personer fra og med 0 til og med 5 år",
         "label": "0-5"
       },
       {
-        "title": "",
+        "title": "personer fra og med 6 til og med 15 år",
         "label": "6-15"
       },
       {
-        "title": "",
+        "title": "personer fra og med 16 til og med 19 år",
         "label": "16-19"
       },
       {
-        "title": "",
+        "title": "personer fra og med 20 til og med 29 år",
         "label": "20-29"
       },
       {
-        "title": "",
+        "title": "personer fra og med 30 til og med 54 år",
         "label": "30-54"
       },
       {
-        "title": "",
+        "title": "personer fra og med 55 til og med 66 år",
         "label": "55-66"
       },
       {
-        "title": "",
+        "title": "personer fra og med 0 67 år",
         "label": "67+"
       }
     ]
@@ -624,81 +727,101 @@
     "description": "femdelt innvandringsgrunn",
     "variables": [
       {
-        "title": "innvandringsgrunn",
+        "title": "alle med innvandringsgrunn",
         "label": "alle"
       },
       {
-        "title": "",
+        "title": "innvandringsgrunn arbeid",
         "label": "arbeid"
       },
       {
-        "title": "",
+        "title": "innvandringsgrunn flukt inkl. familiegjenforente til flyktninger",
         "label": "flukt"
       },
       {
-        "title": "",
+        "title": "innvandringsgrunn familieetablering eller familiegjenforening",
         "label": "familie"
       },
       {
-        "title": "",
+        "title": "innvandringsgrunn er utdanning (inkl. au pair), uoppgitte eller andre grunner",
         "label": "annet_uoppgitt"
       }
     ]
   },
   {
-    "name": "avsluttningsårsak_13",
+    "name": "avslutning_arsak_8",
     "description": "årsak til avslutning av intro",
     "variables": [
       {
-        "title": "avsluttningsårsaker av introduksjonsprogrammet",
+        "title": "alle med avsluttet/avbrutt introduksjonsprogrammet",
         "label": "alle"
       },
       {
-        "title": "",
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeidssøker på andre tiltak i regi av NAV, 2) arbeidssøker på KVP (NAV), 3) arbeidssøker på lønnstilskudd (NAV), 4) arbeidssøker på tiltak i regi av andre enn NAV",
+        "label": "kvalifisering"
+      },
+      {
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til ordinær opplæring grunnskole",
+        "label": "gr_skole"
+      },
+      {
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til ordinær utdanning i videregående skole eller høyere utdanning",
+        "label": "utdanning"
+      },
+      {
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeid lik eller mer enn 30 t/uke og lik eller mindre enn 29 t/uke.",
         "label": "arbeid"
       },
       {
-        "title": "",
-        "label": "hoyere_utd"
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til sosial stønad",
+        "label": "sos_stnd"
       },
       {
-        "title": "",
-        "label": "vg_utd"
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til andre trygdeytelser",
+        "label": "trygd_annen"
       },
       {
-        "title": "",
-        "label": "grunnskole"
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang 1) atferd i/utenfor programmet, 2) død, 3) flyttet, 4) ukjent/forsvunnet, 5) helsemessige årsaker, 6) ikke arbeidssøker, 7) annet",
+        "label": "annet"
+      }
+    ]
+  },
+  {
+    "name": "avslutning_arsak_3",
+    "description": "årsak til avslyutning av intro (tredelt)",
+    "variables": [
+      {
+        "title": "alle med avsluttet/avbrutt introduksjonsprogrammet",
+        "label": "alle"
       },
       {
-        "title": "",
-        "label": "navtiltak"
+        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeid lik eller mer enn 30 t/uke, 2) lik eller mindre enn 29 t/uke, 3) overgang til ordinær utdanning i videregående skole, eller 4) overgang til høyere utdanning",
+        "label": "arbutd"
       },
       {
-        "title": "",
-        "label": "lonnstilsk"
+        "title": "Alle med andre avslutningsårsaker enn arbeid eller utdanning",
+        "label": "annet"
+      }
+    ]
+  },
+  {
+    "name": "avslutning_status_4",
+    "description": "status på arbeidsmarkedet etter avslutta/avbrutt introduksjonsprogram",
+    "variables": [
+      {
+        "title": "alle med avsluttet/avbrutt introduksjonsprogrammet",
+        "label": "alle"
       },
       {
-        "title": "",
-        "label": "tiltak_utenfor_nav"
+        "title": "sysselsatt/utdanning",
+        "label": "arbutd"
       },
       {
-        "title": "",
-        "label": "flyttet"
+        "title": "registrert ledig/på tiltak",
+        "label": "ledig_tiltak"
       },
       {
-        "title": "",
-        "label": "helse"
-      },
-      {
-        "title": "",
-        "label": "trygd"
-      },
-      {
-        "title": "",
-        "label": "sos_stonad"
-      },
-      {
-        "title": "",
+        "title": "annen eller ingen registrering",
         "label": "annet"
       }
     ]
@@ -708,19 +831,19 @@
     "description": "aldersinndeling arbeidsfør alder",
     "variables": [
       {
-        "title": "aldersinndeling arbeidsfør alder",
+        "title": "alle mellom 18 og 69 år",
         "label": "alle_18-69"
       },
       {
-        "title": "",
+        "title": "alle fra og med 18 til og med 29 år",
         "label": "18-29"
       },
       {
-        "title": "",
+        "title": "alle fra og med 30 til og med 54 år",
         "label": "30-54"
       },
       {
-        "title": "",
+        "title": "alle fra og med 55 til og med 69 år",
         "label": "55-69"
       }
     ]
@@ -740,15 +863,15 @@
     "description": "todelt aldersinndeling etter grunnskole",
     "variables": [
       {
-        "title": "antall prsoner i aldersgruppen 16-66",
+        "title": "antall prsoner totalt i aldersgruppen 16-66",
         "label": "alle"
       },
       {
-        "title": "",
+        "title": "antall personer fra og 16 til og med 25",
         "label": "16-25"
       },
       {
-        "title": "",
+        "title": "antall personer fra og 26 til og med 66",
         "label": "26-66"
       }
     ]

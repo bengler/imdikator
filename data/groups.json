@@ -15,8 +15,9 @@
           {
             "label": "innvkat_5",
             "include": [
+              "alle",
               "innvandrere",
-              "befolkningen_ellers",
+              "bef_u_innv_og_norskf",
               "norskfodte_m_innvf"
             ]
           },
@@ -39,7 +40,7 @@
             "label": "innvkat_5",
             "include": [
               "innvandrere",
-              "befolkningen_ellers",
+              "bef_u_innv_og_norskf",
               "norskfodte_m_innvf"
             ]
           }
@@ -205,97 +206,87 @@
   {
     "groupKind": "chart",
     "title": "Bosatte flyktninger",
-    "items": []
+    "items": [
+      {
+        "chartKind": "stackedArea",
+        "table": "bosetting",
+        "dimensions": [
+          {
+            "label": "bosetting",
+            "include": [
+              "anmodning",
+              "vedtak",
+              "bosatt"
+            ]
+          }
+        ],
+        "time": "all",
+        "defaultUnit": "personer",
+        "issue": "should be line chart – and area chart"
+      }
+    ]
   },
   {
     "groupKind": "heading",
     "title": "Utdanning og kvalifisering",
-    "items": []
+    "items": [
+      {
+        "issue": "should not be stacked (why art thou stacked?)"
+      }
+    ]
   },
   {
     "groupKind": "chart",
     "title": "Befolkningens utdanningsnivå",
     "items": [
       {
-        "title": "Alle",
+        "title": "Grunnskole",
         "chartKind": "bar",
         "table": "utdanningsniva",
         "dimensions": [
-          {
-            "label": "innvkat_3",
-            "include": [
-              "alle"
-            ]
-          },
           {
             "label": "utd_4",
             "include": [
-              "grunnskole",
-              "vgs",
-              "universitet_og_hogskole",
-              "uoppgitt_ingen"
+              "grunnskole"
             ]
           },
-          {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
-          }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
-      },
-      {
-        "title": "Innvandrere",
-        "chartKind": "bar",
-        "table": "utdanningsniva",
-        "dimensions": [
           {
             "label": "innvkat_3",
             "include": [
-              "innvandrere"
-            ]
-          },
-          {
-            "label": "utd_4",
-            "include": [
-              "grunnskole",
-              "vgs",
-              "universitet_og_hogskole",
-              "uoppgitt_ingen"
-            ]
-          },
-          {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
-          }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
-      },
-      {
-        "title": "Befolkningen ellers",
-        "chartKind": "bar",
-        "table": "utdanningsniva",
-        "dimensions": [
-          {
-            "label": "innvkat_3",
-            "include": [
+              "alle",
+              "innvandrere",
               "befolkningen_ellers"
             ]
           },
           {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "should not be stacked (why art thou stacked?)"
+      },
+      {
+        "title": "Videregående",
+        "chartKind": "bar",
+        "table": "utdanningsniva",
+        "dimensions": [
+          {
             "label": "utd_4",
             "include": [
-              "grunnskole",
-              "vgs",
-              "universitet_og_hogskole",
-              "uoppgitt_ingen"
+              "vgs"
+            ]
+          },
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "innvandrere",
+              "befolkningen_ellers"
             ]
           },
           {
@@ -307,13 +298,76 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "prosent"
+        "defaultUnit": "prosent",
+        "issue": "should not be stacked (why art thou stacked?)"
+      },
+      {
+        "title": "Universitet og høyskole",
+        "chartKind": "bar",
+        "table": "utdanningsniva",
+        "dimensions": [
+          {
+            "label": "utd_4",
+            "include": [
+              "universitet_og_hogskole"
+            ]
+          },
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "innvandrere",
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "should not be stacked (why art thou stacked?)"
+      },
+      {
+        "title": "Uoppgitt / ingen",
+        "chartKind": "bar",
+        "table": "utdanningsniva",
+        "dimensions": [
+          {
+            "label": "utd_4",
+            "include": [
+              "uoppgitt_ingen"
+            ]
+          },
+          {
+            "label": "innvkat_3",
+            "include": [
+              "alle",
+              "innvandrere",
+              "befolkningen_ellers"
+            ]
+          },
+          {
+            "label": "kjonn",
+            "include": [
+              "0",
+              "1"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent",
+        "issue": "should not be stacked (why art thou stacked?)"
       }
     ]
   },
   {
     "groupKind": "chart",
-    "title": "Introduksjonsprogram",
+    "title": "Antall deltagere i introduksjonsprogram",
     "items": [
       {
         "chartKind": "stackedBar",
@@ -328,7 +382,8 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
+        "defaultUnit": "personer",
+        "issue": "denne virker rett og slett ikke. hvorfor"
       }
     ]
   },
@@ -341,22 +396,25 @@
         "table": "norsk_prover",
         "dimensions": [
           {
-            "label": "spraaknivaa",
+            "label": "provetype",
             "any": true
           },
           {
-            "label": "provetype",
+            "label": "spraaknivaa",
+            "exclude": [
+              "alle"
+            ],
             "any": true
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
+        "defaultUnit": "prosent"
       }
     ]
   },
   {
     "groupKind": "chart",
-    "title": "Norskopplæring - oppstart og omfang",
+    "title": "Norskopplæring - antall deltagere",
     "items": [
       {
         "chartKind": "stackedBar",
@@ -370,12 +428,14 @@
             "label": "kjonn",
             "include": [
               "0",
-              "1"
+              "1",
+              "alle"
             ]
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
+        "defaultUnit": "personer",
+        "issue": "behov for sortering!"
       }
     ]
   },
@@ -417,7 +477,8 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "prosent"
+        "defaultUnit": "prosent",
+        "issue": "behov for sortering!"
       }
     ]
   },
@@ -428,7 +489,7 @@
   },
   {
     "groupKind": "chart",
-    "title": "Introduksjonsprogram - direkte avslutning",
+    "title": "Hve gjorde de etter introduksjonsprogrammet?",
     "items": [
       {
         "chartKind": "stackedBar",
@@ -484,8 +545,7 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "hm, ikke prosent for ikke-minoritet i datasettet, warum?"
+        "defaultUnit": "prosent"
       },
       {
         "title": "Minoritetsspråklige i barnehage / alder",
@@ -510,8 +570,7 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer",
-        "issue": "API error : values are of form \"1 793\". Import"
+        "defaultUnit": "personer"
       }
     ]
   },
@@ -546,6 +605,11 @@
   },
   {
     "groupKind": "chart",
+    "title": "Antall avgangselever",
+    "items": []
+  },
+  {
+    "groupKind": "chart",
     "title": "Elever i videregående skole (siste 3 år)",
     "items": [
       {
@@ -575,7 +639,7 @@
   },
   {
     "groupKind": "chart",
-    "title": "Fullføring av videregående innen fem år etter påbegynt VGS",
+    "title": "Ble ferdig med videregående innen fem år",
     "items": [
       {
         "chartKind": "bar",
@@ -629,7 +693,8 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "prosent"
+        "defaultUnit": "prosent",
+        "issue": "Prosent av personer kan ikke stackes"
       }
     ]
   },
@@ -637,6 +702,27 @@
     "groupKind": "heading",
     "title": "Arbeid",
     "items": []
+  },
+  {
+    "groupKind": "chart",
+    "title": "Sysselsatte etter innvandringskategori",
+    "items": [
+      {
+        "chartKind": "bar",
+        "table": "sysselsatte_innvkat",
+        "dimensions": [
+          {
+            "label": "innvkat_3",
+            "include": [
+              "innvandrere",
+              "befolkningen_ellers"
+            ]
+          }
+        ],
+        "time": "latest",
+        "defaultUnit": "prosent"
+      }
+    ]
   },
   {
     "groupKind": "chart",
@@ -685,27 +771,6 @@
             "include": [
               "0",
               "1"
-            ]
-          }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsatte etter innvandringskategori",
-    "items": [
-      {
-        "chartKind": "bar",
-        "table": "sysselsatte_innvkat",
-        "dimensions": [
-          {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
             ]
           }
         ],
@@ -914,24 +979,24 @@
   },
   {
     "groupKind": "chart",
-    "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
+    "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
     "items": [
       {
         "chartKind": "bar",
         "table": "ikke_arbutd_innvkat_alder",
         "dimensions": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "befolkningen_ellers",
-              "innvandrere"
-            ]
-          },
-          {
             "label": "aldersinndeling_etter_grskole",
             "include": [
               "16-25",
               "26-66"
+            ]
+          },
+          {
+            "label": "innvkat_3",
+            "include": [
+              "befolkningen_ellers",
+              "innvandrere"
             ]
           }
         ],

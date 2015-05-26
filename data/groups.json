@@ -1,8 +1,8 @@
 [
   {
-    "groupKind": "mainGroup",
     "urlName": "befolkning",
     "title": "Befolkning",
+    "groupKind": "mainGroup",
     "items": [
       {
         "title": "Befolkningssammensetning",
@@ -189,16 +189,10 @@
     ]
   },
   {
-    "groupKind": "mainGroup",
     "urlName": "utdanning",
     "title": "Utdanning",
+    "groupKind": "mainGroup",
     "items": [
-      {
-        "issue": "should not be stacked (why art thou stacked?)"
-      },
-      {
-        "issue": "should not be stacked (why art thou stacked?)"
-      },
       {
         "title": "Utdanningsnivå - Grunnskole",
         "chartKind": "bar",
@@ -593,9 +587,9 @@
     ]
   },
   {
-    "groupKind": "mainGroup",
     "urlName": "arbeid",
     "title": "Arbeid",
+    "groupKind": "mainGroup",
     "items": [
       {
         "title": "Sysselsatte etter innvandringskategori",
@@ -854,9 +848,9 @@
     ]
   },
   {
-    "groupKind": "mainGroup",
     "urlName": "levekaar",
     "title": "Levekår",
+    "groupKind": "mainGroup",
     "items": [
       {
         "title": "Inntektsnivå – gjennomsnittsinntekt",
@@ -979,9 +973,9 @@
     ]
   },
   {
-    "groupKind": "mainGroup",
     "urlName": "tilskudd",
     "title": "Tilskudd",
+    "groupKind": "mainGroup",
     "items": [
       {
         "title": "Tilskudd",

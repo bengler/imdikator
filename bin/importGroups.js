@@ -64,10 +64,10 @@ const parseGroups = function(lines) {
 			currentGroup = {
 				urlName: line.chartKind,
 				title: line.title,
+				groupKind: line.groupKind,
 				items: []
 			};
 		} else if (Object.keys(line).length > 0 && line.groupKind != "#") { // # in groupKind is skip notation
-
 			if (!SOLO || (SOLO && line.debug)) {
 				currentGroup.items.push(line);
 			}

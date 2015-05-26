@@ -14,7 +14,7 @@
         "comment": "Innvandrer-kategorien er definert likt i alle innvkat."
       },
       {
-        "title": "befolkningen ellers,",
+        "title": "befolkningen unntatt innvandrere",
         "label": "befolkningen_ellers",
         "comment": "befolkningen ellers er definert likt i innvkat_5 og innvkat_3"
       },
@@ -43,7 +43,7 @@
         "comment": "innvkat_3.innvandrere=innvkat_5.innvandrere=innvkat_4.innvandrere=innvkat_2.innvandrere"
       },
       {
-        "title": "befolkningen ellers",
+        "title": "befolkningen unntatt innvandrere",
         "label": "befolkningen_ellers",
         "comment": "innvkat_3.bef = innvkat_5.bef"
       }
@@ -113,12 +113,12 @@
     "description": "Todelt verdensregion",
     "variables": [
       {
-        "title": "EU, EØS, etc (Landgruppe 1 hos SSB)",
+        "title": "EU/EFTA-land, Nord-Amerika, Australia og New Zealand",
         "label": "1",
         "comment": "alle er ikke definert inn her, da dette er en tom mengde/manglende data i tabellene vi har."
       },
       {
-        "title": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
+        "title": "Øst-Europa utenom EU, Asia (inkl.Tyrkia), Afrika, Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand",
         "label": "2"
       }
     ]
@@ -133,12 +133,12 @@
         "comment": "denne er den samme som vreg_2, men har en alle-kategori. Er brukt i tilfeller hvor innholdet egentlig ikke vil gi mening. Eks. i tabell 8: vreg_3.alle og innvkat_3.befolkningen_ellers er befolkningen som ikke er innvandrere sine flyttinger. disse har ikke definert landbakgrunn, men får det oppgitt?"
       },
       {
-        "title": "EU, EØS, etc (Landgruppe 1 hos SSB)",
+        "title": "EU/EFTA-land, Nord-Amerika, Australia og New Zealand",
         "label": "1",
         "comment": "vreg_3.1=vreg_2.1"
       },
       {
-        "title": "Asia, Afrika etc (Landgruppe 2 hos SSB)",
+        "title": "Øst-Europa utenom EU, Asia (inkl.Tyrkia), Afrika, Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand",
         "label": "2",
         "comment": "vreg_3.2=vreg_2.2"
       }
@@ -230,15 +230,15 @@
         "label": "alle"
       },
       {
-        "title": "0-4",
+        "title": "0-4 år",
         "label": "0-4"
       },
       {
-        "title": "5-9",
+        "title": "5-9 år",
         "label": "5-9"
       },
       {
-        "title": "10+",
+        "title": "10+ år",
         "label": "10+"
       },
       {
@@ -256,11 +256,11 @@
         "label": "alle"
       },
       {
-        "title": "0-4",
+        "title": "0-4 år",
         "label": "0-4"
       },
       {
-        "title": "5+",
+        "title": "5+ år",
         "label": "5+"
       }
     ]
@@ -274,11 +274,11 @@
         "label": "alle"
       },
       {
-        "title": "0-6",
+        "title": "0-6 år",
         "label": "0-6"
       },
       {
-        "title": "7+",
+        "title": "7+ år",
         "label": "7+"
       }
     ]
@@ -292,11 +292,11 @@
         "label": "alle"
       },
       {
-        "title": "ja",
+        "title": "Ikke sekundærflyttet til kommunen",
         "label": "ja"
       },
       {
-        "title": "nei",
+        "title": "Sekundærflyttet til kommunen",
         "label": "nei"
       }
     ]
@@ -372,11 +372,11 @@
         "comment": "Satt på samme linje som bbhg"
       },
       {
-        "title": "innvandrerbakgr",
+        "title": "barn med innvandrerbakgrunn",
         "label": "innvandrerbakgr"
       },
       {
-        "title": "barn ellers",
+        "title": "barn uten innvandrerbakgrunn",
         "label": "barn_ellers"
       }
     ]
@@ -449,11 +449,11 @@
         "label": "alle"
       },
       {
-        "title": "minoritetsspråklige (eks. utvalgte land)",
+        "title": "minoritetsspråklige (eks. samisk, svensk, dansk og engelsk)",
         "label": "minoritet"
       },
       {
-        "title": "ikke-minoritetsspråklige (ink. utvalgte land)",
+        "title": "ikke-minoritetsspråklige (ink. samisk, svensk, dansk og engelsk)",
         "label": "ikke_minoritet"
       }
     ]
@@ -463,19 +463,19 @@
     "description": "Form for grunnskoleopplæring",
     "variables": [
       {
-        "title": "mottar enten grunnskoleopplæring eller spesialundervisning eller begge deler (alle)",
+        "title": "Alle",
         "label": "alle"
       },
       {
-        "title": "mottar både grunnskoleopplæring og spesialundervisning",
+        "title": "Både ordinær opplæring og spesialundervisning",
         "label": "grskole_og_spesial"
       },
       {
-        "title": "mottar kun grunnskoleopplæring",
+        "title": "Kun ordinær opplæring",
         "label": "kun_grunnskoleoppl"
       },
       {
-        "title": "mottar kun spesialundervisning",
+        "title": "Kun spesialundervisning",
         "label": "kun_spesialund"
       }
     ]
@@ -515,22 +515,22 @@
     "description": "Utdanningsnivå firedelt",
     "variables": [
       {
-        "title": "grunnskole",
+        "title": "Grunnskole",
         "label": "grunnskole",
         "comment": "udt_4.g = udt_6.g"
       },
       {
-        "title": "vgs",
+        "title": "Videregående skole",
         "label": "vgs",
         "comment": "udt_4.vgs = udt_6.vgs"
       },
       {
-        "title": "universitets og høgskole",
+        "title": "Universitets- eller høgskoleutdanning",
         "label": "universitet_og_hogskole",
         "comment": "udt_4.universitet = udt_6.universitet"
       },
       {
-        "title": "uoppgitt/ingen",
+        "title": "Uoppgitt eller ingen fullført utdanning",
         "label": "uoppgitt_ingen",
         "comment": "udt_4.uoppgitt = udt_6.uoppgitt"
       }
@@ -541,27 +541,27 @@
     "description": "Seksdelt utdanningsnivå",
     "variables": [
       {
-        "title": "grunnskole",
+        "title": "Grunnskole",
         "label": "grunnskole"
       },
       {
-        "title": "vgs",
+        "title": "Videregående skole",
         "label": "vgs"
       },
       {
-        "title": "universitet og høgskole i alt",
+        "title": "Universitet og høgskole",
         "label": "universitet_og_hogskole"
       },
       {
-        "title": "universitet og høgskole kort",
+        "title": "Kort universitets- eller høgskoleutdanning",
         "label": "universitet_og_hogskole_kort"
       },
       {
-        "title": "universitet og høgskole lang",
+        "title": "Lang universitets- eller høgskoleutdanning",
         "label": "universitet_og_hogskole_lang"
       },
       {
-        "title": "uoppgitt/ingen",
+        "title": "Uoppgitt eller ingen fullført utdanning",
         "label": "uoppgitt_ingen"
       }
     ]
@@ -589,7 +589,7 @@
     "description": "Rettighetskategori i norsk og samfunnskunnskap",
     "variables": [
       {
-        "title": "alle med rettigheter til opplæring i norsk og samfunnskunnskap etter introduksjonsloven",
+        "title": "Alle med rett og/eller plikt til opplæring i norsk og samfunnskunnskap",
         "label": "alle"
       },
       {
@@ -615,19 +615,19 @@
         "label": "alle"
       },
       {
-        "title": "B1",
+        "title": "Nivå B1",
         "label": "b1"
       },
       {
-        "title": "A2",
+        "title": "Nivå A2",
         "label": "a2"
       },
       {
-        "title": "A1",
+        "title": "Nivå A1",
         "label": "a1"
       },
       {
-        "title": "under A1",
+        "title": "under nivå A1",
         "label": "under_a1"
       },
       {
@@ -653,7 +653,7 @@
         "label": "lese"
       },
       {
-        "title": "Skriftlig framstilling",
+        "title": "Skriftlig",
         "label": "skriftlig"
       }
     ]
@@ -727,23 +727,24 @@
     "description": "Femdelt innvandringsgrunn",
     "variables": [
       {
-        "title": "alle med innvandringsgrunn",
+        "title": "alle",
         "label": "alle"
       },
       {
-        "title": "innvandringsgrunn arbeid",
+        "title": "Arbeidsinnvandrere",
         "label": "arbeid"
       },
       {
-        "title": "innvandringsgrunn flukt inkl. familiegjenforente til flyktninger",
+        "title": "Flyktninger og familiegjenforente til disse",
         "label": "flukt"
       },
       {
-        "title": "innvandringsgrunn familieetablering eller familiegjenforening",
-        "label": "familie"
+        "title": "Familieforente",
+        "label": "familie",
+        "comment": "Familiegjenforente og familieetablerte"
       },
       {
-        "title": "innvandringsgrunn er utdanning (inkl. au pair), uoppgitte eller andre grunner",
+        "title": "Utdanning (inkl. au pair), uoppgitte eller andre grunner",
         "label": "annet_uoppgitt"
       }
     ]
@@ -753,36 +754,44 @@
     "description": "Årsak til avslutning/avbrytning av introduksjonsprogrammet",
     "variables": [
       {
-        "title": "alle med avsluttet/avbrutt introduksjonsprogrammet",
-        "label": "alle"
+        "title": "Alle",
+        "label": "alle",
+        "comment": "alle med avsluttet/avbrutt introduksjonsprogrammet"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeidssøker på andre tiltak i regi av NAV, 2) arbeidssøker på KVP (NAV), 3) arbeidssøker på lønnstilskudd (NAV), 4) arbeidssøker på tiltak i regi av andre enn NAV",
-        "label": "kvalifisering"
+        "title": "Kvalifiseringstiltak i offentlig regi",
+        "label": "kvalifisering",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeidssøker på andre tiltak i regi av NAV, 2) arbeidssøker på KVP (NAV), 3) arbeidssøker på lønnstilskudd (NAV), 4) arbeidssøker på tiltak i regi av andre enn NAV"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til ordinær opplæring grunnskole",
-        "label": "gr_skole"
+        "title": "Grunnskole",
+        "label": "gr_skole",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang til ordinær opplæring grunnskole"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til ordinær utdanning i videregående skole eller høyere utdanning",
-        "label": "utdanning"
+        "title": "Videregående skole og høyere utdanning",
+        "label": "utdanning",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang til ordinær utdanning i videregående skole eller høyere utdanning"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeid lik eller mer enn 30 t/uke og lik eller mindre enn 29 t/uke.",
-        "label": "arbeid"
+        "title": "Arbeid",
+        "label": "arbeid",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeid lik eller mer enn 30 t/uke og lik eller mindre enn 29 t/uke."
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til sosial stønad",
-        "label": "sos_stnd"
+        "title": "Sosialstønad",
+        "label": "sos_stnd",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang til sosial stønad"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til andre trygdeytelser",
-        "label": "trygd_annen"
+        "title": "Andre trygdeytelser",
+        "label": "trygd_annen",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang til andre trygdeytelser"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang 1) atferd i/utenfor programmet, 2) død, 3) flyttet, 4) ukjent/forsvunnet, 5) helsemessige årsaker, 6) ikke arbeidssøker, 7) annet",
-        "label": "annet"
+        "title": "Annet",
+        "label": "annet",
+        "comment": "Alle med avsluttet/avbrutt introprogram med registrert overgang 1) atferd i/utenfor programmet, 2) død, 3) flyttet, 4) ukjent/forsvunnet, 5) helsemessige årsaker, 6) ikke arbeidssøker, 7) annet"
       }
     ]
   },
@@ -791,15 +800,15 @@
     "description": "Årsak til avslutning/avbrytning av introduksjonsprogram",
     "variables": [
       {
-        "title": "alle med avsluttet/avbrutt introduksjonsprogrammet",
+        "title": "Alle",
         "label": "alle"
       },
       {
-        "title": "Alle med avsluttet/avbrutt introprogram med registrert overgang til 1) arbeid lik eller mer enn 30 t/uke, 2) lik eller mindre enn 29 t/uke, 3) overgang til ordinær utdanning i videregående skole, eller 4) overgang til høyere utdanning",
+        "title": "Arbeid eller utdanning utover grunnskole",
         "label": "arbutd"
       },
       {
-        "title": "Alle med andre avslutningsårsaker enn arbeid eller utdanning",
+        "title": "Annet",
         "label": "annet"
       }
     ]
@@ -809,19 +818,19 @@
     "description": "Status på arbeidsmarkedet etter avslutta/avbrutt introduksjonsprogram",
     "variables": [
       {
-        "title": "alle med avsluttet/avbrutt introduksjonsprogrammet",
+        "title": "Alle",
         "label": "alle"
       },
       {
-        "title": "sysselsatt/utdanning",
+        "title": "Arbeid eller utdanning utover grunnskole",
         "label": "arbutd"
       },
       {
-        "title": "registrert ledig/på tiltak",
+        "title": "Registrert ledig eller på tiltak",
         "label": "ledig_tiltak"
       },
       {
-        "title": "annen eller ingen registrering",
+        "title": "Annet, eller ingen registrering",
         "label": "annet"
       }
     ]
@@ -911,11 +920,11 @@
     "description": "Tilskuddstype",
     "variables": [
       {
-        "title": "Totalt tilskudd",
+        "title": "Totalt",
         "label": "totalt"
       },
       {
-        "title": "Integreringstilskudd for år 1 og år 2-5",
+        "title": "Integreringstilskudd for alle fem år",
         "label": "inttilsk_1-5"
       },
       {
@@ -935,19 +944,19 @@
         "label": "norsk-samf_tilsk"
       },
       {
-        "title": "Særskilt kommunalt tilskudd ved bosetting av enslige mindreårige flyktninger",
+        "title": "Tilskudd til bosetting av enslige mindreårige flyktninger",
         "label": "em_tilsk"
       },
       {
-        "title": "Barnehagetilskudd, engangstilskudd for barn i alderen 0-5 år",
+        "title": "Barnehagetilskudd",
         "label": "barnehage_tilsk"
       },
       {
-        "title": "Ekstra engangstilskudd for personer over 60 år ved bosetting",
+        "title": "Tilskudd til bosetting av personer over 60 år",
         "label": "eldre_tilsk"
       },
       {
-        "title": "Skoletilskudd (etterslep)",
+        "title": "Skoletilskudd",
         "label": "skole_tilsk"
       }
     ]

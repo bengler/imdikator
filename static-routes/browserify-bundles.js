@@ -15,13 +15,11 @@ function createBundle(entry) {
       cache:         cache,
       packageCache:  pkgCache,
       extensions:    ['.jsx'],
-      noParse:       [],
-      // todo investigate why setting this to false fails with 'Uncaught TypeError: Cannot read property 'ending' of undefined' in production
-      debug:         true || env == 'development',
+      debug:         env == 'development',
       fullPaths:     env == 'development'
     })
       .transform(babelify)
-      .transform('envify', {global: true});
+      .transform('envify', {global: env !== 'development'});
   });
 }
 
@@ -39,6 +37,7 @@ var main = createBundle(require.resolve('../bundles//default.jsx'));
 
 module.exports = {
   "/bundles/default.js": function() {
+    console.time("Bundle");
     var b = main();
 
     if (env !== 'development') {
@@ -51,6 +50,9 @@ module.exports = {
       return stream.pipe(uglify());
     }
 
+    stream.on('end', function() {
+      console.timeEnd("Bundle");
+    })
     return stream
   }
 };

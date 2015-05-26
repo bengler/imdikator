@@ -15,7 +15,6 @@ paths.forEach(p => {
       if (fs.statSync(srcPath).isDirectory()) {
         return;
       }
-      console.log("Mapping ", path.join('/fonts', p, file), ' => ', srcPath)
       module.exports[path.join('/fonts', p, file)] = function () {
         return fs.createReadStream(srcPath);
       }

@@ -62,7 +62,7 @@ const parseGroups = function(lines) {
 				groups.push(currentGroup);
 			}
 			currentGroup = {
-				groupKind: line.groupKind,
+				urlName: line.chartKind,
 				title: line.title,
 				items: []
 			};

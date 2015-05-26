@@ -4,6 +4,7 @@ const config = require("../config");
 const React = require("react");
 const groupData = require("../data/groups.json");
 const RegionalStats = require("../components/RegionalStats");
+const StatNavigation = require("../components/StatNavigation");
 const NavActions = require("../actions/NavigationActions");
 const UrlStore = require("../stores/UrlStore");
 
@@ -14,7 +15,7 @@ if (config.env === 'development') {
 
 const el = document.getElementById('imdikator');
 
-const kommunes = require("../data/kommuner.json")
+const municipalities = require("../data/kommuner.json")
   .map(k => {
     return {
       name: k.name,
@@ -25,8 +26,8 @@ const kommunes = require("../data/kommuner.json")
   })
   .sort((k1, k2) => k1.name.localeCompare(k2.name));
 
-const regions = kommunes;//.concat(fylkes);
-const oslo = kommunes.find(k => k.regionCode == "K0301");
+const regions = municipalities;//.concat(fylkes);
+const oslo = municipalities.find(k => k.regionCode == "K0301");
 
 function changeRegion(e) {
   NavActions.navigate('/'+e.target.value)
@@ -36,13 +37,17 @@ UrlStore.listen(function render(url) {
 
   console.log('render top level, ', url)
 
-  const pathRegion = url.path.replace(/^\//, '').toLowerCase();
+  const urlPath = url.path.replace(/^\//, '').toLowerCase().split("/");
+
+  const pathRegion = urlPath[0];
+  const pathStatgroup = urlPath[1];
 
   const selectedRegion = regions.find(k => {
     return k.name.toLowerCase() == pathRegion ||
       k.regionCode.toLowerCase() == pathRegion ||
       k.code == pathRegion
   });
+
   if (!selectedRegion) {
     return React.render((
       <div>
@@ -58,6 +63,7 @@ UrlStore.listen(function render(url) {
 
   React.render((
     <div>
+
       <select style={{float: 'right'}} value={selectedRegion.name} onChange={changeRegion}>
         {regions.map(region => {
           return (
@@ -67,9 +73,12 @@ UrlStore.listen(function render(url) {
           )
         })}
       </select>
+      <StatNavigation groupData={groupData} statGroup={pathStatgroup}/>
+
       <RegionalStats groupData={groupData} regions={[selectedRegion]}/>
     </div>
   ), el);
 });
+
 
 NavActions.navigate(document.location.hash.substring(1) || "/oslo");

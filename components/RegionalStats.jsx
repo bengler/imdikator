@@ -1,5 +1,6 @@
 const React = require("react");
 const Groups = require("./Groups.jsx");
+const StatSummaries = require("./StatSummaries.jsx");
 const PureRenderMixin = require('react/addons').addons.PureRenderMixin;
 
 var municipality = {
@@ -27,8 +28,10 @@ module.exports = React.createClass({
       type: React.PropTypes.string.isRequired
     })).isRequired
   },
+
   render() {
     const {regions} = this.props;
+
     // Todo: only show the first region we got for now. We need to figure out how to combine several areas into one
     const region = regions[0];
     return (
@@ -46,7 +49,11 @@ module.exports = React.createClass({
           </div>
         </div>
         <div className="imdikator-list__wrapper">
-          <Groups groupData={this.props.groupData} regions={regions}/>
+
+          <StatSummaries groupData={this.props.groupData} regions={regions}/>
+          {
+          // <Groups groupData={this.props.groupData} regions={regions}/>
+          }
         </div>
       </div>
     )

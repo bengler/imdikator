@@ -49,14 +49,13 @@ module.exports = React.createClass({
     if (chartData.length == 2) {
       chartSetup.categories = chartData[1].values;
 
-      if (this.props.stacked !== undefined) {   
+      if (this.props.stacked) {   
         this.chart.groups([chartData[0].values]);   
       }
 
     } else {
       chartSetup.categories = [""];
     }
-
 
     this.chart.load(chartSetup);
 

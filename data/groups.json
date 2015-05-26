@@ -1,14 +1,11 @@
 [
   {
-    "groupKind": "heading",
+    "groupKind": "mainGroup",
+    "urlName": "befolkning",
     "title": "Befolkning",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Befolkningssammensetning",
     "items": [
       {
+        "title": "Befolkningssammensetning",
         "chartKind": "stackedBar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
@@ -33,6 +30,7 @@
         "defaultUnit": "personer"
       },
       {
+        "title": "Befolkningssammensetning tidsserie",
         "chartKind": "stackedArea",
         "table": "befolkning_hovedgruppe_tidsserie",
         "dimensions": [
@@ -47,19 +45,9 @@
         ],
         "time": "all",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Aldersfordeling",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Innvandringsgrunn og kjønn",
-    "items": [
+      },
       {
+        "title": "Innvandringsgrunn og kjønn",
         "chartKind": "stackedBar",
         "table": "befolkning_innvandringsgrunn",
         "dimensions": [
@@ -77,15 +65,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Innvandrernes opprinnelse",
-    "items": [
+      },
       {
-        "title": "På land",
+        "title": "Opprinnelse - land",
         "chartKind": "bubble",
         "table": "befolkning_opprinnelsesland",
         "dimensions": [
@@ -101,7 +83,7 @@
         "defaultUnit": "personer"
       },
       {
-        "title": "På verdensregion",
+        "title": "Opprinnelse - verdensregion",
         "chartKind": "bubble",
         "table": "befolkning_verdensregion",
         "dimensions": [
@@ -120,7 +102,7 @@
         "defaultUnit": "personer"
       },
       {
-        "title": "Verden delt i to",
+        "title": "Opprinnelse - todelt",
         "chartKind": "bar",
         "table": "befolkning_verdensregion",
         "dimensions": [
@@ -138,14 +120,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Innvandrernes botid",
-    "items": [
+      },
       {
+        "title": "Innvandrernes botid",
         "chartKind": "stackedBar",
         "table": "befolkning_botid",
         "dimensions": [
@@ -167,19 +144,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Flytting til og fra kommunen",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sekundærflytting blant flyktninger",
-    "items": [
+      },
       {
+        "title": "Sekundærflytting blant flyktninger",
         "chartKind": "bar",
         "table": "flyktning_botid_flytting",
         "dimensions": [
@@ -200,14 +167,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Bosatte flyktninger",
-    "items": [
+      },
       {
+        "title": "Bosatte flyktninger",
         "chartKind": "stackedArea",
         "table": "bosetting",
         "dimensions": [
@@ -227,20 +189,18 @@
     ]
   },
   {
-    "groupKind": "heading",
-    "title": "Utdanning og kvalifisering",
+    "groupKind": "mainGroup",
+    "urlName": "utdanning",
+    "title": "Utdanning",
     "items": [
       {
         "issue": "should not be stacked (why art thou stacked?)"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Befolkningens utdanningsnivå",
-    "items": [
+      },
       {
-        "title": "Grunnskole",
+        "issue": "should not be stacked (why art thou stacked?)"
+      },
+      {
+        "title": "Utdanningsnivå - Grunnskole",
         "chartKind": "bar",
         "table": "utdanningsniva",
         "dimensions": [
@@ -271,7 +231,7 @@
         "issue": "should not be stacked (why art thou stacked?)"
       },
       {
-        "title": "Videregående",
+        "title": "Utdanningsnivå  - Videregående",
         "chartKind": "bar",
         "table": "utdanningsniva",
         "dimensions": [
@@ -302,7 +262,7 @@
         "issue": "should not be stacked (why art thou stacked?)"
       },
       {
-        "title": "Universitet og høyskole",
+        "title": "Utdanningsnivå  - Universitet og høyskole",
         "chartKind": "bar",
         "table": "utdanningsniva",
         "dimensions": [
@@ -333,7 +293,7 @@
         "issue": "should not be stacked (why art thou stacked?)"
       },
       {
-        "title": "Uoppgitt / ingen",
+        "title": "Utdanningsnivå  - Uoppgitt / ingen",
         "chartKind": "bar",
         "table": "utdanningsniva",
         "dimensions": [
@@ -362,14 +322,9 @@
         "time": "latest",
         "defaultUnit": "prosent",
         "issue": "should not be stacked (why art thou stacked?)"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Antall deltagere i introduksjonsprogram",
-    "items": [
+      },
       {
+        "title": "Antall deltagere i introduksjonsprogram",
         "chartKind": "stackedBar",
         "table": "intro_deltakere",
         "dimensions": [
@@ -384,14 +339,9 @@
         "time": "latest",
         "defaultUnit": "personer",
         "issue": "denne virker rett og slett ikke. hvorfor"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
-    "items": [
+      },
       {
+        "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
         "chartKind": "bar",
         "table": "norsk_prover",
         "dimensions": [
@@ -409,14 +359,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Norskopplæring - antall deltagere",
-    "items": [
+      },
       {
+        "title": "Norskopplæring - antall deltagere",
         "chartKind": "stackedBar",
         "table": "norsk_deltakere",
         "dimensions": [
@@ -436,14 +381,9 @@
         "time": "latest",
         "defaultUnit": "personer",
         "issue": "behov for sortering!"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Voksne elever i grunnskolen",
-    "items": [
+      },
       {
+        "title": "Voksne elever i grunnskolen",
         "chartKind": "bar",
         "table": "voksne_grunnskole",
         "dimensions": [
@@ -460,14 +400,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Voksne elever i grunnskolen",
-    "items": [
+      },
       {
+        "title": "Voksne elever i grunnskolen",
         "chartKind": "bar",
         "table": "voksne_videregaende",
         "dimensions": [
@@ -479,19 +414,9 @@
         "time": "latest",
         "defaultUnit": "prosent",
         "issue": "behov for sortering!"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Etter introduksjonsprogrammet - arbeid, utdannig eller trygd",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Hve gjorde de etter introduksjonsprogrammet?",
-    "items": [
+      },
       {
+        "title": "Hve gjorde de etter introduksjonsprogrammet?",
         "chartKind": "stackedBar",
         "table": "intro_avslutning_direkte",
         "dimensions": [
@@ -518,15 +443,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Barnehagedeltagelse",
-    "items": [
+      },
       {
-        "title": "Forhold alle / minoriteter",
+        "title": "Barnehagedeltagelse - Forhold mellom alle og minoriteter",
         "chartKind": "bar",
         "table": "barnehagedeltakelse",
         "dimensions": [
@@ -548,7 +467,7 @@
         "defaultUnit": "prosent"
       },
       {
-        "title": "Minoritetsspråklige i barnehage / alder",
+        "title": "Alder på minoritetsspråklige i barnehage",
         "chartKind": "bar",
         "table": "barnehagedeltakelse",
         "dimensions": [
@@ -571,14 +490,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Gjennomsnittlige grunnskolepoeng",
-    "items": [
+      },
       {
+        "title": "Gjennomsnittlige grunnskolepoeng",
         "chartKind": "bar",
         "table": "grunnskolepoeng",
         "dimensions": [
@@ -600,19 +514,9 @@
         "time": "latest",
         "defaultUnit": "gjennomsnitt",
         "issue": "NB: mye mer data på fylkes og muligens også for næringsregioner"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Antall avgangselever",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Elever i videregående skole (siste 3 år)",
-    "items": [
+      },
       {
+        "title": "Elever i videregående skole (siste 3 år)",
         "chartKind": "bar",
         "table": "videregaende_deltakelse",
         "dimensions": [
@@ -634,14 +538,9 @@
         ],
         "time": "latest",
         "defaultUnit": "personer"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Ble ferdig med videregående innen fem år",
-    "items": [
+      },
       {
+        "title": "Ble ferdig med videregående innen fem år",
         "chartKind": "bar",
         "table": "videregaende_fullfort",
         "dimensions": [
@@ -664,14 +563,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
-    "items": [
+      },
       {
+        "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
         "chartKind": "bar",
         "table": "ungdom_utenfor_opplaring",
         "dimensions": [
@@ -699,15 +593,12 @@
     ]
   },
   {
-    "groupKind": "heading",
+    "groupKind": "mainGroup",
+    "urlName": "arbeid",
     "title": "Arbeid",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsatte etter innvandringskategori",
     "items": [
       {
+        "title": "Sysselsatte etter innvandringskategori",
         "chartKind": "bar",
         "table": "sysselsatte_innvkat",
         "dimensions": [
@@ -721,14 +612,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsetting etter alder og innvandringskategori",
-    "items": [
+      },
       {
+        "title": "Sysselsetting etter alder og innvandringskategori",
         "chartKind": "bar",
         "table": "sysselsatte_innvkat_alder",
         "dimensions": [
@@ -746,14 +632,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsetting etter innvandringsgrunn",
-    "items": [
+      },
       {
+        "title": "Sysselsetting etter innvandringsgrunn",
         "chartKind": "bar",
         "table": "sysselsatte_innvandringsgrunn",
         "dimensions": [
@@ -776,14 +657,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsatte innvandrere etter botid",
-    "items": [
+      },
       {
+        "title": "Sysselsatte innvandrere etter botid",
         "chartKind": "bar",
         "table": "sysselsatte_botid",
         "dimensions": [
@@ -798,14 +674,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
-    "items": [
+      },
       {
+        "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
         "chartKind": "bar",
         "table": "sysselsatte_botid_land",
         "dimensions": [
@@ -826,14 +697,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
-    "items": [
+      },
       {
+        "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
         "chartKind": "bar",
         "table": "sysselsatte_kjonn_land",
         "dimensions": [
@@ -854,14 +720,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Sysselsatte innvandrere etter landbakgrunn",
-    "items": [
+      },
       {
+        "title": "Sysselsatte innvandrere etter landbakgrunn",
         "chartKind": "bar",
         "table": "sysselsatte_land",
         "dimensions": [
@@ -872,14 +733,9 @@
         ],
         "time": "latest",
         "defaultUnit": "prosent"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
-    "items": [
+      },
       {
+        "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
         "chartKind": "bar",
         "table": "arbledige_innvkat_land",
         "dimensions": [
@@ -902,6 +758,7 @@
         "issue": "lopsided"
       },
       {
+        "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
         "chartKind": "bar",
         "table": "arbledige_innvkat_land",
         "dimensions": [
@@ -923,14 +780,9 @@
         "time": "latest",
         "defaultUnit": "prosent",
         "issue": "lopsided"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
-    "items": [
+      },
       {
+        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "chartKind": "bar",
         "table": "ikke_arbutd_innvkat_land",
         "dimensions": [
@@ -953,6 +805,7 @@
         "issue": "lopsided"
       },
       {
+        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "chartKind": "bar",
         "table": "ikke_arbutd_innvkat_land",
         "dimensions": [
@@ -974,14 +827,9 @@
         "time": "latest",
         "defaultUnit": "prosent",
         "issue": "lopsided"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
-    "items": [
+      },
       {
+        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
         "chartKind": "bar",
         "table": "ikke_arbutd_innvkat_alder",
         "dimensions": [
@@ -1006,15 +854,12 @@
     ]
   },
   {
-    "groupKind": "heading",
+    "groupKind": "mainGroup",
+    "urlName": "levekaar",
     "title": "Levekår",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
-    "title": "Inntektsnivå – gjennomsnittsinntekt",
     "items": [
       {
+        "title": "Inntektsnivå – gjennomsnittsinntekt",
         "chartKind": "bar",
         "table": "gjennomsnittsinntekt",
         "dimensions": [
@@ -1037,6 +882,7 @@
         "issue": "lopsided"
       },
       {
+        "title": "Inntektsnivå – gjennomsnittsinntekt",
         "chartKind": "bar",
         "table": "gjennomsnittsinntekt",
         "dimensions": [
@@ -1058,14 +904,9 @@
         "time": "latest",
         "defaultUnit": "kroner",
         "issue": "lopsided"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Personer med vedvarende lavinntekt",
-    "items": [
+      },
       {
+        "title": "Personer med vedvarende lavinntekt",
         "chartKind": "bar",
         "table": "vedvarende_lavinntekt",
         "dimensions": [
@@ -1088,6 +929,7 @@
         "issue": "lopsided"
       },
       {
+        "title": "Personer med vedvarende lavinntekt",
         "chartKind": "bar",
         "table": "vedvarende_lavinntekt",
         "dimensions": [
@@ -1109,14 +951,9 @@
         "time": "latest",
         "defaultUnit": "prosent",
         "issue": "lopsided"
-      }
-    ]
-  },
-  {
-    "groupKind": "chart",
-    "title": "Personer som mottar sosialhjelp",
-    "items": [
+      },
       {
+        "title": "Personer som mottar sosialhjelp",
         "chartKind": "bar",
         "table": "sosialhjelp",
         "dimensions": [
@@ -1142,15 +979,12 @@
     ]
   },
   {
-    "groupKind": "heading",
-    "title": "Ellers",
-    "items": []
-  },
-  {
-    "groupKind": "chart",
+    "groupKind": "mainGroup",
+    "urlName": "tilskudd",
     "title": "Tilskudd",
     "items": [
       {
+        "title": "Tilskudd",
         "chartKind": "stackedArea",
         "table": "tilskudd",
         "dimensions": [

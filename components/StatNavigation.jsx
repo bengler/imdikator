@@ -12,9 +12,10 @@ module.exports = React.createClass({
   displayName: 'StatNavigation',
 
   getOptions(group, items) {
-    const statURL = `#/${this.props.selectedRegion.name}/${group.urlName}`
 
-    return items.map((item) => {
+    return items.map((item,i) => {
+      var statURL = `#/${this.props.selectedRegion.name}/${group.urlName}/${i}`
+
       return (
         <MenuOption>
           <a href={statURL}>

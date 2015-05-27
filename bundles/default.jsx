@@ -76,7 +76,6 @@ UrlStore.listen(function render(url) {
     });
   }
 
-
   if (statGroup === undefined) {
     var content = <RegionalStats groupData={groupData} regions={[selectedRegion]}/>;
   } else {

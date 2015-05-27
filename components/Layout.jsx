@@ -22,7 +22,6 @@ module.exports = React.createClass({
               <div className="ident__symbol"></div>
               <div className="ident__textmark">
                 <span className="ident__textmark-primary">IMDi</span>
-
                 <p className="ident__textmark-secondary">Integrerings- og <br/>mangfoldsdirektoratet</p>
               </div>
             </a>
@@ -34,7 +33,7 @@ module.exports = React.createClass({
         <div id="imdikator"></div>
       </div>
 
-      <footer className="wrapper">footer</footer>
+      <footer className="wrapper"></footer>
       </body>
       </html>
     )

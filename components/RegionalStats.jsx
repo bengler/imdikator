@@ -1,5 +1,4 @@
 const React = require("react");
-const Groups = require("./Groups.jsx");
 const StatSummaries = require("./StatSummaries.jsx");
 const PureRenderMixin = require('react/addons').addons.PureRenderMixin;
 
@@ -39,21 +38,12 @@ module.exports = React.createClass({
         <div className="wrapper">
           {regions.length > 1 && <p>Hei, du har inkludert flere regioner. Dette virker ikke ennå.</p>}
           <h1>{region.name}</h1>
-          <p className="imdikator-preamble">
-            {region.name} har tatt imot {municipality.refugees_qty_pr_thousand} <RefugeesLink/> pr. 1000 innbyggere <br/>
-            {municipality.refugees_percent}% av innvandrerne i kommunen er flyktninger.<br/>
-            Kommunen oppfyller ikke kravene til <a href="#">norskundervisning</a>.<br/>
-          </p>
           <div className="">
             <a className="button" role="button">Lag faktaark for {region.name}</a>
           </div>
         </div>
         <div className="imdikator-list__wrapper">
-
           <StatSummaries groupData={this.props.groupData} regions={regions}/>
-          {
-          // <Groups groupData={this.props.groupData} regions={regions}/>
-          }
         </div>
       </div>
     )

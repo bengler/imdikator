@@ -20,14 +20,10 @@ var Select = React.createClass({
 });
 
 module.exports = React.createClass({
-  displayName: 'Group',
+  displayName: 'Chart',
   render() {
     const {regions} = this.props;
-
-    const items = this.props.items.map( (item, i)=> {
-      const key = this.props.id+'-'+i;
-      return <ItemDataFetcher id={key} key={key} item={item} regions={regions} />
-    });
+    const key = this.props.id;
 
     // <pre>
     //  {JSON.stringify(this.props)}
@@ -43,10 +39,9 @@ module.exports = React.createClass({
         <h3 className="imdikator-list__heading">
           <i className="icon icon-search imdikator-list__icon"></i>
           {this.props.title}
-
         </h3>
         <div className="imdikator-list__main-content">
-      	 {items}
+          <ItemDataFetcher id={key} key={key} item={this.props.item} regions={regions} />
         </div>
 
         <ul className="imdikator-graph__functions">

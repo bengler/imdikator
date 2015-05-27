@@ -5,6 +5,8 @@ const React = require("react");
 const groupData = require("../data/groups.json");
 const RegionalStats = require("../components/RegionalStats");
 const StatNavigation = require("../components/StatNavigation");
+const Groups = require("../components/Groups.jsx");
+
 const NavActions = require("../actions/NavigationActions");
 const UrlStore = require("../stores/UrlStore");
 
@@ -33,6 +35,24 @@ function changeRegion(e) {
   NavActions.navigate('/'+e.target.value)
 }
 
+var MunicipalPulldown = React.createClass({
+  displayName: 'MunicipalPulldown',
+  render() {
+    return (
+      <select style={{float: 'right'}} value={this.props.selectedRegion.name} onChange={changeRegion}>
+        {regions.map(region => {
+          return (
+            <option value={region.name}>
+              {region.name} {region.type} {region.code}
+            </option>
+          )
+        })}
+      </select>
+    )
+  }
+});
+
+
 UrlStore.listen(function render(url) {
 
   console.log('render top level, ', url)
@@ -47,6 +67,21 @@ UrlStore.listen(function render(url) {
       k.regionCode.toLowerCase() == pathRegion ||
       k.code == pathRegion
   });
+
+  var statGroup = undefined
+
+  if (pathStatgroup !== undefined) {
+    var statGroup = groupData.find( gd => {
+      return gd.urlName == pathStatgroup.toLowerCase()
+    });
+  }
+
+
+  if (statGroup === undefined) {
+    var content = <RegionalStats groupData={groupData} regions={[selectedRegion]}/>;
+  } else {
+    var content = <Groups statGroup={statGroup} regions={[selectedRegion]}/>
+  }
 
   if (!selectedRegion) {
     return React.render((
@@ -63,20 +98,13 @@ UrlStore.listen(function render(url) {
 
   React.render((
     <div>
-
-      <select style={{float: 'right'}} value={selectedRegion.name} onChange={changeRegion}>
-        {regions.map(region => {
-          return (
-            <option value={region.name}>
-              {region.name} {region.type} {region.code}
-            </option>
-          )
-        })}
-      </select>
       <StatNavigation groupData={groupData} statGroup={pathStatgroup}/>
 
-      <RegionalStats groupData={groupData} regions={[selectedRegion]}/>
+      {content}
+
+      <MunicipalPulldown selectedRegion={selectedRegion} />
     </div>
+
   ), el);
 });
 

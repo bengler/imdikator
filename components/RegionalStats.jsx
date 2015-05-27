@@ -42,8 +42,10 @@ module.exports = React.createClass({
             <a className="button" role="button">Lag faktaark for {region.name}</a>
           </div>
         </div>
-        <div className="imdikator-list__wrapper">
-          <StatSummaries groupData={this.props.groupData} regions={regions}/>
+        <div className="wrapper">
+          <div className="grid">
+            <StatSummaries groupData={this.props.groupData} regions={regions}/>
+          </div>
         </div>
       </div>
     )

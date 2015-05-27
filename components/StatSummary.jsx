@@ -6,8 +6,8 @@ module.exports = React.createClass({
     const statURL = `#/${this.props.regions[0].name}/${this.props.urlName}`
 
     return (
-      <div className="col-12">
-        <a href={statURL}>
+      <div className="infobox">
+        <a href={statURL} classNane="infobox__title">
           {this.props.title}
         </a>
       </div>

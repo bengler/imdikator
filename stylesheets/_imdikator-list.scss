@@ -1,13 +1,6 @@
 .imdikator-list {
-  &__wrapper {
-    padding: $spacing--large;
-    background: #fff;
-    @extend .wrapper;
-
-  }
   &__group {
-    @extend .box;
-    background-color: $_canvas-grey;
+    //@extend .infobox;
   }
   &__item {
     @extend h3;
@@ -35,7 +28,6 @@
     line-height: 1.5em;
     transition-property: transform;
     transition-duration: .1s;
-    //imdikator-list__expand-button--expanded
     &--expanded, &:hover {
       transform: rotate(45deg);
     }

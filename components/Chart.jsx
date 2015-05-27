@@ -33,7 +33,7 @@ module.exports = React.createClass({
     const region = regions[0];
 
     return (
-      <div className="imdikator-list__group">
+      <div className="imdikator-list__group infobox">
         <Select className="right" />
           <div className="toggle imdikator-list__toggle"></div>
         <h3 className="imdikator-list__heading">

@@ -14,7 +14,7 @@ module.exports = React.createClass({
   getOptions(items) {
     return items.map((item) => {
       return (
-        <MenuOption>
+        <MenuOption className="foo_bar">
           {item.title}
         </MenuOption>
       )
@@ -23,10 +23,11 @@ module.exports = React.createClass({
 
   render() {
     return (
-      <div className='topNavigationFixed'>
+      <div className='imdikator-navigation imdikator-navigation--fixed'>
+        <div className="wrapper">
         {
           this.props.groupData.map((group)=> {
-            return <Menu className='myMenu'>
+            return <Menu className="imdikator-navigation__menu">
               <MenuTrigger>
                 {group.title}&nbsp;
                 <span className="icon icon-chevron-down responsive-accordion-plus fa-fw" >
@@ -39,6 +40,7 @@ module.exports = React.createClass({
             </Menu>
           })
         }
+        </div>
       </div>
 
     )

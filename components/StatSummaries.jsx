@@ -12,7 +12,7 @@ module.exports = React.createClass({
     })
 
     return (
-      <div className="stat-summaries">
+      <div className="col-12 stat-summaries">
         {statSummaries}
       </div>
     )

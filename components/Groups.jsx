@@ -29,7 +29,12 @@ module.exports = React.createClass({
     return (
       <div className="wrapper imdikator-groups">
         <div className="grid">
-          {charts}
+          <div className="col-12">
+            <h1>{this.props.statGroup.title} i {this.props.regions[0].name}</h1>
+          </div>
+          <div className="col-9">
+            {charts}
+          </div>
         </div>
       </div>
     )

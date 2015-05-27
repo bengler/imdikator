@@ -15,7 +15,6 @@ module.exports = React.createClass({
     const id = `/${region.name}/${this.props.urlName}/${this.props.order}`;
 
     return (
-
       <div id={id} className="imdikator-list__group infobox">
         <h3 className="imdikator-list__heading">
           {this.props.title}
@@ -51,7 +50,6 @@ module.exports = React.createClass({
             </a>
           </li>
         </ul>
-
       </div>
     )
   }

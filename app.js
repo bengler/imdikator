@@ -1,10 +1,9 @@
-require("babel/register");
-var express = require('express');
-var path = require('path');
-var config = require("./config");
-var helmet = require('helmet');
+const express = require('express');
+const path = require('path');
+const config = require("./config");
+const helmet = require('helmet');
 
-var app = express();
+const app = express();
 app.disable('x-powered-by');
 
 app.use(helmet.nosniff());
@@ -19,19 +18,19 @@ if (config.env === 'development') {
 }
 
 if (config.env === 'development') {
-  var serve = require("staticr/serve");
+  const serve = require("staticr/serve");
   app.use(serve(require("./static-routes")));
 }
 
 if (config.env === 'development') {
-  var capture = require("error-capture-middleware");
+  const capture = require("error-capture-middleware");
   app.use(capture.js());
   app.use(capture.css());
 }
 
-var React = require('react');
-var Layout = require('./components/Layout.jsx');
-var rendered = React.renderToStaticMarkup(React.createElement(Layout));
+const React = require('react');
+const Layout = require('./components/Layout.jsx');
+const rendered = React.renderToStaticMarkup(React.createElement(Layout));
 app.get("/", function(req, res) {
   res.status(200).send(rendered);
 });

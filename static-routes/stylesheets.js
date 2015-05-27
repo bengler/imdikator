@@ -1,25 +1,22 @@
 const sass = require('node-sass');
-const path = require('path');
 const config = require('../config');
 const imdino = require('imdi-no');
 
 const development = config.env === 'development';
 
-console.log(imdino.paths.scss)
-
 module.exports = {
   "/stylesheets/main.css": function (callback) {
 
     const opts = {
-      file:               require.resolve("../stylesheets/main.scss"),
-      outFile:            '/stylesheets/main.css',
-      includePaths:       [imdino.paths.scss],
+      file: require.resolve("../stylesheets/main.scss"),
+      outFile: '/stylesheets/main.css',
+      includePaths: [imdino.paths.scss],
 
-      sourceMap:          development,
-      sourceMapEmbed:     development,
-      sourceMapContents:  development,
-      sourceComments:     development,
-      outputStyle:        development ? 'nested' : 'compressed'
+      sourceMap: development,
+      sourceMapEmbed: development,
+      sourceMapContents: development,
+      sourceComments: development,
+      outputStyle: development ? 'nested' : 'compressed'
     };
 
     sass.render(opts, (err, result)=> {

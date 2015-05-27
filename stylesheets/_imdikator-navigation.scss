@@ -13,6 +13,11 @@
 		float: left;
 		width: 20%;
 
+    a {
+      border-bottom: none;
+      color: $_white;
+    }
+
 
 		.Menu__MenuTrigger {
 			background-color: $color-primary;
@@ -32,15 +37,26 @@
       background: darken($color-primary,5%);
 			color: #fff;
 			font-size: 14px;
-			width: 300px;
+			width: 350px;
 			border-radius: 0px;
 			border: 0px;
 			padding: 10px;
+      line-height: 1rem;
+      padding: 1rem;
 		}
+
+    .Menu__MenuOption {
+      border-radius: 0px;
+    }
+
+
 
 		.Menu__MenuOption--active {
 			color: $color-primary;
 			background-color: #fff;
+      a {
+        color: $_black;
+      }
 		}
 
 		.Menu__MenuOptions--vertical-top {

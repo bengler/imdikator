@@ -15,6 +15,10 @@ const cx = classNames;
 
 const treeTools = require("../lib/treeTools");
 
+function getSemiRandomString() {
+  return Math.random().toString(32).substring(2)+Math.random().toString(32).substring(2)
+}
+
 module.exports = React.createClass({
   displayName: 'ItemDataFetcher',
 
@@ -34,7 +38,10 @@ module.exports = React.createClass({
   },
 
   getId() {
-    return this.props.id
+    if (!this.__id) {
+      this.__id = getSemiRandomString();
+    }
+    return this.__id;
   },
 
   onDataChange(data) {
@@ -102,12 +109,15 @@ module.exports = React.createClass({
       return (<div><pre>Error: {this.state.error.stack}</pre></div>);
     }
 
-    const Chart = charts[this.props.item.chartKind];
-    const stacked = this.props.item.chartKind == "stackedBar" || this.props.item.chartKind == "stackedArea";
+    const chartKind = this.props.item.chartKind;
+    const Chart = charts[chartKind];
+    const stacked = chartKind == "stackedBar" || chartKind == "stackedArea";
     const time = this.convertYearsToISO(this.state.data.time);
     const {data, chartData, units} = this.mungeData(this.state.data);
 
     const selectedUnit = this.state.selectedUnit || this.props.item.defaultUnit;
+
+    //console.log("Chart kind: %s", chartKind)
 
     return (
       <div className="imdikator-graph">

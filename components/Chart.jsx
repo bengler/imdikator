@@ -5,8 +5,6 @@ module.exports = React.createClass({
   displayName: 'Chart',
   render() {
     const {regions} = this.props;
-    const key = this.props.id;
-
     // <pre>
     //  {JSON.stringify(this.props)}
     // </pre>
@@ -23,7 +21,7 @@ module.exports = React.createClass({
           {this.props.title}
         </h3>
         <div className="imdikator-list__main-content">
-          <ItemDataFetcher id={key} key={key} item={this.props.item} regions={regions} />
+          <ItemDataFetcher item={this.props.item} regions={regions} />
         </div>
 
         <ul className="imdikator-graph__functions">

@@ -5,7 +5,7 @@
     "groupKind": "mainGroup",
     "items": [
       {
-        "title": "Befolkningssammensetning",
+        "title": "Sammensetning",
         "chartKind": "stackedBar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
@@ -30,7 +30,7 @@
         "defaultUnit": "personer"
       },
       {
-        "title": "Befolkningssammensetning tidsserie",
+        "title": "Sammensetning over tid",
         "chartKind": "stackedArea",
         "table": "befolkning_hovedgruppe_tidsserie",
         "dimensions": [

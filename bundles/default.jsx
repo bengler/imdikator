@@ -98,7 +98,7 @@ UrlStore.listen(function render(url) {
 
   React.render((
     <div>
-      <StatNavigation groupData={groupData} statGroup={pathStatgroup}/>
+      <StatNavigation selectedRegion={selectedRegion} groupData={groupData} statGroup={pathStatgroup}/>
 
       {content}
 

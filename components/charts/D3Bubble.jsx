@@ -10,6 +10,8 @@ module.exports = React.createClass({
   componentDidUpdate() {
     this.renderChart();
   },
+  componentWillUnmount() {
+  },
 
   flatten(chartData) {
     let dataByUnit = chartData[0].data[this.props.unit];

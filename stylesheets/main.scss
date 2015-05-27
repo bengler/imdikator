@@ -16,3 +16,66 @@ body {
 .stat-summary {
 	background-color: $_canvas-grey;
 }
+<<<<<<< HEAD
+=======
+
+.topNavigationFixed {
+	position: fixed;
+	top: 0px;
+	clear: both;
+	width: 100%;
+	z-index: 10000;
+
+	.menu {
+		background-color: $color-primary;
+		float: left;
+		width:20%;
+
+		.Menu__MenuTrigger {
+			background-color: $color-primary;
+			color: #fff;
+			border-radius: 0px;
+			border: 0px;
+			font-size: 16px;
+			padding-left: 20%;			
+			padding-top: 20px;			
+			height: 70px;
+
+      &:hover{
+        background: darken($color-primary,5%);
+      }
+		}
+
+		.Menu__MenuOptions {
+      background: darken($color-primary,5%);
+			color: #fff;
+			font-size: 14px;
+			width: 300px;
+			border-radius: 0px;
+			border: 0px;
+			padding: 10px;
+
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+
+		.Menu__MenuOption--active {
+			color: $color-primary;
+			background-color: #fff;
+
+			a {
+				color: $color-primary;
+				text-decoration: none;
+			}
+
+		}
+
+		.Menu__MenuOptions--vertical-top {
+			bottom: inherit;
+		}
+
+	}
+}
+>>>>>>> Navigation WIP

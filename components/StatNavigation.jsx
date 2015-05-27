@@ -11,11 +11,15 @@ var MenuOption = Menu.MenuOption;
 module.exports = React.createClass({
   displayName: 'StatNavigation',
 
-  getOptions(items) {
+  getOptions(group, items) {
+    const statURL = `#/${this.props.selectedRegion.name}/${group.urlName}`
+
     return items.map((item) => {
       return (
-        <MenuOption className="foo_bar">
-          {item.title}
+        <MenuOption>
+          <a href={statURL}>
+            {item.title}
+          </a>
         </MenuOption>
       )
     });
@@ -35,7 +39,7 @@ module.exports = React.createClass({
 
               </MenuTrigger>
               <MenuOptions>
-                { this.getOptions(group.items) }
+                { this.getOptions(group, group.items) }
               </MenuOptions>
             </Menu>
           })

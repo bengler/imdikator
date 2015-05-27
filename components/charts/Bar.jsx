@@ -26,7 +26,13 @@ module.exports = React.createClass({
     this.renderChart();
   },
 
+  componentWillUnmount() {
+    this.chart.destroy();
+    this.getDOMNode().innerHTML = "";
+  },
+
   componentDidUpdate() {
+    // console.info("****", this.props.chartData);
     this.renderChart();
   },
 

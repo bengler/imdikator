@@ -7,6 +7,7 @@ module.exports = React.createClass({
   displayName: 'AreaChart',
 
   componentDidMount() {
+    console.info("Areachart did mount")
     this.chart = c3.generate({
       bindto: this.getDOMNode(),
       data: {
@@ -23,6 +24,10 @@ module.exports = React.createClass({
       }
     });
     this.renderChart();
+  },
+
+  componentWillUnmount() {
+    this.chart.destroy();
   },
 
   componentDidUpdate() {

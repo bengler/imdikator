@@ -11,6 +11,7 @@ const DataActions = require("../actions/DataActions");
 const Navigation = require("../actions/NavigationActions");
 const Table = require("./Table.jsx");
 const PureRenderMixin = require('react/addons').addons.PureRenderMixin;
+const cx = classNames;
 
 const treeTools = require("../lib/treeTools");
 
@@ -109,7 +110,7 @@ module.exports = React.createClass({
     const selectedUnit = this.state.selectedUnit || this.props.item.defaultUnit;
 
     return (
-      <div>
+      <div className="imdikator-graph">
         {
         // <pre>
         //   {JSON.stringify(this.state.data, null, 2)}
@@ -123,14 +124,18 @@ module.exports = React.createClass({
         }
 
         {units.length > 1 && units.map(unit => {
+          const classes = cx({
+            "imdikator-graph__button": true,
+            "imdikator-graph__button--unit": true,
+            "imdikator-graph__button--selected": selectedUnit == unit,
+
+          })
           return (
-            <button type="button" className={classNames({selected: selectedUnit == unit })} onClick={()=> this.handleUnitSelected(unit)}>
+            <button type="button" className={classes} onClick={()=> this.handleUnitSelected(unit)}>
               {unit}
             </button>
           )
         })}
-
-        {this.props.item.title && <h4>{this.props.item.title}</h4>}
 
         <Chart chartData={chartData} stacked={stacked} unit={selectedUnit} time={time} debug={this.props.item.debug} data={data}/>
         <Table data={data}/>

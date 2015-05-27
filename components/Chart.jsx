@@ -1,24 +1,6 @@
 const React = require("react");
 const ItemDataFetcher = require("./ItemDataFetcher");
 
-var Select = React.createClass({
-  displayName: 'Select',
-  render() {
-    return(
-      <div className={"select " + this.props.className}>
-        <select className="">
-          <option>2014</option>
-          <option>2013</option>
-          <option>2012</option>
-          <option>2011</option>
-          <option>2010</option>
-          <option>2009</option>
-        </select>
-      </div>
-    )
-  }
-});
-
 module.exports = React.createClass({
   displayName: 'Chart',
   render() {
@@ -34,10 +16,7 @@ module.exports = React.createClass({
 
     return (
       <div className="imdikator-list__group infobox">
-        <Select className="right" />
-          <div className="toggle imdikator-list__toggle"></div>
         <h3 className="imdikator-list__heading">
-          <i className="icon icon-search imdikator-list__icon"></i>
           {this.props.title}
         </h3>
         <div className="imdikator-list__main-content">

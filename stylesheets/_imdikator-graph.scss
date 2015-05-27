@@ -7,22 +7,60 @@
       fill: $_black;
     }
   }
+
+  .c3 { margin-top: $spacing;}
+
+  &__button {
+    @extend .button;
+    @extend .button--secondary;
+    outline: none !important;
+    position: relative;
+    text-transform: capitalize;
+    &--selected {
+      background-color:  $color-primary;
+      border: 4px solid $color-primary;
+      color: $_white;
+      &:hover, &:focus, &:active {
+    		background: darken($color-primary, 10%);
+    		border: 4px solid darken($color-primary, 10%);
+    		color: $_white;
+        &:before {
+          background-color: darken($color-primary, 10%);
+        }
+    	}
+      &:before {
+        content: "";
+        position: absolute;
+        height: 1em;
+        width: 1em;
+        background-color: $color-primary;
+        bottom: -.5em;
+        left: 50%;
+        margin-left: -10px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
   &__functions {
     font-size: $font-size--medium;
     @extend .list--inline;
     padding-top: $spacing;
+    padding-left: $spacing;
     &__item {
-      margin-right: $spacing--small;
+      @extend .button;
+      @extend .button--secondary;
+      background-color: darken($_canvas-grey--dark, 5%);
       .tool-link {
-        color: $color-text--grey;
+        color: $_white;
         border: none;
       }
       span {
         display: inline-block;
-        border-bottom: 1px solid $color-text--grey;
+        color: $_white;
       }
       .icon  {
-        color: $color-primary;
+        color: $_white;
         margin-right: $spacing--xsmall;
       }
     }

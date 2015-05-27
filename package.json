@@ -53,6 +53,7 @@
     "react": "^0.12.2",
     "react-a11y": "0.0.6",
     "react-menu": "0.0.6",
+    "react-scroll": "^0.18.0",
     "reactify": "^1.1.1",
     "rebundler": "^0.0.4",
     "reflux": "^0.2.7",

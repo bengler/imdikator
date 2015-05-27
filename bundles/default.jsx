@@ -77,9 +77,15 @@ UrlStore.listen(function render(url) {
   }
 
   if (statGroup === undefined) {
-    var content = <RegionalStats groupData={groupData} regions={[selectedRegion]}/>;
+    var content = 
+      <RegionalStats groupData={groupData} regions={[selectedRegion]}/>;
   } else {
-    var content = <Groups statGroup={statGroup} regions={[selectedRegion]}/>
+    var content = (
+      <div>
+        <StatNavigation selectedRegion={selectedRegion} groupData={groupData} />
+        <Groups statGroup={statGroup} regions={[selectedRegion]}/>
+      </div>
+    )
   }
 
   if (!selectedRegion) {
@@ -96,13 +102,11 @@ UrlStore.listen(function render(url) {
   }
 
   React.render((
-    <div>
-      <StatNavigation selectedRegion={selectedRegion} groupData={groupData} statGroup={pathStatgroup}/>
+  <div>
 
-      {content}
-
-      <MunicipalPulldown selectedRegion={selectedRegion} />
-    </div>
+    {content}
+    <MunicipalPulldown selectedRegion={selectedRegion} />
+  </div>
 
   ), el);
 });

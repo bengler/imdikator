@@ -12,10 +12,10 @@ module.exports = React.createClass({
     // Todo: handle multiple regions
     const region = regions[0];
 
-
     const id = `/${region.name}/${this.props.urlName}/${this.props.order}`;
 
     return (
+
       <div id={id} className="imdikator-list__group infobox">
         <h3 className="imdikator-list__heading">
           {this.props.title}

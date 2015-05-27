@@ -2,6 +2,7 @@ const React = require("react");
 
 const Chart = require("./Chart.jsx");
 const Heading = require("./Heading.jsx");
+const StatNavigation = require("../components/StatNavigation");
 
 module.exports = React.createClass({
   displayName: 'Groups',
@@ -21,10 +22,10 @@ module.exports = React.createClass({
           key={key}
           item={item}
           regions={this.props.regions}
-          municipality={this.props.municipality}
-        />
+          municipality={this.props.municipality} />
       )
     })
+
     return (
       <div className="wrapper imdikator-groups">
         <div className="grid">

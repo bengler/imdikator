@@ -17,6 +17,7 @@ module.exports = React.createClass({
         <Chart
           urlName={this.props.statGroup.urlName}
           title={item.title}
+          order={i}
           key={key}
           item={item}
           regions={this.props.regions}

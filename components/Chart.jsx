@@ -13,7 +13,7 @@ module.exports = React.createClass({
     const region = regions[0];
 
 
-    const id = `/${region.name}/${this.props.urlName}/${this.props.id}`;
+    const id = `/${region.name}/${this.props.urlName}/${this.props.order}`;
 
     return (
       <div id={id} className="imdikator-list__group infobox">

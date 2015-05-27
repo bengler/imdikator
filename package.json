@@ -7,10 +7,13 @@
   "author": "Bengler AS",
   "scripts": {
     "//start": "babel-node ./bin/server.js",
-    "test": "mocha -r babel/register test",
-    "start": "remon --require babel/register ./bin/server.js",
-    "bloat": "staticr --stdout --route /bundles/default.js static-routes/browserify-bundles.js | discify --open",
+    "test": "mocha --require ./.init.js test/**/*",
+    "start": "remon --require ./.init.js ./bin/server.js",
+    "bloat": "staticr --stdout --require ./.init.js --route /bundles/default.js static-routes/browserify-bundles.js | discify --open",
     "update-fork": "(test -z $NODE_ENV || test $NODE_ENV == 'development') && (echo 'Updating imdi-fork, hang on...\n' && rm -Rf .imdi-fork.tmp && git clone --quiet git@github.com:bengler/imdi-no .imdi-fork.tmp && cd .imdi-fork.tmp && git checkout --quiet master && git pull --no-rebase --no-edit git@github.com:netliferesearch/imdi-no.git master && git push origin master && cd .. && rm -Rf .imdi-fork.tmp) || echo ''",
+    "lint": "eslint --ext .jsx,.js .",
+    "compile-assets": "staticr --require babel/register public ./static-routes ",
+    "pre-commit-check": "npm test && (npm run lint || (echo 'Warning: project has lint errors. Please fix and re-commit with `git commit --amend`' && echo ''))",
     "_postinstall": "npm --silent run update-fork && npm --silent run check-imdi-no-dep",
     "check-imdi-no-dep": "test $(npm ls | grep 'imdi-no#' | cut -d '#' -f 2- | cut -d ')' -f 1) != $(git ls-remote git@github.com:bengler/imdi-no.git | grep refs/heads/master | cut -f 1) && (printf 'A new version of bengler/imdi-no is available. Do you want to upgrade? [Y/n]: '; read -r -e answer; if [[ $answer = '' || $answer = [yY] ]]; then npm run upgrade-imdi-no; fi) || echo 'imdi-no dependency is already at latest.\n'",
     "upgrade-imdi-no": "npm i -S 'git+ssh://git@github.com/bengler/imdi-no.git' && npm ls imdi-no && echo 'Upgraded imdi-no. Remember to run \"npm shrink --dev\" before committing!\n'",
@@ -18,9 +21,11 @@
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
-    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",
-    "compile-assets": "staticr --require babel/register public ./static-routes "
+    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
   },
+  "pre-commit": [
+    "pre-commit-check"
+  ],
   "dependencies": {
     "@bengler/imdi-dataset": "^4.1.3",
     "babel": "^5.4.7",
@@ -45,7 +50,6 @@
     "node-sass": "^3.1.2",
     "once": "^1.3.1",
     "qs": "^2.4.1",
-    "quickreload": "^1.0.6",
     "react": "^0.12.2",
     "react-a11y": "0.0.6",
     "react-menu": "0.0.6",
@@ -58,13 +62,17 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^3.1.9",
     "chai": "^2.1.2",
     "csv-parse": "^0.1.0",
     "debug": "^2.1.3",
     "disc": "^1.3.2",
     "error-capture-middleware": "0.0.2",
+    "eslint": "^0.21.2",
+    "eslint-plugin-react": "^2.3.0",
     "lodash": "^3.5.0",
     "mocha": "^2.2.1",
+    "pre-commit": "^1.0.7",
     "quickreload": "^1.0.6",
     "reactify": "^1.1.0",
     "remon": "^1.0.1",

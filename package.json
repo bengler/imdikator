@@ -78,7 +78,6 @@
     "quickreload": "^1.0.6",
     "reactify": "^1.1.0",
     "remon": "^1.0.1",
-    "request": "^2.53.0",
     "rx": "^2.5.2",
     "rx-node": "^1.0.0"
   }

@@ -1,29 +1,28 @@
-import sass from 'node-sass'
+import less from 'less'
+import fs from 'fs'
 import config from '../config'
-import imdino from 'imdi-no'
+import imdiStyles from 'imdi-styles'
 
 const development = config.env === 'development'
 
 export default {
-  '/stylesheets/main.css'(callback) {
-
-    const opts = {
-      file: require.resolve('../stylesheets/main.scss'),
-      outFile: '/stylesheets/main.css',
-      includePaths: [imdino.paths.scss],
-
-      sourceMap: development,
-      sourceMapEmbed: development,
-      sourceMapContents: development,
-      sourceComments: development,
-      outputStyle: development ? 'nested' : 'compressed'
-    }
-
-    sass.render(opts, (err, result) => {
-      if (err) {
-        return callback(err)
-      }
-      callback(null, result.css)
+  '/stylesheets/main.css'() {
+    return new Promise((resolve, reject) => {
+      fs.readFile(require.resolve('../stylesheets/bundles/main.less'), 'utf-8', (err, buffer) => {
+        if (err) {
+          return reject(err)
+        }
+        resolve(buffer)
+      })
     })
+      .then(buffer => {
+        return less.render(buffer, {
+          outFile: '/stylesheets/main.css',
+          paths: [imdiStyles.LESS_PATH],
+          sourceMap: development ? { sourceMapFileInline: true } : false,
+          compress: !development
+        })
+      })
+      .then(output => output.css)
   }
 }

@@ -17,7 +17,7 @@ app.use(helmet.ienoopen())
 app.set('query parser', 'extended')
 
 if (config.env === 'development') {
-  app.use(quickreload({server: app}))
+  app.use(quickreload())
 }
 
 if (config.env === 'development') {
@@ -33,8 +33,6 @@ if (config.env === 'development') {
 app.get('/', function (req, res) {
   res.status(200).send('OK')
 })
-
-app.use('/api/v1', require('./api'))
 
 app.use(express.static(path.join(__dirname, 'public')))
 

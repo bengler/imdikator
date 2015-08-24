@@ -6,6 +6,7 @@ import {env} from '../config'
 import collapser from 'bundle-collapser/plugin'
 
 import babelify from 'babelify'
+import envify from 'envify'
 
 function createBundle(entry) {
 
@@ -18,7 +19,7 @@ function createBundle(entry) {
       fullPaths: env == 'development'
     })
       .transform(babelify)
-      .transform('envify', {global: env !== 'development'})
+      .transform(envify, {global: env !== 'development'})
   })
 }
 
@@ -32,7 +33,7 @@ function uglify() {
   ])
 }
 
-const main = createBundle(require.resolve('../bundles//default.jsx'))
+const main = createBundle(require.resolve('../bundles/main.jsx'))
 
 export default {
   '/bundles/default.js'() {

@@ -18,7 +18,8 @@
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
-    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
+    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",
+    "pre-commit-check": "npm test && (npm run lint -- --quiet || (echo 'Warning: project has lint errors. Please fix and re-commit with `git commit --amend`' && echo ''))",
   },
   "pre-commit": [
     "pre-commit-check"
@@ -56,6 +57,7 @@
     "mocha": "^2.2.5",
     "mochify": "^2.13.0",
     "mochify-istanbul": "^2.3.0",
+    "pre-commit": "^1.1.1",
     "quickreload": "^1.0.8",
     "rebundler": "^0.2.0",
     "remon": "^1.0.1",

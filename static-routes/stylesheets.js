@@ -1,14 +1,14 @@
-const sass = require('node-sass');
-const config = require('../config');
-const imdino = require('imdi-no');
+import sass from 'node-sass'
+import config from '../config'
+import imdino from 'imdi-no'
 
-const development = config.env === 'development';
+const development = config.env === 'development'
 
-module.exports = {
-  "/stylesheets/main.css": function (callback) {
+export default {
+  '/stylesheets/main.css'(callback) {
 
     const opts = {
-      file: require.resolve("../stylesheets/main.scss"),
+      file: require.resolve('../stylesheets/main.scss'),
       outFile: '/stylesheets/main.css',
       includePaths: [imdino.paths.scss],
 
@@ -17,13 +17,13 @@ module.exports = {
       sourceMapContents: development,
       sourceComments: development,
       outputStyle: development ? 'nested' : 'compressed'
-    };
+    }
 
-    sass.render(opts, (err, result)=> {
+    sass.render(opts, (err, result) => {
       if (err) {
         return callback(err)
       }
-      callback(null, result.css);
-    });
+      callback(null, result.css)
+    })
   }
-};
+}

@@ -1,18 +1,18 @@
-const Bluebird = require('bluebird');
-const fs = require('fs');
-const Rx = require('rx');
-const _pick = require('lodash').pick;
+import Bluebird from 'bluebird'
+import fs from 'fs'
+import Rx from 'rx'
+import {pick} from 'lodash'
+import csv from 'csv-parse'
 
-const writeFile = Bluebird.promisify(fs.writeFile);
-const csv = require('csv-parse');
+const writeFile = Bluebird.promisify(fs.writeFile)
 
-const log = console.log.bind(console);
+const log = console.log.bind(console) // eslint-disable-line
 
-const CSV_FILE_FYLKER_KOMMUNER = "./import/regioninndeling-fylker-kommuner.csv";
-const CSV_FILE_KOMMUNER_BYDELER = "./import/regioninndeling-kommuner-bydeler.csv";
+const CSV_FILE_FYLKER_KOMMUNER = './import/regioninndeling-fylker-kommuner.csv'
+const CSV_FILE_KOMMUNER_BYDELER = './import/regioninndeling-kommuner-bydeler.csv'
 
 
-const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER);
+const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER)
 
 const fylker = parsedRegions
   .distinct(region => region.Fylkenr)
@@ -33,24 +33,26 @@ const kommuner = parsedRegions
     Fylkenr: 'fylkeCode',
     IMDiRegion: 'imdiRegion',
     Næringsregionnr: 'naeringsRegionCode',
+    /* eslint-disable camelcase */
     Sentralitet_nr_2008: 'centralityNumber',
     Sentralitet_kat_2008: 'centralityName'
+    /* eslint-enable camelcase */
   }))
   .map(kommune => {
-    if (kommune.name === "Oslo kommune") {
-      kommune.name = "Oslo"
+    if (kommune.name === 'Oslo kommune') {
+      kommune.name = 'Oslo'
     }
-    return kommune;
+    return kommune
   })
   .toArray()
   .flatMap(serializeTo('./data/kommuner.json'))
 
 const naeringsregioner = parsedRegions
   .distinct(region => region['Næringsregionnr'])
-  .map(pick('Næringsregionnr', 'Næringsregion_ navn'))
+  .map(pickKeys('Næringsregionnr', 'Næringsregion_ navn'))
   .map(renameKeys({
     Næringsregionnr: 'code',
-    "Næringsregion_ navn": 'name',
+    'Næringsregion_ navn': 'name',
     Kommunenr: 'municipalityCode',
   }))
   .toArray()
@@ -58,7 +60,7 @@ const naeringsregioner = parsedRegions
 
 const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   .distinct(region => region.bydelsnr)
-  .map(pick('bydelsnr', 'bydelsnavn'))
+  .map(pickKeys('bydelsnr', 'bydelsnavn'))
   .map(renameKeys({
     bydelsnr: 'code',
     bydelsnavn: 'name',
@@ -67,42 +69,42 @@ const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   .toArray()
   .flatMap(serializeTo('./data/bydeler.json'))
 
-naeringsregioner.subscribe(res => log("Wrote %s næringsregioner to %s", res.entries.length, res.file));
-kommuner.subscribe(res => log("Wrote %s kommuner to %s", res.entries.length, res.file));
-bydeler.subscribe(res => log("Wrote %s bydeler to %s", res.entries.length, res.file));
-fylker.subscribe(res => log("Wrote %s fylker to %s", res.entries.length, res.file));
+naeringsregioner.subscribe(res => log('Wrote %s næringsregioner to %s', res.entries.length, res.file))
+kommuner.subscribe(res => log('Wrote %s kommuner to %s', res.entries.length, res.file))
+bydeler.subscribe(res => log('Wrote %s bydeler to %s', res.entries.length, res.file))
+fylker.subscribe(res => log('Wrote %s fylker to %s', res.entries.length, res.file))
 
 // A few helper functions
 
 function csvToObjects(file) {
-  const rows = Rx.Node.fromReadableStream(fs.createReadStream(file).pipe(csv()));
+  const rows = Rx.Node.fromReadableStream(fs.createReadStream(file).pipe(csv()))
   return rows
     .skip(1)
     .withLatestFrom(rows.take(1), (row, header) => {
       return row.reduce((rowObj, cell, i) => {
         // Map header[i] => row[i]
-        rowObj[header[i]] = cell;
-        return rowObj;
-      }, {});
-    });
+        rowObj[header[i]] = cell
+        return rowObj
+      }, {})
+    })
 }
 
 function renameKeys(keyNamesMap) {
   return function (object) {
-    const knownKeyNames = Object.keys(keyNamesMap);
-    return Object.keys(object).reduce((renamed, key)=> {
+    const knownKeyNames = Object.keys(keyNamesMap)
+    return Object.keys(object).reduce((renamed, key) => {
       if (!knownKeyNames.includes(key)) {
-        throw new Error("Don't know what to rename the key '" + key + "' to");
+        throw new Error(`Don't know what to rename the key '${key}' to`)
       }
-      renamed[keyNamesMap[key]] = object[key];
-      return renamed;
-    }, {});
+      renamed[keyNamesMap[key]] = object[key]
+      return renamed
+    }, {})
   }
 }
 
-function pick(...keys) {
-  return function pick(object) {
-    return _pick(object, ...keys)
+function pickKeys(...keys) {
+  return function (object) {
+    return pick(object, ...keys)
   }
 }
 
@@ -110,6 +112,6 @@ function serializeTo(file) {
   return function serialize(entries) {
     return writeFile(file, JSON.stringify(entries, null, 2)).then(() => {
       return {file, entries}
-    });
+    })
   }
 }

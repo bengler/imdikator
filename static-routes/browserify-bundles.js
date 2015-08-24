@@ -1,15 +1,15 @@
-const browserify = require('browserify');
-const rebundler = require("rebundler");
-const SpawnStream = require("spawn-stream");
+import browserify from 'browserify'
+import rebundler from 'rebundler'
+import SpawnStream from 'spawn-stream'
 
-const env = require("../config").env;
-const collapser = require('bundle-collapser/plugin');
+import {env} from '../config'
+import collapser from 'bundle-collapser/plugin'
 
-const babelify = require("babelify");
+import babelify from 'babelify'
 
 function createBundle(entry) {
 
-  return rebundler({noop: env !== 'development'}, function(cache, pkgCache) {
+  return rebundler({noop: env !== 'development'}, (cache, pkgCache) => {
     return browserify(entry, {
       cache: cache,
       packageCache: pkgCache,
@@ -18,40 +18,40 @@ function createBundle(entry) {
       fullPaths: env == 'development'
     })
       .transform(babelify)
-      .transform('envify', {global: env !== 'development'});
-  });
+      .transform('envify', {global: env !== 'development'})
+  })
 }
 
-const UGLIFY_CMD = require.resolve('uglify-js/bin/uglifyjs');
+const UGLIFY_CMD = require.resolve('uglify-js/bin/uglifyjs')
 
 function uglify() {
   return SpawnStream(UGLIFY_CMD, [
     '--compress',
     '--mangle',
     '--screw-ie8'
-  ]);
+  ])
 }
 
-const main = createBundle(require.resolve('../bundles//default.jsx'));
+const main = createBundle(require.resolve('../bundles//default.jsx'))
 
-module.exports = {
-  "/bundles/default.js": function() {
-    console.time("Bundle"); // eslint-disable-line no-console
-    const b = main();
-
-    if (env !== 'development') {
-      b.plugin(collapser);
-    }
-
-    const stream = b.bundle();
+export default {
+  '/bundles/default.js'() {
+    console.time('Bundle') // eslint-disable-line no-console
+    const bundle = main()
 
     if (env !== 'development') {
-      return stream.pipe(uglify());
+      bundle.plugin(collapser)
     }
 
-    stream.on('end', function() {
-      console.timeEnd("Bundle"); // eslint-disable-line no-console
-    });
+    const stream = bundle.bundle()
+
+    if (env !== 'development') {
+      return stream.pipe(uglify())
+    }
+
+    stream.on('end', () => {
+      console.timeEnd('Bundle') // eslint-disable-line no-console
+    })
     return stream
   }
-};
+}

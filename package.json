@@ -9,7 +9,7 @@
     "phantom": "mochify --require ./.init.js --extension=.jsx --recursive --transform babelify",
     "watch-test": "npm run phantom -- --watch",
     "cover": "npm run phantom -- --plugin [ mochify-istanbul --instrumenter babel-istanbul --report text ]",
-    "test": "npm run phantom && npm run cover",
+    "test": "npm run cover",
     "start": "remon --require ./.init.js ./bin/server.js",
     "bloat": "staticr --stdout --require ./.init.js --route /bundles/main.js static-routes/browserify-bundles.js | discify --open",
     "lint": "eslint --quiet --ext .jsx,.js .",

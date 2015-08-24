@@ -19,7 +19,7 @@ export default {
         return less.render(buffer, {
           outFile: '/stylesheets/main.css',
           paths: [imdiStyles.LESS_PATH],
-          sourceMap: development ? { sourceMapFileInline: true } : false,
+          sourceMap: development ? {sourceMapFileInline: true} : false,
           compress: !development
         })
       })

@@ -37,7 +37,7 @@
     "eslint-plugin-react": "^3.2.3",
     "express": "^4.13.3",
     "helmet": "^0.10.0",
-    "imdi-styles": "netliferesearch/imdi-styles#add-package-json",
+    "imdi-styles": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
     "karma": "^0.13.9",
     "karma-commonjs": "0.0.13",
     "less": "^2.5.1",

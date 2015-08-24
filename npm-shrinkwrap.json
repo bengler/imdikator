@@ -4173,8 +4173,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "netliferesearch/imdi-styles#add-package-json",
-      "resolved": "git+https://github.com/netliferesearch/imdi-styles.git#191677a88bc6db794966f85cdbc515d883623147"
+      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#6ccf32bc761dc0e37f379c81e0867d353306fa09"
     },
     "karma": {
       "version": "0.13.9",

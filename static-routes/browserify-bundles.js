@@ -36,7 +36,7 @@ function uglify() {
 const main = createBundle(require.resolve('../bundles/main.jsx'))
 
 export default {
-  '/bundles/default.js'() {
+  '/js/bundles/main.js'() {
     console.time('Bundle') // eslint-disable-line no-console
     const bundle = main()
 

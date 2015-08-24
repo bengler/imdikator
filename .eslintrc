@@ -3,6 +3,7 @@
     "node": true,
     "browser": true
   },
+  "parser": "babel-eslint",
   "plugins": [
     "eslint-plugin-import"
   ],

@@ -1,5 +1,7 @@
 import express from 'express'
 import path from 'path'
+import React from 'react'
+import Layout from './components/layouts/DefaultLayout'
 import config from './config'
 import helmet from 'helmet'
 import staticRoutes from './static-routes'
@@ -22,7 +24,7 @@ if (config.env === 'development') {
 
 if (config.env === 'development') {
   const serve = require('staticr/serve')
-  app.use(serve(staticRoutes))
+  app.use('/build', serve(staticRoutes))
 }
 
 if (config.env === 'development') {
@@ -31,7 +33,7 @@ if (config.env === 'development') {
 }
 
 app.get('/', function (req, res) {
-  res.status(200).send('OK')
+  res.status(200).send(React.renderToStaticMarkup(<Layout/>))
 })
 
 app.use(express.static(path.join(__dirname, 'public')))

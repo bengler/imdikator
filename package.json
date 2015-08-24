@@ -10,7 +10,7 @@
     "start": "remon --require ./.init.js ./bin/server.js",
     "bloat": "staticr --stdout --require ./.init.js --route /bundles/main.js static-routes/browserify-bundles.js | discify --open",
     "lint": "eslint --quiet --ext .jsx,.js .",
-    "compile-assets": "staticr --require babel/register public ./static-routes ",
+    "compile-assets": "staticr --require babel/register public/build ./static-routes ",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
@@ -21,10 +21,12 @@
     "pre-commit-check"
   ],
   "dependencies": {
-    "debug": "^2.2.0"
+    "debug": "^2.2.0",
+    "react": "^0.13.3"
   },
   "devDependencies": {
     "babel": "^5.8.21",
+    "babel-eslint": "^4.0.10",
     "babelify": "^6.2.0",
     "browserify": "^11.0.1",
     "bundle-collapser": "^1.2.1",
@@ -38,6 +40,7 @@
     "express": "^4.13.3",
     "helmet": "^0.10.0",
     "imdi-styles": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
+    "jest": "^0.1.40",
     "karma": "^0.13.9",
     "karma-commonjs": "0.0.13",
     "less": "^2.5.1",

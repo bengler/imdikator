@@ -17,6 +17,10 @@ Now the app should be up and running on http://localhost:3000
 # Resources
 - [Imdi.no styleguide](http://imdi-no.protolife.no/styleguide)
 
+# Sketches
+
+https://drive.google.com/open?id=0B47juxCZT96UNFgxYlhsb0FQdFk
+
 # Preliminary API doc
 
 API'et er tilgjengelig i et eget systemtestmiljø, der finnes det en egen WebApp med egne Collections i DocumentDB, en egne WebStorage-områder for opplasting og oppbevaring av filer.

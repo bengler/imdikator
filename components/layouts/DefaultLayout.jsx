@@ -16,10 +16,10 @@ export default class DefaultLayout extends React.Component {
         <title>IMDI testbed</title>
         <meta httpEquiv="X-UA-Compatible" content="IE=Edge"/>
         <link rel="stylesheet" href="/build/stylesheets/main.css"/>
-        <script src="/build/js/bundles/main.js" async defer/>
       </head>
       <body>
         <div id="content"/>
+        <script src="/build/js/bundles/main.js" async defer/>
       </body>
       </html>
     )

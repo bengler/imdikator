@@ -10,11 +10,11 @@ export default class BarChart extends React.Component {
     const width  = el.offsetWidth
     const height = el.offsetHeight
 
-    // Make scaling functions for x-position and height
-    // domain is the range of input data and the range is the mapping range for a value
-    // within that domain
-    const xPos = d3.scale.linear().domain([0, sampleData.length]).range([0, width])
-    const hVal = d3.scale.linear().domain([0, d3.max(sampleData)]).range([0, height])
+    // Make scaling functions for x-position and height domain is the range of
+    // input data and the range is the mapping range for a value within that
+    // domain
+    const xPos = d3.scale.linear().domain([0, data.length]).range([0, width])
+    const hVal = d3.scale.linear().domain([0, d3.max(data)]).range([0, height])
      
     const padding = 10
 

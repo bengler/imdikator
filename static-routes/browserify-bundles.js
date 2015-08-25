@@ -37,7 +37,7 @@ const main = createBundle(require.resolve('../bundles/main/entry.jsx'))
 
 export default {
   '/js/bundles/main.js'() {
-    console.time('Bundle') // eslint-disable-line no-console
+    console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = main()
 
     if (env !== 'development') {
@@ -51,7 +51,7 @@ export default {
     }
 
     stream.on('end', () => {
-      console.timeEnd('Bundle') // eslint-disable-line no-console
+      console.timeEnd(';// Bundle') // eslint-disable-line no-console
     })
     return stream
   }

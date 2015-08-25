@@ -12,6 +12,12 @@ Imdikator frontend
 
     npm start
 
+
+# URL schema
+
+/compare/:table/:(region1;region2;region3;regionN...)?<params...>
+/regions/:region/:table?<params...>
+
 Now the app should be up and running on http://localhost:3000
 
 # Styleguide

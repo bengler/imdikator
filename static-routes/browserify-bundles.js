@@ -33,7 +33,7 @@ function uglify() {
   ])
 }
 
-const main = createBundle(require.resolve('../bundles/main.jsx'))
+const main = createBundle(require.resolve('../bundles/main/entry.jsx'))
 
 export default {
   '/js/bundles/main.js'() {

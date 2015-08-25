@@ -8,6 +8,7 @@ export default class NotFoundPage extends Component {
   render() {
     return (
       <div>
+        <pre>{JSON.stringify(this.props.route, null, 2)}</pre>
         Not found!!
       </div>
     )

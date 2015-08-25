@@ -2,7 +2,8 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-const sampleData = [23, 67, 23, 99, 98, 43, 51, 42, 16, 14, 75, 77, 88, 77, 85, 68, 88, 16, 28, 61, 41, 66, 75, 94, 3, 19, 42, 39, 10, 18, 9, 80, 1, 4, 1, 85, 59, 78, 88, 7, 36, 21, 77, 84, 69, 12, 23, 65, 87, 94, 20, 47, 86, 20, 59, 39, 5, 78, 3, 83, 97, 27, 26, 71, 4, 1, 7, 58, 45, 56, 80, 16, 15, 94, 44, 85, 14, 37, 7, 96, 20, 92, 93, 33, 92, 89, 78, 4, 68, 60, 81, 71, 1, 21, 20, 46, 32, 73, 11, 13]
+
+const sampleData = [{year: 2014, value: 92}, {year: 2015, value: 6}, {year: 2016, value: 69}, {year: 2017, value: 4}, {year: 2018, value: 36}, {year: 2019, value: 46}, {year: 2020, value: 65}]
 
 /**
  * Only for development
@@ -10,15 +11,39 @@ const sampleData = [23, 67, 23, 99, 98, 43, 51, 42, 16, 14, 75, 77, 88, 77, 85, 
 export default class LineChart extends React.Component {
   drawPoints(el, scales, data) {
 
+    const width = el.offsetWidth
+    const height = el.offsetHeight
+    const axisPadding = 25
+    const svg = d3.select(el).select('svg')
+
+    function getDate(year) {
+      return new Date(String(year))
+    }
+
     const g = d3.select(el).selectAll('.d3-points')
+
+    const sampleYearRange = d3.extent(sampleData, ds => getDate(ds.year))
+    const xScale = d3.time.scale()
+    .domain([sampleYearRange[0], sampleYearRange[sampleYearRange.length - 1]])
+    .range([axisPadding, width - axisPadding])
+
+    const maxValue = d3.max(data, ds => ds.value)
+    const yScale = d3.scale.linear().domain([0, maxValue]).range([height, 0])
+
+    const yAxis = d3.svg.axis().scale(yScale).orient('left')
+    svg.append('g').call(yAxis).attr('class', 'axis').attr('transform', 'translate(' + axisPadding + ',0)')
+
+    // x axis
+    const xAxis = d3.svg.axis().scale(xScale).orient('bottom').tickFormat(d3.time.format('%Y'))
+    svg.append('g').call(xAxis).attr('class', 'axis').attr('transform', 'translate(0, ' + (height - axisPadding) + ')')
 
     // This function calculates a path to draw for the line
     // For more options besides linear, see
     // https://www.dashingd3js.com/svg-paths-and-d3js
     const lineFunction = d3.svg.line()
-      .x((d, i) => i * 10) // Should use .scales
-      .y(d => d)
-      .interpolate('linear')
+    .x((d, i) => xScale(getDate(d.year)))
+    .y((d, i) => yScale(d.value))
+    .interpolate('linear')
 
     const point = g.selectAll('.line').data(data)
     point.enter()
@@ -30,18 +55,6 @@ export default class LineChart extends React.Component {
         'stroke-width': 1,
         fill: 'none'
       })
-
-    //// ENTER & UPDATE
-    //point.attr('cx', function (d) {
-    //  return scales.x(d.x)
-    //})
-    //  .attr('cy', function (d) {
-    //    return scales.y(d.y)
-    //  })
-    //  .attr('r', function (d) {
-    //    return scales.z(d.z)
-    //  })
-
     // EXIT
     point.exit().remove()
   }
@@ -51,7 +64,7 @@ export default class LineChart extends React.Component {
   }
   render() {
     return (
-      <D3Chart data={sampleData} domain={{x: [0, 30], y: [0, 100]}} drawPoints={this.drawPoints} scales={this.scales}/>
+      <D3Chart data={sampleData} drawPoints={this.drawPoints} scales={this.scales}/>
     )
   }
 

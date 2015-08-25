@@ -7,7 +7,7 @@ const sampleData = [10, 15, 5, 30]
 export default class BarChart extends React.Component {
   drawPoints(el, scales, data) {
 
-    const width  = el.offsetWidth
+    const width = el.offsetWidth
     const height = el.offsetHeight
 
     const axisPadding = 25

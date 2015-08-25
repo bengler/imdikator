@@ -15,6 +15,7 @@ export default class RegionPage extends Component {
         <p><a href="/sfdjadskfjskaldj"> Not found - Catch all route!</a></p>
         <h2>Try some charts</h2>
         <p><a href="/debug/charts/">CHARTS!</a></p>
+        <a onClick={this.handleClick}>No href (just for testing react-a11y)</a>
       </div>
     )
   }

@@ -10,7 +10,7 @@ const sampleData = [10, 15, 5, 30]
 export default class BarChart extends React.Component {
   drawPoints(el, scales, data) {
 
-    const g = d3.select(el).selectAll('.d3-points');
+    const g = d3.select(el).selectAll('.d3-points')
 
     const point = g.selectAll('.bar')
       .data(data)

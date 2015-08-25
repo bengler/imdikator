@@ -4,11 +4,12 @@ import d3Chart from './_d3chart'
 /**
  * Only for development
  */
-export default class BarChart extends React.Component {
+export default class D3Chart extends React.Component {
   static propTypes = {
     data: React.PropTypes.array,
     domain: React.PropTypes.object,
-    drawPoints: React.PropTypes.func
+    drawPoints: React.PropTypes.func,
+    scales: React.PropTypes.func
   }
 
   componentDidMount() {
@@ -20,12 +21,12 @@ export default class BarChart extends React.Component {
   }
 
   componentDidUpdate() {
-    const el = this.getDOMNode()
+    const el = React.findDOMNode(this)
     d3Chart.update(el, this.getChartState())
   }
 
   componentWillUnmount() {
-    const el = this.getDOMNode()
+    const el = React.findDOMNode(this)
     d3Chart.destroy(el)
   }
 

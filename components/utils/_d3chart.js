@@ -16,8 +16,8 @@ d3Chart.create = function (el, props, state, drawPoints, scales) {
   this.update(el, state)
 }
 
-d3Chart._drawPoints = function () {}
-d3Chart._scales = function () {}
+d3Chart._drawPoints = function () {}
+d3Chart._scales = function () {}
 
 d3Chart.update = function (el, state) {
   // Re-compute the scales, and render the data points

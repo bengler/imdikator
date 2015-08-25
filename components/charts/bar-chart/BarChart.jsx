@@ -14,6 +14,9 @@ export default class BarChart extends React.Component {
     // input data and the range is the mapping range for a value within that
     // domain
     const xPos = d3.scale.linear().domain([0, data.length]).range([0, width])
+    // coordinates for Y axis is 0 top, `height` bottom so we invert the range
+    const yPos = d3.scale.linear().domain([0, d3.max(data)]).range([height, 0])
+    // Each bar will scale so the maximum value takes up the full height
     const hVal = d3.scale.linear().domain([0, d3.max(data)]).range([0, height])
      
     const padding = 10
@@ -25,7 +28,7 @@ export default class BarChart extends React.Component {
       .attr('class', 'bar')
       .attr({
         x: (d, i) => xPos(i),
-        y: d => el.offsetHeight - hVal(d),
+        y: (d, i) => yPos(d),
         height: d => hVal(d),
         width: (d, i) => xPos(1) - padding
       })

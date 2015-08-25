@@ -52,7 +52,6 @@
     "eslint-plugin-import": "^0.7.8",
     "eslint-plugin-react": "^3.2.3",
     "express": "^4.13.3",
-    "helmet": "^0.10.0",
     "imdi-styles": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
     "less": "^2.5.1",
     "mocha": "^2.2.5",

@@ -1,7 +1,7 @@
 import less from 'less'
 import fs from 'fs'
 import config from '../config'
-//import imdiStyles from 'imdi-styles'
+import imdiStyles from 'imdi-styles'
 
 const development = config.env === 'development'
 
@@ -18,7 +18,7 @@ export default {
       .then(buffer => {
         return less.render(buffer, {
           outFile: '/stylesheets/main.css',
-          //paths: [imdiStyles.LESS_PATH],
+          paths: [imdiStyles.LESS_PATH],
           sourceMap: development ? {sourceMapFileInline: true} : false,
           compress: !development
         })

@@ -2,37 +2,20 @@ import express from 'express'
 import path from 'path'
 import React from 'react'
 import Layout from './components/layouts/DefaultLayout'
-import config from './config'
-import helmet from 'helmet'
 import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
 
 const app = express()
-app.disable('x-powered-by')
 
-app.use(helmet.nosniff())
-app.use(helmet.xframe('sameorigin'))
-app.use(helmet.xssFilter())
-app.use(helmet.ienoopen())
+app.use(quickreload())
+const serve = require('staticr/serve')
+app.use('/build', serve(staticRoutes))
 
-app.set('query parser', 'extended')
+app.use(capture.js())
+app.use(capture.css())
 
-if (config.env === 'development') {
-  app.use(quickreload())
-}
-
-if (config.env === 'development') {
-  const serve = require('staticr/serve')
-  app.use('/build', serve(staticRoutes))
-}
-
-if (config.env === 'development') {
-  app.use(capture.js())
-  app.use(capture.css())
-}
-
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
   res.status(200).send(React.renderToStaticMarkup(<Layout/>))
 })
 

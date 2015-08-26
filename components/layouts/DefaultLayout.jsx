@@ -18,7 +18,10 @@ export default class DefaultLayout extends React.Component {
         <link rel="stylesheet" href="/build/stylesheets/main.css"/>
       </head>
       <body>
-        <div id="content"/>
+        <div id="content">
+          <div id="barChart" className="chart"/>
+          <div id="lineChart" className="chart"/>
+        </div>
         <script src="/build/js/bundles/main.js" async defer/>
       </body>
       </html>

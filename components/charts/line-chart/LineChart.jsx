@@ -3,7 +3,7 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 
-const sampleData = [{year: 2014, value: 92}, {year: 2015, value: 6}, {year: 2016, value: 69}, {year: 2017, value: 4}, {year: 2018, value: 36}, {year: 2019, value: 46}, {year: 2020, value: 65}]
+const sampleData = [{year: 2014, value: 100}, {year: 2015, value: 56}, {year: 2016, value: 69}, {year: 2017, value: 34}, {year: 2018, value: 36}, {year: 2019, value: 46}, {year: 2020, value: 65}]
 
 /**
  * Only for development
@@ -11,9 +11,9 @@ const sampleData = [{year: 2014, value: 92}, {year: 2015, value: 6}, {year: 2016
 export default class LineChart extends React.Component {
   drawPoints(el, scales, data) {
 
-    const width = el.offsetWidth
-    const height = el.offsetHeight
-    const axisPadding = 25
+    const axisPadding = 35
+    const width = el.offsetWidth - 30
+    const height = el.offsetHeight - axisPadding
     const svg = d3.select(el).select('svg')
 
     function getDate(year) {
@@ -28,14 +28,14 @@ export default class LineChart extends React.Component {
     .range([axisPadding, width - axisPadding])
 
     const maxValue = d3.max(data, ds => ds.value)
-    const yScale = d3.scale.linear().domain([0, maxValue]).range([height, 0])
+    const yScale = d3.scale.linear().domain([0, maxValue]).range([height, axisPadding])
 
     const yAxis = d3.svg.axis().scale(yScale).orient('left')
     svg.append('g').call(yAxis).attr('class', 'axis').attr('transform', 'translate(' + axisPadding + ',0)')
 
     // x axis
     const xAxis = d3.svg.axis().scale(xScale).orient('bottom').tickFormat(d3.time.format('%Y'))
-    svg.append('g').call(xAxis).attr('class', 'axis').attr('transform', 'translate(0, ' + (height - axisPadding) + ')')
+    svg.append('g').call(xAxis).attr('class', 'axis').attr('transform', 'translate(0, ' + (height) + ')')
 
     // This function calculates a path to draw for the line
     // For more options besides linear, see
@@ -51,7 +51,7 @@ export default class LineChart extends React.Component {
       .attr('class', 'line')
       .attr({
         d: lineFunction(data),
-        stroke: 'black',
+        stroke: 'blue',
         'stroke-width': 1,
         fill: 'none'
       })

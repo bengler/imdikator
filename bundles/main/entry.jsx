@@ -16,7 +16,11 @@ const router = Router(compileRoutes(routes), match => {
 
 router.start()
 
-const container = document.getElementById('content')
+const selector = '[data-imdikator=site]'
+const containers = document.querySelectorAll(selector)
+if (containers.length !== 1) {
+  throw new Error(`Expected exactly 1 element container for imdikator (matching ${selector}`)
+}
 
 React.render(
   // The child must be wrapped in a function
@@ -24,5 +28,5 @@ React.render(
   <Provider store={store}>
     {() => <App/>}
   </Provider>,
-  container
+  containers[0]
 )

@@ -2,7 +2,6 @@ import less from 'less'
 import fs from 'fs'
 import path from 'path'
 import config from '../config'
-import imdiStyles from 'imdi-styles'
 
 const development = config.env === 'development'
 

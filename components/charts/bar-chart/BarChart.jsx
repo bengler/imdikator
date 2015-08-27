@@ -2,9 +2,8 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-// A cycling range of colors
-// Should be shared among the different Charts
-const seriesColor = d3.scale.ordinal().range(['rgb(25, 134, 224)', 'rgb(226, 57, 57)'])
+// A range of 20 colors
+const seriesColor = d3.scale.category20()
 
 // Wrapping text nodes
 // https://gist.github.com/mbostock/7555321
@@ -70,7 +69,7 @@ const sampleData = [
 ]
 
 export default class BarChart extends React.Component {
-  drawPoints(el, scales, data) {
+  drawPoints(el, data) {
 
     // this.svg
     // this.size
@@ -149,13 +148,9 @@ export default class BarChart extends React.Component {
       .call(wrap, labelScale.rangeBand())
   }
 
-  // Not using this func here
-  scales(el, domain) {
-  }
-
   render() {
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints} scales={this.scales}/>
+      <D3Chart data={sampleData} drawPoints={this.drawPoints} />
     )
   }
 }

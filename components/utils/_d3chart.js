@@ -1,7 +1,7 @@
 import d3 from 'd3'
 const d3Chart = {}
 
-d3Chart.create = function (el, props, state, drawPoints, scales, margins = {left: 30, top: 30, right: 10, bottom: 50}) {
+d3Chart.create = function (el, props, state, drawPoints, margins = {left: 30, top: 30, right: 30, bottom: 50}) {
   const svg = d3.select(el).append('svg')
   .attr('class', 'd3')
   .attr('width', props.width)
@@ -23,17 +23,13 @@ d3Chart.create = function (el, props, state, drawPoints, scales, margins = {left
   this.margins = margins
 
   this._drawPoints = drawPoints
-  this._scales = scales
   this.update(el, state)
 }
 
 d3Chart._drawPoints = function () {}
-d3Chart._scales = function () {}
 
 d3Chart.update = function (el, state) {
-  // Re-compute the scales, and render the data points
-  const scales = this._scales(el, state.domain)
-  this._drawPoints(el, scales, state.data)
+  this._drawPoints(el, state.data)
 }
 
 d3Chart.destroy = function (el) {

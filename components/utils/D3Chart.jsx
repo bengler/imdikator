@@ -9,7 +9,6 @@ export default class D3Chart extends React.Component {
     data: React.PropTypes.array,
     domain: React.PropTypes.object,
     drawPoints: React.PropTypes.func,
-    scales: React.PropTypes.func,
     margins: React.PropTypes.object
   }
 
@@ -18,7 +17,7 @@ export default class D3Chart extends React.Component {
     d3Chart.create(el, {
       width: '100%',
       height: '100%'
-    }, this.getChartState(), this.props.drawPoints, this.props.scales, this.props.margins)
+    }, this.getChartState(), this.props.drawPoints, this.props.margins)
   }
 
   componentDidUpdate() {

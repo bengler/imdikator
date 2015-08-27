@@ -2,67 +2,104 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-
-const sampleData = [{year: 2014, value: 100}, {year: 2015, value: 56}, {year: 2016, value: 69}, {year: 2017, value: 34}, {year: 2018, value: 36}, {year: 2019, value: 46}, {year: 2020, value: 65}]
+const sampleData = [
+  {category: '1990', series: 'Menn', value: 10},
+  {category: '1990', series: 'Kvinner', value: 8},
+  {category: '1991', series: 'Menn', value: 15},
+  {category: '1991', series: 'Kvinner', value: 10},
+  {category: '1992', series: 'Menn', value: 20},
+  {category: '1992', series: 'Kvinner', value: 15},
+  {category: '1993', series: 'Menn', value: 40},
+  {category: '1993', series: 'Kvinner', value: 25},
+  {category: '1994', series: 'Menn', value: 50},
+  {category: '1994', series: 'Kvinner', value: 25},
+  {category: '1995', series: 'Menn', value: 60},
+  {category: '1995', series: 'Kvinner', value: 35},
+  {category: '1996', series: 'Menn', value: 65},
+  {category: '1996', series: 'Kvinner', value: 40},
+  {category: '1997', series: 'Menn', value: 70},
+  {category: '1997', series: 'Kvinner', value: 55},
+  {category: '1998', series: 'Menn', value: 85},
+  {category: '1998', series: 'Kvinner', value: 70},
+  {category: '1999', series: 'Menn', value: 90},
+  {category: '1999', series: 'Kvinner', value: 80},
+  {category: '2000', series: 'Menn', value: 100},
+  {category: '2000', series: 'Kvinner', value: 90}
+]
 
 /**
  * Only for development
  */
 export default class LineChart extends React.Component {
-  drawPoints(el, scales, data) {
-
+  drawPoints(el, data) {
     const svg = this.svg
 
-    function getDate(year) {
-      return new Date(String(year))
-    }
+    const parseDate = d3.time.format('%Y').parse
+    const formatPercent = d3.format('.0%')
 
-    const g = d3.select(el).selectAll('.d3-points')
+    const x = d3.time.scale().range([0, this.size.width])
+    const y = d3.scale.linear().range([this.size.height, 0])
 
-    const sampleYearRange = d3.extent(sampleData, ds => getDate(ds.year))
-    const xScale = d3.time.scale()
-    .domain([sampleYearRange[0], sampleYearRange[sampleYearRange.length - 1]])
-    .range([0, this.size.width])
+    const color = d3.scale.category20()
 
-    const maxValue = d3.max(data, ds => ds.value)
-    const yScale = d3.scale.linear().domain([0, maxValue]).range([this.size.height, 0])
+    const xAxis = d3.svg.axis().scale(x).orient('bottom')
+    const yAxis = d3.svg.axis().scale(y).orient('left').tickFormat(formatPercent)
 
-    const yAxis = d3.svg.axis().scale(yScale).orient('left')
-    svg.append('g').call(yAxis).attr('class', 'axis')
+    const area = d3.svg.area()
+    .x(d => x(d.date))
+    .y0(d => y(d.y0))
+    .y1(d => y(d.y0 + d.y))
 
-    // x axis
-    const xAxis = d3.svg.axis().scale(xScale).orient('bottom').tickFormat(d3.time.format('%Y'))
-    svg.append('g').call(xAxis).attr('class', 'axis').attr('transform', 'translate(0, ' + (this.size.height) + ')')
+    data.forEach(d => d.date = parseDate(d.category))
 
-    // This function calculates a path to draw for the line
-    // For more options besides linear, see
-    // https://www.dashingd3js.com/svg-paths-and-d3js
-    const lineFunction = d3.svg.line()
-    .x((d, i) => xScale(getDate(d.year)))
-    .y((d, i) => yScale(d.value))
-    .interpolate('linear')
+    const stack = d3.layout.stack().values(d => d.values)
 
-    const point = g.selectAll('.line').data(data)
-    point.enter()
-      .append('path')
-      .attr('class', 'line')
-      .attr({
-        d: lineFunction(data),
-        stroke: 'blue',
-        'stroke-width': 1,
-        fill: 'none'
-      })
-    // EXIT
-    point.exit().remove()
+    const nest = d3.nest().key(d => d.series).key(d => d.category)
+
+    let maxY = 0
+    const entries = nest.entries(data)
+    const numSeries = entries.length
+    const r = entries.map(s => Object({name: s.key, values: s.values.map(v => {
+      const val = v.values[0].value / 100
+      if (maxY < val) {
+        maxY = val
+      }
+      return {date: v.values[0].date, y: val}
+    })}))
+    y.domain([0, maxY * numSeries])
+    const series = stack(r)
+
+    x.domain(d3.extent(data, d => d.date))
+
+    svg.selectAll('.area')
+    .data(series)
+    .enter()
+    .append('g')
+    .append('path')
+    .attr('class', 'area')
+    .attr('d', d => area(d.values))
+    .style('fill', d => color(d.name))
+    .style('stroke', '#abc')
+
+    svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', 'translate(0,' + this.size.height + ')')
+    .call(xAxis)
+
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
   }
 
-  scales(el, domain) {
-    // This function should scale the values for x,y depending on context
-  }
   render() {
-    const margins = {left: 0, top: 0, right: 0, bottom: 0}
+    const margins = {
+      left: 50,
+      top: 20,
+      right: 20,
+      bottom: 30
+    }
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints} scales={this.scales} margins={margins}/>
+      <D3Chart data={sampleData} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 

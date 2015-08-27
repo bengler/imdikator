@@ -50,22 +50,18 @@ const tableMap = {
 */
 
 const sampleData = [
-  {
-    category: 'Arbeidsinnvandrere',
-    series: [{name: 'Menn', value: 50}, {name: 'Kvinner', value: 10}]
-  },
-  {
-    category: 'Familieforente',
-    series: [{name: 'Menn', value: 30}, {name: 'Kvinner', value: 15}]
-  },
-  {
-    category: 'Flyktninger og familiegjenforente til disse',
-    series: [{name: 'Menn', value: 75}, {name: 'Kvinner', value: 45}]
-  },
-  {
-    category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner',
-    series: [{name: 'Menn', value: 20}, {name: 'Kvinner', value: 45}]
-  }
+  {category: 'Arbeidsinnvandrere', series: 'Menn', value: 50},
+  {category: 'Arbeidsinnvandrere', series: 'Kvinner', value: 10},
+  {category: 'Arbeidsinnvandrere', series: 'Aliens', value: 5},
+  {category: 'Familieforente', series: 'Menn', value: 30},
+  {category: 'Familieforente', series: 'Kvinner', value: 15},
+  {category: 'Familieforente', series: 'Aliens', value: 9},
+  {category: 'Flyktninger og familiegjenforente til disse', series: 'Menn', value: 75},
+  {category: 'Flyktninger og familiegjenforente til disse', series: 'Kvinner', value: 45},
+  {category: 'Flyktninger og familiegjenforente til disse', series: 'Aliens', value: 5},
+  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Menn', value: 20},
+  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Kvinner', value: 45},
+  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Aliens', value: 75},
 ]
 
 export default class BarChart extends React.Component {
@@ -78,10 +74,16 @@ export default class BarChart extends React.Component {
     const svg = this.svg
 
     // Get the unique categories from the data
-    const categories = d3.set(data.map(obj => obj.category)).values()
-    const seriesSet = d3.set()
-    data.forEach(c => c.series.map(s => seriesSet.add(s.name)))
-    const series = seriesSet.values()
+    const n = d3.nest().key(d => d.category).key(d => d.series)
+    const entries = n.entries(data)
+    const categories = entries.map(e => e.key)
+    const series = entries[0].values.map(v => v.key)
+
+    entries.forEach(e => {
+      e.values.forEach(v => {
+        v.value = v.values[0].value / 100 // Using percentage formatting, which multiplied by 100
+      })
+    })
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
@@ -100,28 +102,33 @@ export default class BarChart extends React.Component {
       .call(wrap, x0.rangeBand())
 
     // Add the Y axsis
-    // Percent should always be [0,100]
-    const yScale = d3.scale.linear().domain([0, 100]).range([this.size.height, 0])
-    // Percent should always have 10 ticks
-    const yAxis = d3.svg.axis().scale(yScale).orient('left').ticks(10)
+    const yScale = d3.scale.linear().range([this.size.height, 0])
+    const yAxis = d3.svg.axis().scale(yScale).orient('left')
+
+    // Percentage scale it (divide the values by 100)
+    yAxis.tickFormat(d3.format('%'))
+    yScale.domain([0, 1])
+
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
 
     const category = svg.selectAll('.category')
-    .data(data)
+    .data(entries)
     .enter().append('g')
     .attr('class', 'category')
-    .attr('transform', d => 'translate(' + x0(d.category) + ',0)')
+    .attr('transform', d => 'translate(' + x0(d.key) + ',0)')
 
     category.selectAll('rect')
-    .data(d => d.series)
+    .data(d => d.values)
     .enter().append('rect')
     .attr('width', x1.rangeBand())
-    .attr('x', d => x1(d.name))
-    .attr('y', d => yScale(d.value))
+    .attr('x', d => x1(d.key))
+    .attr('y', d => {
+      return yScale(d.value)
+    })
     .attr('height', d => this.size.height - yScale(d.value))
-    .style('fill', d => seriesColor(d.name))
+    .style('fill', d => seriesColor(d.key))
 
     // Legend
     const labelScale = d3.scale.ordinal().domain(series).rangeRoundBands([0, this.size.width], 0.1)

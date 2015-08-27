@@ -35,7 +35,7 @@ export default class AreaChart extends React.Component {
     const svg = this.svg
 
     const parseDate = d3.time.format('%Y').parse
-    const formatPercent = d3.format('.0%')
+    const formatPercent = d3.format('%')
 
     const x = d3.time.scale().range([0, this.size.width])
     const y = d3.scale.linear().range([this.size.height, 0])
@@ -59,13 +59,22 @@ export default class AreaChart extends React.Component {
     let maxY = 0
     const entries = nest.entries(data)
     const numSeries = entries.length
-    const r = entries.map(s => Object({name: s.key, values: s.values.map(v => {
-      const val = v.values[0].value / 100
-      if (maxY < val) {
-        maxY = val
+    const r = entries.map(s => {
+      return {
+        name: s.key,
+        values: s.values.map(v => {
+          const val = v.values[0].value / 100
+          if (maxY < val) {
+            maxY = val
+          }
+          return {
+            date: v.values[0].date,
+            y: val
+          }
+        })
       }
-      return {date: v.values[0].date, y: val}
-    })}))
+    })
+
     y.domain([0, maxY * numSeries])
     const series = stack(r)
 
@@ -92,14 +101,8 @@ export default class AreaChart extends React.Component {
   }
 
   render() {
-    const margins = {
-      left: 50,
-      top: 20,
-      right: 20,
-      bottom: 30
-    }
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={sampleData} drawPoints={this.drawPoints}/>
     )
   }
 

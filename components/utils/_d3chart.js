@@ -1,7 +1,7 @@
 import d3 from 'd3'
 const d3Chart = {}
 
-d3Chart.create = function (el, props, state, drawPoints, margins = {left: 30, top: 30, right: 30, bottom: 50}) {
+d3Chart.create = function (el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}) {
   const svg = d3.select(el).append('svg')
   .attr('class', 'd3')
   .attr('width', props.width)

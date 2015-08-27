@@ -22,11 +22,6 @@ export default class DefaultLayout extends React.Component {
         <link rel="icon" type="image/x-icon" href="/_themes/design/img/favicon.ico"/>
       </head>
       <body>
-        <div id="content">
-          <div id="barChart" className="chart"/>
-          <div id="lineChart" className="chart"/>
-        </div>
-        <script src="/build/js/bundles/main.js" async defer/>
       <header id="header" className="header" data-toggle-menu="header--overlay" data-toggle-search="header--search">
         <div className="wrapper">
           <div className="row">

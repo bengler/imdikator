@@ -59,7 +59,6 @@
     "eslint-plugin-react": "^3.2.3",
     "express": "^4.13.3",
     "fs-readdir-recursive": "^0.1.2",
-    "imdi-styles": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
     "less": "^2.5.1",
     "mocha": "^2.2.5",
     "mochify": "^2.13.0",

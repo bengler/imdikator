@@ -72,24 +72,11 @@ const sampleData = [
 export default class BarChart extends React.Component {
   drawPoints(el, scales, data) {
 
-    // Conventional margins
-    // http://bl.ocks.org/mbostock/3019563
-    const margin = {
-      top: 30,
-      left: 30,
-      bottom: 50,
-      right: 10
-    }
+    // this.svg
+    // this.size
+    // this.margins
 
-    const size = {
-      width: el.offsetWidth - margin.left - margin.right,
-      height: el.offsetHeight - margin.top - margin.bottom
-    }
-
-    // Translating an outer 'g' so we dont have to consider margins in the rest
-    // of the code
-    const svg = d3.select(el).select('svg')
-    .append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+    const svg = this.svg
 
     // Get the unique categories from the data
     const categories = d3.set(data.map(obj => obj.category)).values()
@@ -98,7 +85,7 @@ export default class BarChart extends React.Component {
     const series = seriesSet.values()
 
     // X axis scale for categories
-    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, size.width], 0.1)
+    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     // X axis scale for series
     const x1 = d3.scale.ordinal()
@@ -108,14 +95,14 @@ export default class BarChart extends React.Component {
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
     svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + size.height + ')')
+    .attr('transform', 'translate(0, ' + this.size.height + ')')
     .call(xAxis)
     .selectAll('.tick text')
       .call(wrap, x0.rangeBand())
 
     // Add the Y axsis
     // Percent should always be [0,100]
-    const yScale = d3.scale.linear().domain([0, 100]).range([size.height, 0])
+    const yScale = d3.scale.linear().domain([0, 100]).range([this.size.height, 0])
     // Percent should always have 10 ticks
     const yAxis = d3.svg.axis().scale(yScale).orient('left').ticks(10)
     svg.append('g')
@@ -134,17 +121,17 @@ export default class BarChart extends React.Component {
     .attr('width', x1.rangeBand())
     .attr('x', d => x1(d.name))
     .attr('y', d => yScale(d.value))
-    .attr('height', d => size.height - yScale(d.value))
+    .attr('height', d => this.size.height - yScale(d.value))
     .style('fill', d => seriesColor(d.name))
 
     // Legend
-    const labelScale = d3.scale.ordinal().domain(series).rangeRoundBands([0, size.width], 0.1)
+    const labelScale = d3.scale.ordinal().domain(series).rangeRoundBands([0, this.size.width], 0.1)
 
     const legend = svg.selectAll('.legend')
     .data(series.slice())
     .enter().append('g')
     .attr('class', 'legend')
-    .attr('transform', d => 'translate(' + labelScale(d) + ', ' + -(margin.top/2) + ')')
+    .attr('transform', d => 'translate(' + labelScale(d) + ', ' + -(this.margins.top / 2) + ')')
 
     legend.append('rect')
     .attr('x', '0')

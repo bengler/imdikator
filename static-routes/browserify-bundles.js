@@ -11,7 +11,12 @@ import envify from 'envify'
 function createBundle(entry) {
 
   return rebundler({noop: env !== 'development'}, (cache, pkgCache) => {
-    return browserify(entry, {
+    const entries = [
+      env === 'development' && require.resolve('../lib/react-a11y'),
+      entry
+    ].filter(Boolean)
+
+    return browserify(entries, {
       cache: cache,
       packageCache: pkgCache,
       extensions: ['.jsx'],
@@ -33,11 +38,11 @@ function uglify() {
   ])
 }
 
-const main = createBundle(require.resolve('../bundles/main.jsx'))
+const main = createBundle(require.resolve('../bundles/main/entry.jsx'))
 
 export default {
   '/js/bundles/main.js'() {
-    console.time('Bundle') // eslint-disable-line no-console
+    console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = main()
 
     if (env !== 'development') {
@@ -51,7 +56,7 @@ export default {
     }
 
     stream.on('end', () => {
-      console.timeEnd('Bundle') // eslint-disable-line no-console
+      console.timeEnd(';// Bundle') // eslint-disable-line no-console
     })
     return stream
   }

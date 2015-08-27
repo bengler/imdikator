@@ -12,7 +12,7 @@ describe('DefaultLayout', () => {
     const rendered = TestUtils.renderIntoDocument(<DefaultLayout/>)
 
     const divs = TestUtils.scryRenderedDOMComponentsWithTag(rendered, 'div')
-    const content = divs.find(div => div.props.id == 'content')
-    assert(content)
+    const content = divs.find(div => div.props['data-imdikator'] == 'site')
+    assert(content, 'Expected one element with attribute: data-imdikator="site"')
   })
 })

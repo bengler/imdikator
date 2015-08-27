@@ -102,7 +102,7 @@ export default class BarChart extends React.Component {
 
     // X axis scale for series
     const x1 = d3.scale.ordinal()
-    x1.domain(series).rangeRoundBands([0, x0.rangeBand()])
+    x1.domain(series).rangeRoundBands([0, x0.rangeBand()], 0.05)
 
     // Add the x axis legend
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
@@ -138,25 +138,28 @@ export default class BarChart extends React.Component {
     .style('fill', d => seriesColor(d.name))
 
     // Legend
+    const labelScale = d3.scale.ordinal().domain(series).rangeRoundBands([0, size.width], 0.1)
 
     const legend = svg.selectAll('.legend')
     .data(series.slice())
     .enter().append('g')
     .attr('class', 'legend')
-    .attr('transform', (d, i) => 'translate(0,' + i * 20 + ')')
+    .attr('transform', d => 'translate(' + labelScale(d) + ', ' + -(margin.top/2) + ')')
 
     legend.append('rect')
-    .attr('x', size.width - 18)
-    .attr('width', 18)
-    .attr('height', 18)
+    .attr('x', '0')
+    .attr('y', 0)
+    .attr('width', 10)
+    .attr('height', 10)
     .style('fill', seriesColor)
 
     legend.append('text')
-    .attr('x', size.width - 24)
-    .attr('y', 9)
-    .attr('dy', '.35em')
-    .style('text-anchor', 'end')
+    .attr('x', '15')
+    .attr('y', 10)
+    .style('font-size', '12px')
     .text(d => d)
+    .selectAll('text')
+      .call(wrap, labelScale.rangeBand())
   }
 
   // Not using this func here

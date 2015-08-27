@@ -30,7 +30,7 @@ const sampleData = [
 /**
  * Only for development
  */
-export default class LineChart extends React.Component {
+export default class AreaChart extends React.Component {
   drawPoints(el, data) {
     const svg = this.svg
 

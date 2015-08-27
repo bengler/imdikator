@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import BarChart from '../charts/bar-chart/BarChart'
-import LineChart from '../charts/line-chart/LineChart'
+import AreaChart from '../charts/area-chart/AreaChart'
 
 const CHARTS = {
   bar: BarChart,
-  line: LineChart
+  area: AreaChart
 }
 
 

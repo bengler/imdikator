@@ -2,6 +2,10 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+// A cycling range of colors
+// Should be shared among the different Charts
+const seriesColor = d3.scale.ordinal().range(['rgb(25, 134, 224)', 'rgb(226, 57, 57)'])
+
 // Wrapping text nodes
 // https://gist.github.com/mbostock/7555321
 function wrap(text, width) {
@@ -47,14 +51,22 @@ const tableMap = {
 */
 
 const sampleData = [
-  {category: 'Arbeidsinnvandrere', series: 'Menn', value: 50},
-  {category: 'Arbeidsinnvandrere', series: 'Kvinner', value: 30},
-  {category: 'Familieforente', series: 'Menn', value: 40},
-  {category: 'Familieforente', series: 'Kvinner', value: 20},
-  {category: 'Flyktninger og familiegjenforente til disse', series: 'Menn', value: 20},
-  {category: 'Flyktninger og familiegjenforente til disse', series: 'Kvinner', value: 20},
-  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Menn', value: 20},
-  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Kvinner', value: 20}
+  {
+    category: 'Arbeidsinnvandrere',
+    series: [{name: 'Menn', value: 50}, {name: 'Kvinner', value: 10}]
+  },
+  {
+    category: 'Familieforente',
+    series: [{name: 'Menn', value: 30}, {name: 'Kvinner', value: 15}]
+  },
+  {
+    category: 'Flyktninger og familiegjenforente til disse',
+    series: [{name: 'Menn', value: 75}, {name: 'Kvinner', value: 45}]
+  },
+  {
+    category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner',
+    series: [{name: 'Menn', value: 20}, {name: 'Kvinner', value: 45}]
+  }
 ]
 
 export default class BarChart extends React.Component {
@@ -80,8 +92,10 @@ export default class BarChart extends React.Component {
     .append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
     // Get the unique categories from the data
-    const categories = d3.set(sampleData.map(obj => obj.category)).values()
-    const series = d3.set(sampleData.map(obj => obj.series)).values()
+    const categories = d3.set(data.map(obj => obj.category)).values()
+    const seriesSet = d3.set()
+    data.forEach(c => c.series.map(s => seriesSet.add(s.name)))
+    const series = seriesSet.values()
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, size.width], 0.1)
@@ -108,23 +122,41 @@ export default class BarChart extends React.Component {
     .attr('class', 'axis')
     .call(yAxis)
 
-    // A cycling range of colors
-    const color = d3.scale.ordinal().range(['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00'])
-
     const category = svg.selectAll('.category')
-    .data(categories)
+    .data(data)
     .enter().append('g')
     .attr('class', 'category')
-    .attr('transform', d => 'translate(' + x0(d) + ',0)')
+    .attr('transform', d => 'translate(' + x0(d.category) + ',0)')
 
     category.selectAll('rect')
-    .data(data)
+    .data(d => d.series)
     .enter().append('rect')
     .attr('width', x1.rangeBand())
-    .attr('x', d => x1(d.series))
+    .attr('x', d => x1(d.name))
     .attr('y', d => yScale(d.value))
     .attr('height', d => size.height - yScale(d.value))
-    .style('fill', d => color(d.series))
+    .style('fill', d => seriesColor(d.name))
+
+    // Legend
+
+    const legend = svg.selectAll('.legend')
+    .data(series.slice())
+    .enter().append('g')
+    .attr('class', 'legend')
+    .attr('transform', (d, i) => 'translate(0,' + i * 20 + ')')
+
+    legend.append('rect')
+    .attr('x', size.width - 18)
+    .attr('width', 18)
+    .attr('height', 18)
+    .style('fill', seriesColor)
+
+    legend.append('text')
+    .attr('x', size.width - 24)
+    .attr('y', 9)
+    .attr('dy', '.35em')
+    .style('text-anchor', 'end')
+    .text(d => d)
   }
 
   // Not using this func here

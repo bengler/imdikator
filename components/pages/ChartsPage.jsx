@@ -3,12 +3,14 @@ import BarChart from '../charts/bar-chart/BarChart'
 import GlanceBarChart from '../charts/bar-chart/GlanceBarChart'
 import StackedAreaChart from '../charts/area-chart/StackedAreaChart'
 import LineChart from '../charts/line-chart/LineChart'
+import BubbleChart from '../charts/bubble-chart/BubbleChart'
 
 const CHARTS = {
   stackedArea: StackedAreaChart,
   line: LineChart,
   bar: BarChart,
   glance: GlanceBarChart,
+  bubble: BubbleChart,
 }
 
 

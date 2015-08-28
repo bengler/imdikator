@@ -16,7 +16,7 @@ const sampleData = [
   {category: '2000', series: 'Menn', value: 95},
 ]
 
-export default class GlanceBarChart extends React.Component {
+export default class BenchmarkChart extends React.Component {
   drawPoints(el, data) {
 
     const svg = this.svg

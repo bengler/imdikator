@@ -2,11 +2,13 @@ import React, {Component, PropTypes} from 'react'
 import BarChart from '../charts/bar-chart/BarChart'
 import GlanceBarChart from '../charts/bar-chart/GlanceBarChart'
 import StackedAreaChart from '../charts/area-chart/StackedAreaChart'
+import LineChart from '../charts/line-chart/LineChart'
 
 const CHARTS = {
-  bar: BarChart,
   stackedArea: StackedAreaChart,
-  glance: GlanceBarChart
+  line: LineChart,
+  bar: BarChart,
+  glance: GlanceBarChart,
 }
 
 

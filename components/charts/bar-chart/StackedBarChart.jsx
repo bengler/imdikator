@@ -33,16 +33,12 @@ function wrap(text, width) {
 const sampleData = [
   {category: 'Arbeidsinnvandrere', series: 'Menn', value: 3213},
   {category: 'Arbeidsinnvandrere', series: 'Kvinner', value: 1213},
-  {category: 'Arbeidsinnvandrere', series: 'Aliens', value: 210},
   {category: 'Familieforente', series: 'Menn', value: 2311},
   {category: 'Familieforente', series: 'Kvinner', value: 1000},
-  {category: 'Familieforente', series: 'Aliens', value: 250},
   {category: 'Flyktninger og familiegjenforente til disse', series: 'Menn', value: 7500},
   {category: 'Flyktninger og familiegjenforente til disse', series: 'Kvinner', value: 4500},
-  {category: 'Flyktninger og familiegjenforente til disse', series: 'Aliens', value: 1000},
   {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Menn', value: 6324},
   {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Kvinner', value: 2201},
-  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Aliens', value: 700},
 ]
 
 export default class StackedBarChart extends React.Component {

@@ -95,7 +95,7 @@ export default class StackedBarChart extends React.Component {
     .call(yAxis)
     .append('text')
     .attr('transform', 'rotate(-90)')
-    .attr('y', 6)
+    .attr('y', '.5em')
     .attr('dy', '.71em')
     .style('text-anchor', 'end')
     .text('Personer') // TODO: Get this unit from data

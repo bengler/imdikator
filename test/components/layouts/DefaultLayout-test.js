@@ -1,10 +1,12 @@
 import React from 'react/addons'
 import {assert} from 'chai'
 import DefaultLayout from '../../../components/layouts/DefaultLayout'
+import jsdom from 'mocha-jsdom'
 
 const {TestUtils} = React.addons
 
 describe('DefaultLayout', () => {
+  jsdom()
 
   it('renders a #content element', () => {
 

@@ -52,16 +52,12 @@ const tableMap = {
 const sampleData = [
   {category: 'Arbeidsinnvandrere', series: 'Menn', value: 50},
   {category: 'Arbeidsinnvandrere', series: 'Kvinner', value: 10},
-  {category: 'Arbeidsinnvandrere', series: 'Aliens', value: 5},
   {category: 'Familieforente', series: 'Menn', value: 30},
   {category: 'Familieforente', series: 'Kvinner', value: 15},
-  {category: 'Familieforente', series: 'Aliens', value: 9},
   {category: 'Flyktninger og familiegjenforente til disse', series: 'Menn', value: 75},
   {category: 'Flyktninger og familiegjenforente til disse', series: 'Kvinner', value: 45},
-  {category: 'Flyktninger og familiegjenforente til disse', series: 'Aliens', value: 5},
   {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Menn', value: 20},
   {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Kvinner', value: 45},
-  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Aliens', value: 75},
 ]
 
 export default class BarChart extends React.Component {

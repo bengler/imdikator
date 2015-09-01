@@ -39,21 +39,24 @@ describe('Fetching tables using API client', () => {
       adapter: {post: stub}
     })
 
-    // the following curl command works, so why the heck isnt the test passing:
-    // curl 'http://imdikator-st.azurewebsites.net/api/v1/data/query' -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"TableName":"introdeltakere","Conditions":{"aar":["2015"],"kjonn":["0","1","alle"]},"Include":["aar","kjonn"],"Exclude":[]}'
     const query = {
-      TableName: 'introdeltakere',
-      Conditions: {
+      tableName: 'introdeltakere',
+      conditions: {
         aar: ['2015'],
         kjonn: ['0', '1', 'alle']
       },
-      Include: ['aar', 'kjonn'],
-      Exclude: []
+      include: ['aar', 'kjonn'],
+      exclude: []
     }
 
     return client.query(query)
       .then(() => {
-        assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/data/query', query)
+        assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/data/query', {
+          TableName: query.tableName,
+          Conditions: query.conditions,
+          Include: query.include,
+          Exclude: query.exclude
+        })
       })
   })
 })

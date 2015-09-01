@@ -35,13 +35,13 @@ describe('Fetching tables using API client', () => {
     // the following curl command works, so why the heck isnt the test passing:
     // curl 'http://imdikator-st.azurewebsites.net/api/v1/data/query' -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"TableName":"introdeltakere","Conditions":{"aar":["2015"],"kjonn":["0","1","alle"]},"Include":["aar","kjonn"],"Exclude":[]}'
     return client.query({
-      TableName: 'introdeltakere',
-      Conditions: {
+      tableName: 'introdeltakere',
+      conditions: {
         aar: ['2015'],
         kjonn: ['0', '1', 'alle']
       },
-      Include: ['aar', 'kjonn'],
-      Exclude: []
+      include: ['aar', 'kjonn'],
+      exclude: []
     })
       .then(assert.ok)
   })

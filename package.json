@@ -8,7 +8,7 @@
   "scripts": {
     "phantom": "mochify",
     "watch-test": "npm run test -- --watch",
-    "cover": "istanbul cover _mocha --report text",
+    "cover": "istanbul cover _mocha",
     "test": "mocha ./test",
     "start": "remon --require ./.init.js ./bin/server.js",
     "bloat": "staticr --stdout --require ./.init.js --route /js/bundles/main.js static-routes/browserify-bundles.js | discify --open",

@@ -5,6 +5,7 @@ import StackedBarChart from '../charts/bar-chart/StackedBarChart'
 import StackedAreaChart from '../charts/area-chart/StackedAreaChart'
 import LineChart from '../charts/line-chart/LineChart'
 import BubbleChart from '../charts/bubble-chart/BubbleChart'
+import MapChart from '../charts/map-chart/MapChart'
 
 const CHARTS = {
   stackedArea: StackedAreaChart,
@@ -13,6 +14,7 @@ const CHARTS = {
   stackedBar: StackedBarChart,
   benchmark: BenchmarkChart,
   bubble: BubbleChart,
+  map: MapChart,
 }
 
 

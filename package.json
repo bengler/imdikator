@@ -36,7 +36,8 @@
     "qs": "^4.0.0",
     "react": "^0.13.3",
     "react-redux": "^1.0.1",
-    "redux": "^1.0.1"
+    "redux": "^1.0.1",
+    "topojson": "^1.6.19"
   },
   "devDependencies": {
     "@bengler/imdi-dataset": "^4.1.6",

@@ -46,7 +46,7 @@ export default class BenchmarkChart extends React.Component {
     .attr('class', 'glanceChartBackground')
     .attr('width', '100%')
     .attr('height', '100%')
-    .style('fill', 'rgb(223, 235, 241')
+    .style('fill', 'rgb(223, 235, 241)')
 
     // Draw the lines per 10% in the background
     const lines = d3.range(10, 100, 10)
@@ -93,4 +93,3 @@ export default class BenchmarkChart extends React.Component {
     )
   }
 }
-

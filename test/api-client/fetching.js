@@ -26,7 +26,7 @@ describe('Fetching tables using API client', () => {
       .then(assert.ok)
   })
 
-  it('can retrieve headers for a given table', function () {
+  it('can do a basic query', function () {
     const client = APIClient.create({
       baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
       adapter: json

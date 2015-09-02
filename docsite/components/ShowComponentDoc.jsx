@@ -88,6 +88,9 @@ export default class Tester extends React.Component {
         <div className="page__content">
           <div className="wrapper">
             <div className="row">
+              <a href="/docs">« Back</a>
+            </div>
+            <div className="row">
               <div className="col--main">
                 <h1>{Component.name}</h1>
 

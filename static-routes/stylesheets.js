@@ -24,5 +24,24 @@ export default {
         })
       })
       .then(output => output.css)
+  },
+  '/stylesheets/docsite.css'() {
+    return new Promise((resolve, reject) => {
+      fs.readFile(require.resolve('../stylesheets/bundles/docsite.less'), 'utf-8', (err, buffer) => {
+        if (err) {
+          return reject(err)
+        }
+        resolve(buffer)
+      })
+    })
+      .then(buffer => {
+        return less.render(buffer, {
+          outFile: '/stylesheets/docsite.css',
+          paths: [path.join(__dirname, '../node_modules')],
+          sourceMap: development ? {sourceMapFileInline: true} : false,
+          compress: !development
+        })
+      })
+      .then(output => output.css)
   }
 }

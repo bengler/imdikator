@@ -1,7 +1,7 @@
 import 'babelify/polyfill'
 import React from 'react'
 import Router from '../lib/Router'
-import Tester from './components/Tester'
+import ShowComponentDoc from './components/ShowComponentDoc'
 import compileRoutes from '../lib/compileRoutes'
 import dasherize from 'dasherize'
 
@@ -40,7 +40,7 @@ const chartRoutes = [
   require('../components/charts/line-chart/LineChart'),
   require('../components/charts/map-chart/MapChart'),
   require('../components/charts/pyramid-chart/PyramidChart'),
-  require('../components/charts/table-chart/TableChart'),
+  require('../components/charts/table-chart/TableChart')
   // Add more chart components here
 ]
   .reduce((routes, component) => {
@@ -52,8 +52,7 @@ const chartRoutes = [
 routeMappings = {
   '/docs': IndexContainer,
   '/docs/table-presenter': require('../components/elements/TablePresenter'),
-  // Add more !chart components here
-
+  // Add more components here
   ...chartRoutes
 }
 
@@ -68,7 +67,7 @@ const router = Router(routes, match => {
     return React.render(<IndexContainer/>, container)
   }
 
-  React.render(<Tester component={Component}/>, container)
+  React.render(<ShowComponentDoc component={Component}/>, container)
 })
 
 router.start()

@@ -66,7 +66,7 @@ export default class PropForm extends React.Component {
           </div>
         )
       default:
-        return <div>No registered editor for {prop.type.name}</div>
+        return <div>No registered editor for {prop.type.name}. Debug: <pre>{JSON.stringify(prop, null, 2)}</pre></div>
     }
   }
 
@@ -80,8 +80,8 @@ export default class PropForm extends React.Component {
   renderFieldForProp(prop) {
     return (
       <div>
-        <h3>{prop.name}</h3>
-        <div><em>{prop.description}</em> (<b>{prop.type.name}</b>)</div>
+        <h3>{prop.name} (<em>{prop.type.name}</em>)</h3>
+        <div><em>{prop.description}</em></div>
         {this.renderInput(prop)}
       </div>
     )
@@ -90,12 +90,9 @@ export default class PropForm extends React.Component {
   render() {
     return (
       <div>
-        <ul>
           {this.getProps().map(prop => {
-            return <li>{this.renderFieldForProp(prop)}</li>
+            return <div>{this.renderFieldForProp(prop)}</div>
           })}
-        </ul>
-
       </div>
     )
   }

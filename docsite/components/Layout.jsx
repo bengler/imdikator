@@ -13,8 +13,14 @@ export default class Layout extends React.Component {
       </head>
       <body>
       <div id="page-content" className="page__master">
-        <main className="wrapper page">
-          <div id="main"/>
+        <main className="page">
+          <div className="page__content">
+            <div className="wrapper">
+              <div className="row">
+                <div id="main"/>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
       <script src="/build/js/bundles/test.js"/>

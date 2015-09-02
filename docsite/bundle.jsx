@@ -38,7 +38,9 @@ const chartRoutes = [
   require('../components/charts/bar-chart/StackedBarChart'),
   require('../components/charts/bubble-chart/BubbleChart'),
   require('../components/charts/line-chart/LineChart'),
-  require('../components/charts/map-chart/MapChart')
+  require('../components/charts/map-chart/MapChart'),
+  require('../components/charts/pyramid-chart/PyramidChart'),
+  require('../components/charts/table-chart/TableChart'),
   // Add more chart components here
 ]
   .reduce((routes, component) => {

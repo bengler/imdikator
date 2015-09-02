@@ -5,34 +5,6 @@ import D3Chart from '../../utils/D3Chart'
 // A range of 20 colors
 const seriesColor = d3.scale.category20()
 
-// Wrapping text nodes
-// https://gist.github.com/mbostock/7555321
-function wrap(text, width) {
-  text.each(function () {
-    const txt = d3.select(this)
-    const words = txt.text().split(/\s+/).reverse()
-    const lineHeight = 1.1 // ems
-    const y = txt.attr('y')
-    const dy = parseFloat(txt.attr('dy'))
-    let word = null
-    let line = []
-    let lineNumber = 0
-    let tspan = txt.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', dy + 'em')
-    word = words.pop()
-    while (word) {
-      line.push(word)
-      tspan.text(line.join(' '))
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop()
-        tspan.text(line.join(' '))
-        line = [word]
-        tspan = txt.append('tspan').attr('x', 0).attr('y', y).attr('dy', ++lineNumber * lineHeight + dy + 'em').text(word)
-      }
-      word = words.pop()
-    }
-  })
-}
-
 /*
 const tableMap = {
   sysselsatteinnvandringsgrunn: {
@@ -95,7 +67,7 @@ export default class BarChart extends React.Component {
     .attr('transform', 'translate(0, ' + this.size.height + ')')
     .call(xAxis)
     .selectAll('.tick text')
-      .call(wrap, x0.rangeBand())
+      .call(this.wrapTextNode, x0.rangeBand())
 
     // Add the Y axsis
     const yScale = d3.scale.linear().range([this.size.height, 0])
@@ -148,7 +120,7 @@ export default class BarChart extends React.Component {
     .style('font-size', '12px')
     .text(d => d)
     .selectAll('text')
-      .call(wrap, labelScale.rangeBand())
+      .call(this.wrapTextNode, labelScale.rangeBand())
   }
 
   render() {
@@ -157,4 +129,3 @@ export default class BarChart extends React.Component {
     )
   }
 }
-

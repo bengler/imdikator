@@ -2,34 +2,6 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-// Wrapping text nodes
-// https://gist.github.com/mbostock/7555321
-function wrap(text, width) {
-  text.each(function () {
-    const txt = d3.select(this)
-    const words = txt.text().split(/\s+/).reverse()
-    const lineHeight = 1.1 // ems
-    const y = txt.attr('y')
-    const dy = parseFloat(txt.attr('dy'))
-    let word = null
-    let line = []
-    let lineNumber = 0
-    let tspan = txt.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', dy + 'em')
-    word = words.pop()
-    while (word) {
-      line.push(word)
-      tspan.text(line.join(' '))
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop()
-        tspan.text(line.join(' '))
-        line = [word]
-        tspan = txt.append('tspan').attr('x', 0).attr('y', y).attr('dy', ++lineNumber * lineHeight + dy + 'em').text(word)
-      }
-      word = words.pop()
-    }
-  })
-}
-
 const sampleData = [
   {category: 'Arbeidsinnvandrere', series: 'Menn', value: 3213},
   {category: 'Arbeidsinnvandrere', series: 'Kvinner', value: 1213},
@@ -84,7 +56,7 @@ export default class StackedBarChart extends React.Component {
     .attr('transform', 'translate(0, ' + this.size.height + ')')
     .call(xAxis)
     .selectAll('text')
-    .call(wrap, x.rangeBand())
+    .call(this.wrapTextNode, x.rangeBand())
 
     this.svg.append('g')
     .attr('class', 'axis')
@@ -119,4 +91,3 @@ export default class StackedBarChart extends React.Component {
     )
   }
 }
-

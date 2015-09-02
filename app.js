@@ -6,6 +6,7 @@ import staticRoutes from './static-routes'
 import fonts from './static-routes/fonts'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
+import docsite from './docsite/handler'
 
 const app = express()
 
@@ -16,6 +17,8 @@ app.use('/UI', serve(fonts))
 
 app.use(capture.js())
 app.use(capture.css())
+
+app.get('/docs*', docsite)
 
 app.get('/*', function (req, res) {
   res.status(200).send(React.renderToStaticMarkup(<Layout/>))

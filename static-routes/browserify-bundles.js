@@ -8,14 +8,9 @@ import collapser from 'bundle-collapser/plugin'
 import babelify from 'babelify'
 import envify from 'envify'
 
-function createBundle(entry) {
+function createBundle(entries) {
 
   return rebundler({noop: env !== 'development'}, (cache, pkgCache) => {
-    const entries = [
-      env === 'development' && require.resolve('../lib/react-a11y'),
-      entry
-    ].filter(Boolean)
-
     return browserify(entries, {
       cache: cache,
       packageCache: pkgCache,
@@ -23,8 +18,6 @@ function createBundle(entry) {
       debug: env == 'development',
       fullPaths: env == 'development'
     })
-      .transform(babelify)
-      .transform(envify, {global: env !== 'development'})
   })
 }
 
@@ -38,12 +31,19 @@ function uglify() {
   ])
 }
 
-const main = createBundle(require.resolve('../bundles/main/entry.jsx'))
+const main = createBundle([
+  env === 'development' && require.resolve('../lib/react-a11y'),
+  require.resolve('../bundles/main/entry.jsx')
+].filter(Boolean))
+
+const test = createBundle(require.resolve('../docsite/bundle.jsx'))
 
 export default {
   '/js/bundles/main.js'() {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = main()
+      .transform(babelify)
+      .transform(envify, {global: env !== 'development'})
 
     if (env !== 'development') {
       bundle.plugin(collapser)
@@ -59,5 +59,12 @@ export default {
       console.timeEnd(';// Bundle') // eslint-disable-line no-console
     })
     return stream
+  },
+  '/js/bundles/test.js'() {
+    return test()
+      .transform('redocify')
+      .transform(babelify)
+      .transform(envify, {global: env !== 'development'})
+      .bundle()
   }
 }

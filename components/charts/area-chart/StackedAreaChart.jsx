@@ -35,7 +35,6 @@ export default class StackedAreaChart extends React.Component {
     const svg = this.svg
 
     const parseDate = d3.time.format('%Y').parse
-    const formatPercent = d3.format('%')
 
     const x = d3.time.scale().range([0, this.size.width])
     const y = d3.scale.linear().range([this.size.height, 0])
@@ -43,51 +42,50 @@ export default class StackedAreaChart extends React.Component {
     const color = d3.scale.category20()
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
-    const yAxis = d3.svg.axis().scale(y).orient('left').tickFormat(formatPercent)
+    const yAxis = d3.svg.axis().scale(y).orient('left')
 
     const area = d3.svg.area()
-    .x(d => x(d.date))
-    .y0(d => y(d.y0))
-    .y1(d => y(d.y0 + d.y))
+    .x(dataItem => x(dataItem.date))
+    .y0(dataItem => y(dataItem.y0))
+    .y1(dataItem => y(dataItem.y0 + dataItem.y))
 
-    data.forEach(d => d.date = parseDate(d.category))
+    data.forEach(dataItem => dataItem.date = parseDate(dataItem.category))
 
-    const stack = d3.layout.stack().values(d => d.values)
+    const stack = d3.layout.stack().values(dataItem => dataItem.values)
 
-    const nest = d3.nest().key(d => d.series).key(d => d.category)
+    const nest = d3.nest().key(dataItem => dataItem.series).key(dataItem => dataItem.category)
 
-    let maxY = 0
-    const entries = nest.entries(data)
-    const numSeries = entries.length
-    const r = entries.map(s => {
+    const preparedData = nest.entries(data).map(s => {
       return {
         name: s.key,
-        values: s.values.map(v => {
-          const val = v.values[0].value / 100
-          if (maxY < val) {
-            maxY = val
-          }
-          return {
-            date: v.values[0].date,
-            y: val
-          }
+        values: s.values.map(value => {
+          return {date: value.values[0].date, y: value.values[0].value}
         })
       }
     })
 
-    y.domain([0, maxY * numSeries])
-    const series = stack(r)
+    // Find the biggest Y value for each point on the X axis
+    const maxYvalues = d3.nest().key(item => item.category).entries(data).map(category => {
+      let max = 0
+      category.values.forEach(val => max += val.value)
+      return max
+    })
+    const maxY = d3.max(maxYvalues)
+    // Scale the Y axis based on this max value
+    y.domain([0, maxY])
 
-    x.domain(d3.extent(data, d => d.date))
+    // Scale the X axis by the date range in the data
+    x.domain(d3.extent(data, dataItem => dataItem.date))
 
+    const series = stack(preparedData)
     svg.selectAll('.area')
     .data(series)
     .enter()
     .append('g')
     .append('path')
     .attr('class', 'area')
-    .attr('d', d => area(d.values))
-    .style('fill', d => color(d.name))
+    .attr('d', dataItem => area(dataItem.values))
+    .style('fill', dataItem => color(dataItem.name))
     .style('stroke', '#abc')
 
     svg.append('g')

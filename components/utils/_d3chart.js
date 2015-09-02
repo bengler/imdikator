@@ -37,4 +37,32 @@ d3Chart.destroy = function (el) {
   // in this example there is nothing to do
 }
 
+// Wrapping text nodes
+// https://gist.github.com/mbostock/7555321
+d3Chart.wrapTextNode = function wrap(text, width) {
+  text.each(function () {
+    const txt = d3.select(this)
+    const words = txt.text().split(/\s+/).reverse()
+    const lineHeight = 1.1 // ems
+    const y = txt.attr('y')
+    const dy = parseFloat(txt.attr('dy'))
+    let word = null
+    let line = []
+    let lineNumber = 0
+    let tspan = txt.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', dy + 'em')
+    word = words.pop()
+    while (word) {
+      line.push(word)
+      tspan.text(line.join(' '))
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop()
+        tspan.text(line.join(' '))
+        line = [word]
+        tspan = txt.append('tspan').attr('x', 0).attr('y', y).attr('dy', ++lineNumber * lineHeight + dy + 'em').text(word)
+      }
+      word = words.pop()
+    }
+  })
+}
+
 export default d3Chart

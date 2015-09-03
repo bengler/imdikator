@@ -1,7 +1,7 @@
 import React, {PropTypes, addons} from 'react/addons'
 import PropForm from './PropForm'
 
-function attibutize(value) {
+function attributize(value) {
   if (typeof value === 'object') {
     return `{${JSON.stringify(value)}}`
   }
@@ -23,7 +23,7 @@ function toAttrs(props) {
       if (value == void 0) {
         return value
       }
-      return `${prop}=${attibutize(value)}`
+      return `${prop}=${attributize(value)}`
     })
     .filter(Boolean)
     .join(' ')

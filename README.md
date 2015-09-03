@@ -15,8 +15,8 @@ Imdikator frontend
 
 # URL schema
 
-/compare/:table/:(region1;region2;region3;regionN...)?<params...>
-/regions/:region/:table?<params...>
+/stats/m01-os/utdanning/befolkninggr2?view=currentYear&dimensions=[innvkat3:[innv,alle],kjonn:[0]]&compare=[{municipality=m0002,year=2004}, …]
+
 
 Now the app should be up and running on http://localhost:3000
 

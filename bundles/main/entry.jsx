@@ -1,6 +1,6 @@
 import 'babelify/polyfill'
 import React from 'react'
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import {navigate} from '../../actions'
 import App from '../../components/containers/App'
@@ -8,8 +8,10 @@ import app from '../../reducers'
 import routes from './routes'
 import Router from '../../lib/Router'
 import compileRoutes from '../../lib/compileRoutes'
+import {logger} from '../../middleware'
 
-const store = createStore(app)
+const createStoreWithMiddleware = applyMiddleware(logger)(createStore)
+const store = createStoreWithMiddleware(app)
 
 const router = Router(compileRoutes(routes), match => {
   store.dispatch(navigate(match))

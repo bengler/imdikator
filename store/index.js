@@ -15,6 +15,6 @@ const middlewares = [
   config.reduxDevTools && persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 ].filter(Boolean)
 
-const finalCreateStore = compose.apply(null, middlewares)(createStore)
+const finalCreateStore = compose(...middlewares)(createStore)
 
 export default finalCreateStore(rootReducer, {})

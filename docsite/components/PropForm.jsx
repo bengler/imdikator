@@ -66,7 +66,7 @@ export default class PropForm extends React.Component {
           </div>
         )
       default:
-        return <div>No registered editor for {prop.type.name}. Debug: <pre>{JSON.stringify(prop, null, 2)}</pre></div>
+        return <div>No registered editor for {prop.type.name}. Debug: <pre style={{fontSize: '60%'}}>{JSON.stringify(prop, null, 2)}</pre></div>
     }
   }
 

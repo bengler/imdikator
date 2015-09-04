@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     // Injected by connect() call:
     const {route} = this.props
-    return <route.handler route={route}/>
+    return <route.handler dispatch={this.props.dispatch} route={route}/>
   }
 }
 
@@ -18,6 +18,7 @@ class App extends Component {
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
   return {
+    // Inject the data for any open table presenter(s)?
     route: state.route
   }
 }

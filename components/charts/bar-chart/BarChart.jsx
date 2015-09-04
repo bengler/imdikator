@@ -21,18 +21,11 @@ const tableMap = {
 }
 */
 
-const sampleData = [
-  {category: 'Arbeidsinnvandrere', series: 'Menn', value: 50},
-  {category: 'Arbeidsinnvandrere', series: 'Kvinner', value: 10},
-  {category: 'Familieforente', series: 'Menn', value: 30},
-  {category: 'Familieforente', series: 'Kvinner', value: 15},
-  {category: 'Flyktninger og familiegjenforente til disse', series: 'Menn', value: 75},
-  {category: 'Flyktninger og familiegjenforente til disse', series: 'Kvinner', value: 45},
-  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Menn', value: 20},
-  {category: 'Utdanning (inkl. au pair), uoppgitte eller andre grunner', series: 'Kvinner', value: 45},
-]
 
 export default class BarChart extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.array,
+  }
   drawPoints(el, data) {
 
     // this.svg
@@ -125,7 +118,7 @@ export default class BarChart extends React.Component {
 
   render() {
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints} />
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} />
     )
   }
 }

@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {fetchGroup} from '../../actions/groups'
 import {fetchRegionByCode} from '../../actions/region'
+import Card from './../elements/Card'
 
 class GroupPage extends Component {
   static propTypes = {
@@ -33,8 +34,7 @@ class GroupPage extends Component {
         {group.cards.map(card => {
           return (
             <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-              <h3>Card: {card.title} {currentCard == card.name && 'Expanded!'}</h3>
-              <a href={card.name}>Expand</a>
+              <Card card={card} current={currentCard === card.name}/>
             </div>
           )
         })}

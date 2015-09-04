@@ -17,10 +17,12 @@ export default class ChartSelectorList extends Component {
 
   render() {
     const list = Object.keys(dataViewTypeTitleMap).map(key => {
+      const buttonEnabled = Math.floor(Math.random() * 2) == 1
       return (
-        <ChartSelector onSelectItem={() => this.props.onSelectDataView(key)} key={key} title={dataViewTypeTitleMap[key]}/>
+        <ChartSelector enabled={buttonEnabled} onSelectItem={() => this.props.onSelectDataView(key)} key={key} title={dataViewTypeTitleMap[key]}/>
       )
     })
+
     return (
         <div>
         {list}

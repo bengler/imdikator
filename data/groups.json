@@ -1,10 +1,11 @@
 [
   {
-    "urlName": "befolkning",
+    "name": "befolkning",
     "title": "Befolkning",
     "groupKind": "mainGroup",
-    "items": [
+    "cards": [
       {
+        "name": "befolkning_hovedgruppe",
         "title": "Sammensetning",
         "chartKind": "stackedBar",
         "table": "befolkning_hovedgruppe",
@@ -30,6 +31,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "befolkning_hovedgruppe_tidsserie",
         "title": "Sammensetning over tid",
         "chartKind": "stackedArea",
         "table": "befolkning_hovedgruppe_tidsserie",
@@ -47,6 +49,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
         "chartKind": "stackedBar",
         "table": "befolkning_innvandringsgrunn",
@@ -67,6 +70,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
         "chartKind": "bubble",
         "table": "befolkning_opprinnelsesland",
@@ -83,6 +87,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "befolkning_verdensregion",
         "title": "Opprinnelse - verdensregion",
         "chartKind": "bubble",
         "table": "befolkning_verdensregion",
@@ -102,6 +107,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "befolkning_verdensregion_todelt",
         "title": "Opprinnelse - todelt",
         "chartKind": "bar",
         "table": "befolkning_verdensregion",
@@ -122,6 +128,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "befolkning_botid",
         "title": "Innvandrernes botid",
         "chartKind": "stackedBar",
         "table": "befolkning_botid",
@@ -146,6 +153,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "flyktning_botid_flytting",
         "title": "Sekundærflytting blant flyktninger",
         "chartKind": "bar",
         "table": "flyktning_botid_flytting",
@@ -169,6 +177,7 @@
         "defaultUnit": "personer"
       },
       {
+        "name": "bosetting",
         "title": "Bosatte flyktninger",
         "chartKind": "stackedArea",
         "table": "bosetting",
@@ -189,11 +198,12 @@
     ]
   },
   {
-    "urlName": "utdanning",
+    "name": "utdanning-grunnskole",
     "title": "Utdanning",
     "groupKind": "mainGroup",
-    "items": [
+    "cards": [
       {
+        "name": "utdanningsniva",
         "title": "Utdanningsnivå - Grunnskole",
         "chartKind": "bar",
         "table": "utdanningsniva",
@@ -586,10 +596,10 @@
     ]
   },
   {
-    "urlName": "arbeid",
+    "name": "arbeid",
     "title": "Arbeid",
     "groupKind": "mainGroup",
-    "items": [
+    "cards": [
       {
         "title": "Sysselsatte etter innvandringskategori",
         "chartKind": "bar",
@@ -847,10 +857,10 @@
     ]
   },
   {
-    "urlName": "levekaar",
+    "name": "levekaar",
     "title": "Levekår",
     "groupKind": "mainGroup",
-    "items": [
+    "cards": [
       {
         "title": "Inntektsnivå – gjennomsnittsinntekt",
         "chartKind": "bar",
@@ -972,10 +982,10 @@
     ]
   },
   {
-    "urlName": "tilskudd",
+    "name": "tilskudd",
     "title": "Tilskudd",
     "groupKind": "mainGroup",
-    "items": [
+    "cards": [
       {
         "title": "Tilskudd",
         "chartKind": "stackedArea",

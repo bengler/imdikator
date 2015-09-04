@@ -1,7 +1,3 @@
-/*
- * action types
- */
-
 export const NAVIGATE = 'NAVIGATE'
 
 /* Action creators */

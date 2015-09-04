@@ -1,7 +1,3 @@
-/*
- * action types
- */
-
 export const NAVIGATE = 'NAVIGATE'
 export const SELECT_DATA_VIEW = 'SELECT_DATA_VIEW'
 

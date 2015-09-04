@@ -1,20 +1,16 @@
 import 'babelify/polyfill'
 import React from 'react'
-import {createStore, applyMiddleware} from 'redux'
+import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 import {Provider} from 'react-redux'
-import {navigate} from '../../actions'
+import {navigate} from '../../actions/navigate'
 import App from '../../components/containers/App'
-import app from '../../reducers'
+import app from '../../store'
 import routes from './routes'
 import Router from '../../lib/Router'
 import compileRoutes from '../../lib/compileRoutes'
-import {logger} from '../../middleware'
-
-const createStoreWithMiddleware = applyMiddleware(logger)(createStore)
-const store = createStoreWithMiddleware(app)
 
 const router = Router(compileRoutes(routes), match => {
-  store.dispatch(navigate(match))
+  app.dispatch(navigate(match))
 })
 
 router.start()
@@ -28,8 +24,13 @@ if (containers.length !== 1) {
 React.render(
   // The child must be wrapped in a function
   // to work around an issue in React 0.13.
-  <Provider store={store}>
-    {() => <App/>}
-  </Provider>,
+  <div>
+    <Provider store={app}>
+      {() => <App/>}
+    </Provider>
+    <DebugPanel top right bottom>
+      <DevTools store={app} monitor={LogMonitor} />
+    </DebugPanel>
+  </div>,
   containers[0]
 )

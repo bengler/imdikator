@@ -4,13 +4,17 @@ import thunkMiddleware from 'redux-thunk'
 import rootReducer from '../reducers'
 import {logger} from '../middleware'
 
-const finalCreateStore = compose(
+import config from '../config'
+
+const middlewares = [
   applyMiddleware(thunkMiddleware),
   applyMiddleware(logger),
   // Provides support for DevTools
-  devTools(),
+  config.reduxDevTools && devTools(),
   // Lets you write ?debug_session=<name> in address bar to persist debug sessions
-  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-)(createStore)
+  config.reduxDevTools && persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+].filter(Boolean)
+
+const finalCreateStore = compose.apply(null, middlewares)(createStore)
 
 export default finalCreateStore(rootReducer, {})

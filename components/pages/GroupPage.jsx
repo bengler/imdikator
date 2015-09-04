@@ -14,8 +14,8 @@ class GroupPage extends Component {
 
   componentWillMount() {
     const {route, dispatch} = this.props
-    const [regionCode, regionName] = route.params.region.split('-')
-    const {group, cardName} = route.params
+    const [regionCode] = route.params.region.split('-')
+    const {group} = route.params
     // This may be hooked up at a higher level
     dispatch(fetchGroup(group))
     dispatch(fetchRegionByCode(regionCode))

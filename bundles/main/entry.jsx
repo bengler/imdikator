@@ -1,6 +1,6 @@
 import 'babelify/polyfill'
 import React from 'react'
-import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react';
+import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 import {Provider} from 'react-redux'
 import {navigate} from '../../actions/navigate'
 import App from '../../components/containers/App'

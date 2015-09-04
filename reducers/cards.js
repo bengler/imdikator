@@ -1,5 +1,4 @@
 // Todo: not complete yet
-import {combineReducers} from 'redux'
 import {REQUEST_CARD_DATA, RECEIVE_CARD_DATA} from '../actions/cards'
 
 export default function cards(state = [], action) {

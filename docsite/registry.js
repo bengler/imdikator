@@ -10,6 +10,8 @@ function wrapInDocumenter(Component) {
     }
   })
 }
+
+/* eslint import/no-require: 1 */
 export default [
   {
     name: 'examples',

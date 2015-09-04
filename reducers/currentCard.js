@@ -1,4 +1,3 @@
-import {combineReducers} from 'redux'
 import {SELECT_CURRENT_CARD} from '../actions/cards'
 
 export default function currentCard(state = null, action) {

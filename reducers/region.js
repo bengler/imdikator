@@ -1,4 +1,3 @@
-import {combineReducers} from 'redux'
 import {RECEIVE_REGION} from '../actions/region'
 
 export default function region(state = null, action) {

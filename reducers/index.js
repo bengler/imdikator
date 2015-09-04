@@ -1,8 +1,13 @@
 import {combineReducers} from 'redux'
+import route from './route'
+import region from './region'
+import currentCard from './currentCard'
+import group from './group'
+
 export default combineReducers({
-  route: require('./route'),
-  region: require('./region'),
-  group: require('./group'),
-  currentCard: require('./currentCard')
+  route,
+  region,
+  group,
+  currentCard
 })
 

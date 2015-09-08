@@ -3,8 +3,8 @@ import apiClient from '../config/apiClient'
 export const REQUEST_REGION = 'REQUEST_REGION'
 export const RECEIVE_REGION = 'RECEIVE_REGION'
 
-export function fetchRegionByCode(regionCode) {
-  return dispatch => {
+export function loadRegionByCode(regionCode) {
+  return (dispatch, state) => {
     dispatch({
       type: REQUEST_REGION,
       regionCode

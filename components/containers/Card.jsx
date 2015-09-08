@@ -1,51 +1,68 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {openCard, closeCard} from '../../actions/cards'
+import {CHARTS} from '../../config/chartTypes'
+import ChartSelectorList from '../elements/ChartSelectorList'
+import {fetchSampleData} from './../../actions/cards'
 
 class Card extends Component {
   static propTypes = {
-    dispatch: PropTypes.func,
     card: PropTypes.object,
-    isOpen: PropTypes.bool
+    data: PropTypes.object,
+    isOpen: PropTypes.boolean,
+    fetchSampleData: PropTypes.function
   }
 
-  dispatch(action) {
-    this.props.dispatch(action)
+  componentWillMount() {
+    if (this.props.isOpen) {
+      this.props.fetchSampleData(this.props.card.name, 'now')
+    }
   }
 
-  open() {
-    this.dispatch(openCard(this.props.card.name))
-  }
-
-  close() {
-    this.dispatch(closeCard(this.props.card.name))
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.isOpen
   }
 
   render() {
-    const {card, isOpen} = this.props
+    const ChartComponent = CHARTS[this.props.card.chartKind]
     return (
-      <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-        <h3>Card: {card.title} {isOpen && 'Open!'}</h3>
-        {isOpen ? <button onClick={this.close.bind(this)}>Close</button> : <button onClick={this.open.bind(this)}>Open</button>}
-        <div>
-          <pre>{card.query}</pre>
-        </div>
-        <div>
-          <pre>{card.data}</pre>
-        </div>
+      <div>
+        <h3>{this.props.card.title}</h3>
+        {(() => {
+          if (this.props.isOpen == true) {
+            return [
+              <ChartSelectorList/>,
+              <ChartComponent data={this.props.data}/>
+            ]
+          }
+        })()}
+        {!this.props.isOpen
+        && <a href={this.props.card.name}>Expand</a>
+        }
       </div>
     )
   }
 }
 
-// Which props do we want to inject, given the global state?
-// Note: use https://github.com/faassen/reselect for better performance.
 function select(state, ownProps) {
+  let result = null
+  if (state.sampleData.hasOwnProperty(ownProps.card.name)) {
+    result = state.sampleData[ownProps.card.name]
+  }
   return {
     isOpen: state.openCards.includes(ownProps.card.name),
-    cardData: state.cardData
+    data: result
   }
 }
 
-// Wrap the component to inject dispatch and state into it
-export default connect(select)(Card)
+function actions(dispatch) {
+  return {
+    fetchSampleData: (cardName, sampleDataName) => fetchSampleData(cardName, sampleDataName)(dispatch)
+  }
+}
+
+// This is the default implementation of mergeProps, included here for informational purposed
+function mergeProps(stateProps, dispatchProps, ownProps) {
+  return Object.assign({}, ownProps, stateProps, dispatchProps)
+}
+
+export default connect(select, actions, mergeProps)(Card)

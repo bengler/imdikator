@@ -1,0 +1,55 @@
+{
+  "time":{
+    "unit":"percent",
+    "data":[
+      {"category":1990,"series":"Menn","value":15},
+      {"category":1990,"series":"Kvinner","value":85},
+      {"category":1991,"series":"Menn","value":73},
+      {"category":1991,"series":"Kvinner","value":27},
+      {"category":1992,"series":"Menn","value":63},
+      {"category":1992,"series":"Kvinner","value":37},
+      {"category":1993,"series":"Menn","value":58},
+      {"category":1993,"series":"Kvinner","value":42},
+      {"category":1994,"series":"Menn","value":43},
+      {"category":1994,"series":"Kvinner","value":57},
+      {"category":1995,"series":"Menn","value":28},
+      {"category":1995,"series":"Kvinner","value":72},
+      {"category":1996,"series":"Menn","value":61},
+      {"category":1996,"series":"Kvinner","value":39},
+      {"category":1997,"series":"Menn","value":90},
+      {"category":1997,"series":"Kvinner","value":10},
+      {"category":1998,"series":"Menn","value":84},
+      {"category":1998,"series":"Kvinner","value":16},
+      {"category":1999,"series":"Menn","value":39},
+      {"category":1999,"series":"Kvinner","value":61},
+      {"category":2000,"series":"Menn","value":53},
+      {"category":2000,"series":"Kvinner","value":47}
+    ]
+  },
+  "now":{
+    "unit":"persons",
+    "data":[
+      {"category":"Arbeidsinnvandrere","series":"Menn","value":43678},
+      {"category":"Arbeidsinnvandrere","series":"Kvinner","value":45759},
+      {"category":"Familieforente","series":"Menn","value":34007},
+      {"category":"Familieforente","series":"Kvinner","value":43280},
+      {"category":"Flyktninger og familiegjenforente til disse","series":"Menn","value":62041},
+      {"category":"Flyktninger og familiegjenforente til disse","series":"Kvinner","value":15532},
+      {"category":"Utdanning (inkl. au pair), uoppgitte eller andre grunner","series":"Menn","value":83327},
+      {"category":"Utdanning (inkl. au pair), uoppgitte eller andre grunner","series":"Kvinner","value":94658}
+    ]
+  },
+  "now-percent":{
+    "unit":"percent",
+    "data":[
+      {"category":"Arbeidsinnvandrere","series":"Menn","value":43},
+      {"category":"Arbeidsinnvandrere","series":"Kvinner","value":57},
+      {"category":"Familieforente","series":"Menn","value":90},
+      {"category":"Familieforente","series":"Kvinner","value":10},
+      {"category":"Flyktninger og familiegjenforente til disse","series":"Menn","value":20},
+      {"category":"Flyktninger og familiegjenforente til disse","series":"Kvinner","value":80},
+      {"category":"Utdanning (inkl. au pair), uoppgitte eller andre grunner","series":"Menn","value":11},
+      {"category":"Utdanning (inkl. au pair), uoppgitte eller andre grunner","series":"Kvinner","value":89}
+    ]
+  }
+}

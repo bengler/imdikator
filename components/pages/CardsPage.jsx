@@ -46,7 +46,9 @@ class CardsPage extends Component {
         <h2>{pageConfig.title} i {region.name}</h2>
         {pageConfig.cards.map(card => {
           return (
-            <Card card={card}/>
+            <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
+              <Card card={card}/>
+            </div>
           )
         })}
       </div>

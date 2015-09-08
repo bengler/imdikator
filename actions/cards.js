@@ -8,8 +8,8 @@ export const RECEIVE_CARD_QUERY = 'RECEIVE_CARD_QUERY'
 export const OPEN_CARD = 'OPEN_CARD'
 export const CLOSE_CARD = 'CLOSE_CARD'
 
-export const REQUEST_CARD_GROUP = 'REQUEST_CARD_GROUP'
-export const RECEIVE_CARD_GROUP = 'RECEIVE_CARD_GROUP'
+export const REQUEST_SAMPLE_DATA = 'REQUEST_SAMPLE_DATA'
+export const RECEIVE_SAMPLE_DATA = 'RECEIVE_SAMPLE_DATA'
 
 export function performCardQuery(card, query) {
   return dispatch => {
@@ -75,6 +75,28 @@ export function loadCardData(cardName, {regionCode, groupName}) {
           region,
           group
         }
+      })
+    })
+  }
+}
+
+export function fetchSampleData(cardName, sampleDataName) {
+  assert(cardName, 'Expected cardName option')
+  assert(sampleDataName, 'Expected sampleDataName option')
+
+  return dispatch => {
+    dispatch({
+      type: REQUEST_SAMPLE_DATA,
+      cardName,
+      sampleDataName
+    })
+
+    const gotSampleData = apiClient.getSampleData(sampleDataName)
+    Promise.all([gotSampleData]).then(([data]) => {
+      dispatch({
+        type: RECEIVE_SAMPLE_DATA,
+        cardName,
+        data
       })
     })
   }

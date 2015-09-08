@@ -5,44 +5,36 @@ import D3Chart from '../../utils/D3Chart'
 // A range of 20 colors
 const seriesColor = d3.scale.category20()
 
-/*
-const tableMap = {
-  sysselsatteinnvandringsgrunn: {
-    title: 'Sysselsetting etter innvandringsgrunn',
-    categories: {
-      innvgrunn5: {
-        arbeid: 'Arbeidsinnvandrere',
-        familie: 'Familieforente',
-        flukt: 'Flyktninger og famileforente til disse',
-        annet_uoppgitt: 'Udanning (inkl. au pair), uoppgitte eller andre grunner'
-      }
-    }
-  }
-}
-*/
-
-
 export default class BarChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.array,
+    data: React.PropTypes.object,
   }
+
   drawPoints(el, data) {
 
-    // this.svg
-    // this.size
-    // this.margins
+    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+      return
+    }
 
     const svg = this.svg
+    const isPercent = data.unit === 'percent'
 
     // Get the unique categories from the data
     const n = d3.nest().key(d => d.category).key(d => d.series)
-    const entries = n.entries(data)
+    const entries = n.entries(data.data)
     const categories = entries.map(e => e.key)
     const series = entries[0].values.map(v => v.key)
 
+    let maxValue = 0
     entries.forEach(e => {
       e.values.forEach(v => {
-        v.value = v.values[0].value / 100 // Using percentage formatting, which multiplied by 100
+        v.value = v.values[0].value
+        if (isPercent) {
+          // Using percentage formatting, which multiplied by 100
+          v.value /= 100
+        } else if (maxValue < v.value) {
+          maxValue = v.value
+        }
       })
     })
 
@@ -67,8 +59,12 @@ export default class BarChart extends React.Component {
     const yAxis = d3.svg.axis().scale(yScale).orient('left')
 
     // Percentage scale it (divide the values by 100)
-    yAxis.tickFormat(d3.format('%'))
-    yScale.domain([0, 1])
+    if (isPercent) {
+      yAxis.tickFormat(d3.format('%'))
+      yScale.domain([0, 1])
+    } else {
+      yScale.domain([0, maxValue])
+    }
 
     svg.append('g')
     .attr('class', 'axis')
@@ -110,8 +106,7 @@ export default class BarChart extends React.Component {
     legend.append('text')
     .attr('x', '15')
     .attr('y', 10)
-    .style('font-size', '12px')
-    .text(d => d)
+    .text(dataItem => dataItem)
     .selectAll('text')
       .call(this.wrapTextNode, labelScale.rangeBand())
   }

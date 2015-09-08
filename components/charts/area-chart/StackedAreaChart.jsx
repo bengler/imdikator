@@ -2,36 +2,18 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-const sampleData = [
-  {category: '1990', series: 'Menn', value: 10},
-  {category: '1990', series: 'Kvinner', value: 8},
-  {category: '1991', series: 'Menn', value: 15},
-  {category: '1991', series: 'Kvinner', value: 10},
-  {category: '1992', series: 'Menn', value: 20},
-  {category: '1992', series: 'Kvinner', value: 15},
-  {category: '1993', series: 'Menn', value: 40},
-  {category: '1993', series: 'Kvinner', value: 25},
-  {category: '1994', series: 'Menn', value: 50},
-  {category: '1994', series: 'Kvinner', value: 25},
-  {category: '1995', series: 'Menn', value: 60},
-  {category: '1995', series: 'Kvinner', value: 35},
-  {category: '1996', series: 'Menn', value: 65},
-  {category: '1996', series: 'Kvinner', value: 40},
-  {category: '1997', series: 'Menn', value: 70},
-  {category: '1997', series: 'Kvinner', value: 55},
-  {category: '1998', series: 'Menn', value: 85},
-  {category: '1998', series: 'Kvinner', value: 70},
-  {category: '1999', series: 'Menn', value: 90},
-  {category: '1999', series: 'Kvinner', value: 80},
-  {category: '2000', series: 'Menn', value: 100},
-  {category: '2000', series: 'Kvinner', value: 90}
-]
-
 /**
  * Only for development
  */
 export default class StackedAreaChart extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object
+  }
   drawPoints(el, data) {
+    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+      return
+    }
+
     const svg = this.svg
 
     const parseDate = d3.time.format('%Y').parse
@@ -57,7 +39,7 @@ export default class StackedAreaChart extends React.Component {
       return leaves
     })
 
-    const preparedData = nest.entries(data)
+    const preparedData = nest.entries(data.data)
     // Preapre properties for the area() function
     preparedData.forEach(series => {
       series.values.forEach(val => {
@@ -71,7 +53,7 @@ export default class StackedAreaChart extends React.Component {
 
     // Scale the Y axis based on the max added value across series in a category
     // FIXME: There must be a better way
-    const seriesValues = d3.nest().key(item => item.category).rollup(leaves => leaves.map(node => node.value)).entries(data)
+    const seriesValues = d3.nest().key(item => item.category).rollup(leaves => leaves.map(node => node.value)).entries(data.data)
     const allValues = seriesValues.map(item => item.values)
     const summedValues = allValues.map(ary => d3.sum(ary))
     y.domain([0, d3.max(summedValues)])
@@ -131,7 +113,7 @@ export default class StackedAreaChart extends React.Component {
 
   render() {
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

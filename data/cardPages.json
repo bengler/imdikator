@@ -7,7 +7,7 @@
       {
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning",
-        "chartKind": "stackedBar",
+        "chartKind": "stackedArea",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
           {
@@ -28,24 +28,6 @@
           }
         ],
         "time": "latest",
-        "defaultUnit": "personer"
-      },
-      {
-        "name": "befolkning_hovedgruppe_tidsserie",
-        "title": "Sammensetning over tid",
-        "chartKind": "stackedArea",
-        "table": "befolkning_hovedgruppe_tidsserie",
-        "dimensions": [
-          {
-            "label": "innvkat_5",
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
-          }
-        ],
-        "time": "all",
         "defaultUnit": "personer"
       },
       {

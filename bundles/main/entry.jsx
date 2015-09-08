@@ -38,3 +38,6 @@ React.render(
   </div>,
   containers[0]
 )
+
+
+window.R = router

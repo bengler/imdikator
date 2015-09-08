@@ -37,7 +37,7 @@ class CardsPage extends Component {
   }
 
   render() {
-    const {pageConfig, region, currentCard} = this.props
+    const {pageConfig, region} = this.props
     if (!pageConfig || !region) {
       return <div>Loading...</div>
     }

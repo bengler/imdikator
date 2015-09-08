@@ -1,6 +1,6 @@
 import apiClient from '../config/apiClient'
 import assert from 'assert'
-import createDefaultQueryForCard from '../lib/createDefaultQueryForCard'
+//import createDefaultQueryForCard from '../lib/createDefaultQueryForCard'
 
 export const REQUEST_CARD_QUERY = 'REQUEST_CARD_QUERY'
 export const RECEIVE_CARD_QUERY = 'RECEIVE_CARD_QUERY'
@@ -57,7 +57,7 @@ export function loadCardData(cardName, {regionCode, groupName}) {
   return dispatch => {
 
     dispatch({
-      type: REQUEST_CARD_DATA,
+      type: REQUEST_CARD_QUERY,
       cardName,
       regionCode,
       groupName
@@ -69,7 +69,7 @@ export function loadCardData(cardName, {regionCode, groupName}) {
 
     Promise.all([gotRegion, gotGroup]).then(([region, group]) => {
       dispatch({
-        type: RECEIVE_CARD_DATA,
+        type: RECEIVE_CARD_QUERY,
         cardName,
         cardData: {
           region,

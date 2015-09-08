@@ -9,5 +9,5 @@ const DEFAULTS = {
 export default defaults({
   env: process.env.NODE_ENV,
   port: process.env.PORT,
-  reduxDevTools: process.env.REDUX_DEVTOOLS
+  reduxDevTools: process.env.REDUX_DEVTOOLS !== '0'
 }, DEFAULTS)

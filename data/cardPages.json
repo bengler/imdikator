@@ -7,7 +7,7 @@
       {
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning",
-        "chartKind": "stackedArea",
+        "chartKind": "bar",
         "table": "befolkning_hovedgruppe",
         "dimensions": [
           {

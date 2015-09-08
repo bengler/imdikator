@@ -2,31 +2,6 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-const sampleData = [
-  {category: '1990', series: 'Menn', value: 10},
-  {category: '1990', series: 'Kvinner', value: 8},
-  {category: '1991', series: 'Menn', value: 15},
-  {category: '1991', series: 'Kvinner', value: 10},
-  {category: '1992', series: 'Menn', value: 20},
-  {category: '1992', series: 'Kvinner', value: 15},
-  {category: '1993', series: 'Menn', value: 40},
-  {category: '1993', series: 'Kvinner', value: 25},
-  {category: '1994', series: 'Menn', value: 50},
-  {category: '1994', series: 'Kvinner', value: 25},
-  {category: '1995', series: 'Menn', value: 60},
-  {category: '1995', series: 'Kvinner', value: 35},
-  {category: '1996', series: 'Menn', value: 65},
-  {category: '1996', series: 'Kvinner', value: 40},
-  {category: '1997', series: 'Menn', value: 70},
-  {category: '1997', series: 'Kvinner', value: 55},
-  {category: '1998', series: 'Menn', value: 85},
-  {category: '1998', series: 'Kvinner', value: 70},
-  {category: '1999', series: 'Menn', value: 90},
-  {category: '1999', series: 'Kvinner', value: 80},
-  {category: '2000', series: 'Menn', value: 100},
-  {category: '2000', series: 'Kvinner', value: 90}
-]
-
 /**
  * Only for development
  */
@@ -131,7 +106,7 @@ export default class StackedAreaChart extends React.Component {
 
   render() {
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints}/>
+      <D3Chart data={null} drawPoints={this.drawPoints}/>
     )
   }
 

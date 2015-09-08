@@ -27,14 +27,14 @@ class GroupPage extends Component {
     if (!group || !region) {
       return <div>Loading...</div>
     }
-    const currentCard = this.props.route.params.cardName
+    const currentCardName = this.props.route.params.cardName
     return (
       <div>
         <h2>{group.title} i {region.name}</h2>
         {group.cards.map(card => {
           return (
             <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-              <Card card={card} current={currentCard === card.name}/>
+              <Card card={card} current={currentCardName === card.name}/>
             </div>
           )
         })}

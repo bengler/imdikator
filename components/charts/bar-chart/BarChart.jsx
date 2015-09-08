@@ -5,33 +5,11 @@ import D3Chart from '../../utils/D3Chart'
 // A range of 20 colors
 const seriesColor = d3.scale.category20()
 
-/*
-const tableMap = {
-  sysselsatteinnvandringsgrunn: {
-    title: 'Sysselsetting etter innvandringsgrunn',
-    categories: {
-      innvgrunn5: {
-        arbeid: 'Arbeidsinnvandrere',
-        familie: 'Familieforente',
-        flukt: 'Flyktninger og famileforente til disse',
-        annet_uoppgitt: 'Udanning (inkl. au pair), uoppgitte eller andre grunner'
-      }
-    }
-  }
-}
-*/
-
-
 export default class BarChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.array,
+    data: React.PropTypes.object,
   }
   drawPoints(el, data) {
-
-    // this.svg
-    // this.size
-    // this.margins
-
     const svg = this.svg
 
     // Get the unique categories from the data
@@ -110,7 +88,6 @@ export default class BarChart extends React.Component {
     legend.append('text')
     .attr('x', '15')
     .attr('y', 10)
-    .style('font-size', '12px')
     .text(d => d)
     .selectAll('text')
       .call(this.wrapTextNode, labelScale.rangeBand())

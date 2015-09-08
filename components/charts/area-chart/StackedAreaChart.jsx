@@ -6,7 +6,14 @@ import D3Chart from '../../utils/D3Chart'
  * Only for development
  */
 export default class StackedAreaChart extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object
+  }
   drawPoints(el, data) {
+    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+      return
+    }
+
     const svg = this.svg
 
     const parseDate = d3.time.format('%Y').parse
@@ -32,7 +39,7 @@ export default class StackedAreaChart extends React.Component {
       return leaves
     })
 
-    const preparedData = nest.entries(data)
+    const preparedData = nest.entries(data.data)
     // Preapre properties for the area() function
     preparedData.forEach(series => {
       series.values.forEach(val => {
@@ -46,7 +53,7 @@ export default class StackedAreaChart extends React.Component {
 
     // Scale the Y axis based on the max added value across series in a category
     // FIXME: There must be a better way
-    const seriesValues = d3.nest().key(item => item.category).rollup(leaves => leaves.map(node => node.value)).entries(data)
+    const seriesValues = d3.nest().key(item => item.category).rollup(leaves => leaves.map(node => node.value)).entries(data.data)
     const allValues = seriesValues.map(item => item.values)
     const summedValues = allValues.map(ary => d3.sum(ary))
     y.domain([0, d3.max(summedValues)])
@@ -106,7 +113,7 @@ export default class StackedAreaChart extends React.Component {
 
   render() {
     return (
-      <D3Chart data={null} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

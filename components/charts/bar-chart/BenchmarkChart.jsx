@@ -2,42 +2,41 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-const sampleData = [
-  {category: '1990', series: 'Menn', value: 10},
-  {category: '1991', series: 'Menn', value: 15},
-  {category: '1992', series: 'Menn', value: 20},
-  {category: '1993', series: 'Menn', value: 40},
-  {category: '1994', series: 'Menn', value: 50},
-  {category: '1995', series: 'Menn', value: 60, highlight: true},
-  {category: '1996', series: 'Menn', value: 65},
-  {category: '1997', series: 'Menn', value: 70},
-  {category: '1998', series: 'Menn', value: 85},
-  {category: '1999', series: 'Menn', value: 90},
-  {category: '2000', series: 'Menn', value: 95},
-]
-
 export default class BenchmarkChart extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object
+  }
+
   drawPoints(el, data) {
+
+    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+      return
+    }
 
     const svg = this.svg
     const interimSpacingFactor = 0.025
     const endMarginFactor = 0
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], interimSpacingFactor, endMarginFactor)
-    x.domain(data.map(d => d.category))
+    x.domain(data.data.map(dataItem => dataItem.category))
     const y = d3.scale.linear().range([this.size.height, 0])
-    y.domain([0, 100])
+
+    const isPercent = data.unit === 'percent'
+    if (isPercent) {
+      y.domain([0, 100])
+    } else {
+      y.domain([0, d3.max(data.data, dataItem => dataItem.value)])
+    }
 
     const labels = []
-
     // TODO: Move these colors out to CSS?
-    data.forEach((d, i) => {
-      if (d.highlight === true) {
+    data.data.forEach((dataItem, i) => {
+      if (dataItem.highlight === true) {
         const color = 'red'
-        d.color = color
-        const label = String(d.value) + '%'
-        labels.push({x: x(d.category), y: y(d.value), text: label, color: color})
+        dataItem.color = color
+        const label = String(dataItem.value) + '%'
+        labels.push({x: x(dataItem.category), y: y(dataItem.value), text: label, color: color})
       } else {
-        d.color = 'rgb(144, 165, 178)'
+        dataItem.color = 'rgb(144, 165, 178)'
       }
     })
 
@@ -48,48 +47,45 @@ export default class BenchmarkChart extends React.Component {
     .attr('height', '100%')
     .style('fill', 'rgb(223, 235, 241)')
 
-    // Draw the lines per 10% in the background
-    const lines = d3.range(10, 100, 10)
-    svg.selectAll('.line').data(lines).enter()
-    .append('line')
-    .attr('x1', 0)
-    .attr('x2', d => this.size.width)
-    .attr('y1', d => y(d))
-    .attr('y2', d => y(d))
-    .style('stroke', 'white')
+    if (isPercent) {
+      // Draw the lines per 10% in the background
+      const lines = d3.range(10, 100, 10)
+      svg.selectAll('.line').data(lines).enter()
+      .append('line')
+      .attr('x1', 0)
+      .attr('x2', dataItem => this.size.width)
+      .attr('y1', dataItem => y(dataItem))
+      .attr('y2', dataItem => y(dataItem))
+      .style('stroke', 'white')
+    }
 
     // Draw the bars
-    svg.selectAll('.bar').data(data).enter()
+    svg.selectAll('.bar').data(data.data).enter()
     .append('rect')
     .attr('class', 'glanceBar')
-    .attr('x', d => x(d.category))
-    .attr('y', d => y(d.value))
-    .attr('width', d => x.rangeBand())
-    .attr('height', d => this.size.height - y(d.value))
-    .style('fill', d => d.color)
+    .attr('x', dataItem => x(dataItem.category))
+    .attr('y', dataItem => y(dataItem.value))
+    .attr('width', dataItem => x.rangeBand())
+    .attr('height', dataItem => this.size.height - y(dataItem.value))
+    .style('fill', dataItem => dataItem.color)
 
     // Draw any labels (any datapoint that has highlight === true)
     const fontSize = 14
     svg.selectAll('.label').data(labels).enter()
     .append('text')
-    .attr('dx', d => d.x + x.rangeBand() / 2)
-    .attr('dy', d => d.y - fontSize)
-    .attr('width', d => x.rangeBand())
+    .attr('dx', dataItem => dataItem.x + x.rangeBand() / 2)
+    .attr('dy', dataItem => dataItem.y - fontSize)
+    .attr('width', dataItem => x.rangeBand())
     .style('text-anchor', 'middle')
     .style('font-size', String(fontSize) + 'px')
-    .text(d => d.text)
-    .style('fill', d => d.color)
+    .text(dataItem => dataItem.text)
+    .style('fill', dataItem => dataItem.color)
   }
 
   render() {
-    const margins = {
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0
-    }
+    const margins = {left: 0, top: 0, right: 0, bottom: 0}
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 }

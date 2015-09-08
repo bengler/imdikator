@@ -4,7 +4,7 @@ import D3Chart from '../../utils/D3Chart'
 
 export default class LineChart extends React.Component {
   static propTypes = {
-    data: React.Proptypes.object
+    data: React.PropTypes.object
   }
 
   drawPoints(el, data) {

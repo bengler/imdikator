@@ -24,7 +24,7 @@ describe('Fetching tables using API client', () => {
     })
 
     return client.getHeadersForTable('sometable')
-      .then(tables => tables[0])
+      .then(tables => tables)
       .then(tableName => client.getHeadersForTable(tableName))
       .then(() => {
         assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/metadata/headerswithvalues/sometable')

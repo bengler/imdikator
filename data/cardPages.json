@@ -8,10 +8,10 @@
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning",
         "chartKind": "bar",
-        "table": "befolkning_hovedgruppe",
+        "table": "befolkninghovedgruppe",
         "dimensions": [
           {
-            "label": "innvkat_5",
+            "label": "innvkat5",
             "include": [
               "alle",
               "innvandrere",
@@ -530,7 +530,7 @@
         "table": "videregaende_fullfort",
         "dimensions": [
           {
-            "label": "innvkat_5",
+            "label": "innvkat5",
             "include": [
               "innvandrere",
               "befolkningen_ellers",
@@ -555,7 +555,7 @@
         "table": "ungdom_utenfor_opplaring",
         "dimensions": [
           {
-            "label": "innvkat_5",
+            "label": "innvkat5",
             "include": [
               "innvandrere",
               "befolkningen_ellers",
@@ -943,7 +943,7 @@
         "table": "sosialhjelp",
         "dimensions": [
           {
-            "label": "innvkat_5",
+            "label": "innvkat5",
             "include": [
               "innvandrere",
               "befolkningen_ellers",

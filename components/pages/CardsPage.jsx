@@ -10,7 +10,7 @@ function loadData(props) {
   const [regionCode] = route.params.region.split('-')
   const {pageName, cardName} = route.params
   // This may be hooked up at a higher level
-  dispatch(loadCardPage({pageName, regionCode}))
+  dispatch(loadCardPage({pageName, regionCode, activeCardName: cardName}))
   if (cardName) {
     dispatch(openCard(cardName))
   }

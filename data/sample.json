@@ -78,5 +78,45 @@
       {"category":"Utdanning (inkl. au pair), uoppgitte eller andre grunner","series":"Menn","value":11},
       {"category":"Utdanning (inkl. au pair), uoppgitte eller andre grunner","series":"Kvinner","value":89}
     ]
+  },
+  "pyramid-data": {
+    "unit":"persons",
+    "data":[
+      {"category": "Hele befolkningen", "series": "Menn", "dimention": "0-18", "value": 700000},
+      {"category": "Hele befolkningen", "series": "Menn", "dimention": "19-30", "value": 800000},
+      {"category": "Hele befolkningen", "series": "Menn", "dimention": "30-50", "value": 900000},
+      {"category": "Hele befolkningen", "series": "Menn", "dimention": "50-80", "value": 600000},
+      {"category": "Hele befolkningen", "series": "Menn", "dimention": "80+", "value": 200000},
+
+      {"category": "Hele befolkningen", "series": "Kvinner", "dimention": "0-18", "value": 700000},
+      {"category": "Hele befolkningen", "series": "Kvinner", "dimention": "19-30"," value": 800000},
+      {"category": "Hele befolkningen", "series": "Kvinner", "dimention": "30-50"," value": 900000},
+      {"category": "Hele befolkningen", "series": "Kvinner", "dimention": "50-80"," value": 600000},
+      {"category": "Hele befolkningen", "series": "Kvinner", "dimention": "80+", "value": 200000},
+
+      {"category": "Innvandrere", "series": "Menn", "dimention": "0-18", "value": 400000},
+      {"category": "Innvandrere", "series": "Menn", "dimention": "19-30", "value": 500000},
+      {"category": "Innvandrere", "series": "Menn", "dimention": "30-50", "value": 600000},
+      {"category": "Innvandrere", "series": "Menn", "dimention": "50-80", "value": 100000},
+      {"category": "Innvandrere", "series": "Menn", "dimention": "80+", "value": 40000},
+
+      {"category": "Innvandrere", "series": "Kvinner", "dimention": "0-18", "value": 400000},
+      {"category": "Innvandrere", "series": "Kvinner", "dimention": "19-30", "value": 500000},
+      {"category": "Innvandrere", "series": "Kvinner", "dimention": "30-50", "value": 600000},
+      {"category": "Innvandrere", "series": "Kvinner", "dimention": "50-80", "value": 100000},
+      {"category": "Innvandrere", "series": "Kvinner", "dimention": "80+", "value": 40000},
+
+      {"category": "Befolkningen ellers", "series": "Menn", "dimention": "0-18",  "value": 300000},
+      {"category": "Befolkningen ellers", "series": "Menn", "dimention": "19-30", "value": 300000},
+      {"category": "Befolkningen ellers", "series": "Menn", "dimention": "30-50", "value": 300000},
+      {"category": "Befolkningen ellers", "series": "Menn", "dimention": "50-80", "value": 500000},
+      {"category": "Befolkningen ellers", "series": "Menn", "dimention": "80+",   "value": 160000},
+
+      {"category": "Befolkningen ellers", "series": "Kvinner", "dimention": "0-18", "value": 300000},
+      {"category": "Befolkningen ellers", "series": "Kvinner", "dimention": "19-30"," value": 300000},
+      {"category": "Befolkningen ellers", "series": "Kvinner", "dimention": "30-50"," value": 300000},
+      {"category": "Befolkningen ellers", "series": "Kvinner", "dimention": "50-80"," value": 500000},
+      {"category": "Befolkningen ellers", "series": "Kvinner", "dimention": "80+", "value":160000}
+    ]
   }
 }

@@ -3,6 +3,10 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 export default class LineChart extends React.Component {
+  static propTypes = {
+    data: React.Proptypes.object
+  }
+
   drawPoints(el, data) {
     if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
       return

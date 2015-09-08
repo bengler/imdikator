@@ -2,56 +2,25 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-const sampleData = [
-  {category: 'Hele befolkningen', series: 'Menn', dimention: '0-18', value: 700000},
-  {category: 'Hele befolkningen', series: 'Menn', dimention: '19-30', value: 800000},
-  {category: 'Hele befolkningen', series: 'Menn', dimention: '30-50', value: 900000},
-  {category: 'Hele befolkningen', series: 'Menn', dimention: '50-80', value: 600000},
-  {category: 'Hele befolkningen', series: 'Menn', dimention: '80+', value: 200000},
-
-  {category: 'Hele befolkningen', series: 'Kvinner', dimention: '0-18', value: 700000},
-  {category: 'Hele befolkningen', series: 'Kvinner', dimention: '19-30', value: 800000},
-  {category: 'Hele befolkningen', series: 'Kvinner', dimention: '30-50', value: 900000},
-  {category: 'Hele befolkningen', series: 'Kvinner', dimention: '50-80', value: 600000},
-  {category: 'Hele befolkningen', series: 'Kvinner', dimention: '80+', value: 200000},
-
-  {category: 'Innvandrere', series: 'Menn', dimention: '0-18', value: 400000},
-  {category: 'Innvandrere', series: 'Menn', dimention: '19-30', value: 500000},
-  {category: 'Innvandrere', series: 'Menn', dimention: '30-50', value: 600000},
-  {category: 'Innvandrere', series: 'Menn', dimention: '50-80', value: 100000},
-  {category: 'Innvandrere', series: 'Menn', dimention: '80+', value: 40000},
-
-  {category: 'Innvandrere', series: 'Kvinner', dimention: '0-18', value: 400000},
-  {category: 'Innvandrere', series: 'Kvinner', dimention: '19-30', value: 500000},
-  {category: 'Innvandrere', series: 'Kvinner', dimention: '30-50', value: 600000},
-  {category: 'Innvandrere', series: 'Kvinner', dimention: '50-80', value: 100000},
-  {category: 'Innvandrere', series: 'Kvinner', dimention: '80+', value: 40000},
-
-  {category: 'Befolkningen ellers', series: 'Menn', dimention: '0-18', value: 300000},
-  {category: 'Befolkningen ellers', series: 'Menn', dimention: '19-30', value: 300000},
-  {category: 'Befolkningen ellers', series: 'Menn', dimention: '30-50', value: 300000},
-  {category: 'Befolkningen ellers', series: 'Menn', dimention: '50-80', value: 500000},
-  {category: 'Befolkningen ellers', series: 'Menn', dimention: '80+', value: 160000},
-
-  {category: 'Befolkningen ellers', series: 'Kvinner', dimention: '0-18', value: 300000},
-  {category: 'Befolkningen ellers', series: 'Kvinner', dimention: '19-30', value: 300000},
-  {category: 'Befolkningen ellers', series: 'Kvinner', dimention: '30-50', value: 300000},
-  {category: 'Befolkningen ellers', series: 'Kvinner', dimention: '50-80', value: 500000},
-  {category: 'Befolkningen ellers', series: 'Kvinner', dimention: '80+', value: 160000},
-
-]
-
 export default class PyramidChart extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object
+  }
+
   drawPoints(el, data) {
+    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+      return
+    }
+
     const svg = this.svg
 
     const nesting = d3.nest().key(entry => entry.category).key(entry => entry.series).key(entry => entry.dimention)
-    const entries = nesting.entries(data)
+    const entries = nesting.entries(data.data)
     const categories = entries.map(entry => entry.key)
 
-    const dimentions = d3.nest().key(entry => entry.dimention).entries(data).map(entry => entry.key)
+    const dimentions = d3.nest().key(entry => entry.dimention).entries(data.data).map(entry => entry.key)
 
-    const seriesNames = d3.nest().key(entry => entry.series).entries(data).map(entry => entry.key)
+    const seriesNames = d3.nest().key(entry => entry.series).entries(data.data).map(entry => entry.key)
 
     const color = d3.scale.category20().domain(seriesNames)
 
@@ -64,7 +33,7 @@ export default class PyramidChart extends React.Component {
 
     // X axis scale for values in a series
     const x2 = d3.scale.linear()
-    const minMax = [0, d3.max(data.map(d => d.value))]
+    const minMax = [0, d3.max(data.data.map(d => d.value))]
     x2.domain(minMax).range([0, x1.rangeBand()])
 
     // Add the x axis legend
@@ -151,7 +120,7 @@ export default class PyramidChart extends React.Component {
 
   render() {
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

@@ -1,4 +1,4 @@
-import 'babelify/polyfill'
+import 'babel/polyfill'
 import React from 'react'
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 import {Provider} from 'react-redux'
@@ -38,3 +38,6 @@ React.render(
   </div>,
   containers[0]
 )
+
+
+window.R = router

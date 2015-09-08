@@ -1,14 +1,15 @@
 import {combineReducers} from 'redux'
 import route from './route'
+//import cards from './cards'
 import region from './region'
-import currentCard from './currentCard'
+import cardPage from './cardPage'
+import openCards from './openCards'
 import sampleData from './sampleData'
-import group from './group'
 
 export default combineReducers({
   route,
   region,
-  group,
-  currentCard,
+  cardPage,
+  openCards,
   sampleData
 })

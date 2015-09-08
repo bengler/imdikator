@@ -32,7 +32,7 @@ function uglify() {
 }
 
 const main = createBundle([
-  env === 'development' && require.resolve('../lib/react-a11y'),
+  //env === 'development' && require.resolve('../lib/react-a11y'),
   require.resolve('../bundles/main/entry.jsx')
 ].filter(Boolean))
 

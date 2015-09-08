@@ -32,6 +32,10 @@ Now the app should be up and running on http://localhost:3000
 
   currentCard: {},
 
+  cardPage: {
+
+  }
+
   cards: [
     {
       query: {},
@@ -82,7 +86,7 @@ Now the app should be up and running on http://localhost:3000
 
 https://drive.google.com/open?id=0B47juxCZT96UNFgxYlhsb0FQdFk
 
-# Architectural overview
+m# Architectural overview
 
 https://dl.dropboxusercontent.com/u/250506/slack_for_ios_upload.jpg
 

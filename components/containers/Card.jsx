@@ -1,25 +1,25 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
-import ChartSelectorList from './ChartSelectorList'
+import ChartSelectorList from '../elements/ChartSelectorList'
 import {fetchSampleData} from './../../actions/cards'
 
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
     data: PropTypes.object,
-    current: PropTypes.boolean,
+    isOpen: PropTypes.boolean,
     fetchSampleData: PropTypes.function
   }
 
   componentWillMount() {
-    if (this.props.current) {
+    if (this.props.isOpen) {
       this.props.fetchSampleData(this.props.card.name, 'now')
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.current
+    return nextProps.isOpen
   }
 
   render() {
@@ -27,17 +27,17 @@ class Card extends Component {
     return (
       <div>
         <h3>{this.props.card.title}</h3>
-         {(() => {
-           if (this.props.current == true) {
-             return [
-               <ChartSelectorList/>,
-               <ChartComponent data={this.props.data}/>
-             ]
-           }
-         })()}
-         {!this.props.current
-           && <a href={this.props.card.name}>Expand</a>
-         }
+        {(() => {
+          if (this.props.isOpen == true) {
+            return [
+              <ChartSelectorList/>,
+              <ChartComponent data={this.props.data}/>
+            ]
+          }
+        })()}
+        {!this.props.isOpen
+        && <a href={this.props.card.name}>Expand</a>
+        }
       </div>
     )
   }
@@ -48,7 +48,10 @@ function select(state, ownProps) {
   if (state.sampleData.hasOwnProperty(ownProps.card.name)) {
     result = state.sampleData[ownProps.card.name]
   }
-  return {data: result}
+  return {
+    isOpen: state.openCards.includes(ownProps.card.name),
+    data: result
+  }
 }
 
 function actions(dispatch) {

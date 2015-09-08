@@ -4,6 +4,7 @@ import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 import {Provider} from 'react-redux'
 import {navigate} from '../../actions/navigate'
 import App from '../../components/containers/App'
+import config from '../../config'
 import app from '../../store'
 import routes from './routes'
 import Router from '../../lib/Router'
@@ -28,9 +29,12 @@ React.render(
     <Provider store={app}>
       {() => <App/>}
     </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={app} monitor={LogMonitor} />
-    </DebugPanel>
+
+    {config.reduxDevTools && (
+      <DebugPanel top right bottom>
+        <DevTools store={app} monitor={LogMonitor} />
+      </DebugPanel>
+    )}
   </div>,
   containers[0]
 )

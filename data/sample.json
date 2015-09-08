@@ -1,5 +1,32 @@
 {
   "time":{
+    "unit":"persons",
+    "data":[
+      {"category":1990,"series":"Menn","value":23132},
+      {"category":1990,"series":"Kvinner","value":231321},
+      {"category":1991,"series":"Menn","value":123321},
+      {"category":1991,"series":"Kvinner","value":93823},
+      {"category":1992,"series":"Menn","value":93829},
+      {"category":1992,"series":"Kvinner","value":83989},
+      {"category":1993,"series":"Menn","value":839281},
+      {"category":1993,"series":"Kvinner","value":23233},
+      {"category":1994,"series":"Menn","value":98989},
+      {"category":1994,"series":"Kvinner","value":183832},
+      {"category":1995,"series":"Menn","value":327873},
+      {"category":1995,"series":"Kvinner","value":328983},
+      {"category":1996,"series":"Menn","value":783728},
+      {"category":1996,"series":"Kvinner","value":3728},
+      {"category":1997,"series":"Menn","value":89283},
+      {"category":1997,"series":"Kvinner","value":89382},
+      {"category":1998,"series":"Menn","value":434872},
+      {"category":1998,"series":"Kvinner","value":476713},
+      {"category":1999,"series":"Menn","value":787321},
+      {"category":1999,"series":"Kvinner","value":47892},
+      {"category":2000,"series":"Menn","value":98273},
+      {"category":2000,"series":"Kvinner","value":67329}
+    ]
+  },
+  "time-percent":{
     "unit":"percent",
     "data":[
       {"category":1990,"series":"Menn","value":15},

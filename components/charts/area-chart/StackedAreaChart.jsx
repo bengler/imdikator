@@ -21,6 +21,8 @@ export default class StackedAreaChart extends React.Component {
     const x = d3.time.scale().range([0, this.size.width])
     const y = d3.scale.linear().range([this.size.height, 0])
 
+    const isPercent = data.unit === 'percent'
+
     const color = d3.scale.category20()
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
@@ -34,7 +36,7 @@ export default class StackedAreaChart extends React.Component {
     const dates = []
     const nest = d3.nest().key(dataItem => dataItem.series).key(dataItem => dataItem.category).rollup(leaves => {
       const leaf = leaves[0]
-      leaf.date = parseDate(leaf.category)
+      leaf.date = parseDate(String(leaf.category))
       dates.push(leaf.date)
       return leaves
     })
@@ -45,18 +47,27 @@ export default class StackedAreaChart extends React.Component {
       series.values.forEach(val => {
         val.date = val.values[0].date
         val.y = val.values[0].value
+        if (isPercent) {
+          val.y /= 100
+        }
       })
     })
 
     // Scale the X axis by the date range in the data
     x.domain(d3.extent(dates))
 
-    // Scale the Y axis based on the max added value across series in a category
-    // FIXME: There must be a better way
-    const seriesValues = d3.nest().key(item => item.category).rollup(leaves => leaves.map(node => node.value)).entries(data.data)
-    const allValues = seriesValues.map(item => item.values)
-    const summedValues = allValues.map(ary => d3.sum(ary))
-    y.domain([0, d3.max(summedValues)])
+    // Scale the y axis based on the data unit
+    if (isPercent) {
+      y.domain([0, 1])
+      yAxis.tickFormat(d3.format('%'))
+    } else {
+      // Scale the Y axis based on the max added value across series in a category
+      const seriesValues = d3.nest().key(item => item.category).rollup(leaves => leaves.map(node => node.value)).entries(data.data)
+      const allValues = seriesValues.map(item => item.values)
+      const summedValues = allValues.map(ary => d3.sum(ary))
+      y.domain([0, d3.max(summedValues)])
+      yAxis.tickFormat(d3.format('d'))
+    }
 
     const stack = d3.layout.stack().values(dataItem => dataItem.values)
     const series = stack(preparedData)

@@ -1,7 +1,12 @@
 instrumentation:
     root: .
+    excludes:
+      - '**/public/**'
+      - '**/static-routes/**'
+      - '**/docsite/**'
+      - '**/coverage/**'
     extensions:
-        - .js
-        - .jsx
+      - .js
+      - .jsx
     embed-source: true
     include-all-sources: true

@@ -13,7 +13,7 @@
     "start": "remon --require ./.init.js ./bin/server.js",
     "bloat": "staticr --stdout --require ./.init.js --route /js/bundles/main.js static-routes/browserify-bundles.js | discify --open",
     "lint": "eslint --quiet --ext .jsx,.js .",
-    "compile-assets": "staticr --require babel/register public/build ./static-routes && publish-coverage-report",
+    "compile-assets": "staticr --require babel/register public/build ./static-routes && npm run publish-coverage-report",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",

@@ -43,7 +43,7 @@ describe('queryResultNester', () => {
   })
 })
 
-describe('queryResultLabelizer', () => {
+describe('nestedQueryResultLabelizer', () => {
   it('recursively adds title properties to nodes', () => {
     const labelized = nestedQueryResultLabelizer([
       {key: '2014', values: [{key: 'norskfodte_m_innvf', values: [{key: '0', values: 18}]}]}

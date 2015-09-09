@@ -13,9 +13,9 @@ class Card extends Component {
   }
 
   componentWillMount() {
-    if (this.props.isOpen) {
-      this.props.fetchSampleData(this.props.card.name, 'now')
-    }
+    //if (this.props.isOpen) {
+      //this.props.fetchSampleData(this.props.card.name, 'now')
+    //}
   }
 
   shouldComponentUpdate(nextProps, nextState) {

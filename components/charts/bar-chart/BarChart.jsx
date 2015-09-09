@@ -112,8 +112,9 @@ export default class BarChart extends React.Component {
   }
 
   render() {
+    const margins = {left: 60, top: 40, right: 40, bottom: 40}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} />
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 }

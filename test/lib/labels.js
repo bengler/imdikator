@@ -8,8 +8,8 @@ describe('Title for category', () => {
     assert.equal('mann', dimensionLabelTitle('kjonn', '1'))
   })
 
-  it('returns an empty string for unknown keys', () => {
-    assert.equal('', dimensionLabelTitle('unknown dimension'))
-    assert.equal('', dimensionLabelTitle('unknown dimension', 'unknown variable'))
+  it('returns the variable or dimension for unknown keys', () => {
+    assert.equal('unknown', dimensionLabelTitle('unknown'))
+    assert.equal('variable', dimensionLabelTitle('unknown', 'variable'))
   })
 })

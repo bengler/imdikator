@@ -1,0 +1,7 @@
+instrumentation:
+    root: .
+    extensions:
+        - .js
+        - .jsx
+    embed-source: true
+    include-all-sources: true

@@ -18,12 +18,12 @@ app.use('/UI', serve(fonts))
 app.use(capture.js())
 app.use(capture.css())
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.get('/docs*', docsite)
 
 app.get('/*', function (req, res) {
   res.status(200).send(React.renderToStaticMarkup(<Layout/>))
 })
-
-app.use(express.static(path.join(__dirname, 'public')))
 
 export default app

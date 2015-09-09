@@ -20,23 +20,8 @@ export default class BarChart extends React.Component {
     const isPercent = data.unit === 'percent'
 
     // Get the unique categories from the data
-    const n = d3.nest().key(d => d.category).key(d => d.series)
-    const entries = n.entries(data.data)
-    const categories = entries.map(e => e.key)
-    const series = entries[0].values.map(v => v.key)
-
-    let maxValue = 0
-    entries.forEach(e => {
-      e.values.forEach(v => {
-        v.value = v.values[0].value
-        if (isPercent) {
-          // Using percentage formatting, which multiplied by 100
-          v.value /= 100
-        } else if (maxValue < v.value) {
-          maxValue = v.value
-        }
-      })
-    })
+    const categories = data.data.map(entry => entry.key)
+    const series = data.data[0].values.map(val => val.key)
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
@@ -63,7 +48,7 @@ export default class BarChart extends React.Component {
       yAxis.tickFormat(d3.format('%'))
       yScale.domain([0, 1])
     } else {
-      yScale.domain([0, maxValue])
+      yScale.domain([0, data.data.maxValue])
     }
 
     svg.append('g')
@@ -71,7 +56,7 @@ export default class BarChart extends React.Component {
     .call(yAxis)
 
     const category = svg.selectAll('.category')
-    .data(entries)
+    .data(data.data)
     .enter().append('g')
     .attr('class', 'category')
     .attr('transform', d => 'translate(' + x0(d.key) + ',0)')
@@ -82,9 +67,9 @@ export default class BarChart extends React.Component {
     .attr('width', x1.rangeBand())
     .attr('x', d => x1(d.key))
     .attr('y', d => {
-      return yScale(d.value)
+      return yScale(d.values)
     })
-    .attr('height', d => this.size.height - yScale(d.value))
+    .attr('height', d => this.size.height - yScale(d.values))
     .style('fill', d => seriesColor(d.key))
 
     // Legend

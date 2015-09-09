@@ -1,5 +1,5 @@
 import apiClient from '../config/apiClient'
-import {dimensionLabelTitle} from '../lib/labels'
+import {queryResultNester, nestedQueryResultLabelizer} from '../lib/queryResultNester'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
@@ -25,7 +25,6 @@ function makeDefaultQueryFor(card, region, headersWithValues) {
 
   card.dimensions.forEach(dimension => {
     query.include.push(dimension.label)
-    query.conditions[dimension.label] = dimension.include
   })
   if (card.defaultUnit) {
     query.conditions.enhet = [card.defaultUnit]
@@ -62,59 +61,17 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
       dispatch({
         type: RECEIVE_CARD_PAGE_DATA,
         cardPage,
-        region,
-        queryResults
+        region
       })
 
-      const desc = {
-        table: 'befolkninghovedgruppe',
-        time: 'latest',
-        category: {
-          name: 'innvkat5',
-          values: ['innvandrere', 'bef_u_innv_og_norskf', 'norskfodte_m_innvf'],
-          series: {name: 'kjonn', values: ['0', '1']}
-        }
-      }
-
-      function parseQueryResult(result, config) {
-        const parsed = result.map(res => {
-          const categoryName = config.category.name
-          const category = res[categoryName]
-
-          if (config.category.values.indexOf(category) == -1) {
-            return null
-          }
-
-          const seriesName = config.category.series.name
-          const series = res[seriesName]
-          if (config.category.series.values.indexOf(series) == -1) {
-            return null
-          }
-
-          const value = parseFloat(res.tabellvariabel)
-
-          return {
-            category: dimensionLabelTitle(categoryName, category),
-            series: dimensionLabelTitle(seriesName, series),
-            value
-          }
-        })
-
-        const nonNullParsed = []
-        for (const item of parsed) {
-          if (item) {
-            nonNullParsed.push(item)
-          }
-        }
-        return {unit: 'persons', data: nonNullParsed}
-      }
+      const nesting = ['innvkat5', 'kjonn']
+      const parsed = queryResultNester(queryResults, nesting)
 
       dispatch({
         type: RECEIVE_SAMPLE_DATA,
         cardName: activeCardName,
-        data: parseQueryResult(queryResults, desc)
+        data: {unit: 'persons', data: nestedQueryResultLabelizer(parsed, nesting)}
       })
-
     })
   }
 }

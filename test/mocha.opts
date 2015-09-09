@@ -1,4 +1,4 @@
 --require ./.init
 --require ./test/.init
---compilers=jsx:./test/compilers
+--compilers=jsx:./test/.compilers
 --recursive

@@ -1,6 +1,6 @@
 import {assert} from 'chai'
-import * as APIClient from '../../../lib/api-client'
-import * as json from '../../../lib/http/json'
+import * as APIClient from '../lib/api-client'
+import * as json from '../lib/http/json'
 
 describe('Fetching tables using API client', () => {
   it('can retrieve all tables', function () {

@@ -25,45 +25,49 @@ export default class StackedBarChart extends Component {
     const svg = this.svg
 
     // Get the unique categories from the data
-    const n = d3.nest().key(d => d.category).key(d => d.series)
-    const entries = n.entries(data.data)
-    const series = entries[0].values.map(v => v.key)
     const yAxisLabelFormat = isPercent ? d3.format('%') : d3.format('d')
-    entries.forEach(e => {
 
-      let total = 0
+    const seriesKeys = []
+    data.data.forEach(category => {
       let y0 = 0
-      e.series = e.values.map(v => {
-        let value = v.values[0].value
-        if (isPercent) {
-          value /= 100
+      let total = 0
+      category.values.forEach(serie => {
+        if (seriesKeys.indexOf(serie.key) == -1) {
+          seriesKeys.push(serie.key)
         }
-        total += value
-        return {
-          name: v.key,
-          value: value,
+        const val = isPercent ? serie.values / 100 : serie.values
+        total += val
+        Object.assign(serie, {
           y0: y0,
-          y1: y0 += +value
-        }
+          y1: y0 += +val
+        })
       })
-      e.total = total
+      category.total = total
     })
+
+    colors.domain(seriesKeys)
 
     // X axis scale for categories
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], 0.1)
     const y = d3.scale.linear().rangeRound([this.size.height, 0])
+
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
+    .tickFormat((key, index) => data.data[index].title)
+
     const yAxis = d3.svg.axis().scale(y).orient('left')
 
     yAxis.tickFormat(yAxisLabelFormat)
     if (isPercent) {
       y.domain([0, 1])
     } else {
-      y.domain([0, d3.max(entries, entry => entry.total)])
+      y.domain([0, d3.max(data.data, cat => cat.total)])
     }
 
-    colors.domain(series)
-    x.domain(entries.map(e => e.key))
+    const yAxisEl = this.svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+
+    x.domain(data.data.map(category => category.key))
 
     this.svg.append('g')
     .attr('class', 'axis')
@@ -71,10 +75,6 @@ export default class StackedBarChart extends Component {
     .call(xAxis)
     .selectAll('text')
     .call(this.wrapTextNode, x.rangeBand())
-
-    const yAxisEl = this.svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
 
     if (!isPercent) {
       yAxisEl.append('text')
@@ -86,20 +86,20 @@ export default class StackedBarChart extends Component {
     }
 
     const category = svg.selectAll('.state')
-    .data(entries)
+    .data(data.data)
     .enter().append('g')
     .attr('class', 'g')
-    .attr('transform', d => 'translate(' + x(d.key) + ',0)')
+    .attr('transform', cat => 'translate(' + x(cat.key) + ',0)')
 
     category.selectAll('rect')
-    .data(d => d.series)
+    .data(cat => cat.values)
     .enter().append('rect')
     .attr('width', x.rangeBand())
-    .attr('y', d => y(d.y1))
-    .attr('height', d => y(d.y0) - y(d.y1))
-    .style('fill', d => colors(d.name))
+    .attr('y', dataItem => y(dataItem.y1))
+    .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
+    .style('fill', dataItem => colors(dataItem.key))
     .append('title')
-    .text(d => d.name + ': ' + yAxisLabelFormat(d.value))
+    .text(dataItem => dataItem.title + ': ' + yAxisLabelFormat(dataItem.values))
   }
 
   render() {

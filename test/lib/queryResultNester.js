@@ -56,6 +56,46 @@ describe('queryResultNester', () => {
     assert.equal(nested[0].key, '2014')
     assert.equal(nested[0].values, 29 + 29 + 29 + 29)
   })
+
+  it('saves a property maxValue with the biggest value from leaf nodes', () => {
+    let nested = queryResultNester([
+      {aar: '2014', tabellvariabel: '119', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
+    ], ['aar', 'innvkat5', 'kjonn'])
+
+    assert.equal(nested.maxValue, 119)
+
+    nested = queryResultNester([
+      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', fylkeId: '01'},
+    ], ['aar', 'innvkat5'])
+
+    assert.equal(nested.maxValue, 200)
+
+    nested = queryResultNester([
+      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', fylkeId: '02'},
+      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', fylkeId: '02'},
+    ], ['aar', 'fylkeId'])
+
+    assert.equal(nested.maxValue, 1000)
+
+    nested = queryResultNester([
+      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', fylkeId: '01'},
+      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', fylkeId: '02'},
+      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', fylkeId: '02'},
+    ], ['aar', 'innvkat5'])
+
+    assert.equal(nested.maxValue, 50 + 50 + 500 + 500)
+  })
 })
 
 describe('nestedQueryResultLabelizer', () => {

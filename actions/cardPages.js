@@ -1,37 +1,11 @@
 import apiClient from '../config/apiClient'
 import {queryResultNester, nestedQueryResultLabelizer} from '../lib/queryResultNester'
+import expandQuery from '../lib/api-client/expandQuery'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 
 import {RECEIVE_SAMPLE_DATA} from '../actions/cards'
-
-function makeDefaultQueryFor(card, region, headersWithValues) {
-
-  const query = {
-    tableName: card.table,
-    conditions: {},
-    include: []
-  }
-
-  if (region.type === 'municipality') {
-    query.conditions.kommuneId = [region.code]
-  }
-
-  if (card.time === 'latest') {
-    query.conditions.aar = [headersWithValues.uniqueValues.aar[0]]
-    query.include.push('aar', 'tabellvariabel', 'enhet')
-  }
-
-  card.dimensions.forEach(dimension => {
-    query.include.push(dimension.label)
-  })
-  if (card.defaultUnit) {
-    query.conditions.enhet = [card.defaultUnit]
-  }
-
-  return query
-}
 
 export function loadCardPage({regionCode, pageName, activeCardName}) {
   return dispatch => {
@@ -50,7 +24,7 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
 
     const createQuery = Promise.all([getRegion, getActiveCard, getHeadersWithValues])
       .then(([region, activeCard, headersWithValues]) => {
-        return makeDefaultQueryFor(activeCard, region, headersWithValues)
+        return expandQuery(activeCard, region, headersWithValues)
       })
 
     const getQuery = createQuery.then(query => {

@@ -21,7 +21,7 @@
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
     "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",
-    "pre-commit-check": "npm run test && (npm run lint -- --quiet || (echo 'Warning: project has lint errors. Please fix and re-commit with `git commit --amend`' && echo ''))"
+    "pre-commit-check": "npm run test-unit && (npm run lint -- --quiet || (echo 'Warning: project has lint errors. Please fix and re-commit with `git commit --amend`' && echo ''))"
   },
   "pre-commit": [
     "pre-commit-check"

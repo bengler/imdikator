@@ -2,13 +2,17 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+
 export default class BubbleChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    dimensions: React.PropTypes.array,
+    unit: React.PropTypes.string
   }
 
-  drawPoints(el, data) {
-    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+  drawPoints(el, data, dimensions, unit) {
+    if (!data) {
       return
     }
 
@@ -18,21 +22,22 @@ export default class BubbleChart extends React.Component {
     const bubble = d3.layout.pack()
     .sort(null)
     .size([diameter, diameter])
-    .padding(5)
+    .padding(2)
+    .value(item => parseFloat(item.values[0].tabellvariabel))
 
-    const nest = d3.nest().key(entry => entry.category).rollup(leaves => {
-      return d3.sum(leaves, node => node.value)
-    })
-    const categoriesAndSummedSerieValues = nest.map(data.data, d3.map).entries()
+    const dimensionLabels = dimensions.map(dim => dim.label)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data, dimensionLabels), dimensionLabels)
+
+    const nodes = bubble.nodes({children: preparedData}).filter(item => !item.children)
 
     const node = this.svg.selectAll('.node')
-    .data(bubble.nodes({children: categoriesAndSummedSerieValues}).filter(item => !item.children))
+    .data(nodes)
     .enter().append('g')
     .attr('class', 'node')
     .attr('transform', item => 'translate(' + item.x + ',' + item.y + ')')
 
     node.append('title')
-    .text(item => item.key)
+    .text(item => item.title + ': ' + item.values[0].tabellvariabel)
 
     node.append('circle')
     .attr('r', item => item.r)
@@ -47,7 +52,7 @@ export default class BubbleChart extends React.Component {
       bottom: 0
     }
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} dimensions={this.props.dimensions} unit={this.props.unit} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 }

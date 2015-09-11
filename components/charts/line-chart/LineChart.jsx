@@ -24,45 +24,23 @@ export default class LineChart extends React.Component {
     const yAxis = d3.svg.axis().scale(y).orient('left')
 
     const isPercent = data.unit === 'percent'
-    let yAxisFormat = d3.format('d')
+    let yAxisFormat = d3.format('s')
     if (isPercent) {
       yAxisFormat = d3.format('%')
       y.domain([0, 1])
     } else {
-      y.domain([0, d3.max(data.data, dataItem => dataItem.value)])
+      y.domain([0, data.data.maxValue])
     }
-
     yAxis.tickFormat(yAxisFormat)
 
-    const nest = d3.nest().key(dataItem => dataItem.series)
-    const entries = nest.entries(data.data)
-    entries.forEach(entry => {
-      entry.values.forEach(value => {
-        value.date = parseDate(String(value.category))
+    const dates = []
+    data.data.forEach(item => {
+      item.values.forEach(val => {
+        val.date = parseDate(val.key)
+        dates.push(val.date)
       })
     })
-
-    x.domain(d3.extent(data.data, dataItem => dataItem.date))
-    color.domain(entries.map(entry => entry.key))
-
-    const line = d3.svg.line()
-    .x(dataItem => x(dataItem.date))
-    .y(dataItem => {
-      let val = dataItem.value
-      if (isPercent) {
-        val /= 100
-      }
-      return y(val)
-    })
-
-    // Add a line for every series
-    svg.selectAll('path')
-    .data(entries)
-    .enter().append('path')
-    .attr('class', 'series')
-    .attr('d', dataItem => line(dataItem.values))
-    .attr('stroke', dataItem => color(dataItem.key))
-    .attr('fill', 'none')
+    x.domain(d3.extent(dates))
 
     svg.append('g')
     .attr('class', 'axis')
@@ -72,6 +50,33 @@ export default class LineChart extends React.Component {
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
+
+    const line = d3.svg.line()
+    .x(dataItem => x(dataItem.date))
+    .y(dataItem => {
+      console.log(dataItem)
+      let val = dataItem.values
+      if (isPercent) {
+        val /= 100
+      }
+      return y(val)
+    })
+
+    const ss = this.svg.selectAll('g.line-serie')
+    .data(data.data)
+    .enter()
+    .append('g')
+    .attr('id', dataItem => dataItem.key)
+    .attr('class', 'line-serie')
+
+    ss.selectAll('path')
+    .data(dataItem => [dataItem])
+    .enter()
+    .append('path')
+    .attr('d', dataItem => line(dataItem.values))
+    .attr('fill', 'none')
+    .attr('stroke', dataItem => color(dataItem.key))
+
   }
 
   render() {

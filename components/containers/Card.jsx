@@ -9,8 +9,7 @@ class Card extends Component {
     card: PropTypes.object,
     data: PropTypes.object,
     table: PropTypes.object,
-    isOpen: PropTypes.boolean,
-    fetchSampleData: PropTypes.function
+    isOpen: PropTypes.boolean
   }
 
   shouldComponentUpdate(nextProps, nextState) {

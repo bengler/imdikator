@@ -2,11 +2,13 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
 import ChartSelectorList from '../elements/ChartSelectorList'
+import UnitSelection from '../elements/UnitSelection'
 
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
     data: PropTypes.object,
+    table: PropTypes.object,
     isOpen: PropTypes.boolean,
     fetchSampleData: PropTypes.function
   }
@@ -17,6 +19,10 @@ class Card extends Component {
 
   render() {
     const ChartComponent = CHARTS[this.props.card.chartKind]
+    let units = []
+    if (this.props.table) {
+      units = this.props.table.uniqueValues.enhet
+    }
     return (
       <div>
         <h3>{this.props.card.title}</h3>
@@ -24,6 +30,7 @@ class Card extends Component {
           if (this.props.isOpen == true) {
             return [
               <ChartSelectorList/>,
+              <UnitSelection units={units}/>,
               <ChartComponent data={this.props.data} dimensions={this.props.card.dimensions} unit={"personer"}/>
             ]
           }
@@ -37,13 +44,18 @@ class Card extends Component {
 }
 
 function select(state, ownProps) {
-  let result = null
+  let data = null
   if (state.queryResult.hasOwnProperty(ownProps.card.name)) {
-    result = state.queryResult[ownProps.card.name]
+    data = state.queryResult[ownProps.card.name]
+  }
+  let table = null
+  if (state.tables.hasOwnProperty(ownProps.card.table)) {
+    table = state.tables[ownProps.card.table]
   }
   return {
     isOpen: state.openCards.includes(ownProps.card.name),
-    data: result
+    data,
+    table
   }
 }
 

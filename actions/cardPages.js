@@ -5,6 +5,7 @@ export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 
 import {RECEIVE_QUERY_RESULT} from '../actions/cards'
+import {RECEIVE_TABLE_HEADERS} from '../actions/table'
 
 export function loadCardPage({regionCode, pageName, activeCardName}) {
   return dispatch => {
@@ -23,6 +24,13 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
 
     const createQuery = Promise.all([getRegion, getActiveCard, getHeadersWithValues])
       .then(([region, activeCard, headersWithValues]) => {
+
+        dispatch({
+          type: RECEIVE_TABLE_HEADERS,
+          table: activeCard.table,
+          headers: headersWithValues
+        })
+
         return expandQuery(activeCard, region, headersWithValues)
       })
 

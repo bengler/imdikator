@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react'
-import ChartSelector from './ChartSelector'
 
 export default class UnitSelection extends Component {
   static propTypes = {

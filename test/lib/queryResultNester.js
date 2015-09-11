@@ -12,49 +12,13 @@ describe('queryResultNester', () => {
       {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
     ], ['aar', 'innvkat5', 'kjonn'])
 
-    //console.log(util.inspect(nested, {showHidden: false, depth: null})))
+    //console.log(util.inspect(nested, {showHidden: false, depth: null}))
 
     assert.equal(nested[0].key, '2014')
     assert.equal(nested[0].values[0].key, 'alle')
     assert.equal(nested[0].values[0].values[0].key, '0')
-    assert.equal(nested[0].values[0].values[0].values, 29)
 
     assert.equal(nested[0].values[0].values[1].key, '1')
-    assert.equal(nested[0].values[0].values[1].values, 29)
-  })
-
-  it('sums leaf node values beyond the specified nesting level', () => {
-    let nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
-    ], ['aar', 'innvkat5'])
-
-    assert.equal(nested[0].key, '2014')
-    assert.equal(nested[0].values[0].key, 'alle')
-    assert.equal(nested[0].values[0].values, 29 + 29)
-
-    nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '02'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '02'},
-    ], ['aar', 'kjonn'])
-
-    assert.equal(nested[0].key, '2014')
-    assert.equal(nested[0].values[0].key, '0')
-    assert.equal(nested[0].values[0].values, 29 + 29)
-    assert.equal(nested[0].values[1].key, '1')
-    assert.equal(nested[0].values[1].values, 29 + 29)
-
-    nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '01'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '01'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '0', innvkat5: 'alle', fylkeId: '02'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', fylkeId: '02'},
-    ], ['aar'])
-
-    assert.equal(nested[0].key, '2014')
-    assert.equal(nested[0].values, 29 + 29 + 29 + 29)
   })
 
   it('saves a property maxValue with the biggest value from leaf nodes', () => {

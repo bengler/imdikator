@@ -7,6 +7,8 @@ import d3Chart from './_d3chart'
 export default class D3Chart extends React.Component {
   static propTypes = {
     data: React.PropTypes.array,
+    dimensions: React.PropTypes.array,
+    unit: React.PropTypes.string,
     drawPoints: React.PropTypes.func,
     margins: React.PropTypes.object
   }
@@ -31,7 +33,9 @@ export default class D3Chart extends React.Component {
 
   getChartState() {
     return {
-      data: this.props.data
+      data: this.props.data,
+      dimensions: this.props.dimensions,
+      unit: this.props.unit,
     }
   }
 

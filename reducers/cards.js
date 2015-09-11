@@ -1,6 +1,6 @@
 import {RECEIVE_QUERY_RESULT} from '../actions/cards'
 
-export default function sampleData(state = {}, action) {
+export default function queryResult(state = {}, action) {
   switch (action.type) {
     case RECEIVE_QUERY_RESULT:
       const newState = {}
@@ -10,4 +10,3 @@ export default function sampleData(state = {}, action) {
       return state
   }
 }
-

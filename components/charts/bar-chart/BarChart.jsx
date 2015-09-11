@@ -2,26 +2,32 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+
 // A range of 20 colors
 const seriesColor = d3.scale.category20()
 
 export default class BarChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
+    dimensions: React.PropTypes.array,
+    unit: React.PropTypes.string
   }
 
-  drawPoints(el, data) {
-
-    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+  drawPoints(el, data, dimensions, unit) {
+    if (!data) {
       return
     }
+
+    const dimensionLabels = dimensions.map(dim => dim.label)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
     const isPercent = data.unit === 'percent'
 
     // Get the unique categories from the data
-    const categories = data.data.map(entry => entry.key)
-    const series = data.data[0].values.map(val => val.key)
+    const categories = preparedData.map(entry => entry.title)
+    const series = preparedData[0].values.map(val => val.title)
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
@@ -48,7 +54,7 @@ export default class BarChart extends React.Component {
       yAxis.tickFormat(d3.format('%'))
       yScale.domain([0, 1])
     } else {
-      yScale.domain([0, data.data.maxValue])
+      yScale.domain([0, preparedData.maxValue])
     }
 
     svg.append('g')
@@ -56,21 +62,27 @@ export default class BarChart extends React.Component {
     .call(yAxis)
 
     const category = svg.selectAll('.category')
-    .data(data.data)
+    .data(preparedData)
     .enter().append('g')
     .attr('class', 'category')
-    .attr('transform', d => 'translate(' + x0(d.key) + ',0)')
+    .attr('transform', d => 'translate(' + x0(d.title) + ',0)')
 
     category.selectAll('rect')
     .data(d => d.values)
     .enter().append('rect')
     .attr('width', x1.rangeBand())
-    .attr('x', d => x1(d.key))
-    .attr('y', d => {
-      return yScale(d.values)
+    .attr('x', d => {
+      return x1(d.title)
     })
-    .attr('height', d => this.size.height - yScale(d.values))
-    .style('fill', d => seriesColor(d.key))
+    .attr('y', d => {
+      const val = parseFloat(d.values[0].tabellvariabel)
+      return yScale(val)
+    })
+    .attr('height', d => {
+      const val = parseFloat(d.values[0].tabellvariabel)
+      return this.size.height - yScale(val)
+    })
+    .style('fill', d => seriesColor(d.title))
 
     // Legend
     const labelScale = d3.scale.ordinal().domain(series).rangeRoundBands([0, this.size.width], 0.1)
@@ -99,7 +111,7 @@ export default class BarChart extends React.Component {
   render() {
     const margins = {left: 60, top: 40, right: 40, bottom: 40}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} dimensions={this.props.dimensions} unit={this.props.unit} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 }

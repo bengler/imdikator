@@ -2,13 +2,13 @@ import {compose, createStore, applyMiddleware} from 'redux'
 import {devTools, persistState} from 'redux-devtools'
 import thunkMiddleware from 'redux-thunk'
 import rootReducer from '../reducers'
-import {logger} from '../middleware'
+//import {logger} from '../middleware'
 
 import config from '../config'
 
 const middlewares = [
   applyMiddleware(thunkMiddleware),
-  applyMiddleware(logger),
+  //applyMiddleware(logger),
   // Provides support for DevTools
   config.reduxDevTools && devTools(),
   // Lets you write ?debug_session=<name> in address bar to persist debug sessions

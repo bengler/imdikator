@@ -54,7 +54,6 @@ export default class LineChart extends React.Component {
     const line = d3.svg.line()
     .x(dataItem => x(dataItem.date))
     .y(dataItem => {
-      console.log(dataItem)
       let val = dataItem.values
       if (isPercent) {
         val /= 100

@@ -22,8 +22,6 @@ d3Chart.create = function (el, props, state, drawPoints, margins = {left: 40, to
   }
   this.margins = margins
 
-  this.props = props
-
   this._drawPoints = drawPoints
   this.update(el, state)
 }
@@ -31,7 +29,7 @@ d3Chart.create = function (el, props, state, drawPoints, margins = {left: 40, to
 d3Chart._drawPoints = function () {}
 
 d3Chart.update = function (el, state) {
-  this._drawPoints(el, state.data)
+  this._drawPoints(el, state.data, state.dimensions, state.unit)
 }
 
 d3Chart.destroy = function (el) {

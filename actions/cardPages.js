@@ -1,11 +1,10 @@
 import apiClient from '../config/apiClient'
-import {queryResultNester, nestedQueryResultLabelizer} from '../lib/queryResultNester'
 import expandQuery from '../lib/api-client/expandQuery'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 
-import {RECEIVE_SAMPLE_DATA} from '../actions/cards'
+import {RECEIVE_QUERY_RESULT} from '../actions/cards'
 
 export function loadCardPage({regionCode, pageName, activeCardName}) {
   return dispatch => {
@@ -38,13 +37,10 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
         region
       })
 
-      const nesting = ['innvkat5', 'kjonn']
-      const parsed = queryResultNester(queryResults, nesting)
-
       dispatch({
-        type: RECEIVE_SAMPLE_DATA,
+        type: RECEIVE_QUERY_RESULT,
         cardName: activeCardName,
-        data: {unit: 'persons', data: nestedQueryResultLabelizer(parsed, nesting)}
+        data: queryResults
       })
     })
   }

@@ -33,12 +33,17 @@
       {
         "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
-        "chartKind": "stackedBar",
-        "table": "befolkning_innvandringsgrunn",
+        "chartKind": "bar",
+        "table": "befolkninginnvandringsgrunn",
         "dimensions": [
           {
-            "label": "innvgrunn_5",
-            "any": true
+            "label": "innvgrunn5",
+            "include": [
+              "arbeid",
+              "flukt",
+              "familie",
+              "annet_uoppgitt"
+            ]
           },
           {
             "label": "kjonn",

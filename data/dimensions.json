@@ -109,7 +109,7 @@
     ]
   },
   {
-    "name": "vreg_2",
+    "name": "vreg2",
     "description": "Todelt verdensregion",
     "variables": [
       {
@@ -124,7 +124,7 @@
     ]
   },
   {
-    "name": "vreg_3",
+    "name": "vreg3",
     "description": "Tredelt verdensregion",
     "variables": [
       {

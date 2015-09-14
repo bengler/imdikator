@@ -81,7 +81,8 @@ export default class LineChart extends React.Component {
     .data(dataItem => [dataItem])
     .enter()
     .append('path')
-    .attr('d', dataItem => {
+    .attr('d', function (dataItem) {
+      dataItem.line = this
       return line(dataItem.values)
     })
     .attr('fill', 'none')
@@ -105,6 +106,49 @@ export default class LineChart extends React.Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series)
     .call(leg)
+
+    // Voronoi Tesselation hover points
+    const focus = svg.append('g')
+    .attr('transform', 'translate(-100,-100)')
+    .attr('class', 'focus')
+
+    focus.append('circle')
+    .attr('r', 3.5)
+
+    focus.append('text')
+    .attr('y', -10)
+
+    const voronoi = d3.geom.voronoi()
+    .x(dataItem => x(dataItem.date))
+    .y(dataItem => y(dataItem.value))
+    .clipExtent([[0, 0], [this.size.width, this.size.height]])
+
+    const voronoiGroup = svg.append('g')
+    .attr('class', 'voronoi')
+
+    const nest = d3.nest().key(item => x(item.date) + ',' + y(item.value))
+    .rollup(value => value[0])
+    const voronoiData = nest.entries(d3.merge(preparedData.map(item => item.values)))
+    .map(item => item.values)
+
+    voronoiGroup.selectAll('path')
+    .data(voronoi(voronoiData))
+    .enter().append('path')
+    .attr('d', item => 'M' + item.join('L') + 'Z')
+    .datum(dataItem => dataItem.point)
+    .style('fill', 'none')
+    .style('stroke', 'none')
+    .style('pointer-events', 'all')
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
+
+    function mouseover(item) {
+      focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.value) + ')')
+      focus.select('text').text(item.value)
+    }
+    function mouseout(item) {
+      focus.attr('transform', 'translate(-100,-100)')
+    }
   }
 
   render() {

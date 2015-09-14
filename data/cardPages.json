@@ -159,7 +159,7 @@
       {
         "name": "bosetting",
         "title": "Bosatte flyktninger",
-        "chartKind": "stackedArea",
+        "chartKind": "line",
         "table": "bosetting",
         "dimensions": [
           {
@@ -169,6 +169,9 @@
               "vedtak",
               "bosatt"
             ]
+          },
+          {
+            "label": "aar"
           }
         ],
         "time": "all",

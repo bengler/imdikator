@@ -39,7 +39,7 @@ d3Chart.destroy = function (el) {
 }
 
 d3Chart.legend = function () {
-  let color = d3.scale.category10()
+  let color = d3.scale.category20()
   const attr = {
     width: (item, idx) => 15,
     height: (item, idx) => 15,

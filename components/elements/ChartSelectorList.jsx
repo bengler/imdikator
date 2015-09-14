@@ -19,7 +19,7 @@ export default class ChartSelectorList extends Component {
     const list = Object.keys(dataViewTypeTitleMap).map(key => {
       const buttonEnabled = true
       return (
-        <ChartSelector enabled={buttonEnabled} onSelectItem={() => this.props.onSelectDataView(key)} key={key} title={dataViewTypeTitleMap[key]}/>
+        <ChartSelector enabled={buttonEnabled} key={key} title={dataViewTypeTitleMap[key]}/>
       )
     })
 

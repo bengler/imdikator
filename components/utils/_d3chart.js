@@ -20,6 +20,7 @@ d3Chart.create = function (el, props, state, drawPoints, margins = {left: 40, to
     width: el.offsetWidth - margins.left - margins.right,
     height: el.offsetHeight - margins.top - margins.bottom
   }
+
   this.margins = margins
 
   this._drawPoints = drawPoints
@@ -35,6 +36,86 @@ d3Chart.update = function (el, state) {
 d3Chart.destroy = function (el) {
   // Any clean-up would go here
   // in this example there is nothing to do
+}
+
+d3Chart.legend = function () {
+  let color = d3.scale.category10()
+  const attr = {
+    width: (item, idx) => 15,
+    height: (item, idx) => 15,
+  }
+  //const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')
+
+  function chart(selection) {
+    selection.each(function (data, idx) {
+
+      const wrap = d3.select(this).selectAll('g.legend').data(data)
+      let legend = null
+      legend = wrap.enter().append('g').attr('class', 'legend').append('g')
+
+      legend.append('rect')
+      .attr('x', (dataItem, index) => {
+        return 0
+      })
+      .attr('y', 0)
+      .attr('width', (item, i) => attr.width(item, i))
+      .attr('height', (item, i) => attr.height(item, i))
+      .style('fill', dataItem => color(dataItem))
+
+      legend
+      .append('text')
+      .text(dataItem => dataItem)
+      .attr('dy', () => attr.height())
+      .attr('font-size', () => attr.height())
+      .attr('x', (node, index) => attr.width() * 1.5)
+
+      let x = 0
+      let y = 0
+      const parent = d3.select(wrap.node().parentNode)
+      const maxWidth = parent.attr('width')
+
+      wrap.selectAll('g').each(function () {
+        const el = d3.select(this)
+        el.attr('transform', 'translate(' + x + ', 0)')
+        const bbox = el.node().getBBox()
+        const width = bbox.width + attr.width()
+        const newX = x + width
+        if (newX > maxWidth) {
+          x = width
+          y += attr.height() + attr.height() * 0.5
+        } else {
+          x += width
+        }
+        el.attr('transform', 'translate(' + (x - width) + ', ' + -y + ')')
+      })
+    })
+    return chart
+  }
+
+  chart.color = function (newColor) {
+    if (!arguments.length) {
+      return color
+    }
+    color = newColor
+    return chart
+  }
+
+  chart.attr = function (key, newValue) {
+    if (!arguments.length) {
+      return attr
+    }
+    if (arguments.length == 1) {
+      const value = attr[key]
+      if (typeof value === 'function') {
+        return value()
+      }
+      return value
+    }
+    attr[key] = newValue
+    return chart
+  }
+
+  return chart
 }
 
 // Wrapping text nodes

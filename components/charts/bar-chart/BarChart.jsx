@@ -4,9 +4,6 @@ import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
-// A range of 20 colors
-const seriesColor = d3.scale.category20()
-
 export default class BarChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
@@ -29,6 +26,9 @@ export default class BarChart extends React.Component {
     const categories = preparedData.map(entry => entry.title)
     const series = preparedData[0].values.map(val => val.title)
 
+    // A range of 20 colors
+    const seriesColor = d3.scale.category20().domain(series)
+
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
@@ -43,7 +43,7 @@ export default class BarChart extends React.Component {
     .attr('transform', 'translate(0, ' + this.size.height + ')')
     .call(xAxis)
     .selectAll('.tick text')
-      .call(this.wrapTextNode, x0.rangeBand())
+    .call(this.wrapTextNode, x0.rangeBand())
 
     // Add the Y axsis
     const yScale = d3.scale.linear().range([this.size.height, 0])
@@ -84,32 +84,24 @@ export default class BarChart extends React.Component {
     })
     .style('fill', d => seriesColor(d.title))
 
-    // Legend
-    const labelScale = d3.scale.ordinal().domain(series).rangeRoundBands([0, this.size.width], 0.1)
+    const leg = this.legend()
+    .color(seriesColor)
+    .attr('width', () => 15)
+    .attr('height', () => 15)
 
-    const legend = svg.selectAll('.legend')
-    .data(series.slice())
-    .enter().append('g')
-    .attr('class', 'legend')
-    .attr('transform', d => 'translate(' + labelScale(d) + ', ' + -(this.margins.top / 2) + ')')
-
-    legend.append('rect')
-    .attr('x', '0')
-    .attr('y', 0)
-    .attr('width', 10)
-    .attr('height', 10)
-    .style('fill', seriesColor)
-
-    legend.append('text')
-    .attr('x', '15')
-    .attr('y', 10)
-    .text(dataItem => dataItem)
-    .selectAll('text')
-      .call(this.wrapTextNode, labelScale.rangeBand())
+    const trueBottom = this.size.height + this.margins.bottom
+    series.push('typically complicated and long data variable description', 'even more', 'stuff', 'that might', 'show up')
+    svg.append('g')
+    .attr('class', 'legendWrapper')
+    .attr('width', this.size.width)
+    // Place it at the very bottom
+    .attr('transform', d => 'translate(' + 0 + ', ' + (trueBottom - leg.attr('height') * 2) + ')')
+    .datum(series)
+    .call(leg)
   }
 
   render() {
-    const margins = {left: 60, top: 40, right: 40, bottom: 40}
+    const margins = {left: 60, top: 0, right: 40, bottom: 80}
     return (
       <D3Chart data={this.props.data} dimensions={this.props.dimensions} unit={this.props.unit} drawPoints={this.drawPoints} margins={margins}/>
     )

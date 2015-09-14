@@ -6,6 +6,7 @@ import d3Chart from './_d3chart'
  */
 export default class D3Chart extends React.Component {
   static propTypes = {
+    className: React.PropTypes.string,
     data: React.PropTypes.array,
     dimensions: React.PropTypes.array,
     unit: React.PropTypes.string,
@@ -40,8 +41,9 @@ export default class D3Chart extends React.Component {
   }
 
   render() {
+    const classes = ['chart', this.props.className].join(' ')
     return (
-      <div className="chart"/>
+      <div className={classes}/>
     )
   }
 }

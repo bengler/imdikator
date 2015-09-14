@@ -16,17 +16,20 @@ export default class BubbleChart extends React.Component {
       return
     }
 
-    const diameter = d3.min([this.size.width, this.size.height])
+    const diameter = [this.size.width, this.size.height]
     const color = d3.scale.category20c()
 
     const bubble = d3.layout.pack()
     .sort(null)
-    .size([diameter, diameter])
+    .size(diameter)
     .padding(2)
     .value(item => parseFloat(item.values[0].tabellvariabel))
 
     const dimensionLabels = dimensions.map(dim => dim.label)
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data, dimensionLabels), dimensionLabels)
+
+    const filteredData = data.filter(item => item.landbakgrunn != '1')
+
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensionLabels), dimensionLabels)
 
     const nodes = bubble.nodes({children: preparedData}).filter(item => !item.children)
 
@@ -42,6 +45,13 @@ export default class BubbleChart extends React.Component {
     node.append('circle')
     .attr('r', item => item.r)
     .style('fill', item => color(item.key))
+
+    node.append('text')
+    .attr('dy', '.3em')
+    .style('text-anchor', 'middle')
+    .style('font-size', '13px')
+    .text(function (item) { return item.title.substring(0, item.r / 4)})
+
   }
 
   render() {
@@ -52,7 +62,7 @@ export default class BubbleChart extends React.Component {
       bottom: 0
     }
     return (
-      <D3Chart data={this.props.data} dimensions={this.props.dimensions} unit={this.props.unit} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart className="bubble" data={this.props.data} dimensions={this.props.dimensions} unit={this.props.unit} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 }

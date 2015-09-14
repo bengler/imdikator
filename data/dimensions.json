@@ -145,7 +145,7 @@
     ]
   },
   {
-    "name": "vreg_5",
+    "name": "vreg5",
     "description": "Femdelt verdensregion",
     "variables": [
       {
@@ -222,7 +222,7 @@
     ]
   },
   {
-    "name": "botid_5",
+    "name": "botid5",
     "description": "Botid i Norge (femdelt)",
     "variables": [
       {
@@ -248,7 +248,7 @@
     ]
   },
   {
-    "name": "botid_3",
+    "name": "botid3",
     "description": "Botid i Norge (tredelt)",
     "variables": [
       {
@@ -284,7 +284,7 @@
     ]
   },
   {
-    "name": "forste_bosettingskommune",
+    "name": "forsteBosettingskommune",
     "description": "Sekundærflytting",
     "variables": [
       {
@@ -1082,7 +1082,7 @@
     "variables": [
       {
         "title": "Alle land",
-        "label": "001"
+        "label": "1"
       },
       {
         "title": "Danmark",

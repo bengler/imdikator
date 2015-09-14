@@ -33,7 +33,8 @@ export default class LineChart extends React.Component {
       yAxisFormat = d3.format('%')
       y.domain([0, 1])
     } else {
-      y.domain([0, preparedData.maxValue])
+      const e = d3.extent(data, item => parseFloat(item.tabellvariabel))
+      y.domain(e)
     }
     yAxis.tickFormat(yAxisFormat)
 

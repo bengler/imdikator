@@ -44,14 +44,25 @@ d3Chart.legend = function () {
     width: (item, idx) => 15,
     height: (item, idx) => 15,
   }
-  //const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')
+  const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')
 
   function chart(selection) {
     selection.each(function (data, idx) {
 
       const wrap = d3.select(this).selectAll('g.legend').data(data)
       let legend = null
-      legend = wrap.enter().append('g').attr('class', 'legend').append('g')
+      legend = wrap.enter()
+      .append('g').attr('class', 'legend')
+      .append('g')
+      .on('click', function (item, index) {
+        dispatch.legendClick(item, index)
+      })
+      .on('mouseover', function (item, index) {
+        dispatch.legendMouseover(item, index)
+      })
+      .on('mouseout', function (item, index) {
+        dispatch.legendMouseout(item, index)
+      })
 
       legend.append('rect')
       .attr('x', (dataItem, index) => {
@@ -86,11 +97,13 @@ d3Chart.legend = function () {
         } else {
           x += width
         }
-        el.attr('transform', 'translate(' + (x - width) + ', ' + -y + ')')
+        el.attr('transform', 'translate(' + (x - width) + ', ' + y + ')')
       })
     })
     return chart
   }
+
+  chart.dispatch = dispatch
 
   chart.color = function (newColor) {
     if (!arguments.length) {

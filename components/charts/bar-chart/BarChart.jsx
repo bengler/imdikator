@@ -89,13 +89,18 @@ export default class BarChart extends React.Component {
     .attr('width', () => 15)
     .attr('height', () => 15)
 
-    const trueBottom = this.size.height + this.margins.bottom
+    leg.dispatch.on('legendClick', (item, index) => {})
+    leg.dispatch.on('legendMouseout', (item, index) => {})
+    leg.dispatch.on('legendMouseover', (item, index) => {})
+
+    // Add some space between the x axis labels and the legends
+    const legendBottom = this.size.height + 30
     series.push('typically complicated and long data variable description', 'even more', 'stuff', 'that might', 'show up')
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
-    .attr('transform', d => 'translate(' + 0 + ', ' + (trueBottom - leg.attr('height') * 2) + ')')
+    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series)
     .call(leg)
   }

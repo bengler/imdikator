@@ -9,22 +9,22 @@
         "comment": "Konvensjonen er å legge til suffix med antall kategorier i variabelen hvis det er flere av samme inndelsingstype (femdelt verdensregion, åttedelt verdensregion, osv)"
       },
       {
-        "title": "innvandrere",
+        "title": "Innvandrere",
         "label": "innvandrere",
         "comment": "Innvandrer-kategorien er definert likt i alle innvkat."
       },
       {
-        "title": "befolkningen unntatt innvandrere",
+        "title": "Befolkningen unntatt innvandrere",
         "label": "befolkningen_ellers",
         "comment": "befolkningen ellers er definert likt i innvkat_5 og innvkat_3"
       },
       {
-        "title": "norskfødte med innvandrerforeldre",
+        "title": "Norskfødte med innvandrerforeldre",
         "label": "norskfodte_m_innvf",
         "comment": "norskfødte er definert likt i innvkat_5 og innvkat_4."
       },
       {
-        "title": "befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
+        "title": "Befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
         "label": "bef_u_innv_og_norskf"
       }
     ]
@@ -94,16 +94,16 @@
     "description": "Kjønn",
     "variables": [
       {
-        "title": "alle",
+        "title": "Alle",
         "label": "alle",
         "comment": "alle er definert inn som et kjønn"
       },
       {
-        "title": "kvinne",
+        "title": "Kvinne",
         "label": "0"
       },
       {
-        "title": "mann",
+        "title": "Mann",
         "label": "1"
       }
     ]

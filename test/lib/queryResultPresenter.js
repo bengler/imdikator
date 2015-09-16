@@ -30,15 +30,15 @@ const config = {
 }
 
 const query = {
-  TableName: 'befolkninghovedgruppe',
-  Conditions: {
+  tableName: 'befolkninghovedgruppe',
+  conditions: {
     aar: ['2012', '2013', '2014'],
     enhet: ['prosent'],
     innvkat5: ['innvandrere'],
     kjonn: ['0', '1'],
     kommuneId: ['0301']
   },
-  Include: ['aar', 'tabellvariabel', 'enhet', 'innvkat5', 'kjonn']
+  include: ['aar', 'tabellvariabel', 'enhet', 'innvkat5', 'kjonn']
 }
 
 describe('queryResultPresenter', () => {
@@ -49,7 +49,7 @@ describe('queryResultPresenter', () => {
 
   it('removes time dimension if the query only has one distinct year', () => {
     const qu = Object.assign({}, query, {
-      Conditions: {aar: ['2015']}
+      conditions: {aar: ['2015']}
     })
     const pres = queryResultPresenter(qu, {}, config.bosetting)
     assert(pres.dimensions.indexOf('aar') == -1)
@@ -57,7 +57,7 @@ describe('queryResultPresenter', () => {
 
   it('sorts aar dimension last for line charts', () => {
     const qu = Object.assign({}, query, {
-      Include: ['aar', 'bosetting']
+      include: ['aar', 'bosetting']
     })
 
     let co = Object.assign({}, config.bosetting, {chartKind: 'bar'})
@@ -71,7 +71,7 @@ describe('queryResultPresenter', () => {
 
   it('figures out the unit to use when presenting based on the query', () => {
     const qu = Object.assign({}, query, {
-      Conditions: {enhet: ['kustom']}
+      conditions: {enhet: ['kustom']}
     })
     const pres = queryResultPresenter(qu, {}, config.befolkning)
     assert.equal(pres.unit, 'kustom')

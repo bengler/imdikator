@@ -6,21 +6,19 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class BarChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
-    dimensions: React.PropTypes.array,
-    unit: React.PropTypes.string
+    data: React.PropTypes.object
   }
 
-  drawPoints(el, data, dimensions, unit) {
+  drawPoints(el, data) {
     if (!data) {
       return
     }
 
-    const dimensionLabels = dimensions.map(dim => dim.label)
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data, dimensionLabels), dimensionLabels)
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
-    const isPercent = data.unit === 'percent'
+    const isPercent = data.unit === 'prosent'
 
     // Get the unique categories from the data
     const categories = preparedData.map(entry => entry.title)
@@ -75,11 +73,17 @@ export default class BarChart extends React.Component {
       return x1(d.title)
     })
     .attr('y', d => {
-      const val = parseFloat(d.values[0].tabellvariabel)
+      let val = parseFloat(d.values[0].tabellvariabel)
+      if (isPercent) {
+        val /= 100
+      }
       return yScale(val)
     })
     .attr('height', d => {
-      const val = parseFloat(d.values[0].tabellvariabel)
+      let val = parseFloat(d.values[0].tabellvariabel)
+      if (isPercent) {
+        val /= 100
+      }
       return this.size.height - yScale(val)
     })
     .style('fill', d => seriesColor(d.title))
@@ -106,9 +110,9 @@ export default class BarChart extends React.Component {
   }
 
   render() {
-    const margins = {left: 60, top: 0, right: 40, bottom: 80}
+    const margins = {left: 60, top: 10, right: 40, bottom: 80}
     return (
-      <D3Chart data={this.props.data} dimensions={this.props.dimensions} unit={this.props.unit} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 }

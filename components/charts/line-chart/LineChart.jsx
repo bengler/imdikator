@@ -6,17 +6,15 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class LineChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
-    dimensions: React.PropTypes.array,
-    unit: React.PropTypes.string
+    data: React.PropTypes.object
   }
-  drawPoints(el, data, dimensions, unit) {
+  drawPoints(el, data) {
     if (!data) {
       return
     }
 
-    const dimensionLabels = dimensions.map(dim => dim.label)
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data, dimensionLabels), dimensionLabels)
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
     const parseDate = d3.time.format('%Y').parse
@@ -27,13 +25,13 @@ export default class LineChart extends React.Component {
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
 
-    const isPercent = unit === 'percent'
+    const isPercent = data.unit === 'prosent'
     let yAxisFormat = d3.format('s')
     if (isPercent) {
       yAxisFormat = d3.format('%')
       y.domain([0, 1])
     } else {
-      const extent = d3.extent(data, item => parseFloat(item.tabellvariabel))
+      const extent = d3.extent(data.rows, item => parseFloat(item.tabellvariabel))
       const diff = extent[1] - extent[0]
       y.domain([Math.max(extent[0] - diff / 2, 0), extent[1] + diff / 2])
     }
@@ -155,7 +153,7 @@ export default class LineChart extends React.Component {
   render() {
     const margins = {left: 40, top: 20, right: 40, bottom: 70}
     return (
-      <D3Chart margins={margins} dimensions={this.props.dimensions} unit={this.props.unit} data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart margins={margins} data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

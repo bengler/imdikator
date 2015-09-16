@@ -1,5 +1,6 @@
 import apiClient from '../config/apiClient'
 import expandQuery from '../lib/api-client/expandQuery'
+import {queryResultPresenter} from '../lib/queryResultPresenter'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
@@ -17,7 +18,6 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
       return cardPage.cards.find(card => card.name === activeCardName)
     })
 
-
     const getHeadersWithValues = getActiveCard.then(activeCard => {
       return apiClient.getHeadersForTable(activeCard.table)
     })
@@ -34,7 +34,9 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
         return expandQuery(activeCard, region, headersWithValues)
       })
 
+    let requestQuery = null
     const getQuery = createQuery.then(query => {
+      requestQuery = query
       return apiClient.query(query)
     })
 
@@ -45,10 +47,12 @@ export function loadCardPage({regionCode, pageName, activeCardName}) {
         region
       })
 
+      const config = cardPage.cards.find(card => card.name === activeCardName)
+
       dispatch({
         type: RECEIVE_QUERY_RESULT,
         cardName: activeCardName,
-        data: queryResults
+        data: queryResultPresenter(requestQuery, queryResults, config)
       })
     })
   }

@@ -6,12 +6,10 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class BubbleChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
-    dimensions: React.PropTypes.array,
-    unit: React.PropTypes.string
+    data: React.PropTypes.object
   }
 
-  drawPoints(el, data, dimensions, unit) {
+  drawPoints(el, data) {
     if (!data) {
       return
     }
@@ -25,9 +23,9 @@ export default class BubbleChart extends React.Component {
     .padding(2)
     .value(item => parseFloat(item.values[0].tabellvariabel))
 
-    const dimensionLabels = dimensions.map(dim => dim.label)
+    const dimensionLabels = data.dimensions
 
-    const filteredData = data.filter(item => item.landbakgrunn != '1')
+    const filteredData = data.rows.filter(item => item.landbakgrunn != '1')
 
     const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensionLabels), dimensionLabels)
 
@@ -65,8 +63,6 @@ export default class BubbleChart extends React.Component {
     return (
       <D3Chart className="bubble"
                data={this.props.data}
-               dimensions={this.props.dimensions}
-               unit={this.props.unit}
                drawPoints={this.drawPoints}
                margins={margins}/>
     )

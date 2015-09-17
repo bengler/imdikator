@@ -12,6 +12,16 @@ describe('queryResultFilter', () => {
 
     const chartKind = 'bubble'
 
+    it('removes landbakgrunn "alle"', () => {
+      const result = [
+        {tabellvariabel: '1000'},
+        {tabellvariabel: '29', landbakgrunn: '1'}
+      ]
+
+      const filtered = queryResultFilter(result, chartKind)
+      assert.deepEqual(filtered, [{tabellvariabel: '1000'}])
+    })
+
     it('removes : data', () => {
       const result = [
         {tabellvariabel: '1000'},

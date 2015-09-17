@@ -69,24 +69,16 @@ export default class BarChart extends React.Component {
     .data(d => d.values)
     .enter().append('rect')
     .attr('width', x1.rangeBand())
-    .attr('x', d => {
-      return x1(d.title)
-    })
+    .attr('x', dataItem => x1(dataItem.title))
     .attr('y', d => {
-      let val = parseFloat(d.values[0].tabellvariabel)
-      if (isPercent) {
-        val /= 100
-      }
+      let val = d.values[0].value
       return yScale(val)
     })
     .attr('height', d => {
-      let val = parseFloat(d.values[0].tabellvariabel)
-      if (isPercent) {
-        val /= 100
-      }
+      let val = d.values[0].value
       return this.size.height - yScale(val)
     })
-    .style('fill', d => seriesColor(d.title))
+    .style('fill', dataItem => seriesColor(dataItem.title))
 
     const leg = this.legend()
     .color(seriesColor)

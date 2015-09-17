@@ -126,7 +126,7 @@ export default class LineChart extends React.Component {
 
     // Filter out any undefined points on the lines
     const voronoiPoints = preparedData.map(item => {
-      const vals =  item.values.filter(val => !isNaN(val.value))
+      const vals = item.values.filter(val => !isNaN(val.value))
       item.values = vals
       return item
     })

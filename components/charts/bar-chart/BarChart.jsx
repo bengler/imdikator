@@ -71,11 +71,11 @@ export default class BarChart extends React.Component {
     .attr('width', x1.rangeBand())
     .attr('x', dataItem => x1(dataItem.title))
     .attr('y', d => {
-      let val = d.values[0].value
+      const val = d.values[0].value
       return yScale(val)
     })
     .attr('height', d => {
-      let val = d.values[0].value
+      const val = d.values[0].value
       return this.size.height - yScale(val)
     })
     .style('fill', dataItem => seriesColor(dataItem.title))

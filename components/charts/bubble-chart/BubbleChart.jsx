@@ -3,6 +3,7 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+import {queryResultFilter} from '../../../lib/queryResultFilter'
 
 export default class BubbleChart extends React.Component {
   static propTypes = {
@@ -25,8 +26,7 @@ export default class BubbleChart extends React.Component {
 
     const dimensionLabels = data.dimensions
 
-    const filteredData = data.rows.filter(item => item.landbakgrunn != '1')
-
+    const filteredData = queryResultFilter(data.rows, 'bubble')
     const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensionLabels), dimensionLabels)
 
     const nodes = bubble.nodes({children: preparedData}).filter(item => !item.children)

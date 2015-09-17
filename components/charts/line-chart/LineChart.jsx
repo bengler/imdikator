@@ -32,8 +32,7 @@ export default class LineChart extends React.Component {
       y.domain([0, 1])
     } else {
       const extent = d3.extent(data.rows, item => parseFloat(item.tabellvariabel))
-      const diff = extent[1] - extent[0]
-      y.domain([Math.max(extent[0] - diff / 2, 0), extent[1] + diff / 2])
+      y.domain(extent)
     }
     yAxis.tickFormat(yAxisFormat)
 
@@ -68,6 +67,7 @@ export default class LineChart extends React.Component {
       return x(dataItem.date)
     })
     .y(dataItem => y(dataItem.value))
+    .defined(dataItem => !isNaN(dataItem.value))
 
     const ss = this.svg.selectAll('g.line-serie')
     .data(preparedData)
@@ -110,13 +110,12 @@ export default class LineChart extends React.Component {
     const focus = svg.append('g')
     .attr('transform', 'translate(-100,-100)')
     .attr('class', 'focus')
-
     focus.append('circle')
     .attr('r', 3.5)
-
     focus.append('text')
     .attr('y', -10)
 
+    // Add a voronoi tesselation for mouseover
     const voronoi = d3.geom.voronoi()
     .x(dataItem => x(dataItem.date))
     .y(dataItem => y(dataItem.value))
@@ -125,9 +124,16 @@ export default class LineChart extends React.Component {
     const voronoiGroup = svg.append('g')
     .attr('class', 'voronoi')
 
+    // Filter out any undefined points on the lines
+    const voronoiPoints = preparedData.map(item => {
+      const vals =  item.values.filter(val => !isNaN(val.value))
+      item.values = vals
+      return item
+    })
+
     const nest = d3.nest().key(item => x(item.date) + ',' + y(item.value))
     .rollup(value => value[0])
-    const voronoiData = nest.entries(d3.merge(preparedData.map(item => item.values)))
+    const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
     voronoiGroup.selectAll('path')

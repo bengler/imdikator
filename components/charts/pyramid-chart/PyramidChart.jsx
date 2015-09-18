@@ -2,125 +2,161 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+
 export default class PyramidChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object
   }
 
   drawPoints(el, data) {
-    if (!data || !data.hasOwnProperty('data') || !data.hasOwnProperty('unit')) {
+    if (!data) {
       return
     }
 
+    // Helper function
+    function translation(x, y) {
+      return 'translate(' + x + ',' + y + ')'
+    }
+
+    // Config
+    const middleMargin = 20
     const svg = this.svg
 
-    const nesting = d3.nest().key(entry => entry.category).key(entry => entry.series).key(entry => entry.dimention)
-    const entries = nesting.entries(data.data)
-    const categories = entries.map(entry => entry.key)
+    // Prepare data
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
-    const dimentions = d3.nest().key(entry => entry.dimention).entries(data.data).map(entry => entry.key)
+    const groups = []
+    preparedData.forEach(item => {
+      item.values.forEach(val => {
+        val.values.forEach(group => {
+          if (groups.indexOf(group.key) == -1) {
+            groups.push(group.key)
+          }
+        })
+      })
+    })
 
-    const seriesNames = d3.nest().key(entry => entry.series).entries(data.data).map(entry => entry.key)
+    const regionWidth = this.size.width / 2 - middleMargin
+    const pointA = regionWidth
+    const pointB = this.size.width - regionWidth
+    const xScale = d3.scale.linear()
 
-    const color = d3.scale.category20().domain(seriesNames)
+    .domain([0, preparedData.maxValue])
+    .range([0, regionWidth])
+    .nice()
 
-    // X axis scale for categories
-    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
+    const yScale = d3.scale.ordinal()
+    .domain(groups)
+    .rangeRoundBands([this.size.height, 0], 0.1)
 
-    // X axis scale for series
-    const x1 = d3.scale.ordinal()
-    x1.domain(seriesNames).rangeRoundBands([0, x0.rangeBand()], 0, 0.1)
+    const yAxisLeft = d3.svg.axis()
+    .scale(yScale)
+    .orient('right')
+    .tickSize(4, 0)
+    .tickPadding(middleMargin - 4)
 
-    // X axis scale for values in a series
-    const x2 = d3.scale.linear()
-    const minMax = [0, d3.max(data.data.map(d => d.value))]
-    x2.domain(minMax).range([0, x1.rangeBand()])
+    const yAxisRight = d3.svg.axis()
+    .scale(yScale)
+    .orient('left')
+    .tickSize(4, 0)
+    .tickFormat('')
 
-    // Add the x axis legend
-    const xAxis = d3.svg.axis().scale(x0).orient('bottom')
+    const xAxisRight = d3.svg.axis()
+    .scale(xScale)
+    .orient('bottom')
+    .tickFormat(d3.format('d'))
+    .ticks(3)
+
+    const xAxisLeft = d3.svg.axis()
+    .scale(xScale.copy().range([pointA, 0]))
+    .orient('bottom')
+    .tickFormat(d3.format('d'))
+    .ticks(3)
+
     svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + this.size.height + ')')
-    .call(xAxis)
-    .selectAll('path, .tick > line')
-    .style('display', 'none')
-    .selectAll('.tick text')
-    .call(this.wrapTextNode, x0.rangeBand())
+    .attr('class', 'axis y left')
+    .attr('transform', translation(pointA, 0))
+    .call(yAxisLeft)
+    .selectAll('text')
+    .style('text-anchor', 'middle')
 
-    // Y axis scale for dimentions
-    const y0 = d3.scale.ordinal().domain(dimentions).rangeRoundBands([this.size.height, 0], 0.25, 0.5)
+    svg.append('g')
+    .attr('class', 'axis y right')
+    .attr('transform', translation(pointB, 0))
+    .call(yAxisRight)
 
-    const category = svg.selectAll('.category')
-    .data(entries)
-    .enter().append('g')
-    .attr('class', dataItem => 'category')
-    .attr('transform', d => 'translate(' + x0(d.key) + ',0)')
+    svg.append('g')
+    .attr('class', 'axis x left')
+    .attr('transform', translation(0, this.size.height))
+    .call(xAxisLeft)
 
-    const series = category.selectAll('.series')
-    .data(d => d.values)
-    .enter().append('g')
-    .attr('class', d => {
-      if (seriesNames.indexOf(d.key) == 0) {
-        return 'series left'
-      }
-      return 'series right'
-    })
-    .attr('alt', dataItem => dataItem.key)
-    .attr('transform', (dataItem, index) => {
-      const xTranslate = x1(dataItem.key)
-      return 'translate(' + xTranslate + ',0)'
-    })
+    svg.append('g')
+    .attr('class', 'axis x right')
+    .attr('transform', translation(pointB, this.size.height))
+    .call(xAxisRight)
 
-    // Add axis to all series
-    const sx0 = d3.scale.linear()
-    sx0.domain(minMax).range([0, x1.rangeBand()])
-    const rightSeriesAxis = d3.svg.axis().scale(sx0).orient('bottom')
-    rightSeriesAxis.tickValues(minMax)
-    svg.selectAll('.series.right')
-    .append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + (this.size.height - 20) + ')')
-    .call(rightSeriesAxis)
+    // The bars
 
-    // Left
-    const sx1 = d3.scale.linear()
-    sx1.domain(minMax.reverse()).range([0, x1.rangeBand()])
-    const leftSeriesAxis = d3.svg.axis().scale(sx1).orient('bottom')
-    leftSeriesAxis.tickValues(rightSeriesAxis.tickValues())
-    svg.selectAll('.series.left')
-    .append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + (this.size.height - 20) + ')')
-    .call(leftSeriesAxis)
+    const color = d3.scale.category20()
 
-    series.selectAll('rect')
-    .data(d => d.values)
+    // Left side
+    const leftBarGroup = svg.append('g')
+    .attr('transform', translation(pointA, 0) + 'scale(-1,1)')
+
+    let vals = preparedData[0].values[0].values
+    leftBarGroup.selectAll('.bar.left')
+    .data(vals)
     .enter().append('rect')
-    .attr('height', dataItem => y0.rangeBand())
-    .attr('width', dataItem => {
-      const value = dataItem.values[0].value
-      return x2(value)
-    })
-    .attr('x', (dataItem, index) => {
-      const seriesIndex = seriesNames.indexOf(dataItem.values[0].series)
-      const value = dataItem.values[0].value
-      if (seriesIndex == 0) {
-        return x1.rangeBand() - x2(value)
-      }
-      return x1(dataItem.key)
-    })
+    .attr('class', 'bar left')
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('width', d => xScale(d.values[0].value))
+    .attr('height', yScale.rangeBand())
+    .attr('fill', d => color('kvinner'))
 
-    .attr('y', d => y0(d.key))
-    .style('fill', dataItem => {
-      const seriesName = dataItem.values[0].series
-      return color(seriesName)
-    })
+    // Right side
+    const rightBarGroup = svg.append('g')
+    .attr('transform', translation(pointB, 0))
 
+    vals = preparedData[0].values[1].values
+    rightBarGroup.selectAll('.bar.right')
+    .data(vals)
+    .enter().append('rect')
+    .attr('class', 'bar right')
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('width', d => xScale(d.values[0].value))
+    .attr('height', yScale.rangeBand())
+    .attr('fill', d => color('menn'))
+
+
+    // Legend
+    const leg = this.legend()
+    .color(color)
+    .attr('width', () => 15)
+    .attr('height', () => 15)
+
+    leg.dispatch.on('legendClick', (item, index) => {})
+    leg.dispatch.on('legendMouseout', (item, index) => {})
+    leg.dispatch.on('legendMouseover', (item, index) => {})
+
+    // Add some space between the x axis labels and the legends
+    const legendBottom = this.size.height + 30
+    svg.append('g')
+    .attr('class', 'legendWrapper')
+    .attr('width', this.size.width)
+    // Place it at the very bottom
+    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    .datum(['kvinner', 'menn'])
+    .call(leg)
   }
 
   render() {
+    const margins = {left: 40, top: 20, right: 40, bottom: 80}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
     )
   }
 

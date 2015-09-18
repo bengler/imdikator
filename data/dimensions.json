@@ -689,7 +689,7 @@
     ]
   },
   {
-    "name": "alder_grupper",
+    "name": "alderGrupper",
     "description": "Aldersinndeling syvdelt",
     "variables": [
       {

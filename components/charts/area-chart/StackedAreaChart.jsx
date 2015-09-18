@@ -87,7 +87,7 @@ export default class StackedAreaChart extends React.Component {
       })
       y.domain([0, maxStackedValue])
       if (data.unit === 'kroner') {
-        yAxis.tickFormat(d3.format("+$,.2f"))
+        yAxis.tickFormat(d3.format('+$,.2f'))
       } else {
         yAxis.tickFormat(d3.format('d'))
       }
@@ -126,6 +126,59 @@ export default class StackedAreaChart extends React.Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series.map(serie => serie.title))
     .call(leg)
+
+    // Voronoi Tesselation hover points
+    const focus = svg.append('g')
+    .attr('transform', 'translate(-100,-100)')
+    .attr('class', 'focus')
+    focus.append('circle')
+    .attr('r', 3.5)
+    focus.append('text')
+    .attr('y', -10)
+
+    // Add a voronoi tesselation for mouseover
+    const voronoi = d3.geom.voronoi()
+    .x(dataItem => x(dataItem.date))
+    .y(dataItem => {
+      return y(dataItem.y + dataItem.y0)
+    })
+    .clipExtent([[0, 0], [this.size.width, this.size.height]])
+
+    const voronoiGroup = svg.append('g')
+    .attr('class', 'voronoi')
+
+    // Filter out any undefined points on the lines
+    const voronoiPoints = series.map(item => {
+      const vals = item.values.filter(val => !isNaN(val.value))
+      item.values = vals
+      return item
+    })
+
+    const nest = d3.nest().key(item => {
+      return x(item.date) + ',' + y(item.y + item.y0)
+    })
+    .rollup(value => value[0])
+    const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
+    .map(item => item.values)
+
+    voronoiGroup.selectAll('path')
+    .data(voronoi(voronoiData))
+    .enter().append('path')
+    .attr('d', item => 'M' + item.join('L') + 'Z')
+    .datum(dataItem => dataItem.point)
+    .style('fill', 'none')
+    .style('stroke', 'none')
+    .style('pointer-events', 'all')
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
+
+    function mouseover(item) {
+      focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.y + item.y0) + ')')
+      focus.select('text').text(item.y + item.y0)
+    }
+    function mouseout(item) {
+      focus.attr('transform', 'translate(-100,-100)')
+    }
   }
 
   render() {

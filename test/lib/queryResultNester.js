@@ -62,6 +62,9 @@ describe('queryResultNester', () => {
   })
 })
 
+// TODO: Test dimensionLabelTitle function directly also?
+// This is kind of an integration test at this point, since
+// nestedQueryResultLabelizer calls that function for the label titles
 describe('nestedQueryResultLabelizer', () => {
   it('recursively adds title properties to nodes', () => {
     const labelized = nestedQueryResultLabelizer([
@@ -71,5 +74,17 @@ describe('nestedQueryResultLabelizer', () => {
     assert.equal(labelized[0].title, '2014')
     assert.equal(labelized[0].values[0].title, 'Norskfødte med innvandrerforeldre')
     assert.equal(labelized[0].values[0].values[0].title, 'Kvinne')
+  })
+
+  it('knows about state names', () => {
+    const nested = queryResultNester([
+      {tilskuddTilKommuner: 'barnehage_tilsk', fylkeId: '03'}
+    ], ['fylkeId', 'tilskuddTilKommuner'])
+
+    const labelized = nestedQueryResultLabelizer(
+      nested
+    , ['fylkeId', 'tilskuddTilKommuner'])
+
+    assert.equal(labelized[0].title, 'Oslo')
   })
 })

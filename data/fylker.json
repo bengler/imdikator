@@ -1,38 +1,38 @@
 [
   {
-    "code": "1",
+    "code": "01",
     "name": "Østfold"
   },
   {
-    "code": "2",
+    "code": "02",
     "name": "Akershus"
   },
   {
-    "code": "3",
+    "code": "03",
     "name": "Oslo"
   },
   {
-    "code": "4",
+    "code": "04",
     "name": "Hedmark"
   },
   {
-    "code": "5",
+    "code": "05",
     "name": "Oppland"
   },
   {
-    "code": "6",
+    "code": "06",
     "name": "Buskerud"
   },
   {
-    "code": "7",
+    "code": "07",
     "name": "Vestfold"
   },
   {
-    "code": "8",
+    "code": "08",
     "name": "Telemark"
   },
   {
-    "code": "9",
+    "code": "09",
     "name": "Aust-Agder"
   },
   {

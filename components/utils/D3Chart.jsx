@@ -32,9 +32,7 @@ export default class D3Chart extends React.Component {
 
   getChartState() {
     return {
-      data: this.props.data,
-      dimensions: this.props.dimensions,
-      unit: this.props.unit,
+      data: this.props.data
     }
   }
 

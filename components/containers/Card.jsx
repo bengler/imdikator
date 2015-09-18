@@ -30,7 +30,7 @@ class Card extends Component {
             return [
               <ChartSelectorList/>,
               <UnitSelection units={units}/>,
-              <ChartComponent data={this.props.data} dimensions={this.props.card.dimensions} unit={"personer"}/>
+              <ChartComponent data={this.props.data}/>
             ]
           }
         })()}

@@ -7,9 +7,7 @@ import d3Chart from './_d3chart'
 export default class D3Chart extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
-    data: React.PropTypes.array,
-    dimensions: React.PropTypes.array,
-    unit: React.PropTypes.string,
+    data: React.PropTypes.object,
     drawPoints: React.PropTypes.func,
     margins: React.PropTypes.object
   }

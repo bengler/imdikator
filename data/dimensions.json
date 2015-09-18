@@ -916,7 +916,7 @@
     ]
   },
   {
-    "name": "tilskudd_til_kommuner",
+    "name": "tilskuddTilKommuner",
     "description": "Tilskuddstype",
     "variables": [
       {

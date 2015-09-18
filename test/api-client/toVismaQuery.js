@@ -1,13 +1,12 @@
 import {assert} from 'chai'
-import expandQuery from '../../lib/api-client/expandQuery'
+import toVismaQuery from '../../lib/api-client/toVismaQuery'
 import examples from './exampleQueries'
 
 describe('Translating to Visma-API compliant queries', () => {
   examples.forEach(example => {
-    describe(example.desc, () => {
+    describe(example.test, () => {
       it('returns expected query', () => {
-
-        const actual = expandQuery(example.query, example.region, example.metadata)
+        const actual = toVismaQuery(example.query)
         assert.deepEqual(example.expect, actual)
       })
     })

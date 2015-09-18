@@ -1,0 +1,52 @@
+{
+  "dimensions": [
+    "innvkat5",
+    "kjonn",
+    "aar"
+  ],
+  "unit": "personer",
+  "rows": [
+    {
+      "tabellvariabel": "72410",
+      "enhet": "personer",
+      "innvkat5": "innvandrere",
+      "kjonn": "0",
+      "aar": "2014"
+    },
+    {
+      "tabellvariabel": "79312",
+      "enhet": "personer",
+      "innvkat5": "innvandrere",
+      "kjonn": "1",
+      "aar": "2014"
+    },
+    {
+      "tabellvariabel": "22455",
+      "enhet": "personer",
+      "innvkat5": "norskfodte_m_innvf",
+      "kjonn": "0",
+      "aar": "2014"
+    },
+    {
+      "tabellvariabel": "23438",
+      "enhet": "personer",
+      "innvkat5": "norskfodte_m_innvf",
+      "kjonn": "1",
+      "aar": "2014"
+    },
+    {
+      "tabellvariabel": "223454",
+      "enhet": "personer",
+      "innvkat5": "bef_u_innv_og_norskf",
+      "kjonn": "0",
+      "aar": "2014"
+    },
+    {
+      "tabellvariabel": "213394",
+      "enhet": "personer",
+      "innvkat5": "bef_u_innv_og_norskf",
+      "kjonn": "1",
+      "aar": "2014"
+    }
+  ]
+}

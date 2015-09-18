@@ -36,12 +36,10 @@ describe('Fetching tables using API client', () => {
     // curl 'http://imdikator-st.azurewebsites.net/api/v1/data/query' -H 'Content-Type: application/json;charset=UTF-8' --data-binary '{"TableName":"introdeltakere","Conditions":{"aar":["2015"],"kjonn":["0","1","alle"]},"Include":["aar","kjonn"],"Exclude":[]}'
     return client.query({
       tableName: 'introdeltakere',
-      conditions: {
-        aar: ['2015'],
-        kjonn: ['0', '1', 'alle']
-      },
-      include: ['aar', 'kjonn'],
-      exclude: []
+      dimensions: [
+        {name: 'aar', variables: ['2015']},
+        {name: 'kjonn', variables: ['0', '1', 'alle']}
+      ]
     })
       .then(assert.ok)
   })

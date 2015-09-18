@@ -41,21 +41,23 @@ describe('Fetching tables using API client', () => {
 
     const query = {
       tableName: 'introdeltakere',
-      conditions: {
-        aar: ['2015'],
-        kjonn: ['0', '1', 'alle']
-      },
-      include: ['aar', 'kjonn'],
-      exclude: []
+      region: 'F16',
+      dimensions: [
+        {name: 'aar', variables: ['2015']},
+        {name: 'kjonn', variables: ['0', '1', 'alle']}
+      ]
     }
 
     return client.query(query)
       .then(() => {
         assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/data/query', {
           TableName: query.tableName,
-          Conditions: query.conditions,
-          Include: query.include,
-          Exclude: query.exclude
+          Conditions: {
+            aar: ['2015'],
+            kjonn: ['0', '1', 'alle'],
+            fylkeId: ['16']
+          },
+          Include: ['tabellvariabel', 'enhet', 'aar', 'kjonn']
         })
       })
   })

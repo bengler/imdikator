@@ -7,176 +7,394 @@
       {
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning",
-        "chartKind": "bar",
-        "table": "befolkninghovedgruppe",
-        "dimensions": [
+        "query": {
+          "tableName": "befolkninghovedgruppe",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "innvkat5",
+              "variables": [
+                "innvandrere",
+                "bef_u_innv_og_norskf",
+                "norskfodte_m_innvf"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat5",
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
-        "chartKind": "bar",
-        "table": "befolkninginnvandringsgrunn",
-        "dimensions": [
+        "query": {
+          "tableName": "befolkninginnvandringsgrunn",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "innvgrunn5",
+              "variables": [
+                "arbeid",
+                "flukt",
+                "familie",
+                "annet_uoppgitt"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvgrunn5",
-            "include": [
-              "arbeid",
-              "flukt",
-              "familie",
-              "annet_uoppgitt"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
-        "chartKind": "bubble",
-        "table": "befolkningopprinnelsesland",
-        "dimensions": [
+        "query": {
+          "tableName": "befolkningopprinnelsesland",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "landbakgrunn"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "landbakgrunn",
-            "exclude": [
-              "1"
-            ],
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bubble",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "name": "befolkning_verdensregion",
         "title": "Opprinnelse - verdensregion",
-        "chartKind": "bubble",
-        "table": "befolkningverdensregion",
-        "dimensions": [
+        "query": {
+          "tableName": "befolkningverdensregion",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "vreg5"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "vreg5",
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bubble",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "name": "befolkning_verdensregion_todelt",
         "title": "Opprinnelse - todelt",
-        "chartKind": "bar",
-        "table": "befolkningverdensregion",
-        "dimensions": [
+        "query": {
+          "tableName": "befolkningverdensregion",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "vreg2"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "vreg2",
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "name": "befolkning_botid",
         "title": "Innvandrernes botid",
-        "chartKind": "bar",
-        "table": "befolkningbotid",
-        "dimensions": [
+        "query": {
+          "tableName": "befolkningbotid",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "botid5",
+              "variables": [
+                "0-4",
+                "5-9",
+                "10+"
+              ]
+            },
+            {
+              "name": "vreg3",
+              "variables": [
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "botid5",
-            "include": [
-              "0-4",
-              "5-9",
-              "10+"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg3",
-            "include": [
-              "1",
-              "2"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "name": "flyktning_botid_flytting",
         "title": "Sekundærflytting blant flyktninger",
-        "chartKind": "bar",
-        "table": "flyktningbotidflytting",
-        "dimensions": [
+        "query": {
+          "tableName": "flyktningbotidflytting",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "botid3",
+              "variables": [
+                "0-4",
+                "5+"
+              ]
+            },
+            {
+              "name": "forsteBosettingskommune",
+              "variables": [
+                "ja",
+                "nei"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "botid3",
-            "include": [
-              "0-4",
-              "5+"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "forsteBosettingskommune",
-            "include": [
-              "ja",
-              "nei"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
+        "issue": "should be line chart – and area chart",
         "name": "bosetting",
         "title": "Bosatte flyktninger",
-        "chartKind": "line",
-        "table": "bosetting",
-        "dimensions": [
+        "query": {
+          "tableName": "bosetting",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "bosetting",
+              "variables": [
+                "anmodning",
+                "vedtak",
+                "bosatt"
+              ]
+            },
+            {
+              "name": "aar"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "bosetting",
-            "include": [
-              "anmodning",
-              "vedtak",
-              "bosatt"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "line",
+            "time": "all"
           },
           {
-            "label": "aar"
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "all",
-        "defaultUnit": "personer",
-        "issue": "should be line chart – and area chart"
+        ]
       }
     ]
   },
@@ -186,395 +404,835 @@
     "groupKind": "mainGroup",
     "cards": [
       {
+        "issue": "should not be stacked (why art thou stacked?)",
         "name": "utdanningsniva",
         "title": "Utdanningsnivå - Grunnskole",
-        "chartKind": "bar",
-        "table": "utdanningsniva",
-        "dimensions": [
+        "query": {
+          "tableName": "utdanningsniva",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "utd_4",
+              "variables": [
+                "grunnskole"
+              ]
+            },
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "utd_4",
-            "include": [
-              "grunnskole"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "should not be stacked (why art thou stacked?)"
+        ]
       },
       {
+        "issue": "should not be stacked (why art thou stacked?)",
         "title": "Utdanningsnivå  - Videregående",
-        "chartKind": "bar",
-        "table": "utdanningsniva",
-        "dimensions": [
+        "query": {
+          "tableName": "utdanningsniva",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "utd_4",
+              "variables": [
+                "vgs"
+              ]
+            },
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "utd_4",
-            "include": [
-              "vgs"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "should not be stacked (why art thou stacked?)"
+        ]
       },
       {
+        "issue": "should not be stacked (why art thou stacked?)",
         "title": "Utdanningsnivå  - Universitet og høyskole",
-        "chartKind": "bar",
-        "table": "utdanningsniva",
-        "dimensions": [
+        "query": {
+          "tableName": "utdanningsniva",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "utd_4",
+              "variables": [
+                "universitet_og_hogskole"
+              ]
+            },
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "utd_4",
-            "include": [
-              "universitet_og_hogskole"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "should not be stacked (why art thou stacked?)"
+        ]
       },
       {
+        "issue": "should not be stacked (why art thou stacked?)",
         "title": "Utdanningsnivå  - Uoppgitt / ingen",
-        "chartKind": "bar",
-        "table": "utdanningsniva",
-        "dimensions": [
+        "query": {
+          "tableName": "utdanningsniva",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "utd_4",
+              "variables": [
+                "uoppgitt_ingen"
+              ]
+            },
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "utd_4",
-            "include": [
-              "uoppgitt_ingen"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "should not be stacked (why art thou stacked?)"
+        ]
       },
       {
+        "issue": "denne virker rett og slett ikke. hvorfor",
         "title": "Antall deltagere i introduksjonsprogram",
-        "chartKind": "stackedBar",
-        "table": "intro_deltakere",
-        "dimensions": [
+        "query": {
+          "tableName": "intro_deltakere",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "stackedBar",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer",
-        "issue": "denne virker rett og slett ikke. hvorfor"
+        ]
       },
       {
         "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
-        "chartKind": "bar",
-        "table": "norsk_prover",
-        "dimensions": [
+        "query": {
+          "tableName": "norsk_prover",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "provetype"
+            },
+            {
+              "name": "spraaknivaa"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "provetype",
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "spraaknivaa",
-            "exclude": [
-              "alle"
-            ],
-            "any": true
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
+        "issue": "behov for sortering!",
         "title": "Norskopplæring - antall deltagere",
-        "chartKind": "stackedBar",
-        "table": "norsk_deltakere",
-        "dimensions": [
+        "query": {
+          "tableName": "norsk_deltakere",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "rettigheter_introlov_nosfk"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "rettigheter_introlov_nosfk",
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "stackedBar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer",
-        "issue": "behov for sortering!"
+        ]
       },
       {
         "title": "Voksne elever i grunnskolen",
-        "chartKind": "bar",
-        "table": "voksne_grunnskole",
-        "dimensions": [
+        "query": {
+          "tableName": "voksne_grunnskole",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "spraak",
+              "variables": [
+                "alle"
+              ]
+            },
+            {
+              "name": "undervisning_grskole"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "spraak",
-            "include": [
-              "alle"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "undervisning_grskole",
-            "any": true
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
+        "issue": "behov for sortering!",
         "title": "Voksne elever i grunnskolen",
-        "chartKind": "bar",
-        "table": "voksne_videregaende",
-        "dimensions": [
+        "query": {
+          "tableName": "voksne_videregaende",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "spraak"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "spraak",
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "behov for sortering!"
+        ]
       },
       {
         "title": "Hve gjorde de etter introduksjonsprogrammet?",
-        "chartKind": "stackedBar",
-        "table": "intro_avslutning_direkte",
-        "dimensions": [
+        "query": {
+          "tableName": "intro_avslutning_direkte",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "avslutning_arsak_8",
+              "variables": [
+                "alle",
+                "kvalifisering",
+                "gr_skole",
+                "utdanning",
+                "arbeid",
+                "sos_stnd",
+                "trygd_annen",
+                "annet"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "avslutning_arsak_8",
-            "include": [
-              "alle",
-              "kvalifisering",
-              "gr_skole",
-              "utdanning",
-              "arbeid",
-              "sos_stnd",
-              "trygd_annen",
-              "annet"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "stackedBar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "title": "Barnehagedeltagelse - Forhold mellom alle og minoriteter",
-        "chartKind": "bar",
-        "table": "barnehagedeltakelse",
-        "dimensions": [
+        "query": {
+          "tableName": "barnehagedeltakelse",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "spraak",
+              "variables": [
+                "alle",
+                "minoritet"
+              ]
+            },
+            {
+              "name": "bhgalder",
+              "variables": [
+                "1-5"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "spraak",
-            "include": [
-              "alle",
-              "minoritet"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "bhgalder",
-            "include": [
-              "1-5"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Alder på minoritetsspråklige i barnehage",
-        "chartKind": "bar",
-        "table": "barnehagedeltakelse",
-        "dimensions": [
+        "query": {
+          "tableName": "barnehagedeltakelse",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "spraak",
+              "variables": [
+                "minoritet"
+              ]
+            },
+            {
+              "name": "bhgalder",
+              "variables": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "spraak",
-            "include": [
-              "minoritet"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "bhgalder",
-            "include": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
+        "issue": "NB: mye mer data på fylkes og muligens også for næringsregioner",
         "title": "Gjennomsnittlige grunnskolepoeng",
-        "chartKind": "bar",
-        "table": "grunnskolepoeng",
-        "dimensions": [
+        "query": {
+          "tableName": "grunnskolepoeng",
+          "unit": "gjennomsnitt",
+          "dimensions": [
+            {
+              "name": "innvkat_4",
+              "variables": [
+                "innvandrere",
+                "bef_u_innv_og_norskf",
+                "norskfodte_m_innvf"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_4",
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "alle"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "gjennomsnitt",
-        "issue": "NB: mye mer data på fylkes og muligens også for næringsregioner"
+        ]
       },
       {
         "title": "Elever i videregående skole (siste 3 år)",
-        "chartKind": "bar",
-        "table": "videregaende_deltakelse",
-        "dimensions": [
+        "query": {
+          "tableName": "videregaende_deltakelse",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "innvkat_4",
+              "variables": [
+                "innvandrere",
+                "bef_u_innv_og_norskf",
+                "norskfodte_m_innvf"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_4",
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "personer"
+        ]
       },
       {
         "title": "Ble ferdig med videregående innen fem år",
-        "chartKind": "bar",
-        "table": "videregaende_fullfort",
-        "dimensions": [
+        "query": {
+          "tableName": "videregaende_fullfort",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat5",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers",
+                "norskfodte_m_innvf",
+                "bef_u_innv_og_norskf"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat5",
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers",
-              "norskfodte_m_innvf",
-              "bef_u_innv_og_norskf"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
+        "issue": "Prosent av personer kan ikke stackes",
         "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
-        "chartKind": "bar",
-        "table": "ungdom_utenfor_opplaring",
-        "dimensions": [
+        "query": {
+          "tableName": "ungdom_utenfor_opplaring",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat5",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers",
+                "norskfodte_m_innvf",
+                "bef_u_innv_og_norskf"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat5",
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers",
-              "norskfodte_m_innvf",
-              "bef_u_innv_og_norskf"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "Prosent av personer kan ikke stackes"
+        ]
       }
     ]
   },
@@ -585,257 +1243,591 @@
     "cards": [
       {
         "title": "Sysselsatte etter innvandringskategori",
-        "chartKind": "bar",
-        "table": "sysselsatte_innvkat",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_innvkat",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Sysselsetting etter alder og innvandringskategori",
-        "chartKind": "bar",
-        "table": "sysselsatte_innvkat_alder",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_innvkat_alder",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "arbeidsalder_18-69"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "arbeidsalder_18-69",
-            "any": true
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Sysselsetting etter innvandringsgrunn",
-        "chartKind": "bar",
-        "table": "sysselsatte_innvandringsgrunn",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_innvandringsgrunn",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvgrunn_5",
+              "variables": [
+                "arbeid",
+                "familie",
+                "flukt",
+                "annet_uoppgitt"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvgrunn_5",
-            "include": [
-              "arbeid",
-              "familie",
-              "flukt",
-              "annet_uoppgitt"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Sysselsatte innvandrere etter botid",
-        "chartKind": "bar",
-        "table": "sysselsatte_botid",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_botid",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "botid_5",
+              "variables": [
+                "0-4",
+                "5-9",
+                "10+"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "botid_5",
-            "include": [
-              "0-4",
-              "5-9",
-              "10+"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
-        "chartKind": "bar",
-        "table": "sysselsatte_botid_land",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_botid_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "botid_3",
+              "variables": [
+                "0-4",
+                "5+"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "botid_3",
-            "include": [
-              "0-4",
-              "5+"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "1",
-              "2"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
-        "chartKind": "bar",
-        "table": "sysselsatte_kjonn_land",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_kjonn_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "vreg_3",
+              "variables": [
+                "1",
+                "2"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "vreg_3",
-            "include": [
-              "1",
-              "2"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
         "title": "Sysselsatte innvandrere etter landbakgrunn",
-        "chartKind": "bar",
-        "table": "sysselsatte_land",
-        "dimensions": [
+        "query": {
+          "tableName": "sysselsatte_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "vreg_9"
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "vreg_9",
-            "any": true
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
-        "chartKind": "bar",
-        "table": "arbledige_innvkat_land",
-        "dimensions": [
+        "query": {
+          "tableName": "arbledige_innvkat_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "befolkningen_ellers"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "lopsided"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
-        "chartKind": "bar",
-        "table": "arbledige_innvkat_land",
-        "dimensions": [
+        "query": {
+          "tableName": "arbledige_innvkat_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "innvandrere"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "lopsided"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
-        "chartKind": "bar",
-        "table": "ikke_arbutd_innvkat_land",
-        "dimensions": [
+        "query": {
+          "tableName": "ikke_arbutd_innvkat_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "befolkningen_ellers"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "lopsided"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
-        "chartKind": "bar",
-        "table": "ikke_arbutd_innvkat_land",
-        "dimensions": [
+        "query": {
+          "tableName": "ikke_arbutd_innvkat_land",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "innvandrere"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "lopsided"
+        ]
       },
       {
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
-        "chartKind": "bar",
-        "table": "ikke_arbutd_innvkat_alder",
-        "dimensions": [
+        "query": {
+          "tableName": "ikke_arbutd_innvkat_alder",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "aldersinndeling_etter_grskole",
+              "variables": [
+                "16-25",
+                "26-66"
+              ]
+            },
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "befolkningen_ellers",
+                "innvandrere"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "aldersinndeling_etter_grskole",
-            "include": [
-              "16-25",
-              "26-66"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "innvkat_3",
-            "include": [
-              "befolkningen_ellers",
-              "innvandrere"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       }
     ]
   },
@@ -845,122 +1837,262 @@
     "groupKind": "mainGroup",
     "cards": [
       {
+        "issue": "lopsided",
         "title": "Inntektsnivå – gjennomsnittsinntekt",
-        "chartKind": "bar",
-        "table": "gjennomsnittsinntekt",
-        "dimensions": [
+        "query": {
+          "tableName": "gjennomsnittsinntekt",
+          "unit": "kroner",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "befolkningen_ellers"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "kroner",
-        "issue": "lopsided"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Inntektsnivå – gjennomsnittsinntekt",
-        "chartKind": "bar",
-        "table": "gjennomsnittsinntekt",
-        "dimensions": [
+        "query": {
+          "tableName": "gjennomsnittsinntekt",
+          "unit": "kroner",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "innvandrere"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "kroner",
-        "issue": "lopsided"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Personer med vedvarende lavinntekt",
-        "chartKind": "bar",
-        "table": "vedvarende_lavinntekt",
-        "dimensions": [
+        "query": {
+          "tableName": "vedvarende_lavinntekt",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "alle",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "alle",
-              "befolkningen_ellers"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "lopsided"
+        ]
       },
       {
+        "issue": "lopsided",
         "title": "Personer med vedvarende lavinntekt",
-        "chartKind": "bar",
-        "table": "vedvarende_lavinntekt",
-        "dimensions": [
+        "query": {
+          "tableName": "vedvarende_lavinntekt",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat_3",
+              "variables": [
+                "innvandrere"
+              ]
+            },
+            {
+              "name": "vreg_3",
+              "variables": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat_3",
-            "include": [
-              "innvandrere"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "vreg_3",
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent",
-        "issue": "lopsided"
+        ]
       },
       {
         "title": "Personer som mottar sosialhjelp",
-        "chartKind": "bar",
-        "table": "sosialhjelp",
-        "dimensions": [
+        "query": {
+          "tableName": "sosialhjelp",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "innvkat5",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers",
+                "norskfodte_m_innvf"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "innvkat5",
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers",
-              "norskfodte_m_innvf"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
-            "label": "kjonn",
-            "include": [
-              "0",
-              "1"
-            ]
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "latest",
-        "defaultUnit": "prosent"
+        ]
       }
     ]
   },
@@ -971,26 +2103,54 @@
     "cards": [
       {
         "title": "Tilskudd",
-        "chartKind": "stackedArea",
-        "table": "tilskudd",
-        "dimensions": [
+        "query": {
+          "tableName": "tilskudd",
+          "unit": "kroner",
+          "dimensions": [
+            {
+              "name": "tilskudd_til_kommuner",
+              "variables": [
+                "inttilsk_1.5",
+                "inttilsk_1",
+                "inttilsk_2.5",
+                "funkhem",
+                "norsk.samf_tilsk",
+                "em_tilsk",
+                "barnehage_tilsk",
+                "eldre_tilsk",
+                "skole_tilsk"
+              ]
+            }
+          ]
+        },
+        "tabs": [
           {
-            "label": "tilskudd_til_kommuner",
-            "include": [
-              "inttilsk_1.5",
-              "inttilsk_1",
-              "inttilsk_2.5",
-              "funkhem",
-              "norsk.samf_tilsk",
-              "em_tilsk",
-              "barnehage_tilsk",
-              "eldre_tilsk",
-              "skole_tilsk"
-            ]
+            "name": "current",
+            "title": "Nåtid",
+            "chartKind": "stackedArea",
+            "time": "all"
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line"
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map"
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark"
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table"
           }
-        ],
-        "time": "all",
-        "defaultUnit": "kroner"
+        ]
       }
     ]
   }

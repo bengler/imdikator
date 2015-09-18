@@ -1,25 +1,18 @@
 import React, {Component, PropTypes} from 'react'
 import ChartSelector from './ChartSelector'
 
-const dataViewTypeTitleMap = {
-  now: 'Nåtid',
-  time: 'Over tid',
-  map: 'Kart',
-  compare: 'Sammenliknet',
-  table: 'Tabell'
-}
-
 export default class ChartSelectorList extends Component {
   static propTypes = {
-    charts: PropTypes.array,
+    card: PropTypes.array,
     onSelectDataView: PropTypes.function
   }
 
   render() {
-    const list = Object.keys(dataViewTypeTitleMap).map(key => {
+    const {card} = this.props
+    const list = card.tabs.map(tab => {
       const buttonEnabled = true
       return (
-        <ChartSelector enabled={buttonEnabled} key={key} title={dataViewTypeTitleMap[key]}/>
+        <ChartSelector enabled={buttonEnabled} onSelectItem={() => this.props.onSelectDataView(tab.name)} key={tab.name} title={tab.title}/>
       )
     })
 

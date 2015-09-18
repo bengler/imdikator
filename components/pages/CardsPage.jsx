@@ -9,8 +9,9 @@ function loadData(props) {
   const {route, dispatch} = props
   const [regionCode] = route.params.region.split('-')
   const {pageName, cardName} = route.params
+  const tabName = route.splat.split('/')[0]
   // This may be hooked up at a higher level
-  dispatch(loadCardPage({pageName, regionCode, activeCardName: cardName}))
+  dispatch(loadCardPage({pageName, regionCode, activeCardName: cardName, activeTabName: tabName}))
   if (cardName) {
     dispatch(openCard(cardName))
   }

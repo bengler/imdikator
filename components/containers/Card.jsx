@@ -7,9 +7,15 @@ import UnitSelection from '../elements/UnitSelection'
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
+    query: PropTypes.object,
     data: PropTypes.object,
-    table: PropTypes.object,
-    isOpen: PropTypes.boolean
+    isOpen: PropTypes.boolean,
+    activeTabName: PropTypes.string,
+    fetchSampleData: PropTypes.function
+  }
+
+  static contextTypes = {
+    linkTo: PropTypes.func
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -17,25 +23,35 @@ class Card extends Component {
   }
 
   render() {
-    const ChartComponent = CHARTS[this.props.card.chartKind]
-    let units = []
-    if (this.props.table) {
-      units = this.props.table.uniqueValues.enhet
+    const {card, activeTabName, data} = this.props
+
+    if (!card) {
+      return null
     }
+
+    if (!card.tabs) {
+      return null
+    }
+
+    const activeTab = card.tabs.find(tab => tab.name == activeTabName) || card.tabs[0]
+
+    const query = this.props.query || card.query
+
+    const ChartComponent = CHARTS[activeTab.chartKind]
     return (
       <div>
-        <h3>{this.props.card.title}</h3>
+        <h3>{card.title}</h3>
         {(() => {
           if (this.props.isOpen == true) {
             return [
-              <ChartSelectorList/>,
-              <UnitSelection units={units}/>,
+              <ChartSelectorList card={card}/>,
+              <UnitSelection units={['personer', 'prosent']}/>,
               <ChartComponent data={this.props.data}/>
             ]
           }
         })()}
         {!this.props.isOpen
-        && <a href={this.props.card.name}>Expand</a>
+        && <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>Expand</a>
         }
       </div>
     )
@@ -43,18 +59,16 @@ class Card extends Component {
 }
 
 function select(state, ownProps) {
-  let data = null
-  if (state.queryResult.hasOwnProperty(ownProps.card.name)) {
-    data = state.queryResult[ownProps.card.name]
-  }
-  let table = null
-  if (state.tables.hasOwnProperty(ownProps.card.table)) {
-    table = state.tables[ownProps.card.table]
-  }
+  const data = state.queryResult[ownProps.card.name]
+  const table = state.tables[ownProps.card.tableName]
+  const query = state.queries[ownProps.card.name]
+
   return {
     isOpen: state.openCards.includes(ownProps.card.name),
     data,
-    table
+    table,
+    query,
+    activeTabName: state.activeTabName
   }
 }
 

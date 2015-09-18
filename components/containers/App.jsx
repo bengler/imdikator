@@ -4,7 +4,18 @@ import {connect} from 'react-redux'
 class App extends Component {
   static propTypes = {
     route: PropTypes.object,
+    router: PropTypes.object,
     dispatch: PropTypes.func
+  }
+
+  static childContextTypes = {
+    linkTo: PropTypes.func
+  }
+
+  getChildContext() {
+    return {
+      linkTo: this.props.router.makeLink
+    }
   }
 
   render() {

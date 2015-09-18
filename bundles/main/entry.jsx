@@ -27,7 +27,7 @@ React.render(
   // to work around an issue in React 0.13.
   <div>
     <Provider store={app}>
-      {() => <App/>}
+      {() => <App router={router}/>}
     </Provider>
 
     {config.reduxDevTools && (

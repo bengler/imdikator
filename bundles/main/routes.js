@@ -8,7 +8,7 @@ export default {
   '/': IndexPage,
   '/debug/charts/': ChartsPage,
   '/debug/charts/:chart': ChartsPage,
-  '/regions/:region/:pageName/:cardName': CardsPage,
-  '/regions/:region': RegionPage,
+  '/steder/:region/:pageName/:cardName/*': CardsPage,
+  '/steder/:region': RegionPage,
   '*': NotFoundPage
 }

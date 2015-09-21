@@ -62,9 +62,10 @@ function select(state, ownProps) {
   const data = state.queryResult[ownProps.card.name]
   const table = state.tables[ownProps.card.tableName]
   const query = state.queries[ownProps.card.name]
+  const isOpen = state.openCards.includes(ownProps.card.name)
 
   return {
-    isOpen: state.openCards.includes(ownProps.card.name),
+    isOpen,
     data,
     table,
     query,

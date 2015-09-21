@@ -4,7 +4,7 @@ import {CHARTS} from '../../config/chartTypes'
 import ChartSelectorList from '../elements/ChartSelectorList'
 import UnitSelection from '../elements/UnitSelection'
 
-import {updateCardQuery} from '../../actions/cards'
+import {performQuery} from '../../actions/cardPages'
 
 class Card extends Component {
   static propTypes = {
@@ -50,7 +50,7 @@ class Card extends Component {
     }
 
     const updateUnit = newUnit => {
-      const newQuery = Object.assign({}, this.props.query, {
+      const newQuery = Object.assign({}, query, {
         unit: newUnit
       })
       this.props.boundUpdateCardQuery(newQuery)
@@ -94,7 +94,7 @@ function select(state, ownProps) {
 
 function actions(dispatch, ownProps) {
   return {
-    boundUpdateCardQuery: query => dispatch(updateCardQuery(ownProps.card.name, query))
+    boundUpdateCardQuery: query => dispatch(performQuery(ownProps.card, query))
   }
 }
 

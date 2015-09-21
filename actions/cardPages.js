@@ -8,7 +8,26 @@ export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 import {RECEIVE_QUERY_RESULT} from '../actions/cards'
 import {RECEIVE_TABLE_HEADERS} from '../actions/table'
 
-export function loadCardPage({regionCode, pageName, activeCardName, activeTabName}) {
+export function performQuery(card, newQuery) {
+  return (dispatch, getState) => {
+    const state = getState()
+
+    const {query} = state
+
+    const srcQuery = Object.assign({}, query, newQuery)
+
+    apiClient.query(srcQuery).then(queryResults => {
+      dispatch({
+        type: RECEIVE_QUERY_RESULT,
+        cardName: card.name,
+        query: srcQuery,
+        data: queryResultPresenter(srcQuery, queryResults, card)
+      })
+    })
+  }
+}
+
+export function loadCardPage({regionCode, pageName, activeCardName, activeTabName, query}) {
   return dispatch => {
     const getCardPage = apiClient.getCardPageByName(pageName)
 
@@ -22,24 +41,24 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return apiClient.getHeadersForTable(activeCard.query.tableName)
     })
 
-    const createQuery = Promise.all([getActiveCard, getHeadersWithValues])
-      .then(([activeCard, headersWithValues]) => {
+    Promise.all([getActiveCard, getHeadersWithValues]).then(([activeCard, headers]) => {
+      dispatch({
+        type: RECEIVE_TABLE_HEADERS,
+        headers,
+        tableName: activeCard.query.tableName
+      })
+    })
 
-        const query = Object.assign({}, activeCard.query)
-        query.region = regionCode
-        query.time = activeTabName === 'naatid' ? 'latest' : 'latest' // todo: implement this properly
-
-        dispatch({
-          type: RECEIVE_TABLE_HEADERS,
-          tableName: query.tableName,
-          headers: headersWithValues
-        })
-
-        return resolveQuery(query, headersWithValues)
+    const getQuery = query ? Promise.resolve(Object.assign({}, query)) : getActiveCard.then(activeCard => Object.assign({}, activeCard.query))
+    const createQuery = Promise.all([getQuery, getHeadersWithValues])
+      .then(([q, headersWithValues]) => {
+        q.region = regionCode
+        q.time = activeTabName === 'naatid' ? 'latest' : 'latest' // todo: implement this properly
+        return resolveQuery(q, headersWithValues)
       })
 
-    const getQueryResults = createQuery.then(query => {
-      return apiClient.query(query)
+    const getQueryResults = createQuery.then(q => {
+      return apiClient.query(q)
     })
 
     Promise

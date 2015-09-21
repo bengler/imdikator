@@ -9,6 +9,7 @@ export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
 export const OPEN_CARD = 'OPEN_CARD'
 export const CLOSE_CARD = 'CLOSE_CARD'
 
+export const UPDATE_CARD_QUERY = 'UPDATE_CARD_QUERY'
 
 export function performCardQuery(card, query) {
   return dispatch => {
@@ -46,6 +47,15 @@ export function closeCard(cardName) {
     })
   }
 }
+
+export function updateCardQuery(cardName, query) {
+  return {
+    type: UPDATE_CARD_QUERY,
+    cardName,
+    query
+  }
+}
+
 
 // Todo: not complete yet
 

@@ -4,14 +4,17 @@ import {CHARTS} from '../../config/chartTypes'
 import ChartSelectorList from '../elements/ChartSelectorList'
 import UnitSelection from '../elements/UnitSelection'
 
+import {updateCardQuery} from '../../actions/cards'
+
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
     query: PropTypes.object,
     data: PropTypes.object,
+    table: PropTypes.object,
     isOpen: PropTypes.boolean,
     activeTabName: PropTypes.string,
-    fetchSampleData: PropTypes.function
+    boundUpdateCardQuery: PropTypes.func
   }
 
   static contextTypes = {
@@ -19,11 +22,12 @@ class Card extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.isOpen
+    const isOpen = nextProps.isOpen
+    return isOpen
   }
 
   render() {
-    const {card, activeTabName, data} = this.props
+    const {card, activeTabName, table, query} = this.props
 
     if (!card) {
       return null
@@ -35,7 +39,22 @@ class Card extends Component {
 
     const activeTab = card.tabs.find(tab => tab.name == activeTabName) || card.tabs[0]
 
-    const query = this.props.query || card.query
+    let units = []
+    if (table && table.uniqueValues) {
+      units = table.uniqueValues.enhet
+    }
+
+    let unit = null
+    if (query) {
+      unit = query.unit
+    }
+
+    const updateUnit = newUnit => {
+      const newQuery = Object.assign({}, this.props.query, {
+        unit: newUnit
+      })
+      this.props.boundUpdateCardQuery(newQuery)
+    }
 
     const ChartComponent = CHARTS[activeTab.chartKind]
     return (
@@ -45,7 +64,7 @@ class Card extends Component {
           if (this.props.isOpen == true) {
             return [
               <ChartSelectorList card={card}/>,
-              <UnitSelection units={['personer', 'prosent']}/>,
+              <UnitSelection selectedUnit={unit} units={units} onChangeUnit={updateUnit}/>,
               <ChartComponent data={this.props.data}/>
             ]
           }
@@ -60,7 +79,7 @@ class Card extends Component {
 
 function select(state, ownProps) {
   const data = state.queryResult[ownProps.card.name]
-  const table = state.tables[ownProps.card.tableName]
+  const table = state.tables[ownProps.card.query.tableName]
   const query = state.queries[ownProps.card.name]
   const isOpen = state.openCards.includes(ownProps.card.name)
 
@@ -73,8 +92,9 @@ function select(state, ownProps) {
   }
 }
 
-function actions(dispatch) {
+function actions(dispatch, ownProps) {
   return {
+    boundUpdateCardQuery: query => dispatch(updateCardQuery(ownProps.card.name, query))
   }
 }
 

@@ -91,7 +91,6 @@ export default class BarChart extends React.Component {
 
     // Add some space between the x axis labels and the legends
     const legendBottom = this.size.height + 30
-    series.push('typically complicated and long data variable description', 'even more', 'stuff', 'that might', 'show up')
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)

@@ -47,7 +47,6 @@ export default class BarChart extends React.Component {
     const yScale = d3.scale.linear().range([this.size.height, 0])
     const yAxis = d3.svg.axis().scale(yScale).orient('left')
 
-    // Percentage scale it (divide the values by 100)
     if (isPercent) {
       yAxis.tickFormat(d3.format('%'))
       yScale.domain([0, 1])
@@ -82,12 +81,12 @@ export default class BarChart extends React.Component {
 
     const leg = this.legend()
     .color(seriesColor)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
 
+    /*
     leg.dispatch.on('legendClick', (item, index) => {})
     leg.dispatch.on('legendMouseout', (item, index) => {})
     leg.dispatch.on('legendMouseover', (item, index) => {})
+    */
 
     // Add some space between the x axis labels and the legends
     const legendBottom = this.size.height + 30

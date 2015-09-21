@@ -27,6 +27,7 @@ export default class PyramidChart extends React.Component {
     const dimensionLabels = data.dimensions
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
+    // Collect unique group keys
     const groups = []
     preparedData.forEach(item => {
       item.values.forEach(val => {
@@ -38,11 +39,14 @@ export default class PyramidChart extends React.Component {
       })
     })
 
-    const regionWidth = this.size.width / 2 - middleMargin
-    const pointA = regionWidth
-    const pointB = this.size.width - regionWidth
-    const xScale = d3.scale.linear()
+    const regions = preparedData.map(item => item.title)
+    const outerXScale = d3.scale.ordinal().rangeRoundBands([0, this.size.width], 0.05, 0).domain(regions)
 
+    const regionWidth = outerXScale.rangeBand() / 2 - middleMargin
+    const pointA = regionWidth
+    const pointB = outerXScale.rangeBand() - regionWidth
+
+    const xScale = d3.scale.linear()
     .domain([0, preparedData.maxValue])
     .range([0, regionWidth])
     .nice()
@@ -75,24 +79,49 @@ export default class PyramidChart extends React.Component {
     .tickFormat(d3.format('d'))
     .ticks(3)
 
-    svg.append('g')
+    // The axis
+    const outerXAxis = d3.svg.axis().scale(outerXScale)
+
+    const outerXAxisEl = svg.append('g')
+    .attr('class', 'axis')
+    .call(outerXAxis)
+    .attr('transform', translation(0, this.size.height))
+
+    outerXAxisEl
+    .select('path')
+    .attr('display', 'none')
+
+    outerXAxisEl
+    .selectAll('line')
+    .remove()
+
+    const category = svg.selectAll('.category')
+    .data(preparedData)
+    .enter()
+    .append('g')
+    .attr('class', 'category')
+    // -25 to make way for the outerXAxis in Y space
+    .attr('transform', (item, i) => translation(outerXScale(item.title), -25))
+
+    category
+    .append('g')
     .attr('class', 'axis y left')
     .attr('transform', translation(pointA, 0))
     .call(yAxisLeft)
     .selectAll('text')
     .style('text-anchor', 'middle')
 
-    svg.append('g')
+    category.append('g')
     .attr('class', 'axis y right')
     .attr('transform', translation(pointB, 0))
     .call(yAxisRight)
 
-    svg.append('g')
+    category.append('g')
     .attr('class', 'axis x left')
     .attr('transform', translation(0, this.size.height))
     .call(xAxisLeft)
 
-    svg.append('g')
+    category.append('g')
     .attr('class', 'axis x right')
     .attr('transform', translation(pointB, this.size.height))
     .call(xAxisRight)
@@ -102,45 +131,45 @@ export default class PyramidChart extends React.Component {
     const color = d3.scale.category20()
 
     // Left side
-    const leftBarGroup = svg.append('g')
+    const leftBarGroup = category.append('g')
     .attr('transform', translation(pointA, 0) + 'scale(-1,1)')
 
-    let vals = preparedData[0].values[0].values
     leftBarGroup.selectAll('.bar.left')
-    .data(vals)
+    .data(item => {
+      return item.values[0].values
+    })
     .enter().append('rect')
     .attr('class', 'bar left')
     .attr('x', 0)
     .attr('y', d => yScale(d.key))
     .attr('width', d => xScale(d.values[0].value))
     .attr('height', yScale.rangeBand())
-    .attr('fill', d => color('kvinner'))
+    .attr('fill', d => color('Kvinner'))
 
     // Right side
-    const rightBarGroup = svg.append('g')
+    const rightBarGroup = category.append('g')
     .attr('transform', translation(pointB, 0))
 
-    vals = preparedData[0].values[1].values
     rightBarGroup.selectAll('.bar.right')
-    .data(vals)
+    .data(item => {
+      return item.values[1].values
+    })
     .enter().append('rect')
     .attr('class', 'bar right')
     .attr('x', 0)
     .attr('y', d => yScale(d.key))
     .attr('width', d => xScale(d.values[0].value))
     .attr('height', yScale.rangeBand())
-    .attr('fill', d => color('menn'))
-
+    .attr('fill', d => color('Menn'))
 
     // Legend
-    const leg = this.legend()
-    .color(color)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
+    const leg = this.legend().color(color)
 
+    /*
     leg.dispatch.on('legendClick', (item, index) => {})
     leg.dispatch.on('legendMouseout', (item, index) => {})
     leg.dispatch.on('legendMouseover', (item, index) => {})
+    */
 
     // Add some space between the x axis labels and the legends
     const legendBottom = this.size.height + 30
@@ -149,12 +178,12 @@ export default class PyramidChart extends React.Component {
     .attr('width', this.size.width)
     // Place it at the very bottom
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
-    .datum(['kvinner', 'menn'])
+    .datum(['Kvinner', 'Menn'])
     .call(leg)
   }
 
   render() {
-    const margins = {left: 40, top: 20, right: 40, bottom: 80}
+    const margins = {left: 0, top: 20, right: 0, bottom: 80}
     return (
       <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
     )

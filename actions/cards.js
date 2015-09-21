@@ -11,8 +11,9 @@ export const CLOSE_CARD = 'CLOSE_CARD'
 
 export const UPDATE_CARD_QUERY = 'UPDATE_CARD_QUERY'
 
-export function performCardQuery(card, query) {
-  return dispatch => {
+export function performCardQuery({table, card, query}) {
+  return (dispatch, getState) => {
+
     dispatch({
       type: REQUEST_CARD_QUERY,
       card: card,

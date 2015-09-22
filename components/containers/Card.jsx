@@ -45,6 +45,7 @@ class Card extends Component {
     if (!activeTab) {
       return null
     }
+
     console.log('active tab is active', activeTab)
 
     let units = []
@@ -58,10 +59,7 @@ class Card extends Component {
     }
 
     const updateUnit = newUnit => {
-      const newQuery = Object.assign({}, query, {
-        unit: newUnit
-      })
-      this.props.boundUpdateCardQuery(newQuery)
+      this.props.dispatch(performQuery(card, activeTab, {unit: newUnit}))
     }
 
     const ChartComponent = CHARTS[activeTab.chartKind]
@@ -98,20 +96,9 @@ function select(state, ownProps) {
     isOpen,
     data,
     tableHeaders,
-    activeTab: activeTab,
+    activeTab,
     query
   }
 }
 
-function actions(dispatch, ownProps) {
-  return {
-    boundUpdateCardQuery: query => dispatch(performQuery(ownProps.card, query))
-  }
-}
-
-// This is the default implementation of mergeProps, included here for informational purposed
-function mergeProps(stateProps, dispatchProps, ownProps) {
-  return Object.assign({}, ownProps, stateProps, dispatchProps)
-}
-
-export default connect(select, actions, mergeProps)(Card)
+export default connect(select)(Card)

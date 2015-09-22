@@ -1,6 +1,7 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
+import {prefixify} from '../lib/regionUtil'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_REGION = 'RECEIVE_REGION'
@@ -8,20 +9,24 @@ export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
 export const RECEIVE_TABLE_HEADERS = 'RECEIVE_TABLE_HEADERS'
 
-export function performQuery(card, newQuery) {
+export function performQuery(card, tab, userQuery) {
   return (dispatch, getState) => {
     const state = getState()
+    const {tableHeaders} = state
 
-    const {query} = state
+    const newQuery = Object.assign({}, card.query, tab.query, userQuery, {
+      region: prefixify(state.region)
+    })
 
-    const srcQuery = Object.assign({}, query, newQuery)
-
-    apiClient.query(srcQuery).then(queryResults => {
+    const resolvedQuery = resolveQuery(newQuery, tableHeaders[newQuery.tableName])
+    apiClient.query(resolvedQuery).then(queryResults => {
       dispatch({
         type: RECEIVE_QUERY_RESULT,
-        cardName: card.name,
-        query: srcQuery,
-        data: queryResultPresenter(srcQuery, queryResults, card)
+        card,
+        tab,
+        userQuery,
+        query: resolvedQuery,
+        data: queryResultPresenter(resolvedQuery, queryResults, tab)
       })
     })
   }

@@ -45,6 +45,7 @@ class Card extends Component {
     if (!activeTab) {
       return null
     }
+    console.log('active tab is active', activeTab)
 
     let units = []
     if (tableHeaders && tableHeaders.uniqueValues) {

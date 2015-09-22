@@ -15,6 +15,10 @@ export default class BarChart extends React.Component {
     }
 
     const dimensionLabels = data.dimensions
+    if (dimensionLabels.length == 1) {
+      // Add a needed second dimension
+      dimensionLabels.push('enhet')
+    }
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg

@@ -14,7 +14,8 @@ class Card extends Component {
     tableHeaders: PropTypes.object,
     activeTab: PropTypes.object,
     isOpen: PropTypes.boolean,
-    boundUpdateCardQuery: PropTypes.func
+    boundUpdateCardQuery: PropTypes.func,
+    dispatch: PropTypes.func
   }
 
   static contextTypes = {

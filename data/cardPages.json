@@ -43,7 +43,17 @@
             "chartKind": "line",
             "query": {
               "tableName": "befolkninghovedgruppetidsserie",
-              "time": "all"
+              "time": "all",
+              "dimensions": [
+                {
+                  "name": "innvkat5",
+                  "variables": [
+                    "innvandrere",
+                    "bef_u_innv_og_norskf",
+                    "norskfodte_m_innvf"
+                  ]
+                }
+              ]
             }
           },
           {

@@ -27,6 +27,11 @@ class CardsPage extends Component {
     cards: PropTypes.array
   }
 
+  static contextTypes = {
+    linkTo: PropTypes.func,
+    goTo: PropTypes.func
+  }
+
   componentWillMount() {
     loadData(this.props)
   }
@@ -38,7 +43,7 @@ class CardsPage extends Component {
   }
 
   render() {
-    const {pageConfig, region} = this.props
+    const {pageConfig, region, openCards} = this.props
     if (!pageConfig || !region) {
       return <div>Loading...</div>
     }
@@ -46,9 +51,11 @@ class CardsPage extends Component {
       <div>
         <h2>{pageConfig.title} i {region.name}</h2>
         {pageConfig.cards.map(card => {
+          const isOpen = openCards.includes(card.name)
           return (
             <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-              <Card card={card}/>
+              {!isOpen && <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>Expand</a>}
+              {isOpen && <Card card={card}/>}
             </div>
           )
         })}
@@ -63,7 +70,8 @@ function mapStateToProps(state) {
   return {
     //currentCard: state.cards.find(card => card.name == state.currentCard),
     pageConfig: state.cardPage,
-    region: state.region
+    region: state.region,
+    openCards: state.openCards
   }
 }
 

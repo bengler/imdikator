@@ -12,8 +12,8 @@ class Card extends Component {
     query: PropTypes.object,
     data: PropTypes.object,
     tableHeaders: PropTypes.object,
+    activeTab: PropTypes.object,
     isOpen: PropTypes.boolean,
-    activeTabName: PropTypes.string,
     boundUpdateCardQuery: PropTypes.func
   }
 
@@ -32,7 +32,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTabName, tableHeaders, query} = this.props
+    const {card, activeTab, tableHeaders, query} = this.props
 
     if (!card) {
       return null
@@ -42,7 +42,9 @@ class Card extends Component {
       return null
     }
 
-    const activeTab = card.tabs.find(tab => tab.name == activeTabName) || card.tabs[0]
+    if (!activeTab) {
+      return null
+    }
 
     let units = []
     if (tableHeaders && tableHeaders.uniqueValues) {
@@ -74,9 +76,6 @@ class Card extends Component {
             ]
           }
         })()}
-        {!this.props.isOpen
-        && <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>Expand</a>
-        }
       </div>
     )
   }
@@ -89,7 +88,7 @@ function select(state, ownProps) {
     return {}
   }
 
-  const {query, data} = cardState
+  const {query, activeTab, data} = cardState
 
   const tableHeaders = state.tableHeaders[query.tableName]
   const isOpen = state.openCards.includes(ownProps.card.name)
@@ -98,8 +97,8 @@ function select(state, ownProps) {
     isOpen,
     data,
     tableHeaders,
-    query,
-    activeTabName: state.activeTabName
+    activeTab: activeTab,
+    query
   }
 }
 

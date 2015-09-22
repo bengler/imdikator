@@ -37,37 +37,38 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return cardPage.cards.find(card => card.name === activeCardName)
     })
 
-    const getHeadersWithValues = getActiveCard.then(activeCard => {
-      return apiClient.getHeadersForTable(activeCard.query.tableName)
+    const getTabQuery = getActiveCard.then(activeCard => {
+      const activeTab = activeCard.tabs.find(tab => tab.name == activeTabName)
+      return Object.assign({}, activeCard.query, activeTab.query, query, {
+        region: regionCode
+      })
     })
 
-    Promise.all([getActiveCard, getHeadersWithValues]).then(([activeCard, headers]) => {
+    const getHeadersWithValues = getTabQuery.then(tabQuery => {
+      return apiClient.getHeadersForTable(tabQuery.tableName)
+    })
+
+    Promise.all([getTabQuery, getHeadersWithValues]).then(([tabQuery, headers]) => {
       dispatch({
         type: RECEIVE_TABLE_HEADERS,
         headers,
-        tableName: activeCard.query.tableName
+        tableName: tabQuery.tableName
       })
     })
 
-    const getQuery = query ? Promise.resolve(Object.assign({}, query)) : getActiveCard.then(activeCard => activeCard.query)
-
-    const createQuery = Promise
-      .all([getActiveCard, getQuery, getHeadersWithValues])
-      .then(([activeCard, currentQuery, headersWithValues]) => {
-        const activeTab = activeCard.tabs.find(tab => tab.name == activeTabName)
-        const queryWithTimeAndRegion = Object.assign({}, currentQuery)
-        queryWithTimeAndRegion.region = regionCode
-        queryWithTimeAndRegion.time = activeTab.time
-        return resolveQuery(queryWithTimeAndRegion, headersWithValues)
+    const queryResolved = Promise
+      .all([getTabQuery, getHeadersWithValues])
+      .then(([tabQuery, headersWithValues]) => {
+        return resolveQuery(tabQuery, headersWithValues)
       })
 
-    const getQueryResults = createQuery.then(q => {
-      return apiClient.query(q)
+    const getQueryResults = queryResolved.then(resolvedQuery => {
+      return apiClient.query(resolvedQuery)
     })
 
     Promise
-      .all([createQuery, getCardPage, getRegion, getQueryResults])
-      .then(([srcQuery, cardPage, region, queryResults]) => {
+      .all([queryResolved, getCardPage, getRegion, getQueryResults])
+      .then(([resolvedQuery, cardPage, region, queryResults]) => {
         dispatch({
           type: RECEIVE_CARD_PAGE_DATA,
           cardPage,
@@ -79,8 +80,8 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
         dispatch({
           type: RECEIVE_QUERY_RESULT,
           cardName: activeCardName,
-          query: srcQuery,
-          data: queryResultPresenter(srcQuery, queryResults, config)
+          query: resolvedQuery,
+          data: queryResultPresenter(resolvedQuery, queryResults, config)
         })
       })
   }

@@ -10,7 +10,7 @@ export default class RegionPage extends Component {
       <div>
         IndexPage
         <pre>{JSON.stringify(this.props.route, null, 2)}</pre>
-        <a href="/steder/k0301-Oslo/befolkning/befolkning_hovedgruppe/naatid">/k0301-Oslo/befolkning/befolkning_hovedgruppe/naatid</a>
+        <a href="/steder/k0301-Oslo/befolkning/befolkning_hovedgruppe/latest">/k0301-Oslo/befolkning/befolkning_hovedgruppe/latest</a>
         <br/>
         <br/>
       </div>

@@ -30,7 +30,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -38,22 +38,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -84,7 +88,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -92,22 +96,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -125,7 +133,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bubble",
             "time": "latest"
@@ -133,22 +141,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -166,7 +178,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bubble",
             "time": "latest"
@@ -174,22 +186,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -214,7 +230,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -222,22 +238,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -267,7 +287,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -275,22 +295,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -319,7 +343,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -327,22 +351,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -361,38 +389,39 @@
                 "vedtak",
                 "bosatt"
               ]
-            },
-            {
-              "name": "aar"
             }
           ]
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
-            "chartKind": "line",
-            "time": "all"
+            "chartKind": "bar",
+            "time": "latest"
           },
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       }
@@ -436,7 +465,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -444,22 +473,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -495,7 +528,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -503,22 +536,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -554,7 +591,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -562,22 +599,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -613,7 +654,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -621,22 +662,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -658,7 +703,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "stackedBar",
             "time": "latest"
@@ -666,22 +711,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -701,7 +750,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -709,22 +758,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -749,7 +802,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "stackedBar",
             "time": "latest"
@@ -757,22 +810,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -795,7 +852,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -803,22 +860,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -836,7 +897,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -844,22 +905,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -893,7 +958,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "stackedBar",
             "time": "latest"
@@ -901,22 +966,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -943,7 +1012,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -951,22 +1020,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -996,7 +1069,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1004,22 +1077,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1048,7 +1125,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1056,22 +1133,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1100,7 +1181,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1108,22 +1189,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1153,7 +1238,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1161,22 +1246,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1207,7 +1296,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1215,22 +1304,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       }
@@ -1258,7 +1351,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1266,22 +1359,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1305,7 +1402,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1313,22 +1410,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1358,7 +1459,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1366,22 +1467,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1403,7 +1508,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1411,22 +1516,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1454,7 +1563,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1462,22 +1571,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1505,7 +1618,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1513,22 +1626,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1545,7 +1662,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1553,22 +1670,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1596,7 +1717,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1604,22 +1725,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1648,7 +1773,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1656,22 +1781,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1699,7 +1828,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1707,22 +1836,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1751,7 +1884,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1759,22 +1892,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1802,7 +1939,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1810,22 +1947,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       }
@@ -1860,7 +2001,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1868,22 +2009,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1912,7 +2057,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1920,22 +2065,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -1963,7 +2112,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -1971,22 +2120,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -2015,7 +2168,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -2023,22 +2176,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       },
@@ -2067,7 +2224,7 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "bar",
             "time": "latest"
@@ -2075,22 +2232,26 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       }
@@ -2125,30 +2286,34 @@
         },
         "tabs": [
           {
-            "name": "current",
+            "name": "latest",
             "title": "Nåtid",
             "chartKind": "stackedArea",
-            "time": "all"
+            "time": "latest"
           },
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line"
+            "chartKind": "line",
+            "time": "all"
           },
           {
             "name": "map",
             "title": "Kart",
-            "chartKind": "map"
+            "chartKind": "map",
+            "time": "latest"
           },
           {
             "name": "benchmark",
             "title": "Sammenliknet",
-            "chartKind": "benchmark"
+            "chartKind": "benchmark",
+            "time": "all"
           },
           {
             "name": "table",
             "title": "Tabell",
-            "chartKind": "table"
+            "chartKind": "table",
+            "time": "all"
           }
         ]
       }

@@ -4,8 +4,8 @@ import {queryResultPresenter} from '../lib/queryResultPresenter'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
+export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
 
-import {RECEIVE_QUERY_RESULT} from '../actions/cards'
 import {RECEIVE_TABLE_HEADERS} from '../actions/table'
 
 export function performQuery(card, newQuery) {
@@ -49,12 +49,16 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       })
     })
 
-    const getQuery = query ? Promise.resolve(Object.assign({}, query)) : getActiveCard.then(activeCard => Object.assign({}, activeCard.query))
-    const createQuery = Promise.all([getQuery, getHeadersWithValues])
-      .then(([q, headersWithValues]) => {
-        q.region = regionCode
-        q.time = activeTabName === 'naatid' ? 'latest' : 'latest' // todo: implement this properly
-        return resolveQuery(q, headersWithValues)
+    const getQuery = query ? Promise.resolve(Object.assign({}, query)) : getActiveCard.then(activeCard => activeCard.query)
+
+    const createQuery = Promise
+      .all([getActiveCard, getQuery, getHeadersWithValues])
+      .then(([activeCard, currentQuery, headersWithValues]) => {
+        const activeTab = activeCard.tabs.find(tab => tab.name == activeTabName)
+        const queryWithTimeAndRegion = Object.assign({}, currentQuery)
+        queryWithTimeAndRegion.region = regionCode
+        queryWithTimeAndRegion.time = activeTab.time
+        return resolveQuery(queryWithTimeAndRegion, headersWithValues)
       })
 
     const getQueryResults = createQuery.then(q => {

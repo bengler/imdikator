@@ -37,8 +37,11 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return cardPage.cards.find(card => card.name === activeCardName)
     })
 
-    const getTabQuery = getActiveCard.then(activeCard => {
-      const activeTab = activeCard.tabs.find(tab => tab.name == activeTabName)
+    const getActiveTab = getActiveCard.then(card => {
+      return card.tabs.find(tab => tab.name === (activeTabName || 'latest'))
+    })
+
+    const getTabQuery = Promise.all([getActiveCard, getActiveTab]).then(([activeCard, activeTab]) => {
       return Object.assign({}, activeCard.query, activeTab.query, query, {
         region: regionCode
       })

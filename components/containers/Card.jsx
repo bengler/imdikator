@@ -89,7 +89,7 @@ function select(state, ownProps) {
     return {}
   }
 
-  const {query, activeTab, data} = cardState
+  const {query, data} = cardState
 
   const tableHeaders = state.tableHeaders[query.tableName]
   const isOpen = state.openCards.includes(ownProps.card.name)

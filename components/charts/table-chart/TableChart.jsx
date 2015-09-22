@@ -1,7 +1,6 @@
 import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
-import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class TableChart extends React.Component {
   static propTypes = {

@@ -24,7 +24,8 @@ class CardsPage extends Component {
     currentCard: PropTypes.object,
     pageConfig: PropTypes.object,
     region: PropTypes.object,
-    cards: PropTypes.array
+    cards: PropTypes.array,
+    openCards: PropTypes.array
   }
 
   static contextTypes = {

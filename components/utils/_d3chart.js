@@ -3,43 +3,55 @@ import d3 from 'd3'
 class Chart {
   constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}) {
 
-    // TODO: https://css-tricks.com/scale-svg/
-    const svg = d3.select(el).append('svg')
-    .attr('class', 'd3')
-    .attr('width', props.width)
-    .attr('height', props.height)
-
-    // Conventional margins (http://bl.ocks.org/mbostock/3019563)
-    // Translating an outer 'g' so we dont have to consider margins in the rest
-    // of the code
-    svg.append('g')
-    .attr('class', 'd3-points')
-    .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')')
-
-    this.svg = d3.select(el).select('svg g')
+    // _svg is the actual SVG element
+    this._svg = null
+    // svg is a translated 'g' within _svg that all graphs draw to
+    this.svg = null
 
     this.size = {
       width: el.offsetWidth - margins.left - margins.right,
       height: el.offsetHeight - margins.top - margins.bottom
     }
 
+    this.props = props
+
     this.margins = margins
 
     this._drawPoints = drawPoints
     this.update(el, state)
-
   }
 
-  _drawPoints(el, data) {
-
-  }
+  _drawPoints(el, data) {}
 
   update(el, state) {
+    // We don't support redrawing on top of old graphs, so just remove any
+    // previous presentation
+    if (this._svg) {
+      this._svg.remove()
+    }
+
+    // TODO: https://css-tricks.com/scale-svg/
+    this._svg = d3.select(el).append('svg')
+    .attr('class', 'd3')
+    .attr('width', this.props.width)
+    .attr('height', this.props.height)
+
+    // Conventional margins (http://bl.ocks.org/mbostock/3019563)
+    // Translating an outer 'g' so we dont have to consider margins in the rest
+    // of the code
+    this.svg = this._svg.append('g')
+    .attr('class', 'd3-points')
+    .attr('transform', this.translation(this.margins.left, this.margins.top))
+
     this._drawPoints(el, state.data)
   }
 
   destroy(el) {
 
+  }
+
+  translation(x, y) {
+    return 'translate(' + x + ',' + y + ')'
   }
 
   legend() {

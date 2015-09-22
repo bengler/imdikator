@@ -14,11 +14,6 @@ export default class PyramidChart extends React.Component {
       return
     }
 
-    // Helper function
-    function translation(x, y) {
-      return 'translate(' + x + ',' + y + ')'
-    }
-
     // Config
     const middleMargin = 20
     const svg = this.svg
@@ -85,7 +80,7 @@ export default class PyramidChart extends React.Component {
     const outerXAxisEl = svg.append('g')
     .attr('class', 'axis')
     .call(outerXAxis)
-    .attr('transform', translation(0, this.size.height))
+    .attr('transform', this.translation(0, this.size.height))
 
     outerXAxisEl
     .select('path')
@@ -101,29 +96,29 @@ export default class PyramidChart extends React.Component {
     .append('g')
     .attr('class', 'category')
     // -25 to make way for the outerXAxis in Y space
-    .attr('transform', (item, i) => translation(outerXScale(item.title), -25))
+    .attr('transform', (item, i) => this.translation(outerXScale(item.title), -25))
 
     category
     .append('g')
     .attr('class', 'axis y left')
-    .attr('transform', translation(pointA, 0))
+    .attr('transform', this.translation(pointA, 0))
     .call(yAxisLeft)
     .selectAll('text')
     .style('text-anchor', 'middle')
 
     category.append('g')
     .attr('class', 'axis y right')
-    .attr('transform', translation(pointB, 0))
+    .attr('transform', this.translation(pointB, 0))
     .call(yAxisRight)
 
     category.append('g')
     .attr('class', 'axis x left')
-    .attr('transform', translation(0, this.size.height))
+    .attr('transform', this.translation(0, this.size.height))
     .call(xAxisLeft)
 
     category.append('g')
     .attr('class', 'axis x right')
-    .attr('transform', translation(pointB, this.size.height))
+    .attr('transform', this.translation(pointB, this.size.height))
     .call(xAxisRight)
 
     // The bars
@@ -132,7 +127,7 @@ export default class PyramidChart extends React.Component {
 
     // Left side
     const leftBarGroup = category.append('g')
-    .attr('transform', translation(pointA, 0) + 'scale(-1,1)')
+    .attr('transform', this.translation(pointA, 0) + 'scale(-1,1)')
 
     leftBarGroup.selectAll('.bar.left')
     .data(item => {
@@ -148,7 +143,7 @@ export default class PyramidChart extends React.Component {
 
     // Right side
     const rightBarGroup = category.append('g')
-    .attr('transform', translation(pointB, 0))
+    .attr('transform', this.translation(pointB, 0))
 
     rightBarGroup.selectAll('.bar.right')
     .data(item => {

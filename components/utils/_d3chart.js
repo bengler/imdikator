@@ -31,6 +31,7 @@ class Chart {
     }
 
     // TODO: https://css-tricks.com/scale-svg/
+    // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
     .attr('class', 'd3')
     .attr('width', this.props.width)

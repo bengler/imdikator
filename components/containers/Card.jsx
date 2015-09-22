@@ -18,12 +18,17 @@ class Card extends Component {
   }
 
   static contextTypes = {
-    linkTo: PropTypes.func
+    linkTo: PropTypes.func,
+    goTo: PropTypes.func
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     const isOpen = nextProps.isOpen
     return isOpen
+  }
+
+  handleChangeTab(newTabName) {
+    this.context.goTo(`/steder/:region/:pageName/:cardName/${newTabName}`)
   }
 
   render() {
@@ -63,7 +68,7 @@ class Card extends Component {
         {(() => {
           if (this.props.isOpen == true) {
             return [
-              <ChartSelectorList card={card}/>,
+              <ChartSelectorList card={card} onSelectDataView={this.handleChangeTab.bind(this)}/>,
               <UnitSelection selectedUnit={unit} units={units} onChangeUnit={updateUnit}/>,
               <ChartComponent data={this.props.data}/>
             ]

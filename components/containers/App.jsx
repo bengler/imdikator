@@ -9,12 +9,17 @@ class App extends Component {
   }
 
   static childContextTypes = {
-    linkTo: PropTypes.func
+    linkTo: PropTypes.func,
+    goTo: PropTypes.func
   }
 
   getChildContext() {
+    const {router} = this.props
     return {
-      linkTo: this.props.router.makeLink
+      linkTo: router.makeLink,
+      goTo: (...args) => {
+        router.navigate(router.makeLink(...args))
+      }
     }
   }
 

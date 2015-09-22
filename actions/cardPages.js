@@ -3,10 +3,10 @@ import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
 
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
+export const RECEIVE_REGION = 'RECEIVE_REGION'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
-
-import {RECEIVE_TABLE_HEADERS} from '../actions/table'
+export const RECEIVE_TABLE_HEADERS = 'RECEIVE_TABLE_HEADERS'
 
 export function performQuery(card, newQuery) {
   return (dispatch, getState) => {
@@ -38,7 +38,7 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
     })
 
     const getActiveTab = getActiveCard.then(card => {
-      return card.tabs.find(tab => tab.name === (activeTabName || 'latest'))
+      return card.tabs.find(tab => tab.name === activeTabName)
     })
 
     const getTabQuery = Promise.all([getActiveCard, getActiveTab]).then(([activeCard, activeTab]) => {
@@ -51,14 +51,6 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return apiClient.getHeadersForTable(tabQuery.tableName)
     })
 
-    Promise.all([getTabQuery, getHeadersWithValues]).then(([tabQuery, headers]) => {
-      dispatch({
-        type: RECEIVE_TABLE_HEADERS,
-        headers,
-        tableName: tabQuery.tableName
-      })
-    })
-
     const queryResolved = Promise
       .all([getTabQuery, getHeadersWithValues])
       .then(([tabQuery, headersWithValues]) => {
@@ -69,22 +61,37 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return apiClient.query(resolvedQuery)
     })
 
+    getRegion.then(region => {
+      dispatch({
+        type: RECEIVE_REGION,
+        region
+      })
+    })
+
+    Promise.all([getTabQuery, getHeadersWithValues]).then(([tabQuery, headers]) => {
+      dispatch({
+        type: RECEIVE_TABLE_HEADERS,
+        headers,
+        tableName: tabQuery.tableName
+      })
+    })
+
+    getCardPage.then(cardPage => {
+      dispatch({
+        type: RECEIVE_CARD_PAGE_DATA,
+        cardPage
+      })
+    })
+
     Promise
-      .all([queryResolved, getCardPage, getRegion, getQueryResults])
-      .then(([resolvedQuery, cardPage, region, queryResults]) => {
-        dispatch({
-          type: RECEIVE_CARD_PAGE_DATA,
-          cardPage,
-          region
-        })
-
-        const config = cardPage.cards.find(card => card.name === activeCardName)
-
+      .all([queryResolved, getActiveCard, getActiveTab, getRegion, getQueryResults])
+      .then(([resolvedQuery, activeCard, activeTab, region, queryResults]) => {
         dispatch({
           type: RECEIVE_QUERY_RESULT,
-          cardName: activeCardName,
+          card: activeCard,
+          tab: activeTab,
           query: resolvedQuery,
-          data: queryResultPresenter(resolvedQuery, queryResults, config)
+          data: queryResultPresenter(resolvedQuery, queryResults, activeTab)
         })
       })
   }

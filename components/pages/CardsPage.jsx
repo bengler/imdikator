@@ -9,7 +9,7 @@ function loadData(props) {
   const {route, dispatch} = props
   const [regionCode] = route.params.region.split('-')
   const {pageName, cardName} = route.params
-  const tabName = route.splat.split('/')[0] || null
+  const tabName = route.splat.split('/')[0] || 'latest'
   // This may be hooked up at a higher level
   dispatch(loadCardPage({pageName, regionCode, activeCardName: cardName, activeTabName: tabName}))
   if (cardName) {

@@ -11,7 +11,7 @@ class Card extends Component {
     card: PropTypes.object,
     query: PropTypes.object,
     data: PropTypes.object,
-    table: PropTypes.object,
+    tableHeaders: PropTypes.object,
     isOpen: PropTypes.boolean,
     activeTabName: PropTypes.string,
     boundUpdateCardQuery: PropTypes.func
@@ -32,7 +32,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTabName, table, query} = this.props
+    const {card, activeTabName, tableHeaders, query} = this.props
 
     if (!card) {
       return null
@@ -45,8 +45,8 @@ class Card extends Component {
     const activeTab = card.tabs.find(tab => tab.name == activeTabName) || card.tabs[0]
 
     let units = []
-    if (table && table.uniqueValues) {
-      units = table.uniqueValues.enhet
+    if (tableHeaders && tableHeaders.uniqueValues) {
+      units = tableHeaders.uniqueValues.enhet
     }
 
     let unit = null
@@ -83,15 +83,21 @@ class Card extends Component {
 }
 
 function select(state, ownProps) {
-  const data = state.queryResult[ownProps.card.name]
-  const table = state.tables[ownProps.card.query.tableName]
-  const query = state.queries[ownProps.card.name]
+  const cardState = state.cardState[ownProps.card.name]
+
+  if (!cardState) {
+    return {}
+  }
+
+  const {query, activeTab, data} = cardState
+
+  const tableHeaders = state.tableHeaders[query.tableName]
   const isOpen = state.openCards.includes(ownProps.card.name)
 
   return {
     isOpen,
     data,
-    table,
+    tableHeaders,
     query,
     activeTabName: state.activeTabName
   }

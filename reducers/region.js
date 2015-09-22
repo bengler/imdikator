@@ -1,8 +1,8 @@
-import {RECEIVE_CARD_PAGE_DATA} from '../actions/cardPages'
+import {RECEIVE_REGION} from '../actions/cardPages'
 
 export default function region(state = null, action) {
   switch (action.type) {
-    case RECEIVE_CARD_PAGE_DATA:
+    case RECEIVE_REGION:
       return action.region
     default:
       return state

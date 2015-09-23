@@ -21,6 +21,7 @@
     "import/export": 2
   },
   "settings": {
+    "import/parser": "babel-eslint",
     "import/resolve": {
       "extensions": [".js", ".jsx", ".json"]
     }

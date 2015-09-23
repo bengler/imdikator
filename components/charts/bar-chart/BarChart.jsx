@@ -64,13 +64,15 @@ export default class BarChart extends React.Component {
 
     const category = svg.selectAll('.category')
     .data(preparedData)
-    .enter().append('g')
+    .enter()
+    .append('g')
     .attr('class', 'category')
     .attr('transform', d => 'translate(' + x0(d.title) + ',0)')
 
-    category.selectAll('rect')
+    category.selectAll('rect.bar')
     .data(d => d.values)
     .enter().append('rect')
+    .attr('class', 'bar')
     .attr('width', x1.rangeBand())
     .attr('x', dataItem => x1(dataItem.title))
     .attr('y', d => {
@@ -88,6 +90,44 @@ export default class BarChart extends React.Component {
       return this.size.height - yScale(val)
     })
     .style('fill', dataItem => seriesColor(dataItem.title))
+
+    // Hover and popover
+    const focus = svg.append('g')
+    .attr('transform', 'translate(-100,-100)')
+    .attr('class', 'focus')
+    focus.append('text')
+    .attr('y', -10)
+
+    category.selectAll('rect.hover')
+    .data(d => d.values)
+    .enter().append('rect')
+    .attr('class', 'hover')
+    .attr('width', x1.rangeBand())
+    .attr('x', dataItem => x1(dataItem.title))
+    .attr('y', d => {
+      return 0
+    })
+    .attr('height', d => {
+      return this.size.height - yScale(preparedData.maxValue)
+    })
+    .attr('pointer-events', 'all')
+    .style('fill', 'none')
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
+
+    function mouseover(item) {
+      // console.log(item)
+      /*
+      focus.attr('transform', 'translate(' + x0(val.innvkat5) + ',' + yScale(val.value) + ')')
+      focus.select('text').text(val.value)
+      */
+    }
+    function mouseout(item) {
+      /*
+      focus.attr('transform', 'translate(-100,-100)')
+      */
+    }
+
 
     const leg = this.legend()
     .color(seriesColor)

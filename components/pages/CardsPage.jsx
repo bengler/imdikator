@@ -8,8 +8,7 @@ import {openCard} from '../../actions/cards'
 function loadData(props) {
   const {route, dispatch} = props
   const [regionCode] = route.params.region.split('-')
-  const {pageName, cardName} = route.params
-  const tabName = route.splat.split('/')[0] || 'latest'
+  const {pageName, cardName, tabName = 'latest'} = route.params
   // This may be hooked up at a higher level
   dispatch(loadCardPage({pageName, regionCode, activeCardName: cardName, activeTabName: tabName}))
   if (cardName) {
@@ -55,9 +54,13 @@ class CardsPage extends Component {
           const isOpen = openCards.includes(card.name)
           return (
             <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-              {!isOpen && <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>
-                <h3>{card.title}</h3>
-              </a>}
+              {!isOpen && (
+                <h3>
+                  <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>
+                    {card.title}
+                  </a>
+                </h3>
+              )}
               {isOpen && <Card card={card}/>}
             </div>
           )

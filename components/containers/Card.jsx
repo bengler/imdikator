@@ -29,7 +29,7 @@ class Card extends Component {
   }
 
   handleChangeTab(newTabName) {
-    this.context.goTo(`/steder/:region/:pageName/:cardName/${newTabName}`)
+    this.context.goTo(`/steder/:region/:pageName/:cardName/:tabName`, {tabName: newTabName})
   }
 
   render() {

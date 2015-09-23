@@ -22,8 +22,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "0",
-                "1"
+                "alle"
               ]
             }
           ]
@@ -40,7 +39,7 @@
           {
             "name": "chronological",
             "title": "Over tid",
-            "chartKind": "line",
+            "chartKind": "stackedArea",
             "query": {
               "tableName": "befolkninghovedgruppetidsserie",
               "time": "all",

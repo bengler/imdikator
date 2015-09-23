@@ -22,6 +22,10 @@ const fylker = parsedRegions
     Fylkenr: 'code',
     Fylkenavn: 'name'
   }))
+  .map(fylke => {
+    fylke.type = 'fylke'
+    return fylke
+  })
   .toArray()
   .flatMap(serializeTo('./data/fylker.json'))
 
@@ -43,6 +47,7 @@ const kommuner = parsedRegions
     if (kommune.name === 'Oslo kommune') {
       kommune.name = 'Oslo'
     }
+    kommune.type = 'kommune'
     return kommune
   })
   .toArray()
@@ -56,6 +61,10 @@ const naeringsregioner = parsedRegions
     'Næringsregion_ navn': 'name',
     Kommunenr: 'municipalityCode',
   }))
+  .map(naeringsregion => {
+    naeringsregion.type = 'naeringsregion'
+    return naeringsregion
+  })
   .toArray()
   .flatMap(serializeTo('./data/naeringsregioner.json'))
 
@@ -67,6 +76,10 @@ const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
     bydelsnavn: 'name',
     Kommunenr: 'kommuneCode'
   }))
+  .map(bydel => {
+    bydel.type = 'bydel'
+    return bydel
+  })
   .toArray()
   .flatMap(serializeTo('./data/bydeler.json'))
 

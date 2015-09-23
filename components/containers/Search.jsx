@@ -8,29 +8,7 @@ import naeringsregioner from '../../data/naeringsregioner'
 import bydeler from '../../data/bydeler'
 
 function getRegions() {
-  const regions = []
-
-  bydeler.forEach(item => {
-    item.type = 'bydel'
-    regions.push(item)
-  })
-
-  kommuner.forEach(item => {
-    item.type = 'kommune'
-    regions.push(item)
-  })
-
-  fylker.forEach(item => {
-    item.type = 'fylke'
-    regions.push(item)
-  })
-
-  naeringsregioner.forEach(item => {
-    item.type = 'naeringsregion'
-    regions.push(item)
-  })
-
-  return regions
+  return kommuner.concat(fylker, naeringsregioner, bydeler)
 }
 
 function matchRegionToTerm(region, value) {

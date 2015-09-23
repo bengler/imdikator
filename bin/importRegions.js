@@ -23,6 +23,8 @@ const fylker = parsedRegions
   }))
   .map(fylke => {
     fylke.type = 'fylke'
+    const pad = '00'
+    fylke.code = pad.substring(fylke.code.length) + fylke.code
     return fylke
   })
   .toArray()
@@ -47,6 +49,10 @@ const kommuner = parsedRegions
       kommune.name = 'Oslo'
     }
     kommune.type = 'kommune'
+
+    const pad = '0000'
+    kommune.code = pad.substring(kommune.code.length) + kommune.code
+
     return kommune
   })
   .toArray()
@@ -62,6 +68,8 @@ const naeringsregioner = parsedRegions
   }))
   .map(naeringsregion => {
     naeringsregion.type = 'naeringsregion'
+    const pad = '00'
+    naeringsregion.code = pad.substring(naeringsregion.code.length) + naeringsregion.code
     return naeringsregion
   })
   .toArray()
@@ -77,6 +85,8 @@ const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   }))
   .map(bydel => {
     bydel.type = 'bydel'
+    const pad = '000000'
+    bydel.code = pad.substring(bydel.code.length) + bydel.code
     return bydel
   })
   .toArray()

@@ -7,7 +7,19 @@ export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const RECEIVE_REGION = 'RECEIVE_REGION'
 export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
 export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
+export const RECEIVE_CARD_PAGES = 'RECEIVE_CARD_PAGES'
 export const RECEIVE_TABLE_HEADERS = 'RECEIVE_TABLE_HEADERS'
+
+export function loadCardPages() {
+  return dispatch => {
+    apiClient.getCardPages().then(cardPages => {
+      dispatch({
+        type: RECEIVE_CARD_PAGES,
+        cardPages
+      })
+    })
+  }
+}
 
 export function performQuery(card, tab, userQuery) {
   return (dispatch, getState) => {

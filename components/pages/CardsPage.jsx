@@ -55,7 +55,9 @@ class CardsPage extends Component {
           const isOpen = openCards.includes(card.name)
           return (
             <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-              {!isOpen && <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>Expand</a>}
+              {!isOpen && <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>
+                <h3>{card.title}</h3>
+              </a>}
               {isOpen && <Card card={card}/>}
             </div>
           )

@@ -31,7 +31,6 @@ const fylker = parsedRegions
 const kommuner = parsedRegions
   .distinct(region => region.Kommunenr)
   .map(pickKeys('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008'))
-  .tap(log)
   .map(renameKeys({
     Kommunenr: 'code',
     Kommunenavn: 'name',

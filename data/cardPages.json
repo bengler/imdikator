@@ -518,13 +518,13 @@
     ]
   },
   {
-    "name": "utdanning-grunnskole",
+    "name": "utdanning",
     "title": "Utdanning",
     "groupKind": "mainGroup",
     "cards": [
       {
         "issue": "should not be stacked (why art thou stacked?)",
-        "name": "utdanningsniva",
+        "name": "utdanningsniva-grunnskole",
         "title": "Utdanningsnivå - Grunnskole",
         "query": {
           "tableName": "utdanningsniva",
@@ -599,6 +599,7 @@
       {
         "issue": "should not be stacked (why art thou stacked?)",
         "title": "Utdanningsnivå  - Videregående",
+        "name": "utdanningsniva-videregaaende",
         "query": {
           "tableName": "utdanningsniva",
           "unit": "prosent",
@@ -672,6 +673,7 @@
       {
         "issue": "should not be stacked (why art thou stacked?)",
         "title": "Utdanningsnivå  - Universitet og høyskole",
+        "name": "utdanningsniva-universitet-og-hoyskole",
         "query": {
           "tableName": "utdanningsniva",
           "unit": "prosent",
@@ -745,6 +747,7 @@
       {
         "issue": "should not be stacked (why art thou stacked?)",
         "title": "Utdanningsnivå  - Uoppgitt / ingen",
+        "name": "utdanningsniva-uoppgitt-ingen",
         "query": {
           "tableName": "utdanningsniva",
           "unit": "prosent",
@@ -818,6 +821,7 @@
       {
         "issue": "denne virker rett og slett ikke. hvorfor",
         "title": "Antall deltagere i introduksjonsprogram",
+        "name": "deltagere-introprogram",
         "query": {
           "tableName": "intro_deltakere",
           "unit": "personer",
@@ -876,6 +880,7 @@
       },
       {
         "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
+        "name": "norskopplaering-resultater",
         "query": {
           "tableName": "norsk_prover",
           "unit": "prosent",
@@ -934,6 +939,7 @@
       {
         "issue": "behov for sortering!",
         "title": "Norskopplæring - antall deltagere",
+        "name": "norskopplaering-antall-deltagere",
         "query": {
           "tableName": "norsk_deltakere",
           "unit": "personer",
@@ -995,6 +1001,7 @@
       },
       {
         "title": "Voksne elever i grunnskolen",
+        "name": "voksne-i-grunnskolen",
         "query": {
           "tableName": "voksne_grunnskole",
           "unit": "personer",
@@ -1055,7 +1062,8 @@
       },
       {
         "issue": "behov for sortering!",
-        "title": "Voksne elever i grunnskolen",
+        "title": "Voksne elever i videregående",
+        "name": "voksne-i-videregaaende",
         "query": {
           "tableName": "voksne_videregaende",
           "unit": "prosent",
@@ -1110,6 +1118,7 @@
       },
       {
         "title": "Hve gjorde de etter introduksjonsprogrammet?",
+        "name": "etter-intro",
         "query": {
           "tableName": "intro_avslutning_direkte",
           "unit": "personer",
@@ -1181,6 +1190,7 @@
       },
       {
         "title": "Barnehagedeltagelse - Forhold mellom alle og minoriteter",
+        "name": "barnehage-forholde-minoriteter",
         "query": {
           "tableName": "barnehagedeltakelse",
           "unit": "prosent",
@@ -1245,6 +1255,7 @@
       },
       {
         "title": "Alder på minoritetsspråklige i barnehage",
+        "name": "barnehage-alder-minoriteter",
         "query": {
           "tableName": "barnehagedeltakelse",
           "unit": "personer",
@@ -1312,6 +1323,7 @@
       },
       {
         "issue": "NB: mye mer data på fylkes og muligens også for næringsregioner",
+        "name": "gjennomsnittlige-grunnskolepoeng",
         "title": "Gjennomsnittlige grunnskolepoeng",
         "query": {
           "tableName": "grunnskolepoeng",
@@ -1378,6 +1390,7 @@
       },
       {
         "title": "Elever i videregående skole (siste 3 år)",
+        "name": "elever-i-videregaaende",
         "query": {
           "tableName": "videregaende_deltakelse",
           "unit": "personer",
@@ -1444,6 +1457,7 @@
       },
       {
         "title": "Ble ferdig med videregående innen fem år",
+        "name": "ferdig-med-videregaaende",
         "query": {
           "tableName": "videregaende_fullfort",
           "unit": "prosent",
@@ -1511,6 +1525,7 @@
       },
       {
         "issue": "Prosent av personer kan ikke stackes",
+        "name": "ungdom-ikke-fullfoert",
         "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
         "query": {
           "tableName": "ungdom_utenfor_opplaring",
@@ -1645,6 +1660,7 @@
       },
       {
         "title": "Sysselsetting etter alder og innvandringskategori",
+        "name": "sysselsetting-alder-innvkat",
         "query": {
           "tableName": "sysselsatte_innvkat_alder",
           "unit": "prosent",
@@ -1706,6 +1722,7 @@
       },
       {
         "title": "Sysselsetting etter innvandringsgrunn",
+        "name": "sysselsetting-etter-innvandringsgrunn",
         "query": {
           "tableName": "sysselsatte_innvandringsgrunn",
           "unit": "prosent",
@@ -1773,6 +1790,7 @@
       },
       {
         "title": "Sysselsatte innvandrere etter botid",
+        "name": "sysselsatte-innvandrere-botid",
         "query": {
           "tableName": "sysselsatte_botid",
           "unit": "prosent",
@@ -1832,6 +1850,7 @@
       },
       {
         "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
+        "name": "sysselsatte-innvandrere-botid-landbakgrunn",
         "query": {
           "tableName": "sysselsatte_botid_land",
           "unit": "prosent",
@@ -1897,6 +1916,7 @@
       },
       {
         "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
+        "name": "sysselsatte-innvandrere-kjonn-landbakgrunn",
         "query": {
           "tableName": "sysselsatte_kjonn_land",
           "unit": "prosent",
@@ -1962,6 +1982,7 @@
       },
       {
         "title": "Sysselsatte innvandrere etter landbakgrunn",
+        "name": "sysselsatte-innvandrere-landbakgrunn",
         "query": {
           "tableName": "sysselsatte_land",
           "unit": "prosent",
@@ -2017,6 +2038,7 @@
       {
         "issue": "lopsided",
         "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
+        "name": "ledige-innvkat-land",
         "query": {
           "tableName": "arbledige_innvkat_land",
           "unit": "prosent",
@@ -2082,6 +2104,7 @@
       {
         "issue": "lopsided",
         "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
+        "name": "ledige-innvkat-land-2",
         "query": {
           "tableName": "arbledige_innvkat_land",
           "unit": "prosent",
@@ -2148,6 +2171,7 @@
       {
         "issue": "lopsided",
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
+        "name": "ikke-arbeid-innvkat-land",
         "query": {
           "tableName": "ikke_arbutd_innvkat_land",
           "unit": "prosent",
@@ -2213,6 +2237,7 @@
       {
         "issue": "lopsided",
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
+        "name": "ikke-arbeid-innvkat-land-2",
         "query": {
           "tableName": "ikke_arbutd_innvkat_land",
           "unit": "prosent",
@@ -2278,6 +2303,7 @@
       },
       {
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
+        "name": "ikke-arbeid-innvkat-alder",
         "query": {
           "tableName": "ikke_arbutd_innvkat_alder",
           "unit": "prosent",
@@ -2417,6 +2443,7 @@
       {
         "issue": "lopsided",
         "title": "Inntektsnivå – gjennomsnittsinntekt",
+        "name": "gjennomsnittsinntekt-2",
         "query": {
           "tableName": "gjennomsnittsinntekt",
           "unit": "kroner",
@@ -2483,6 +2510,7 @@
       {
         "issue": "lopsided",
         "title": "Personer med vedvarende lavinntekt",
+        "name": "vedvarende-lavinntekt",
         "query": {
           "tableName": "vedvarende_lavinntekt",
           "unit": "prosent",
@@ -2548,6 +2576,7 @@
       {
         "issue": "lopsided",
         "title": "Personer med vedvarende lavinntekt",
+        "name": "vedvarende-lavinntekt-2",
         "query": {
           "tableName": "vedvarende_lavinntekt",
           "unit": "prosent",
@@ -2613,6 +2642,7 @@
       },
       {
         "title": "Personer som mottar sosialhjelp",
+        "name": "sosialhjelp",
         "query": {
           "tableName": "sosialhjelp",
           "unit": "prosent",

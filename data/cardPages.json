@@ -1627,11 +1627,11 @@
         "title": "Sysselsatte etter innvandringskategori",
         "name": "sysselsatte-innvkat",
         "query": {
-          "tableName": "sysselsatte_innvkat",
+          "tableName": "sysselsatteinnvkat",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "innvandrere",
                 "befolkningen_ellers"
@@ -1686,18 +1686,18 @@
         "title": "Sysselsetting etter alder og innvandringskategori",
         "name": "sysselsetting-alder-innvkat",
         "query": {
-          "tableName": "sysselsatte_innvkat_alder",
+          "tableName": "sysselsatteinnvkatalder",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "innvandrere",
                 "befolkningen_ellers"
               ]
             },
             {
-              "name": "arbeidsalder_18-69"
+              "name": "arbeidsalder18-69"
             }
           ]
         },
@@ -1748,11 +1748,11 @@
         "title": "Sysselsetting etter innvandringsgrunn",
         "name": "sysselsetting-etter-innvandringsgrunn",
         "query": {
-          "tableName": "sysselsatte_innvandringsgrunn",
+          "tableName": "sysselsatteinnvandringsgrunn",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvgrunn_5",
+              "name": "innvgrunn5",
               "variables": [
                 "arbeid",
                 "familie",
@@ -1816,11 +1816,11 @@
         "title": "Sysselsatte innvandrere etter botid",
         "name": "sysselsatte-innvandrere-botid",
         "query": {
-          "tableName": "sysselsatte_botid",
+          "tableName": "sysselsattebotid",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "botid_5",
+              "name": "botid5",
               "variables": [
                 "0-4",
                 "5-9",
@@ -1876,18 +1876,18 @@
         "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
         "name": "sysselsatte-innvandrere-botid-landbakgrunn",
         "query": {
-          "tableName": "sysselsatte_botid_land",
+          "tableName": "sysselsattebotidland",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "botid_3",
+              "name": "botid3",
               "variables": [
                 "0-4",
                 "5+"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "1",
                 "2"
@@ -1942,11 +1942,11 @@
         "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
         "name": "sysselsatte-innvandrere-kjonn-landbakgrunn",
         "query": {
-          "tableName": "sysselsatte_kjonn_land",
+          "tableName": "sysselsattekjonnland",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "1",
                 "2"
@@ -2008,11 +2008,11 @@
         "title": "Sysselsatte innvandrere etter landbakgrunn",
         "name": "sysselsatte-innvandrere-landbakgrunn",
         "query": {
-          "tableName": "sysselsatte_land",
+          "tableName": "sysselsatteland",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "vreg_9"
+              "name": "vreg9"
             }
           ]
         },
@@ -2197,18 +2197,18 @@
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "name": "ikke-arbeid-innvkat-land",
         "query": {
-          "tableName": "ikke_arbutd_innvkat_land",
+          "tableName": "ikkearbutdinnvkatland",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "befolkningen_ellers"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "alle"
               ]
@@ -2263,17 +2263,17 @@
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "name": "ikke-arbeid-innvkat-land-2",
         "query": {
-          "tableName": "ikke_arbutd_innvkat_land",
+          "tableName": "ikkearbutdinnvkatland",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "innvandrere"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "alle",
                 "1",
@@ -2329,18 +2329,18 @@
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
         "name": "ikke-arbeid-innvkat-alder",
         "query": {
-          "tableName": "ikke_arbutd_innvkat_alder",
+          "tableName": "ikkearbutdinnvkatalder",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "aldersinndeling_etter_grskole",
+              "name": "aldersinndelingEtterGrskole",
               "variables": [
                 "16-25",
                 "26-66"
               ]
             },
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "befolkningen_ellers",
                 "innvandrere"
@@ -2407,14 +2407,14 @@
           "unit": "kroner",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "befolkningen_ellers"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "alle"
               ]
@@ -2473,13 +2473,13 @@
           "unit": "kroner",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "innvandrere"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "alle",
                 "1",
@@ -2536,18 +2536,18 @@
         "title": "Personer med vedvarende lavinntekt",
         "name": "vedvarende-lavinntekt",
         "query": {
-          "tableName": "vedvarende_lavinntekt",
+          "tableName": "vedvarendelavinntekt",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "befolkningen_ellers"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "alle"
               ]
@@ -2602,17 +2602,17 @@
         "title": "Personer med vedvarende lavinntekt",
         "name": "vedvarende-lavinntekt-2",
         "query": {
-          "tableName": "vedvarende_lavinntekt",
+          "tableName": "vedvarendelavinntekt",
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "innvandrere"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
                 "alle",
                 "1",
@@ -2746,13 +2746,13 @@
           "unit": "kroner",
           "dimensions": [
             {
-              "name": "tilskudd_til_kommuner",
+              "name": "tilskuddTilKommuner",
               "variables": [
-                "inttilsk_1.5",
+                "inttilsk_1-5",
                 "inttilsk_1",
-                "inttilsk_2.5",
+                "inttilsk_2-5",
                 "funkhem",
-                "norsk.samf_tilsk",
+                "norsk-samf_tilsk",
                 "em_tilsk",
                 "barnehage_tilsk",
                 "eldre_tilsk",
@@ -2765,7 +2765,7 @@
           {
             "name": "latest",
             "title": "Nåtid",
-            "chartKind": "stackedArea",
+            "chartKind": "bar",
             "query": {
               "time": "latest"
             }

@@ -128,7 +128,7 @@
     "description": "Tredelt verdensregion",
     "variables": [
       {
-        "title": "alle",
+        "title": "Alle",
         "label": "alle",
         "comment": "denne er den samme som vreg_2, men har en alle-kategori. Er brukt i tilfeller hvor innholdet egentlig ikke vil gi mening. Eks. i tabell 8: vreg_3.alle og innvkat_3.befolkningen_ellers er befolkningen som ikke er innvandrere sine flyttinger. disse har ikke definert landbakgrunn, men får det oppgitt?"
       },
@@ -836,7 +836,7 @@
     ]
   },
   {
-    "name": "arbeidsalder_18-69",
+    "name": "arbeidsalder18-69",
     "description": "Arbeidsfør alder firedelt",
     "variables": [
       {
@@ -868,7 +868,7 @@
     ]
   },
   {
-    "name": "aldersinndeling_etter_grskole",
+    "name": "aldersinndelingEtterGrskole",
     "description": "Todelt aldersinndeling etter grunnskole",
     "variables": [
       {

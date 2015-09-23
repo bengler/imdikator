@@ -3,7 +3,7 @@ import Card from '../containers/Card'
 import {connect} from 'react-redux'
 import {loadCardPage} from '../../actions/cardPages'
 import {openCard} from '../../actions/cards'
-//import {loadCardData} from '../../actions/cards'
+import {loadCardPages} from '../../actions/cardPages'
 
 function loadData(props) {
   const {route, dispatch} = props
@@ -23,6 +23,7 @@ class CardsPage extends Component {
     currentCard: PropTypes.object,
     pageConfig: PropTypes.object,
     region: PropTypes.object,
+    cardPages: PropTypes.array,
     cards: PropTypes.array,
     openCards: PropTypes.array
   }
@@ -34,6 +35,8 @@ class CardsPage extends Component {
 
   componentWillMount() {
     loadData(this.props)
+
+    this.props.dispatch(loadCardPages())
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,13 +45,34 @@ class CardsPage extends Component {
     }
   }
 
+  renderCardPagesLinks() {
+    const {cardPages} = this.props
+    return cardPages.map(cardPage => {
+      const firstCard = cardPage.cards[0]
+      return <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
+    })
+  }
+
   render() {
     const {pageConfig, region, openCards} = this.props
     if (!pageConfig || !region) {
       return <div>Loading...</div>
     }
+    const pageLinkStyle = {
+      display: 'inline-block',
+      listStyleType: 'none',
+      paddingRight: 5
+    }
+
     return (
       <div>
+
+        <ul>
+          {this.renderCardPagesLinks().map(link => {
+            return <li style={pageLinkStyle}>{link}</li>
+          })}
+        </ul>
+
         <h2>{pageConfig.title} i {region.name}</h2>
         {pageConfig.cards.map(card => {
           const isOpen = openCards.includes(card.name)
@@ -77,7 +101,8 @@ function mapStateToProps(state) {
     //currentCard: state.cards.find(card => card.name == state.currentCard),
     pageConfig: state.cardPage,
     region: state.region,
-    openCards: state.openCards
+    openCards: state.openCards,
+    cardPages: state.cardPages
   }
 }
 

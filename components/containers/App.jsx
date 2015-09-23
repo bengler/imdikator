@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react'
-import {loadCardPages} from '../../actions/cardPages'
 import {connect} from 'react-redux'
 
 class App extends Component {
@@ -25,36 +24,10 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
-    this.props.dispatch(loadCardPages())
-  }
-
-  renderCardPagesLinks() {
-    const {cardPages} = this.props
-    return cardPages.map(cardPage => {
-      const firstCard = cardPage.cards[0]
-      return <a href={this.props.router.makeLink('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
-    })
-  }
-
   render() {
     // Injected by connect() call:
     const {route} = this.props
-    const pageLinkStyle = {
-      display: 'inline-block',
-      listStyleType: 'none',
-      paddingRight: 5
-    }
-    return (
-      <div>
-        <ul>
-          {this.renderCardPagesLinks().map(link => {
-            return <li style={pageLinkStyle}>{link}</li>
-          })}
-        </ul>
-        <route.handler dispatch={this.props.dispatch} route={route}/>
-      </div>
-    )
+    return <route.handler dispatch={this.props.dispatch} route={route}/>
   }
 }
 

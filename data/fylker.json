@@ -1,86 +1,107 @@
 [
   {
     "code": "01",
-    "name": "Østfold"
+    "name": "Østfold",
+    "type": "fylke"
   },
   {
     "code": "02",
-    "name": "Akershus"
+    "name": "Akershus",
+    "type": "fylke"
   },
   {
     "code": "03",
-    "name": "Oslo"
+    "name": "Oslo",
+    "type": "fylke"
   },
   {
     "code": "04",
-    "name": "Hedmark"
+    "name": "Hedmark",
+    "type": "fylke"
   },
   {
     "code": "05",
-    "name": "Oppland"
+    "name": "Oppland",
+    "type": "fylke"
   },
   {
     "code": "06",
-    "name": "Buskerud"
+    "name": "Buskerud",
+    "type": "fylke"
   },
   {
     "code": "07",
-    "name": "Vestfold"
+    "name": "Vestfold",
+    "type": "fylke"
   },
   {
     "code": "08",
-    "name": "Telemark"
+    "name": "Telemark",
+    "type": "fylke"
   },
   {
     "code": "09",
-    "name": "Aust-Agder"
+    "name": "Aust-Agder",
+    "type": "fylke"
   },
   {
     "code": "10",
-    "name": "Vest-Agder"
+    "name": "Vest-Agder",
+    "type": "fylke"
   },
   {
     "code": "11",
-    "name": "Rogaland"
+    "name": "Rogaland",
+    "type": "fylke"
   },
   {
     "code": "12",
-    "name": "Hordaland"
+    "name": "Hordaland",
+    "type": "fylke"
   },
   {
     "code": "14",
-    "name": "Sogn og Fjordane"
+    "name": "Sogn og Fjordane",
+    "type": "fylke"
   },
   {
     "code": "15",
-    "name": "Møre og Romsdal"
+    "name": "Møre og Romsdal",
+    "type": "fylke"
   },
   {
     "code": "16",
-    "name": "Sør-Trøndelag"
+    "name": "Sør-Trøndelag",
+    "type": "fylke"
   },
   {
     "code": "17",
-    "name": "Nord-Trøndelag"
+    "name": "Nord-Trøndelag",
+    "type": "fylke"
   },
   {
     "code": "18",
-    "name": "Nordland"
+    "name": "Nordland",
+    "type": "fylke"
   },
   {
     "code": "19",
-    "name": "Troms"
+    "name": "Troms",
+    "type": "fylke"
   },
   {
     "code": "20",
-    "name": "Finnmark"
+    "name": "Finnmark",
+    "type": "fylke"
   },
   {
     "code": "99",
-    "name": "Uoppgitt fylke"
+    "name": "Uoppgitt fylke",
+    "type": "fylke"
   },
   {
     "code": "00",
-    "name": "Hele landet"
+    "name": "Hele landet",
+    "type": "fylke"
   }
 ]

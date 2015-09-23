@@ -1,342 +1,427 @@
 [
   {
     "code": "01",
-    "name": "Halden"
+    "name": "Halden",
+    "type": "naeringsregion"
   },
   {
     "code": "03",
-    "name": "Mosseregionen"
+    "name": "Mosseregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "04",
-    "name": "Nedre Glomma"
+    "name": "Nedre Glomma",
+    "type": "naeringsregion"
   },
   {
     "code": "02",
-    "name": "Indre Østfold"
+    "name": "Indre Østfold",
+    "type": "naeringsregion"
   },
   {
     "code": "06",
-    "name": "Follo"
+    "name": "Follo",
+    "type": "naeringsregion"
   },
   {
     "code": "05",
-    "name": "Akershus Vest"
+    "name": "Akershus Vest",
+    "type": "naeringsregion"
   },
   {
     "code": "07",
-    "name": "Nedre Romerike"
+    "name": "Nedre Romerike",
+    "type": "naeringsregion"
   },
   {
     "code": "08",
-    "name": "Øvre Romerike"
+    "name": "Øvre Romerike",
+    "type": "naeringsregion"
   },
   {
     "code": "09",
-    "name": "Oslo"
+    "name": "Oslo",
+    "type": "naeringsregion"
   },
   {
     "code": "11",
-    "name": "Glåmdal"
+    "name": "Glåmdal",
+    "type": "naeringsregion"
   },
   {
     "code": "12",
-    "name": "Hamarregionen"
+    "name": "Hamarregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "13",
-    "name": "Sør Østerdal"
+    "name": "Sør Østerdal",
+    "type": "naeringsregion"
   },
   {
     "code": "10",
-    "name": "Fjellregionen"
+    "name": "Fjellregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "16",
-    "name": "Lillehammerregionen"
+    "name": "Lillehammerregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "14",
-    "name": "Gjøvikregionen"
+    "name": "Gjøvikregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "18",
-    "name": "Nord-Gudbrandsdal"
+    "name": "Nord-Gudbrandsdal",
+    "type": "naeringsregion"
   },
   {
     "code": "17",
-    "name": "Midt-Gudbrandsdal"
+    "name": "Midt-Gudbrandsdal",
+    "type": "naeringsregion"
   },
   {
     "code": "15",
-    "name": "Hadeland"
+    "name": "Hadeland",
+    "type": "naeringsregion"
   },
   {
     "code": "19",
-    "name": "Valdres"
+    "name": "Valdres",
+    "type": "naeringsregion"
   },
   {
     "code": "20",
-    "name": "Drammensregionen"
+    "name": "Drammensregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "22",
-    "name": "Kongsberg/Numedal"
+    "name": "Kongsberg/Numedal",
+    "type": "naeringsregion"
   },
   {
     "code": "24",
-    "name": "Ringerike/Hole"
+    "name": "Ringerike/Hole",
+    "type": "naeringsregion"
   },
   {
     "code": "21",
-    "name": "Hallingdal"
+    "name": "Hallingdal",
+    "type": "naeringsregion"
   },
   {
     "code": "23",
-    "name": "Midt-Buskerud"
+    "name": "Midt-Buskerud",
+    "type": "naeringsregion"
   },
   {
     "code": "25",
-    "name": "Tønsbergregionen"
+    "name": "Tønsbergregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "26",
-    "name": "Sandefjord/Larvik"
+    "name": "Sandefjord/Larvik",
+    "type": "naeringsregion"
   },
   {
     "code": "27",
-    "name": "Grenland"
+    "name": "Grenland",
+    "type": "naeringsregion"
   },
   {
     "code": "29",
-    "name": "Øst-Telemark"
+    "name": "Øst-Telemark",
+    "type": "naeringsregion"
   },
   {
     "code": "28",
-    "name": "Midt-Telemark"
+    "name": "Midt-Telemark",
+    "type": "naeringsregion"
   },
   {
     "code": "30",
-    "name": "Vest-Telemark"
+    "name": "Vest-Telemark",
+    "type": "naeringsregion"
   },
   {
     "code": "32",
-    "name": "Arendalregionen"
+    "name": "Arendalregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "35",
-    "name": "Kristiansandregionen"
+    "name": "Kristiansandregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "31",
-    "name": "Setesdal"
+    "name": "Setesdal",
+    "type": "naeringsregion"
   },
   {
     "code": "34",
-    "name": "Mandalsregionen"
+    "name": "Mandalsregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "33",
-    "name": "Lister"
+    "name": "Lister",
+    "type": "naeringsregion"
   },
   {
     "code": "36",
-    "name": "Dalane"
+    "name": "Dalane",
+    "type": "naeringsregion"
   },
   {
     "code": "39",
-    "name": "Stavangerregionen"
+    "name": "Stavangerregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "37",
-    "name": "Haugesundregionen"
+    "name": "Haugesundregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "38",
-    "name": "Ryfylke"
+    "name": "Ryfylke",
+    "type": "naeringsregion"
   },
   {
     "code": "40",
-    "name": "Bergen"
+    "name": "Bergen",
+    "type": "naeringsregion"
   },
   {
     "code": "46",
-    "name": "Sunnhordland"
+    "name": "Sunnhordland",
+    "type": "naeringsregion"
   },
   {
     "code": "42",
-    "name": "Hardanger"
+    "name": "Hardanger",
+    "type": "naeringsregion"
   },
   {
     "code": "43",
-    "name": "Voss"
+    "name": "Voss",
+    "type": "naeringsregion"
   },
   {
     "code": "41",
-    "name": "Bjørnefjorden"
+    "name": "Bjørnefjorden",
+    "type": "naeringsregion"
   },
   {
     "code": "47",
-    "name": "Hordaland Vest"
+    "name": "Hordaland Vest",
+    "type": "naeringsregion"
   },
   {
     "code": "45",
-    "name": "Osterfjorden"
+    "name": "Osterfjorden",
+    "type": "naeringsregion"
   },
   {
     "code": "44",
-    "name": "Nordhordland"
+    "name": "Nordhordland",
+    "type": "naeringsregion"
   },
   {
     "code": "51",
-    "name": "Sunnfjord"
+    "name": "Sunnfjord",
+    "type": "naeringsregion"
   },
   {
     "code": "48",
-    "name": "HAFS"
+    "name": "HAFS",
+    "type": "naeringsregion"
   },
   {
     "code": "50",
-    "name": "Sogn"
+    "name": "Sogn",
+    "type": "naeringsregion"
   },
   {
     "code": "49",
-    "name": "Nordfjord"
+    "name": "Nordfjord",
+    "type": "naeringsregion"
   },
   {
     "code": "53",
-    "name": "Romsdal"
+    "name": "Romsdal",
+    "type": "naeringsregion"
   },
   {
     "code": "56",
-    "name": "Ålesundregionen"
+    "name": "Ålesundregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "52",
-    "name": "Nordmøre"
+    "name": "Nordmøre",
+    "type": "naeringsregion"
   },
   {
     "code": "55",
-    "name": "Søre Sunnmøre"
+    "name": "Søre Sunnmøre",
+    "type": "naeringsregion"
   },
   {
     "code": "54",
-    "name": "Storfjord"
+    "name": "Storfjord",
+    "type": "naeringsregion"
   },
   {
     "code": "61",
-    "name": "Trondheimsregionen"
+    "name": "Trondheimsregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "60",
-    "name": "Orkdalregionen"
+    "name": "Orkdalregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "58",
-    "name": "Hitra/Frøya"
+    "name": "Hitra/Frøya",
+    "type": "naeringsregion"
   },
   {
     "code": "57",
-    "name": "Fosen"
+    "name": "Fosen",
+    "type": "naeringsregion"
   },
   {
     "code": "59",
-    "name": "Oppdal/Rennebu"
+    "name": "Oppdal/Rennebu",
+    "type": "naeringsregion"
   },
   {
     "code": "62",
-    "name": "Rørosregionen"
+    "name": "Rørosregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "64",
-    "name": "Innherred"
+    "name": "Innherred",
+    "type": "naeringsregion"
   },
   {
     "code": "67",
-    "name": "Midtre Namdal"
+    "name": "Midtre Namdal",
+    "type": "naeringsregion"
   },
   {
     "code": "63",
-    "name": "Stjørdalsregionen"
+    "name": "Stjørdalsregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "65",
-    "name": "Indre Namdal"
+    "name": "Indre Namdal",
+    "type": "naeringsregion"
   },
   {
     "code": "66",
-    "name": "Kystgruppen"
+    "name": "Kystgruppen",
+    "type": "naeringsregion"
   },
   {
     "code": "73",
-    "name": "Salten"
+    "name": "Salten",
+    "type": "naeringsregion"
   },
   {
     "code": "74",
-    "name": "Ofoten"
+    "name": "Ofoten",
+    "type": "naeringsregion"
   },
   {
     "code": "68",
-    "name": "Sør-Helgeland"
+    "name": "Sør-Helgeland",
+    "type": "naeringsregion"
   },
   {
     "code": "69",
-    "name": "HALD"
+    "name": "HALD",
+    "type": "naeringsregion"
   },
   {
     "code": "71",
-    "name": "Mosjøregionen"
+    "name": "Mosjøregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "72",
-    "name": "Ranaregionen"
+    "name": "Ranaregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "70",
-    "name": "Ytre Helgeland"
+    "name": "Ytre Helgeland",
+    "type": "naeringsregion"
   },
   {
     "code": "76",
-    "name": "Vesterålen"
+    "name": "Vesterålen",
+    "type": "naeringsregion"
   },
   {
     "code": "75",
-    "name": "Lofoten"
+    "name": "Lofoten",
+    "type": "naeringsregion"
   },
   {
     "code": "79",
-    "name": "Tromsøregionen"
+    "name": "Tromsøregionen",
+    "type": "naeringsregion"
   },
   {
     "code": "77",
-    "name": "Sør-Troms"
+    "name": "Sør-Troms",
+    "type": "naeringsregion"
   },
   {
     "code": "78",
-    "name": "Midt-Troms"
+    "name": "Midt-Troms",
+    "type": "naeringsregion"
   },
   {
     "code": "80",
-    "name": "Nord-Troms"
+    "name": "Nord-Troms",
+    "type": "naeringsregion"
   },
   {
     "code": "83",
-    "name": "Øst-Finnmark"
+    "name": "Øst-Finnmark",
+    "type": "naeringsregion"
   },
   {
     "code": "81",
-    "name": "Vest-Finnmark"
+    "name": "Vest-Finnmark",
+    "type": "naeringsregion"
   },
   {
     "code": "82",
-    "name": "Midt-Finnmark"
+    "name": "Midt-Finnmark",
+    "type": "naeringsregion"
   },
   {
     "code": "99",
-    "name": "Uoppgitt næringsregion"
+    "name": "Uoppgitt næringsregion",
+    "type": "naeringsregion"
   },
   {
     "code": "00",
-    "name": "Hele landet"
+    "name": "Hele landet",
+    "type": "naeringsregion"
   }
 ]

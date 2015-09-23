@@ -1,74 +1,92 @@
 [
   {
     "code": "030101",
-    "name": "Gamle Oslo"
+    "name": "Gamle Oslo",
+    "type": "bydel"
   },
   {
     "code": "030102",
-    "name": "Grünerløkka"
+    "name": "Grünerløkka",
+    "type": "bydel"
   },
   {
     "code": "030103",
-    "name": "Sagene"
+    "name": "Sagene",
+    "type": "bydel"
   },
   {
     "code": "030104",
-    "name": "St. Hanshaugen"
+    "name": "St. Hanshaugen",
+    "type": "bydel"
   },
   {
     "code": "030105",
-    "name": "Frogner"
+    "name": "Frogner",
+    "type": "bydel"
   },
   {
     "code": "030106",
-    "name": "Ullern"
+    "name": "Ullern",
+    "type": "bydel"
   },
   {
     "code": "030107",
-    "name": "Veste Aker"
+    "name": "Veste Aker",
+    "type": "bydel"
   },
   {
     "code": "030108",
-    "name": "Nordre Aker"
+    "name": "Nordre Aker",
+    "type": "bydel"
   },
   {
     "code": "030109",
-    "name": "Bjerke"
+    "name": "Bjerke",
+    "type": "bydel"
   },
   {
     "code": "030110",
-    "name": "Grorud"
+    "name": "Grorud",
+    "type": "bydel"
   },
   {
     "code": "030111",
-    "name": "Stovner"
+    "name": "Stovner",
+    "type": "bydel"
   },
   {
     "code": "030112",
-    "name": "Alna"
+    "name": "Alna",
+    "type": "bydel"
   },
   {
     "code": "030113",
-    "name": "Østensjø"
+    "name": "Østensjø",
+    "type": "bydel"
   },
   {
     "code": "030114",
-    "name": "Nordstrand"
+    "name": "Nordstrand",
+    "type": "bydel"
   },
   {
     "code": "030115",
-    "name": "Søndre Nordstrand"
+    "name": "Søndre Nordstrand",
+    "type": "bydel"
   },
   {
     "code": "030116",
-    "name": "Sentrum"
+    "name": "Sentrum",
+    "type": "bydel"
   },
   {
     "code": "030117",
-    "name": "Marka"
+    "name": "Marka",
+    "type": "bydel"
   },
   {
     "code": "030199",
-    "name": "Uoppgitt bydel Oslo"
+    "name": "Uoppgitt bydel Oslo",
+    "type": "bydel"
   }
 ]

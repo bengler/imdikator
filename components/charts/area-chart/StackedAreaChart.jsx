@@ -174,7 +174,7 @@ export default class StackedAreaChart extends React.Component {
 
     function mouseover(item) {
       focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.y + item.y0) + ')')
-      focus.select('text').text(item.y + item.y0)
+      focus.select('text').text(item.y)
     }
     function mouseout(item) {
       focus.attr('transform', 'translate(-100,-100)')

@@ -1,6 +1,7 @@
 import Bluebird from 'bluebird'
 import fs from 'fs'
 import Rx from 'rx'
+import RxNode from 'rx-node'
 import {pick} from 'lodash'
 import csv from 'csv-parse'
 
@@ -77,7 +78,7 @@ fylker.subscribe(res => log('Wrote %s fylker to %s', res.entries.length, res.fil
 // A few helper functions
 
 function csvToObjects(file) {
-  const rows = Rx.Node.fromReadableStream(fs.createReadStream(file).pipe(csv()))
+  const rows = RxNode.fromReadableStream(fs.createReadStream(file).pipe(csv()))
   return rows
     .skip(1)
     .withLatestFrom(rows.take(1), (row, header) => {

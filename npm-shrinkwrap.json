@@ -9613,12 +9613,12 @@
     },
     "rx": {
       "version": "3.1.2",
-      "from": "https://registry.npmjs.org/rx/-/rx-3.1.2.tgz",
+      "from": "rx@latest",
       "resolved": "https://registry.npmjs.org/rx/-/rx-3.1.2.tgz"
     },
     "rx-node": {
       "version": "1.0.1",
-      "from": "https://registry.npmjs.org/rx-node/-/rx-node-1.0.1.tgz",
+      "from": "rx-node@latest",
       "resolved": "https://registry.npmjs.org/rx-node/-/rx-node-1.0.1.tgz"
     },
     "sinon": {

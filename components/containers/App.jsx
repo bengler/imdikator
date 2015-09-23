@@ -5,7 +5,8 @@ class App extends Component {
   static propTypes = {
     route: PropTypes.object,
     router: PropTypes.object,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    cardPages: PropTypes.array
   }
 
   static childContextTypes = {
@@ -34,7 +35,8 @@ class App extends Component {
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
   return {
-    route: state.route
+    route: state.route,
+    cardPages: state.cardPages
   }
 }
 

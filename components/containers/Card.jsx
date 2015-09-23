@@ -29,7 +29,7 @@ class Card extends Component {
   }
 
   handleChangeTab(newTabName) {
-    this.context.goTo(`/steder/:region/:pageName/:cardName/${newTabName}`)
+    this.context.goTo(`/steder/:region/:pageName/:cardName/:tabName`, {cardName: this.props.card.name, tabName: newTabName})
   }
 
   render() {
@@ -46,8 +46,6 @@ class Card extends Component {
     if (!activeTab) {
       return null
     }
-
-    console.log('active tab is active', activeTab)
 
     let units = []
     if (tableHeaders && tableHeaders.uniqueValues) {

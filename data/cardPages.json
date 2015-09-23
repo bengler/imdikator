@@ -1586,6 +1586,7 @@
     "cards": [
       {
         "title": "Sysselsatte etter innvandringskategori",
+        "name": "sysselsatte-innvkat",
         "query": {
           "tableName": "sysselsatte_innvkat",
           "unit": "prosent",
@@ -2350,6 +2351,7 @@
       {
         "issue": "lopsided",
         "title": "Inntektsnivå – gjennomsnittsinntekt",
+        "name": "gjennomsnittsinntekt",
         "query": {
           "tableName": "gjennomsnittsinntekt",
           "unit": "kroner",
@@ -2684,6 +2686,7 @@
     "cards": [
       {
         "title": "Tilskudd",
+        "name": "tilskudd",
         "query": {
           "tableName": "tilskudd",
           "unit": "kroner",

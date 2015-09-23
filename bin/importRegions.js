@@ -1,6 +1,5 @@
 import Bluebird from 'bluebird'
 import fs from 'fs'
-import Rx from 'rx'
 import RxNode from 'rx-node'
 import {pick} from 'lodash'
 import csv from 'csv-parse'
@@ -17,7 +16,7 @@ const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER)
 
 const fylker = parsedRegions
   .distinct(region => region.Fylkenr)
-  .map(pick('Fylkenr', 'Fylkenavn'))
+  .map(pickKeys('Fylkenr', 'Fylkenavn'))
   .map(renameKeys({
     Fylkenr: 'code',
     Fylkenavn: 'name'
@@ -27,7 +26,8 @@ const fylker = parsedRegions
 
 const kommuner = parsedRegions
   .distinct(region => region.Kommunenr)
-  .map(pick('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008'))
+  .map(pickKeys('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008'))
+  .tap(log)
   .map(renameKeys({
     Kommunenr: 'code',
     Kommunenavn: 'name',

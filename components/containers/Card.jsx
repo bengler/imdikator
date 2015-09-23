@@ -47,8 +47,6 @@ class Card extends Component {
       return null
     }
 
-    console.log('active tab is active', activeTab)
-
     let units = []
     if (tableHeaders && tableHeaders.uniqueValues) {
       units = tableHeaders.uniqueValues.enhet

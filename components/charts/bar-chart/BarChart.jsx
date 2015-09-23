@@ -75,10 +75,16 @@ export default class BarChart extends React.Component {
     .attr('x', dataItem => x1(dataItem.title))
     .attr('y', d => {
       const val = d.values[0].value
+      if (isNaN(val)) {
+        return 0
+      }
       return yScale(val)
     })
     .attr('height', d => {
       const val = d.values[0].value
+      if (isNaN(val)) {
+        return 0
+      }
       return this.size.height - yScale(val)
     })
     .style('fill', dataItem => seriesColor(dataItem.title))

@@ -30,7 +30,7 @@
     ]
   },
   {
-    "name": "innvkat_3",
+    "name": "innvkat3",
     "description": "Innvandrerbakgrunn tredelt",
     "variables": [
       {
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "name": "innvkat_4",
+    "name": "innvkat4",
     "description": "Innvanndrerbakgrunn firedelt",
     "variables": [
       {
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "name": "innvkat_2",
+    "name": "innvkat2",
     "description": "Innvandrerbakgrunn todelt",
     "variables": [
       {
@@ -94,7 +94,7 @@
     "description": "Kjønn",
     "variables": [
       {
-        "title": "Alle",
+        "title": "Menn og Kvinner",
         "label": "alle",
         "comment": "alle er definert inn som et kjønn"
       },
@@ -459,7 +459,7 @@
     ]
   },
   {
-    "name": "undervisning_grskole",
+    "name": "undervisningGrskole",
     "description": "Form for grunnskoleopplæring",
     "variables": [
       {
@@ -585,7 +585,7 @@
     ]
   },
   {
-    "name": "rettigheter_introlov_nosfk",
+    "name": "rettigheterIntrolovNosfk",
     "description": "Rettighetskategori i norsk og samfunnskunnskap",
     "variables": [
       {
@@ -750,7 +750,7 @@
     ]
   },
   {
-    "name": "avslutning_arsak_8",
+    "name": "avslutningArsak8",
     "description": "Årsak til avslutning/avbrytning av introduksjonsprogrammet",
     "variables": [
       {

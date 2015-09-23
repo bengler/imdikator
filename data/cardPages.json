@@ -531,13 +531,14 @@
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "utd_4",
+              "name": "utd4",
+              "visible": false,
               "variables": [
                 "grunnskole"
               ]
             },
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "innvandrere",
@@ -547,8 +548,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "0",
-                "1"
+                "alle"
               ]
             }
           ]
@@ -567,7 +567,31 @@
             "title": "Over tid",
             "chartKind": "line",
             "query": {
-              "time": "all"
+              "time": "all",
+              "dimensions": [
+                {
+                  "name": "utd4",
+                  "visible": false,
+                  "variables": [
+                    "grunnskole"
+                  ]
+                },
+                {
+                  "name": "innvkat3",
+                  "variables": [
+                    "alle",
+                    "innvandrere",
+                    "befolkningen_ellers"
+                  ]
+                },
+                {
+                  "name": "kjonn",
+                  "visible": false,
+                  "variables": [
+                    "alle"
+                  ]
+                }
+              ]
             }
           },
           {
@@ -605,13 +629,14 @@
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "utd_4",
+              "name": "utd4",
+              "visible": false,
               "variables": [
                 "vgs"
               ]
             },
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "innvandrere",
@@ -621,8 +646,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "0",
-                "1"
+                "alle"
               ]
             }
           ]
@@ -679,13 +703,14 @@
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "utd_4",
+              "name": "utd4",
+              "visible": false,
               "variables": [
                 "universitet_og_hogskole"
               ]
             },
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "innvandrere",
@@ -695,8 +720,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "0",
-                "1"
+                "alle"
               ]
             }
           ]
@@ -753,19 +777,79 @@
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "utd_4",
+              "name": "utd4",
+              "visible": false,
               "variables": [
                 "uoppgitt_ingen"
               ]
             },
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
                 "innvandrere",
                 "befolkningen_ellers"
               ]
             },
+            {
+              "name": "kjonn",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table",
+            "query": {
+              "time": "all"
+            }
+          }
+        ]
+      },
+      {
+        "issue": "denne virker rett og slett ikke. hvorfor",
+        "title": "Antall deltagere i introduksjonsprogram",
+        "name": "deltagere-introprogram",
+        "query": {
+          "tableName": "introdeltakere",
+          "unit": "personer",
+          "dimensions": [
             {
               "name": "kjonn",
               "variables": [
@@ -819,70 +903,10 @@
         ]
       },
       {
-        "issue": "denne virker rett og slett ikke. hvorfor",
-        "title": "Antall deltagere i introduksjonsprogram",
-        "name": "deltagere-introprogram",
-        "query": {
-          "tableName": "intro_deltakere",
-          "unit": "personer",
-          "dimensions": [
-            {
-              "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "name": "latest",
-            "title": "Nåtid",
-            "chartKind": "stackedBar",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "chronological",
-            "title": "Over tid",
-            "chartKind": "line",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "map",
-            "title": "Kart",
-            "chartKind": "map",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "benchmark",
-            "title": "Sammenliknet",
-            "chartKind": "benchmark",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "table",
-            "title": "Tabell",
-            "chartKind": "table",
-            "query": {
-              "time": "all"
-            }
-          }
-        ]
-      },
-      {
         "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
         "name": "norskopplaering-resultater",
         "query": {
-          "tableName": "norsk_prover",
+          "tableName": "norskprover",
           "unit": "prosent",
           "dimensions": [
             {
@@ -941,11 +965,11 @@
         "title": "Norskopplæring - antall deltagere",
         "name": "norskopplaering-antall-deltagere",
         "query": {
-          "tableName": "norsk_deltakere",
+          "tableName": "norskdeltakere",
           "unit": "personer",
           "dimensions": [
             {
-              "name": "rettigheter_introlov_nosfk"
+              "name": "rettigheterIntrolovNosfk"
             },
             {
               "name": "kjonn",
@@ -1003,17 +1027,18 @@
         "title": "Voksne elever i grunnskolen",
         "name": "voksne-i-grunnskolen",
         "query": {
-          "tableName": "voksne_grunnskole",
+          "tableName": "voksnegrunnskole",
           "unit": "personer",
           "dimensions": [
             {
               "name": "spraak",
+              "visible": false,
               "variables": [
                 "alle"
               ]
             },
             {
-              "name": "undervisning_grskole"
+              "name": "undervisningGrskole"
             }
           ]
         },
@@ -1065,7 +1090,7 @@
         "title": "Voksne elever i videregående",
         "name": "voksne-i-videregaaende",
         "query": {
-          "tableName": "voksne_videregaende",
+          "tableName": "voksnevideregaende",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1120,13 +1145,12 @@
         "title": "Hve gjorde de etter introduksjonsprogrammet?",
         "name": "etter-intro",
         "query": {
-          "tableName": "intro_avslutning_direkte",
+          "tableName": "introavslutningdirekte",
           "unit": "personer",
           "dimensions": [
             {
-              "name": "avslutning_arsak_8",
+              "name": "avslutningArsak8",
               "variables": [
-                "alle",
                 "kvalifisering",
                 "gr_skole",
                 "utdanning",
@@ -1330,7 +1354,7 @@
           "unit": "gjennomsnitt",
           "dimensions": [
             {
-              "name": "innvkat_4",
+              "name": "innvkat4",
               "variables": [
                 "innvandrere",
                 "bef_u_innv_og_norskf",
@@ -1392,11 +1416,11 @@
         "title": "Elever i videregående skole (siste 3 år)",
         "name": "elever-i-videregaaende",
         "query": {
-          "tableName": "videregaende_deltakelse",
+          "tableName": "videregaendedeltakelse",
           "unit": "personer",
           "dimensions": [
             {
-              "name": "innvkat_4",
+              "name": "innvkat4",
               "variables": [
                 "innvandrere",
                 "bef_u_innv_og_norskf",
@@ -1459,7 +1483,7 @@
         "title": "Ble ferdig med videregående innen fem år",
         "name": "ferdig-med-videregaaende",
         "query": {
-          "tableName": "videregaende_fullfort",
+          "tableName": "videregaendefullfort",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1528,7 +1552,7 @@
         "name": "ungdom-ikke-fullfoert",
         "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
         "query": {
-          "tableName": "ungdom_utenfor_opplaring",
+          "tableName": "ungdomutenforopplaring",
           "unit": "prosent",
           "dimensions": [
             {

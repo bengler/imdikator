@@ -53,6 +53,11 @@ class Card extends Component {
       units = tableHeaders.uniqueValues.enhet
     }
 
+    let tableDescription = ''
+    if (this.props.table) {
+      tableDescription = this.props.table.description
+    }
+
     let unit = null
     if (query) {
       unit = query.unit
@@ -72,7 +77,7 @@ class Card extends Component {
               <ChartSelectorList card={card} onSelectDataView={this.handleChangeTab.bind(this)}/>,
               <UnitSelection selectedUnit={unit} units={units} onChangeUnit={updateUnit}/>,
               <ChartComponent data={this.props.data}/>,
-              <small>{this.props.table.description}</small>
+              <small>{tableDescription}</small>
             ]
           }
         })()}

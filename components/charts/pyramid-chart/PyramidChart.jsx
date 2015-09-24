@@ -123,7 +123,7 @@ export default class PyramidChart extends React.Component {
 
     // The bars
 
-    const color = d3.scale.category20()
+    const color = this.colors
 
     // Left side
     const leftBarGroup = category.append('g')

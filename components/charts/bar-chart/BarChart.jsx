@@ -29,7 +29,7 @@ export default class BarChart extends React.Component {
     const series = preparedData[0].values.map(val => val.title)
 
     // A range of 20 colors
-    const seriesColor = d3.scale.category20().domain(series)
+    const seriesColor = this.colors.domain(series)
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)

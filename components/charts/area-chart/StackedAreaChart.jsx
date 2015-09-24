@@ -66,8 +66,7 @@ export default class StackedAreaChart extends React.Component {
     stack.values(dataItem => dataItem.values)
     const series = stack(preparedData)
 
-    const color = d3.scale.category20()
-    color.domain(series.map(s => s.title))
+    const color = this.colors.domain(series.map(s => s.title))
 
     const isPercent = data.unit === 'percent'
     if (isPercent) {

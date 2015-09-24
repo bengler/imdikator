@@ -1,4 +1,5 @@
 import d3 from 'd3'
+import colorPalette from '../../data/colorPalette'
 
 class Chart {
   constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}) {
@@ -16,6 +17,8 @@ class Chart {
     this.props = props
 
     this.margins = margins
+
+    this.colors = d3.scale.ordinal().range(colorPalette)
 
     this._drawPoints = drawPoints
     this.update(el, state)

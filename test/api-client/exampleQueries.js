@@ -40,9 +40,9 @@ export default [
         innvkat5: ['alle', 'innvandrere', 'bef_u_innv_og_norskf', 'norskfodte_m_innvf'],
         kjonn: ['0', '1'],
         enhet: ['personer'],
-        kommuneId: ['0101']
+        kommuneNr: ['0101']
       },
-      include: ['tabellvariabel', 'enhet', 'innvkat5', 'kjonn', 'aar']
+      include: ['enhet', 'innvkat5', 'kjonn', 'aar', 'kommuneNr']
     }
   }
 ]

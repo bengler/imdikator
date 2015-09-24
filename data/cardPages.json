@@ -8,11 +8,11 @@
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning",
         "query": {
-          "tableName": "befolkninghovedgruppe",
+          "tableName": "befolkning_hovedgruppe",
           "unit": "personer",
           "dimensions": [
             {
-              "name": "innvkat5",
+              "name": "innvkat_5",
               "variables": [
                 "innvandrere",
                 "bef_u_innv_og_norskf",
@@ -41,7 +41,7 @@
             "title": "Over tid",
             "chartKind": "stackedArea",
             "query": {
-              "tableName": "befolkninghovedgruppetidsserie",
+              "tableName": "befolkning_hovedgruppetidsserie",
               "time": "all",
               "dimensions": [
                 {
@@ -85,7 +85,7 @@
         "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
         "query": {
-          "tableName": "befolkninginnvandringsgrunn",
+          "tableName": "befolkning_innvandringsgrunn",
           "unit": "personer",
           "dimensions": [
             {
@@ -153,7 +153,7 @@
         "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
         "query": {
-          "tableName": "befolkningopprinnelsesland",
+          "tableName": "befolkning_opprinnelsesland",
           "unit": "personer",
           "dimensions": [
             {
@@ -208,7 +208,7 @@
         "name": "befolkning_verdensregion",
         "title": "Opprinnelse - verdensregion",
         "query": {
-          "tableName": "befolkningverdensregion",
+          "tableName": "befolkning_verdensregion",
           "unit": "personer",
           "dimensions": [
             {
@@ -263,7 +263,7 @@
         "name": "befolkning_verdensregion_todelt",
         "title": "Opprinnelse - todelt",
         "query": {
-          "tableName": "befolkningverdensregion",
+          "tableName": "befolkning_verdensregion",
           "unit": "personer",
           "dimensions": [
             {
@@ -325,7 +325,7 @@
         "name": "befolkning_botid",
         "title": "Innvandrernes botid",
         "query": {
-          "tableName": "befolkningbotid",
+          "tableName": "befolkning_botid",
           "unit": "personer",
           "dimensions": [
             {
@@ -392,7 +392,7 @@
         "name": "flyktning_botid_flytting",
         "title": "Sekundærflytting blant flyktninger",
         "query": {
-          "tableName": "flyktningbotidflytting",
+          "tableName": "flyktning_botid_flytting",
           "unit": "personer",
           "dimensions": [
             {
@@ -1027,7 +1027,7 @@
         "title": "Voksne elever i grunnskolen",
         "name": "voksne-i-grunnskolen",
         "query": {
-          "tableName": "voksnegrunnskole",
+          "tableName": "voksne_grunnskole",
           "unit": "personer",
           "dimensions": [
             {
@@ -1090,7 +1090,7 @@
         "title": "Voksne elever i videregående",
         "name": "voksne-i-videregaaende",
         "query": {
-          "tableName": "voksnevideregaende",
+          "tableName": "voksne_videregaende",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1145,7 +1145,7 @@
         "title": "Hve gjorde de etter introduksjonsprogrammet?",
         "name": "etter-intro",
         "query": {
-          "tableName": "introavslutningdirekte",
+          "tableName": "intro_avslutning_direkte",
           "unit": "personer",
           "dimensions": [
             {
@@ -1416,7 +1416,7 @@
         "title": "Elever i videregående skole (siste 3 år)",
         "name": "elever-i-videregaaende",
         "query": {
-          "tableName": "videregaendedeltakelse",
+          "tableName": "videregaende_deltakelse",
           "unit": "personer",
           "dimensions": [
             {
@@ -1483,7 +1483,7 @@
         "title": "Ble ferdig med videregående innen fem år",
         "name": "ferdig-med-videregaaende",
         "query": {
-          "tableName": "videregaendefullfort",
+          "tableName": "videregaende_fullfort",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1552,7 +1552,7 @@
         "name": "ungdom-ikke-fullfoert",
         "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
         "query": {
-          "tableName": "ungdomutenforopplaring",
+          "tableName": "ungdom_utenfor_opplaring",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1627,7 +1627,7 @@
         "title": "Sysselsatte etter innvandringskategori",
         "name": "sysselsatte-innvkat",
         "query": {
-          "tableName": "sysselsatteinnvkat",
+          "tableName": "sysselsatte_innvkat",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1686,7 +1686,7 @@
         "title": "Sysselsetting etter alder og innvandringskategori",
         "name": "sysselsetting-alder-innvkat",
         "query": {
-          "tableName": "sysselsatteinnvkatalder",
+          "tableName": "sysselsatte_innvkat_alder",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1748,7 +1748,7 @@
         "title": "Sysselsetting etter innvandringsgrunn",
         "name": "sysselsetting-etter-innvandringsgrunn",
         "query": {
-          "tableName": "sysselsatteinnvandringsgrunn",
+          "tableName": "sysselsatte_innvandringsgrunn",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1816,7 +1816,7 @@
         "title": "Sysselsatte innvandrere etter botid",
         "name": "sysselsatte-innvandrere-botid",
         "query": {
-          "tableName": "sysselsattebotid",
+          "tableName": "sysselsatte_botid",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1876,7 +1876,7 @@
         "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
         "name": "sysselsatte-innvandrere-botid-landbakgrunn",
         "query": {
-          "tableName": "sysselsattebotidland",
+          "tableName": "sysselsatte_botid_land",
           "unit": "prosent",
           "dimensions": [
             {
@@ -1942,7 +1942,7 @@
         "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
         "name": "sysselsatte-innvandrere-kjonn-landbakgrunn",
         "query": {
-          "tableName": "sysselsattekjonnland",
+          "tableName": "sysselsatte_kjonn_land",
           "unit": "prosent",
           "dimensions": [
             {
@@ -2008,7 +2008,7 @@
         "title": "Sysselsatte innvandrere etter landbakgrunn",
         "name": "sysselsatte-innvandrere-landbakgrunn",
         "query": {
-          "tableName": "sysselsatteland",
+          "tableName": "sysselsatte_land",
           "unit": "prosent",
           "dimensions": [
             {
@@ -2197,7 +2197,7 @@
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "name": "ikke-arbeid-innvkat-land",
         "query": {
-          "tableName": "ikkearbutdinnvkatland",
+          "tableName": "ikke_arbutd_innvkat_land",
           "unit": "prosent",
           "dimensions": [
             {
@@ -2263,7 +2263,7 @@
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "name": "ikke-arbeid-innvkat-land-2",
         "query": {
-          "tableName": "ikkearbutdinnvkatland",
+          "tableName": "ikke_arbutd_innvkat_land",
           "unit": "prosent",
           "dimensions": [
             {
@@ -2329,7 +2329,7 @@
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
         "name": "ikke-arbeid-innvkat-alder",
         "query": {
-          "tableName": "ikkearbutdinnvkatalder",
+          "tableName": "ikke_arbutd_innvkat_alder",
           "unit": "prosent",
           "dimensions": [
             {
@@ -2536,7 +2536,7 @@
         "title": "Personer med vedvarende lavinntekt",
         "name": "vedvarende-lavinntekt",
         "query": {
-          "tableName": "vedvarendelavinntekt",
+          "tableName": "vedvarende_lavinntekt",
           "unit": "prosent",
           "dimensions": [
             {
@@ -2602,7 +2602,7 @@
         "title": "Personer med vedvarende lavinntekt",
         "name": "vedvarende-lavinntekt-2",
         "query": {
-          "tableName": "vedvarendelavinntekt",
+          "tableName": "vedvarende_lavinntekt",
           "unit": "prosent",
           "dimensions": [
             {

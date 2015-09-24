@@ -24,13 +24,13 @@ export function loadCardPages() {
 export function performQuery(card, tab, userQuery) {
   return (dispatch, getState) => {
     const state = getState()
-    const {tableHeaders} = state
+    const {headerGroups} = state
 
     const newQuery = Object.assign({}, card.query, tab.query, userQuery, {
       region: prefixify(state.region)
     })
 
-    const resolvedQuery = resolveQuery(newQuery, tableHeaders[newQuery.tableName])
+    const resolvedQuery = resolveQuery(newQuery, headerGroups[newQuery.tableName])
     apiClient.query(resolvedQuery).then(queryResults => {
       dispatch({
         type: RECEIVE_QUERY_RESULT,
@@ -64,14 +64,14 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       })
     })
 
-    const getHeadersWithValues = getTabQuery.then(tabQuery => {
-      return apiClient.getH
+    const getHeaderGroups = getTabQuery.then(tabQuery => {
+      return apiClient.getHeaderGroups(tabQuery.tableName)
     })
 
     const queryResolved = Promise
-      .all([getTabQuery, getHeadersWithValues])
-      .then(([tabQuery, headersWithValues]) => {
-        return resolveQuery(tabQuery, headersWithValues)
+      .all([getRegion, getTabQuery, getHeaderGroups])
+      .then(([region, tabQuery, headerGroups]) => {
+        return resolveQuery(region, tabQuery, headerGroups)
       })
 
     const getQueryResults = queryResolved.then(resolvedQuery => {
@@ -85,7 +85,7 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       })
     })
 
-    Promise.all([getTabQuery, getHeadersWithValues]).then(([tabQuery, headers]) => {
+    Promise.all([getTabQuery, getHeaderGroups]).then(([tabQuery, headers]) => {
       dispatch({
         type: RECEIVE_TABLE_HEADERS,
         headers,

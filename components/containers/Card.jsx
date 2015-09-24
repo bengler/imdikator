@@ -11,7 +11,7 @@ class Card extends Component {
     card: PropTypes.object,
     query: PropTypes.object,
     data: PropTypes.object,
-    tableHeaders: PropTypes.object,
+    headerGroups: PropTypes.object,
     activeTab: PropTypes.object,
     isOpen: PropTypes.boolean,
     boundUpdateCardQuery: PropTypes.func,
@@ -33,7 +33,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTab, tableHeaders, query} = this.props
+    const {card, activeTab, headerGroups, query} = this.props
 
     if (!card) {
       return null
@@ -48,8 +48,8 @@ class Card extends Component {
     }
 
     let units = []
-    if (tableHeaders && tableHeaders.uniqueValues) {
-      units = tableHeaders.uniqueValues.enhet
+    if (headerGroups && headerGroups.uniqueValues) {
+      units = headerGroups.uniqueValues.enhet
     }
 
     let unit = null
@@ -88,13 +88,13 @@ function select(state, ownProps) {
 
   const {query, activeTab, data} = cardState
 
-  const tableHeaders = state.tableHeaders[query.tableName]
+  const headerGroups = state.headerGroups[query.tableName]
   const isOpen = state.openCards.includes(ownProps.card.name)
 
   return {
     isOpen,
     data,
-    tableHeaders,
+    headerGroups,
     activeTab,
     query
   }

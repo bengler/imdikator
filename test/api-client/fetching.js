@@ -52,9 +52,9 @@ describe('Fetching tables using API client', () => {
           Conditions: {
             aar: ['2015'],
             kjonn: ['0', '1', 'alle'],
-            fylkeId: ['16']
+            fylkeNr: ['16']
           },
-          Include: ['tabellvariabel', 'enhet', 'aar', 'kjonn']
+          Include: ['enhet', 'aar', 'kjonn', 'fylkeNr']
         })
       })
   })

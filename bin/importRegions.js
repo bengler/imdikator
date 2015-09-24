@@ -11,6 +11,14 @@ const log = console.log.bind(console) // eslint-disable-line
 const CSV_FILE_FYLKER_KOMMUNER = './import/regioninndeling-fylker-kommuner.csv'
 const CSV_FILE_KOMMUNER_BYDELER = './import/regioninndeling-kommuner-bydeler.csv'
 
+function leftPad(str, padding, len) {
+  let pad = ''
+  while (pad.length < len) {
+    pad += padding
+  }
+  return pad.substring(str.length) + str
+}
+
 
 const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER)
 
@@ -23,8 +31,7 @@ const fylker = parsedRegions
   }))
   .map(fylke => {
     fylke.type = 'fylke'
-    const pad = '00'
-    fylke.code = pad.substring(fylke.code.length) + fylke.code
+    fylke.code = leftPad(fylke.code, '0', 2)
     return fylke
   })
   .toArray()
@@ -49,9 +56,7 @@ const kommuner = parsedRegions
       kommune.name = 'Oslo'
     }
     kommune.type = 'kommune'
-
-    const pad = '0000'
-    kommune.code = pad.substring(kommune.code.length) + kommune.code
+    kommune.code = leftPad(kommune.code, '0', 4)
 
     return kommune
   })
@@ -68,8 +73,7 @@ const naeringsregioner = parsedRegions
   }))
   .map(naeringsregion => {
     naeringsregion.type = 'naeringsregion'
-    const pad = '00'
-    naeringsregion.code = pad.substring(naeringsregion.code.length) + naeringsregion.code
+    naeringsregion.code = leftPad(naeringsregion.code, '0', 2)
     return naeringsregion
   })
   .toArray()
@@ -85,8 +89,7 @@ const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   }))
   .map(bydel => {
     bydel.type = 'bydel'
-    const pad = '000000'
-    bydel.code = pad.substring(bydel.code.length) + bydel.code
+    bydel.code = leftPad(bydel.code, '0', 6)
     return bydel
   })
   .toArray()

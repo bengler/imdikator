@@ -23,14 +23,13 @@ export function loadCardPages() {
 
 export function performQuery(card, tab, userQuery) {
   return (dispatch, getState) => {
-    const state = getState()
-    const {headerGroups} = state
+    const {headerGroups, region} = getState()
 
     const newQuery = Object.assign({}, card.query, tab.query, userQuery, {
-      region: prefixify(state.region)
+      region: prefixify(region)
     })
 
-    const resolvedQuery = resolveQuery(newQuery, headerGroups[newQuery.tableName])
+    const resolvedQuery = resolveQuery(region, newQuery, headerGroups[newQuery.tableName])
     apiClient.query(resolvedQuery).then(queryResults => {
       dispatch({
         type: RECEIVE_QUERY_RESULT,

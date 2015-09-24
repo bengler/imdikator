@@ -1,9 +1,6 @@
 export default [
   {
     test: 'A query with time "latest"',
-    metadata: {
-      uniqueValues: {aar: ['2015', '2010', '2009']}
-    },
     query: {
       tableName: 'befolkninghovedgruppe',
       region: 'K0101',

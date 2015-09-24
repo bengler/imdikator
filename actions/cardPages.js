@@ -65,7 +65,7 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
     })
 
     const getHeadersWithValues = getTabQuery.then(tabQuery => {
-      return apiClient.getHeadersForTable(tabQuery.tableName)
+      return apiClient.getH
     })
 
     const queryResolved = Promise

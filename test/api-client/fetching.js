@@ -23,11 +23,8 @@ describe('Fetching tables using API client', () => {
       adapter: {get: stub}
     })
 
-    return client.getHeadersForTable('sometable')
-      .then(tables => tables)
-      .then(tableName => client.getHeadersForTable(tableName))
-      .then(() => {
-        assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/metadata/headerswithvalues/sometable')
+    return client.getHeaderGroups('sometable').then(() => {
+        assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/sometable')
       })
   })
 

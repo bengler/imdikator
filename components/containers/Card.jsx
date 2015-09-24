@@ -62,8 +62,8 @@ class Card extends Component {
 
     const ChartComponent = CHARTS[activeTab.chartKind]
     return (
-      <div>
-        <h3>{card.title}</h3>
+
+      <div className="toggle-list__section toggle-list__section--expanded" aria-hidden="false" style={{display: 'block'}}>
         <ChartSelectorList card={card} onSelectDataView={this.handleChangeTab.bind(this)}/>
         <UnitSelection selectedUnit={unit} units={units} onChangeUnit={updateUnit}/>
         <ChartComponent data={this.props.data}/>

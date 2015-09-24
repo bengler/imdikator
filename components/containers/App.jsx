@@ -34,29 +34,29 @@ class App extends Component {
     const {route} = this.props
     return (
       <div>
-        <div className='page__content page__content--section'>
-          <div className='wrapper'>
-            <div className='row'>
-              <div className='col--main-wide'>
-                <nav className='breadcrumbs'>
-                  <ul className='t-no-list-styles breadcrumbs__list'>
-                    <li className='breadcrumbs__list-item'>
-                      <a className='breadcrumbs__link'>
+        <div className="page__content page__content--section">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main-wide">
+                <nav className="breadcrumbs">
+                  <ul className="t-no-list-styles breadcrumbs__list">
+                    <li className="breadcrumbs__list-item">
+                      <a className="breadcrumbs__link">
                         Breadcrumbs
                       </a>
-                      <span className='breadcrumbs__divider'>/</span>
+                      <span className="breadcrumbs__divider">/</span>
                     </li>
-                    <li className='breadcrumbs__list-item'>
-                      <a className='breadcrumbs__link'>
+                    <li className="breadcrumbs__list-item">
+                      <a className="breadcrumbs__link">
                         go
                       </a>
-                      <span className='breadcrumbs__divider'>/</span>
+                      <span className="breadcrumbs__divider">/</span>
                     </li>
-                    <li className='breadcrumbs__list-item'>
-                      <a className='breadcrumbs__link'>
+                    <li className="breadcrumbs__list-item">
+                      <a className="breadcrumbs__link">
                         here
                       </a>
-                      <span className='breadcrumbs__divider'>/</span>
+                      <span className="breadcrumbs__divider">/</span>
                     </li>
                   </ul>
                 </nav>

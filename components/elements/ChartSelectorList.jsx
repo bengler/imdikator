@@ -17,8 +17,12 @@ export default class ChartSelectorList extends Component {
     })
 
     return (
-        <div>
-        {list}
+        <div className="toggle-list__section-header">
+          <nav className="tabs-menu tabs-menu--compact-mobile">
+            <ul className="t-no-list-styles tabs-menu__list">
+            {list}
+            </ul>
+          </nav>
         </div>
     )
   }

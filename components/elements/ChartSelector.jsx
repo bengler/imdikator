@@ -10,7 +10,12 @@ export default class ChartSelector extends Component {
   render() {
     const {title} = this.props
     return (
-      <button disabled={this.props.enabled ? '' : 'disabled'} className="chart" type="button" onClick={this.props.onSelectItem}>{title}</button>
+      <li className="tabs-menu__list-item" disabled={this.props.enabled ? '' : 'disabled'} type="button" onClick={this.props.onSelectItem}>
+        <a href="#" className="tabs-menu__link">
+          <i className="icon__chart-line tabs-menu__icon" />
+          {title}
+        </a>
+      </li>
     )
   }
 }

@@ -5,6 +5,7 @@ import Layout from './components/layouts/DefaultLayout'
 import config from './config'
 import staticRoutes from './static-routes'
 import fonts from './static-routes/fonts'
+import images from './static-routes/images'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
 import docsite from './docsite/handler'
@@ -20,6 +21,7 @@ if (config.env === 'development') {
   const serve = require('staticr/serve')
   app.use('/build', serve(staticRoutes))
   app.use('/UI', serve(fonts))
+  app.use('/UI', serve(images))
 }
 
 if (config.env === 'development') {

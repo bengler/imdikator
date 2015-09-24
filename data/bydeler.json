@@ -1,92 +1,110 @@
 [
   {
-    "code": "030101",
+    "code": "30101",
     "name": "Gamle Oslo",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030102",
+    "code": "30102",
     "name": "Grünerløkka",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030103",
+    "code": "30103",
     "name": "Sagene",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030104",
+    "code": "30104",
     "name": "St. Hanshaugen",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030105",
+    "code": "30105",
     "name": "Frogner",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030106",
+    "code": "30106",
     "name": "Ullern",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030107",
+    "code": "30107",
     "name": "Veste Aker",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030108",
+    "code": "30108",
     "name": "Nordre Aker",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030109",
+    "code": "30109",
     "name": "Bjerke",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030110",
+    "code": "30110",
     "name": "Grorud",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030111",
+    "code": "30111",
     "name": "Stovner",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030112",
+    "code": "30112",
     "name": "Alna",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030113",
+    "code": "30113",
     "name": "Østensjø",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030114",
+    "code": "30114",
     "name": "Nordstrand",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030115",
+    "code": "30115",
     "name": "Søndre Nordstrand",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030116",
+    "code": "30116",
     "name": "Sentrum",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030117",
+    "code": "30117",
     "name": "Marka",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   },
   {
-    "code": "030199",
+    "code": "30199",
     "name": "Uoppgitt bydel Oslo",
-    "type": "bydel"
+    "municipalityCode": "0301",
+    "type": "borough"
   }
 ]

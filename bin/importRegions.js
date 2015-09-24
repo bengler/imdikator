@@ -3,6 +3,7 @@ import fs from 'fs'
 import RxNode from 'rx-node'
 import {pick} from 'lodash'
 import csv from 'csv-parse'
+import assert from 'assert'
 
 const writeFile = Bluebird.promisify(fs.writeFile)
 
@@ -19,8 +20,10 @@ function leftPad(str, padding, len) {
   return pad.substring(str.length) + str
 }
 
-
 const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER)
+  .map(padKeys('0', 4, 'Kommunenr'))
+  .map(padKeys('0', 2, 'Fylkenr'))
+  .map(padKeys('0', 2, 'Næringsregionnr'))
 
 const fylker = parsedRegions
   .distinct(region => region.Fylkenr)
@@ -30,9 +33,9 @@ const fylker = parsedRegions
     Fylkenavn: 'name'
   }))
   .map(fylke => {
-    fylke.type = 'fylke'
-    fylke.code = leftPad(fylke.code, '0', 2)
-    return fylke
+    return Object.assign({}, fylke, {
+      type: 'county'
+    })
   })
   .toArray()
   .flatMap(serializeTo('./data/fylker.json'))
@@ -43,54 +46,51 @@ const kommuner = parsedRegions
   .map(renameKeys({
     Kommunenr: 'code',
     Kommunenavn: 'name',
-    Fylkenr: 'fylkeCode',
+    Fylkenr: 'countyCode',
     IMDiRegion: 'imdiRegion',
-    Næringsregionnr: 'naeringsRegionCode',
+    Næringsregionnr: 'commerceRegionCode',
     /* eslint-disable camelcase */
     Sentralitet_nr_2008: 'centralityNumber',
     Sentralitet_kat_2008: 'centralityName'
     /* eslint-enable camelcase */
   }))
   .map(kommune => {
-    if (kommune.name === 'Oslo kommune') {
-      kommune.name = 'Oslo'
-    }
-    kommune.type = 'kommune'
-    kommune.code = leftPad(kommune.code, '0', 4)
-
-    return kommune
+    return Object.assign({}, kommune, {
+      name: kommune.name === 'Oslo kommune' ? 'Oslo' : kommune.name,
+      type: 'municipality'
+    })
   })
   .toArray()
   .flatMap(serializeTo('./data/kommuner.json'))
 
 const naeringsregioner = parsedRegions
   .distinct(region => region['Næringsregionnr'])
-  .map(pickKeys('Næringsregionnr', 'Næringsregion_ navn'))
+  .map(pickKeys('Næringsregionnr', 'Næringsregion_ navn', 'Kommunenr'))
   .map(renameKeys({
     Næringsregionnr: 'code',
     'Næringsregion_ navn': 'name',
-    Kommunenr: 'municipalityCode',
+    Kommunenr: 'municipalityCode'
   }))
   .map(naeringsregion => {
-    naeringsregion.type = 'naeringsregion'
-    naeringsregion.code = leftPad(naeringsregion.code, '0', 2)
-    return naeringsregion
+    return Object.assign({}, naeringsregion, {
+      type: 'commerceRegion'
+    })
   })
   .toArray()
   .flatMap(serializeTo('./data/naeringsregioner.json'))
 
 const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   .distinct(region => region.bydelsnr)
-  .map(pickKeys('bydelsnr', 'bydelsnavn'))
+  .map(pickKeys('bydelsnr', 'bydelsnavn', 'Kommunenr'))
   .map(renameKeys({
     bydelsnr: 'code',
     bydelsnavn: 'name',
-    Kommunenr: 'kommuneCode'
+    Kommunenr: 'municipalityCode'
   }))
   .map(bydel => {
-    bydel.type = 'bydel'
-    bydel.code = leftPad(bydel.code, '0', 6)
-    return bydel
+    return Object.assign({}, bydel, {
+      type: 'borough'
+    })
   })
   .toArray()
   .flatMap(serializeTo('./data/bydeler.json'))
@@ -131,6 +131,17 @@ function renameKeys(keyNamesMap) {
 function pickKeys(...keys) {
   return function (object) {
     return pick(object, ...keys)
+  }
+}
+
+function padKeys(padding, len, ...keys) {
+  return function (object) {
+    const padded = keys.reduce((acc, key) => {
+      assert(object[key], `Missing key ${key} in ${JSON.stringify(object)}`)
+      acc[key] = leftPad(object[key], padding, len)
+      return acc
+    }, {})
+    return Object.assign({}, object, padded)
   }
 }
 

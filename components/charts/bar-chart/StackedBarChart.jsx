@@ -51,9 +51,7 @@ export default class StackedBarChart extends Component {
       })
     })
 
-    // A range of 20 colors
-    const colors = d3.scale.category20()
-    colors.domain(seriesNames)
+    const colors = this.colors.domain(seriesNames)
 
     yAxis.tickFormat(yAxisLabelFormat)
     if (isPercent) {

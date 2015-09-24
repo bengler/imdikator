@@ -16,7 +16,7 @@ export default class BubbleChart extends React.Component {
     }
 
     const diameter = [this.size.width, this.size.height]
-    const color = d3.scale.category20c()
+    const color = this.colors
 
     const bubble = d3.layout.pack()
     .sort(null)

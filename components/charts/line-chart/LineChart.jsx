@@ -49,7 +49,7 @@ export default class LineChart extends React.Component {
     })
 
     const series = preparedData.map(item => item.title)
-    const seriesColor = d3.scale.category20().domain(series)
+    const seriesColor = this.colors.domain(series)
 
     x.domain(d3.extent(dates))
 

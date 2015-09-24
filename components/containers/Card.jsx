@@ -12,6 +12,7 @@ class Card extends Component {
     query: PropTypes.object,
     data: PropTypes.object,
     headerGroups: PropTypes.object,
+    table: PropTypes.object,
     activeTab: PropTypes.object,
     isOpen: PropTypes.boolean,
     boundUpdateCardQuery: PropTypes.func,
@@ -70,7 +71,8 @@ class Card extends Component {
             return [
               <ChartSelectorList card={card} onSelectDataView={this.handleChangeTab.bind(this)}/>,
               <UnitSelection selectedUnit={unit} units={units} onChangeUnit={updateUnit}/>,
-              <ChartComponent data={this.props.data}/>
+              <ChartComponent data={this.props.data}/>,
+              <small>{this.props.table.description}</small>
             ]
           }
         })()}
@@ -89,12 +91,15 @@ function select(state, ownProps) {
   const {query, activeTab, data} = cardState
 
   const headerGroups = state.headerGroups[query.tableName]
+  const table = state.tables[query.tableName]
+
   const isOpen = state.openCards.includes(ownProps.card.name)
 
   return {
     isOpen,
     data,
     headerGroups,
+    table,
     activeTab,
     query
   }

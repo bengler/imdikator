@@ -7,6 +7,7 @@ import cardState from './cardState'
 import openCards from './openCards'
 import cardPage from './cardPage'
 import cardPages from './cardPages'
+import tables from './tables'
 
 export default combineReducers({
   route,
@@ -16,5 +17,7 @@ export default combineReducers({
   cardPages,
   headerGroups,
   cardState,
-  openCards
+  openCards,
+  tables,
 })
+

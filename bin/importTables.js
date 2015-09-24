@@ -3,9 +3,6 @@ import csv from 'csv-parse'
 import fs from 'fs'
 import RxNode from 'rx-node'
 import Rx from 'rx'
-import {prefix} from '../lib/debug'
-
-const debug = prefix('imdikator:import-labels')
 
 const SHEET_KEY = '1VEn9mXBh630Ww1ZsVkF-ykQ5E2Z7rBbFNDy_bjK7F0o'
 const SHEET_GID = 1205232570
@@ -40,7 +37,6 @@ csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
       return mapped
     }, {})
   })
-  .tap(debug)
   .toArray()
   .flatMap(tables => {
     return Rx.Observable.fromNodeCallback(fs.writeFile)(OUTFILE, JSON.stringify(tables, null, 2))

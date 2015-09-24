@@ -32,7 +32,42 @@ class App extends Component {
   render() {
     // Injected by connect() call:
     const {route} = this.props
-    return <route.handler dispatch={this.props.dispatch} route={route}/>
+    return (
+      <div>
+        <div className='page__content page__content--section'>
+          <div className='wrapper'>
+            <div className='row'>
+              <div className='col--main-wide'>
+                <nav className='breadcrumbs'>
+                  <ul className='t-no-list-styles breadcrumbs__list'>
+                    <li className='breadcrumbs__list-item'>
+                      <a className='breadcrumbs__link'>
+                        Breadcrumbs
+                      </a>
+                      <span className='breadcrumbs__divider'>/</span>
+                    </li>
+                    <li className='breadcrumbs__list-item'>
+                      <a className='breadcrumbs__link'>
+                        go
+                      </a>
+                      <span className='breadcrumbs__divider'>/</span>
+                    </li>
+                    <li className='breadcrumbs__list-item'>
+                      <a className='breadcrumbs__link'>
+                        here
+                      </a>
+                      <span className='breadcrumbs__divider'>/</span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <route.handler dispatch={this.props.dispatch} route={route}/>
+      </div>
+    )
   }
 }
 

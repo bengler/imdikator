@@ -49,7 +49,7 @@ class CardsPage extends Component {
     const {cardPages} = this.props
     return cardPages.map(cardPage => {
       const firstCard = cardPage.cards[0]
-      return <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
+      return <a className='tabs-button-menu__link' href={this.context.linkTo('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
     })
   }
 
@@ -66,29 +66,63 @@ class CardsPage extends Component {
 
     return (
       <div>
+        <div className='page__content page__content--section'>
+          <div className='wrapper'>
+            <div className='row'>
+              <div className='col--main-wide'>
 
-        <ul>
-          {this.renderCardPagesLinks().map(link => {
-            return <li style={pageLinkStyle}>{link}</li>
-          })}
-        </ul>
+                <header>
+                  <h1>Integrering i {region.name} {region.type}</h1>
+                  <p className='ingress'>Tall og statistikk over integreringen i {region.type}.</p>
+                </header>
 
-        <h2>{pageConfig.title} i {region.name}</h2>
-        {pageConfig.cards.map(card => {
-          const isOpen = openCards.includes(card.name)
-          return (
-            <div style={{border: '1px dotted #c0c0c0', marginBottom: 10}}>
-              {!isOpen && (
-                <h3>
-                  <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}>
-                    {card.title}
-                  </a>
-                </h3>
-              )}
-              {isOpen && <Card card={card}/>}
+                <nav className='tabs-button-menu'>
+                  <h2 className='tabs-button-menu__title t-only-screenreaders'>Tema:</h2>
+                  <ul className='t-no-list-styles tabs-button-menu__list'>
+                    {this.renderCardPagesLinks().map(link => {
+                      return (
+                        <li className='tabs-button-menu__list-item'>
+                          {link}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </nav>
+
+              </div>
             </div>
-          )
-        })}
+          </div>
+        </div>
+
+        <div className='page__section page__section--grey'>
+          <div className='wrapper'>
+            <div className='row'>
+              <div className='col--main'>
+
+                <h2 className='feature__section-title'>{pageConfig.title} i {region.name}</h2>
+                  <ul className='t-no-list-styles'>
+
+                    {pageConfig.cards.map(card => {
+                      const isOpen = openCards.includes(card.name)
+                      return (
+                        <li>
+                          <section className='toggle-list'>
+                            <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})} className="toggle-list__button toggle-list__button--expanded" aria-expanded="true" aria-controls="befolkning" role="button">
+                              <h3 className="toggle-list__button-title">{card.title}
+                                <i className="icon__arrow-down toggle-list__button-icon" />
+                              </h3>
+                            </a>
+                            {isOpen && <Card card={card}/>}
+                          </section>
+                        </li>
+                      )
+                    })}
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     )
   }

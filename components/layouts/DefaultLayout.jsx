@@ -53,7 +53,7 @@ export default class DefaultLayout extends React.Component {
         </div>
       </header>
       <div id="page-content" className="page__master">
-        <main className="wrapper page">
+        <main className="page">
           <div data-imdikator="site"/>
         </main>
       </div>

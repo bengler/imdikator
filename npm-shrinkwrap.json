@@ -103,7 +103,7 @@
     "imdi-styles": {
       "version": "0.0.0",
       "from": "netliferesearch/imdi-styles",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#5777054d6a0d7249ed00778784bff042dcb2bfed"
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#78d6c7f8b04180aa6774f57b21ce2d779d830206"
     },
     "lodash": {
       "version": "3.10.1",

@@ -39,7 +39,7 @@ const main = createBundle([
 const test = createBundle(require.resolve('../docsite/bundle.jsx'))
 
 export default {
-  '/js/bundles/main.js'() {
+  '/build/js/bundles/main.js'() {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = main()
       .transform(babelify)
@@ -60,7 +60,7 @@ export default {
     })
     return stream
   },
-  '/js/bundles/test.js'() {
+  '/build/js/bundles/test.js'() {
     return test()
       .transform('redocify')
       .transform(babelify)

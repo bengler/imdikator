@@ -6,13 +6,13 @@ import imdiStyles from 'imdi-styles'
 const routes = {}
 
 readdir(imdiStyles.ICONS_PATH).forEach(filepath => {
-  routes[path.join('/icons', filepath)] = function () {
+  routes[path.join('/UI//icons', filepath)] = function () {
     return fs.createReadStream(path.join(imdiStyles.ICONS_PATH, filepath))
   }
 })
 
 readdir(imdiStyles.GFX_PATH).forEach(filepath => {
-  routes[path.join('/gfx', filepath)] = function () {
+  routes[path.join('/UI//gfx', filepath)] = function () {
     return fs.createReadStream(path.join(imdiStyles.GFX_PATH, filepath))
   }
 })

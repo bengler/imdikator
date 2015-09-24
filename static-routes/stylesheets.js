@@ -6,7 +6,7 @@ import config from '../config'
 const development = config.env === 'development'
 
 export default {
-  '/stylesheets/main.css'() {
+  '/build/stylesheets/main.css'() {
     return new Promise((resolve, reject) => {
       fs.readFile(require.resolve('../stylesheets/bundles/main.less'), 'utf-8', (err, buffer) => {
         if (err) {
@@ -25,7 +25,7 @@ export default {
       })
       .then(output => output.css)
   },
-  '/stylesheets/docsite.css'() {
+  '/build/stylesheets/docsite.css'() {
     return new Promise((resolve, reject) => {
       fs.readFile(require.resolve('../stylesheets/bundles/docsite.less'), 'utf-8', (err, buffer) => {
         if (err) {

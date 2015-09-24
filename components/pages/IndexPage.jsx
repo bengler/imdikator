@@ -9,10 +9,10 @@ export default class RegionPage extends Component {
   render() {
     return (
       <div>
-        IndexPage
-        <pre>{JSON.stringify(this.props.route, null, 2)}</pre>
-        <a href="/steder/k0301-Oslo/befolkning/befolkning_hovedgruppe/latest">/k0301-Oslo/befolkning/befolkning_hovedgruppe/latest</a>
-        <Search/>
+        Finn ditt område: <Search/>
+
+        <p>Test: <a href="/steder/k0301-Oslo/befolkning/befolkning_hovedgruppe/latest">/k0301-Oslo/befolkning/befolkning_hovedgruppe/latest</a></p>
+
         <br/>
         <br/>
       </div>

@@ -2,4301 +2,4301 @@
   {
     "code": "0101",
     "name": "Halden",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "1",
+    "commerceRegionCode": "01",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0104",
     "name": "Moss",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "3",
+    "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0105",
     "name": "Sarpsborg",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "4",
+    "commerceRegionCode": "04",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0106",
     "name": "Fredrikstad",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "4",
+    "commerceRegionCode": "04",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0111",
     "name": "Hvaler",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "4",
+    "commerceRegionCode": "04",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0118",
     "name": "Aremark",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0119",
     "name": "Marker",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0121",
     "name": "Rømskog",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0122",
     "name": "Trøgstad",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0123",
     "name": "Spydeberg",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0124",
     "name": "Askim",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0125",
     "name": "Eidsberg",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0127",
     "name": "Skiptvet",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0128",
     "name": "Rakkestad",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0135",
     "name": "Råde",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "3",
+    "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0136",
     "name": "Rygge",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "3",
+    "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0137",
     "name": "Våler (Østf.)",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "3",
+    "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0138",
     "name": "Hobøl",
-    "fylkeCode": "1",
+    "countyCode": "01",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "2",
+    "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0211",
     "name": "Vestby",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0213",
     "name": "Ski",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0214",
     "name": "Ås",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0215",
     "name": "Frogn",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0216",
     "name": "Nesodden",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0217",
     "name": "Oppegård",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0219",
     "name": "Bærum",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "5",
+    "commerceRegionCode": "05",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0220",
     "name": "Asker",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "5",
+    "commerceRegionCode": "05",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0221",
     "name": "Aurskog-Høland",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0226",
     "name": "Sørum",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0227",
     "name": "Fet",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0228",
     "name": "Rælingen",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0229",
     "name": "Enebakk",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "6",
+    "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0230",
     "name": "Lørenskog",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0231",
     "name": "Skedsmo",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0233",
     "name": "Nittedal",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "7",
+    "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0234",
     "name": "Gjerdrum",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "8",
+    "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0235",
     "name": "Ullensaker",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "8",
+    "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0236",
     "name": "Nes (Ak.)",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "8",
+    "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0237",
     "name": "Eidsvoll",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "8",
+    "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0238",
     "name": "Nannestad",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "8",
+    "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0239",
     "name": "Hurdal",
-    "fylkeCode": "2",
+    "countyCode": "02",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "8",
+    "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0301",
     "name": "Oslo",
-    "fylkeCode": "3",
+    "countyCode": "03",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "9",
+    "commerceRegionCode": "09",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0402",
     "name": "Kongsvinger",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0403",
     "name": "Hamar",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "12",
+    "commerceRegionCode": "12",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0412",
     "name": "Ringsaker",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "12",
+    "commerceRegionCode": "12",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0415",
     "name": "Løten",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "12",
+    "commerceRegionCode": "12",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0417",
     "name": "Stange",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "12",
+    "commerceRegionCode": "12",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0418",
     "name": "Nord-Odal",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0419",
     "name": "Sør-Odal",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0420",
     "name": "Eidskog",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0423",
     "name": "Grue",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0425",
     "name": "Åsnes",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0426",
     "name": "Våler (Hedm.)",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "11",
+    "commerceRegionCode": "11",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0427",
     "name": "Elverum",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "13",
+    "commerceRegionCode": "13",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0428",
     "name": "Trysil",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "13",
+    "commerceRegionCode": "13",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0429",
     "name": "Åmot",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "13",
+    "commerceRegionCode": "13",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0430",
     "name": "Stor-Elvdal",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "13",
+    "commerceRegionCode": "13",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0432",
     "name": "Rendalen",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "10",
+    "commerceRegionCode": "10",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0434",
     "name": "Engerdal",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "13",
+    "commerceRegionCode": "13",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0436",
     "name": "Tolga",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "10",
+    "commerceRegionCode": "10",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0437",
     "name": "Tynset",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "10",
+    "commerceRegionCode": "10",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0438",
     "name": "Alvdal",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "10",
+    "commerceRegionCode": "10",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0439",
     "name": "Folldal",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "10",
+    "commerceRegionCode": "10",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0441",
     "name": "Os (Hedm.)",
-    "fylkeCode": "4",
+    "countyCode": "04",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "10",
+    "commerceRegionCode": "10",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0501",
     "name": "Lillehammer",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "16",
+    "commerceRegionCode": "16",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0502",
     "name": "Gjøvik",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "14",
+    "commerceRegionCode": "14",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0511",
     "name": "Dovre",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "18",
+    "commerceRegionCode": "18",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0512",
     "name": "Lesja",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "18",
+    "commerceRegionCode": "18",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0513",
     "name": "Skjåk",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "18",
+    "commerceRegionCode": "18",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0514",
     "name": "Lom",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "18",
+    "commerceRegionCode": "18",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0515",
     "name": "Vågå",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "18",
+    "commerceRegionCode": "18",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0516",
     "name": "Nord-Fron",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "17",
+    "commerceRegionCode": "17",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0517",
     "name": "Sel",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "18",
+    "commerceRegionCode": "18",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0519",
     "name": "Sør-Fron",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "17",
+    "commerceRegionCode": "17",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0520",
     "name": "Ringebu",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "17",
+    "commerceRegionCode": "17",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0521",
     "name": "Øyer",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "16",
+    "commerceRegionCode": "16",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0522",
     "name": "Gausdal",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "16",
+    "commerceRegionCode": "16",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0528",
     "name": "Østre Toten",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "14",
+    "commerceRegionCode": "14",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0529",
     "name": "Vestre Toten",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "14",
+    "commerceRegionCode": "14",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0532",
     "name": "Jevnaker",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "15",
+    "commerceRegionCode": "15",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0533",
     "name": "Lunner",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "15",
+    "commerceRegionCode": "15",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0534",
     "name": "Gran",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "15",
+    "commerceRegionCode": "15",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0536",
     "name": "Søndre Land",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "14",
+    "commerceRegionCode": "14",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0538",
     "name": "Nordre Land",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "14",
+    "commerceRegionCode": "14",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0540",
     "name": "Sør-Aurdal",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "19",
+    "commerceRegionCode": "19",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0541",
     "name": "Etnedal",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "19",
+    "commerceRegionCode": "19",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0542",
     "name": "Nord-Aurdal",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "19",
+    "commerceRegionCode": "19",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0543",
     "name": "Vestre Slidre",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "19",
+    "commerceRegionCode": "19",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0544",
     "name": "Øystre Slidre",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "19",
+    "commerceRegionCode": "19",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0545",
     "name": "Vang",
-    "fylkeCode": "5",
+    "countyCode": "05",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "19",
+    "commerceRegionCode": "19",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0602",
     "name": "Drammen",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0604",
     "name": "Kongsberg",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "22",
+    "commerceRegionCode": "22",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0605",
     "name": "Ringerike",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "24",
+    "commerceRegionCode": "24",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0612",
     "name": "Hole",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "24",
+    "commerceRegionCode": "24",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0615",
     "name": "Flå",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "21",
+    "commerceRegionCode": "21",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0616",
     "name": "Nes (Busk.)",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "21",
+    "commerceRegionCode": "21",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0617",
     "name": "Gol",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "21",
+    "commerceRegionCode": "21",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0618",
     "name": "Hemsedal",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "21",
+    "commerceRegionCode": "21",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0619",
     "name": "Ål",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "21",
+    "commerceRegionCode": "21",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0620",
     "name": "Hol",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "21",
+    "commerceRegionCode": "21",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0621",
     "name": "Sigdal",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "23",
+    "commerceRegionCode": "23",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0622",
     "name": "Krødsherad",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "23",
+    "commerceRegionCode": "23",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0623",
     "name": "Modum",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "23",
+    "commerceRegionCode": "23",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0624",
     "name": "Øvre Eiker",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0625",
     "name": "Nedre Eiker",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0626",
     "name": "Lier",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0627",
     "name": "Røyken",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0628",
     "name": "Hurum",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0631",
     "name": "Flesberg",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "22",
+    "commerceRegionCode": "22",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0632",
     "name": "Rollag",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "22",
+    "commerceRegionCode": "22",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0633",
     "name": "Nore og Uvdal",
-    "fylkeCode": "6",
+    "countyCode": "06",
     "imdiRegion": "IMDi Indre Øst",
-    "naeringsRegionCode": "22",
+    "commerceRegionCode": "22",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0701",
     "name": "Horten",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0702",
     "name": "Holmestrand",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0704",
     "name": "Tønsberg",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0706",
     "name": "Sandefjord",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "26",
+    "commerceRegionCode": "26",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0709",
     "name": "Larvik",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "26",
+    "commerceRegionCode": "26",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0711",
     "name": "Svelvik",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0713",
     "name": "Sande (Vestf.)",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "20",
+    "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0714",
     "name": "Hof",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0716",
     "name": "Re (f.o.m. 2002)",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0719",
     "name": "Andebu",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0720",
     "name": "Stokke",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0722",
     "name": "Nøtterøy",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0723",
     "name": "Tjøme",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "25",
+    "commerceRegionCode": "25",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0728",
     "name": "Lardal",
-    "fylkeCode": "7",
+    "countyCode": "07",
     "imdiRegion": "IMDi Øst",
-    "naeringsRegionCode": "26",
+    "commerceRegionCode": "26",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0805",
     "name": "Porsgrunn",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "27",
+    "commerceRegionCode": "27",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0806",
     "name": "Skien",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "27",
+    "commerceRegionCode": "27",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0807",
     "name": "Notodden",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "29",
+    "commerceRegionCode": "29",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0811",
     "name": "Siljan",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "27",
+    "commerceRegionCode": "27",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0814",
     "name": "Bamble",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "27",
+    "commerceRegionCode": "27",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0815",
     "name": "Kragerø",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "27",
+    "commerceRegionCode": "27",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0817",
     "name": "Drangedal",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "27",
+    "commerceRegionCode": "27",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0819",
     "name": "Nome",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "28",
+    "commerceRegionCode": "28",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0821",
     "name": "Bø (Telem.)",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "28",
+    "commerceRegionCode": "28",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0822",
     "name": "Sauherad",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "28",
+    "commerceRegionCode": "28",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0826",
     "name": "Tinn",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "29",
+    "commerceRegionCode": "29",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0827",
     "name": "Hjartdal",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "29",
+    "commerceRegionCode": "29",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0828",
     "name": "Seljord",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "30",
+    "commerceRegionCode": "30",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0829",
     "name": "Kviteseid",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "30",
+    "commerceRegionCode": "30",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0830",
     "name": "Nissedal",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "30",
+    "commerceRegionCode": "30",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0831",
     "name": "Fyresdal",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "30",
+    "commerceRegionCode": "30",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0833",
     "name": "Tokke",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "30",
+    "commerceRegionCode": "30",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0834",
     "name": "Vinje",
-    "fylkeCode": "8",
+    "countyCode": "08",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "30",
+    "commerceRegionCode": "30",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0901",
     "name": "Risør",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0904",
     "name": "Grimstad",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0906",
     "name": "Arendal",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0911",
     "name": "Gjerstad",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0912",
     "name": "Vegårshei",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0914",
     "name": "Tvedestrand",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0919",
     "name": "Froland",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0926",
     "name": "Lillesand",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0928",
     "name": "Birkenes",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0929",
     "name": "Åmli",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "32",
+    "commerceRegionCode": "32",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0935",
     "name": "Iveland",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0937",
     "name": "Evje og Hornnes",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "31",
+    "commerceRegionCode": "31",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0938",
     "name": "Bygland",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "31",
+    "commerceRegionCode": "31",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0940",
     "name": "Valle",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "31",
+    "commerceRegionCode": "31",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0941",
     "name": "Bykle",
-    "fylkeCode": "9",
+    "countyCode": "09",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "31",
+    "commerceRegionCode": "31",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1001",
     "name": "Kristiansand",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1002",
     "name": "Mandal",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "34",
+    "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1003",
     "name": "Farsund",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "33",
+    "commerceRegionCode": "33",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1004",
     "name": "Flekkefjord",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "33",
+    "commerceRegionCode": "33",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1014",
     "name": "Vennesla",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1017",
     "name": "Songdalen",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1018",
     "name": "Søgne",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "35",
+    "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1021",
     "name": "Marnardal",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "34",
+    "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1026",
     "name": "Åseral",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "34",
+    "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1027",
     "name": "Audnedal",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "34",
+    "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1029",
     "name": "Lindesnes",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "34",
+    "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1032",
     "name": "Lyngdal",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "33",
+    "commerceRegionCode": "33",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1034",
     "name": "Hægebostad",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "33",
+    "commerceRegionCode": "33",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1037",
     "name": "Kvinesdal",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Sør",
-    "naeringsRegionCode": "33",
+    "commerceRegionCode": "33",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1046",
     "name": "Sirdal",
-    "fylkeCode": "10",
+    "countyCode": "10",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "33",
+    "commerceRegionCode": "33",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1101",
     "name": "Eigersund",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "36",
+    "commerceRegionCode": "36",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1102",
     "name": "Sandnes",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1103",
     "name": "Stavanger",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1106",
     "name": "Haugesund",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1111",
     "name": "Sokndal",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "36",
+    "commerceRegionCode": "36",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1112",
     "name": "Lund",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "36",
+    "commerceRegionCode": "36",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1114",
     "name": "Bjerkreim",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "36",
+    "commerceRegionCode": "36",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1119",
     "name": "Hå",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1120",
     "name": "Klepp",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1121",
     "name": "Time",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1122",
     "name": "Gjesdal",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1124",
     "name": "Sola",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1127",
     "name": "Randaberg",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1129",
     "name": "Forsand",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "38",
+    "commerceRegionCode": "38",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1130",
     "name": "Strand",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "38",
+    "commerceRegionCode": "38",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1133",
     "name": "Hjelmeland",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "38",
+    "commerceRegionCode": "38",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1134",
     "name": "Suldal",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "38",
+    "commerceRegionCode": "38",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1135",
     "name": "Sauda",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1141",
     "name": "Finnøy",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "38",
+    "commerceRegionCode": "38",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1142",
     "name": "Rennesøy",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1144",
     "name": "Kvitsøy",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "39",
+    "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1145",
     "name": "Bokn",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1146",
     "name": "Tysvær",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1149",
     "name": "Karmøy",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1151",
     "name": "Utsira",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1160",
     "name": "Vindafjord",
-    "fylkeCode": "11",
+    "countyCode": "11",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "37",
+    "commerceRegionCode": "37",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1201",
     "name": "Bergen",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "40",
+    "commerceRegionCode": "40",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1211",
     "name": "Etne",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1216",
     "name": "Sveio",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1219",
     "name": "Bømlo",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1221",
     "name": "Stord",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1222",
     "name": "Fitjar",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1223",
     "name": "Tysnes",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1224",
     "name": "Kvinnherad",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1227",
     "name": "Jondal",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1228",
     "name": "Odda",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1231",
     "name": "Ullensvang",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1232",
     "name": "Eidfjord",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1233",
     "name": "Ulvik",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1234",
     "name": "Granvin",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1235",
     "name": "Voss",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "43",
+    "commerceRegionCode": "43",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1238",
     "name": "Kvam",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "42",
+    "commerceRegionCode": "42",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1241",
     "name": "Fusa",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "41",
+    "commerceRegionCode": "41",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1242",
     "name": "Samnanger",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "41",
+    "commerceRegionCode": "41",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1243",
     "name": "Os (Hord.)",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "41",
+    "commerceRegionCode": "41",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1244",
     "name": "Austevoll",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "46",
+    "commerceRegionCode": "46",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1245",
     "name": "Sund",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "47",
+    "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1246",
     "name": "Fjell",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "47",
+    "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1247",
     "name": "Askøy",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "47",
+    "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1251",
     "name": "Vaksdal",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "45",
+    "commerceRegionCode": "45",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1252",
     "name": "Modalen",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "45",
+    "commerceRegionCode": "45",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1253",
     "name": "Osterøy",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "45",
+    "commerceRegionCode": "45",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1256",
     "name": "Meland",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "44",
+    "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1259",
     "name": "Øygarden",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "47",
+    "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1260",
     "name": "Radøy",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "44",
+    "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1263",
     "name": "Lindås",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "44",
+    "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1264",
     "name": "Austrheim",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "44",
+    "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1265",
     "name": "Fedje",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "44",
+    "commerceRegionCode": "44",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1266",
     "name": "Masfjorden",
-    "fylkeCode": "12",
+    "countyCode": "12",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "44",
+    "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1401",
     "name": "Flora",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "51",
+    "commerceRegionCode": "51",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1411",
     "name": "Gulen",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "48",
+    "commerceRegionCode": "48",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1412",
     "name": "Solund",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "48",
+    "commerceRegionCode": "48",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1413",
     "name": "Hyllestad",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "48",
+    "commerceRegionCode": "48",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1416",
     "name": "Høyanger",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1417",
     "name": "Vik",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1418",
     "name": "Balestrand",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1419",
     "name": "Leikanger",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1420",
     "name": "Sogndal",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1421",
     "name": "Aurland",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1422",
     "name": "Lærdal",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1424",
     "name": "Årdal",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1426",
     "name": "Luster",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "50",
+    "commerceRegionCode": "50",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1428",
     "name": "Askvoll",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "48",
+    "commerceRegionCode": "48",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1429",
     "name": "Fjaler",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "48",
+    "commerceRegionCode": "48",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1430",
     "name": "Gaular",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "51",
+    "commerceRegionCode": "51",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1431",
     "name": "Jølster",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "51",
+    "commerceRegionCode": "51",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1432",
     "name": "Førde",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "51",
+    "commerceRegionCode": "51",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1433",
     "name": "Naustdal",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "51",
+    "commerceRegionCode": "51",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1438",
     "name": "Bremanger",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1439",
     "name": "Vågsøy",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1441",
     "name": "Selje",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1443",
     "name": "Eid",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1444",
     "name": "Hornindal",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1445",
     "name": "Gloppen",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1449",
     "name": "Stryn",
-    "fylkeCode": "14",
+    "countyCode": "14",
     "imdiRegion": "IMDi Vest",
-    "naeringsRegionCode": "49",
+    "commerceRegionCode": "49",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1502",
     "name": "Molde",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1504",
     "name": "Ålesund",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "56",
+    "commerceRegionCode": "56",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1505",
     "name": "Kristiansund",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1511",
     "name": "Vanylven",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1514",
     "name": "Sande (M. og R.)",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1515",
     "name": "Herøy (M. og R.)",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1516",
     "name": "Ulstein",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1517",
     "name": "Hareid",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1519",
     "name": "Volda",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1520",
     "name": "Ørsta",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "55",
+    "commerceRegionCode": "55",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1523",
     "name": "Ørskog",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "54",
+    "commerceRegionCode": "54",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1524",
     "name": "Norddal",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "54",
+    "commerceRegionCode": "54",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1525",
     "name": "Stranda",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "54",
+    "commerceRegionCode": "54",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1526",
     "name": "Stordal",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "54",
+    "commerceRegionCode": "54",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1528",
     "name": "Sykkylven",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "54",
+    "commerceRegionCode": "54",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1529",
     "name": "Skodje",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "56",
+    "commerceRegionCode": "56",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1531",
     "name": "Sula",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "56",
+    "commerceRegionCode": "56",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1532",
     "name": "Giske",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "56",
+    "commerceRegionCode": "56",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1534",
     "name": "Haram",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "56",
+    "commerceRegionCode": "56",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1535",
     "name": "Vestnes",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1539",
     "name": "Rauma",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1543",
     "name": "Nesset",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1545",
     "name": "Midsund",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1546",
     "name": "Sandøy",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "56",
+    "commerceRegionCode": "56",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1547",
     "name": "Aukra",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1548",
     "name": "Fræna",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "53",
+    "commerceRegionCode": "53",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1551",
     "name": "Eide",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1554",
     "name": "Averøy",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1557",
     "name": "Gjemnes",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1560",
     "name": "Tingvoll",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1563",
     "name": "Sunndal",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1566",
     "name": "Surnadal",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1567",
     "name": "Rindal",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1571",
     "name": "Halsa",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1573",
     "name": "Smøla",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1576",
     "name": "Aure",
-    "fylkeCode": "15",
+    "countyCode": "15",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "52",
+    "commerceRegionCode": "52",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1601",
     "name": "Trondheim",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1612",
     "name": "Hemne",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "60",
+    "commerceRegionCode": "60",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1613",
     "name": "Snillfjord",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "60",
+    "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1617",
     "name": "Hitra",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "58",
+    "commerceRegionCode": "58",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1620",
     "name": "Frøya",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "58",
+    "commerceRegionCode": "58",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1621",
     "name": "Ørland",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1622",
     "name": "Agdenes",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "60",
+    "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1624",
     "name": "Rissa",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1627",
     "name": "Bjugn",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1630",
     "name": "Åfjord",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1632",
     "name": "Roan",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1633",
     "name": "Osen",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1634",
     "name": "Oppdal",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "59",
+    "commerceRegionCode": "59",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1635",
     "name": "Rennebu",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "59",
+    "commerceRegionCode": "59",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1636",
     "name": "Meldal",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "60",
+    "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1638",
     "name": "Orkdal",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "60",
+    "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1640",
     "name": "Røros",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "62",
+    "commerceRegionCode": "62",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1644",
     "name": "Holtålen",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "62",
+    "commerceRegionCode": "62",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1648",
     "name": "Midtre Gauldal",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1653",
     "name": "Melhus",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1657",
     "name": "Skaun",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1662",
     "name": "Klæbu",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1663",
     "name": "Malvik",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1664",
     "name": "Selbu",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "61",
+    "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1665",
     "name": "Tydal",
-    "fylkeCode": "16",
+    "countyCode": "16",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "62",
+    "commerceRegionCode": "62",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1702",
     "name": "Steinkjer",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "64",
+    "commerceRegionCode": "64",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1703",
     "name": "Namsos",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "67",
+    "commerceRegionCode": "67",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1711",
     "name": "Meråker",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "63",
+    "commerceRegionCode": "63",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1714",
     "name": "Stjørdal",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "63",
+    "commerceRegionCode": "63",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1717",
     "name": "Frosta",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "63",
+    "commerceRegionCode": "63",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1718",
     "name": "Leksvik",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "57",
+    "commerceRegionCode": "57",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1719",
     "name": "Levanger",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "64",
+    "commerceRegionCode": "64",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1721",
     "name": "Verdal",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "64",
+    "commerceRegionCode": "64",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1724",
     "name": "Verran",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "64",
+    "commerceRegionCode": "64",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1725",
     "name": "Namdalseid",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "67",
+    "commerceRegionCode": "67",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1736",
     "name": "Snåsa",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "65",
+    "commerceRegionCode": "65",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1738",
     "name": "Lierne",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "65",
+    "commerceRegionCode": "65",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1739",
     "name": "Røyrvik",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "65",
+    "commerceRegionCode": "65",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1740",
     "name": "Namsskogan",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "65",
+    "commerceRegionCode": "65",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1742",
     "name": "Grong",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "65",
+    "commerceRegionCode": "65",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1743",
     "name": "Høylandet",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "65",
+    "commerceRegionCode": "65",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1744",
     "name": "Overhalla",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "67",
+    "commerceRegionCode": "67",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1748",
     "name": "Fosnes",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "67",
+    "commerceRegionCode": "67",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1749",
     "name": "Flatanger",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "67",
+    "commerceRegionCode": "67",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1750",
     "name": "Vikna",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "66",
+    "commerceRegionCode": "66",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1751",
     "name": "Nærøy",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "66",
+    "commerceRegionCode": "66",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1755",
     "name": "Leka",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "66",
+    "commerceRegionCode": "66",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1756",
     "name": "Inderøy (f.o.m. 2012)",
-    "fylkeCode": "17",
+    "countyCode": "17",
     "imdiRegion": "IMDi Midt-Norge",
-    "naeringsRegionCode": "64",
+    "commerceRegionCode": "64",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1804",
     "name": "Bodø",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1805",
     "name": "Narvik",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "74",
+    "commerceRegionCode": "74",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1811",
     "name": "Bindal",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "68",
+    "commerceRegionCode": "68",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1812",
     "name": "Sømna",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "68",
+    "commerceRegionCode": "68",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1813",
     "name": "Brønnøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "68",
+    "commerceRegionCode": "68",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1815",
     "name": "Vega",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "68",
+    "commerceRegionCode": "68",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1816",
     "name": "Vevelstad",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "68",
+    "commerceRegionCode": "68",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1818",
     "name": "Herøy (Nordl.)",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "69",
+    "commerceRegionCode": "69",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1820",
     "name": "Alstahaug",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "69",
+    "commerceRegionCode": "69",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1822",
     "name": "Leirfjord",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "69",
+    "commerceRegionCode": "69",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1824",
     "name": "Vefsn",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "71",
+    "commerceRegionCode": "71",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1825",
     "name": "Grane",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "71",
+    "commerceRegionCode": "71",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1826",
     "name": "Hattfjelldal",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "71",
+    "commerceRegionCode": "71",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1827",
     "name": "Dønna",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "69",
+    "commerceRegionCode": "69",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1828",
     "name": "Nesna",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "72",
+    "commerceRegionCode": "72",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1832",
     "name": "Hemnes",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "72",
+    "commerceRegionCode": "72",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1833",
     "name": "Rana",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "72",
+    "commerceRegionCode": "72",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1834",
     "name": "Lurøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "70",
+    "commerceRegionCode": "70",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1835",
     "name": "Træna",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "70",
+    "commerceRegionCode": "70",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1836",
     "name": "Rødøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "70",
+    "commerceRegionCode": "70",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1837",
     "name": "Meløy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1838",
     "name": "Gildeskål",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1839",
     "name": "Beiarn",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1840",
     "name": "Saltdal",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1841",
     "name": "Fauske",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1845",
     "name": "Sørfold",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1848",
     "name": "Steigen",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1849",
     "name": "Hamarøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "73",
+    "commerceRegionCode": "73",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1850",
     "name": "Tysfjord",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "74",
+    "commerceRegionCode": "74",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1851",
     "name": "Lødingen",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "76",
+    "commerceRegionCode": "76",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1852",
     "name": "Tjeldsund",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "74",
+    "commerceRegionCode": "74",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1853",
     "name": "Evenes",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "74",
+    "commerceRegionCode": "74",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1854",
     "name": "Ballangen",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "74",
+    "commerceRegionCode": "74",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1856",
     "name": "Røst",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "75",
+    "commerceRegionCode": "75",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1857",
     "name": "Værøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "75",
+    "commerceRegionCode": "75",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1859",
     "name": "Flakstad",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "75",
+    "commerceRegionCode": "75",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1860",
     "name": "Vestvågøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "75",
+    "commerceRegionCode": "75",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1865",
     "name": "Vågan",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "75",
+    "commerceRegionCode": "75",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1866",
     "name": "Hadsel",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "76",
+    "commerceRegionCode": "76",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1867",
     "name": "Bø (Nordl.)",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "76",
+    "commerceRegionCode": "76",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1868",
     "name": "Øksnes",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "76",
+    "commerceRegionCode": "76",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1870",
     "name": "Sortland",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "76",
+    "commerceRegionCode": "76",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1871",
     "name": "Andøy",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "76",
+    "commerceRegionCode": "76",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1874",
     "name": "Moskenes",
-    "fylkeCode": "18",
+    "countyCode": "18",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "75",
+    "commerceRegionCode": "75",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1902",
     "name": "Tromsø",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "79",
+    "commerceRegionCode": "79",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1903",
     "name": "Harstad",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1911",
     "name": "Kvæfjord",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1913",
     "name": "Skånland",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1917",
     "name": "Ibestad",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1919",
     "name": "Gratangen",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "2",
     "centralityName": "Noe sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1920",
     "name": "Lavangen",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1922",
     "name": "Bardu",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1923",
     "name": "Salangen",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "77",
+    "commerceRegionCode": "77",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1924",
     "name": "Målselv",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1925",
     "name": "Sørreisa",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1926",
     "name": "Dyrøy",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1927",
     "name": "Tranøy",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1928",
     "name": "Torsken",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1929",
     "name": "Berg",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1931",
     "name": "Lenvik",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "78",
+    "commerceRegionCode": "78",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1933",
     "name": "Balsfjord",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "79",
+    "commerceRegionCode": "79",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1936",
     "name": "Karlsøy",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "79",
+    "commerceRegionCode": "79",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1938",
     "name": "Lyngen",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "80",
+    "commerceRegionCode": "80",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1939",
     "name": "Storfjord",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "80",
+    "commerceRegionCode": "80",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1940",
     "name": "Gáivuotna Kåfjord",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "80",
+    "commerceRegionCode": "80",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1941",
     "name": "Skjervøy",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "80",
+    "commerceRegionCode": "80",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1942",
     "name": "Nordreisa",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "80",
+    "commerceRegionCode": "80",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "1943",
     "name": "Kvænangen",
-    "fylkeCode": "19",
+    "countyCode": "19",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "80",
+    "commerceRegionCode": "80",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2002",
     "name": "Vardø",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2003",
     "name": "Vadsø",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2004",
     "name": "Hammerfest",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2011",
     "name": "Guovdageaidnu Kautokeino",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "82",
+    "commerceRegionCode": "82",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2012",
     "name": "Alta",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2014",
     "name": "Loppa",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2015",
     "name": "Hasvik",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2017",
     "name": "Kvalsund",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2018",
     "name": "Måsøy",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2019",
     "name": "Nordkapp",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "81",
+    "commerceRegionCode": "81",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2020",
     "name": "Porsanger Porsángu Porsanki",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "82",
+    "commerceRegionCode": "82",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2021",
     "name": "Kárásjohka Karasjok",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "82",
+    "commerceRegionCode": "82",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2022",
     "name": "Lebesby",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "82",
+    "commerceRegionCode": "82",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2023",
     "name": "Gamvik",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2024",
     "name": "Berlevåg",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2025",
     "name": "Deatnu Tana",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "82",
+    "commerceRegionCode": "82",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2027",
     "name": "Unjárga Nesseby",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "1",
     "centralityName": "Mindre sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2028",
     "name": "Båtsfjord",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "2030",
     "name": "Sør-Varanger",
-    "fylkeCode": "20",
+    "countyCode": "20",
     "imdiRegion": "IMDi Nord",
-    "naeringsRegionCode": "83",
+    "commerceRegionCode": "83",
     "centralityNumber": "0",
     "centralityName": "Minst sentrale kommuner",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "9999",
     "name": "Uoppgitt kommune",
-    "fylkeCode": "99",
+    "countyCode": "99",
     "imdiRegion": "Uoppgitt IMDi-region",
-    "naeringsRegionCode": "99",
+    "commerceRegionCode": "99",
     "centralityNumber": ".",
     "centralityName": ".",
-    "type": "kommune"
+    "type": "municipality"
   },
   {
     "code": "0000",
     "name": "Hele landet",
-    "fylkeCode": "00",
+    "countyCode": "00",
     "imdiRegion": ".",
-    "naeringsRegionCode": "00",
+    "commerceRegionCode": "00",
     "centralityNumber": ".",
     "centralityName": ".",
-    "type": "kommune"
+    "type": "municipality"
   }
 ]

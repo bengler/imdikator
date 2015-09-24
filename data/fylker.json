@@ -2,106 +2,106 @@
   {
     "code": "01",
     "name": "Østfold",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "02",
     "name": "Akershus",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "03",
     "name": "Oslo",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "04",
     "name": "Hedmark",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "05",
     "name": "Oppland",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "06",
     "name": "Buskerud",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "07",
     "name": "Vestfold",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "08",
     "name": "Telemark",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "09",
     "name": "Aust-Agder",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "10",
     "name": "Vest-Agder",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "11",
     "name": "Rogaland",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "12",
     "name": "Hordaland",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "14",
     "name": "Sogn og Fjordane",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "15",
     "name": "Møre og Romsdal",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "16",
     "name": "Sør-Trøndelag",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "17",
     "name": "Nord-Trøndelag",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "18",
     "name": "Nordland",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "19",
     "name": "Troms",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "20",
     "name": "Finnmark",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "99",
     "name": "Uoppgitt fylke",
-    "type": "fylke"
+    "type": "county"
   },
   {
     "code": "00",
     "name": "Hele landet",
-    "type": "fylke"
+    "type": "county"
   }
 ]

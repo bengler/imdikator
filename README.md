@@ -16,68 +16,7 @@ Now the app should be up and running on http://localhost:3000
 
 # URL schema
 
-/stats/m01-os/utdanning/befolkninggr2?view=currentYear&dimensions=[innvkat3:[innv,alle],kjonn:[0]]&compare=[{municipality=m0002,year=2004}, …]
-
-# Example app state
-
-```js
-{
-  route: {query: '//'},
-  query: '//...',
-
-  focusedAdministrativeUnit: {
-    kind: 'fylke',
-    id: '001'
-  },
-
-  currentCard: {},
-
-  cardPage: {
-
-  }
-
-  cards: [
-    {
-      query: {},
-      data: {},
-      group: 'Befolkning',
-      subGroup: 'Opprinnelse',
-      id: 'befolkning',
-      title: 'Hvor er de fra?',          // <- config
-      tableDescription: {                 // <- reference here, but move to data
-        tableName: 'befolknggr24',         // <- config == the visma
-        dimensions: [     // <- generate from The Visma
-          {
-            name: 'kjonn',
-            categories: [0, 1]
-          },
-          {
-            name: 'alderGupper',
-            categories: ['3-5', '8-10']
-          },
-          {
-            name: 'invkat_3',
-            categories: ['folk', 'andreFolk']
-          }
-        ],
-        units: ['person', 'prosent'],
-        years: [2014],
-        forAdministrativeUnits: ['bydel', 'fylke', 'kommune', 'naeringsomraade', 'norge']
-      },
-      displayOptions: { // <- config
-        orderOfDimensionsAndCategories: [
-          {
-            name: 'invkat_3',
-            categories: ['folk', 'andreFolk']
-          }
-        ],
-        displayCurrentYearAs: 'bubble' // You really only need to set this for the one bubble chart
-      }
-    }
-  ]
-}
-```
-
+/steder/K0912/levekaar/gjennomsnittsinntekt/latest?q=dimensions=[innvkat3:[innv,alle],kjonn:[0]]&compare=[{municipality=m0002,year=2004}, …]
 
 # Styleguide
 - [Imdi.no styleguide](http://imdi-no.protolife.no/styleguide)
@@ -89,6 +28,42 @@ https://drive.google.com/open?id=0B47juxCZT96UNFgxYlhsb0FQdFk
 m# Architectural overview
 
 https://dl.dropboxusercontent.com/u/250506/slack_for_ios_upload.jpg
+
+# How queries are represented internally - an example
+
+...as opposed to how the API endpoints expects it
+
+```js
+{
+  tableName: 'befolkninghovedgruppe',
+  region: 'K0101',
+  unit: 'personer',
+  dimensions: [
+    {
+      name: 'innvkat5',
+      variables: [
+        'alle',
+        'innvandrere',
+        'bef_u_innv_og_norskf',
+        'norskfodte_m_innvf'
+      ]
+    },
+    {
+      name: 'kjonn',
+      variables: [
+        '0',
+        '1'
+      ]
+    },
+    {
+      name: 'aar',
+      variables: [
+        '2015'
+      ]
+    }
+  ]
+}
+```
 
 # Preliminary API doc
 

@@ -9,10 +9,11 @@ export default class ChartSelectorList extends Component {
 
   render() {
     const {card} = this.props
-    const list = card.tabs.map(tab => {
+
+    const list = card.tabs.map((tab, index) => {
       const buttonEnabled = true
       return (
-        <ChartSelector enabled={buttonEnabled} onSelectItem={() => this.props.onSelectDataView(tab.name)} key={tab.name} title={tab.title}/>
+        <ChartSelector enabled={buttonEnabled} indexInList={index} onSelectItem={() => this.props.onSelectDataView(tab.name)} key={tab.name} title={tab.title}/>
       )
     })
 

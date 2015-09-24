@@ -68,6 +68,10 @@ class Chart {
 
     function chart(selection) {
       selection.each(function (data, idx) {
+        if (data.length < 2) {
+          // Dont show single legends or none
+          return
+        }
 
         const wrap = d3.select(this).selectAll('g.legend').data(data)
         let legend = null

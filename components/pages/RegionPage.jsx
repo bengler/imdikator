@@ -2,8 +2,9 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadRegionByCode} from '../../actions/region'
 import translations from '../../data/translations'
+import CardPageButtons from '../containers/CardPageButtons'
 
-export default class RegionPage extends Component {
+class RegionPage extends Component {
 
   static propTypes = {
     route: PropTypes.object,
@@ -26,7 +27,7 @@ export default class RegionPage extends Component {
   render() {
     const region = this.props.region
     if (!region) {
-      return <span>Loading region {this.props.route.params.region}</span>
+      return <span>Loading region {this.props.route.params.region}...</span>
     }
     return (
       <div>
@@ -37,6 +38,7 @@ export default class RegionPage extends Component {
         <header>
 					<h1>{region.name} {translations[region.type]}</h1>
 					<p className="ingress">Tall og statistikk over integreringen i {translations['the-' + region.type]}.</p>
+          <CardPageButtons />
 				</header>
 
       </div>
@@ -50,5 +52,4 @@ function mapStateToProps(state) {
   }
 }
 
-// Wrap the component to inject dispatch and state into it
 export default connect(mapStateToProps)(RegionPage)

@@ -41,7 +41,6 @@
             "title": "Over tid",
             "chartKind": "stackedArea",
             "query": {
-              "tableName": "befolkning_hovedgruppetidsserie",
               "time": "all",
               "dimensions": [
                 {

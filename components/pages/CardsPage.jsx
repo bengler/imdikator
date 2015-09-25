@@ -3,7 +3,6 @@ import Card from '../containers/Card'
 import {connect} from 'react-redux'
 import {loadCardPage} from '../../actions/cardPages'
 import {openCard} from '../../actions/cards'
-import {loadCardPages} from '../../actions/cardPages'
 import CardPageButtons from '../containers/CardPageButtons'
 
 function loadData(props) {
@@ -24,7 +23,6 @@ class CardsPage extends Component {
     currentCard: PropTypes.object,
     pageConfig: PropTypes.object,
     region: PropTypes.object,
-    cardPages: PropTypes.array,
     cards: PropTypes.array,
     openCards: PropTypes.array
   }
@@ -36,8 +34,6 @@ class CardsPage extends Component {
 
   componentWillMount() {
     loadData(this.props)
-
-    this.props.dispatch(loadCardPages())
   }
 
   componentWillReceiveProps(nextProps) {
@@ -107,11 +103,9 @@ class CardsPage extends Component {
 // Note: use https://github.com/faassen/reselect for better performance.
 function mapStateToProps(state) {
   return {
-    //currentCard: state.cards.find(card => card.name == state.currentCard),
     pageConfig: state.cardPage,
     region: state.region,
-    openCards: state.openCards,
-    cardPages: state.cardPages
+    openCards: state.openCards
   }
 }
 

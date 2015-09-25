@@ -20,6 +20,11 @@ class Chart {
 
     this.colors = d3.scale.ordinal().range(colorPalette)
 
+    this.popover = d3.select('body')
+    .append('div')
+    .attr('class', 'focus')
+    .style('position', 'absolute')
+
     this._drawPoints = drawPoints
     this.update(el, state)
   }
@@ -51,7 +56,7 @@ class Chart {
   }
 
   destroy(el) {
-
+    this.popover.remove()
   }
 
   translation(x, y) {

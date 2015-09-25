@@ -51,12 +51,14 @@ export default class BarChart extends React.Component {
     const yScale = d3.scale.linear().range([this.size.height, 0])
     const yAxis = d3.svg.axis().scale(yScale).orient('left')
 
+    let format = d3.format('s')
     if (isPercent) {
-      yAxis.tickFormat(d3.format('%'))
+      format = d3.format('%')
       yScale.domain([0, 1])
     } else {
       yScale.domain([0, preparedData.maxValue])
     }
+    yAxis.tickFormat(format)
 
     svg.append('g')
     .attr('class', 'axis')
@@ -90,13 +92,9 @@ export default class BarChart extends React.Component {
       return this.size.height - yScale(val)
     })
     .style('fill', dataItem => seriesColor(dataItem.title))
-
-    // Hover and popover
-    const focus = svg.append('g')
-    .attr('transform', 'translate(-100,-100)')
-    .attr('class', 'focus')
-    focus.append('text')
-    .attr('y', -10)
+    .each(function (item) {
+      item.el = this
+    })
 
     category.selectAll('rect.hover')
     .data(d => d.values)
@@ -104,25 +102,31 @@ export default class BarChart extends React.Component {
     .attr('class', 'hover')
     .attr('width', x1.rangeBand())
     .attr('x', dataItem => x1(dataItem.title))
-    .attr('y', d => {
-      return 0
-    })
-    .attr('height', d => {
-      return this.size.height - yScale(preparedData.maxValue)
-    })
+    // Want full height for this one
+    .attr('y', 0)
+    .attr('height', () => this.size.height - yScale(yScale.domain()[1]))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
-    .on('mouseover', mouseover)
+    .on('mouseover', item => {
+      const offset = item.el.getBoundingClientRect()
+      this.popover
+      .html('<p>' + format(item.values[0].value) + '</p>')
+
+      const popoverBox = this.popover.node().getBoundingClientRect()
+      this.popover
+      .style('left', offset.left + offset.width / 2 - popoverBox.width / 2)
+      .style('top', offset.top + window.scrollY - popoverBox.height / 2)
+    })
     .on('mouseout', mouseout)
 
-    function mouseover(item) {
-      // console.log(item)
       /*
+    function mouseover(item) {
       focus.attr('transform', 'translate(' + x0(val.innvkat5) + ',' + yScale(val.value) + ')')
       focus.select('text').text(val.value)
-      */
     }
+      */
     function mouseout(item) {
+      d3.select(this).style('fill', 'none')
       /*
       focus.attr('transform', 'translate(-100,-100)')
       */

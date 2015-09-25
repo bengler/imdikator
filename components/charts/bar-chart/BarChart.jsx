@@ -116,22 +116,13 @@ export default class BarChart extends React.Component {
       this.popover
       .style('left', offset.left + offset.width / 2 - popoverBox.width / 2)
       .style('top', offset.top + window.scrollY - popoverBox.height / 2)
+      .style('display', null)
     })
-    .on('mouseout', mouseout)
-
-      /*
-    function mouseover(item) {
-      focus.attr('transform', 'translate(' + x0(val.innvkat5) + ',' + yScale(val.value) + ')')
-      focus.select('text').text(val.value)
-    }
-      */
-    function mouseout(item) {
-      d3.select(this).style('fill', 'none')
-      /*
-      focus.attr('transform', 'translate(-100,-100)')
-      */
-    }
-
+    .on('mouseout', item => {
+      this.popover
+      .style('left', -100)
+      .style('top', -100)
+    })
 
     const leg = this.legend()
     .color(seriesColor)

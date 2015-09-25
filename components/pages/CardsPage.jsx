@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import Card from '../containers/Card'
 import {connect} from 'react-redux'
 import {loadCardPage} from '../../actions/cardPages'
-import {openCard} from '../../actions/cards'
+import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtons from '../containers/CardPageButtons'
 
 function loadData(props) {
@@ -11,6 +11,7 @@ function loadData(props) {
   const {pageName, cardName, tabName = 'latest'} = route.params
   // This may be hooked up at a higher level
   dispatch(loadCardPage({pageName, regionCode, activeCardName: cardName, activeTabName: tabName}))
+
   if (cardName) {
     dispatch(openCard(cardName))
   }
@@ -42,6 +43,36 @@ class CardsPage extends Component {
     }
   }
 
+  renderToggleCardLink(card) {
+    const {openCards} = this.props
+
+    const isOpen = openCards.includes(card.name)
+    const prevCard = openCards[openCards.length - 2]
+
+    const handleClick = event => {
+      event.preventDefault()
+      event.nativeEvent.stopImmediatePropagation()
+      if (isOpen) {
+        this.context.goTo('/steder/:region/:pageName/:cardName', {cardName: prevCard})
+        this.props.dispatch(closeCard(card.name))
+      } else {
+        this.context.goTo('/steder/:region/:pageName/:cardName', {cardName: card.name})
+      }
+    }
+    return (
+      <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}
+         onClick={handleClick}
+         className={`toggle-list__button ${isOpen ? 'toggle-list__button--expanded' : ''}`}
+         aria-expanded="true"
+         aria-controls="befolkning"
+         role="button">
+        <h3 className="toggle-list__button-title">{card.title}
+          <i className="icon__arrow-down toggle-list__button-icon"/>
+        </h3>
+      </a>
+    )
+  }
+
   render() {
     const {pageConfig, region, openCards} = this.props
     if (!pageConfig || !region) {
@@ -71,24 +102,19 @@ class CardsPage extends Component {
               <div className="col--main">
 
                 <h2 className="feature__section-title">{pageConfig.title} i {region.name}</h2>
-                  <ul className="t-no-list-styles">
-
-                    {pageConfig.cards.map(card => {
-                      const isOpen = openCards.includes(card.name)
-                      return (
-                        <li>
-                          <section className="toggle-list">
-                            <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})} className="toggle-list__button toggle-list__button--expanded" aria-expanded="true" aria-controls="befolkning" role="button">
-                              <h3 className="toggle-list__button-title">{card.title}
-                                <i className="icon__arrow-down toggle-list__button-icon" />
-                              </h3>
-                            </a>
-                            {isOpen && <Card card={card}/>}
-                          </section>
-                        </li>
-                      )
-                    })}
-                  </ul>
+                <ul className="t-no-list-styles">
+                  {pageConfig.cards.map(card => {
+                    const isOpen = openCards.includes(card.name)
+                    return (
+                      <li>
+                        <section className="toggle-list">
+                          {this.renderToggleCardLink(card)}
+                          {isOpen && <Card card={card}/>}
+                        </section>
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
             </div>
           </div>

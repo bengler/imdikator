@@ -15,7 +15,6 @@ class Card extends Component {
     headerGroup: PropTypes.object,
     table: PropTypes.object,
     activeTab: PropTypes.object,
-    isOpen: PropTypes.boolean,
     boundUpdateCardQuery: PropTypes.func,
     dispatch: PropTypes.func
   }
@@ -88,12 +87,8 @@ function select(state, ownProps) {
   const headerKey = getHeaderKey(state.region)
 
   const headerGroup = headerGroups && headerGroups.find(group => headerKey in group)
-
-  const isOpen = state.openCards.includes(ownProps.card.name)
-
   return {
     headerGroup,
-    isOpen,
     data,
     headerGroups,
     table,

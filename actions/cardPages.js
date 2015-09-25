@@ -49,6 +49,24 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
 
     const getRegion = apiClient.getRegionByCode(regionCode)
 
+    getRegion.then(region => {
+      dispatch({
+        type: RECEIVE_REGION,
+        region
+      })
+    })
+
+    getCardPage.then(cardPage => {
+      dispatch({
+        type: RECEIVE_CARD_PAGE_DATA,
+        cardPage
+      })
+    })
+
+    if (!activeCardName) {
+      return
+    }
+
     const getActiveCard = getCardPage.then(cardPage => {
       return cardPage.cards.find(card => card.name === activeCardName)
     })
@@ -77,25 +95,11 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return apiClient.query(resolvedQuery)
     })
 
-    getRegion.then(region => {
-      dispatch({
-        type: RECEIVE_REGION,
-        region
-      })
-    })
-
     Promise.all([getTabQuery, getHeaderGroups]).then(([tabQuery, headers]) => {
       dispatch({
         type: RECEIVE_TABLE_HEADERS,
         headers,
         tableName: tabQuery.tableName
-      })
-    })
-
-    getCardPage.then(cardPage => {
-      dispatch({
-        type: RECEIVE_CARD_PAGE_DATA,
-        cardPage
       })
     })
 

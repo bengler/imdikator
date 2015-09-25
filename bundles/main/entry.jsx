@@ -14,13 +14,13 @@ const router = Router(compileRoutes(routes), match => {
   app.dispatch(navigate(match))
 })
 
-router.start()
-
 const selector = '[data-imdikator=site]'
 const containers = document.querySelectorAll(selector)
 if (containers.length !== 1) {
   throw new Error(`Expected exactly 1 element container for imdikator (matching ${selector}`)
 }
+
+router.navigate(document.location.pathname)
 
 React.render(
   // The child must be wrapped in a function
@@ -46,5 +46,9 @@ React.render(
   containers[0]
 )
 
-
-window.R = router
+setTimeout(() => {
+  // Need to bind the global click listener *after* react has mounted and bound its global listener to document
+  // or else we're not able to stop propagation when we need to
+  // Todo: See if this can be solved better
+  router.bind(document)
+}, 0)

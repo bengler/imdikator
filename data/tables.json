@@ -2,77 +2,77 @@
   {
     "id": "1",
     "name": "Befolkning etter hovedgrupper",
-    "label": "befolkninghovedgruppe",
+    "label": "befolkning_hovedgruppe",
     "category": "Befolkning",
     "description": "Antall og andel personer i kommunen etter femdelt innvandrerbakgrunn (Hele befolkningen, innvandrere, befolkningen utenom innvandrere, norskfødte med innvandrerforeldre, befolkningen utenom innvandrere og norskfødte med innvandrerforeldre), kjønn (alle, kvinner, menn)."
   },
   {
     "id": "2",
     "name": "Innvandrere etter verdensregion",
-    "label": "befolkningverdensregion",
+    "label": "befolkning_verdensregion",
     "category": "Befolkning",
     "description": "Antall personer med innvandrerbakgrunn etter todelt verdensregion, femdelt verdensregion, nidelt verdensregion, og kjønn og todelt verdensregion."
   },
   {
     "id": "3",
     "name": "Innvandrere etter opprinnelsesland, enkeltland ",
-    "label": "befolkningopprinnelsesland",
+    "label": "befolkning_opprinnelsesland",
     "category": "Befolkning",
     "description": "Antall personer med innvandrerbakgrunn etter opprinnelsesland, spesifisert ned til 4 personer fra ett land, resten ført på annet"
   },
   {
     "id": "4",
     "name": "Befolkning etter innvandringskategori, funksjonell aldersinndeling og kjønn",
-    "label": "befolkningalder",
+    "label": "befolkning_alder",
     "category": "Befolkning",
     "description": "Antall personer i kommunen etter tredelt innvandrerbakgrunn (Hele befolkningen, innvandrere, og resten av befolkningen), funksjonell aldersinndeling (0-5, 6-15, 16-19, 20-29, 30-54, 55-66, 67+), og kjønn, alle grupper krysset."
   },
   {
     "id": "5",
     "name": "Innvandrere etter innvandringsgrunn og kjønn",
-    "label": "befolkninginnvandringsgrunn",
+    "label": "befolkning_innvandringsgrunn",
     "category": "Befolkning",
     "description": "Innvandrere etter innvandringsgrunn femdelt (alle, arbeid, flukt, familie, annet + uoppgitt) og kjønn"
   },
   {
     "id": "6",
     "name": "Innvandrere etter botid og todelt verdensregion",
-    "label": "befolkningbotid",
+    "label": "befolkning_botid",
     "category": "Befolkning",
     "description": "Innvandrere etter botid (alle, 0-4, 5-9, 10+, uoppgitt) og todelt verdensregion"
   },
   {
     "id": "7",
     "name": "Flyktninger etter botid og hvorvidt de har flyttet",
-    "label": "flyktningbotidflytting",
+    "label": "flyktning_botid_flytting",
     "category": "Befolkning",
     "description": "Antall og andel flyktninger  etter botid 2 (i alt, 0-4 år, 5 år) i kommunen og hvorvidt dette var første eller ikke første bosettingskommune. (NB! Betyr dette botid i kommunen eller botid nasjonalt?)"
   },
   {
     "id": "8",
     "name": "Flyttinger til og fra kommunen etter innvandringskategori og todelt landbakgrunn",
-    "label": "befolkningflytting",
+    "label": "befolkning_flytting",
     "category": "Befolkning",
     "description": "Flyttinger (Innvandring, utvandring, nettoinnvandring, innflytting, utflytting, nettoinnflytting, innvandring +  innflytting, utvandring+utflytting, netto innvandring+netto innflytting) etter innvandringskategori 2 og todelt landbakgrunn. "
   },
   {
     "id": "9_1",
     "name": "Bosetting",
-    "label": "bosattanmodede",
+    "label": "bosatt_anmodede",
     "category": "Befolkning",
     "description": "Antall anmodet bosatt siste år, antall vedtatt bosatt siste år, antall bosatt siste år, andel bosatt siste år per 1000 innbyggere ved utgangen av året, bosatte delt på antall anmodet bosatt, bosatte delt på antall vedtatt bosatt, bosatt siste tre år, bosatt per 1000 siste tre år. (Mulig videreutvikling: Enslige barn/mindreårige, familier, andre grupper?) RØDT og ORANSJE=tas ut herfra?"
   },
   {
     "id": "9_2",
     "name": "Bosetting",
-    "label": "bosattvedtak",
+    "label": "bosatt_vedtak",
     "category": "Befolkning",
     "description": "Antall vedtatt bosatt siste år, antall bosatte siste år, antall bosatte delt på antall vedtatt bosatt"
   },
   {
     "id": "9_3",
     "name": "Bosetting",
-    "label": "bosattbefolkning",
+    "label": "bosatt_befolkning",
     "category": "Befolkning",
     "description": "Antall bosatte siste år, andel bosatte siste år per 1000 innbyggere ved inngangen av året, antall bosatte de siste tre årene, bosatte per 1000 de siste tre årene, befolkningstall for kommune, fylke, næringsregion og hele landet"
   },
@@ -93,35 +93,35 @@
   {
     "id": "32",
     "name": "Voksne i grunnskolen",
-    "label": "voksnegrunnskole",
+    "label": "voksne_grunnskole",
     "category": "Utdanning og kvalifisering",
     "description": "Antall og andel voksne i grunnskolen, etter minoritetsspråklig bakgrunn (i alt, minoritetsspråklig), antall elever etter undervisning (begge, kun grunnskole, kun spesialundervisning). Ikke krysset."
   },
   {
     "id": "33",
     "name": "Deltakelse i videregående skole i 2011-2013, etter innvandringskategori og kjønn",
-    "label": "videregaendedeltakelse",
+    "label": "videregaende_deltakelse",
     "category": "Utdanning og kvalifisering",
     "description": "Antall og andel elever i videregående skole etter tredelt innvandrerbakgrunn (i alt, innvandrere, norskfødte med innvandrerforeldre, befolkningen ellers) og kjønn (i alt, kvinner, menn). Tabellene viser data for 2011-2013 slått sammen, og viser dermed total deltakelse i denne perioden. NB! Prosenten er innad i tabellen, og ikke mot den bakenforliggende populasjonen. Det viser altså ikke hvor stor andel av alle som deltar i videregående, men hvor stor andel av de som deltar som kan settes i grupper av innvkatxkjønn"
   },
   {
     "id": "34",
     "name": "Fullføring av videregående innen fem år etter påbegynt VGS",
-    "label": "videregaendefullfort",
+    "label": "videregaende_fullfort",
     "category": "Utdanning og kvalifisering",
     "description": "Antall og andel elever som har fullført videregående skole innen fem år etter påbegynt VGS, etter femdelt innvandrerbakgrunn (i alt, innvandrere, befolkningen ellers, norskfødte, bef utenom innv og norskfødte) og kjønn (alle, menn, kvinner). Tabellene har sammenslåtte data for 2011-2013 på alle fire nivåer, og for enkeltårene for utvalgte kommuner, fylker og næringsregioner."
   },
   {
     "id": "35",
     "name": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring, etter innvandringskategori og kjønn",
-    "label": "ungdomutenforopplaring",
+    "label": "ungdom_utenfor_opplaring",
     "category": "Utdanning og kvalifisering",
     "description": "Antall og andel personer mellom 16-25 år (inkl, ekskl?) som ikke er i opplæring eller har fullført/bestått videregående etter innvandringskategori 5 (alle, innv, ellers, norskfø, utenom innv og norskfø) og kjønn (alle, menn, kvinner)."
   },
   {
     "id": "36",
     "name": "Voksne elever i videregående opplæring",
-    "label": "voksnevideregaende",
+    "label": "voksne_videregaende",
     "category": "Utdanning og kvalifisering",
     "description": "Antall voksne i VGS, etter minoritetsspråksstatus (i alt, minoritetsspråklige, ikke-minoritetsspråklige), andel voksne minoritetsspråklige av alle voksne i VGS"
   },
@@ -135,14 +135,14 @@
   {
     "id": "40",
     "name": "Norskopplæring for innvandrere (ikke privatister)– deltakere",
-    "label": "norskdeltakere",
+    "label": "norsk_deltakere",
     "category": "Utdanning og kvalifisering",
     "description": "Antall deltakere på norskopplæring med rettigheter etter introloven etter rett/plikt-gruppe (alle, Rett og plikt, plikt, rett) og kjønn (i alt, kvinner, menn). VIDEREUTVIKLING: koble med data på antall deltakere på norskopplæring i offentlig regi i alt, samt informasjon om asylsøker (alle, asylsøker), analfabeter (alle, analfabeter), og fordelt på spor (spor 1, spor 2, spor 3)."
   },
   {
     "id": "40.1",
     "name": "Norskopplæring - prøvedeltakelse og prøveresultater",
-    "label": "norskprover",
+    "label": "norsk_prover",
     "category": "Utdanning og kvalifisering",
     "description": "Antall og andel prøvedeltakere etter prøveresultat (alle, nivå B1, nivå A2, nivå A1, under A1, ikke vurdert) NB! Kun kommune, fylke, hele landet, ikke næringsregion og bydel NB2! Første forsendelse inneholder data for prøvedeltakere første halvår 2014. Denne må erstattes med data for hele året 2014.VIDEREUTVIKLING: Skille mellom de som har rettigheter etter loven, og de som ikke har det."
   },
@@ -156,14 +156,14 @@
   {
     "id": "50",
     "name": "Introduksjonsprogram - deltakere",
-    "label": "introdeltakere",
+    "label": "intro_deltakere",
     "category": "Utdanning og kvalifisering",
     "description": "Antall deltakere etter kjønn. VIDEREUTVIKLING: Deltakere fordelt på spor "
   },
   {
     "id": "51",
     "name": "Introduksjonsprogram - direkte avslutning – siste år",
-    "label": "introavslutningdirekte",
+    "label": "intro_avslutning_direkte",
     "category": "Utdanning og kvalifisering",
     "description": "Antall introdeltakere som har avsluttet introprogrammet siste kalenderår, etter åttedelt avslutningsårsak (alle avsluttet, over kvalifiseringstiltak, grunnskole, utdanning, arbeid, sosialhjelp, andre trygdeytelser, og annet) og kjønn (alle, menn, kvinner), og tredelt avslutningsårsak/måloppnåelse (alle, arbeid og utdanning, annet) og kjønn (alle, menn, kvinner). Andel innenfor avslutningsårsak (årsak A/alle årsak, årsak A menn/alle menn, osv) NB! Videreutvikling: Spor (alle, 1, 2, 3). NB2! Mye prikker!"
   },
@@ -177,77 +177,77 @@
   {
     "id": "53",
     "name": "Introduksjonsprogram - avsluttet og i arbeid eller utdanning etter endt program (SSB MELDER AT DETTE OFFENTLIGGJØRES SEPTEMBER 2015)",
-    "label": "introstatusarbutd",
+    "label": "intro_status_arbutd",
     "category": "Utdanning og kvalifisering",
     "description": "Introdeltakere etter status ett år, tre år og fem år etter avsluttet program (i alt, i arbeid og utdanning)."
   },
   {
     "id": "60",
     "name": "Sysselsetting etter innvandringsgrunn",
-    "label": "sysselsatteinnvandringsgrunn",
+    "label": "sysselsatte_innvandringsgrunn",
     "category": "Arbeid",
     "description": "Antall og andel personer sysselsatt etter femtdelt innvandringsgrunn (alle, arbeid, familie, flukt,  annet+uoppgitt) og kjønn (alle, menn, kvinner). Alle kryssinger. Andel er antall sysselsatte i gruppa over antall arbeidsføre i gruppa (eks. antall sysselsatte flyktingemenn av alle arbeidsføre flyktningemenn)"
   },
   {
     "id": "61.1",
     "name": "Sysselsatte etter innvandringskategori",
-    "label": "sysselsatteinnvkat",
+    "label": "sysselsatte_innvkat",
     "category": "Arbeid",
     "description": "Antall personer sysselsatt etter innvandringskategori (alle, innvandrere, befolkningen ellers), andel personer sysselsatt av alle personer i arbeidsstyrken."
   },
   {
     "id": "61.2",
     "name": "Sysselsatte etter alder og innvandringskategori",
-    "label": "sysselsatteinnvkatalder",
+    "label": "sysselsatte_innvkat_alder",
     "category": "Arbeid",
     "description": "Antall og andel personer sysselsatt etter alder (18-29, 30-54, 55-69) og tredelt innvandrerbakgrunn (alle, innvandrere, befolkningen ellers). Andel er sysselsatte personer i gruppa over alle personer i arbeidsstyrken i gruppa. NB! Annen aldersavgrensning av populasjonen."
   },
   {
     "id": "62",
     "name": "Sysselsatte innvandrere etter botid",
-    "label": "sysselsattebotid",
+    "label": "sysselsatte_botid",
     "category": "Arbeid",
     "description": "Antall og andel personer sysselsatt etter botid (0-4, 5-9, 10+). Andel er sysselsatte personer i gruppa over alle personer i arbeidsstyrken i gruppa."
   },
   {
     "id": "63.1",
     "name": "Sysselsatte innvandrere etter botid og landbakgrunn",
-    "label": "sysselsattebotidland",
+    "label": "sysselsatte_botid_land",
     "category": "Arbeid",
     "description": "Antall og andel sysselsatte innvandre etter botid (i alt, 0-4, 5+) og tredelt landbakgrunn (alle, eu/eøs etc, asia, afrika etc). Krysninger. Andel er sysselsatte personer i gruppa over alle personer i arbeidsstyrken i gruppa. "
   },
   {
     "id": "63.2",
     "name": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
-    "label": "sysselsattekjonnland",
+    "label": "sysselsatte_kjonn_land",
     "category": "Arbeid",
     "description": "Antall og andel sysselsatte innvandre etter kjønn (i alt, menn, kvinner) og todelt landbakgrunn (alle, eu/eøs etc, asia, afrika etc)"
   },
   {
     "id": "63.3",
     "name": "Sysselsatte innvandrere etter landbakgrunn",
-    "label": "sysselsatteland",
+    "label": "sysselsatte_land",
     "category": "Arbeid",
     "description": "Antall og andel sysselsatte innvandrere etter åttedelt landbakgrunn (i alt, norden, vest-europa ellers, eu-land i øst-europa, øst-europa ellers, nordamerika og oseania, asia, afrika, sør- og mellomamerika)"
   },
   {
     "id": "64",
     "name": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
-    "label": "arbledigeinnvkatland",
+    "label": "arbledige_innvkat_land",
     "category": "Arbeid",
     "description": "Antall personer ledige og på tiltak etter tredelt innvandrerbakgrunn (hele, innvandrere, befolkningen ellers)  og todelt verdensregion (EU/EØS, Asia/Afrika)."
   },
   {
     "id": "65",
     "name": "ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
-    "label": "ikkearbutdinnvkatland",
+    "label": "ikke_arbutd_innvkat_land",
     "category": "Arbeid",
     "description": "Antall og andel personer som ikke er i arbeid eller utdanning, etter innvandrerbakgrunn (alle, innvandrere, befolkningen forøvrig), todelt landbakgrunn (alle, asia etc, eu/eøs etc)"
   },
   {
     "id": "66",
     "name": "ikke i arbeid eller utdanning, etter innvandringskategori og alder",
-    "label": "ikkearbutdinnvkatalder",
+    "label": "ikke_arbutd_innvkat_alder",
     "category": "Arbeid",
     "description": "Antall og andel personer 16-66 som ikke er i arbeid eller utdanning, etter innvandrerbakgrunn (alle, innvandrere, befolkningen forøvrig), alder (alle, 16-25, 26-66)"
   },
@@ -261,7 +261,7 @@
   {
     "id": "91",
     "name": "Personer med vedvarende lavinntekt",
-    "label": "vedvarendelavinntekt",
+    "label": "vedvarende_lavinntekt",
     "category": "Levekår",
     "description": "Personer med vedvarende lavinntekt etter innvandrerbakgrunn (Alle, innvandrere, befolknignen ellers) og todelt landbakgrunn (alle, EU, ikke-EU)."
   },

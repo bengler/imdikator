@@ -31,7 +31,14 @@ React.render(
     </Provider>
 
     {config.reduxDevTools && (
-      <DebugPanel top right bottom>
+      <DebugPanel style={{backgroundColor: '#444'}} top right bottom>
+        <div style={{padding: 4}}>
+          Pro tip: Turn off redux devtools with:
+          <input type="text" readOnly
+                 onFocus={e => (target => setTimeout(() => target.select(), 0))(e.target)}
+                 style={{margin: 0, lineHeight: 1, color: 'inherit', backgroundColor: 'inherit', padding: 2, border: '1px solid #aaa'}}
+                 value="REDUX_DEVTOOLS=0 npm start"/>
+        </div>
         <DevTools store={app} monitor={LogMonitor} />
       </DebugPanel>
     )}

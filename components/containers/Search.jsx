@@ -43,11 +43,7 @@ class Search extends Component {
   }
 
   navigateToRegion(region) {
-    this.context.goTo('/steder/:region/:pageName/:cardName', {
-      region: prefixify(region),
-      pageName: 'levekaar',
-      cardName: 'gjennomsnittsinntekt'
-    })
+    this.context.goTo('/steder/:region', {region: prefixify(region)})
   }
 
   renderItem(item, isHighlighted) {

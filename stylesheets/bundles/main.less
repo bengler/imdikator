@@ -24,6 +24,43 @@ div.chart {
   background-color: white;
 }
 
+div.focus {
+  background-color: white;
+  position: absolute;
+  pointer-events: none;
+  width: 100px;
+  height: 40px;
+}
+
+.arrow_box {
+	position: relative;
+	background: #fff;
+	border: 2px solid #f50000;
+}
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #fff;
+	border-width: 15px;
+	margin-left: -15px;
+}
+.arrow_box:before {
+	border-color: rgba(245, 0, 0, 0);
+	border-top-color: #f50000;
+	border-width: 18px;
+	margin-left: -18px;
+}
+
 div.chart.bubble {
   width: 700px;
   height: 700px;

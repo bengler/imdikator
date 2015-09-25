@@ -96,6 +96,9 @@ export default class BarChart extends React.Component {
       item.el = this
     })
 
+    const popover = this.popover()
+    d3.select('body').call(popover)
+
     category.selectAll('rect.hover')
     .data(d => d.values)
     .enter().append('rect')
@@ -108,20 +111,11 @@ export default class BarChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      const offset = item.el.getBoundingClientRect()
-      this.popover
-      .html('<p>' + format(item.values[0].value) + '</p>')
-
-      const popoverBox = this.popover.node().getBoundingClientRect()
-      this.popover
-      .style('left', offset.left + offset.width / 2 - popoverBox.width / 2)
-      .style('top', offset.top + window.scrollY - popoverBox.height / 2)
-      .style('display', null)
+      popover.html('<p>' + item.values[0].value + '</p>')
+      popover.show(item.el)
     })
-    .on('mouseout', item => {
-      this.popover
-      .style('left', -100)
-      .style('top', -100)
+    .on('mouseout', () => {
+      popover.hide()
     })
 
     const leg = this.legend()

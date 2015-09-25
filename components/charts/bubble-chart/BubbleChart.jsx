@@ -37,17 +37,28 @@ export default class BubbleChart extends React.Component {
     .attr('class', 'node')
     .attr('transform', item => 'translate(' + item.x + ',' + item.y + ')')
 
-    node.append('title')
-    .text(item => item.title + ': ' + item.values[0].tabellvariabel)
+    const popover = this.popover()
+    d3.select('body').call(popover)
 
     node.append('circle')
     .attr('r', item => item.r)
     .style('fill', item => color(item.key))
+    .each(function (dataItem) {
+      dataItem.el = this
+    })
+    .on('mouseover', item => {
+      popover.html('<p>' + item.values[0].value + '</p>')
+      popover.show(item.el)
+    })
+    .on('mouseout', () => {
+      popover.hide()
+    })
 
     node.append('text')
     .attr('dy', '.3em')
     .style('text-anchor', 'middle')
     .style('font-size', '13px')
+    .style('pointer-events', 'none')
     .text(function (item) {
       return item.title.substring(0, item.r / 4)
     })

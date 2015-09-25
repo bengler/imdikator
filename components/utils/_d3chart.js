@@ -20,11 +20,6 @@ class Chart {
 
     this.colors = d3.scale.ordinal().range(colorPalette)
 
-    this.popover = d3.select('body')
-    .append('div')
-    .attr('class', 'focus')
-    .style('position', 'absolute')
-
     this._drawPoints = drawPoints
     this.update(el, state)
   }
@@ -56,11 +51,56 @@ class Chart {
   }
 
   destroy(el) {
-    this.popover.remove()
+    if (this._popover) {
+      this._popover.remove()
+    }
   }
 
   translation(x, y) {
     return 'translate(' + x + ',' + y + ')'
+  }
+
+  popover() {
+    let el = null
+    const that = this
+    function chart(selection) {
+      el = selection
+      .append('div')
+      .attr('class', 'focus arrow_box')
+      that._popover = el
+      return el
+    }
+
+    chart.html = html => {
+      if (!el) {
+        return
+      }
+      el.html(html)
+    }
+
+    chart.show = element => {
+      if (!el) {
+        return
+      }
+      const offset = element.getBoundingClientRect()
+      const popoverBox = el.node().getBoundingClientRect()
+      el
+      .style('left', offset.left + offset.width / 2 - popoverBox.width / 2)
+      .style('top', offset.top + window.scrollY - popoverBox.height - 20)
+      .style('display', null)
+    }
+
+    chart.hide = () => {
+      if (!el) {
+        return
+      }
+      // TODO: Find a better way to hide the popover?
+      el
+      .style('left', -100)
+      .style('top', -100)
+    }
+
+    return chart
   }
 
   legend() {

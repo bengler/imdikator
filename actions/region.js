@@ -7,9 +7,11 @@ export const RECEIVE_ALL_REGIONS = 'RECEIVE_ALL_REGIONS'
 export function loadAllRegions() {
   return (dispatch, state) => {
 
-    const regionsLoaded = state.allRegions ? Promise.resolve(state.allRegions) : apiClient.getAllRegions()
+    if (state.allRegions) {
+      return
+    }
 
-    regionsLoaded.then(regions => {
+    apiClient.getAllRegions().then(regions => {
       dispatch({
         type: RECEIVE_ALL_REGIONS,
         regions

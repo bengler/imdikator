@@ -1,7 +1,7 @@
 import {compose, createStore, applyMiddleware} from 'redux'
 import {devTools, persistState} from 'redux-devtools'
 import thunkMiddleware from 'redux-thunk'
-import rootReducer from '../reducers'
+import appReducers from '../reducers'
 //import {logger} from '../middleware'
 
 import config from '../config'
@@ -17,4 +17,4 @@ const middlewares = [
 
 const finalCreateStore = compose(...middlewares)(createStore)
 
-export default finalCreateStore(rootReducer, {})
+export default finalCreateStore(appReducers, {})

@@ -2068,7 +2068,6 @@
         ]
       },
       {
-        "issue": "lopsided",
         "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
         "name": "ledige-innvkat-land",
         "query": {
@@ -2076,83 +2075,17 @@
           "unit": "prosent",
           "dimensions": [
             {
-              "name": "innvkat_3",
+              "name": "innvkat3",
               "variables": [
                 "alle",
+                "innvandrere",
                 "befolkningen_ellers"
               ]
             },
             {
-              "name": "vreg_3",
+              "name": "vreg3",
               "variables": [
-                "alle"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "name": "latest",
-            "title": "Nåtid",
-            "chartKind": "bar",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "chronological",
-            "title": "Over tid",
-            "chartKind": "line",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "map",
-            "title": "Kart",
-            "chartKind": "map",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "benchmark",
-            "title": "Sammenliknet",
-            "chartKind": "benchmark",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "table",
-            "title": "Tabell",
-            "chartKind": "table",
-            "query": {
-              "time": "all"
-            }
-          }
-        ]
-      },
-      {
-        "issue": "lopsided",
-        "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
-        "name": "ledige-innvkat-land-2",
-        "query": {
-          "tableName": "arbledige_innvkat_land",
-          "unit": "prosent",
-          "dimensions": [
-            {
-              "name": "innvkat_3",
-              "variables": [
-                "innvandrere"
-              ]
-            },
-            {
-              "name": "vreg_3",
-              "variables": [
-                "alle",
-                "1",
-                "2"
+                "alle","1", "2"
               ]
             }
           ]
@@ -2212,80 +2145,14 @@
               "name": "innvkat3",
               "variables": [
                 "alle",
+                "innvandrere",
                 "befolkningen_ellers"
               ]
             },
             {
               "name": "vreg3",
               "variables": [
-                "alle"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "name": "latest",
-            "title": "Nåtid",
-            "chartKind": "bar",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "chronological",
-            "title": "Over tid",
-            "chartKind": "line",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "map",
-            "title": "Kart",
-            "chartKind": "map",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "benchmark",
-            "title": "Sammenliknet",
-            "chartKind": "benchmark",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "table",
-            "title": "Tabell",
-            "chartKind": "table",
-            "query": {
-              "time": "all"
-            }
-          }
-        ]
-      },
-      {
-        "issue": "lopsided",
-        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
-        "name": "ikke-arbeid-innvkat-land-2",
-        "query": {
-          "tableName": "ikke_arbutd_innvkat_land",
-          "unit": "prosent",
-          "dimensions": [
-            {
-              "name": "innvkat3",
-              "variables": [
-                "innvandrere"
-              ]
-            },
-            {
-              "name": "vreg3",
-              "variables": [
-                "alle",
-                "1",
-                "2"
+                "alle","1", "2"
               ]
             }
           ]
@@ -2343,8 +2210,8 @@
             {
               "name": "aldersinndelingEtterGrskole",
               "variables": [
-                "16-25",
-                "26-66"
+                "16_25",
+                "26_66"
               ]
             },
             {
@@ -2407,7 +2274,6 @@
     "groupKind": "mainGroup",
     "cards": [
       {
-        "issue": "lopsided",
         "title": "Inntektsnivå – gjennomsnittsinntekt",
         "name": "gjennomsnittsinntekt",
         "query": {
@@ -2417,81 +2283,14 @@
             {
               "name": "innvkat3",
               "variables": [
-                "alle",
+                "innvandrere",
                 "befolkningen_ellers"
               ]
             },
             {
               "name": "vreg3",
               "variables": [
-                "alle"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "name": "latest",
-            "title": "Nåtid",
-            "chartKind": "bar",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "chronological",
-            "title": "Over tid",
-            "chartKind": "line",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "map",
-            "title": "Kart",
-            "chartKind": "map",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "benchmark",
-            "title": "Sammenliknet",
-            "chartKind": "benchmark",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "table",
-            "title": "Tabell",
-            "chartKind": "table",
-            "query": {
-              "time": "all"
-            }
-          }
-        ]
-      },
-      {
-        "issue": "lopsided",
-        "title": "Inntektsnivå – gjennomsnittsinntekt",
-        "name": "gjennomsnittsinntekt-2",
-        "query": {
-          "tableName": "gjennomsnittsinntekt",
-          "unit": "kroner",
-          "dimensions": [
-            {
-              "name": "innvkat3",
-              "variables": [
-                "innvandrere"
-              ]
-            },
-            {
-              "name": "vreg3",
-              "variables": [
-                "alle",
-                "1",
-                "2"
+                "alle","1", "2"
               ]
             }
           ]
@@ -2550,81 +2349,14 @@
             {
               "name": "innvkat3",
               "variables": [
-                "alle",
+                "innvandrere",
                 "befolkningen_ellers"
               ]
             },
             {
               "name": "vreg3",
               "variables": [
-                "alle"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "name": "latest",
-            "title": "Nåtid",
-            "chartKind": "bar",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "chronological",
-            "title": "Over tid",
-            "chartKind": "line",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "map",
-            "title": "Kart",
-            "chartKind": "map",
-            "query": {
-              "time": "latest"
-            }
-          },
-          {
-            "name": "benchmark",
-            "title": "Sammenliknet",
-            "chartKind": "benchmark",
-            "query": {
-              "time": "all"
-            }
-          },
-          {
-            "name": "table",
-            "title": "Tabell",
-            "chartKind": "table",
-            "query": {
-              "time": "all"
-            }
-          }
-        ]
-      },
-      {
-        "issue": "lopsided",
-        "title": "Personer med vedvarende lavinntekt",
-        "name": "vedvarende-lavinntekt-2",
-        "query": {
-          "tableName": "vedvarende_lavinntekt",
-          "unit": "prosent",
-          "dimensions": [
-            {
-              "name": "innvkat3",
-              "variables": [
-                "innvandrere"
-              ]
-            },
-            {
-              "name": "vreg3",
-              "variables": [
-                "alle",
-                "1",
-                "2"
+                "alle","1", "2"
               ]
             }
           ]

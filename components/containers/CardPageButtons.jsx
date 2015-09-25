@@ -21,8 +21,8 @@ class CardPageButtons extends Component {
   }
 
   renderCardPagesLinks() {
-    const {cardPages} = this.props
-    const currentPageName = this.props.pageConfig ? this.props.pageConfig.name : null
+    const {cardPages, pageConfig} = this.props
+    const currentPageName = pageConfig ? pageConfig.name : null
     return cardPages.map(cardPage => {
       const firstCard = cardPage.cards[0]
       if (currentPageName == cardPage.name) {
@@ -33,7 +33,7 @@ class CardPageButtons extends Component {
   }
 
   render() {
-    const {pageConfig, cardPages} = this.props
+    const {cardPages} = this.props
     if (!cardPages) {
       return <div>Loading...!</div>
     }

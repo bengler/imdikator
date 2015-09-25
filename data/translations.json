@@ -4,5 +4,7 @@
   "county": "fylke",
   "the-county": "fylket",
   "commerceRegion": "næringsregion",
-  "the-commerceRegion": "næringsregionen"
+  "the-commerceRegion": "næringsregionen",
+  "borough": "bydel",
+  "the-borough": "bydelen"
 }

@@ -1700,7 +1700,7 @@
               ]
             },
             {
-              "name": "arbeidsalder18-69"
+              "name": "arbeidsalder1869"
             }
           ]
         },
@@ -1825,8 +1825,8 @@
             {
               "name": "botid5",
               "variables": [
-                "0-4",
-                "5-9",
+                "0_4",
+                "5_9",
                 "10+"
               ]
             }

@@ -1,14 +1,19 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {loadRegionByCode} from '../../actions/region'
+import {loadAllRegions} from '../../actions/region'
 import translations from '../../data/translations'
 import CardPageButtons from '../containers/CardPageButtons'
+import Search from '../containers/Search'
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
 
 class RegionPage extends Component {
 
   static propTypes = {
     route: PropTypes.object,
-    region: PropTypes.object,
+    allRegions: PropTypes.array,
     dispatch: PropTypes.func
   }
 
@@ -19,27 +24,50 @@ class RegionPage extends Component {
 
 
   componentWillMount() {
-    const regionCode = this.props.route.params.region.split('-')[0]
-    this.props.dispatch(loadRegionByCode(regionCode))
+    this.props.dispatch(loadAllRegions())
   }
 
+  regionByCode(code) {
+    return this.props.allRegions.filter(region => region.code == code)[0]
+  }
 
   render() {
-    const region = this.props.region
-    if (!region) {
-      return <span>Loading region {this.props.route.params.region}...</span>
+    if (this.props.allRegions.length < 1) {
+      return (
+        <div className="col--main">
+          <span>Loading regions...</span>
+          <pre>{JSON.stringify(this.props, null, 2)}</pre>
+        </div>
+      )
     }
+    const region = this.regionByCode(this.props.route.params.region.split('-')[0].replace(/\w/, ''))
+    const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode) : null
+    const county = region.countyCode ? this.regionByCode(region.countyCode) : null
+    const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
+    const commerceRegion = commerceRegionCode ? this.regionByCode(commerceRegionCode) : null
+
     return (
-      <div>
-        RegionPage
-        <pre>{JSON.stringify(this.props.route, null, 2)}</pre>
-        <p><a href="/"> Go back</a></p>
+      <div className="col--main">
 
         <header>
 					<h1>{region.name} {translations[region.type]}</h1>
 					<p className="ingress">Tall og statistikk over integreringen i {translations['the-' + region.type]}.</p>
           <CardPageButtons />
 				</header>
+
+				<section className="feature feature--white">
+					<h2 className="feature__title">{region.name}</h2>
+					<p>
+            <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
+
+            {municipality && <span>{capitalize(translations['the-' + region.type])} ligger i <a href="#">{municipality.name}</a> og er en del av <a href="#">{commerceRegion.name}</a>.</span>}
+
+            {!municipality && county && <span>{capitalize(translations['the-' + region.type])} ligger i <a href="#">{county.name}</a> og er en del av <a href="#">{commerceRegion.name}</a>.</span>}
+          </p>
+          <div>
+            <span>Finn område: </span><Search/>
+          </div>
+				</section>
 
       </div>
     )
@@ -48,7 +76,7 @@ class RegionPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    region: state.region
+    allRegions: state.allRegions
   }
 }
 

@@ -12,7 +12,7 @@
           "unit": "personer",
           "dimensions": [
             {
-              "name": "innvkat_5",
+              "name": "innvkat5",
               "variables": [
                 "innvandrere",
                 "bef_u_innv_og_norskf",

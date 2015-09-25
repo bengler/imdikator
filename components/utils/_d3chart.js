@@ -62,12 +62,12 @@ class Chart {
 
   popover() {
     let el = null
-    const that = this
+    const self = this
     function chart(selection) {
       el = selection
       .append('div')
       .attr('class', 'focus arrow_box')
-      that._popover = el
+      self._popover = el
       return el
     }
 

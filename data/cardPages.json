@@ -50,6 +50,11 @@
                     "bef_u_innv_og_norskf",
                     "norskfodte_m_innvf"
                   ]
+                },
+                {
+                  "name": "kjonn",
+                  "visible": false,
+                  "variables": ["alle"]
                 }
               ]
             }

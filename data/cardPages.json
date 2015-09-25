@@ -209,7 +209,68 @@
         ]
       },
       {
-        "name": "befolkning_verdensregion",
+        "name": "befolkning_verdensregion_nidelt",
+        "title": "Opprinnelse - verdensregion",
+        "query": {
+          "tableName": "befolkning_verdensregion",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "vreg9"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "title": "Nåtid",
+            "chartKind": "bubble",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table",
+            "query": {
+              "time": "all"
+            }
+          }
+        ]
+      },
+      {
+        "name": "befolkning_verdensregion_femdelt",
         "title": "Opprinnelse - verdensregion",
         "query": {
           "tableName": "befolkning_verdensregion",
@@ -341,8 +402,8 @@
             {
               "name": "botid5",
               "variables": [
-                "0-4",
-                "5-9",
+                "0_4",
+                "5_9",
                 "10+"
               ]
             },
@@ -351,6 +412,74 @@
               "variables": [
                 "1",
                 "2"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table",
+            "query": {
+              "time": "all"
+            }
+          }
+        ]
+      },
+      {
+        "name": "flytting",
+        "title": "Flytting",
+        "query": {
+          "tableName": "befolkning_flytting",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "vreg3",
+              "variables": [
+                "alle"
+              ]
+            },
+            {
+              "name": "flytting"
+            },
+            {
+              "name": "innvkat3",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers"
               ]
             }
           ]
@@ -408,7 +537,7 @@
             {
               "name": "botid3",
               "variables": [
-                "0-4",
+                "0_4",
                 "5+"
               ]
             },
@@ -466,19 +595,125 @@
       },
       {
         "issue": "should be line chart – and area chart",
-        "name": "bosetting",
-        "title": "Bosatte flyktninger",
+        "name": "bosatt_anmodede",
+        "title": "Flyktninger kommunen ble bedt om å bosette",
         "query": {
-          "tableName": "bosetting",
+          "tableName": "bosatt_anmodede",
           "unit": "personer",
           "dimensions": [
             {
-              "name": "bosetting",
-              "variables": [
-                "anmodning",
-                "vedtak",
-                "bosatt"
-              ]
+              "name": "bosetting"
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table",
+            "query": {
+              "time": "all"
+            }
+          }
+        ]
+      },
+      {
+        "issue": "should be line chart – and area chart",
+        "name": "bosatt_edtak",
+        "title": "Flyktninger som ble bosatt",
+        "query": {
+          "tableName": "bosatt_vedtak",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "bosetting"
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "title": "Nåtid",
+            "chartKind": "bar",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table",
+            "query": {
+              "time": "all"
+            }
+          }
+        ]
+      },
+      {
+        "name": "flyktninger_befolkningsandel",
+        "title": "Andel flyktninger av befolkningen",
+        "query": {
+          "tableName": "bosatt_befolkning",
+          "unit": "promille",
+          "dimensions": [
+            {
+              "name": "bosetting"
             }
           ]
         },
@@ -2494,11 +2729,10 @@
             {
               "name": "tilskuddTilKommuner",
               "variables": [
-                "inttilsk_1-5",
                 "inttilsk_1",
-                "inttilsk_2-5",
+                "inttilsk_2_5",
                 "funkhem",
-                "norsk-samf_tilsk",
+                "norsk_samf_tilsk",
                 "em_tilsk",
                 "barnehage_tilsk",
                 "eldre_tilsk",

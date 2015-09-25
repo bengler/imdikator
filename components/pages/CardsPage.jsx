@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {loadCardPage} from '../../actions/cardPages'
 import {openCard} from '../../actions/cards'
 import {loadCardPages} from '../../actions/cardPages'
+import CardPageButtons from '../containers/CardPageButtons'
 
 function loadData(props) {
   const {route, dispatch} = props
@@ -45,18 +46,6 @@ class CardsPage extends Component {
     }
   }
 
-  renderCardPagesLinks() {
-    const {cardPages} = this.props
-    const currentPageName = this.props.pageConfig.name
-    return cardPages.map(cardPage => {
-      const firstCard = cardPage.cards[0]
-      if (currentPageName != cardPage.name) {
-        return <a className="tabs-button-menu__link" href={this.context.linkTo('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
-      }
-      return <span className="tabs-button-menu__link tabs-button-menu__link--current">{cardPage.title}</span>
-    })
-  }
-
   render() {
     const {pageConfig, region, openCards} = this.props
     if (!pageConfig || !region) {
@@ -74,20 +63,7 @@ class CardsPage extends Component {
                   <h1>Integrering i {region.name} {region.type}</h1>
                   <p className="ingress">Tall og statistikk over integreringen i {region.type}.</p>
                 </header>
-
-                <nav className="tabs-button-menu">
-                  <h2 className="tabs-button-menu__title t-only-screenreaders">Tema:</h2>
-                  <ul className="t-no-list-styles tabs-button-menu__list">
-                    {this.renderCardPagesLinks().map(link => {
-                      return (
-                        <li className="tabs-button-menu__list-item">
-                          {link}
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </nav>
-
+                <CardPageButtons />
               </div>
             </div>
           </div>

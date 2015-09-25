@@ -842,11 +842,10 @@
         ]
       },
       {
-        "issue": "denne virker rett og slett ikke. hvorfor",
         "title": "Antall deltagere i introduksjonsprogram",
         "name": "deltagere-introprogram",
         "query": {
-          "tableName": "introdeltakere",
+          "tableName": "intro_deltakere",
           "unit": "personer",
           "dimensions": [
             {
@@ -905,7 +904,7 @@
         "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
         "name": "norskopplaering-resultater",
         "query": {
-          "tableName": "norskprover",
+          "tableName": "norsk_prover",
           "unit": "prosent",
           "dimensions": [
             {
@@ -964,7 +963,7 @@
         "title": "Norskopplæring - antall deltagere",
         "name": "norskopplaering-antall-deltagere",
         "query": {
-          "tableName": "norskdeltakere",
+          "tableName": "norsk_deltakere",
           "unit": "personer",
           "dimensions": [
             {
@@ -1141,7 +1140,7 @@
         ]
       },
       {
-        "title": "Hve gjorde de etter introduksjonsprogrammet?",
+        "title": "Hva gjorde de etter introduksjonsprogrammet?",
         "name": "etter-intro",
         "query": {
           "tableName": "intro_avslutning_direkte",
@@ -1216,19 +1215,24 @@
         "name": "barnehage-forholde-minoriteter",
         "query": {
           "tableName": "barnehagedeltakelse",
-          "unit": "prosent",
+          "unit": "personer",
           "dimensions": [
             {
-              "name": "spraak",
+              "name": "barnikommune",
               "variables": [
-                "alle",
-                "minoritet"
+                "innvandrerbakgr",
+                "barn_ellers"
               ]
             },
             {
               "name": "bhgalder",
               "variables": [
-                "1-5"
+                "1_5",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
               ]
             }
           ]

@@ -69,10 +69,11 @@ export default class StackedAreaChart extends React.Component {
     const color = this.colors.domain(series.map(s => s.title))
 
     const isPercent = data.unit === 'percent'
+    let format = d3.format('d')
     if (isPercent) {
       // Values are percent, use 0,1
       y.domain([0, 1])
-      yAxis.tickFormat(d3.format('%'))
+      format = d3.format('%')
     } else {
       // Scale the y axis based on the maximum stacked value
       let maxStackedValue = 0
@@ -86,11 +87,10 @@ export default class StackedAreaChart extends React.Component {
       })
       y.domain([0, maxStackedValue])
       if (data.unit === 'kroner') {
-        yAxis.tickFormat(d3.format('+$,.2f'))
-      } else {
-        yAxis.tickFormat(d3.format('d'))
+        format = d3.format('+$,.2f')
       }
     }
+    yAxis.tickFormat(format)
 
     svg.append('g')
     .attr('class', 'axis')
@@ -132,8 +132,6 @@ export default class StackedAreaChart extends React.Component {
     .attr('class', 'focus')
     focus.append('circle')
     .attr('r', 3.5)
-    focus.append('text')
-    .attr('y', -10)
 
     // Add a voronoi tesselation for mouseover
     const voronoi = d3.geom.voronoi()
@@ -160,24 +158,28 @@ export default class StackedAreaChart extends React.Component {
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
+    const popover = this.popover()
+    d3.select('body').call(popover)
+
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
-    .enter().append('path')
+    .enter()
+    .append('path')
     .attr('d', item => 'M' + item.join('L') + 'Z')
     .datum(dataItem => dataItem.point)
     .style('fill', 'none')
     .style('stroke', 'none')
     .style('pointer-events', 'all')
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout)
-
-    function mouseover(item) {
-      focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.y + item.y0) + ')')
-      focus.select('text').text(item.y)
-    }
-    function mouseout(item) {
-      focus.attr('transform', 'translate(-100,-100)')
-    }
+    .on('mouseover', item => {
+      const xPos = x(item.date)
+      const yPos = y(item.y + item.y0)
+      focus.attr('transform', this.translation(xPos, yPos))
+      popover.html('<p>' + item.key + ': ' + format(item.value) + '</p>')
+      popover.show(focus.node())
+    })
+    .on('mouseout', () => {
+      popover.hide()
+    })
   }
 
   render() {

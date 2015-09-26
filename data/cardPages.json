@@ -469,6 +469,7 @@
           "dimensions": [
             {
               "name": "vreg3",
+              "visible": false,
               "variables": [
                 "alle"
               ]

@@ -282,6 +282,7 @@
             },
             {
               "name": "kjonn",
+              "visible": false,
               "variables": [
                 "alle"
               ]

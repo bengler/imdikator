@@ -27,4 +27,10 @@ const router = Router(routes, match => {
   React.render(<Component registry={registry}/>, container)
 })
 
-router.start()
+router.navigate(document.location.pathname)
+setTimeout(() => {
+  // Need to bind the global click listener *after* react has mounted and bound its global listener to document
+  // or else we're not able to stop propagation when we need to
+  // Todo: See if this can be solved better
+  router.bind(document)
+}, 0)

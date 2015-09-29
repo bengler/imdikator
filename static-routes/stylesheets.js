@@ -10,14 +10,18 @@ const development = config.env === 'development'
 
 const stylesRelPath = './Styles/global'
 
+const imdiStylesImports = readdir(path.join(imdiStylesRoot, stylesRelPath))
+  .map(file => `@import "${path.join('imdi-styles', stylesRelPath, file)}";`)
+
+
 export default {
   '/build/stylesheets/main.css'() {
 
-    const importStatements = readdir(path.join(imdiStylesRoot, stylesRelPath))
-      .map(file => `@import "${path.join('imdi-styles', stylesRelPath, file)}";`)
-    .concat(`@import "./stylesheets/bundles/main.less";`)
-
-    return Promise.resolve(importStatements.join('\n'))
+    return Promise.resolve(
+      imdiStylesImports
+        .concat(`@import "./stylesheets/bundles/main.less";`)
+        .join('\n')
+      )
       .then(buffer => {
         return less.render(buffer, {
           outFile: '/stylesheets/main.css',
@@ -29,14 +33,11 @@ export default {
       .then(output => output.css)
   },
   '/build/stylesheets/docsite.css'() {
-    return new Promise((resolve, reject) => {
-      fs.readFile(require.resolve('../stylesheets/bundles/docsite.less'), 'utf-8', (err, buffer) => {
-        if (err) {
-          return reject(err)
-        }
-        resolve(buffer)
-      })
-    })
+    return Promise.resolve(
+      imdiStylesImports
+        .concat(`@import "./stylesheets/bundles/docsite.less";`)
+        .join('\n')
+      )
       .then(buffer => {
         return less.render(buffer, {
           outFile: '/stylesheets/docsite.css',

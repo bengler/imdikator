@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import {loadCardPage} from '../../actions/cardPages'
 import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtons from '../containers/CardPageButtons'
+import translations from '../../data/translations'
+
 
 function loadData(props) {
   const {route, dispatch} = props
@@ -87,8 +89,8 @@ class CardsPage extends Component {
               <div className="col--main-wide">
 
                 <header>
-                  <h1>Integrering i {region.name} {region.type}</h1>
-                  <p className="ingress">Tall og statistikk over integreringen i {region.type}.</p>
+                  <h1>Integreringen i {region.name} {translations[region.type]}</h1>
+                  <p className="ingress">Tall og statistikk over integreringen i {translations['the-' + region.type]}</p>
                 </header>
                 <CardPageButtons />
               </div>

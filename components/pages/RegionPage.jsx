@@ -51,7 +51,7 @@ class RegionPage extends Component {
 
         <header>
 					<h1>{region.name} {translations[region.type]}</h1>
-					<p className="ingress">Tall og statistikk over integreringen i {translations['the-' + region.type]}.</p>
+					<p className="ingress">Tall og statistikk over integreringen i {translations['the-' + region.type]}</p>
           <CardPageButtons />
 				</header>
 

@@ -60,6 +60,38 @@ class Chart {
     return 'translate(' + x + ',' + y + ')'
   }
 
+  // Returns {scale: d3.scale, format: tickFormat}
+  configureYscale(maxValue, unit) {
+    let format = d3.format('d')
+    const y = d3.scale.linear().range([this.size.height, 0])
+    switch (unit) {
+      case 'prosent': {
+        format = d3.format('%')
+        y.domain([0, Math.max(1, maxValue)])
+        break
+      }
+      case 'promille': {
+        format = function (val) {
+          return val + '‰'
+        }
+        y.domain([0, maxValue])
+        break
+      }
+      case 'kroner': {
+        const f = d3.format('s')
+        format = function (val) {
+          return f(val) + ' kr'
+        }
+        y.domain([0, Math.max(1 / 1000, maxValue)])
+        break
+      }
+      default: {
+        y.domain([0, maxValue])
+      }
+    }
+    return {scale: y, format: format}
+  }
+
   popover() {
     let el = null
     const self = this
@@ -87,7 +119,6 @@ class Chart {
       el
       .style('left', offset.left + offset.width / 2 - popoverBox.width / 2)
       .style('top', offset.top + window.scrollY - popoverBox.height - 20)
-      .style('display', null)
     }
 
     chart.hide = () => {
@@ -96,8 +127,7 @@ class Chart {
       }
       // TODO: Find a better way to hide the popover?
       el
-      .style('left', -100)
-      .style('top', -100)
+      .style('top', -200)
     }
 
     return chart

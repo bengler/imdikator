@@ -24,11 +24,12 @@ export default class StackedAreaChart extends React.Component {
     const parseDate = d3.time.format('%Y').parse
 
     const x = d3.time.scale().range([0, this.size.width])
-    const y = d3.scale.linear().range([this.size.height, 0])
-
+    const yc = this.configureYscale(preparedData.maxValue, data.unit)
+    const y = yc.scale
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
+    yAxis.tickFormat(yc.format)
 
     const area = d3.svg.area()
     .x(dataItem => x(dataItem.date))
@@ -68,13 +69,7 @@ export default class StackedAreaChart extends React.Component {
 
     const color = this.colors.domain(series.map(s => s.title))
 
-    const isPercent = data.unit === 'percent'
-    let format = d3.format('d')
-    if (isPercent) {
-      // Values are percent, use 0,1
-      y.domain([0, 1])
-      format = d3.format('%')
-    } else {
+    if (data.format !== 'prosent') {
       // Scale the y axis based on the maximum stacked value
       let maxStackedValue = 0
       series.forEach(cat => {
@@ -86,11 +81,7 @@ export default class StackedAreaChart extends React.Component {
         })
       })
       y.domain([0, maxStackedValue])
-      if (data.unit === 'kroner') {
-        format = d3.format('+$,.2f')
-      }
     }
-    yAxis.tickFormat(format)
 
     svg.append('g')
     .attr('class', 'axis')
@@ -174,7 +165,7 @@ export default class StackedAreaChart extends React.Component {
       const xPos = x(item.date)
       const yPos = y(item.y + item.y0)
       focus.attr('transform', this.translation(xPos, yPos))
-      popover.html('<p>' + item.key + ': ' + format(item.value) + '</p>')
+      popover.html('<p>' + item.key + ': ' + yc.format(item.y) + '</p>')
       popover.show(focus.node())
     })
     .on('mouseout', () => {

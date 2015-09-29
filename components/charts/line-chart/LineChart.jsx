@@ -19,22 +19,15 @@ export default class LineChart extends React.Component {
     const svg = this.svg
     const parseDate = d3.time.format('%Y').parse
 
+    const extent = d3.extent(data.rows, item => parseFloat(item.value))
+    const yc = this.configureYscale(extent[1], data.unit)
+
     const x = d3.time.scale().range([0, this.size.width])
-    const y = d3.scale.linear().range([this.size.height, 0])
+    const y = yc.scale
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
-
-    const isPercent = data.unit === 'prosent'
-    let yAxisFormat = d3.format('s')
-    if (isPercent) {
-      yAxisFormat = d3.format('%')
-      y.domain([0, 1])
-    } else {
-      const extent = d3.extent(data.rows, item => parseFloat(item.tabellvariabel))
-      y.domain(extent)
-    }
-    yAxis.tickFormat(yAxisFormat)
+    yAxis.tickFormat(yc.format)
 
     const dates = []
     preparedData.forEach(item => {
@@ -42,9 +35,6 @@ export default class LineChart extends React.Component {
         value.date = parseDate(value.key)
         dates.push(value.date)
         value.value = parseFloat(value.values[0].tabellvariabel)
-        if (isPercent) {
-          value.value /= 100
-        }
       })
     })
 
@@ -112,8 +102,6 @@ export default class LineChart extends React.Component {
     .attr('class', 'focus')
     focus.append('circle')
     .attr('r', 3.5)
-    focus.append('text')
-    .attr('y', -10)
 
     // Add a voronoi tesselation for mouseover
     const voronoi = d3.geom.voronoi()
@@ -136,6 +124,9 @@ export default class LineChart extends React.Component {
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
+    const popover = this.popover()
+    d3.select('body').call(popover)
+
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
     .enter().append('path')
@@ -150,9 +141,13 @@ export default class LineChart extends React.Component {
     function mouseover(item) {
       focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.value) + ')')
       focus.select('text').text(item.value)
+      popover.html('<p>' + yc.format(item.value) + '</p>')
+      popover.show(focus.node())
     }
+
     function mouseout(item) {
       focus.attr('transform', 'translate(-100,-100)')
+      popover.hide()
     }
   }
 

@@ -47,18 +47,12 @@ export default class BarChart extends React.Component {
     .selectAll('.tick text')
     .call(this.wrapTextNode, x0.rangeBand())
 
-    // Add the Y axsis
-    const yScale = d3.scale.linear().range([this.size.height, 0])
-    const yAxis = d3.svg.axis().scale(yScale).orient('left')
 
-    let format = d3.format('s')
-    if (isPercent) {
-      format = d3.format('%')
-      yScale.domain([0, 1])
-    } else {
-      yScale.domain([0, preparedData.maxValue])
-    }
-    yAxis.tickFormat(format)
+    // Y config
+    const yc = this.configureYscale(preparedData.maxValue, data.unit)
+    // Add the Y axsis
+    const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
+    yAxis.tickFormat(yc.format)
 
     svg.append('g')
     .attr('class', 'axis')
@@ -82,14 +76,14 @@ export default class BarChart extends React.Component {
       if (isNaN(val)) {
         return 0
       }
-      return yScale(val)
+      return yc.scale(val)
     })
     .attr('height', d => {
       const val = d.values[0].value
       if (isNaN(val)) {
         return 0
       }
-      return this.size.height - yScale(val)
+      return this.size.height - yc.scale(val)
     })
     .style('fill', dataItem => seriesColor(dataItem.title))
     .each(function (item) {
@@ -107,11 +101,11 @@ export default class BarChart extends React.Component {
     .attr('x', dataItem => x1(dataItem.title))
     // Want full height for this one
     .attr('y', 0)
-    .attr('height', () => this.size.height - yScale(yScale.domain()[1]))
+    .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      popover.html('<p>' + item.values[0].value + '</p>')
+      popover.html('<p>' + yc.format(item.values[0].value) + '</p>')
       popover.show(item.el)
     })
     .on('mouseout', () => {

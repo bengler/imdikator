@@ -3,7 +3,7 @@ import Autocomplete from 'react-autocomplete'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {prefixify} from '../../lib/regionUtil'
-import translations from '../../data/translations'
+import {_t} from '../../lib/translate'
 
 const MIN_LENGTH = 1
 
@@ -53,7 +53,7 @@ class Search extends Component {
       highlightedItem: {},
       item: {}
     }
-    const itemDescription = translations[item.type] ? item.name + ', ' + translations[item.type] : item.name
+    const itemDescription = _t(item.type) ? item.name + ', ' + _t(item.type) : item.name
     return (
       <div
         style={isHighlighted ? styles.highlightedItem : styles.item}

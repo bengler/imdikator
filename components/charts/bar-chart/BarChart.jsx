@@ -44,15 +44,6 @@ export default class BarChart extends React.Component {
     const x1 = d3.scale.ordinal()
     x1.domain(series).rangeRoundBands([0, x0.rangeBand()], 0.05)
 
-    // Add the x axis legend
-    const xAxis = d3.svg.axis().scale(x0).orient('bottom')
-    svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + this.size.height + ')')
-    .call(xAxis)
-    .selectAll('.tick text')
-    .call(this.wrapTextNode, x0.rangeBand())
-
     // Y config
     const yc = this.configureYscale(preparedData.maxValue, data.unit)
     // Add the Y axsis
@@ -135,6 +126,16 @@ export default class BarChart extends React.Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series)
     .call(leg)
+
+    // Add the x axis legend
+    const xAxis = d3.svg.axis().scale(x0).orient('bottom')
+    svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', 'translate(0, ' + this.size.height + ')')
+    .call(xAxis)
+    .selectAll('.tick text')
+    .call(this.wrapTextNode, x0.rangeBand())
+
   }
 
   render() {

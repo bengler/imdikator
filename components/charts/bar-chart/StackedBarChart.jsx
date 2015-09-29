@@ -60,28 +60,7 @@ export default class StackedBarChart extends Component {
       y.domain([0, maxVal])
     }
 
-    const yAxisEl = this.svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
     x.domain(preparedData.map(item => item.title))
-
-    this.svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + this.size.height + ')')
-    .call(xAxis)
-    .selectAll('text')
-    .call(this.wrapTextNode, x.rangeBand())
-
-    if (!isPercent) {
-      yAxisEl.append('text')
-      .attr('transform', 'rotate(-90)')
-      .attr('y', '.5em')
-      .attr('dy', '.71em')
-      .style('text-anchor', 'end')
-      .text(data.unit)
-    }
-
 
     const category = svg.selectAll('.category')
     .data(preparedData)
@@ -120,6 +99,17 @@ export default class StackedBarChart extends Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(seriesNames)
     .call(leg)
+
+    const yAxisEl = this.svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+
+    this.svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', 'translate(0, ' + this.size.height + ')')
+    .call(xAxis)
+    .selectAll('text')
+    .call(this.wrapTextNode, x.rangeBand())
   }
 
   render() {

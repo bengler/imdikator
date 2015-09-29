@@ -50,15 +50,6 @@ export default class LineChart extends React.Component {
 
     x.domain(d3.extent(dates))
 
-    svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + this.size.height + ')')
-    .call(xAxis)
-
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
     const line = d3.svg.line()
     .x(dataItem => {
       return x(dataItem.date)
@@ -156,6 +147,16 @@ export default class LineChart extends React.Component {
       focus.attr('transform', 'translate(-100,-100)')
       popover.hide()
     }
+
+    svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', 'translate(0,' + this.size.height + ')')
+    .call(xAxis)
+
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+
   }
 
   render() {

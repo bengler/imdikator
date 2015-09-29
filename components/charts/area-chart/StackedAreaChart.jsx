@@ -57,11 +57,6 @@ export default class StackedAreaChart extends React.Component {
     // Scale the X axis by the date range in the data
     x.domain(d3.extent(dates))
 
-    svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + this.size.height + ')')
-    .call(xAxis)
-
     // Stack our data
     const stack = d3.layout.stack()
     stack.values(dataItem => dataItem.values)
@@ -82,10 +77,6 @@ export default class StackedAreaChart extends React.Component {
       })
       y.domain([0, maxStackedValue])
     }
-
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
 
     svg.selectAll('.area')
     .data(series)
@@ -171,6 +162,19 @@ export default class StackedAreaChart extends React.Component {
     .on('mouseout', () => {
       popover.hide()
     })
+
+    // Add the X axis
+    svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', 'translate(0,' + this.size.height + ')')
+    .call(xAxis)
+    
+    // Add the Y axis
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+
+
   }
 
   render() {

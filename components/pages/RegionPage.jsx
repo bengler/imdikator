@@ -65,7 +65,8 @@ class RegionPage extends Component {
 
         <div className="page__section page__section--grey">
           <section className="feature">
-            Charts and stuff goes here
+            <h2 className="feature__title">Oppsummering</h2>
+            <p>Charts and stuff goes here</p>
           </section>
 
           <section className="feature">

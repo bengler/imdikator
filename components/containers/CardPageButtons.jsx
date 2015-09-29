@@ -20,32 +20,29 @@ class CardPageButtons extends Component {
     this.props.dispatch(loadCardPages())
   }
 
-  renderCardPagesLinks() {
-    const {cardPages, pageConfig} = this.props
-    const currentPageName = pageConfig ? pageConfig.name : null
-    return cardPages.map(cardPage => {
-      const firstCard = cardPage.cards[0]
-      if (currentPageName == cardPage.name) {
-        return <span className="tabs-button-menu__link tabs-button-menu__link--current">{cardPage.title}</span>
-      }
-      return <a className="tabs-button-menu__link" href={this.context.linkTo('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
-    })
-  }
 
   render() {
-    const {cardPages} = this.props
+    const {cardPages, pageConfig} = this.props
     if (!cardPages) {
       return <div>Loading...!</div>
     }
+    const currentPageName = pageConfig ? pageConfig.name : null
 
     return (
       <nav className="tabs-button-menu">
         <h2 className="tabs-button-menu__title t-only-screenreaders">Tema:</h2>
         <ul className="t-no-list-styles tabs-button-menu__list">
-          {this.renderCardPagesLinks().map(link => {
+          {cardPages.map(cardPage => {
+            const isButtonForCurrentPage = currentPageName == cardPage.name
+            const firstCard = cardPage.cards[0]
             return (
-              <li className="tabs-button-menu__list-item">
-                {link}
+              <li key={cardPage.name} className="tabs-button-menu__list-item">
+                {isButtonForCurrentPage
+                  && <span className="tabs-button-menu__link tabs-button-menu__link--current">{cardPage.title}</span>
+                }
+                {!isButtonForCurrentPage
+                  && <a className="tabs-button-menu__link" href={this.context.linkTo('/steder/:region/:pageName/:cardName', {pageName: cardPage.name, cardName: firstCard.name})}>{cardPage.title}</a>
+                }
               </li>
             )
           })}
@@ -53,7 +50,7 @@ class CardPageButtons extends Component {
       </nav>
     )
   }
-
+  
 }
 
 function mapStateToProps(state) {

@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {prefixify} from '../../lib/regionUtil'
-import translations from '../../data/translations'
+import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import Search from '../containers/Search'
 
@@ -46,9 +46,9 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const regionType = this.props.route.params.region.charAt(0).toLowerCase()
+    const regionTypePrefix = this.props.route.params.region.charAt(0).toLowerCase()
     const regionCode = this.props.route.params.region.split('-')[0].replace(/\w/, '')
-    const region = this.regionByCode(regionCode, regionType == 'n') // houston, we have a commerceRegion
+    const region = this.regionByCode(regionCode, regionTypePrefix == 'n') // houston, we have a commerceRegion
     const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode) : null
     const county = region.countyCode ? this.regionByCode(region.countyCode) : null
     const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
@@ -58,10 +58,23 @@ class RegionPage extends Component {
       <div className="col--main">
 
         <header>
-					<h1>{region.name} {translations[region.type]}</h1>
-					<p className="ingress">Tall og statistikk over integreringen i {translations['the-' + region.type]}</p>
+					<h1>{region.name} {_t(region.type)}</h1>
+					<p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
           <CardPageButtons />
 				</header>
+
+        <div className="page__section page__section--grey">
+          <section className="feature">
+            Charts and stuff goes here
+          </section>
+
+          <section className="feature">
+            <h2 className="feature__title">Faktaark</h2>
+            <p>Et dokument hvor et utdrag av alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.</p>
+            <p><a href="#" className="button button-"><i className="icon__download icon--white"></i> Last ned faktaark (PDF)</a></p>
+          </section>
+
+        </div>
 
 				<section className="feature feature--white">
 					<h2 className="feature__title">{region.name}</h2>
@@ -70,15 +83,15 @@ class RegionPage extends Component {
 
 
             {region.type == 'borough'
-              && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
             {region.type == 'municipality'
               && county
-              && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
-            <span> Se <a href="">andre {translations['several-' + region.type]} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
+            <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
           </p>
           <div>
             <span>Finn område: </span><Search/>

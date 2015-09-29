@@ -6326,8 +6326,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#78d6c7f8b04180aa6774f57b21ce2d779d830206",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#78d6c7f8b04180aa6774f57b21ce2d779d830206"
+      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#1ac0138eee9a10250fac64e8d940bd781499e28c"
     },
     "jsdom": {
       "version": "3.1.2",

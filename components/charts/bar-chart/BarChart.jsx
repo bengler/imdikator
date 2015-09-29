@@ -22,11 +22,17 @@ export default class BarChart extends React.Component {
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
-    const isPercent = data.unit === 'prosent'
 
     // Get the unique categories from the data
     const categories = preparedData.map(entry => entry.title)
-    const series = preparedData[0].values.map(val => val.title)
+    const series = []
+    preparedData.forEach(item => {
+      item.values.forEach(val => {
+        if (series.indexOf(val.title) == -1) {
+          series.push(val.title)
+        }
+      })
+    })
 
     // A range of 20 colors
     const seriesColor = this.colors.domain(series)
@@ -46,7 +52,6 @@ export default class BarChart extends React.Component {
     .call(xAxis)
     .selectAll('.tick text')
     .call(this.wrapTextNode, x0.rangeBand())
-
 
     // Y config
     const yc = this.configureYscale(preparedData.maxValue, data.unit)

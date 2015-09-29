@@ -1,9 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {prefixify} from '../../lib/regionUtil'
+import RegionUtil from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
+import RegionChildrenList from '../elements/RegionChildrenList'
 import Search from '../containers/Search'
 
 
@@ -30,12 +31,14 @@ class RegionPage extends Component {
     this.props.dispatch(loadAllRegions())
   }
 
-  regionByCode(code, commerceRegion = false) {
-    if (commerceRegion) {
-      return this.props.allRegions.filter(region => (region.code == code) && region.type == 'commerceRegion')[0]
-    }
-    return this.props.allRegions.filter(region => (region.code == code) && region.type != 'commerceRegion')[0]
+  regionByCode(code, type) {
+    return this.props.allRegions.filter(region => (region.code == code) && region.type == type)[0]
   }
+
+  regionsByParent(parentType, parentCode) {
+    return this.props.allRegions.filter(region => region[parentType] == parentCode)
+  }
+
 
   render() {
     if (this.props.allRegions.length < 1) {
@@ -46,13 +49,28 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const regionTypePrefix = this.props.route.params.region.charAt(0).toLowerCase()
-    const regionCode = this.props.route.params.region.split('-')[0].replace(/\w/, '')
-    const region = this.regionByCode(regionCode, regionTypePrefix == 'n') // houston, we have a commerceRegion
-    const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode) : null
-    const county = region.countyCode ? this.regionByCode(region.countyCode) : null
+    const [regionTypePrefix, regionCode] = RegionUtil.split(this.props.route.params.region.split('-')[0])
+    const assumedRegionType = RegionUtil.typeForPrefix(regionTypePrefix)
+    const region = this.regionByCode(regionCode, assumedRegionType)
+    const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode, 'municipality') : null
+    const county = region.countyCode ? this.regionByCode(region.countyCode, 'county') : null
     const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
-    const commerceRegion = commerceRegionCode ? this.regionByCode(commerceRegionCode, true) : null
+    const commerceRegion = commerceRegionCode ? this.regionByCode(commerceRegionCode, 'commerceRegion') : null
+
+    let childRegions = []
+    let childRegionType
+    if (region.type == 'municipality') {
+      childRegions = this.regionsByParent('municipalityCode', region.code)
+      childRegionType = capitalize(_t('several-' + 'borough'))
+    }
+    if (region.type == 'county') {
+      childRegions = this.regionsByParent('countyCode', region.code)
+      childRegionType = capitalize(_t('several-' + 'municipality'))
+    }
+    if (region.type == 'commerceRegion') {
+      childRegions = this.regionsByParent('commerceRegionCode', region.code)
+      childRegionType = capitalize(_t('several-' + 'municipality'))
+    }
 
     return (
       <div className="col--main">
@@ -84,12 +102,12 @@ class RegionPage extends Component {
 
 
             {region.type == 'borough'
-              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
             {region.type == 'municipality'
               && county
-              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
             <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
@@ -99,6 +117,14 @@ class RegionPage extends Component {
           </div>
 				</section>
 
+        {childRegions.length > 0
+          && <div className="feature">
+            <div className="col-block-bleed--full-right">
+              <h2 className="feature__section-title">{childRegionType} i {region.name}</h2>
+              <RegionChildrenList children={childRegions}/>
+            </div>
+          </div>
+        }
       </div>
     )
   }

@@ -14,6 +14,7 @@ export default class LineChart extends React.Component {
     }
 
     const dimensionLabels = data.dimensions
+
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
@@ -29,12 +30,18 @@ export default class LineChart extends React.Component {
     const yAxis = d3.svg.axis().scale(y).orient('left')
     yAxis.tickFormat(yc.format)
 
+    const isPercent = data.unit === 'prosent'
     const dates = []
     preparedData.forEach(item => {
       item.values.forEach(value => {
         value.date = parseDate(value.key)
         dates.push(value.date)
         value.value = parseFloat(value.values[0].tabellvariabel)
+        if (isPercent) {
+          // Need to do this because of how d3 percentage scale works
+          // Is normally done in the queryResultNester
+          value.value /= 100
+        }
       })
     })
 

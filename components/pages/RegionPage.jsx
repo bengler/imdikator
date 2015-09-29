@@ -1,9 +1,11 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
+import {prefixify} from '../../lib/regionUtil'
 import translations from '../../data/translations'
 import CardPageButtons from '../containers/CardPageButtons'
 import Search from '../containers/Search'
+
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -27,7 +29,10 @@ class RegionPage extends Component {
     this.props.dispatch(loadAllRegions())
   }
 
-  regionByCode(code) {
+  regionByCode(code, commerceRegion = false) {
+    if (commerceRegion) {
+      return this.props.allRegions.filter(region => (region.code == code) && region.type == 'commerceRegion')[0]
+    }
     return this.props.allRegions.filter(region => region.code == code)[0]
   }
 
@@ -44,7 +49,7 @@ class RegionPage extends Component {
     const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode) : null
     const county = region.countyCode ? this.regionByCode(region.countyCode) : null
     const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
-    const commerceRegion = commerceRegionCode ? this.regionByCode(commerceRegionCode) : null
+    const commerceRegion = commerceRegionCode ? this.regionByCode(commerceRegionCode, true) : null
 
     return (
       <div className="col--main">
@@ -60,9 +65,14 @@ class RegionPage extends Component {
 					<p>
             <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
 
-            {municipality && <span>{capitalize(translations['the-' + region.type])} ligger i <a href="#">{municipality.name}</a> og er en del av <a href="#">{commerceRegion.name}</a>.</span>}
+            {municipality
+              && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+            }
 
-            {!municipality && county && <span>{capitalize(translations['the-' + region.type])} ligger i <a href="#">{county.name}</a> og er en del av <a href="#">{commerceRegion.name}</a>.</span>}
+            {!municipality
+              && county
+              && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+            }
           </p>
           <div>
             <span>Finn område: </span><Search/>

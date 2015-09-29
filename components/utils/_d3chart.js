@@ -78,11 +78,11 @@ class Chart {
         break
       }
       case 'kroner': {
-        const f = d3.format('s')
+        const f = d3.format('g')
         format = function (val) {
           return f(val) + ' kr'
         }
-        y.domain([0, Math.max(1 / 1000, maxValue)])
+        y.domain([0, maxValue])
         break
       }
       default: {

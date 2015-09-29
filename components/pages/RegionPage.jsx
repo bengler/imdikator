@@ -11,6 +11,7 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+
 class RegionPage extends Component {
 
   static propTypes = {
@@ -33,7 +34,7 @@ class RegionPage extends Component {
     if (commerceRegion) {
       return this.props.allRegions.filter(region => (region.code == code) && region.type == 'commerceRegion')[0]
     }
-    return this.props.allRegions.filter(region => region.code == code)[0]
+    return this.props.allRegions.filter(region => (region.code == code) && region.type != 'commerceRegion')[0]
   }
 
   render() {
@@ -45,7 +46,9 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const region = this.regionByCode(this.props.route.params.region.split('-')[0].replace(/\w/, ''))
+    const regionType = this.props.route.params.region.charAt(0).toLowerCase()
+    const regionCode = this.props.route.params.region.split('-')[0].replace(/\w/, '')
+    const region = this.regionByCode(regionCode, regionType == 'n') // houston, we have a commerceRegion
     const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode) : null
     const county = region.countyCode ? this.regionByCode(region.countyCode) : null
     const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
@@ -65,11 +68,12 @@ class RegionPage extends Component {
 					<p>
             <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
 
-            {municipality
+
+            {region.type == 'borough'
               && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
-            {!municipality
+            {region.type == 'municipality'
               && county
               && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }

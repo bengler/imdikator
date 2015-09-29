@@ -1,5 +1,4 @@
 import less from 'less'
-import fs from 'fs'
 import path from 'path'
 import config from '../config'
 import readdir from 'fs-readdir-recursive'

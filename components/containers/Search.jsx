@@ -3,6 +3,8 @@ import Autocomplete from 'react-autocomplete'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {prefixify} from '../../lib/regionUtil'
+import translations from '../../data/translations'
+
 const MIN_LENGTH = 1
 
 function shouldItemRender(region, value) {
@@ -51,13 +53,13 @@ class Search extends Component {
       highlightedItem: {},
       item: {}
     }
-
+    const itemDescription = translations[item.type] ? item.name + ', ' + translations[item.type] : item.name
     return (
       <div
         style={isHighlighted ? styles.highlightedItem : styles.item}
         key={item.name + ',' + item.type}
         id={item.code}>
-        {item.name}
+        {itemDescription}
       </div>
     )
   }

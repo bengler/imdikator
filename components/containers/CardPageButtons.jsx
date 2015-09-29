@@ -50,7 +50,7 @@ class CardPageButtons extends Component {
       </nav>
     )
   }
-  
+
 }
 
 function mapStateToProps(state) {

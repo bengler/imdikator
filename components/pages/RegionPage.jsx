@@ -77,6 +77,8 @@ class RegionPage extends Component {
               && county
               && <span>{capitalize(translations['the-' + region.type])} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
+
+            <span> Se <a href="">andre {translations['several-' + region.type]} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
           </p>
           <div>
             <span>Finn område: </span><Search/>

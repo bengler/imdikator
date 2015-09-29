@@ -1,10 +1,14 @@
 {
-  "municipality": "kommune",
-  "the-municipality": "kommunen",
-  "county": "fylke",
-  "the-county": "fylket",
-  "commerceRegion": "næringsregion",
-  "the-commerceRegion": "næringsregionen",
   "borough": "bydel",
-  "the-borough": "bydelen"
+  "municipality": "kommune",
+  "county": "fylke",
+  "commerceRegion": "næringsregion",
+  "the-borough": "bydelen",
+  "the-municipality": "kommunen",
+  "the-county": "fylket",
+  "the-commerceRegion": "næringsregionen",
+  "several-borough": "bydeler",
+  "several-municipality": "kommuner",
+  "several-county": "fylker",
+  "several-commerceRegion": "næringsregioner"
 }

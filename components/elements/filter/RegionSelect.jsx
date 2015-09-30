@@ -21,7 +21,8 @@ export default class ToggleButtons extends Component {
       other: PropTypes.array
     }),
     onApply: PropTypes.func,
-    onApplyAll: PropTypes.func
+    onApplyAll: PropTypes.func,
+    onCancel: PropTypes.func
   }
   static defaultProps = {
     value: {

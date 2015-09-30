@@ -33,7 +33,6 @@ class TestRegionSelect extends Component {
 
     return (
       <div>
-        {!open && <button onClick={() => this.setState({open: true})}>Velg…</button>}
         {open && <RegionSelect
           options={options}
           value={value}
@@ -41,7 +40,13 @@ class TestRegionSelect extends Component {
           similarRegions={similarRegions}
           />
         }
-        <pre>{JSON.stringify(value, null, 2)}</pre>
+        {!open && (
+          <div>
+            <h2>Valg:</h2>
+            <button className="button button--primary" onClick={() => this.setState({open: true})}>Endre…</button>
+            <pre style={{fontSize: '80%'}}>{JSON.stringify(value, null, 2)}</pre>
+          </div>
+        )}
       </div>
     )
   }

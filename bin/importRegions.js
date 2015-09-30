@@ -81,6 +81,7 @@ const naeringsregioner = parsedRegions
 
 const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   .distinct(region => region.bydelsnr)
+  .map(padKeys('0', 6, 'bydelsnr'))
   .map(pickKeys('bydelsnr', 'bydelsnavn', 'Kommunenr'))
   .map(renameKeys({
     bydelsnr: 'code',

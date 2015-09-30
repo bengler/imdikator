@@ -9,7 +9,7 @@ function renderRegion(region) {
 }
 
 
-export default class ToggleButtons extends Component {
+export default class RegionSelect extends Component {
   static propTypes = {
     options: PropTypes.shape({
       similar: PropTypes.array,
@@ -26,6 +26,11 @@ export default class ToggleButtons extends Component {
   }
   static defaultProps = {
     value: {
+      similar: [],
+      average: [],
+      other: []
+    },
+    options: {
       similar: [],
       average: [],
       other: []
@@ -107,7 +112,7 @@ export default class ToggleButtons extends Component {
             </div>
             <div className="col--half">
               <p className="text--small">
-                Disse 6 kommunene er nærmest Sandefjord på befolkningsstørrelse,
+                [TODO] Disse 6 kommunene er nærmest Sandefjord på befolkningsstørrelse,
                 innvandrerandel og flyktningsandel er mest anbefalt å
                 sammenlikne med. <a href="#">Les mer om dette utvalget</a>.
               </p>

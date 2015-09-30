@@ -5,6 +5,7 @@ import {prefixify, split, typeForPrefix} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import CardPageButtons from '../containers/CardPageButtons'
+import RegionChartTest from '../containers/RegionChartTest'
 import RegionChildrenList from '../elements/RegionChildrenList'
 import Search from '../containers/RegionSearch'
 import mockData from '../../data/mockdata-benchmarkchart'
@@ -88,7 +89,7 @@ class RegionPage extends Component {
             <h2 className="feature__title">Oppsummering</h2>
             <p>Charts and stuff goes here</p>
             <div className="col--half col--flow">
-              <BenchmarkChart data={mockData}/>
+              <RegionChartTest regionCode={region.code}/>
             </div>
           </section>
 

@@ -8,6 +8,7 @@ import openCards from './openCards'
 import cardPage from './cardPage'
 import cardPages from './cardPages'
 import tables from './tables'
+import chartData from './chartFodder'
 
 export default combineReducers({
   route,
@@ -19,5 +20,5 @@ export default combineReducers({
   cardState,
   openCards,
   tables,
+  chartData
 })
-

@@ -12,9 +12,6 @@ const stylesRelPath = './Styles/global'
 const imdiStylesImports = readdir(path.join(imdiStylesRoot, stylesRelPath))
   .map(file => `@import "${path.join('imdi-styles', stylesRelPath, file)}";`)
 
-console.log(imdiStylesImports.join("\n"))
-
-
 export default {
   '/build/stylesheets/main.css'() {
 

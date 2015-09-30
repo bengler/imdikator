@@ -18,7 +18,7 @@ export default class TestRegionSelect extends Component {
     const {similarRegions, open} = this.state
     return (
       <RegionSelect
-        open={true}
+        open={open}
         similarRegions={similarRegions}
       />
     )

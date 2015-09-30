@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {_t} from '../../lib/translate'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 
@@ -39,7 +38,6 @@ class RegionChartTest extends Component {
 
 
 function mapStateToProps(state) {
-  console.log('mapStateToProps', state.chartData)
   return {
     chartData: state.chartData
   }

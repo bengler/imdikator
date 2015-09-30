@@ -3,12 +3,10 @@ import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {prefixify, split, typeForPrefix} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
-import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChartTest from '../containers/RegionChartTest'
 import RegionChildrenList from '../elements/RegionChildrenList'
 import Search from '../containers/RegionSearch'
-import mockData from '../../data/mockdata-benchmarkchart'
 
 
 function capitalize(string) {

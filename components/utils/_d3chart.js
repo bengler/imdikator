@@ -142,6 +142,7 @@ class Chart {
         case 'left': {
           left = offset.left + offset.width + 20
           top = offset.top + window.scrollY - offset.height / 2
+          break
         }
         default: {
           left = 0

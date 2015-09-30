@@ -933,7 +933,7 @@
       },
       {
         "title": "Integreringstilskudd for år 2-5",
-        "label": "inttilsk_2-5"
+        "label": "inttilsk_2_5"
       },
       {
         "title": "Tilskudd til bosetting av personer med alvorlige funksjonshemminger og adferdsvansker",
@@ -941,7 +941,7 @@
       },
       {
         "title": "Tilskudd til opplæring i norsk og samfunnskunnskap for voksne innvandrere",
-        "label": "norsk-samf_tilsk"
+        "label": "norsk_samf_tilsk"
       },
       {
         "title": "Tilskudd til bosetting av enslige mindreårige flyktninger",

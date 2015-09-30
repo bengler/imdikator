@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
 import ChartSelectorList from '../elements/ChartSelectorList'
 import UnitSelection from '../elements/UnitSelection'
+import FilterBar from './FilterBar'
 
 import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'
@@ -64,7 +65,7 @@ class Card extends Component {
 
       <div className="toggle-list__section toggle-list__section--expanded" aria-hidden="false" style={{display: 'block'}}>
         <ChartSelectorList card={card} onSelectDataView={this.handleChangeTab.bind(this)}/>
-        <UnitSelection selectedUnit={unit} units={units} onChangeUnit={updateUnit}/>
+        <FilterBar/>
         <ChartComponent data={this.props.data}/>
         <small>{tableDescription}</small>
       </div>

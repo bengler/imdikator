@@ -86,6 +86,75 @@
         ]
       },
       {
+        "name": "befolkning_alder",
+        "title": "Aldersgrupper",
+        "query": {
+          "tableName": "befolkning_alder",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "innvkat3",
+              "variables": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "name": "alderGrupper"
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "title": "Nåtid",
+            "chartKind": "pyramid",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "chronological",
+            "title": "Over tid",
+            "chartKind": "line",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "map",
+            "title": "Kart",
+            "chartKind": "map",
+            "query": {
+              "time": "latest"
+            }
+          },
+          {
+            "name": "benchmark",
+            "title": "Sammenliknet",
+            "chartKind": "benchmark",
+            "query": {
+              "time": "all"
+            }
+          },
+          {
+            "name": "table",
+            "title": "Tabell",
+            "chartKind": "table",
+            "query": {
+              "time": "all"
+            }
+          }
+        ]
+      },
+      {
         "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
         "query": {
@@ -1957,7 +2026,7 @@
           {
             "name": "latest",
             "title": "Nåtid",
-            "chartKind": "bar",
+            "chartKind": "pyramid",
             "query": {
               "time": "latest"
             }

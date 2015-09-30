@@ -94,20 +94,30 @@ class Chart {
 
   popover() {
     let el = null
+    let direction = 'bottom'
     const self = this
     function chart(selection) {
       el = selection
       .append('div')
-      .attr('class', 'focus arrow_box')
+      .attr('class', 'focus')
       self._popover = el
       return el
     }
 
-    chart.html = html => {
-      if (!el) {
-        return
+    chart.direction = function (newDirection) {
+      if (!arguments.length) {
+        return direction
       }
-      el.html(html)
+      direction = newDirection
+      return chart
+    }
+
+    chart.html = function (newHtml) {
+      if (!arguments.length) {
+        return el.html()
+      }
+      el.html(newHtml)
+      return chart
     }
 
     chart.show = element => {
@@ -116,9 +126,29 @@ class Chart {
       }
       const offset = element.getBoundingClientRect()
       const popoverBox = el.node().getBoundingClientRect()
+      let left = 0
+      let top = 0
+      switch (direction) {
+        case 'bottom': {
+          left = offset.left + offset.width / 2 - popoverBox.width / 2
+          top = offset.top + window.scrollY - popoverBox.height - 20
+          break
+        }
+        case 'right': {
+          left = offset.left - popoverBox.width - 20
+          top = offset.top + window.scrollY - offset.height / 2
+          break
+        }
+        case 'left': {
+          left = offset.left + offset.width + 20
+          top = offset.top + window.scrollY - offset.height / 2
+        }
+        default: { }
+      }
       el
-      .style('left', offset.left + offset.width / 2 - popoverBox.width / 2)
-      .style('top', offset.top + window.scrollY - popoverBox.height - 20)
+      .attr('class', 'focus arrow--' + direction)
+      .style('left', left)
+      .style('top', top)
     }
 
     chart.hide = () => {

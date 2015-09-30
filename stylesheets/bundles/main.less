@@ -1,3 +1,41 @@
+@import "arrow.less";
+
+.focus {
+  /* Size and position */
+  box-sizing: border-box;
+  display: block;
+  width: 20%;
+  padding: 10px;
+
+  /* Styles */
+  background: #08C;
+  border-color: #08C;
+  border-radius: 1px;
+  -webkit-filter: drop-shadow(0 4px 3px rgba(0,0,0,.3));
+
+  /* Font styles */
+  color: black;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.3);
+
+}
+
+.arrow--left {
+  border: 2px solid rgb(255, 0, 0);
+  .arrow(10px, #fff, left, 50%, 2px, rgb(255, 0, 0));
+}
+
+.arrow--right {
+  border: 2px solid rgb(255, 0, 0);
+  .arrow(10px, #fff, right, 50%, 2px, rgb(255, 0, 0));
+}
+
+.arrow--bottom {
+  border: 2px solid rgb(255, 0, 0);
+  .arrow(10px, #fff, bottom, 50%, 2px, rgb(255, 0, 0));
+}
+
 select.units {
   width: 100px;
 }
@@ -33,35 +71,6 @@ div.focus {
   min-height: 50px;
 }
 
-.arrow_box {
-	position: relative;
-	background: #fff;
-	border: 2px solid #f50000;
-}
-.arrow_box:after, .arrow_box:before {
-	top: 100%;
-	left: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
-
-.arrow_box:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-top-color: #fff;
-	border-width: 15px;
-	margin-left: -15px;
-}
-.arrow_box:before {
-	border-color: rgba(245, 0, 0, 0);
-	border-top-color: #f50000;
-	border-width: 18px;
-	margin-left: -18px;
-}
-
 div.chart.bubble {
   width: 700px;
   height: 700px;
@@ -75,6 +84,7 @@ button.chart {
   white-space: nowrap;
   margin: 0px 0px 0px 3px;
 }
+
 
 // STYLEGUIDE SPESIFIC
 .styleguide {

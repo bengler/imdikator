@@ -41,6 +41,8 @@ export default class PyramidChart extends React.Component {
     const pointA = regionWidth
     const pointB = outerXScale.rangeBand() - regionWidth
 
+    const format = d3.format('d')
+
     const xScale = d3.scale.linear()
     .domain([0, preparedData.maxValue])
     .range([0, regionWidth])
@@ -65,13 +67,13 @@ export default class PyramidChart extends React.Component {
     const xAxisRight = d3.svg.axis()
     .scale(xScale)
     .orient('bottom')
-    .tickFormat(d3.format('d'))
+    .tickFormat(format)
     .ticks(3)
 
     const xAxisLeft = d3.svg.axis()
     .scale(xScale.copy().range([pointA, 0]))
     .orient('bottom')
-    .tickFormat(d3.format('d'))
+    .tickFormat(format)
     .ticks(3)
 
     // The axis
@@ -129,17 +131,44 @@ export default class PyramidChart extends React.Component {
     const leftBarGroup = category.append('g')
     .attr('transform', this.translation(pointA, 0) + 'scale(-1,1)')
 
+    const popover = this.popover().direction('right')
+    d3.select('body').call(popover)
+
     leftBarGroup.selectAll('.bar.left')
     .data(item => {
       return item.values[0].values
     })
     .enter().append('rect')
+    .each(function (item) {
+      item.el = this
+    })
     .attr('class', 'bar left')
     .attr('x', 0)
     .attr('y', d => yScale(d.key))
     .attr('width', d => xScale(d.values[0].value))
     .attr('height', yScale.rangeBand())
     .attr('fill', d => color('Kvinner'))
+
+    leftBarGroup.selectAll('rect.hover')
+    .data(item => {
+      return item.values[0].values
+    })
+    .enter().append('rect')
+    .attr('class', 'hover')
+    .attr('width', xScale(xScale.domain()[1]))
+    .attr('height', yScale.rangeBand())
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('pointer-events', 'all')
+    .style('fill', 'none')
+    .on('mouseover', item => {
+      popover.html('<p>' + format(item.values[0].value) + '</p>')
+      .direction('right')
+      .show(item.el)
+    })
+    .on('mouseout', () => {
+      popover.hide()
+    })
 
     // Right side
     const rightBarGroup = category.append('g')
@@ -150,12 +179,36 @@ export default class PyramidChart extends React.Component {
       return item.values[1].values
     })
     .enter().append('rect')
+    .each(function (item) {
+      item.el = this
+    })
     .attr('class', 'bar right')
     .attr('x', 0)
     .attr('y', d => yScale(d.key))
     .attr('width', d => xScale(d.values[0].value))
     .attr('height', yScale.rangeBand())
     .attr('fill', d => color('Menn'))
+
+    rightBarGroup.selectAll('rect.hover')
+    .data(item => {
+      return item.values[1].values
+    })
+    .enter().append('rect')
+    .attr('class', 'hover')
+    .attr('width', xScale(xScale.domain()[1]))
+    .attr('height', yScale.rangeBand())
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('pointer-events', 'all')
+    .style('fill', 'none')
+    .on('mouseover', item => {
+      popover.html('<p>' + format(item.values[0].value) + '</p>')
+      .direction('left')
+      .show(item.el)
+    })
+    .on('mouseout', () => {
+      popover.hide()
+    })
 
     // Legend
     const leg = this.legend().color(color)

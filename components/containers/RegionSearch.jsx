@@ -1,9 +1,9 @@
 import React, {PropTypes, Component} from 'react'
-import Autocomplete from 'react-autocomplete'
+import Autocomplete from '../elements/Autocomplete'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {prefixify} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
+import cx from 'classnames'
 
 const MIN_LENGTH = 1
 
@@ -22,21 +22,16 @@ function sortRegions(a, b, value) {
   )
 }
 
-class Search extends Component {
+class RegionSearch extends Component {
 
   static propTypes = {
     dispatch: PropTypes.func,
-    regions: PropTypes.array
+    regions: PropTypes.array,
+    onSelect: PropTypes.func,
+    placeholder: PropTypes.text
   }
-
-  static contextTypes = {
-    linkTo: PropTypes.func,
-    goTo: PropTypes.func
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {}
+  static defaultProps = {
+    onSelect() {}
   }
 
   componentWillMount() {
@@ -44,21 +39,21 @@ class Search extends Component {
     dispatch(loadAllRegions())
   }
 
-  navigateToRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixify(region)})
+  handleSelectRegion(region) {
+    this.props.onSelect(region)
   }
 
   renderItem(item, isHighlighted) {
-    const styles = {
-      highlightedItem: {},
-      item: {}
-    }
+    const classes = cx({
+      'search-result__result': true,
+      'search-result__result--selected': isHighlighted
+    })
     const itemDescription = _t(item.type) ? item.name + ', ' + _t(item.type) : item.name
     return (
       <div
-        style={isHighlighted ? styles.highlightedItem : styles.item}
-        key={item.name + ',' + item.type}
-        id={item.code}>
+        className={classes}
+        key={item.name + item.type}
+        >
         {itemDescription}
       </div>
     )
@@ -70,7 +65,7 @@ class Search extends Component {
       item: {}
     }
 
-    const {loading} = this.state
+    const {loading} = this.props
     if (loading) {
       return wrap(<div style={{padding: 6}}>Loading...</div>)
     }
@@ -107,14 +102,16 @@ class Search extends Component {
   }
 
   render() {
-    const {regions} = this.props
+    const {regions, placeholder} = this.props
+
     return (
       <Autocomplete
         items={regions}
         getItemValue={item => item.name}
         shouldItemRender={shouldItemRender}
-        onSelect={(value, item) => this.navigateToRegion(item)}
+        onSelect={(value, item) => this.handleSelectRegion(item)}
         sortItems={sortRegions}
+        inputProps={{placeholder: placeholder}}
         renderItem={this.renderItem.bind(this)}
         renderMenu={this.renderMenu.bind(this)}
       />
@@ -126,9 +123,10 @@ class Search extends Component {
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
   return {
+    loading: state.allRegions.length === 0,
     regions: state.allRegions
   }
 }
 
 // Wrap the component to inject dispatch and state into it
-export default connect(select)(Search)
+export default connect(select)(RegionSearch)

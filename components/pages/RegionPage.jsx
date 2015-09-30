@@ -5,7 +5,7 @@ import RegionUtil from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChildrenList from '../elements/RegionChildrenList'
-import Search from '../containers/Search'
+import RegionSearch from '../containers/RegionSearch'
 
 
 function capitalize(string) {
@@ -39,6 +39,9 @@ class RegionPage extends Component {
     return this.props.allRegions.filter(region => region[parentType] == parentCode)
   }
 
+  changeRegion(region) {
+    this.context.goTo('/steder/:region', {region: prefixify(region)})
+  }
 
   render() {
     if (this.props.allRegions.length < 1) {
@@ -113,7 +116,8 @@ class RegionPage extends Component {
             <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> <code>[TODO]</code> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
           </p>
           <div>
-            <span>Finn område: </span><Search/>
+            <span>Finn område: </span>
+            <RegionSearch key={regionTypePrefix + regionCode} onSelect={this.changeRegion.bind(this)}/>
           </div>
 				</section>
 

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
 import ChartSelectorList from '../elements/ChartSelectorList'
 import UnitSelection from '../elements/UnitSelection'
+import RegionSelect from '../elements/filter/RegionSelect'
 
 import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'

@@ -143,7 +143,10 @@ class Chart {
           left = offset.left + offset.width + 20
           top = offset.top + window.scrollY - offset.height / 2
         }
-        default: { }
+        default: {
+          left = 0
+          top = 0
+        }
       }
       el
       .attr('class', 'focus arrow--' + direction)

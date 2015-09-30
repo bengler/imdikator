@@ -100,10 +100,12 @@ export default class StackedBarChart extends Component {
     .datum(seriesNames)
     .call(leg)
 
-    const yAxisEl = this.svg.append('g')
+    // Add Y axis
+    this.svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
 
+    // Add X axis
     this.svg.append('g')
     .attr('class', 'axis')
     .attr('transform', 'translate(0, ' + this.size.height + ')')

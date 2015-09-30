@@ -168,7 +168,7 @@ export default class StackedAreaChart extends React.Component {
     .attr('class', 'axis')
     .attr('transform', 'translate(0,' + this.size.height + ')')
     .call(xAxis)
-    
+
     // Add the Y axis
     svg.append('g')
     .attr('class', 'axis')

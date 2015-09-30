@@ -79,8 +79,8 @@ export default class ToggleButtons extends Component {
   }
 
   addOtherRegion(region) {
-    const {pendingValue} = this.state
-    const current = pendingValue && pendingValue.other || []
+    const {value} = this.state
+    const current = value && value.other || []
     this.setState({value: this.mergeValue('other', current.concat(region))})
   }
 
@@ -88,6 +88,8 @@ export default class ToggleButtons extends Component {
     const {options} = this.props
 
     const {value} = this.state
+
+    const hasChanges = this.state.value !== this.props.value
 
     return (
       <Lightbox title="Legg til sammenlikning" onClose={() => this.setState({open: false})}>
@@ -137,7 +139,7 @@ export default class ToggleButtons extends Component {
           <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.applyAll.bind(this)}>
             <i className="icon__apply"/> Oppdater alle grafer
           </button>
-          <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.rollback.bind(this)}>
+          <button type="button" className="button button--small button--secondary button__sidekick" disabled={!hasChanges} onClick={this.rollback.bind(this)}>
             <i/> Tilbakestill
           </button>
           <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.clear.bind(this)}>

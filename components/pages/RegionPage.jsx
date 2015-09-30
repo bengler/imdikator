@@ -1,11 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import RegionUtil from '../../lib/regionUtil'
+import {prefixify, split, typeForPrefix} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
+import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChildrenList from '../elements/RegionChildrenList'
-import RegionSearch from '../containers/RegionSearch'
+import Search from '../containers/RegionSearch'
+import mockData from '../../data/mockdata-benchmarkchart'
 
 
 function capitalize(string) {
@@ -39,9 +41,6 @@ class RegionPage extends Component {
     return this.props.allRegions.filter(region => region[parentType] == parentCode)
   }
 
-  changeRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixify(region)})
-  }
 
   render() {
     if (this.props.allRegions.length < 1) {
@@ -52,8 +51,8 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const [regionTypePrefix, regionCode] = RegionUtil.split(this.props.route.params.region.split('-')[0])
-    const assumedRegionType = RegionUtil.typeForPrefix(regionTypePrefix)
+    const [regionTypePrefix, regionCode] = split(this.props.route.params.region.split('-')[0])
+    const assumedRegionType = typeForPrefix(regionTypePrefix)
     const region = this.regionByCode(regionCode, assumedRegionType)
     const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode, 'municipality') : null
     const county = region.countyCode ? this.regionByCode(region.countyCode, 'county') : null
@@ -88,6 +87,9 @@ class RegionPage extends Component {
           <section className="feature">
             <h2 className="feature__title">Oppsummering</h2>
             <p>Charts and stuff goes here</p>
+            <div className="col--half col--flow">
+              <BenchmarkChart data={mockData}/>
+            </div>
           </section>
 
           <section className="feature">
@@ -103,21 +105,19 @@ class RegionPage extends Component {
 					<p>
             <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
 
-
             {region.type == 'borough'
-              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
             {region.type == 'municipality'
               && county
-              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: RegionUtil.prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
             }
 
             <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> <code>[TODO]</code> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
           </p>
           <div>
-            <span>Finn område: </span>
-            <RegionSearch key={regionTypePrefix + regionCode} onSelect={this.changeRegion.bind(this)}/>
+            <span>Finn område: </span><Search/>
           </div>
 				</section>
 

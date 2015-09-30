@@ -18,6 +18,9 @@ class TestRegionSelect extends Component {
   handleApplyRegionFilter(newValue) {
     this.setState({value: newValue, open: false})
   }
+  handleCancelRegionFilter() {
+    this.setState({open: false})
+  }
   render() {
     const {allRegions} = this.props
     if (!allRegions) {
@@ -36,6 +39,7 @@ class TestRegionSelect extends Component {
         {open && <RegionSelect
           options={options}
           value={value}
+          onCancel={this.handleCancelRegionFilter.bind(this)}
           onApply={this.handleApplyRegionFilter.bind(this)}
           similarRegions={similarRegions}
           />

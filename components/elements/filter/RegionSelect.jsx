@@ -30,7 +30,8 @@ export default class ToggleButtons extends Component {
       other: []
     },
     onApply() {},
-    onApplyAll() {}
+    onApplyAll() {},
+    onCancel() {}
   }
 
   constructor(props) {
@@ -85,14 +86,14 @@ export default class ToggleButtons extends Component {
   }
 
   render() {
-    const {options} = this.props
+    const {options, onCancel} = this.props
 
     const {value} = this.state
 
     const hasChanges = this.state.value !== this.props.value
 
     return (
-      <Lightbox title="Legg til sammenlikning" onClose={() => this.setState({open: false})}>
+      <Lightbox title="Legg til sammenlikning" onClose={onCancel}>
         <fieldset>
           <legend>Anbefalte kommuner</legend>
           <div className="row">

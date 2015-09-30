@@ -4611,6 +4611,11 @@
       "from": "https://registry.npmjs.org/chai-as-promised/-/chai-as-promised-5.1.0.tgz",
       "resolved": "https://registry.npmjs.org/chai-as-promised/-/chai-as-promised-5.1.0.tgz"
     },
+    "classnames": {
+      "version": "2.1.3",
+      "from": "classnames@*",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.1.3.tgz"
+    },
     "closest": {
       "version": "0.0.1",
       "from": "closest@*",
@@ -4866,6 +4871,11 @@
           }
         }
       }
+    },
+    "dom-scroll-into-view": {
+      "version": "1.0.1",
+      "from": "dom-scroll-into-view@*",
+      "resolved": "https://registry.npmjs.org/dom-scroll-into-view/-/dom-scroll-into-view-1.0.1.tgz"
     },
     "duplexify": {
       "version": "3.4.2",
@@ -6326,8 +6336,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#1ac0138eee9a10250fac64e8d940bd781499e28c"
+      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#df684bab0c97df474551f96ce660cf483d06be7c"
     },
     "jsdom": {
       "version": "3.1.2",
@@ -9117,18 +9127,6 @@
       "from": "https://registry.npmjs.org/react-a11y/-/react-a11y-0.2.6.tgz",
       "resolved": "https://registry.npmjs.org/react-a11y/-/react-a11y-0.2.6.tgz"
     },
-    "react-autocomplete": {
-      "version": "0.1.4",
-      "from": "react-autocomplete@*",
-      "resolved": "https://registry.npmjs.org/react-autocomplete/-/react-autocomplete-0.1.4.tgz",
-      "dependencies": {
-        "dom-scroll-into-view": {
-          "version": "1.0.1",
-          "from": "dom-scroll-into-view@1.0.1",
-          "resolved": "https://registry.npmjs.org/dom-scroll-into-view/-/dom-scroll-into-view-1.0.1.tgz"
-        }
-      }
-    },
     "react-docgen": {
       "version": "2.1.2",
       "from": "react-docgen@latest",
@@ -9456,49 +9454,6 @@
               "version": "1.2.1",
               "from": "smart-mixin@>=1.2.0 <2.0.0",
               "resolved": "https://registry.npmjs.org/smart-mixin/-/smart-mixin-1.2.1.tgz"
-            }
-          }
-        }
-      }
-    },
-    "redux-promise": {
-      "version": "0.5.0",
-      "from": "redux-promise@*",
-      "resolved": "https://registry.npmjs.org/redux-promise/-/redux-promise-0.5.0.tgz",
-      "dependencies": {
-        "flux-standard-action": {
-          "version": "0.6.0",
-          "from": "flux-standard-action@0.6.0",
-          "resolved": "https://registry.npmjs.org/flux-standard-action/-/flux-standard-action-0.6.0.tgz",
-          "dependencies": {
-            "lodash.isplainobject": {
-              "version": "3.2.0",
-              "from": "lodash.isplainobject@>=3.2.0 <4.0.0",
-              "resolved": "https://registry.npmjs.org/lodash.isplainobject/-/lodash.isplainobject-3.2.0.tgz",
-              "dependencies": {
-                "lodash._basefor": {
-                  "version": "3.0.2",
-                  "from": "lodash._basefor@>=3.0.0 <4.0.0",
-                  "resolved": "https://registry.npmjs.org/lodash._basefor/-/lodash._basefor-3.0.2.tgz"
-                },
-                "lodash.isarguments": {
-                  "version": "3.0.4",
-                  "from": "lodash.isarguments@>=3.0.0 <4.0.0",
-                  "resolved": "https://registry.npmjs.org/lodash.isarguments/-/lodash.isarguments-3.0.4.tgz"
-                },
-                "lodash.keysin": {
-                  "version": "3.0.8",
-                  "from": "lodash.keysin@>=3.0.0 <4.0.0",
-                  "resolved": "https://registry.npmjs.org/lodash.keysin/-/lodash.keysin-3.0.8.tgz",
-                  "dependencies": {
-                    "lodash.isarray": {
-                      "version": "3.0.4",
-                      "from": "lodash.isarray@>=3.0.0 <4.0.0",
-                      "resolved": "https://registry.npmjs.org/lodash.isarray/-/lodash.isarray-3.0.4.tgz"
-                    }
-                  }
-                }
-              }
             }
           }
         }

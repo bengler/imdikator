@@ -29,6 +29,30 @@ class App extends Component {
     this.props.dispatch(loadTables())
   }
 
+  renderBreadCrumbs() {
+    if (!this.props.route) {
+      return null
+    }
+    const url = this.props.route.url
+    const segments = url.split('/').filter(Boolean)
+    return (
+      <nav className="breadcrumbs">
+        <ul className="t-no-list-styles breadcrumbs__list">
+          {segments.map((segment, i) => {
+            return (
+              <li className="breadcrumbs__list-item">
+                <a href={'/' + segments.slice(0, i + 1).join('/')} className="breadcrumbs__link">
+                  {segment}
+                </a>
+                <span className="breadcrumbs__divider">/</span>
+              </li>
+            )
+          })}
+        </ul>
+      </nav>
+    )
+  }
+
   render() {
     // Injected by connect() call:
     const {route} = this.props
@@ -38,28 +62,7 @@ class App extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide">
-                <nav className="breadcrumbs">
-                  <ul className="t-no-list-styles breadcrumbs__list">
-                    <li className="breadcrumbs__list-item">
-                      <a className="breadcrumbs__link">
-                        Breadcrumbs
-                      </a>
-                      <span className="breadcrumbs__divider">/</span>
-                    </li>
-                    <li className="breadcrumbs__list-item">
-                      <a className="breadcrumbs__link">
-                        go
-                      </a>
-                      <span className="breadcrumbs__divider">/</span>
-                    </li>
-                    <li className="breadcrumbs__list-item">
-                      <a className="breadcrumbs__link">
-                        here
-                      </a>
-                      <span className="breadcrumbs__divider">/</span>
-                    </li>
-                  </ul>
-                </nav>
+                {this.renderBreadCrumbs()}
               </div>
             </div>
           </div>

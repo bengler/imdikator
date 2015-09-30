@@ -1,16 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import RegionSelect from '../elements/filter/RegionSelect'
 import {connect} from 'react-redux'
-// Todo: remove eventually
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    const temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
-  }
-  return array
-}
 
 class TestRegionSelect extends Component {
   static propTypes = {
@@ -37,15 +27,13 @@ class TestRegionSelect extends Component {
     const {similarRegions, open, value} = this.state
 
     const options = {
-      similar: shuffle(allRegions.slice()).slice(0, 10),
-      average: shuffle(allRegions.slice()).slice(0, 10)
+      similar: allRegions.slice(0, 5),
+      average: allRegions.slice(0, 5)
     }
-
-    const button = open && <button onClick={() => this.setState({open: true})}>Velg…</button>
 
     return (
       <div>
-        {button}
+        {!open && <button onClick={() => this.setState({open: true})}>Velg…</button>}
         {open && <RegionSelect
           options={options}
           value={value}

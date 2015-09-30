@@ -33,73 +33,61 @@ export default class ToggleButtons extends Component {
     onApplyAll() {}
   }
 
-  constructor() {
+  constructor(props) {
     super()
-    this.state = this.getInitialState()
-  }
-
-  getInitialState() {
-    return {
-      pendingValue: {
-        other: [],
-        similar: [],
-        average: []
-      }
+    this.state = {
+      value: props.value
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
-      this.reset()
+      this.setState({value: nextProps.value})
     }
   }
 
-  reset() {
-    this.setState(this.getInitialState())
+  rollback() {
+    this.setState({value: this.props.value})
+  }
+
+  clear() {
+    this.setState({value: null})
   }
 
   apply() {
-    this.props.onApply(this.state.pendingValue)
-    this.reset()
+    this.props.onApply(this.state.value)
   }
 
   applyAll() {
-    this.props.onApplyAll(this.state.pendingValue)
-    this.reset()
+    this.props.onApplyAll(this.state.value)
   }
 
-  mergePendingValue(key, newValue) {
-    return Object.assign({}, this.state.pendingValue, {[key]: newValue})
+  mergeValue(key, newValue) {
+    return Object.assign({}, this.state.value, {[key]: newValue})
   }
 
   handleSimilarRegionsChange(newValue) {
-    this.setState({pendingValue: this.mergePendingValue('similar', newValue)})
+    this.setState({value: this.mergeValue('similar', newValue)})
   }
 
   handleAverageRegionsChange(newValue) {
-    this.setState({pendingValue: this.mergePendingValue('average', newValue)})
+    this.setState({value: this.mergeValue('average', newValue)})
   }
 
   handleOtherRegionsChange(newValue) {
-    this.setState({pendingValue: this.mergePendingValue('other', newValue)})
+    this.setState({value: this.mergeValue('other', newValue)})
   }
 
   addOtherRegion(region) {
-    this.setState({pendingValue: this.mergePendingValue('other', this.state.pendingValue.other.concat(region))})
-  }
-
-  getValue() {
-    return this.state.pendingValue ? this.state.pendingValue : this.props.value
+    const {pendingValue} = this.state
+    const current = pendingValue && pendingValue.other || []
+    this.setState({value: this.mergeValue('other', current.concat(region))})
   }
 
   render() {
-    const {options, } = this.props
+    const {options} = this.props
 
-    const value = this.getValue()
-
-    if (!open) {
-      return <button onClick={() => this.setState({open: true})}>Open</button>
-    }
+    const {value} = this.state
 
     return (
       <Lightbox title="Legg til sammenlikning" onClose={() => this.setState({open: false})}>
@@ -109,7 +97,7 @@ export default class ToggleButtons extends Component {
             <div className="col--half">
               <ToggleButtonList
                 options={options.similar}
-                value={value.similar}
+                value={(value && value.similar) ? value.similar : []}
                 renderButton={renderRegion}
                 onChange={this.handleSimilarRegionsChange.bind(this)}/>
             </div>
@@ -126,7 +114,7 @@ export default class ToggleButtons extends Component {
           <legend>Anbefalte gjennomsnitt</legend>
           <ToggleButtonList
             options={options.average}
-            value={value.average}
+            value={(value && value.average) ? value.average : []}
             renderButton={renderRegion}
             onChange={this.handleAverageRegionsChange.bind(this)}/>
         </fieldset>
@@ -139,8 +127,8 @@ export default class ToggleButtons extends Component {
               onSelect={this.addOtherRegion.bind(this)}/>
           </div>
           <ToggleButtonList
-            options={value.other}
-            value={value.other}
+            options={(value && value.other) ? value.other : []}
+            value={(value && value.other) ? value.other : []}
             renderButton={renderRegion}
             onChange={this.handleOtherRegionsChange.bind(this)}/>
         </div>
@@ -149,7 +137,10 @@ export default class ToggleButtons extends Component {
           <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.applyAll.bind(this)}>
             <i className="icon__apply"/> Oppdater alle grafer
           </button>
-          <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.reset.bind(this)}>
+          <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.rollback.bind(this)}>
+            <i/> Tilbakestill
+          </button>
+          <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.clear.bind(this)}>
             <i className="icon__close"/> Fjern sammenlikninger
           </button>
         </div>

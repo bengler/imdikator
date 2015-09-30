@@ -32,7 +32,6 @@ export default class ToggleButtonList extends Component {
 
   render() {
     const {value, options, renderButton} = this.props
-
     return (
       <ul className="t-no-list-styles">
         {options.map((opt, i) => (

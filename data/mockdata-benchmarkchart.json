@@ -1,0 +1,248 @@
+{
+  "dimensions": [
+    "aar"
+  ],
+  "rows": [
+    {
+      "aar": "1990",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "10.26760391"
+    },
+    {
+      "aar": "1989",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "9.792731801"
+    },
+    {
+      "aar": "1986",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "7.564392127"
+    },
+    {
+      "aar": "1988",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "8.986401604"
+    },
+    {
+      "aar": "1987",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "8.112197986"
+    },
+    {
+      "aar": "1991",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "10.71799915"
+    },
+    {
+      "aar": "1992",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "11.1209757"
+    },
+    {
+      "aar": "1994",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "11.8169203"
+    },
+    {
+      "aar": "1995",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "12.31855126"
+    },
+    {
+      "aar": "1993",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "11.55233666"
+    },
+    {
+      "aar": "1997",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "13.00564074"
+    },
+    {
+      "aar": "1996",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "12.66220411"
+    },
+    {
+      "aar": "1998",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "13.46626829"
+    },
+    {
+      "aar": "1999",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "13.98003846"
+    },
+    {
+      "aar": "2000",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "14.53828525"
+    },
+    {
+      "aar": "2001",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "15.01869376"
+    },
+    {
+      "aar": "2006",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "17.36721575"
+    },
+    {
+      "aar": "2005",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "16.89604149"
+    },
+    {
+      "aar": "2003",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "16.30128276"
+    },
+    {
+      "aar": "2004",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "16.62489509"
+    },
+    {
+      "aar": "2002",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "15.42151704"
+    },
+    {
+      "aar": "2007",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "17.95040985"
+    },
+    {
+      "aar": "2009",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "20.1862809"
+    },
+    {
+      "aar": "2008",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "18.93042442"
+    },
+    {
+      "aar": "2011",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "21.7167031"
+    },
+    {
+      "aar": "2013",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "23.27290269"
+    },
+    {
+      "aar": "2010",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "20.85318475"
+    },
+    {
+      "aar": "2012",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "22.67803713"
+    },
+    {
+      "aar": "2015",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "24.52383599"
+    },
+    {
+      "aar": "2014",
+      "enhet": "prosent",
+      "fylkeNr": "03",
+      "innvkat5": "innvandrere",
+      "kjonn": "alle",
+      "tabellvariabel": "23.91345122"
+    }
+  ],
+  "unit": "prosent"
+}

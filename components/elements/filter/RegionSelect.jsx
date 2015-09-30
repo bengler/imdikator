@@ -4,50 +4,98 @@ import ToggleButtonList from '../../elements/ToggleButtonList'
 import RegionSearch from '../../containers/RegionSearch'
 import {_t} from '../../../lib/translate'
 
-const RECOMMENDED_SIMILAR_REGIONS = [
-  {name: 'Larvik'},
-  {name: 'Sandefjord'}
-]
-
-const RECOMMENDED_AVERAGE_REGIONS = [
-  {name: 'Norge'},
-  {name: 'Næringsregion vestfold'}
-]
+function renderRegion(region) {
+  return `${region.name} ${_t(region.type)}`
+}
 
 
 export default class ToggleButtons extends Component {
   static propTypes = {
-    route: PropTypes.object
+    options: PropTypes.shape({
+      similar: PropTypes.array,
+      average: PropTypes.array
+    }).isRequired,
+    value: PropTypes.shape({
+      similar: PropTypes.array,
+      average: PropTypes.array,
+      other: PropTypes.array
+    }),
+    onApply: PropTypes.func,
+    onApplyAll: PropTypes.func
+  }
+  static defaultProps = {
+    value: {
+      similar: [],
+      average: [],
+      other: []
+    },
+    onApply() {},
+    onApplyAll() {}
   }
 
   constructor() {
     super()
-    this.state = {
-      open: true,
-      selectedSimilarRegions: RECOMMENDED_SIMILAR_REGIONS,
-      selectedAverageRegions: RECOMMENDED_AVERAGE_REGIONS,
-      selectedOtherRegions: []
+    this.state = this.getInitialState()
+  }
+
+  getInitialState() {
+    return {
+      pendingValue: {
+        other: [],
+        similar: [],
+        average: []
+      }
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value !== this.props.value) {
+      this.reset()
+    }
+  }
+
+  reset() {
+    this.setState(this.getInitialState())
+  }
+
+  apply() {
+    this.props.onApply(this.state.pendingValue)
+    this.reset()
+  }
+
+  applyAll() {
+    this.props.onApplyAll(this.state.pendingValue)
+    this.reset()
+  }
+
+  mergePendingValue(key, newValue) {
+    return Object.assign({}, this.state.pendingValue, {[key]: newValue})
+  }
+
   handleSimilarRegionsChange(newValue) {
-    this.setState({selectedSimilarRegions: newValue})
+    this.setState({pendingValue: this.mergePendingValue('similar', newValue)})
   }
 
   handleAverageRegionsChange(newValue) {
-    this.setState({selectedAverageRegions: newValue})
+    this.setState({pendingValue: this.mergePendingValue('average', newValue)})
   }
 
   handleOtherRegionsChange(newValue) {
-    this.setState({selectedOtherRegions: newValue})
+    this.setState({pendingValue: this.mergePendingValue('other', newValue)})
   }
 
   addOtherRegion(region) {
-    this.setState({selectedOtherRegions: this.state.selectedOtherRegions.concat(region)})
+    this.setState({pendingValue: this.mergePendingValue('other', this.state.pendingValue.other.concat(region))})
+  }
+
+  getValue() {
+    return this.state.pendingValue ? this.state.pendingValue : this.props.value
   }
 
   render() {
-    const {open, selectedSimilarRegions, selectedAverageRegions, selectedOtherRegions} = this.state
+    const {options, } = this.props
+
+    const value = this.getValue()
 
     if (!open) {
       return <button onClick={() => this.setState({open: true})}>Open</button>
@@ -60,9 +108,9 @@ export default class ToggleButtons extends Component {
           <div className="row">
             <div className="col--half">
               <ToggleButtonList
-                options={RECOMMENDED_SIMILAR_REGIONS}
-                value={selectedSimilarRegions}
-                renderButton={region => region.name}
+                options={options.similar}
+                value={value.similar}
+                renderButton={renderRegion}
                 onChange={this.handleSimilarRegionsChange.bind(this)}/>
             </div>
             <div className="col--half">
@@ -77,34 +125,34 @@ export default class ToggleButtons extends Component {
         <fieldset>
           <legend>Anbefalte gjennomsnitt</legend>
           <ToggleButtonList
-            options={RECOMMENDED_AVERAGE_REGIONS}
-            value={selectedAverageRegions}
-            renderButton={region => region.name}
+            options={options.average}
+            value={value.average}
+            renderButton={renderRegion}
             onChange={this.handleAverageRegionsChange.bind(this)}/>
         </fieldset>
         <div className="fieldset">
           <label htmlFor="compare-search" className="legend">Legg til andre steder</label>
+
           <div className="search search--subtle">
             <RegionSearch
               placeholder="Kommune/fylke/næringsregion/bydel etc."
               onSelect={this.addOtherRegion.bind(this)}/>
-        </div>
+          </div>
           <ToggleButtonList
-            options={selectedOtherRegions}
-            value={selectedOtherRegions}
-            renderButton={region => `${region.name} ${_t(region.type)}`}
+            options={value.other}
+            value={value.other}
+            renderButton={renderRegion}
             onChange={this.handleOtherRegionsChange.bind(this)}/>
         </div>
         <div className="lightbox__footer">
-          <button type="button" className="button">Oppdater graf</button>
-          <button type="button" className="button button--small button--secondary button__sidekick">
+          <button type="button" className="button" onClick={this.apply.bind(this)}>Oppdater graf</button>
+          <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.applyAll.bind(this)}>
             <i className="icon__apply"/> Oppdater alle grafer
           </button>
-          <button type="button" className="button button--small button--secondary button__sidekick">
+          <button type="button" className="button button--small button--secondary button__sidekick" onClick={this.reset.bind(this)}>
             <i className="icon__close"/> Fjern sammenlikninger
           </button>
         </div>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
       </Lightbox>
     )
   }

@@ -72,7 +72,7 @@ class RegionSearch extends Component {
     }
 
     if (value.length < MIN_LENGTH) {
-      return wrap(<div style={{padding: 6}}>Skriv inn navn på sted</div>)
+      return wrap()
     }
 
     if (items.length === 0) {

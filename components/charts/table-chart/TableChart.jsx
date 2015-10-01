@@ -1,6 +1,7 @@
 import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
+import {dimensionLabelTitle} from '../../../lib/labels'
 
 export default class TableChart extends React.Component {
   static propTypes = {
@@ -18,20 +19,26 @@ export default class TableChart extends React.Component {
     .style('overflow', 'scroll')
 
     const table = d3.select(el).append('table')
-    const tableHeader = table.append('thead')
+    //const tableHeader = table.append('thead')
     const tableBody = table.append('tbody')
+
+    const regionKeys = ['fylkeNr', 'bydelNr', 'naringsregionNr', 'kommuneNr']
+    const regionKey = Object.keys(data.rows[0]).find(item => regionKeys.indexOf(item) !== -1)
 
     // Generate TSV (for downloading, and we use this to draw the table)
     let tsv = ''
     let parsedData = []
     if (data.dimensions.length > 0) {
       // See 04-befolkning_alder-fylke-2014.csv
-      const nester = d3.nest().key(item => item.fylkeNr).sortKeys(d3.ascending).key(item => data.dimensions.join(','))
+      const nester = d3.nest().key(item => item[regionKey]).sortKeys(d3.ascending).key(item => data.dimensions.join(','))
       const xx = nester.entries(data.rows)
       // Headers
-      tsv += 'fylkeNr'
-      data.dimensions.forEach(dimension => {
+      tsv += regionKey + '\tNavn'
+      data.dimensions.forEach((dimension, idx) => {
         tsv += '\t'
+        if (idx > 0) {
+          tsv += '\t'
+        }
         xx[0].values[0].values.forEach(row => {
           tsv += dimension + '.' + row[dimension] + '\t'
         })
@@ -39,7 +46,7 @@ export default class TableChart extends React.Component {
       })
 
       xx.forEach(region => {
-        tsv += region.key + '\t'
+        tsv += region.key + '\t' + dimensionLabelTitle(regionKey, region.key) + '\t'
         region.values[0].values.forEach(row => {
           tsv += row.tabellvariabel + '\t'
         })

@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
-import ChartSelectorList from '../elements/ChartSelectorList'
-import UnitSelection from '../elements/UnitSelection'
+import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
 
 import {performQuery} from '../../actions/cardPages'
@@ -25,8 +24,8 @@ class Card extends Component {
     goTo: PropTypes.func
   }
 
-  handleChangeTab(newTabName) {
-    this.context.goTo(`/steder/:region/:pageName/:cardName/:tabName`, {cardName: this.props.card.name, tabName: newTabName})
+  makeLinkToTab(tab) {
+    return this.context.linkTo('/steder/:region/:pageName/:cardName/:tabName', {cardName: this.props.card.name, tabName: tab.name})
   }
 
   render() {
@@ -64,7 +63,7 @@ class Card extends Component {
     return (
 
       <div className="toggle-list__section toggle-list__section--expanded" aria-hidden="false" style={{display: 'block'}}>
-        <ChartSelectorList card={card} onSelectDataView={this.handleChangeTab.bind(this)}/>
+        <TabBar activeTab={activeTab} card={card} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
         <FilterBar/>
         <ChartComponent data={this.props.data}/>
         <small>{tableDescription}</small>

@@ -16,9 +16,7 @@ export default [
   {
     name: 'examples',
     title: 'Examples / demos',
-    components: [
-      require('./examples/TablePresenterExample')
-    ]
+    components: []
   },
   {
     name: 'charts',

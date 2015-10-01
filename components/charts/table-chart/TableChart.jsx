@@ -23,9 +23,28 @@ export default class TableChart extends React.Component {
 
     // Generate TSV (for downloading, and we use this to draw the table)
     let tsv = ''
+    let parsedData = []
     if (data.dimensions.length > 0) {
-      // TODO: 04-befolkning_alder-fylke-2014.csv
-      tsv = ''
+      // See 04-befolkning_alder-fylke-2014.csv
+      const nester = d3.nest().key(item => item.fylkeNr).sortKeys(d3.ascending).key(item => data.dimensions.join(','))
+      const xx = nester.entries(data.rows)
+      // Headers
+      tsv += 'fylkeNr'
+      data.dimensions.forEach(dimension => {
+        tsv += '\t'
+        xx[0].values[0].values.forEach(row => {
+          tsv += dimension + '.' + row[dimension] + '\t'
+        })
+        tsv += '\n'
+      })
+
+      xx.forEach(region => {
+        tsv += region.key + '\t'
+        region.values[0].values.forEach(row => {
+          tsv += row.tabellvariabel + '\t'
+        })
+        tsv += '\n'
+      })
     } else {
       // Flat render, all keys as table headers, all values as rows
       const dimensions = Object.keys(data.rows[0])
@@ -40,17 +59,10 @@ export default class TableChart extends React.Component {
       })
     }
 
-    const parsedData = d3.tsv.parseRows(tsv)
-
-    tableHeader.append('tr')
-    .selectAll('th')
-    .data(parsedData[0])
-    .enter()
-    .append('th')
-    .text(column => column)
+    parsedData = d3.tsv.parseRows(tsv)
 
     const rows = tableBody.selectAll('tr')
-    .data(parsedData.slice(1, parsedData.length - 1))
+    .data(parsedData)
     .enter()
     .append('tr')
 

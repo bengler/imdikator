@@ -1,18 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {split, typeForPrefix, regionByCode, regionsByParent} from '../../lib/regionUtil'
+import {split, typeForPrefix, regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChartTest from '../containers/RegionChartTest'
 import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import Search from '../containers/RegionSearch'
-
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
 
 
 class RegionPage extends Component {
@@ -48,21 +43,6 @@ class RegionPage extends Component {
     const assumedRegionType = typeForPrefix(regionTypePrefix)
     const region = regionByCode(regionCode, assumedRegionType, allRegions)
 
-    let childRegions = []
-    let childRegionType
-    if (region.type == 'municipality') {
-      childRegions = regionsByParent('municipalityCode', region.code, allRegions)
-      childRegionType = capitalize(_t('several-' + 'borough'))
-    }
-    if (region.type == 'county') {
-      childRegions = regionsByParent('countyCode', region.code, allRegions)
-      childRegionType = capitalize(_t('several-' + 'municipality'))
-    }
-    if (region.type == 'commerceRegion') {
-      childRegions = regionsByParent('commerceRegionCode', region.code, allRegions)
-      childRegionType = capitalize(_t('several-' + 'municipality'))
-    }
-
     return (
       <div className="col--main">
 
@@ -97,14 +77,10 @@ class RegionPage extends Component {
           </div>
 				</section>
 
-        {childRegions.length > 0
-          && <div className="feature">
-            <div className="col-block-bleed--full-right">
-              <h2 className="feature__section-title">{childRegionType} i {region.name}</h2>
-              <RegionChildList children={childRegions}/>
-            </div>
-          </div>
-        }
+        <section className="feature feature--white">
+          <RegionChildList region={region} allRegions={allRegions}/>
+        </section>
+
       </div>
     )
   }

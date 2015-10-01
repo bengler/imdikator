@@ -5,7 +5,7 @@ import {split, typeForPrefix, regionByCode, regionsByParent} from '../../lib/reg
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChartTest from '../containers/RegionChartTest'
-import RegionChildrenList from '../elements/RegionChildrenList'
+import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import Search from '../containers/RegionSearch'
 
@@ -101,7 +101,7 @@ class RegionPage extends Component {
           && <div className="feature">
             <div className="col-block-bleed--full-right">
               <h2 className="feature__section-title">{childRegionType} i {region.name}</h2>
-              <RegionChildrenList children={childRegions}/>
+              <RegionChildList children={childRegions}/>
             </div>
           </div>
         }

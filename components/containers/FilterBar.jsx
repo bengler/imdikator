@@ -10,10 +10,13 @@ function renderRegion(region) {
 
 class FilterBar extends Component {
   static propTypes = {
-    allRegions: PropTypes.array
+    allRegions: PropTypes.array,
+    card: PropTypes.object,
+    cardState: PropTypes.object,
+    headerGroups: PropTypes.array
   }
-  static defaultProps = {
-  }
+
+  static defaultProps = {}
 
   constructor(props) {
     super()
@@ -23,16 +26,86 @@ class FilterBar extends Component {
     }
   }
 
-  openRegionSelect() {
-    this.setState({isRegionSelectOpen: true})
+  renderRegionFilter() {
+    const {regionsValue} = this.state
+
+    const chosenRegions = Object.keys(regionsValue || {}).reduce((val, key) => {
+      return val.concat(regionsValue[key])
+    }, [])
+
+    const hasRegions = chosenRegions.length > 0
+
+    return (
+      <button type="button"
+              className={`subtle-select__button subtle-select__button--${hasRegions ? 'expanded' : 'add'}`}
+              onClick={() => this.setState({isRegionSelectOpen: true})}>
+        {hasRegions && chosenRegions.map(renderRegion).join(', ')}
+        {!hasRegions && 'Legg til sted'}
+      </button>
+    )
   }
 
-  handleApplyRegionFilter(newValue) {
-    this.setState({regionsValue: newValue, isRegionSelectOpen: false})
+  renderRegionSelectLightbox() {
+    const {similarRegions, regionsValue} = this.state
+    const {allRegions} = this.props
+
+    const options = {
+      similar: allRegions.slice(0, 5),
+      average: allRegions.slice(0, 5)
+    }
+
+    const handleApplyRegionFilter = newValue => this.setState({regionsValue: newValue, isRegionSelectOpen: false})
+    const handleCancelRegionFilter = () => this.setState({isRegionSelectOpen: false})
+    return (
+      <li>
+        <RegionSelect
+          options={options}
+          value={regionsValue}
+          onCancel={handleCancelRegionFilter}
+          onApply={handleApplyRegionFilter}
+          similarRegions={similarRegions}
+          />
+      </li>
+    )
   }
 
-  handleCancelRegionFilter() {
-    this.setState({isRegionSelectOpen: false})
+  renderUnitSelect() {
+    return (
+      <select>
+        <option selected>Antall personer</option>
+        <option>Andel av befolkningen</option>
+      </select>
+    )
+  }
+
+  renderGenderDistributionSelect() {
+    return (
+      <select>
+        <option selected>Skjult</option>
+        <option>Vis kjønnsfordeling</option>
+      </select>
+    )
+  }
+
+  renderPeriodSelect() {
+    return (
+      <select>
+        <option selected>2014</option>
+        <option selected>2013</option>
+      </select>
+    )
+  }
+
+  renderInnvkatSelect() {
+    return (
+      <select disabled>
+        <option selected>Vis alle</option>
+        <option>Innvandrere</option>
+        <option>Norskfødte med innvandrerforeldre</option>
+        <option>Befolkningen ellers</option>
+        <option>Befolkningen</option>
+      </select>
+    )
   }
 
   render() {
@@ -41,18 +114,8 @@ class FilterBar extends Component {
       return null
     }
 
-    const {similarRegions, isRegionSelectOpen, regionsValue} = this.state
+    const {isRegionSelectOpen} = this.state
 
-    const options = {
-      similar: allRegions.slice(0, 5),
-      average: allRegions.slice(0, 5)
-    }
-
-    const chosenRegions = Object.keys(regionsValue || {}).reduce((val, key) => {
-      return val.concat(regionsValue[key])
-    }, [])
-
-    const hasRegions = chosenRegions.length > 0
     return (
       <section className="graph__filter">
         <h5 className="t-only-screenreaders">Filter</h5>
@@ -62,60 +125,31 @@ class FilterBar extends Component {
               <label htmlFor="filter-groups" className="subtle-select__label">
                 Sammenliknet med:
               </label>
-              <button type="button" className={`subtle-select__button subtle-select__button--${hasRegions ? 'expanded' : 'add'}`}
-                      onClick={this.openRegionSelect.bind(this)}>
-                {hasRegions && chosenRegions.map(renderRegion).join(', ')}
-                {!hasRegions && 'Legg til sted'}
-              </button>
+              {this.renderRegionFilter()}
             </div>
           </li>
-          {isRegionSelectOpen && (
-            <li>
-              <RegionSelect
-                options={options}
-                value={regionsValue}
-                onCancel={this.handleCancelRegionFilter.bind(this)}
-                onApply={this.handleApplyRegionFilter.bind(this)}
-                similarRegions={similarRegions}
-                />
-            </li>
-          )}
+          {isRegionSelectOpen && this.renderRegionSelectLightbox()}
           <li className="col--fifth">
             <div className="subtle-select">
               <label htmlFor="filter-groups" className="subtle-select__label">Kjønnsfordeling:</label>
-
               <div className="select subtle-select__select">
-                <select id="filter-groups">
-                  <option selected>Skjult</option>
-                  <option>Vis kjønnsfordeling</option>
-                </select>
+                {this.renderGenderDistributionSelect()}
               </div>
             </div>
           </li>
           <li className="col--fifth">
             <div className="subtle-select">
               <label htmlFor="filter-groups" className="subtle-select__label">Befolkningsgrupper:</label>
-
               <div className="select subtle-select__select  subtle-select__select--disabled">
-                <select id="filter-groups" disabled>
-                  <option selected>Vis alle</option>
-                  <option>Innvandrere</option>
-                  <option>Norskfødte med innvandrerforeldre</option>
-                  <option>Befolkningen ellers</option>
-                  <option>Befolkningen</option>
-                </select>
+                {this.renderInnvkatSelect()}
               </div>
             </div>
           </li>
           <li className="col--fifth">
             <div className="subtle-select">
               <label htmlFor="filter-groups" className="subtle-select__label">Andel og antall:</label>
-
               <div className="select subtle-select__select">
-                <select id="filter-measure">
-                  <option selected>Antall personer</option>
-                  <option>Andel av befolkningen</option>
-                </select>
+                {this.renderUnitSelect()}
               </div>
             </div>
           </li>
@@ -124,10 +158,7 @@ class FilterBar extends Component {
               <label htmlFor="filter-groups" className="subtle-select__label">Periode:</label>
 
               <div className="select subtle-select__select">
-                <select id="filter-measure">
-                  <option selected>2014</option>
-                  <option selected>2013</option>
-                </select>
+                {this.renderPeriodSelect()}
               </div>
             </div>
           </li>

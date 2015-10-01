@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {prefixify, split, typeForPrefix, regionByCode, regionsByParent} from '../../lib/regionUtil'
+import {split, typeForPrefix, regionByCode, regionsByParent} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChartTest from '../containers/RegionChartTest'
@@ -47,10 +47,6 @@ class RegionPage extends Component {
     const [regionTypePrefix, regionCode] = split(this.props.route.params.region.split('-')[0])
     const assumedRegionType = typeForPrefix(regionTypePrefix)
     const region = regionByCode(regionCode, assumedRegionType, allRegions)
-    const municipality = region.municipalityCode ? regionByCode(region.municipalityCode, 'municipality', allRegions) : null
-    const county = region.countyCode ? regionByCode(region.countyCode, 'county', allRegions) : null
-    const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
-    const commerceRegion = commerceRegionCode ? regionByCode(commerceRegionCode, 'commerceRegion', allRegions) : null
 
     let childRegions = []
     let childRegionType
@@ -95,20 +91,7 @@ class RegionPage extends Component {
 
 				<section className="feature feature--white">
 					<h2 className="feature__title">{region.name}</h2>
-					<p>
-            <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
-
-            {region.type == 'borough'
-              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
-            }
-
-            {region.type == 'municipality'
-              && county
-              && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
-            }
-
-            <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> <code>[TODO]</code> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
-          </p>
+          <RegionInfo region={region} allRegions={allRegions} />
           <div>
             <span>Finn område: </span><Search/>
           </div>

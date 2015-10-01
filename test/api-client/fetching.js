@@ -24,8 +24,8 @@ describe('Fetching tables using API client', () => {
     })
 
     return client.getHeaderGroups('sometable').then(() => {
-        assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/sometable')
-      })
+      assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/sometable')
+    })
   })
 
   it('can do a basic query', function () {

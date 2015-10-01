@@ -61,6 +61,9 @@ export default {
     return stream
   },
   '/build/js/bundles/test.js'() {
+    if (env !== 'development') {
+      return '// only development'
+    }
     return test()
       .transform('redocify')
       .transform(babelify)

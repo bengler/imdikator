@@ -4,7 +4,7 @@ import {CHARTS} from '../../config/chartTypes'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
 
-import {performQuery} from '../../actions/cardPages'
+//import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'
 
 class Card extends Component {
@@ -33,7 +33,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTab, headerGroup, query} = this.props
+    const {card, activeTab, headerGroup, query} = this.props // eslint-disable-line no-unused-vars
 
     if (!card) {
       return null

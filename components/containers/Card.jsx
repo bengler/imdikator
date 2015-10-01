@@ -28,6 +28,10 @@ class Card extends Component {
     return this.context.linkTo('/steder/:region/:pageName/:cardName/:tabName', {cardName: this.props.card.name, tabName: tab.name})
   }
 
+  handleFilterChange(newFilter) {
+    // todo
+  }
+
   render() {
     const {card, activeTab, headerGroup, query} = this.props
 
@@ -43,28 +47,16 @@ class Card extends Component {
       return null
     }
 
-    const units = headerGroup ? headerGroup.enhet : []
-
     let tableDescription = ''
     if (this.props.table) {
       tableDescription = this.props.table.description
     }
-
-    let unit = null
-    if (query) {
-      unit = query.unit
-    }
-
-    const updateUnit = newUnit => {
-      this.props.dispatch(performQuery(card, activeTab, {unit: newUnit}))
-    }
-
     const ChartComponent = CHARTS[activeTab.chartKind]
     return (
 
       <div className="toggle-list__section toggle-list__section--expanded" aria-hidden="false" style={{display: 'block'}}>
         <TabBar activeTab={activeTab} card={card} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
-        <FilterBar/>
+        <FilterBar headerGroup={headerGroup} onChange={this.handleFilterChange.bind(this)}/>
         <ChartComponent data={this.props.data}/>
         <small>{tableDescription}</small>
       </div>

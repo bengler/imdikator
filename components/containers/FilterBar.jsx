@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import RegionSelect from '../elements/filter/RegionSelect'
+import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 
 import {_t} from '../../lib/translate'
 
@@ -8,12 +9,13 @@ function renderRegion(region) {
   return `${region.name} ${_t(region.type)}`
 }
 
+
 class FilterBar extends Component {
   static propTypes = {
     allRegions: PropTypes.array,
     card: PropTypes.object,
     cardState: PropTypes.object,
-    headerGroups: PropTypes.array
+    headerGroup: PropTypes.object
   }
 
   static defaultProps = {}
@@ -69,43 +71,27 @@ class FilterBar extends Component {
     )
   }
 
-  renderUnitSelect() {
-    return (
-      <select>
-        <option selected>Antall personer</option>
-        <option>Andel av befolkningen</option>
-      </select>
-    )
-  }
+  renderDimensions() {
+    const {headerGroup} = this.props
+    return Object.keys(headerGroup)
+      .map(findDimensionByName)
+      .filter(Boolean)
+      .map(dimension => {
+      const values = headerGroup[dimension.name]
 
-  renderGenderDistributionSelect() {
-    return (
-      <select>
-        <option selected>Skjult</option>
-        <option>Vis kjønnsfordeling</option>
-      </select>
-    )
-  }
-
-  renderPeriodSelect() {
-    return (
-      <select>
-        <option selected>2014</option>
-        <option selected>2013</option>
-      </select>
-    )
-  }
-
-  renderInnvkatSelect() {
-    return (
-      <select disabled>
-        <option selected>Vis alle</option>
-        <option>Innvandrere</option>
-        <option>Norskfødte med innvandrerforeldre</option>
-        <option>Befolkningen ellers</option>
-        <option>Befolkningen</option>
-      </select>
-    )
+      return (
+        <li className="col--fifth">
+          <div className="subtle-select">
+            <label htmlFor="filter-groups" className="subtle-select__label">{dimension.title}:</label>
+            <div className="select subtle-select__select">
+              <select>
+                {values.map(value => <option>{dimensionLabelTitle(dimension.name, value)}</option>)}
+              </select>
+            </div>
+          </div>
+        </li>
+      )
+    })
   }
 
   render() {
@@ -128,40 +114,9 @@ class FilterBar extends Component {
               {this.renderRegionFilter()}
             </div>
           </li>
+          {/* todo: avoid rendering the lightbox in the adjacent <li> maybe? (and investigate possible ua issues?) */}
           {isRegionSelectOpen && this.renderRegionSelectLightbox()}
-          <li className="col--fifth">
-            <div className="subtle-select">
-              <label htmlFor="filter-groups" className="subtle-select__label">Kjønnsfordeling:</label>
-              <div className="select subtle-select__select">
-                {this.renderGenderDistributionSelect()}
-              </div>
-            </div>
-          </li>
-          <li className="col--fifth">
-            <div className="subtle-select">
-              <label htmlFor="filter-groups" className="subtle-select__label">Befolkningsgrupper:</label>
-              <div className="select subtle-select__select  subtle-select__select--disabled">
-                {this.renderInnvkatSelect()}
-              </div>
-            </div>
-          </li>
-          <li className="col--fifth">
-            <div className="subtle-select">
-              <label htmlFor="filter-groups" className="subtle-select__label">Andel og antall:</label>
-              <div className="select subtle-select__select">
-                {this.renderUnitSelect()}
-              </div>
-            </div>
-          </li>
-          <li className="col--fifth">
-            <div className="subtle-select">
-              <label htmlFor="filter-groups" className="subtle-select__label">Periode:</label>
-
-              <div className="select subtle-select__select">
-                {this.renderPeriodSelect()}
-              </div>
-            </div>
-          </li>
+          {this.renderDimensions()}
         </ul>
       </section>
     )

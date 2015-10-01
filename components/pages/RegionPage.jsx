@@ -1,13 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {split, typeForPrefix, regionByCode} from '../../lib/regionUtil'
+import {prefixify, split, typeForPrefix, regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChartTest from '../containers/RegionChartTest'
 import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
-import Search from '../containers/RegionSearch'
+import RegionSearch from '../containers/RegionSearch'
 
 
 class RegionPage extends Component {
@@ -28,6 +28,9 @@ class RegionPage extends Component {
     this.props.dispatch(loadAllRegions())
   }
 
+  handleSelectRegion(region) {
+    this.context.goTo('/steder/:region', {region: prefixify(region)})
+  }
 
   render() {
     const allRegions = this.props.allRegions
@@ -73,7 +76,8 @@ class RegionPage extends Component {
 					<h2 className="feature__title">{region.name}</h2>
           <RegionInfo region={region} allRegions={allRegions} />
           <div>
-            <span>Finn område: </span><Search/>
+            <span>Finn område: </span>
+            <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
           </div>
 				</section>
 

@@ -108,7 +108,7 @@ class CardsPage extends Component {
                   {pageConfig.cards.map(card => {
                     const isOpen = openCards.includes(card.name)
                     return (
-                      <li>
+                      <li key={card.name}>
                         <section className="toggle-list">
                           {this.renderToggleCardLink(card)}
                           {isOpen && <Card card={card}/>}

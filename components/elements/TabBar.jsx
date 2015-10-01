@@ -12,7 +12,7 @@ const ICON_CLASS_NAMES = {
 export default class TabBar extends Component {
   static propTypes = {
     activeTab: PropTypes.object,
-    card: PropTypes.array.isRequired,
+    card: PropTypes.object.isRequired,
     makeLinkToTab: PropTypes.func.isRequired
   }
 
@@ -32,7 +32,7 @@ export default class TabBar extends Component {
       })
 
       return (
-        <li className="tabs-menu__list-item">
+        <li key={tab.name} className="tabs-menu__list-item">
           <a href={makeLinkToTab(tab)} className={linkClassName}>
             <i className={iconClassName}></i>
             {tab.title}

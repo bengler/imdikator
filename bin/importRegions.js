@@ -1,7 +1,7 @@
 import Bluebird from 'bluebird'
 import fs from 'fs'
 import RxNode from 'rx-node'
-import {pick} from 'lodash'
+import pick from 'lodash.pick'
 import csv from 'csv-parse'
 import assert from 'assert'
 

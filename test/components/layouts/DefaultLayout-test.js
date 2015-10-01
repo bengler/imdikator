@@ -1,20 +1,21 @@
-import React from 'react/addons'
+import React from 'react'
+import TestUtils from 'react-addons-test-utils'
+import {findInShallowRenderTree} from '../_react-utils/findInShallowRenderTree.js'
 import {assert} from 'chai'
 import DefaultLayout from '../../../components/layouts/DefaultLayout'
-import jsdom from 'mocha-jsdom'
-
-const {TestUtils} = React.addons
 
 describe('DefaultLayout', () => {
-  jsdom()
 
   it('renders a #content element', () => {
 
-    // Render a checkbox with label in the document
-    const rendered = TestUtils.renderIntoDocument(<DefaultLayout/>)
+    const renderer = TestUtils.createRenderer()
 
-    const divs = TestUtils.scryRenderedDOMComponentsWithTag(rendered, 'div')
-    const content = divs.find(div => div.props['data-imdikator'] == 'site')
-    assert(content, 'Expected one element with attribute: data-imdikator="site"')
+    // Render a checkbox with label in the document
+    renderer.render(<DefaultLayout/>)
+
+    const found = findInShallowRenderTree(renderer.getRenderOutput(), el => {
+      return el.props && el.props['data-imdikator'] == 'site'
+    })
+    assert(found, 'Expected at least one element with attribute: data-imdikator="site"')
   })
 })

@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import {findDOMNode} from 'react-dom'
 const scrollIntoView = require('dom-scroll-into-view')
 
 /**
@@ -116,7 +117,7 @@ export default class Autocomplete extends Component {
         this.setState({
           isOpen: false
         }, () => {
-          React.findDOMNode(this.refs.input).select()
+          findDOMNode(this.refs.input).select()
         })
       } else {
         const item = this.getFilteredItems()[this.state.highlightedIndex]
@@ -126,8 +127,8 @@ export default class Autocomplete extends Component {
           isOpen: false,
           highlightedIndex: null
         }, () => {
-          //React.findDOMNode(this.refs.input).focus() // TODO: file issue
-          React.findDOMNode(this.refs.input).setSelectionRange(
+          //findDOMNode(this.refs.input).focus() // TODO: file issue
+          findDOMNode(this.refs.input).setSelectionRange(
             this.state.value.length,
             this.state.value.length
           )
@@ -146,8 +147,8 @@ export default class Autocomplete extends Component {
 
   maybeScrollItemIntoView() {
     if (this.state.isOpen === true && this.state.highlightedIndex !== null) {
-      const itemNode = React.findDOMNode(this.refs[`item-${this.state.highlightedIndex}`])
-      const menuNode = React.findDOMNode(this.refs.menu)
+      const itemNode = findDOMNode(this.refs[`item-${this.state.highlightedIndex}`])
+      const menuNode = findDOMNode(this.refs.menu)
       scrollIntoView(itemNode, menuNode, {onlyScrollIfNeeded: true})
     }
   }
@@ -210,7 +211,7 @@ export default class Autocomplete extends Component {
     const itemValue = this.props.getItemValue(matchedItem)
     const itemValueDoesMatch = itemValue.toLowerCase().indexOf(this.state.value.toLowerCase()) === 0
     if (itemValueDoesMatch) {
-      const node = React.findDOMNode(this.refs.input)
+      const node = findDOMNode(this.refs.input)
       const setSelection = () => {
         node.value = itemValue
         node.setSelectionRange(this.state.value.length, itemValue.length)
@@ -224,7 +225,7 @@ export default class Autocomplete extends Component {
   }
 
   setMenuPositions() {
-    const node = React.findDOMNode(this.refs.input)
+    const node = findDOMNode(this.refs.input)
     const rect = node.getBoundingClientRect()
     const computedStyle = getComputedStyle(node)
     const marginBottom = parseInt(computedStyle.marginBottom, 10)
@@ -253,7 +254,7 @@ export default class Autocomplete extends Component {
       highlightedIndex: null
     }, () => {
       this.selectItem(value, item)
-      React.findDOMNode(this.refs.input).focus()
+      findDOMNode(this.refs.input).focus()
       this.setIgnoreBlur(false)
     })
   }

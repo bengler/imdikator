@@ -40,7 +40,7 @@ class App extends Component {
         <ul className="t-no-list-styles breadcrumbs__list">
           {segments.map((segment, i) => {
             return (
-              <li className="breadcrumbs__list-item">
+              <li key={segment} className="breadcrumbs__list-item">
                 <a href={'/' + segments.slice(0, i + 1).join('/')} className="breadcrumbs__link">
                   {segment}
                 </a>

@@ -1,7 +1,7 @@
 import request from '../lib/http/request'
 import parse from 'csv-parse'
 import Promise from 'bluebird'
-import _ from 'lodash'
+import omit from 'lodash.omit'
 import fs from 'fs'
 import {QueryDimension} from '@bengler/imdi-dataset'
 
@@ -32,7 +32,7 @@ function trim(s) {
 }
 
 const mungeLine = function (line) {
-  line = _.omit(line, entry => entry == '')
+  line = omit(line, entry => entry == '')
 
   if (line.dimensions) {
     line.dimensions = line.dimensions.split('').map(trim).filter(Boolean).map(QueryDimension.parse)

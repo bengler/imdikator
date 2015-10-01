@@ -16,7 +16,7 @@ export default class DefaultLayout extends React.Component {
         <link rel="icon" type="image/x-icon" href="/_themes/design/img/favicon.ico"/>
       </head>
       <body>
-      <header id="header" className="header" data-toggle-menu="header--overlay" data-toggle-search="header--search">
+      <header className="header" data-toggle-menu="header--overlay" data-toggle-search="header--search">
         <div className="wrapper">
           <div className="row">
             <div className="col--main-wide header__row">
@@ -41,9 +41,9 @@ export default class DefaultLayout extends React.Component {
                 <div className="search search--header">
                   <form action="/sok" method="get" role="search">
                     <label htmlFor="header-search" className="t-only-screenreaders">Søk nettstedet</label>
-                    <input id="header-search" className="input search__input" type="text" name="query" defaultValue
+                    <input className="input search__input" type="text" name="query" defaultValue
                            placeholder="Søk nettstedet"/>
-                    <button id="header-search-button" type="submit" className="button search__button">Søk <i
+                    <button type="submit" className="button search__button">Søk <i
                       className="icon__search search__button-icon"/></button>
                   </form>
                 </div>
@@ -52,16 +52,16 @@ export default class DefaultLayout extends React.Component {
           </div>
         </div>
       </header>
-      <div id="page-content" className="page__master">
+      <div className="page__master">
         <main className="page">
           <div data-imdikator="site"/>
         </main>
       </div>
-      <footer id="footer" className="footer" tabIndex={-1} data-toggle-menu="footer--overlay">
+      <footer className="footer" tabIndex={-1} data-toggle-menu="footer--overlay">
         <div className="wrapper">
           <div className="row">
             <div className="col--main-wide">
-              <div id="footer__bg" className="footer__bg">
+              <div className="footer__bg">
                 <div className="footer__row">
                   <div className="footer__main">
                     <nav role="navigation" className="navigation navigation--footer">
@@ -88,7 +88,7 @@ export default class DefaultLayout extends React.Component {
                         <label htmlFor="footer-search" className="t-only-screenreaders">Søk nettstedet</label>
 
                         <div className="search search--footer">
-                          <input id="footer-search" className="input search__input" type="text" name="query"
+                          <input className="input search__input" type="text" name="query"
                                  defaultValue placeholder="Søk nettstedet"/>
                           <button type="submit" className="button search__button"><i
                             className="icon__search icon--white"/><span className="t-only-screenreaders">Søk</span>

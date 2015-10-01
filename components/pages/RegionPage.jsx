@@ -1,11 +1,12 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {prefixify, split, typeForPrefix} from '../../lib/regionUtil'
+import {prefixify, split, typeForPrefix, regionByCode, regionsByParent} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionChartTest from '../containers/RegionChartTest'
 import RegionChildrenList from '../elements/RegionChildrenList'
+import RegionInfo from '../elements/RegionInfo'
 import Search from '../containers/RegionSearch'
 
 
@@ -32,17 +33,10 @@ class RegionPage extends Component {
     this.props.dispatch(loadAllRegions())
   }
 
-  regionByCode(code, type) {
-    return this.props.allRegions.filter(region => (region.code == code) && region.type == type)[0]
-  }
-
-  regionsByParent(parentType, parentCode) {
-    return this.props.allRegions.filter(region => region[parentType] == parentCode)
-  }
-
 
   render() {
-    if (this.props.allRegions.length < 1) {
+    const allRegions = this.props.allRegions
+    if (allRegions.length < 1) {
       return (
         <div className="col--main">
           <span>Loading regions...</span>
@@ -52,24 +46,24 @@ class RegionPage extends Component {
     }
     const [regionTypePrefix, regionCode] = split(this.props.route.params.region.split('-')[0])
     const assumedRegionType = typeForPrefix(regionTypePrefix)
-    const region = this.regionByCode(regionCode, assumedRegionType)
-    const municipality = region.municipalityCode ? this.regionByCode(region.municipalityCode, 'municipality') : null
-    const county = region.countyCode ? this.regionByCode(region.countyCode, 'county') : null
+    const region = regionByCode(regionCode, assumedRegionType, allRegions)
+    const municipality = region.municipalityCode ? regionByCode(region.municipalityCode, 'municipality', allRegions) : null
+    const county = region.countyCode ? regionByCode(region.countyCode, 'county', allRegions) : null
     const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
-    const commerceRegion = commerceRegionCode ? this.regionByCode(commerceRegionCode, 'commerceRegion') : null
+    const commerceRegion = commerceRegionCode ? regionByCode(commerceRegionCode, 'commerceRegion', allRegions) : null
 
     let childRegions = []
     let childRegionType
     if (region.type == 'municipality') {
-      childRegions = this.regionsByParent('municipalityCode', region.code)
+      childRegions = regionsByParent('municipalityCode', region.code, allRegions)
       childRegionType = capitalize(_t('several-' + 'borough'))
     }
     if (region.type == 'county') {
-      childRegions = this.regionsByParent('countyCode', region.code)
+      childRegions = regionsByParent('countyCode', region.code, allRegions)
       childRegionType = capitalize(_t('several-' + 'municipality'))
     }
     if (region.type == 'commerceRegion') {
-      childRegions = this.regionsByParent('commerceRegionCode', region.code)
+      childRegions = regionsByParent('commerceRegionCode', region.code, allRegions)
       childRegionType = capitalize(_t('several-' + 'municipality'))
     }
 

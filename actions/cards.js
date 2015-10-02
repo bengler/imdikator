@@ -1,15 +1,8 @@
 import apiClient from '../config/apiClient'
 import assert from 'assert'
 //import createDefaultQueryForCard from '../lib/createDefaultQueryForCard'
+import {REQUEST_CARD_QUERY, RECEIVE_CARD_QUERY, OPEN_CARD, CLOSE_CARD, UPDATE_CARD_QUERY} from './actions'
 
-export const REQUEST_CARD_QUERY = 'REQUEST_CARD_QUERY'
-export const RECEIVE_CARD_QUERY = 'RECEIVE_CARD_QUERY'
-export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
-
-export const OPEN_CARD = 'OPEN_CARD'
-export const CLOSE_CARD = 'CLOSE_CARD'
-
-export const UPDATE_CARD_QUERY = 'UPDATE_CARD_QUERY'
 
 export function performCardQuery({table, card, query}) {
   return (dispatch, getState) => {

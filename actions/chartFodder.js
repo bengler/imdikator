@@ -2,10 +2,7 @@ import apiClient from '../config/apiClient'
 import {prefixify} from '../lib/regionUtil'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
-
-export const REQUEST_CHART_DATA = 'REQUEST_CHART_DATA'
-export const RECEIVE_CHART_DATA = 'RECEIVE_CHART_DATA'
-export const RECEIVE_TABLE_HEADERS = 'RECEIVE_TABLE_HEADERS'
+import {REQUEST_CHART_DATA, RECEIVE_CHART_DATA, RECEIVE_TABLE_HEADERS} from './actions'
 
 
 export function loadChartData(region, userQuery, chartKind) {

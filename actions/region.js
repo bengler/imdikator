@@ -1,8 +1,5 @@
 import apiClient from '../config/apiClient'
-
-export const REQUEST_REGION = 'REQUEST_REGION'
-export const RECEIVE_REGION = 'RECEIVE_REGION'
-export const RECEIVE_ALL_REGIONS = 'RECEIVE_ALL_REGIONS'
+import {RECEIVE_ALL_REGIONS, REQUEST_REGION, RECEIVE_REGION} from './actions'
 
 export function loadAllRegions() {
   return (dispatch, state) => {

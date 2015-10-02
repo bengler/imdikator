@@ -1,5 +1,4 @@
-export const NAVIGATE = 'NAVIGATE'
-export const SELECT_DATA_VIEW = 'SELECT_DATA_VIEW'
+import {NAVIGATE, SELECT_DATA_VIEW} from './actions'
 
 /* Action creators */
 export function navigate(match = {}) {

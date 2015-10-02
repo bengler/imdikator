@@ -1,5 +1,6 @@
-export const RECEIVE_TABLES = 'RECEIVE_TABLES'
 import apiClient from '../config/apiClient'
+import {RECEIVE_TABLES} from './actions'
+
 
 export function loadTables() {
   return dispatch => {

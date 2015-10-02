@@ -2,13 +2,8 @@ import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
 import {prefixify} from '../lib/regionUtil'
+import {RECEIVE_REGION, RECEIVE_CARD_PAGE_DATA, RECEIVE_QUERY_RESULT, RECEIVE_CARD_PAGES, RECEIVE_TABLE_HEADERS} from './actions'
 
-export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
-export const RECEIVE_REGION = 'RECEIVE_REGION'
-export const RECEIVE_CARD_PAGE_DATA = 'RECEIVE_CARD_PAGE_DATA'
-export const RECEIVE_QUERY_RESULT = 'RECEIVE_QUERY_RESULT'
-export const RECEIVE_CARD_PAGES = 'RECEIVE_CARD_PAGES'
-export const RECEIVE_TABLE_HEADERS = 'RECEIVE_TABLE_HEADERS'
 
 export function loadCardPages() {
   return dispatch => {

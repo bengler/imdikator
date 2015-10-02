@@ -1,4 +1,5 @@
 import React from 'react'
+import {findDOMNode} from 'react-dom'
 import Chart from './_d3chart'
 
 /**
@@ -13,7 +14,7 @@ export default class D3Chart extends React.Component {
   }
 
   componentDidMount() {
-    const el = React.findDOMNode(this)
+    const el = findDOMNode(this)
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%'
@@ -21,12 +22,12 @@ export default class D3Chart extends React.Component {
   }
 
   componentDidUpdate() {
-    const el = React.findDOMNode(this)
+    const el = findDOMNode(this)
     this.chart.update(el, this.getChartState())
   }
 
   componentWillUnmount() {
-    const el = React.findDOMNode(this)
+    const el = findDOMNode(this)
     this.chart.destroy(el)
   }
 

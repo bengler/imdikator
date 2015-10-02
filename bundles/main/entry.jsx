@@ -1,5 +1,6 @@
 import 'babel/polyfill'
 import React from 'react'
+import ReactDOM from 'react-dom'
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 import {Provider} from 'react-redux'
 import {navigate} from '../../actions/navigate'
@@ -22,12 +23,12 @@ if (containers.length !== 1) {
 
 router.navigate(document.location.pathname)
 
-React.render(
+ReactDOM.render(
   // The child must be wrapped in a function
   // to work around an issue in React 0.13.
   <div>
     <Provider store={app}>
-      {() => <App router={router}/>}
+      <App router={router}/>
     </Provider>
 
     {config.reduxDevTools && (

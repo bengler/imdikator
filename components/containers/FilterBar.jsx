@@ -77,21 +77,23 @@ class FilterBar extends Component {
       .map(findDimensionByName)
       .filter(Boolean)
       .map(dimension => {
-      const values = headerGroup[dimension.name]
+        const values = headerGroup[dimension.name]
 
-      return (
-        <li className="col--fifth">
-          <div className="subtle-select">
-            <label htmlFor="filter-groups" className="subtle-select__label">{dimension.title}:</label>
-            <div className="select subtle-select__select">
-              <select>
-                {values.map(value => <option>{dimensionLabelTitle(dimension.name, value)}</option>)}
-              </select>
+        return (
+          <li key={dimension.name} className="col--fifth">
+            <div className="subtle-select">
+              <label htmlFor="filter-groups" className="subtle-select__label">{dimension.title}:</label>
+
+              <div className="select subtle-select__select">
+                <select>
+                  {values.map(value => <option
+                    key={dimension.name + value}>{dimensionLabelTitle(dimension.name, value)}</option>)}
+                </select>
+              </div>
             </div>
-          </div>
-        </li>
-      )
-    })
+          </li>
+        )
+      })
   }
 
   render() {

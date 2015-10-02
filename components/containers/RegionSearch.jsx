@@ -28,7 +28,7 @@ class RegionSearch extends Component {
     dispatch: PropTypes.func,
     regions: PropTypes.array,
     onSelect: PropTypes.func,
-    placeholder: PropTypes.text,
+    placeholder: PropTypes.string,
     loading: PropTypes.bool
   }
   static defaultProps = {

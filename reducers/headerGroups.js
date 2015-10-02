@@ -1,4 +1,4 @@
-import {RECEIVE_TABLE_HEADERS} from '../actions/cardPages'
+import {RECEIVE_TABLE_HEADERS} from '../actions/actions'
 
 export default function tables(state = {}, action) {
   switch (action.type) {
@@ -10,4 +10,3 @@ export default function tables(state = {}, action) {
       return state
   }
 }
-

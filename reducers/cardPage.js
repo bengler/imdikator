@@ -1,4 +1,4 @@
-import {RECEIVE_CARD_PAGE_DATA} from '../actions/cardPages'
+import {RECEIVE_CARD_PAGE_DATA} from '../actions/actions'
 
 export default function cardPage(state = null, action) {
   switch (action.type) {

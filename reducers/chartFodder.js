@@ -1,4 +1,4 @@
-import {RECEIVE_CHART_DATA} from '../actions/chartFodder'
+import {RECEIVE_CHART_DATA} from '../actions/actions'
 
 export default function chartData(state = {}, action) {
   switch (action.type) {

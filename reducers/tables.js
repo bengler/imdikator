@@ -1,4 +1,4 @@
-import {RECEIVE_TABLES} from '../actions/tables'
+import {RECEIVE_TABLES} from '../actions/actions'
 import tableMetadata from '../data/tables'
 
 export default function tables(state = {}, action) {

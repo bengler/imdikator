@@ -1,4 +1,4 @@
-import {RECEIVE_REGION} from '../actions/cardPages'
+import {RECEIVE_REGION} from '../actions/actions'
 
 export default function region(state = null, action) {
   switch (action.type) {

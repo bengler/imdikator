@@ -1,4 +1,4 @@
-import {OPEN_CARD, CLOSE_CARD} from '../actions/cards'
+import {OPEN_CARD, CLOSE_CARD} from '../actions/actions'
 
 export default function cards(state = [], action) {
   switch (action.type) {

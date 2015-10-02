@@ -9,11 +9,14 @@ import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import RegionSearch from '../containers/RegionSearch'
 
+import chartQueries from '../../data/regionPageQueries'
+
 
 class RegionPage extends Component {
 
   static propTypes = {
     route: PropTypes.object,
+    region: PropTypes.object,
     allRegions: PropTypes.array,
     dispatch: PropTypes.func
   }
@@ -34,7 +37,9 @@ class RegionPage extends Component {
 
   render() {
     const allRegions = this.props.allRegions
-    if (allRegions.length < 1) {
+    const region = this.props.region
+
+    if (!region) {
       return (
         <div className="col--main">
           <span>Loading regions...</span>
@@ -42,9 +47,6 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const [regionTypePrefix, regionCode] = split(this.props.route.params.region.split('-')[0])
-    const assumedRegionType = typeForPrefix(regionTypePrefix)
-    const region = regionByCode(regionCode, assumedRegionType, allRegions)
 
     return (
       <div className="col--main">
@@ -59,9 +61,14 @@ class RegionPage extends Component {
           <section className="feature">
             <h2 className="feature__title">Oppsummering</h2>
             <p>Charts and stuff goes here</p>
-            <div className="col--half col--flow">
-              <RegionChartTest regionCode={region.code}/>
-            </div>
+            {chartQueries.map(chartQuery => {
+              return (
+                <div className="chart col--half col--flow">
+                  <h3>{chartQuery.title}</h3>
+                  <RegionChartTest region={region} query={chartQuery.query} />
+                </div>
+              )
+            })}
           </section>
 
           <section className="feature">
@@ -90,9 +97,17 @@ class RegionPage extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  let region
+  if (state.allRegions) {
+    const [regionTypePrefix, regionCode] = split(ownProps.route.params.region.split('-')[0])
+    const assumedRegionType = typeForPrefix(regionTypePrefix)
+    region = regionByCode(regionCode, assumedRegionType, state.allRegions)
+  }
+
   return {
-    allRegions: state.allRegions
+    allRegions: state.allRegions,
+    region: region
   }
 }
 

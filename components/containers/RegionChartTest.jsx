@@ -7,20 +7,22 @@ import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 class RegionChartTest extends Component {
 
   static propTypes = {
-    regionCode: PropTypes.string,
-    chartData: PropTypes.object,
-    dispatch: PropTypes.func
+    query: PropTypes.object,
+    data: PropTypes.object,
+    dispatch: PropTypes.func,
+    region: PropTypes.object
   }
 
 
   componentWillMount() {
-    this.props.dispatch(loadChartData(this.props.regionCode, 'pie-chart-yum-yum'))
+    this.props.dispatch(loadChartData(this.props.region, this.props.query, 'benchmark'))
   }
 
 
   render() {
-    const chartData = this.props.chartData
-    if (!chartData) {
+    const data = this.props.data
+    const tableName = this.props.query.tableName
+    if (!data) {
       return (
         <div className="col--main">
           <span>Loading data...</span>
@@ -30,7 +32,7 @@ class RegionChartTest extends Component {
     }
     return (
       <div className="col--main">
-        <BenchmarkChart data={chartData}/>
+        <BenchmarkChart data={data[tableName]}/>
       </div>
     )
   }
@@ -39,7 +41,7 @@ class RegionChartTest extends Component {
 
 function mapStateToProps(state) {
   return {
-    chartData: state.chartData
+    data: state.chartData
   }
 }
 

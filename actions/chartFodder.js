@@ -1,21 +1,34 @@
 import apiClient from '../config/apiClient'
+import {prefixify} from '../lib/regionUtil'
+import resolveQuery from '../lib/resolveQuery'
+import {queryResultPresenter} from '../lib/queryResultPresenter'
 
 export const REQUEST_CHART_DATA = 'REQUEST_CHART_DATA'
 export const RECEIVE_CHART_DATA = 'RECEIVE_CHART_DATA'
 
-export function loadChartData(regionCode, chartType) {
-  return (dispatch, state) => {
+export function loadChartData(region, userQuery, chartKind) {
+  return (dispatch, getState) => {
     dispatch({
       type: REQUEST_CHART_DATA,
-      regionCode: regionCode,
-      chartType: chartType
+      query: userQuery
     })
-    return apiClient.getTheData()
-      .then(data => {
+
+    apiClient.getHeaderGroups(userQuery.tableName).then(headerGroups => {
+      const newQuery = Object.assign({}, userQuery, {region: prefixify(region)})
+      const resolvedQuery = resolveQuery(region, newQuery, headerGroups)
+
+      apiClient.query(resolvedQuery).then(queryResults => {
+        const data = {}
+        data[userQuery.tableName] = queryResultPresenter(resolvedQuery, queryResults, {chartKind})
         dispatch({
           type: RECEIVE_CHART_DATA,
-          chartData: data
+          userQuery: userQuery,
+          query: resolvedQuery,
+          data: data
         })
       })
+
+    })
+
   }
 }

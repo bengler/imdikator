@@ -12,7 +12,7 @@ function tap(fn) {
 const BASE_URL = 'http://imdikator-api.azurewebsites.net/api/v1/'
 
 describe('Fetching tables using API client', () => {
-  it('can retrieve all tables', function () {
+  it('can retrieve all tables', () => {
     const client = APIClient.create({
       baseUrl: BASE_URL,
       adapter: json
@@ -23,7 +23,7 @@ describe('Fetching tables using API client', () => {
     })
   })
 
-  it('can retrieve headers for a given table', function () {
+  it('can retrieve headers for a given table', () => {
     const client = APIClient.create({
       baseUrl: BASE_URL,
       adapter: json
@@ -36,7 +36,7 @@ describe('Fetching tables using API client', () => {
       .then(ret => assert(Array.isArray(ret), 'Expected response to be an array'))
   })
 
-  it('can do a basic query', function () {
+  it('can do a basic query', () => {
     const client = APIClient.create({
       baseUrl: BASE_URL,
       adapter: json

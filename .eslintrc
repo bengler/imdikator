@@ -12,6 +12,7 @@
     "bengler/react"
   ],
   "rules": {
+    "prefer-template": 1, // todo: remove this eventually
     "import/no-unresolved": 2,
     "import/named": 1,
     "import/default": 0,

@@ -25,7 +25,7 @@ if (config.env === 'development') {
   app.use(capture.css())
 }
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.status(200).send(React.renderToStaticMarkup(<Layout/>))
 })
 if (config.env === 'development') {
@@ -36,7 +36,7 @@ if (config.env === 'development') {
   app.get('/docs*', docsite)
 }
 
-app.get('/*', function (req, res) {
+app.get('/*', (req, res) => {
   res.status(200).send(React.renderToStaticMarkup(<Layout/>))
 })
 

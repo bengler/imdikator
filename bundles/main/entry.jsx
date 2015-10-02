@@ -46,9 +46,9 @@ function ReduxDevToolsPanel() {
       <div style={{padding: 4}}>
         Pro tip: Turn off redux devtools with:
         <input type="text" readOnly
-               onFocus={e => (target => setTimeout(() => target.select(), 0))(e.target)}
-               style={{margin: 0, lineHeight: 1, color: 'inherit', backgroundColor: 'inherit', padding: 2, border: '1px solid #aaa'}}
-               value="REDUX_DEVTOOLS=0 npm start"/>
+          onFocus={e => (target => setTimeout(() => target.select(), 0))(e.target)}
+          style={{margin: 0, lineHeight: 1, color: 'inherit', backgroundColor: 'inherit', padding: 2, border: '1px solid #aaa'}}
+          value="REDUX_DEVTOOLS=0 npm start"/>
           <div style={{marginTop: 5}}>
             You can also <a href="#" style={{color: 'lightblue', padding: 2}} onClick={toggleDevToolsVisibility}>
             Hide this panel &raquo;

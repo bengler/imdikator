@@ -63,11 +63,11 @@ class CardsPage extends Component {
     }
     return (
       <a href={this.context.linkTo('/steder/:region/:pageName/:cardName', {cardName: card.name})}
-         onClick={handleClick}
-         className={`toggle-list__button ${isOpen ? 'toggle-list__button--expanded' : ''}`}
-         aria-expanded="true"
-         aria-controls="befolkning"
-         role="button">
+        onClick={handleClick}
+        className={`toggle-list__button ${isOpen ? 'toggle-list__button--expanded' : ''}`}
+        aria-expanded="true"
+        aria-controls="befolkning"
+        role="button">
         <h3 className="toggle-list__button-title">{card.title}
           <i className="icon__arrow-down toggle-list__button-icon"/>
         </h3>

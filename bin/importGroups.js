@@ -77,7 +77,7 @@ const parseGroups = function (lines) {
 console.log('Reading components')
 importGroups(groupsUrl).then(result => {
   const groupDict = parseGroups(result)
-  fs.writeFile(outFile, JSON.stringify(groupDict, null, 2), function (err) {
+  fs.writeFile(outFile, JSON.stringify(groupDict, null, 2), err => {
     if (err) {
       throw err
     }

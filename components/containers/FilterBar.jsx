@@ -39,8 +39,8 @@ class FilterBar extends Component {
 
     return (
       <button type="button"
-              className={`subtle-select__button subtle-select__button--${hasRegions ? 'expanded' : 'add'}`}
-              onClick={() => this.setState({isRegionSelectOpen: true})}>
+        className={`subtle-select__button subtle-select__button--${hasRegions ? 'expanded' : 'add'}`}
+        onClick={() => this.setState({isRegionSelectOpen: true})}>
         {hasRegions && chosenRegions.map(renderRegion).join(', ')}
         {!hasRegions && 'Legg til sted'}
       </button>

@@ -29,20 +29,21 @@ export default class DefaultLayout extends React.Component {
                 </div>
               </a>
               <a href="#footer" data-behaviour="main-menu-toggle" className="button header__button header__button--menu"
-                 aria-expanded="false"><span className="header__button-text--open">Meny</span><span
-                className="header__button-text--close">Lukk</span> <i className="header__menu-icon"><span
-                className="header__menu-icon-bar"/><span className="header__menu-icon-bar"/><span
-                className="header__menu-icon-bar"/></i></a>
+                aria-expanded="false"><span className="header__button-text--open">Meny</span>
+                <span className="header__button-text--close">Lukk</span> <i className="header__menu-icon">
+                <span className="header__menu-icon-bar"/>
+                  <span className="header__menu-icon-bar"/>
+                  <span className="header__menu-icon-bar"/></i></a>
               <a href="#footer-search" data-behaviour="main-search-toggle"
-                 className="button header__button header__button--search" aria-expanded="false"><span
-                className="header__button-text">Søk</span> <i className="icon__search header__search-icon"/></a>
+                className="button header__button header__button--search" aria-expanded="false">
+                <span className="header__button-text">Søk</span> <i className="icon__search header__search-icon"/></a>
 
               <div className="header__search">
                 <div className="search search--header">
                   <form action="/sok" method="get" role="search">
                     <label htmlFor="header-search" className="t-only-screenreaders">Søk nettstedet</label>
                     <input className="input search__input" type="text" name="query" defaultValue
-                           placeholder="Søk nettstedet"/>
+                      placeholder="Søk nettstedet"/>
                     <button type="submit" className="button search__button">Søk <i
                       className="icon__search search__button-icon"/></button>
                   </form>
@@ -71,8 +72,8 @@ export default class DefaultLayout extends React.Component {
                           og bosetting</a></li>
                         <li><a href="/opplaering-og-utdanning" className="navigation__link navigation__link--primary">Opplæring
                           og utdanning</a></li>
-                        <li><a href="/sysselsetting-og-arbeidsliv"
-                               className="navigation__link navigation__link--primary">Sysselsetting og arbeidsliv</a>
+                        <li>
+                          <a href="/sysselsetting-og-arbeidsliv" className="navigation__link navigation__link--primary">Sysselsetting og arbeidsliv</a>
                         </li>
                         <li><a href="/fakta-om-integrering" className="navigation__link navigation__link--primary">Om
                           integrering i Norge</a></li>
@@ -88,8 +89,7 @@ export default class DefaultLayout extends React.Component {
                         <label htmlFor="footer-search" className="t-only-screenreaders">Søk nettstedet</label>
 
                         <div className="search search--footer">
-                          <input className="input search__input" type="text" name="query"
-                                 defaultValue placeholder="Søk nettstedet"/>
+                          <input className="input search__input" type="text" name="query" defaultValue placeholder="Søk nettstedet"/>
                           <button type="submit" className="button search__button"><i
                             className="icon__search icon--white"/><span className="t-only-screenreaders">Søk</span>
                           </button>
@@ -113,14 +113,13 @@ export default class DefaultLayout extends React.Component {
                         <h2 className="t-only-screenreaders">Portaler</h2>
                         <ul className="t-no-list-styles footer__submenu">
                           <li><a href="#" className="navigation__link">Ny i Norge <i
-                            className="icon__external icon--white navigation__link-icon"><span
-                            className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
-                          <li><a href="#" className="navigation__link">Tolkeportalen <i
-                            className="icon__external icon--white navigation__link-icon"><span
-                            className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
-                          <li><a href="#" className="navigation__link">Mangfoldsportalen <i
-                            className="icon__external icon--white navigation__link-icon"><span
-                            className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
+                            className="icon__external icon--white navigation__link-icon">
+                            <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
+                          <li><a href="#" className="navigation__link">Tolkeportalen <i className="icon__external icon--white navigation__link-icon">
+                            <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
+                          <li><a href="#" className="navigation__link">Mangfoldsportalen
+                            <i className="icon__external icon--white navigation__link-icon">
+                            <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
                         </ul>
                       </div>
                     </nav>

@@ -2,7 +2,8 @@ import d3 from 'd3'
 import colorPalette from '../../data/colorPalette'
 
 class Chart {
-  constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}) {
+  // TODO: fix too many params
+  constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}) { // eslint-disable-line max-params
 
     // _svg is the actual SVG element
     this._svg = null
@@ -36,16 +37,16 @@ class Chart {
     // TODO: https://css-tricks.com/scale-svg/
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
-    .attr('class', 'd3')
-    .attr('width', this.props.width)
-    .attr('height', this.props.height)
+      .attr('class', 'd3')
+      .attr('width', this.props.width)
+      .attr('height', this.props.height)
 
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest
     // of the code
     this.svg = this._svg.append('g')
-    .attr('class', 'd3-points')
-    .attr('transform', this.translation(this.margins.left, this.margins.top))
+      .attr('class', 'd3-points')
+      .attr('transform', this.translation(this.margins.left, this.margins.top))
 
     this._drawPoints(el, state.data)
   }
@@ -57,7 +58,7 @@ class Chart {
   }
 
   translation(x, y) {
-    return 'translate(' + x + ',' + y + ')'
+    return `translate(${x},${y})`
   }
 
   // Returns {scale: d3.scale, format: tickFormat}
@@ -72,7 +73,7 @@ class Chart {
       }
       case 'promille': {
         format = function (val) {
-          return val + '‰'
+          return `${val}‰`
         }
         y.domain([0, maxValue])
         break
@@ -80,7 +81,7 @@ class Chart {
       case 'kroner': {
         const f = d3.format('g')
         format = function (val) {
-          return f(val) + ' kr'
+          return `${f(val)} kr`
         }
         y.domain([0, maxValue])
         break
@@ -98,8 +99,8 @@ class Chart {
     const self = this
     function chart(selection) {
       el = selection
-      .append('div')
-      .attr('class', 'focus')
+        .append('div')
+        .attr('class', 'focus')
       self._popover = el
       return el
     }
@@ -150,9 +151,9 @@ class Chart {
         }
       }
       el
-      .attr('class', 'focus arrow--' + direction)
-      .style('left', left)
-      .style('top', top)
+        .attr('class', `focus arrow--${direction}`)
+        .style('left', left)
+        .style('top', top)
     }
 
     chart.hide = () => {
@@ -161,7 +162,7 @@ class Chart {
       }
       // TODO: Find a better way to hide the popover?
       el
-      .style('top', -200)
+        .style('top', -200)
     }
 
     return chart
@@ -185,33 +186,33 @@ class Chart {
         const wrap = d3.select(this).selectAll('g.legend').data(data)
         let legend = null
         legend = wrap.enter()
-        .append('g').attr('class', 'legend')
-        .append('g')
-        .on('click', function (item, index) {
-          dispatch.legendClick(item, index)
-        })
-        .on('mouseover', function (item, index) {
-          dispatch.legendMouseover(item, index)
-        })
-        .on('mouseout', function (item, index) {
-          dispatch.legendMouseout(item, index)
-        })
+          .append('g').attr('class', 'legend')
+          .append('g')
+          .on('click', (item, index) => {
+            dispatch.legendClick(item, index)
+          })
+          .on('mouseover', (item, index) => {
+            dispatch.legendMouseover(item, index)
+          })
+          .on('mouseout', (item, index) => {
+            dispatch.legendMouseout(item, index)
+          })
 
         legend.append('rect')
-        .attr('x', (dataItem, index) => {
-          return 0
-        })
-        .attr('y', 0)
-        .attr('width', (item, i) => attr.width(item, i))
-        .attr('height', (item, i) => attr.height(item, i))
-        .style('fill', dataItem => color(dataItem))
+          .attr('x', (dataItem, index) => {
+            return 0
+          })
+          .attr('y', 0)
+          .attr('width', (item, i) => attr.width(item, i))
+          .attr('height', (item, i) => attr.height(item, i))
+          .style('fill', dataItem => color(dataItem))
 
         legend
-        .append('text')
-        .text(dataItem => dataItem)
-        .attr('dy', () => attr.height())
-        .attr('font-size', () => attr.height())
-        .attr('x', (node, index) => attr.width() * 1.5)
+          .append('text')
+          .text(dataItem => dataItem)
+          .attr('dy', () => attr.height())
+          .attr('font-size', () => attr.height())
+          .attr('x', (node, index) => attr.width() * 1.5)
 
         let x = 0
         let y = 0
@@ -220,7 +221,7 @@ class Chart {
 
         wrap.selectAll('g').each(function () {
           const el = d3.select(this)
-          el.attr('transform', 'translate(' + x + ', 0)')
+          el.attr('transform', `translate(${x}, 0)`)
           const bbox = el.node().getBBox()
           const width = bbox.width + attr.width()
           const newX = x + width
@@ -230,7 +231,7 @@ class Chart {
           } else {
             x += width
           }
-          el.attr('transform', 'translate(' + (x - width) + ', ' + y + ')')
+          el.attr('transform', `translate(${x - width}, ${y})`)
         })
       })
       return chart
@@ -277,7 +278,7 @@ class Chart {
       let word = null
       let line = []
       let lineNumber = 0
-      let tspan = txt.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', dy + 'em')
+      let tspan = txt.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', `${dy}em`)
       word = words.pop()
       while (word) {
         line.push(word)
@@ -286,7 +287,7 @@ class Chart {
           line.pop()
           tspan.text(line.join(' '))
           line = [word]
-          tspan = txt.append('tspan').attr('x', 0).attr('y', y).attr('dy', ++lineNumber * lineHeight + dy + 'em').text(word)
+          tspan = txt.append('tspan').attr('x', 0).attr('y', y).attr('dy', `${++lineNumber * lineHeight + dy}em`).text(word)
         }
         word = words.pop()
       }

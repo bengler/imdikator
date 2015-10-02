@@ -29,6 +29,6 @@ describe('resolveQuery', () => {
       aar: ['2014']
     }])
     const expected = resolved.dimensions.find(dimension => dimension.name == 'aar' && dimension.variables[0] == '2014')
-    assert(expected, 'Expected `resolved.dimensions` to include year = 2014, instead got ' + JSON.stringify(resolved.dimensions))
+    assert(expected, `Expected 'resolved.dimensions' to include year = 2014, instead got ${JSON.stringify(resolved.dimensions)}`)
   })
 })

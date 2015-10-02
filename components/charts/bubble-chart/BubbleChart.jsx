@@ -59,7 +59,7 @@ export default class BubbleChart extends React.Component {
     .style('text-anchor', 'middle')
     .style('font-size', '13px')
     .style('pointer-events', 'none')
-    .text(function (item) {
+    .text(item => {
       return item.title.substring(0, item.r / 4)
     })
   }
@@ -73,9 +73,9 @@ export default class BubbleChart extends React.Component {
     }
     return (
       <D3Chart className="bubble"
-               data={this.props.data}
-               drawPoints={this.drawPoints}
-               margins={margins}/>
+        data={this.props.data}
+        drawPoints={this.drawPoints}
+        margins={margins}/>
     )
   }
 }

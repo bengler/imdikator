@@ -61,8 +61,10 @@ export default class Tester extends React.Component {
     if (!Component.doc.props) {
       return <span>No propTypes defined on {Component.name}.</span>
     }
-    return (<PropForm propTypes={Component.doc.props} propValues={componentProps}
-                      onPropChange={this.handlePropChange.bind(this)}/>)
+    return (
+      <PropForm propTypes={Component.doc.props} propValues={componentProps}
+        onPropChange={this.handlePropChange.bind(this)}/>
+    )
   }
 
   renderUsage() {

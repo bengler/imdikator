@@ -25,15 +25,15 @@ export default class RegionChildrenList extends Component {
     let childRegionType
     if (region.type == 'municipality') {
       childRegions = regionsByParent('municipalityCode', region.code, allRegions)
-      childRegionType = capitalize(_t('several-' + 'borough'))
+      childRegionType = capitalize(_t('several-borough'))
     }
     if (region.type == 'county') {
       childRegions = regionsByParent('countyCode', region.code, allRegions)
-      childRegionType = capitalize(_t('several-' + 'municipality'))
+      childRegionType = capitalize(_t('several-municipality'))
     }
     if (region.type == 'commerceRegion') {
       childRegions = regionsByParent('commerceRegionCode', region.code, allRegions)
-      childRegionType = capitalize(_t('several-' + 'municipality'))
+      childRegionType = capitalize(_t('several-municipality'))
     }
 
     if (childRegions.length < 2) {

@@ -62,8 +62,9 @@ class RegionPage extends Component {
             <h2 className="feature__title">Oppsummering</h2>
             <p>Charts and stuff goes here</p>
             {chartQueries.map(chartQuery => {
+              const key = chartQuery.query.tableName + '-' + chartQuery.query.unit
               return (
-                <div className="chart col--half col--flow">
+                <div key={key} className="chart col--half col--flow">
                   <h3>{chartQuery.title}</h3>
                   <RegionChartTest region={region} query={chartQuery.query} />
                 </div>

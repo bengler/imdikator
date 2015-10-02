@@ -8,7 +8,6 @@ import RegionChart from '../containers/RegionChart'
 import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import RegionSearch from '../containers/RegionSearch'
-
 import chartQueries from '../../data/regionPageQueries'
 
 
@@ -53,15 +52,16 @@ class RegionPage extends Component {
 
         <header>
 					<h1>{region.name} {_t(region.type)}</h1>
-					<p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
+					<p className="ingress">Tall og statistikk over integreringen i {_t(`the-${region.type}`)}</p>
           <CardPageButtons />
 				</header>
 
         <div className="page__section page__section--grey">
+
           <section className="feature">
             <h2 className="feature__title">Oppsummering</h2>
             {chartQueries.map(chartQuery => {
-              const key = chartQuery.query.tableName + '-' + chartQuery.query.unit
+              const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
               return (
                 <div key={key} className="chart col--half col--flow">
                   <h3>{chartQuery.title}</h3>
@@ -101,8 +101,8 @@ function mapStateToProps(state, ownProps) {
   let region
   if (state.allRegions) {
     const [regionTypePrefix, regionCode] = split(ownProps.route.params.region.split('-')[0])
-    const assumedRegionType = typeForPrefix(regionTypePrefix)
-    region = regionByCode(regionCode, assumedRegionType, state.allRegions)
+    const regionType = typeForPrefix(regionTypePrefix)
+    region = regionByCode(regionCode, regionType, state.allRegions)
   }
 
   return {

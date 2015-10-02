@@ -2423,7 +2423,7 @@
     "imdi-styles": {
       "version": "0.0.0",
       "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#df684bab0c97df474551f96ce660cf483d06be7c"
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#c483125593ca17ed6663f8f226343216bf499c20"
     },
     "indent-string": {
       "version": "1.2.2",

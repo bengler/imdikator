@@ -20,19 +20,18 @@ class RegionChartTest extends Component {
 
 
   render() {
-    const data = this.props.data
     const tableName = this.props.query.tableName
+    const data = this.props.data[tableName]
     if (!data) {
       return (
         <div className="col--main">
-          <span>Loading data...</span>
-          <pre>{JSON.stringify(this.props, null, 2)}</pre>
+          <span>No data for this query</span>
         </div>
       )
     }
     return (
       <div className="col--main">
-        <BenchmarkChart data={data[tableName]}/>
+        <BenchmarkChart data={data}/>
       </div>
     )
   }

@@ -22,7 +22,15 @@ export function loadChartData(region, userQuery, chartKind) {
         tableName: userQuery.tableName
       })
       const newQuery = Object.assign({}, userQuery, {region: prefixify(region)})
-      const resolvedQuery = resolveQuery(region, newQuery, headerGroups)
+
+      let resolvedQuery
+      try {
+        resolvedQuery = resolveQuery(region, newQuery, headerGroups)
+      } catch (err) {
+        if (err.name == 'AssertionError') {
+          return null
+        }
+      }
 
       apiClient.query(resolvedQuery).then(queryResults => {
         const data = {}

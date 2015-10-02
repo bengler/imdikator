@@ -4,7 +4,7 @@ import {loadAllRegions} from '../../actions/region'
 import {prefixify, split, typeForPrefix, regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import CardPageButtons from '../containers/CardPageButtons'
-import RegionChartTest from '../containers/RegionChartTest'
+import RegionChart from '../containers/RegionChart'
 import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import RegionSearch from '../containers/RegionSearch'
@@ -60,13 +60,12 @@ class RegionPage extends Component {
         <div className="page__section page__section--grey">
           <section className="feature">
             <h2 className="feature__title">Oppsummering</h2>
-            <p>Charts and stuff goes here</p>
             {chartQueries.map(chartQuery => {
               const key = chartQuery.query.tableName + '-' + chartQuery.query.unit
               return (
                 <div key={key} className="chart col--half col--flow">
                   <h3>{chartQuery.title}</h3>
-                  <RegionChartTest region={region} query={chartQuery.query} />
+                  <RegionChart region={region} query={chartQuery.query} />
                 </div>
               )
             })}

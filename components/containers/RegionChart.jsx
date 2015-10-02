@@ -25,7 +25,7 @@ class RegionChartTest extends Component {
     if (!data) {
       return (
         <div className="col--main">
-          <span>No data for this query</span>
+          <span>Ingen data å finne...</span>
         </div>
       )
     }

@@ -33,13 +33,12 @@ function toggleDevToolsVisibility() {
 
 function ReduxDevToolsPanel() {
   if (!config.reduxDevTools) {
-    return null
+    return <span/>
   }
   const devToolsIsVisible = isDevToolsVisible()
 
   if (!devToolsIsVisible) {
     return <button style={{fontSize: 10, width: 150, position: 'fixed', top: 0, right: 0}} onClick={toggleDevToolsVisibility}>Show Redux Devtools</button>
-
   }
   return (
     <DebugPanel style={{backgroundColor: '#444'}} top right bottom>

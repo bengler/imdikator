@@ -1,6 +1,7 @@
 import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
+import Hoverbox from '../../elements/Hoverbox'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
@@ -141,7 +142,10 @@ export default class BarChart extends React.Component {
   render() {
     const margins = {left: 60, top: 10, right: 40, bottom: 80}
     return (
+      <div>
+      <Hoverbox ref="focus"/>
       <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      </div>
     )
   }
 }

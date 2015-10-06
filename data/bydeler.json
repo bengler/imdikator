@@ -1,5 +1,11 @@
 [
   {
+    "code": "000301",
+    "name": "Hele Oslo",
+    "municipalityCode": "000301",
+    "type": "borough"
+  },
+  {
     "code": "030101",
     "name": "Gamle Oslo",
     "municipalityCode": "0301",

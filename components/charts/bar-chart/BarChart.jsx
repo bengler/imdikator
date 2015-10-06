@@ -102,8 +102,11 @@ export default class BarChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      popover.html('<p>' + yc.format(item.values[0].value) + '</p>')
-      popover.show(item.el)
+      this.eventDispatcher.emit('datapoint:hover', {
+        title: item.title,
+        body: yc.format(item.values[0].value),
+        el: item.el
+      })
     })
     .on('mouseout', () => {
       popover.hide()
@@ -143,7 +146,6 @@ export default class BarChart extends React.Component {
     const margins = {left: 60, top: 10, right: 40, bottom: 80}
     return (
       <div>
-      <Hoverbox ref="focus"/>
       <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
       </div>
     )

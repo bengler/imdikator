@@ -1,9 +1,10 @@
 import d3 from 'd3'
 import colorPalette from '../../data/colorPalette'
+import EventEmitter from 'events'
 
 class Chart {
   // TODO: fix too many params
-  constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}) { // eslint-disable-line max-params
+  constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}, eventEmitter) { // eslint-disable-line max-params
 
     // _svg is the actual SVG element
     this._svg = null
@@ -20,6 +21,8 @@ class Chart {
     this.margins = margins
 
     this.colors = d3.scale.ordinal().range(colorPalette)
+
+    this.eventDispatcher = eventEmitter
 
     this._drawPoints = drawPoints
     this.update(el, state)
@@ -122,6 +125,7 @@ class Chart {
     }
 
     chart.show = element => {
+      return
       if (!el) {
         return
       }

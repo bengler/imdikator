@@ -1,6 +1,8 @@
 import React from 'react'
 import {findDOMNode} from 'react-dom'
 import Chart from './_d3chart'
+import EventEmitter from 'events'
+import Hoverbox from '../elements/Hoverbox'
 
 /**
  * Only for development
@@ -14,11 +16,23 @@ export default class D3Chart extends React.Component {
   }
 
   componentDidMount() {
+
+    this.eventEmitter = new EventEmitter()
+    this.eventEmitter.on('datapoint:hover', state => {
+      const el = findDOMNode(this)
+      this.refs.focus.setState({
+        title: state.title,
+        body: state.body,
+        el: state.el,
+        containerRect: el.getBoundingClientRect()
+      })
+    })
+
     const el = findDOMNode(this)
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%'
-    }, this.getChartState(), this.props.drawPoints, this.props.margins)
+    }, this.getChartState(), this.props.drawPoints, this.props.margins, this.eventEmitter)
   }
 
   componentDidUpdate() {
@@ -27,6 +41,7 @@ export default class D3Chart extends React.Component {
   }
 
   componentWillUnmount() {
+    this.eventEmitter.removeAllListeners()
     const el = findDOMNode(this)
     this.chart.destroy(el)
   }
@@ -40,7 +55,9 @@ export default class D3Chart extends React.Component {
   render() {
     const classes = ['chart', this.props.className].join(' ')
     return (
-      <div className={classes}/>
+      <div className={classes}>
+        <Hoverbox ref="focus"/>
+      </div>
     )
   }
 }

@@ -23,11 +23,23 @@ export default class BarChart extends React.Component {
 
     const svg = this.svg
 
-    // Get the unique categories from the data
     const categories = preparedData.map(entry => entry.title)
+
+    // X axis scale for categories
+    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
+
+    const xScales = {}
+    preparedData.forEach(cat => {
+      const catSeries = cat.values.map(val => val.title)
+      const x = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], 0.05)
+      xScales[cat.key] = x
+    })
+
+    // Get the unique categories from the data
     const series = []
     preparedData.forEach(item => {
       item.values.forEach(val => {
+        val.scale = xScales[item.key]
         if (series.indexOf(val.title) == -1) {
           series.push(val.title)
         }
@@ -36,13 +48,6 @@ export default class BarChart extends React.Component {
 
     // A range of 20 colors
     const seriesColor = this.colors.domain(series)
-
-    // X axis scale for categories
-    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
-
-    // X axis scale for series
-    const x1 = d3.scale.ordinal()
-    x1.domain(series).rangeRoundBands([0, x0.rangeBand()], 0.05)
 
     // Y config
     const extent = d3.extent(data.rows, item => item.value)
@@ -62,8 +67,10 @@ export default class BarChart extends React.Component {
     .data(d => d.values)
     .enter().append('rect')
     .attr('class', 'bar')
-    .attr('width', x1.rangeBand())
-    .attr('x', dataItem => x1(dataItem.title))
+    .attr('width', item => {
+      return item.scale.rangeBand()
+    })
+    .attr('x', dataItem => dataItem.scale(dataItem.title))
     .attr('y', d => {
       const val = d.values[0].value
       if (isNaN(val)) {
@@ -89,8 +96,8 @@ export default class BarChart extends React.Component {
     .data(d => d.values)
     .enter().append('rect')
     .attr('class', 'hover')
-    .attr('width', x1.rangeBand())
-    .attr('x', dataItem => x1(dataItem.title))
+    .attr('width', item => item.scale.rangeBand())
+    .attr('x', dataItem => dataItem.scale(dataItem.title))
     // Want full height for this one
     .attr('y', 0)
     .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))

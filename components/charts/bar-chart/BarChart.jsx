@@ -87,9 +87,6 @@ export default class BarChart extends React.Component {
       item.el = this
     })
 
-    const popover = this.popover()
-    d3.select('body').call(popover)
-
     category.selectAll('rect.hover')
     .data(d => d.values)
     .enter().append('rect')
@@ -109,7 +106,6 @@ export default class BarChart extends React.Component {
       })
     })
     .on('mouseout', () => {
-      popover.hide()
     })
 
     const leg = this.legend()

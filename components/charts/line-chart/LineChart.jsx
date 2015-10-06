@@ -122,9 +122,6 @@ export default class LineChart extends React.Component {
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
-    const popover = this.popover()
-    d3.select('body').call(popover)
-
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
     .enter().append('path')
@@ -133,20 +130,18 @@ export default class LineChart extends React.Component {
     .style('fill', 'none')
     .style('stroke', 'none')
     .style('pointer-events', 'all')
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout)
-
-    function mouseover(item) {
+    .on('mouseover', item => {
       focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.value) + ')')
       focus.select('text').text(item.value)
-      popover.html('<p>' + yc.format(item.value) + '</p>')
-      popover.show(focus.node())
-    }
-
-    function mouseout(item) {
+      this.eventDispatcher.emit('datapoint:hover', {
+        title: item.title,
+        body: yc.format(item.value),
+        el: focus.node()
+      })
+    })
+    .on('mouseout', item => {
       focus.attr('transform', 'translate(-100,-100)')
-      popover.hide()
-    }
+    })
 
     svg.append('g')
     .attr('class', 'axis')

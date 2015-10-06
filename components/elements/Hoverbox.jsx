@@ -1,12 +1,11 @@
 import React from 'react'
-import {findDOMNode} from 'react-dom'
 
 const Hoverbox = React.createClass({
 
   getInitialState() {
     return {
-      title: 'Title',
-      body: 'Body',
+      title: '',
+      body: '',
       direction: 'bottom',
       el: null
     }
@@ -16,52 +15,61 @@ const Hoverbox = React.createClass({
     const offset = element.getBoundingClientRect()
 
     let left = 0
-    let top = 0
+    let bottom = 0
     switch (this.state.direction) {
       case 'bottom': {
         left = offset.left - this.state.containerRect.left + offset.width / 2
-        top = offset.top - this.state.containerRect.top
+        bottom = this.state.containerRect.height
+                 - (offset.top - this.state.containerRect.top)
         break
       }
       case 'right': {
-        left = offset.left - popoverBox.width - 20
-        top = offset.top + window.scrollY - offset.height / 2
         break
       }
       case 'left': {
-        left = offset.left + offset.width + 20
-        top = offset.top + window.scrollY - offset.height / 2
         break
       }
       default: {
         left = 0
-        top = 0
+        //top = 0
       }
     }
-    return {top, left}
+    return {left, bottom}
   },
 
   render() {
     const {title, body} = this.state
     const style = {
-      position: 'absolute',
-      left: 0,
-      top: 0
+      display: 'none',
+      pointerEvents: 'none'
     }
 
+    const styleClasses = ['hover-box']
+    /*
+    switch (this.state.direction) {
+      case 'left':
+        styleClasses.push('hover-box--left-edge')
+        break
+      case 'right':
+        styleClasses.push('hover-box--right-edge')
+        break
+      default:
+    }
+    */
+
     if (this.state.el) {
-      Object.assign(style, this.calculatePositionTo(this.state.el))
+      Object.assign(style, {
+        display: 'block'
+      }, this.calculatePositionTo(this.state.el))
     }
 
     return (
-      <div style={{position: 'relative', width: '100%', height: '0px'}}>
-      <div className="hover-box" style={style}>
+      <div className={styleClasses.join(' ')} style={style}>
       <dl>
       <dt className="hover-box__title">{title}</dt>
       <dd>{body}</dd>
       </dl>
       <i className="hover-box__point"></i>
-      </div>
       </div>
     )
   }

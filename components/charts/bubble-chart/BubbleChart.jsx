@@ -37,9 +37,6 @@ export default class BubbleChart extends React.Component {
     .attr('class', 'node')
     .attr('transform', item => 'translate(' + item.x + ',' + item.y + ')')
 
-    const popover = this.popover()
-    d3.select('body').call(popover)
-
     node.append('circle')
     .attr('r', item => item.r)
     .style('fill', item => color(item.key))
@@ -47,11 +44,13 @@ export default class BubbleChart extends React.Component {
       dataItem.el = this
     })
     .on('mouseover', item => {
-      popover.html('<p>' + item.values[0].value + '</p>')
-      popover.show(item.el)
+      this.eventDispatcher.emit('datapoint:hover', {
+        title: item.title,
+        body: item.values[0].value,
+        el: item.el
+      })
     })
     .on('mouseout', () => {
-      popover.hide()
     })
 
     node.append('text')

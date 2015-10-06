@@ -131,9 +131,6 @@ export default class PyramidChart extends React.Component {
     const leftBarGroup = category.append('g')
     .attr('transform', this.translation(pointA, 0) + 'scale(-1,1)')
 
-    const popover = this.popover().direction('right')
-    d3.select('body').call(popover)
-
     leftBarGroup.selectAll('.bar.left')
     .data(item => {
       return item.values[0].values
@@ -162,12 +159,14 @@ export default class PyramidChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      popover.html('<p>' + format(item.values[0].value) + '</p>')
-      .direction('right')
-      .show(item.el)
+      this.eventDispatcher.emit('datapoint:hover', {
+        title: item.title,
+        body: format(item.values[0].value),
+        el: item.el
+      })
     })
     .on('mouseout', () => {
-      popover.hide()
+      //popover.hide()
     })
 
     // Right side
@@ -202,12 +201,14 @@ export default class PyramidChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      popover.html('<p>' + format(item.values[0].value) + '</p>')
-      .direction('left')
-      .show(item.el)
+      this.eventDispatcher.emit('datapoint:hover', {
+        title: item.title,
+        body: format(item.values[0].value),
+        el: item.el
+      })
     })
     .on('mouseout', () => {
-      popover.hide()
+      //popover.hide()
     })
 
     // Legend

@@ -140,9 +140,6 @@ export default class StackedAreaChart extends React.Component {
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
-    const popover = this.popover()
-    d3.select('body').call(popover)
-
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
     .enter()
@@ -156,11 +153,14 @@ export default class StackedAreaChart extends React.Component {
       const xPos = x(item.date)
       const yPos = y(item.y + item.y0)
       focus.attr('transform', this.translation(xPos, yPos))
-      popover.html('<p>' + item.key + ': ' + yc.format(item.y) + '</p>')
-      popover.show(focus.node())
+
+      this.eventDispatcher.emit('datapoint:hover', {
+        title: item.key,
+        body: yc.format(item.y),
+        el: focus.node()
+      })
     })
     .on('mouseout', () => {
-      popover.hide()
     })
 
     // Add the X axis

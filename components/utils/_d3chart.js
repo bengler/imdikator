@@ -1,6 +1,5 @@
 import d3 from 'd3'
 import colorPalette from '../../data/colorPalette'
-import EventEmitter from 'events'
 
 class Chart {
   // TODO: fix too many params
@@ -55,9 +54,6 @@ class Chart {
   }
 
   destroy(el) {
-    if (this._popover) {
-      this._popover.remove()
-    }
   }
 
   translation(x, y) {
@@ -94,82 +90,6 @@ class Chart {
       }
     }
     return {scale: y, format: format}
-  }
-
-  popover() {
-    let el = null
-    let direction = 'bottom'
-    const self = this
-    function chart(selection) {
-      el = selection
-        .append('div')
-        .attr('class', 'focus')
-      self._popover = el
-      return el
-    }
-
-    chart.direction = function (newDirection) {
-      if (!arguments.length) {
-        return direction
-      }
-      direction = newDirection
-      return chart
-    }
-
-    chart.html = function (newHtml) {
-      if (!arguments.length) {
-        return el.html()
-      }
-      el.html(newHtml)
-      return chart
-    }
-
-    chart.show = element => {
-      return
-      if (!el) {
-        return
-      }
-      const offset = element.getBoundingClientRect()
-      const popoverBox = el.node().getBoundingClientRect()
-      let left = 0
-      let top = 0
-      switch (direction) {
-        case 'bottom': {
-          left = offset.left + offset.width / 2 - popoverBox.width / 2
-          top = offset.top + window.scrollY - popoverBox.height - 20
-          break
-        }
-        case 'right': {
-          left = offset.left - popoverBox.width - 20
-          top = offset.top + window.scrollY - offset.height / 2
-          break
-        }
-        case 'left': {
-          left = offset.left + offset.width + 20
-          top = offset.top + window.scrollY - offset.height / 2
-          break
-        }
-        default: {
-          left = 0
-          top = 0
-        }
-      }
-      el
-        .attr('class', `focus arrow--${direction}`)
-        .style('left', left)
-        .style('top', top)
-    }
-
-    chart.hide = () => {
-      if (!el) {
-        return
-      }
-      // TODO: Find a better way to hide the popover?
-      el
-        .style('top', -200)
-    }
-
-    return chart
   }
 
   legend() {

@@ -24,7 +24,8 @@ export default class StackedAreaChart extends React.Component {
     const parseDate = d3.time.format('%Y').parse
 
     const x = d3.time.scale().range([0, this.size.width])
-    const yc = this.configureYscale(preparedData.maxValue, data.unit)
+    const extent = d3.extent(data.rows, item => item.value)
+    const yc = this.configureYscale(extent, data.unit)
     const y = yc.scale
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')

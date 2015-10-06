@@ -21,7 +21,7 @@ export default class LineChart extends React.Component {
     const parseDate = d3.time.format('%Y').parse
 
     const extent = d3.extent(data.rows, item => parseFloat(item.value))
-    const yc = this.configureYscale(extent[1], data.unit)
+    const yc = this.configureYscale(extent, data.unit)
 
     const x = d3.time.scale().range([0, this.size.width])
     const y = yc.scale

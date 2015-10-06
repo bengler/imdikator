@@ -46,8 +46,9 @@ export default class BarChart extends React.Component {
     x1.domain(series).rangeRoundBands([0, x0.rangeBand()], 0.05)
 
     // Y config
-    const yc = this.configureYscale(preparedData.maxValue, data.unit)
-    // Add the Y axsis
+    const extent = d3.extent(data.rows, item => item.value)
+    const yc = this.configureYscale(extent, data.unit)
+
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     yAxis.tickFormat(yc.format)
 

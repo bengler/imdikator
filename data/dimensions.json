@@ -247,11 +247,11 @@
       },
       {
         "title": "0-4 år",
-        "label": "0-4"
+        "label": "0_4"
       },
       {
         "title": "5-9 år",
-        "label": "5-9"
+        "label": "5_9"
       },
       {
         "title": "10+ år",
@@ -274,7 +274,7 @@
       },
       {
         "title": "0-4 år",
-        "label": "0-4"
+        "label": "0_4"
       },
       {
         "title": "5+ år",
@@ -732,30 +732,30 @@
     "variables": [
       {
         "title": "personer fra og med 0 til og med 5 år",
-        "label": "0-5"
+        "label": "0_5"
       },
       {
         "title": "personer fra og med 6 til og med 15 år",
-        "label": "6-15"
+        "label": "6_15"
       },
       {
         "title": "personer fra og med 16 til og med 19 år",
-        "label": "16-19"
+        "label": "16_19"
       },
       {
         "title": "personer fra og med 20 til og med 29 år",
-        "label": "20-29"
+        "label": "20_29"
       },
       {
         "title": "personer fra og med 30 til og med 54 år",
-        "label": "30-54"
+        "label": "30_54"
       },
       {
         "title": "personer fra og med 55 til og med 66 år",
-        "label": "55-66"
+        "label": "55_66"
       },
       {
-        "title": "personer fra og med 0 67 år",
+        "title": "personer fra og med 67 år",
         "label": "67+"
       }
     ]

@@ -30,7 +30,7 @@ class Card extends Component {
   }
 
   handleFilterChange(newFilter) {
-    console.log('filter changed', newFilter)
+    //console.log('filter changed', newFilter)
   }
 
   getChartKind() {
@@ -41,15 +41,15 @@ class Card extends Component {
   getFilterState() {
     const {activeTab, card, headerGroup, query} = this.props
 
-    const chartKind = this.getChartKind()
+    //const chartKind = this.getChartKind()
 
-    console.log(activeTab, card, headerGroup, query)
+    //console.log(activeTab, card, headerGroup, query)
   }
 
   render() {
     const {card, activeTab, headerGroup, query} = this.props
 
-    console.log('query', query)
+    //console.log('query', query)
 
     if (!card) {
       return null

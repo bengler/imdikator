@@ -1095,7 +1095,7 @@
   },
   {
     "name": "enhet",
-    "title": "Andel og antall",
+    "title": "Enhet",
     "description": "Enheter for tall",
     "variables": [
       {

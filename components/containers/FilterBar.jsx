@@ -9,7 +9,6 @@ function renderRegion(region) {
   return `${region.name} ${_t(region.type)}`
 }
 
-
 class FilterBar extends Component {
   static propTypes = {
     allRegions: PropTypes.array,
@@ -86,8 +85,11 @@ class FilterBar extends Component {
 
               <div className="select subtle-select__select">
                 <select>
-                  {values.map(value => <option
-                    key={dimension.name + value}>{dimensionLabelTitle(dimension.name, value)}</option>)}
+                  {values.map(value => (
+                    <option key={dimension.name + value}>
+                      {dimensionLabelTitle(dimension.name, value)}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>

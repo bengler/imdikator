@@ -2,8 +2,8 @@ import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
 import {prefixify} from '../lib/regionUtil'
+import {TABS} from '../config/tabs'
 import {RECEIVE_REGION, RECEIVE_CARD_PAGE_DATA, RECEIVE_QUERY_RESULT, RECEIVE_CARD_PAGES, RECEIVE_TABLE_HEADERS} from './actions'
-
 
 export function loadCardPages() {
   return dispatch => {
@@ -20,11 +20,12 @@ export function performQuery(card, tab, userQuery) {
   return (dispatch, getState) => {
     const {headerGroups, region} = getState()
 
-    const newQuery = Object.assign({}, card.query, tab.query, userQuery, {
+    const newQuery = Object.assign({}, userQuery, {
       region: prefixify(region)
     })
 
     const resolvedQuery = resolveQuery(region, newQuery, headerGroups[newQuery.tableName])
+
     apiClient.query(resolvedQuery).then(queryResults => {
       dispatch({
         type: RECEIVE_QUERY_RESULT,
@@ -67,11 +68,13 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
     })
 
     const getActiveTab = getActiveCard.then(card => {
-      return card.tabs.find(tab => tab.name === activeTabName)
+      const tab = TABS.find(t => t.name === activeTabName)
+      const tabOverrides = card.tabs.find(t => t.name === activeTabName)
+      return Object.assign({}, tab, tabOverrides)
     })
 
     const getTabQuery = Promise.all([getActiveCard, getActiveTab]).then(([activeCard, activeTab]) => {
-      return Object.assign({}, activeCard.query, activeTab.query, query, {
+      return Object.assign({}, activeCard.query, {time: activeTab.time}, query, {
         region: regionCode
       })
     })

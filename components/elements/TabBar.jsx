@@ -12,14 +12,14 @@ const ICON_CLASS_NAMES = {
 export default class TabBar extends Component {
   static propTypes = {
     activeTab: PropTypes.object,
-    card: PropTypes.object.isRequired,
+    tabs: PropTypes.array.isRequired,
     makeLinkToTab: PropTypes.func.isRequired
   }
 
   render() {
-    const {card, activeTab, makeLinkToTab} = this.props
+    const {tabs, activeTab, makeLinkToTab} = this.props
 
-    const links = card.tabs.map(tab => {
+    const links = tabs.map(tab => {
 
       const linkClassName = cx({
         'tabs-menu__link': true,

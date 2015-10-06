@@ -9,13 +9,59 @@ import PyramidChart from '../components/charts/pyramid-chart/PyramidChart'
 import TableChart from '../components/charts/table-chart/TableChart'
 
 export const CHARTS = {
-  stackedArea: StackedAreaChart,
-  line: LineChart,
-  bar: BarChart,
-  stackedBar: StackedBarChart,
-  pyramid: PyramidChart,
-  benchmark: BenchmarkChart,
-  bubble: BubbleChart,
-  map: MapChart,
-  table: TableChart,
+  stackedArea: {
+    capabilities: {
+      dimensions: 1
+    },
+    component: StackedAreaChart
+  },
+  line: {
+    capabilities: {
+      dimensions: 1
+    },
+    component: LineChart
+  },
+  bar: {
+    capabilities: {
+      dimensions: 2
+    },
+    component: BarChart
+  },
+  stackedBar: {
+    capabilities: {
+      dimensions: 2
+    },
+    component: StackedBarChart
+  },
+  pyramid: {
+    capabilities: {
+      dimensions: 3
+    },
+    component: PyramidChart
+  },
+  benchmark: {
+    capabilities: {
+      dimensions: 1,
+      variables: 1
+    },
+    component: BenchmarkChart
+  },
+  bubble: {
+    capabilities: {
+      dimensions: 1
+    },
+    component: BubbleChart
+  },
+  map: {
+    capabilities: {
+      dimensions: 1,
+      variables: 1
+    },
+    component: MapChart
+  },
+  table: {
+    capabilities: {
+    },
+    component: TableChart
+  }
 }

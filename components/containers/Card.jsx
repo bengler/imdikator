@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
+import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
 
@@ -29,17 +30,28 @@ class Card extends Component {
   }
 
   handleFilterChange(newFilter) {
-    // todo
+    console.log('filter changed', newFilter)
+  }
+
+  getChartKind() {
+    const {activeTab} = this.props
+    return activeTab.chartKind
+  }
+
+  getFilterState() {
+    const {activeTab, card, headerGroup, query} = this.props
+
+    const chartKind = this.getChartKind()
+
+    console.log(activeTab, card, headerGroup, query)
   }
 
   render() {
-    const {card, activeTab, headerGroup, query} = this.props // eslint-disable-line no-unused-vars
+    const {card, activeTab, headerGroup, query} = this.props
+
+    console.log('query', query)
 
     if (!card) {
-      return null
-    }
-
-    if (!card.tabs) {
       return null
     }
 
@@ -51,12 +63,11 @@ class Card extends Component {
     if (this.props.table) {
       tableDescription = this.props.table.description
     }
-    const ChartComponent = CHARTS[activeTab.chartKind]
+    const ChartComponent = CHARTS[this.getChartKind()].component
     return (
-
       <div className="toggle-list__section toggle-list__section--expanded" aria-hidden="false" style={{display: 'block'}}>
-        <TabBar activeTab={activeTab} card={card} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
-        <FilterBar headerGroup={headerGroup} onChange={this.handleFilterChange.bind(this)}/>
+        <TabBar activeTab={activeTab} tabs={TABS} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
+        <FilterBar headerGroup={headerGroup} filters={this.getFilterState()} onChange={this.handleFilterChange.bind(this)}/>
         <ChartComponent data={this.props.data}/>
         <small>{tableDescription}</small>
       </div>

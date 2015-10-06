@@ -76,15 +76,39 @@ describe('nestedQueryResultLabelizer', () => {
     assert.equal(labelized[0].values[0].values[0].title, 'Kvinne')
   })
 
+  it('knows about cities', () => {
+    const nested = queryResultNester([{kommuneNr: '1505'}], ['kommuneNr'])
+    const labelized = nestedQueryResultLabelizer(nested, ['kommuneNr'])
+    assert.equal(labelized[0].title, 'Kristiansund')
+  })
+
   it('knows about state names', () => {
+    const nested = queryResultNester([{fylkeNr: '03'}], ['fylkeNr'])
+    const labelized = nestedQueryResultLabelizer(nested, ['fylkeNr'])
+    assert.equal(labelized[0].title, 'Oslo')
+  })
+
+  it('knows about boroughs', () => {
     const nested = queryResultNester([
-      {tilskuddTilKommuner: 'barnehage_tilsk', fylkeNr: '03'}
-    ], ['fylkeNr', 'tilskuddTilKommuner'])
+      {bydelNr: '030102'}
+    ], ['bydelNr'])
 
     const labelized = nestedQueryResultLabelizer(
       nested
-    , ['fylkeNr', 'tilskuddTilKommuner'])
+    , ['bydelNr'])
 
-    assert.equal(labelized[0].title, 'Oslo')
+    assert.equal(labelized[0].title, 'Grünerløkka')
+  })
+
+  it('it labels business areas', () => {
+    const nested = queryResultNester([
+      {naringsregionNr: '03'}
+    ], ['naringsregionNr'])
+
+    const labelized = nestedQueryResultLabelizer(
+      nested
+    , ['naringsregionNr'])
+
+    assert.equal(labelized[0].title, 'Mosseregionen')
   })
 })

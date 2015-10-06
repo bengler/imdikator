@@ -90,8 +90,6 @@ export default class BarChart extends React.Component {
       item.el = this
     })
 
-    window.rune = yc.scale
-
     category.selectAll('rect.hover')
     .data(d => d.values)
     .enter().append('rect')

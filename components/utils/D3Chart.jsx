@@ -18,13 +18,18 @@ export default class D3Chart extends React.Component {
   componentDidMount() {
 
     this.eventEmitter = new EventEmitter()
-    this.eventEmitter.on('datapoint:hover', state => {
+    this.eventEmitter.on('datapoint:hover-in', state => {
       const el = findDOMNode(this)
       this.refs.focus.setState({
         title: state.title,
         body: state.body,
         el: state.el,
         containerRect: el.getBoundingClientRect()
+      })
+    })
+    this.eventEmitter.on('datapoint:hover-out', () => {
+      this.refs.focus.setState({
+        el: null
       })
     })
 

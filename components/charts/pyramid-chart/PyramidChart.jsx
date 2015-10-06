@@ -159,14 +159,14 @@ export default class PyramidChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: format(item.values[0].value),
         el: item.el
       })
     })
     .on('mouseout', () => {
-      //popover.hide()
+      this.eventDispatcher.emit('datapoint:hover-out')
     })
 
     // Right side
@@ -201,14 +201,14 @@ export default class PyramidChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: format(item.values[0].value),
         el: item.el
       })
     })
     .on('mouseout', () => {
-      //popover.hide()
+      this.eventDispatcher.emit('datapoint:hover-out')
     })
 
     // Legend

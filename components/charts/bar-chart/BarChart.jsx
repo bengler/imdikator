@@ -99,13 +99,14 @@ export default class BarChart extends React.Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: yc.format(item.values[0].value),
         el: item.el
       })
     })
     .on('mouseout', () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
     })
 
     const leg = this.legend()

@@ -92,13 +92,14 @@ export default class StackedBarChart extends Component {
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: yAxisLabelFormat(item.y),
         el: item.el
       })
     })
     .on('mouseout', () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
     })
 
 

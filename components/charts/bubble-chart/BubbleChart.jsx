@@ -44,13 +44,14 @@ export default class BubbleChart extends React.Component {
       dataItem.el = this
     })
     .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: item.values[0].value,
         el: item.el
       })
     })
     .on('mouseout', () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
     })
 
     node.append('text')

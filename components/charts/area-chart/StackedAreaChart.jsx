@@ -94,9 +94,11 @@ export default class StackedAreaChart extends React.Component {
     .attr('width', () => 15)
     .attr('height', () => 15)
 
+    /*
     leg.dispatch.on('legendClick', (item, index) => {})
     leg.dispatch.on('legendMouseout', (item, index) => {})
     leg.dispatch.on('legendMouseover', (item, index) => {})
+    */
 
     // Add some space between the x axis labels and the legends
     const legendBottom = this.size.height + 30
@@ -154,13 +156,15 @@ export default class StackedAreaChart extends React.Component {
       const yPos = y(item.y + item.y0)
       focus.attr('transform', this.translation(xPos, yPos))
 
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.key,
         body: yc.format(item.y),
         el: focus.node()
       })
     })
     .on('mouseout', () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+      focus.attr('transform', this.translation(-100, -100))
     })
 
     // Add the X axis

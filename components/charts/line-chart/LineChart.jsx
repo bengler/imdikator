@@ -133,7 +133,7 @@ export default class LineChart extends React.Component {
     .on('mouseover', item => {
       focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.value) + ')')
       focus.select('text').text(item.value)
-      this.eventDispatcher.emit('datapoint:hover', {
+      this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: yc.format(item.value),
         el: focus.node()
@@ -141,6 +141,7 @@ export default class LineChart extends React.Component {
     })
     .on('mouseout', item => {
       focus.attr('transform', 'translate(-100,-100)')
+      this.eventDispatcher.emit('datapoint:hover-out')
     })
 
     svg.append('g')

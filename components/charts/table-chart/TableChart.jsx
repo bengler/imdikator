@@ -27,7 +27,7 @@ export default class TableChart extends React.Component {
 
     // Generate TSV (for downloading, and we use this to draw the table)
     let tsv = ''
-    const separator = ','
+    const separator = ';'
 
     let parsedData = []
     if (data.dimensions.length > 0) {
@@ -68,14 +68,7 @@ export default class TableChart extends React.Component {
       })
     }
 
-    let parser = null
-    switch (separator) {
-      case '\t':
-        parser = d3.tsv
-        break
-      default:
-        parser = d3.csv
-    }
+    const parser = d3.dsv(separator, 'text/plain')
     parsedData = parser.parseRows(tsv)
 
     const rows = tableBody.selectAll('tr')

@@ -35,6 +35,7 @@ export default class LineChart extends React.Component {
     preparedData.forEach(item => {
       item.values.forEach(value => {
         value.date = parseDate(value.key)
+        value.series = item.title
         dates.push(value.date)
         value.value = parseFloat(value.values[0].tabellvariabel)
         if (isPercent) {
@@ -74,6 +75,24 @@ export default class LineChart extends React.Component {
     })
     .attr('fill', 'none')
     .attr('stroke', dataItem => seriesColor(dataItem.title))
+    .attr('stroke-width', 1)
+
+    const sc = this.svg.selectAll('g.line-dot')
+    .data(preparedData)
+    .enter()
+    .append('g')
+    .attr('class', 'line-dot')
+
+    sc.selectAll('circle')
+    .data(dataItem => dataItem.values)
+    .enter()
+    .append('circle')
+    .attr('cx', dataItem => x(dataItem.date))
+    .attr('cy', dataItem => y(dataItem.value))
+    .attr('r', 2)
+    .style('fill', dataItem => {
+      return seriesColor(dataItem.series)
+    })
 
     const leg = this.legend()
     .color(seriesColor)
@@ -134,7 +153,7 @@ export default class LineChart extends React.Component {
       focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.value) + ')')
       focus.select('text').text(item.value)
       this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
+        title: item.series,
         body: yc.format(item.value),
         el: focus.node()
       })

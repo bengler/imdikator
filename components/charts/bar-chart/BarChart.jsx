@@ -52,16 +52,12 @@ export default class BarChart extends React.Component {
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     yAxis.tickFormat(yc.format)
 
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
     const category = svg.selectAll('.category')
     .data(preparedData)
     .enter()
     .append('g')
     .attr('class', 'category')
-    .attr('transform', d => 'translate(' + x0(d.title) + ',0)')
+    .attr('transform', d => 'translate(' + x0(d.title) + ',' + 0 + ')')
 
     category.selectAll('rect.bar')
     .data(d => d.values)
@@ -74,19 +70,21 @@ export default class BarChart extends React.Component {
       if (isNaN(val)) {
         return 0
       }
-      return yc.scale(val)
+      return yc.scale(Math.max(0, val))
     })
     .attr('height', d => {
       const val = d.values[0].value
       if (isNaN(val)) {
         return 0
       }
-      return this.size.height - yc.scale(val)
+      return Math.abs(yc.scale(0) - yc.scale(val))
     })
     .style('fill', dataItem => seriesColor(dataItem.title))
     .each(function (item) {
       item.el = this
     })
+
+    window.rune = yc.scale
 
     category.selectAll('rect.hover')
     .data(d => d.values)
@@ -129,14 +127,29 @@ export default class BarChart extends React.Component {
     .datum(series)
     .call(leg)
 
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+
     // Add the x axis legend
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
-    svg.append('g')
+    const xAxisEl = svg.append('g')
     .attr('class', 'axis')
     .attr('transform', 'translate(0, ' + this.size.height + ')')
     .call(xAxis)
+
+    xAxisEl.select('path').remove()
+
+    xAxisEl
     .selectAll('.tick text')
     .call(this.wrapTextNode, x0.rangeBand())
+
+
+    // Add zero-line
+    svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', 'translate(0,' + yc.scale(0) + ')')
+    .call(xAxis.tickFormat('').tickSize(0))
 
   }
 

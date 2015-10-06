@@ -65,6 +65,7 @@ class RegionPage extends Component {
               return (
                 <div key={key} className="chart col--half col--flow">
                   <h3>{chartQuery.title}</h3>
+                  <p className="indicator__secondary">{chartQuery.subTitle}</p>
                   <RegionChart region={region} query={chartQuery.query} />
                 </div>
               )

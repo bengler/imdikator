@@ -5802,7 +5802,7 @@
     },
     "eslint": {
       "version": "1.6.0",
-      "from": "eslint@>=1.5.1 <2.0.0",
+      "from": "eslint@latest",
       "resolved": "https://registry.npmjs.org/eslint/-/eslint-1.6.0.tgz",
       "dependencies": {
         "chalk": {
@@ -5874,7 +5874,7 @@
                 "isarray": {
                   "version": "0.0.1",
                   "from": "isarray@0.0.1",
-                  "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz"
+                  "resolved": "http://lazy.npm.api.no:80/isarray/-/isarray-0.0.1.tgz"
                 },
                 "process-nextick-args": {
                   "version": "1.0.3",
@@ -5908,7 +5908,7 @@
             "isarray": {
               "version": "0.0.1",
               "from": "isarray@0.0.1",
-              "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz"
+              "resolved": "http://lazy.npm.api.no:80/isarray/-/isarray-0.0.1.tgz"
             }
           }
         },
@@ -5934,7 +5934,7 @@
                 },
                 "es5-ext": {
                   "version": "0.10.8",
-                  "from": "es5-ext@>=0.10.4 <0.11.0",
+                  "from": "es5-ext@>=0.10.6 <0.11.0",
                   "resolved": "https://registry.npmjs.org/es5-ext/-/es5-ext-0.10.8.tgz",
                   "dependencies": {
                     "es6-iterator": {
@@ -5951,7 +5951,7 @@
                 },
                 "es6-iterator": {
                   "version": "0.1.3",
-                  "from": "es6-iterator@>=0.1.1 <0.2.0",
+                  "from": "es6-iterator@>=0.1.3 <0.2.0",
                   "resolved": "https://registry.npmjs.org/es6-iterator/-/es6-iterator-0.1.3.tgz",
                   "dependencies": {
                     "es6-symbol": {
@@ -6174,7 +6174,7 @@
         },
         "glob": {
           "version": "5.0.15",
-          "from": "glob@>=5.0.5 <6.0.0",
+          "from": "glob@>=5.0.14 <6.0.0",
           "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.15.tgz",
           "dependencies": {
             "inflight": {
@@ -6338,7 +6338,7 @@
             "jsonpointer": {
               "version": "2.0.0",
               "from": "jsonpointer@2.0.0",
-              "resolved": "https://registry.npmjs.org/jsonpointer/-/jsonpointer-2.0.0.tgz"
+              "resolved": "http://lazy.npm.api.no:80/jsonpointer/-/jsonpointer-2.0.0.tgz"
             },
             "xtend": {
               "version": "4.0.0",
@@ -6579,7 +6579,7 @@
                 "concat-map": {
                   "version": "0.0.1",
                   "from": "concat-map@0.0.1",
-                  "resolved": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
+                  "resolved": "http://lazy.npm.api.no:80/concat-map/-/concat-map-0.0.1.tgz"
                 }
               }
             }
@@ -6593,7 +6593,7 @@
             "minimist": {
               "version": "0.0.8",
               "from": "minimist@0.0.8",
-              "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz"
+              "resolved": "http://lazy.npm.api.no:80/minimist/-/minimist-0.0.8.tgz"
             }
           }
         },

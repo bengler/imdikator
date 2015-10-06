@@ -42,7 +42,7 @@ export default class TableChart extends React.Component {
           tsv += separator
         }
         xx[0].values[0].values.forEach(row => {
-          tsv += dimension + '.' + row[dimension] + separator
+          tsv += dimensionLabelTitle(dimension, row[dimension]) + separator
         })
         tsv += '\n'
       })

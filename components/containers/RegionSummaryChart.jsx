@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {PropTypes, Component} from 'react'
 import {connect} from 'react-redux'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
@@ -44,4 +44,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(RegionChartTest)
+export default connect(mapStateToProps)(RegionSummaryChart)

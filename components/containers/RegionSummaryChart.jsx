@@ -4,7 +4,7 @@ import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 
 
-class RegionChartTest extends Component {
+class RegionSummaryChart extends Component {
 
   static propTypes = {
     query: PropTypes.object,
@@ -24,14 +24,14 @@ class RegionChartTest extends Component {
     const data = this.props.data[tableName]
     if (!data) {
       return (
-        <div className="col--main">
+        <div className="indicator__graph">
           <span>Ingen data å finne...</span>
         </div>
       )
     }
     return (
-      <div className="col--main">
-        <BenchmarkChart data={data}/>
+      <div className="indicator__graph">
+        <BenchmarkChart data={data} className="summaryChart"/>
       </div>
     )
   }

@@ -35,23 +35,43 @@ export default class BarChart extends React.Component {
       xScales[cat.key] = x
     })
 
+    // Y config
+    const extent = d3.extent(data.rows, item => item.value)
+    const yc = this.configureYscale(extent, data.unit)
+
+    // A range of 20 colors
+    let seriesColor = this.colors.domain([])
+
     // Get the unique categories from the data
     const series = []
     preparedData.forEach(item => {
       item.values.forEach(val => {
-        val.scale = xScales[item.key]
+        // Expand the color domain if this is a new series
         if (series.indexOf(val.title) == -1) {
           series.push(val.title)
         }
+        seriesColor = this.colors.domain(series)
+
+        // Category specific X scale
+        val.scale = xScales[item.key]
+
+        // Different handling of anonymized data
+        if (val.values[0].anonymized) {
+          val.value = 4
+          val.fill = 'none'
+          val.stroke = seriesColor(val.title)
+          val.strokeWidth = 2
+          // The nester has put '1-4' as the value
+          val.formattedValue = val.values[0].value
+        } else {
+          val.value = val.values[0].value
+          val.fill = seriesColor(val.title)
+          val.stroke = 'none'
+          val.strokeWidth = 0
+          val.formattedValue = yc.format(val.values[0].value)
+        }
       })
     })
-
-    // A range of 20 colors
-    const seriesColor = this.colors.domain(series)
-
-    // Y config
-    const extent = d3.extent(data.rows, item => item.value)
-    const yc = this.configureYscale(extent, data.unit)
 
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     yAxis.tickFormat(yc.format)
@@ -67,25 +87,13 @@ export default class BarChart extends React.Component {
     .data(d => d.values)
     .enter().append('rect')
     .attr('class', 'bar')
-    .attr('width', item => {
-      return item.scale.rangeBand()
-    })
+    .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
-    .attr('y', d => {
-      const val = d.values[0].value
-      if (isNaN(val)) {
-        return 0
-      }
-      return yc.scale(Math.max(0, val))
-    })
-    .attr('height', d => {
-      const val = d.values[0].value
-      if (isNaN(val)) {
-        return 0
-      }
-      return Math.abs(yc.scale(0) - yc.scale(val))
-    })
-    .style('fill', dataItem => seriesColor(dataItem.title))
+    .attr('y', d => yc.scale(Math.max(0, d.value)))
+    .attr('height', d => Math.abs(yc.scale(0) - yc.scale(d.value)))
+    .style('fill', dataItem => dataItem.fill)
+    .style('stroke', dataItem => dataItem.stroke)
+    .style('stroke-width', dataItem => dataItem.strokeWidth)
     .each(function (item) {
       item.el = this
     })
@@ -104,7 +112,7 @@ export default class BarChart extends React.Component {
     .on('mouseover', item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
-        body: yc.format(item.values[0].value),
+        body: item.formattedValue,
         el: item.el
       })
     })
@@ -112,8 +120,7 @@ export default class BarChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
-    const leg = this.legend()
-    .color(seriesColor)
+    const leg = this.legend().color(seriesColor)
 
     /*
     leg.dispatch.on('legendClick', (item, index) => {})
@@ -142,19 +149,19 @@ export default class BarChart extends React.Component {
     .attr('transform', 'translate(0, ' + this.size.height + ')')
     .call(xAxis)
 
+    // Remove default X axis line (in case we translated up to make room
+    // for negative values)
     xAxisEl.select('path').remove()
 
     xAxisEl
     .selectAll('.tick text')
     .call(this.wrapTextNode, x0.rangeBand())
 
-
-    // Add zero-line
+    // Add a new zero-line, possibly translated up
     svg.append('g')
     .attr('class', 'axis')
     .attr('transform', 'translate(0,' + yc.scale(0) + ')')
     .call(xAxis.tickFormat('').tickSize(0))
-
   }
 
   render() {

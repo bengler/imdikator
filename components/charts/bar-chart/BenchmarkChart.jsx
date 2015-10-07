@@ -6,7 +6,8 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class BenchmarkChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    className: React.PropTypes.string
   }
 
   drawPoints(el, data) {
@@ -100,7 +101,7 @@ export default class BenchmarkChart extends React.Component {
   render() {
     const margins = {left: 0, top: 0, right: 0, bottom: 0}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
     )
   }
 }

@@ -50,6 +50,7 @@ export default class StackedAreaChart extends React.Component {
     preparedData.forEach(series => {
       series.total = 0
       series.values.forEach(val => {
+        val.series = series.title
         val.y = val.values[0].value
         series.total += val.y
       })
@@ -158,7 +159,7 @@ export default class StackedAreaChart extends React.Component {
       focus.attr('transform', this.translation(xPos, yPos))
 
       this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.key,
+        title: item.series,
         body: yc.format(item.y),
         el: focus.node()
       })

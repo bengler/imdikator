@@ -22,12 +22,26 @@ export default class BubbleChart extends React.Component {
     .sort(null)
     .size(diameter)
     .padding(2)
-    .value(item => parseFloat(item.values[0].tabellvariabel))
 
     const dimensionLabels = data.dimensions
 
     const filteredData = queryResultFilter(data.rows, 'bubble')
     const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensionLabels), dimensionLabels)
+
+    // Prepare needed data
+    preparedData.forEach(row => {
+      if (row.values[0].anonymized) {
+        row.value = 4
+        row.fill = 'white'
+        row.strokeWidth = '1'
+        row.stroke = color(row.key)
+      } else {
+        row.value = row.values[0].value
+        row.fill = color(row.key)
+        row.strokeWidth = '0'
+        row.stroke = 'none'
+      }
+    })
 
     const nodes = bubble.nodes({children: preparedData}).filter(item => !item.children)
 
@@ -39,7 +53,9 @@ export default class BubbleChart extends React.Component {
 
     node.append('circle')
     .attr('r', item => item.r)
-    .style('fill', item => color(item.key))
+    .style('fill', item => item.fill)
+    .style('stroke', item => item.stroke)
+    .style('stroke-width', item => item.strokeWidth)
     .each(function (dataItem) {
       dataItem.el = this
     })

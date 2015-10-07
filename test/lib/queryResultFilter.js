@@ -22,26 +22,6 @@ describe('queryResultFilter', () => {
       assert.deepEqual(filtered, [{tabellvariabel: '1000'}])
     })
 
-    it('removes : data', () => {
-      const result = [
-        {tabellvariabel: '1000'},
-        {tabellvariabel: ':'},
-      ]
-
-      const filtered = queryResultFilter(result, chartKind)
-      assert.deepEqual(filtered, [{tabellvariabel: '1000'}])
-    })
-
-    it('removes . data', () => {
-      const result = [
-        {tabellvariabel: '1000'},
-        {tabellvariabel: '.'},
-      ]
-
-      const filtered = queryResultFilter(result, chartKind)
-      assert.deepEqual(filtered, [{tabellvariabel: '1000'}])
-    })
-
     it('removes zero data', () => {
       const result = [
         {tabellvariabel: '1000'},

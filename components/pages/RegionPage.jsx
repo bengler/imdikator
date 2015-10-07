@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {prefixify, split, typeForPrefix, regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
+
 import CardPageButtons from '../containers/CardPageButtons'
-import RegionChart from '../containers/RegionChart'
+import RegionSummaryChart from '../containers/RegionSummaryChart'
 import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import RegionSearch from '../containers/RegionSearch'
@@ -48,52 +49,84 @@ class RegionPage extends Component {
     }
 
     return (
-      <div className="col--main">
-
-        <header>
-					<h1>{region.name} {_t(region.type)}</h1>
-					<p className="ingress">Tall og statistikk over integreringen i {_t(`the-${region.type}`)}</p>
-          <CardPageButtons />
-				</header>
-
-        <div className="page__section page__section--grey">
-
-          <section className="feature">
-            <h2 className="feature__title">Oppsummering</h2>
-            {chartQueries.map(chartQuery => {
-              const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
-              return (
-                <div key={key} className="chart col--half col--flow">
-                  <h3>{chartQuery.title}</h3>
-                  <p className="indicator__secondary">{chartQuery.subTitle}</p>
-                  <RegionChart region={region} query={chartQuery.query} />
-                </div>
-              )
-            })}
-          </section>
-
-          <section className="feature">
-            <h2 className="feature__title">Faktaark</h2>
-            <p>Et dokument hvor et utdrag av alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.</p>
-            <p><a href="#" className="button button-"><i className="icon__download icon--white"></i> Last ned faktaark (PDF)</a></p>
-          </section>
-
+      <main className="page">
+        <div className="page__content page__content--section">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main-wide">
+                <header>
+                  <h1>{region.name} {_t(region.type)}</h1>
+                  <p className="ingress">Tall og statistikk over integreringen i {_t(`the-${region.type}`)}</p>
+                  <CardPageButtons />
+                </header>
+              </div>
+            </div>
+          </div>
         </div>
 
-				<section className="feature feature--white">
-					<h2 className="feature__title">{region.name}</h2>
-          <RegionInfo region={region} allRegions={allRegions} />
-          <div>
-            <span>Finn område: </span>
-            <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
-          </div>
-				</section>
+        <section className="page__section page__section--grey">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main">
+                <h2 className="page__section-title">Oppsummering</h2>
+                <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
+                  <div className="row">
+                    {chartQueries.map(chartQuery => {
+                      const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
+                      return (
+                        <div key={key} className="col--third col--flow">
+                          <section className="indicator">
+                            <h3 className="indicator__primary">{chartQuery.title}</h3>
+                            <p className="indicator__secondary">{chartQuery.subTitle}</p>
+                            <RegionSummaryChart region={region} query={chartQuery.query} />
+                          </section>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
 
-        <section className="feature feature--white">
-          <RegionChildList region={region} allRegions={allRegions}/>
+                <section className="feature">
+                  <h2 className="feature__title">Faktaark</h2>
+                  <p>Et dokument hvor et utdrag av alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.</p>
+                  <p><a href="#" className="button button-"><i className="icon__download icon--white"></i> Last ned faktaark (PDF)</a></p>
+                </section>
+
+              </div>
+            </div>
+          </div>
         </section>
 
-      </div>
+        <div className="page__footer">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main">
+                <section className="feature feature--white">
+                  <h2 className="feature__title">{region.name}</h2>
+                  <RegionInfo region={region} allRegions={allRegions} />
+                  <div>
+                    <span>Finn område: </span>
+                    <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="page__footer">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main">
+                <section className="feature feature--white">
+                  <RegionChildList region={region} allRegions={allRegions}/>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
     )
   }
 }

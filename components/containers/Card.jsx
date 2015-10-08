@@ -151,7 +151,7 @@ class Card extends Component {
             },
             {
               title: 'Vis',
-              value: JSON.stringify(valuesWithoutAggregate)
+              value: valuesWithoutAggregate
             }
           ]
         } else {

@@ -98,7 +98,7 @@ class FilterBar extends Component {
               <select
                 multiple={multiple}
                 value={filter.value}
-                disabled={!filter.enabled}
+                disabled={!filter.enabled || filter.options.length == 1}
                 onChange={onChange}>
                 {filter.options.map(option => (
                   <option value={option.value} key={option.name + option.value}>{option.title}</option>

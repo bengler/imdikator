@@ -118,26 +118,63 @@ class Card extends Component {
       })
     }
 
+    // Note: For robustness decorate card.query.dimensions with headergroups
+
     let availDimensions = capabilities.dimensions
     const otherDimensions = card.query.dimensions
       .map((dimension, i) => {
         const configuredDimension = findDimensionByName(dimension.name)
         const values = headerGroup[dimension.name]
+        const valuesWithoutAggregate = values.filter(val => val != 'alle')
+        const valuesContainsAggregate = values.some(val => val == 'alle')
 
-        const includesAll = values.some(val => val == 'alle')
 
-        const canExpand = ''
-        if (availDimensions--) {
-          // ok ok
+        // If we have avilable dimensions. Lock first dimension as to not confuse users.
+        const enabled = availDimensions > 0 && i > 0
+
+        let canExpandDimensionVariables = false
+
+        // Can dimension expand, or does the user need to choose amongst the variables
+        if (availDimensions > 0) {
+          canExpandDimensionVariables = true
         }
-        return {
-          enabled: i > 0,
-          visible: dimension.visible,
-          value: dimension.name,
-          title: configuredDimension.title,
-          options: values.map(value => {
-            return {name: value, title: dimensionLabelTitle(dimension.name, value)}
+
+        // If headergroup for dimension does not contain 'alle' ->
+
+        let options
+
+        if (canExpandDimensionVariables) {
+          options = [
+            {
+              title: 'Skjult',
+              value: 'alle'
+            },
+            {
+              title: 'Vis',
+              value: JSON.stringify(valuesWithoutAggregate)
+            }
+          ]
+        } else {
+          // everything in the header group
+          options = values.map(value => {
+            return {value: value, title: dimensionLabelTitle(dimension.name, value)}
           })
+        }
+
+        /*
+         if (enabled && !canExpandDimensionVariables) {
+         // is enabled && canExpandDimensionVariables-> display as constrained with yellow border and stuff
+         }
+         */
+
+        availDimensions--
+
+        return {
+          enabled,
+          visible: dimension.visible,
+          name: dimension.name,
+          title: configuredDimension.title,
+          options
         }
       })
 
@@ -167,13 +204,13 @@ class Card extends Component {
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
-      >
+        >
         <TabBar activeTab={activeTab} tabs={TABS} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
         <FilterBar
           headerGroup={headerGroup}
           filters={this.getFilterState()}
           onChange={this.handleFilterChange.bind(this)}
-        />
+          />
         <ChartComponent data={this.props.data}/>
         <small>{tableDescription}</small>
       </div>
@@ -193,9 +230,11 @@ function select(state, ownProps) {
   const headerGroups = state.headerGroups[query.tableName]
   const table = state.tables[query.tableName]
 
-  const headerKey = getHeaderKey(state.region)
+  const regionHeaderKey = getHeaderKey(state.region)
 
-  const headerGroup = headerGroups && headerGroups.find(group => headerKey in group)
+  const headerGroup = headerGroups && headerGroups.find(group => {
+    return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
+  })
   return {
     headerGroup,
     data,

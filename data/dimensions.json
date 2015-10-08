@@ -185,7 +185,7 @@
     ]
   },
   {
-    "name": "vreg_9",
+    "name": "vreg9",
     "title": "Verdensregion",
     "description": "Åttedelt verdensregion",
     "variables": [
@@ -539,7 +539,7 @@
     ]
   },
   {
-    "name": "utd_4",
+    "name": "utd4",
     "title": "Utdanningsnivå",
     "description": "Utdanningsnivå firedelt",
     "variables": [
@@ -566,7 +566,7 @@
     ]
   },
   {
-    "name": "utd_6",
+    "name": "utd6",
     "title": "Utanningsnivå",
     "description": "Seksdelt utdanningsnivå",
     "variables": [
@@ -878,7 +878,7 @@
     ]
   },
   {
-    "name": "arbeidsalder18-69",
+    "name": "arbeidsalder1869",
     "title": "Aldersinndeling",
     "description": "Arbeidsfør alder firedelt",
     "variables": [

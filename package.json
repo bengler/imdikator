@@ -59,6 +59,7 @@
     "qs": "^5.1.0",
     "react": "^0.14.0-rc1",
     "react-a11y": "^0.2.6",
+    "react-addons-update": "^0.14.0-rc1",
     "react-docgen": "^2.1.2",
     "react-dom": "^0.14.0-rc1",
     "react-redux": "^3.0.1",

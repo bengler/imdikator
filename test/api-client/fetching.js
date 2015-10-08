@@ -39,8 +39,9 @@ describe('Fetching tables using API client', () => {
     const query = {
       tableName: 'introdeltakere',
       region: 'F16',
+      year: '2015',
+      unit: 'prosent',
       dimensions: [
-        {name: 'aar', variables: ['2015']},
         {name: 'kjonn', variables: ['0', '1', 'alle']}
       ]
     }
@@ -52,9 +53,10 @@ describe('Fetching tables using API client', () => {
           Conditions: {
             aar: ['2015'],
             kjonn: ['0', '1', 'alle'],
-            fylkeNr: ['16']
+            fylkeNr: ['16'],
+            enhet: ['prosent']
           },
-          Include: ['enhet', 'aar', 'kjonn', 'fylkeNr']
+          Include: ['kjonn', 'fylkeNr', 'enhet', 'aar']
         })
       })
   })

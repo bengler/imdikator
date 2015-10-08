@@ -74,7 +74,7 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
     })
 
     const getTabQuery = Promise.all([getActiveCard, getActiveTab]).then(([activeCard, activeTab]) => {
-      return Object.assign({}, activeCard.query, {time: activeTab.time}, query, {
+      return Object.assign({}, activeCard.query, {year: activeTab.year}, query, {
         region: regionCode
       })
     })

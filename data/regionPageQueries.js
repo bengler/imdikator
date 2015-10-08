@@ -1,3 +1,4 @@
+
 export default [
   {
     name: 'befolkning_hovedgruppe',
@@ -21,8 +22,12 @@ export default [
       tableName: 'befolkning_hovedgruppe',
       unit: 'personer'
     },
-    title: 'Innvandrere utgjør 17,6% av befolkning',
-    subTitle: 'For hele landet er tallet 12,4%'
+    title: share => {
+      return `Innvandrere utgjør ${share} av befolkning`
+    },
+    subTitle: share => {
+      return `For hele landet er tallet ${share}`
+    }
   },
   {
     name: 'flytting',
@@ -49,8 +54,12 @@ export default [
       tableName: 'befolkning_flytting',
       unit: 'personer'
     },
-    title: 'Flyktninger utgjør 0,062 % av befolkningen',
-    subTitle: 'For hele landet er tallet 0,083%'
+    title: share => {
+      return `Flyktninger utgjør ${share} av befolkningen`
+    },
+    subTitle: share => {
+      return `For hele landet er tallet ${share}`
+    }
   },
   {
     name: 'norskopplaering-resultater',
@@ -66,7 +75,11 @@ export default [
       tableName: 'norsk_prover',
       unit: 'prosent'
     },
-    title: '64,5% av innvandrere er i arbeid',
-    subTitle: 'For hele landet er tallet 63,1%'
+    title: share => {
+      return `${share} av innvandrere er i arbeid`
+    },
+    subTitle: share => {
+      return `For hele landet er tallet ${share}`
+    }
   }
 ]

@@ -1,16 +1,14 @@
-
 export default [
   {
     name: 'befolkning_hovedgruppe',
     query: {
+      year: 'latest',
+      tableName: 'befolkning_hovedgruppe',
+      unit: 'prosent',
       dimensions: [
         {
           name: 'innvkat5',
-          variables: [
-            'innvandrere',
-            'bef_u_innv_og_norskf',
-            'norskfodte_m_innvf'
-          ]
+          variables: ['innvandrere']
         },
         {
           name: 'kjonn',
@@ -18,68 +16,33 @@ export default [
             'alle'
           ]
         }
-      ],
-      tableName: 'befolkning_hovedgruppe',
-      unit: 'personer'
+      ]
     },
     title: share => {
-      return `Innvandrere utgjør ${share} av befolkning`
+      return `Innvandrere utgjør ${share}% av befolkning`
     },
     subTitle: share => {
-      return `For hele landet er tallet ${share}`
+      return `For hele landet er tallet ${share}%`
     }
   },
   {
-    name: 'flytting',
+    name: 'flyktninger_befolkningsandel',
     query: {
+      year: 'latest',
+      tableName: 'bosatt_befolkning',
+      unit: 'promille',
       dimensions: [
         {
-          name: 'vreg3',
-          variables: [
-            'alle'
-          ],
-          visible: false
-        },
-        {
-          name: 'flytting'
-        },
-        {
-          name: 'innvkat3',
-          variables: [
-            'innvandrere',
-            'befolkningen_ellers'
-          ]
+          name: 'bosetting',
+          variables: ['bosatt_per_1000']
         }
-      ],
-      tableName: 'befolkning_flytting',
-      unit: 'personer'
+      ]
     },
     title: share => {
-      return `Flyktninger utgjør ${share} av befolkningen`
+      return `Flyktninger utgjør ${share}‰ av befolkningen`
     },
     subTitle: share => {
-      return `For hele landet er tallet ${share}`
-    }
-  },
-  {
-    name: 'norskopplaering-resultater',
-    query: {
-      dimensions: [
-        {
-          name: 'provetype'
-        },
-        {
-          name: 'spraaknivaa'
-        }
-      ],
-      tableName: 'norsk_prover',
-      unit: 'prosent'
+      return `For hele landet er tallet ${share}‰`
     },
-    title: share => {
-      return `${share} av innvandrere er i arbeid`
-    },
-    subTitle: share => {
-      return `For hele landet er tallet ${share}`
-    }
   }
 ]

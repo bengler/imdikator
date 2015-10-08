@@ -1,7 +1,8 @@
-import React, {PropTypes, Component} from 'react'
+import React, {PropTypes, Component, addons} from 'react/addons'
 import {connect} from 'react-redux'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
+import {prefixify, getHeaderKey} from '../../lib/regionUtil'
 
 
 class RegionSummaryChart extends Component {
@@ -15,14 +16,16 @@ class RegionSummaryChart extends Component {
 
 
   componentWillMount() {
-    this.props.dispatch(loadChartData(this.props.region, this.props.chartQuery.query, 'benchmark'))
+    const region = this.props.region
+    const query = Object.assign({}, this.props.chartQuery.query, {region: prefixify(region)})
+    this.props.dispatch(loadChartData(region, query, 'benchmark'))
   }
 
 
   render() {
     const tableName = this.props.chartQuery.query.tableName
     const data = this.props.data[tableName]
-    const chartQuery = this.props.chartQuery
+
     if (!data) {
       return (
         <div className="indicator__graph">
@@ -30,13 +33,23 @@ class RegionSummaryChart extends Component {
         </div>
       )
     }
+    const region = this.props.region
+    const chartQuery = this.props.chartQuery
+    const title = chartQuery.title(Number(data.rows[0].tabellvariabel).toFixed(1))
+    const subTitle = chartQuery.subTitle('todo')
+
+    // overwrite dimensions because BenchmarkChart can only handle one dimension
+    const modifiedData = addons.update(data, {
+      dimensions: {$set: [getHeaderKey(region)]}
+    })
+
     return (
       <div className="col--third col--flow">
         <section className="indicator">
-          <h3 className="indicator__primary">{chartQuery.title('12%')}</h3>
-          <p className="indicator__secondary">{chartQuery.subTitle('5%')}</p>
+          <h3 className="indicator__primary">{title}</h3>
+          <p className="indicator__secondary">{subTitle}</p>
           <div className="indicator__graph">
-            <BenchmarkChart data={data} className="summaryChart"/>
+            <BenchmarkChart data={modifiedData} className="summaryChart"/>
           </div>
         </section>
       </div>

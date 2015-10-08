@@ -39,7 +39,7 @@ export default [
         enhet: ['personer'],
         kommuneNr: ['0101']
       },
-      include: ['enhet', 'innvkat5', 'kjonn', 'aar', 'kommuneNr']
+      include: ['innvkat5', 'kjonn', 'aar', 'kommuneNr', 'enhet']
     }
   }
 ]

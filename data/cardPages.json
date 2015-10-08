@@ -134,7 +134,7 @@
             "name": "latest",
             "chartKind": "bubble",
             "query": {
-              "time": "latest"
+              "year": "latest"
             }
           }
         ]

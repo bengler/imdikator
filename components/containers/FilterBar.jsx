@@ -13,6 +13,8 @@ class FilterBar extends Component {
   static propTypes = {
     allRegions: PropTypes.array,
     card: PropTypes.object,
+    filters: PropTypes.array,
+    onChange: PropTypes.func,
     cardState: PropTypes.object,
     headerGroup: PropTypes.object
   }
@@ -70,32 +72,43 @@ class FilterBar extends Component {
     )
   }
 
+  handleFilterChange(filter, newValue) {
+    console.log(filter.name, newValue)
+    this.props.onChange(filter.name, newValue)
+  }
+
   renderDimensions() {
-    const {headerGroup} = this.props
-    return Object.keys(headerGroup)
-      .map(findDimensionByName)
-      .filter(Boolean)
-      .map(dimension => {
-        const values = headerGroup[dimension.name]
-
-        return (
-          <li key={dimension.name} className="col--fifth">
-            <div className="subtle-select">
-              <label htmlFor="filter-groups" className="subtle-select__label">{dimension.title}:</label>
-
-              <div className="select subtle-select__select">
-                <select>
-                  {values.map(value => (
-                    <option key={dimension.name + value}>
-                      {dimensionLabelTitle(dimension.name, value)}
-                    </option>
-                  ))}
-                </select>
-              </div>
+    const {filters} = this.props
+    return filters.map(filter => {
+      const multiple = filter.name === 'comparisonRegions'
+      const onChange = event => {
+        let val
+        if (multiple) {
+          val = Array.from(event.target.options).filter(opt => opt.selected).map(el => el.value)
+        } else {
+          val = event.target.value
+        }
+        this.handleFilterChange(filter, val)
+      }
+      return (
+        <li key={filter.name} className="col--fifth">
+          <div className="subtle-select">
+            <label htmlFor="filter-groups" className="subtle-select__label">{filter.title}:</label>
+            <div className="select subtle-select__select">
+              <select
+                multiple={multiple}
+                value={filter.value}
+                disabled={!filter.enabled}
+                onChange={onChange}>
+                {filter.options.map(option => (
+                  <option value={option.value} key={option.name + option.value}>{option.title}</option>
+                ))}
+              </select>
             </div>
-          </li>
-        )
-      })
+          </div>
+        </li>
+      )
+    })
   }
 
   render() {
@@ -110,6 +123,7 @@ class FilterBar extends Component {
       <section className="graph__filter">
         <h5 className="t-only-screenreaders">Filter</h5>
         <ul className="t-no-list-styles row">
+          {/*
           <li className="col--fifth">
             <div className="subtle-select">
               <label htmlFor="filter-groups" className="subtle-select__label">
@@ -118,6 +132,7 @@ class FilterBar extends Component {
               {this.renderRegionFilter()}
             </div>
           </li>
+          */}
           {/* todo: avoid rendering the lightbox in the adjacent <li> maybe? (and investigate possible ua issues?) */}
           {isRegionSelectOpen && this.renderRegionSelectLightbox()}
           {this.renderDimensions()}

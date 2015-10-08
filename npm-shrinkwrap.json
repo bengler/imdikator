@@ -10228,6 +10228,11 @@
       "from": "react-addons-test-utils@>=0.14.0-rc1 <0.15.0",
       "resolved": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-0.14.0-rc1.tgz"
     },
+    "react-addons-update": {
+      "version": "0.14.0-rc1",
+      "from": "react-addons-update@*",
+      "resolved": "https://registry.npmjs.org/react-addons-update/-/react-addons-update-0.14.0-rc1.tgz"
+    },
     "react-docgen": {
       "version": "2.2.0",
       "from": "react-docgen@>=2.1.2 <3.0.0",

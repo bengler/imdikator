@@ -8,7 +8,7 @@ describe('resolveQuery', () => {
     const exampleQuery = {
       table: 'befolkninghovedgruppe',
       unit: 'personer',
-      time: 'latest',
+      year: 'latest',
       dimensions: [
         {
           name: 'innvkat5',
@@ -28,7 +28,6 @@ describe('resolveQuery', () => {
       kommuneNr: ['0103'],
       aar: ['2014']
     }])
-    const expected = resolved.dimensions.find(dimension => dimension.name == 'aar' && dimension.variables[0] == '2014')
-    assert(expected, `Expected 'resolved.dimensions' to include year = 2014, instead got ${JSON.stringify(resolved.dimensions)}`)
+    assert.equal(resolved.year, '2014')
   })
 })

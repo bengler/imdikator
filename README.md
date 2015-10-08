@@ -31,13 +31,13 @@ https://dl.dropboxusercontent.com/u/250506/slack_for_ios_upload.jpg
 
 # How queries are represented internally - an example
 
-...as opposed to how the API endpoints expects it
-
 ```js
 {
   tableName: 'befolkninghovedgruppe',
   region: 'K0101',
+  comparisonRegions: ['K0104', '3212'],
   unit: 'personer',
+  year: '2014'
   dimensions: [
     {
       name: 'innvkat5',
@@ -53,12 +53,6 @@ https://dl.dropboxusercontent.com/u/250506/slack_for_ios_upload.jpg
       variables: [
         '0',
         '1'
-      ]
-    },
-    {
-      name: 'aar',
-      variables: [
-        '2015'
       ]
     }
   ]

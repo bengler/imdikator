@@ -18,6 +18,7 @@
     "compile-assets": "staticr --require babel/register public ./static-routes",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
+    "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar",
     "import-tables": "DEBUG=imdikator* babel-node ./bin/importTables",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
     "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",

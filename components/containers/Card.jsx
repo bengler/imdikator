@@ -126,7 +126,7 @@ class Card extends Component {
         const configuredDimension = findDimensionByName(dimension.name)
         const values = headerGroup[dimension.name]
         const valuesWithoutAggregate = values.filter(val => val != 'alle')
-        const valuesContainsAggregate = values.some(val => val == 'alle')
+        //const valuesContainsAggregate = values.some(val => val == 'alle')
 
 
         // If we have avilable dimensions. Lock first dimension as to not confuse users.

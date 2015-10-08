@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import RegionSelect from '../elements/filter/RegionSelect'
-import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 
 import {_t} from '../../lib/translate'
 
@@ -73,7 +72,6 @@ class FilterBar extends Component {
   }
 
   handleFilterChange(filter, newValue) {
-    console.log(filter.name, newValue)
     this.props.onChange(filter.name, newValue)
   }
 

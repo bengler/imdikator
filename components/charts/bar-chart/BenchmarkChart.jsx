@@ -20,20 +20,16 @@ export default class BenchmarkChart extends React.Component {
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
-    const interimSpacingFactor = 0.025
-    const endMarginFactor = 0
+    const interimSpacingFactor = 0.15
+    const endMarginFactor = 0.2
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], interimSpacingFactor, endMarginFactor)
     x.domain(preparedData.map(dataItem => dataItem.title))
-    const y = d3.scale.linear().range([this.size.height, 0])
+    const yc = this.configureYscale(d3.extent(data.rows, item => item.value), data.unit)
+    const y = yc.scale
+    // Want the max value to be the end of the domain here
+    y.domain([y.domain()[0], preparedData.maxValue])
 
-    const isPercent = data.unit === 'prosent'
-    let labelFormat = d3.format('d')
-    if (isPercent) {
-      y.domain([0, 1])
-      labelFormat = d3.format('%')
-    } else {
-      y.domain([0, preparedData.maxValue])
-    }
+    let labelFormat = yc.format
 
     const labels = []
     // TODO: Move these colors out to CSS?
@@ -46,17 +42,20 @@ export default class BenchmarkChart extends React.Component {
         dataItem.formattedValue = labelFormat(dataItem.value)
       }
 
-      if (dataItem.values[0].highlight === true) {
-        const color = 'red'
-        dataItem.color = color
-        labels.push({
-          x: x(dataItem.title),
-          y: y(dataItem.values[0].value),
-          text: labelFormat(dataItem.values[0].value),
-          color: color
-        })
-      } else {
-        dataItem.color = 'rgb(144, 165, 178)'
+      dataItem.color = '#9fd59f'
+
+      if (data.highlight) {
+        const val = dataItem.values[0][data.highlight.dimensionName]
+        if (val && data.highlight.value.indexOf(val) != -1) {
+          const color = '#438444'
+          dataItem.color = color
+          labels.push({
+            x: x(dataItem.title),
+            y: y(dataItem.values[0].value),
+            text: labelFormat(dataItem.values[0].value),
+            color: color
+          })
+        }
       }
     })
 
@@ -65,7 +64,7 @@ export default class BenchmarkChart extends React.Component {
     .attr('width', '100%')
     .attr('height', '100%')
 
-    if (isPercent) {
+    if (data.unit === 'prosent') {
       // Draw the lines per 10% in the background
       const lines = d3.range(y.domain()[0], y.domain()[1], d3.max(y.domain()) / 10)
       svg.selectAll('.line').data(lines).enter()

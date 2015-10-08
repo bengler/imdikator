@@ -63,6 +63,13 @@ export default class BarChart extends React.Component {
           val.strokeWidth = 2
           // The nester has put '1-4' as the value
           val.formattedValue = val.values[0].value
+        } else if (val.values[0].missingData) {
+          val.value = 0
+          val.fill = 'none'
+          val.stroke = 'none'
+          val.strokeWidth = 2
+          // The nester has put 'Mangler data' as the value
+          val.formattedValue = val.values[0].value
         } else {
           val.value = val.values[0].value
           val.fill = seriesColor(val.title)

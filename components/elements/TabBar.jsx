@@ -17,19 +17,33 @@ export default class TabBar extends Component {
   }
 
   render() {
-    const {tabs, activeTab, makeLinkToTab} = this.props
+    const {tabs, activeTab, makeLinkToTab, disabledTabs} = this.props
 
     const links = tabs.map(tab => {
 
+      const disabled = disabledTabs.includes(tab.name)
+
       const linkClassName = cx({
         'tabs-menu__link': true,
-        'tabs-menu__link--current': activeTab === tab
+        'tabs-menu__link--current': activeTab === tab,
+        'tabs-menu__link--disabled': disabled
       })
 
       const iconClassName = cx({
         'tabs-menu__icon ': true,
         [ICON_CLASS_NAMES[tab.name]]: true
       })
+
+      if (disabledTabs.includes(tab.name)) {
+        return (
+          <li key={tab.name} className="tabs-menu__list-item">
+            <span className={linkClassName}>
+            <i className={iconClassName}></i>
+            {tab.title}
+            </span>
+          </li>
+        )
+      }
 
       return (
         <li key={tab.name} className="tabs-menu__list-item">

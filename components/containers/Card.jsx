@@ -105,7 +105,7 @@ class Card extends Component {
     const unitFilterState = {
       enabled: headerGroup.enhet.length > 1,
       name: 'unit',
-      title: headerGroup.enhet.join(' eller '),
+      title: headerGroup.enhet.length > 1 ? headerGroup.enhet.join(' eller ') : 'Enhet',
       options: headerGroup.enhet.map(unit => {
         return {value: unit, title: unit}
       })
@@ -191,6 +191,12 @@ class Card extends Component {
     if (this.props.table) {
       tableDescription = this.props.table.description
     }
+
+    const disabledTabs = []
+    if (headerGroup.aar.length < 2) {
+      disabledTabs.push('chronological')
+    }
+
     const ChartComponent = CHARTS[this.getChartKind()].component
     return (
       <div
@@ -198,7 +204,7 @@ class Card extends Component {
         aria-hidden="false"
         style={{display: 'block'}}
         >
-        <TabBar activeTab={activeTab} tabs={TABS} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
+        <TabBar activeTab={activeTab} disabledTabs={disabledTabs} tabs={TABS} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
         <FilterBar
           filters={this.getFilterState()}
           onChange={this.handleFilterChange.bind(this)}

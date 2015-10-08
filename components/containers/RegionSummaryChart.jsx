@@ -33,7 +33,7 @@ class RegionSummaryChart extends Component {
         <div className="col--third col--flow">
           <section className="indicator">
             <div className="indicator__graph">
-              <pre>Ingen data å for {tableName} :(</pre>
+              <pre>Ingen data å for {tableName}</pre>
             </div>
           </section>
         </div>

@@ -41,8 +41,15 @@ class RegionSummaryChart extends Component {
     }
     const region = this.props.region
     const chartQuery = this.props.chartQuery
-    const title = chartQuery.title(Number(data.rows[0].tabellvariabel).toFixed(1))
-    const subTitle = chartQuery.subTitle('todo')
+
+    const titleParams = {
+      share: Number(data.rows[0].tabellvariabel).toFixed(1)
+    }
+    chartQuery.additionalTitleParams.map(param => {
+      titleParams[param] = data.rows[0][param]
+    })
+    const title = chartQuery.title(titleParams)
+    const subTitle = chartQuery.subTitle({share: 'todo'})
 
     // overwrite dimensions because BenchmarkChart can only handle one dimension
     const modifiedData = update(data, {

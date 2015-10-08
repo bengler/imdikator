@@ -1,5 +1,6 @@
-import React, {PropTypes, Component, addons} from 'react/addons'
+import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import {prefixify, getHeaderKey} from '../../lib/regionUtil'
@@ -44,7 +45,7 @@ class RegionSummaryChart extends Component {
     const subTitle = chartQuery.subTitle('todo')
 
     // overwrite dimensions because BenchmarkChart can only handle one dimension
-    const modifiedData = addons.update(data, {
+    const modifiedData = update(data, {
       dimensions: {$set: [getHeaderKey(region)]}
     })
 

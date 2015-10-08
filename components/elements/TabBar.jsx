@@ -13,6 +13,7 @@ export default class TabBar extends Component {
   static propTypes = {
     activeTab: PropTypes.object,
     tabs: PropTypes.array.isRequired,
+    disabledTabs: PropTypes.array,
     makeLinkToTab: PropTypes.func.isRequired
   }
 

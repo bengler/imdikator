@@ -1,7 +1,12 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+<<<<<<< HEAD
 import RegionSelect from './RegionSelect'
 import {prefixify} from '../../lib/regionUtil'
+=======
+import RegionSelect from '../elements/filter/RegionSelect'
+import cx from 'classnames'
+>>>>>>> Disabled filters get disabled filtert CSS
 
 import {_t} from '../../lib/translate'
 
@@ -73,10 +78,17 @@ class FilterBar extends Component {
       const val = filter.options[event.target.value].value
       this.handleFilterChange(filter, val)
     }
+
+    const selectContainerClassName = cx({
+      select: true,
+      'subtle-select__select': true,
+      'subtle-select__select--disabled': !filter.enabled
+    })
+
     return (
       <div className="subtle-select">
         <label htmlFor="filter-groups" className="subtle-select__label">{filter.title}:</label>
-        <div className="select subtle-select__select">
+        <div className={selectContainerClassName}>
           <select
             value={filter.value}
             disabled={!filter.enabled || filter.options.length == 1}

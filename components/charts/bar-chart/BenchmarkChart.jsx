@@ -38,6 +38,14 @@ export default class BenchmarkChart extends React.Component {
     const labels = []
     // TODO: Move these colors out to CSS?
     preparedData.forEach((dataItem, i) => {
+      if (dataItem.values[0].missingData) {
+      } else if (dataItem.values[0].anonymized) {
+
+      } else {
+        dataItem.value = dataItem.values[0].value
+        dataItem.formattedValue = labelFormat(dataItem.value)
+      }
+
       if (dataItem.values[0].highlight === true) {
         const color = 'red'
         dataItem.color = color
@@ -70,7 +78,9 @@ export default class BenchmarkChart extends React.Component {
     }
 
     // Draw the bars
-    svg.selectAll('.bar').data(preparedData).enter()
+    svg.selectAll('rect.glanceBar')
+    .data(preparedData)
+    .enter()
     .append('rect')
     .attr('class', 'glanceBar')
     .attr('x', dataItem => x(dataItem.title))
@@ -82,6 +92,31 @@ export default class BenchmarkChart extends React.Component {
       return this.size.height - y(dataItem.values[0].value)
     })
     .style('fill', dataItem => dataItem.color)
+    .each(function (item) {
+      item.el = this
+    })
+
+    svg.selectAll('rect.hover')
+    .data(preparedData)
+    .enter()
+    .append('rect')
+    .attr('class', 'hover')
+    .attr('x', dataItem => x(dataItem.title))
+    .attr('y', 0)
+    .attr('width', dataItem => x.rangeBand())
+    .attr('height', dataItem => this.size.height)
+    .attr('pointer-events', 'all')
+    .style('fill', 'none')
+    .on('mouseover', item => {
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.title,
+        body: item.formattedValue,
+        el: item.el
+      })
+    })
+    .on('mouseout', () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+    })
 
     // Draw any labels (any datapoint that has highlight === true)
     const fontSize = 14

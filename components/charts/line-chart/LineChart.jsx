@@ -42,22 +42,41 @@ export default class LineChart extends React.Component {
 
     const isPercent = data.unit === 'prosent'
     const dates = []
-    preparedData.forEach(item => {
-      item.values.forEach(value => {
-        value.date = parseDate(value.key)
-        value.series = item.title
-        dates.push(value.date)
-        value.value = parseFloat(value.values[0].tabellvariabel)
-        if (isPercent) {
-          // Need to do this because of how d3 percentage scale works
-          // Is normally done in the queryResultNester
-          value.value /= 100
-        }
-      })
-    })
 
     const series = preparedData.map(item => item.title)
     const seriesColor = this.colors.domain(series)
+
+    preparedData.forEach(item => {
+      item.color = seriesColor(item.key)
+      item.values.forEach(value => {
+        value.color = item.color
+        value.date = parseDate(value.key)
+        value.series = item.title
+        dates.push(value.date)
+        value.radius = 2
+        value.x = value.date
+        if (value.values[0].missingData) {
+          value.formattedValue = value.values[0].value
+          value.value = NaN
+          value.radius = 0
+          value.y = 0
+          value.x = 0
+        } else if (value.values[0].anonymized) {
+          value.formattedValue = value.values[0].value
+          value.value = 4
+          value.y = y(4)
+        } else {
+          value.value = parseFloat(value.values[0].tabellvariabel)
+          value.y = y(value.value)
+          value.formattedValue = yc.format(value.value)
+          if (isPercent) {
+            // Need to do this because of how d3 percentage scale works
+            // Is normally done in the queryResultNester
+            value.value /= 100
+          }
+        }
+      })
+    })
 
     x.domain(d3.extent(dates))
 
@@ -65,7 +84,7 @@ export default class LineChart extends React.Component {
     .x(dataItem => {
       return x(dataItem.date)
     })
-    .y(dataItem => y(dataItem.value))
+    .y(dataItem => dataItem.y)
     .defined(dataItem => !isNaN(dataItem.value))
 
     const ss = this.svg.selectAll('g.line-serie')
@@ -79,12 +98,9 @@ export default class LineChart extends React.Component {
     .data(dataItem => [dataItem])
     .enter()
     .append('path')
-    .attr('d', function (dataItem) {
-      dataItem.line = this
-      return line(dataItem.values)
-    })
+    .attr('d', dataItem => line(dataItem.values))
     .attr('fill', 'none')
-    .attr('stroke', dataItem => seriesColor(dataItem.title))
+    .attr('stroke', dataItem => dataItem.color)
     .attr('stroke-width', 1)
 
     const sc = this.svg.selectAll('g.line-dot')
@@ -98,11 +114,9 @@ export default class LineChart extends React.Component {
     .enter()
     .append('circle')
     .attr('cx', dataItem => x(dataItem.date))
-    .attr('cy', dataItem => y(dataItem.value))
-    .attr('r', 2)
-    .style('fill', dataItem => {
-      return seriesColor(dataItem.series)
-    })
+    .attr('cy', dataItem => dataItem.y)
+    .attr('r', dataItem => dataItem.radius)
+    .style('fill', dataItem => dataItem.color)
 
     const leg = this.legend()
     .color(seriesColor)
@@ -128,12 +142,12 @@ export default class LineChart extends React.Component {
     .attr('transform', 'translate(-100,-100)')
     .attr('class', 'focus')
     focus.append('circle')
-    .attr('r', 3.5)
+    .attr('r', 4)
 
     // Add a voronoi tesselation for mouseover
     const voronoi = d3.geom.voronoi()
     .x(dataItem => x(dataItem.date))
-    .y(dataItem => y(dataItem.value))
+    .y(dataItem => dataItem.y)
     .clipExtent([[0, 0], [this.size.width, this.size.height]])
 
     const voronoiGroup = svg.append('g')
@@ -146,7 +160,7 @@ export default class LineChart extends React.Component {
       return item
     })
 
-    const nest = d3.nest().key(item => x(item.date) + ',' + y(item.value))
+    const nest = d3.nest().key(item => x(item.date) + ',' + item.y)
     .rollup(value => value[0])
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
@@ -160,11 +174,13 @@ export default class LineChart extends React.Component {
     .style('stroke', 'none')
     .style('pointer-events', 'all')
     .on('mouseover', item => {
-      focus.attr('transform', 'translate(' + x(item.date) + ',' + y(item.value) + ')')
+      focus
+      .attr('transform', 'translate(' + x(item.date) + ',' + item.y + ')')
+      .attr('fill', item.color)
       focus.select('text').text(item.value)
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.series,
-        body: yc.format(item.value),
+        body: item.formattedValue,
         el: focus.node()
       })
     })

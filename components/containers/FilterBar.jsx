@@ -8,7 +8,8 @@ import {_t} from '../../lib/translate'
 class FilterBar extends Component {
   static propTypes = {
     filters: PropTypes.array,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    allRegions: PropTypes.array // todo: get rid of this
   }
 
   static defaultProps = {}

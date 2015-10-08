@@ -7,7 +7,6 @@ import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
 import similarMunicipalities from '../../data/similarMunicipalities'
 import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
-import {getPrefixForRegionConditionKey} from '../../lib/api-client/toVismaQuery'
 import {performQuery} from '../../actions/cardPages'
 
 //import {performQuery} from '../../actions/cardPages'

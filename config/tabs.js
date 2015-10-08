@@ -8,7 +8,7 @@ export const TABS = [
   {
     name: 'chronological',
     title: 'Over tid',
-    chartKind: 'stackedArea',
+    chartKind: 'line',
     year: 'all'
   },
   {

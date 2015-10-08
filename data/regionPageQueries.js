@@ -16,11 +16,12 @@ export default [
         }
       ]
     },
-    title: share => {
-      return `Innvandrere utgjør ${share}% av befolkning`
+    additionalTitleParams: [],
+    title: options => {
+      return `Innvandrere utgjør ${options.share}% av befolkning`
     },
-    subTitle: share => {
-      return `For hele landet er tallet ${share}%`
+    subTitle: options => {
+      return `For hele landet er tallet ${options.share}%`
     }
   },
   {
@@ -36,11 +37,12 @@ export default [
         }
       ]
     },
-    title: share => {
-      return `Flyktninger utgjør ${share}‰ av befolkningen`
+    additionalTitleParams: [],
+    title: options => {
+      return `Flyktninger utgjør ${options.share}‰ av befolkningen`
     },
-    subTitle: share => {
-      return `For hele landet er tallet ${share}‰`
+    subTitle: options => {
+      return `For hele landet er tallet ${options.share}‰`
     },
   },
   {
@@ -60,11 +62,34 @@ export default [
         }
       ]
     },
-    title: share => {
-      return `${share}% av innvandrerne går direkte fra introprogram til arbeid/utdanning`
+    additionalTitleParams: [],
+    title: options => {
+      return `${options.share}% av innvandrerne går direkte fra introprogram til arbeid/utdanning`
     },
-    subTitle: share => {
-      return `Gjennomsnittet i Norge er ${share}‰`
+    subTitle: options => {
+      return `Gjennomsnittet i Norge er ${options.share}%`
+    },
+  },
+
+  {
+    name: 'bosatt_anmodet',
+    query: {
+      year: 'latest',
+      tableName: 'bosatt_anmodede',
+      unit: 'prosent',
+      dimensions: [
+        {
+          name: 'bosetting',
+          variables: ['anmodning']
+        }
+      ]
+    },
+    additionalTitleParams: ['aar'],
+    title: options => {
+      return `I ${options.aar} har de bostatt ${options.share} av de de ble anmodet om.`
+    },
+    subTitle: options => {
+      return `Gjennomsnittet i Norge er ${options.share}%`
     },
   }
 ]

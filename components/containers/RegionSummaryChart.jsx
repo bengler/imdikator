@@ -7,7 +7,7 @@ import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 class RegionSummaryChart extends Component {
 
   static propTypes = {
-    query: PropTypes.object,
+    chartQuery: PropTypes.object,
     data: PropTypes.object,
     dispatch: PropTypes.func,
     region: PropTypes.object
@@ -15,13 +15,14 @@ class RegionSummaryChart extends Component {
 
 
   componentWillMount() {
-    this.props.dispatch(loadChartData(this.props.region, this.props.query, 'benchmark'))
+    this.props.dispatch(loadChartData(this.props.region, this.props.chartQuery.query, 'benchmark'))
   }
 
 
   render() {
-    const tableName = this.props.query.tableName
+    const tableName = this.props.chartQuery.query.tableName
     const data = this.props.data[tableName]
+    const chartQuery = this.props.chartQuery
     if (!data) {
       return (
         <div className="indicator__graph">
@@ -30,8 +31,14 @@ class RegionSummaryChart extends Component {
       )
     }
     return (
-      <div className="indicator__graph">
-        <BenchmarkChart data={data} className="summaryChart"/>
+      <div className="col--third col--flow">
+        <section className="indicator">
+          <h3 className="indicator__primary">{chartQuery.title('12%')}</h3>
+          <p className="indicator__secondary">{chartQuery.subTitle('5%')}</p>
+          <div className="indicator__graph">
+            <BenchmarkChart data={data} className="summaryChart"/>
+          </div>
+        </section>
       </div>
     )
   }

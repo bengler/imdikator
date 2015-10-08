@@ -74,13 +74,7 @@ class RegionPage extends Component {
                     {chartQueries.map(chartQuery => {
                       const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
                       return (
-                        <div key={key} className="col--third col--flow">
-                          <section className="indicator">
-                            <h3 className="indicator__primary">{chartQuery.title}</h3>
-                            <p className="indicator__secondary">{chartQuery.subTitle}</p>
-                            <RegionSummaryChart region={region} query={chartQuery.query} />
-                          </section>
-                        </div>
+                        <RegionSummaryChart key={key} region={region} chartQuery={chartQuery} />
                       )
                     })}
                   </div>

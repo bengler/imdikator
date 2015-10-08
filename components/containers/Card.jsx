@@ -5,13 +5,10 @@ import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
+import similarMunicipalities from '../../data/similarMunicipalities'
 import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 import {getPrefixForRegionConditionKey} from '../../lib/api-client/toVismaQuery'
 import {performQuery} from '../../actions/cardPages'
-
-function flatten() {
-  return this.reduce((flattened, el) => flattened.concat(el))
-}
 
 //import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'
@@ -19,6 +16,7 @@ import {getHeaderKey} from '../../lib/regionUtil'
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
+    region: PropTypes.region,
     query: PropTypes.object,
     data: PropTypes.object,
     headerGroup: PropTypes.object,
@@ -38,6 +36,10 @@ class Card extends Component {
       cardName: this.props.card.name,
       tabName: tab.name
     })
+  }
+
+  findSimilarMunicipalities(muniCode) {
+    return similarMunicipalities.find(muni => muni.code === muniCode).similar.map(code => `K${code}`)
   }
 
   handleFilterChange(property, newValue) {
@@ -74,29 +76,21 @@ class Card extends Component {
   }
 
   getFilterState() {
-    const {activeTab, card, headerGroup, query} = this.props
+    const {activeTab, card, headerGroup, query, region} = this.props
 
     const chartKind = this.getChartKind()
 
     const capabilities = CHARTS[chartKind].capabilities
-
-    const availableRegions = ['kommuneNr', 'naringsregionNr', 'bydelNr', 'fylkeNr']
-      .filter(regionKey => regionKey in headerGroup)
-      .map(regionKey => {
-        const prefix = getPrefixForRegionConditionKey(regionKey)
-        return headerGroup[regionKey].map(code => `${prefix}${code}`)
-      })
-      .filter(Boolean)
-      ::flatten() // Trying out some experimental es7 features. Shame on me!
 
     const regionFilterState = {
       name: 'comparisonRegions',
       title: 'Sammenlignet med',
       enabled: ['latest', 'chronological', 'table'].includes(activeTab.name),
       value: query.comparisonRegions,
-      options: availableRegions.map(regionCode => {
-        return {value: regionCode, title: regionCode}
-      })
+      options: {
+        similar: this.findSimilarMunicipalities(region.code).slice(0, 5),
+        recommended: []
+      }
     }
 
     const timeFilterState = {
@@ -182,7 +176,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTab, headerGroup} = this.props
+    const {card, activeTab} = this.props
 
     //console.log('query', query)
 
@@ -207,7 +201,6 @@ class Card extends Component {
         >
         <TabBar activeTab={activeTab} tabs={TABS} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
         <FilterBar
-          headerGroup={headerGroup}
           filters={this.getFilterState()}
           onChange={this.handleFilterChange.bind(this)}
           />
@@ -236,6 +229,8 @@ function select(state, ownProps) {
     return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
   })
   return {
+    region: state.region,
+    allRegions: state.allRegions,
     headerGroup,
     data,
     headerGroups,

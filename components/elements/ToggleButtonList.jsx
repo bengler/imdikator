@@ -5,6 +5,8 @@ export default class ToggleButtonList extends Component {
     options: PropTypes.array.isRequired,
     value: PropTypes.array.isRequired,
     onChange: PropTypes.func,
+    onAdd: PropTypes.func,
+    onRemove: PropTypes.func,
     renderButton: PropTypes.func
   }
 
@@ -21,13 +23,23 @@ export default class ToggleButtonList extends Component {
     }
   }
   select(option) {
-    const {onChange, value} = this.props
-    onChange(value.concat(option))
+    const {onAdd, onChange, value} = this.props
+    if (onChange) {
+      onChange(value.concat(option))
+    }
+    if (onAdd) {
+      onAdd(option)
+    }
   }
 
   deselect(option) {
-    const {onChange, value} = this.props
-    onChange(value.filter(opt => opt !== option))
+    const {onChange, onRemove, value} = this.props
+    if (onChange) {
+      onChange(value.filter(opt => opt !== option))
+    }
+    if (onRemove) {
+      onRemove(option)
+    }
   }
 
   render() {

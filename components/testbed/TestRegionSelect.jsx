@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import RegionSelect from '../elements/filter/RegionSelect'
+import RegionSelect from '../containers/RegionSelect'
 import {connect} from 'react-redux'
 
 class TestRegionSelect extends Component {

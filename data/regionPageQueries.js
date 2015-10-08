@@ -12,9 +12,7 @@ export default [
         },
         {
           name: 'kjonn',
-          variables: [
-            'alle'
-          ]
+          variables: ['alle']
         }
       ]
     },
@@ -46,7 +44,7 @@ export default [
     },
   },
   {
-    name: 'intro_avslutning_direkte',
+    name: 'innvandrere_intro_arbied',
     query: {
       year: 'latest',
       tableName: 'intro_avslutning_direkte',
@@ -55,6 +53,10 @@ export default [
         {
           name: 'avslutningArsak8',
           variables: ['arbeid']
+        },
+        {
+          name: 'kjonn',
+          variables: ['alle']
         }
       ]
     },

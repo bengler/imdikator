@@ -44,5 +44,25 @@ export default [
     subTitle: share => {
       return `For hele landet er tallet ${share}‰`
     },
+  },
+  {
+    name: 'intro_avslutning_direkte',
+    query: {
+      year: 'latest',
+      tableName: 'intro_avslutning_direkte',
+      unit: 'prosent',
+      dimensions: [
+        {
+          name: 'avslutningArsak8',
+          variables: ['arbeid']
+        }
+      ]
+    },
+    title: share => {
+      return `${share}% av innvandrerne går direkte fra introprogram til arbeid/utdanning`
+    },
+    subTitle: share => {
+      return `Gjennomsnittet i Norge er ${share}‰`
+    },
   }
 ]

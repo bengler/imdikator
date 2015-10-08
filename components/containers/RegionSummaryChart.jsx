@@ -11,7 +11,8 @@ class RegionSummaryChart extends Component {
     chartQuery: PropTypes.object,
     data: PropTypes.object,
     dispatch: PropTypes.func,
-    region: PropTypes.object
+    region: PropTypes.object,
+    similarRegions: PropTypes.array
   }
 
 
@@ -26,10 +27,14 @@ class RegionSummaryChart extends Component {
     const tableName = this.props.chartQuery.query.tableName
     const data = this.props.data[tableName]
 
-    if (!data) {
+    if (!data || !data.rows[0]) {
       return (
-        <div className="indicator__graph">
-          <span>Ingen data å finne...</span>
+        <div className="col--third col--flow">
+          <section className="indicator">
+            <div className="indicator__graph">
+              <pre>Ingen data å for {tableName} :(</pre>
+            </div>
+          </section>
         </div>
       )
     }

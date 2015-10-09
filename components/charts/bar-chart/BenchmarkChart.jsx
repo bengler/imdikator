@@ -157,7 +157,7 @@ export default class BenchmarkChart extends React.Component {
     })
     .attr('width', dataItem => x.rangeBand())
     .style('text-anchor', 'middle')
-    .style('font-size', String(fontSize) + 'px')
+    .style('font-size', `${String(fontSize)}px`)
     .text(dataItem => dataItem.text)
     .style('fill', dataItem => dataItem.fill)
 

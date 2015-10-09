@@ -22,11 +22,39 @@ export default class PyramidChart extends React.Component {
     const dimensionLabels = data.dimensions
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
-    // Collect unique group keys
+    // We only care about the format here
+    const format = this.configureYscale([0, 0], data.unit).format
+
+    const color = this.colors
     const groups = []
+    const series = []
     preparedData.forEach(item => {
       item.values.forEach(val => {
+        const seriesName = val.title
+        if (series.indexOf(seriesName) == -1) {
+          series.push(seriesName)
+        }
+        color.domain(series)
         val.values.forEach(group => {
+          if (group.values[0].anonymized) {
+            group.value = 4
+            group.stroke = color(seriesName)
+            group.strokeWidth = 1
+            group.fill = 'none'
+            group.formattedValue = group.values[0].value
+          } else if (group.values[0].missingData) {
+            group.value = 0
+            group.stroke = 'none'
+            group.strokeWidth = 0
+            group.fill = 'none'
+            group.formattedValue = group.values[0].value
+          } else {
+            group.value = group.values[0].value
+            group.stroke = 'none'
+            group.strokeWidth = 0
+            group.fill = color(val.title)
+            group.formattedValue = format(group.values[0].value)
+          }
           if (groups.indexOf(group.key) == -1) {
             groups.push(group.key)
           }
@@ -40,8 +68,6 @@ export default class PyramidChart extends React.Component {
     const regionWidth = outerXScale.rangeBand() / 2 - middleMargin
     const pointA = regionWidth
     const pointB = outerXScale.rangeBand() - regionWidth
-
-    const format = d3.format('d')
 
     const xScale = d3.scale.linear()
     .domain([0, preparedData.maxValue])
@@ -100,6 +126,93 @@ export default class PyramidChart extends React.Component {
     // -25 to make way for the outerXAxis in Y space
     .attr('transform', (item, i) => this.translation(outerXScale(item.title), -25))
 
+    // The bars
+
+    const mouseover = item => {
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.title,
+        body: item.formattedValue,
+        el: item.el
+      })
+    }
+
+    const mouseout = () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+    }
+
+    // Left side
+    const leftBarGroup = category.append('g')
+    .attr('transform', this.translation(pointA, 0) + 'scale(-1,1)')
+
+    leftBarGroup.selectAll('.bar.left')
+    .data(item => {
+      return item.values[0].values
+    })
+    .enter().append('rect')
+    .each(function (item) {
+      item.el = this
+    })
+    .attr('class', 'bar left')
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('width', d => xScale(d.value))
+    .attr('height', yScale.rangeBand())
+    .attr('fill', d => d.fill)
+    .attr('stroke', d => d.stroke)
+    .attr('stroke-width', d => d.strokeWidth)
+
+    leftBarGroup.selectAll('rect.hover')
+    .data(item => {
+      return item.values[0].values
+    })
+    .enter().append('rect')
+    .attr('class', 'hover')
+    .attr('width', xScale(xScale.domain()[1]))
+    .attr('height', yScale.rangeBand())
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('pointer-events', 'all')
+    .style('fill', 'none')
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
+
+    // Right side
+    const rightBarGroup = category.append('g')
+    .attr('transform', this.translation(pointB, 0))
+
+    rightBarGroup.selectAll('.bar.right')
+    .data(item => {
+      return item.values[1].values
+    })
+    .enter().append('rect')
+    .each(function (item) {
+      item.el = this
+    })
+    .attr('class', 'bar right')
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('width', d => xScale(d.value))
+    .attr('height', yScale.rangeBand())
+    .attr('fill', d => d.fill)
+    .attr('stroke', d => d.stroke)
+    .attr('stroke-width', d => d.strokeWidth)
+
+    rightBarGroup.selectAll('rect.hover')
+    .data(item => {
+      return item.values[1].values
+    })
+    .enter().append('rect')
+    .attr('class', 'hover')
+    .attr('width', xScale(xScale.domain()[1]))
+    .attr('height', yScale.rangeBand())
+    .attr('x', 0)
+    .attr('y', d => yScale(d.key))
+    .attr('pointer-events', 'all')
+    .style('fill', 'none')
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
+
+    // The axis
     category
     .append('g')
     .attr('class', 'axis y left')
@@ -123,93 +236,6 @@ export default class PyramidChart extends React.Component {
     .attr('transform', this.translation(pointB, this.size.height))
     .call(xAxisRight)
 
-    // The bars
-
-    const color = this.colors
-
-    // Left side
-    const leftBarGroup = category.append('g')
-    .attr('transform', this.translation(pointA, 0) + 'scale(-1,1)')
-
-    leftBarGroup.selectAll('.bar.left')
-    .data(item => {
-      return item.values[0].values
-    })
-    .enter().append('rect')
-    .each(function (item) {
-      item.el = this
-    })
-    .attr('class', 'bar left')
-    .attr('x', 0)
-    .attr('y', d => yScale(d.key))
-    .attr('width', d => xScale(d.values[0].value))
-    .attr('height', yScale.rangeBand())
-    .attr('fill', d => color('Kvinner'))
-
-    leftBarGroup.selectAll('rect.hover')
-    .data(item => {
-      return item.values[0].values
-    })
-    .enter().append('rect')
-    .attr('class', 'hover')
-    .attr('width', xScale(xScale.domain()[1]))
-    .attr('height', yScale.rangeBand())
-    .attr('x', 0)
-    .attr('y', d => yScale(d.key))
-    .attr('pointer-events', 'all')
-    .style('fill', 'none')
-    .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
-        body: format(item.values[0].value),
-        el: item.el
-      })
-    })
-    .on('mouseout', () => {
-      this.eventDispatcher.emit('datapoint:hover-out')
-    })
-
-    // Right side
-    const rightBarGroup = category.append('g')
-    .attr('transform', this.translation(pointB, 0))
-
-    rightBarGroup.selectAll('.bar.right')
-    .data(item => {
-      return item.values[1].values
-    })
-    .enter().append('rect')
-    .each(function (item) {
-      item.el = this
-    })
-    .attr('class', 'bar right')
-    .attr('x', 0)
-    .attr('y', d => yScale(d.key))
-    .attr('width', d => xScale(d.values[0].value))
-    .attr('height', yScale.rangeBand())
-    .attr('fill', d => color('Menn'))
-
-    rightBarGroup.selectAll('rect.hover')
-    .data(item => {
-      return item.values[1].values
-    })
-    .enter().append('rect')
-    .attr('class', 'hover')
-    .attr('width', xScale(xScale.domain()[1]))
-    .attr('height', yScale.rangeBand())
-    .attr('x', 0)
-    .attr('y', d => yScale(d.key))
-    .attr('pointer-events', 'all')
-    .style('fill', 'none')
-    .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
-        body: format(item.values[0].value),
-        el: item.el
-      })
-    })
-    .on('mouseout', () => {
-      this.eventDispatcher.emit('datapoint:hover-out')
-    })
 
     // Legend
     const leg = this.legend().color(color)
@@ -227,7 +253,7 @@ export default class PyramidChart extends React.Component {
     .attr('width', this.size.width)
     // Place it at the very bottom
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
-    .datum(['Kvinner', 'Menn'])
+    .datum(series)
     .call(leg)
   }
 

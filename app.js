@@ -7,6 +7,7 @@ import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
 import docsite from './docsite/handler'
+import devErrorHandler from 'dev-error-handler'
 
 const app = express()
 
@@ -39,5 +40,7 @@ if (config.env === 'development') {
 app.get('/*', (req, res) => {
   res.status(200).send(React.renderToStaticMarkup(<Layout/>))
 })
+
+app.use(devErrorHandler)
 
 export default app

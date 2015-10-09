@@ -66,7 +66,7 @@ class Chart {
     const y = d3.scale.linear().range([this.size.height, 0])
     switch (unit) {
       case 'prosent': {
-        format = d3.format('%')
+        format = d3.format('p')
         y.domain([0, Math.max(1, extent[1])])
         break
       }

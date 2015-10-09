@@ -34,7 +34,7 @@ export default class StackedAreaChart extends React.Component {
     const parseDate = d3.time.format('%Y').parse
 
     const x = d3.time.scale().range([0, this.size.width])
-    const extent = d3.extent(data.rows, item => item.value)
+    const extent = d3.extent(data.rows, item => parseFloat(item.value))
     const yc = this.configureYscale(extent, data.unit)
     const y = yc.scale
 

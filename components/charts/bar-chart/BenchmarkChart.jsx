@@ -24,7 +24,7 @@ export default class BenchmarkChart extends React.Component {
     const endMarginFactor = 0.2
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], interimSpacingFactor, endMarginFactor)
     x.domain(preparedData.map(dataItem => dataItem.title))
-    const yc = this.configureYscale(d3.extent(data.rows, item => item.value), data.unit)
+    const yc = this.configureYscale(d3.extent(data.rows, item => parseFloat(item.value)), data.unit)
     const y = yc.scale
     // Want the max value to be the end of the domain here
     y.domain([y.domain()[0], preparedData.maxValue])

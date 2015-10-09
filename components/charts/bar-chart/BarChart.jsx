@@ -36,7 +36,7 @@ export default class BarChart extends React.Component {
     })
 
     // Y config
-    const extent = d3.extent(data.rows, item => item.value)
+    const extent = d3.extent(data.rows, item => parseFloat(item.value))
     const yc = this.configureYscale(extent, data.unit)
 
     // A range of 20 colors
@@ -96,7 +96,10 @@ export default class BarChart extends React.Component {
     .attr('class', 'bar')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
-    .attr('y', d => yc.scale(Math.max(0, d.value)))
+    .attr('y', d => {
+      const val = Math.max(0, d.value)
+      return yc.scale(val)
+    })
     .attr('height', d => Math.abs(yc.scale(0) - yc.scale(d.value)))
     .style('fill', dataItem => dataItem.fill)
     .style('stroke', dataItem => dataItem.stroke)

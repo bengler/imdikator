@@ -10,6 +10,16 @@ function queryKey(region, tableName) {
   return `${region.code}-${tableName}`
 }
 
+function share(value) {
+  if (value == '.') {
+    return 'Ukjent '
+  }
+  if (value == ':') {
+    return 'Anonymisert '
+  }
+  return Number(value).toFixed(1)
+}
+
 const norway = countyNorway()
 
 class RegionSummaryChart extends Component {
@@ -69,14 +79,13 @@ class RegionSummaryChart extends Component {
     const chartQuery = this.props.chartQuery
 
     const titleParams = {
-      share: Number(data.rows[0].tabellvariabel).toFixed(1)
+      share: share(data.rows[0].tabellvariabel)
     }
     chartQuery.additionalTitleParams.map(param => {
       titleParams[param] = data.rows[0][param]
     })
     const title = chartQuery.title(titleParams)
-    const subTitle = chartQuery.subTitle({share: Number(comparisonData.rows[0].tabellvariabel).toFixed(1)})
-
+    const subTitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})
 
     const modifiedData = update(data, {
       // overwrite dimensions because BenchmarkChart can only handle one dimension

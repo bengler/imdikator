@@ -85,7 +85,7 @@ export default [
     },
     additionalTitleParams: ['aar'],
     title: options => {
-      return `I ${options.aar} har de bostatt ${options.share}% av de de ble anmodet om.`
+      return `I ${options.aar} har de botatt ${options.share}% av de de ble anmodet om.`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}%`

@@ -70,7 +70,6 @@ export default [
       return `Gjennomsnittet i Norge er ${options.share}%`
     },
   },
-
   {
     name: 'bosatt_anmodet',
     query: {

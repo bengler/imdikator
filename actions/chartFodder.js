@@ -5,10 +5,16 @@ import {queryResultPresenter} from '../lib/queryResultPresenter'
 import {REQUEST_CHART_DATA, RECEIVE_CHART_DATA, RECEIVE_TABLE_HEADERS} from './actions'
 
 
-export function loadChartData(region, userQuery, chartKind) {
+export function loadChartData(userQuery, options) {
+  const queryKey = options.queryKey
+  const region = options.region
+  const chartKind = options.chartKind
+
   return (dispatch, getState) => {
     dispatch({
       type: REQUEST_CHART_DATA,
+      region: region,
+      chartKind: chartKind,
       query: userQuery
     })
 
@@ -31,11 +37,13 @@ export function loadChartData(region, userQuery, chartKind) {
 
       apiClient.query(resolvedQuery).then(queryResults => {
         const data = {}
-        data[userQuery.tableName] = queryResultPresenter(resolvedQuery, queryResults, {chartKind})
+        data[queryKey] = queryResultPresenter(resolvedQuery, queryResults, {chartKind})
         dispatch({
           type: RECEIVE_CHART_DATA,
           userQuery: userQuery,
           query: resolvedQuery,
+          queryKey: queryKey,
+          region: region,
           data: data
         })
       })

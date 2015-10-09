@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 import Layout from './components/layouts/DefaultLayout'
 import config from './config'
 import staticRoutes from './static-routes'
@@ -26,9 +27,6 @@ if (config.env === 'development') {
   app.use(capture.css())
 }
 
-app.get('/', (req, res) => {
-  res.status(200).send(React.renderToStaticMarkup(<Layout/>))
-})
 if (config.env === 'development') {
   app.use(express.static(path.join(__dirname, 'public')))
 }
@@ -38,7 +36,7 @@ if (config.env === 'development') {
 }
 
 app.get('/*', (req, res) => {
-  res.status(200).send(React.renderToStaticMarkup(<Layout/>))
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<Layout/>))
 })
 
 app.use(devErrorHandler)

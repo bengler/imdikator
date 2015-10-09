@@ -34,21 +34,30 @@ export default class BenchmarkChart extends React.Component {
     const labels = []
     // TODO: Move these colors out to CSS?
     preparedData.forEach((dataItem, i) => {
+      dataItem.fill = '#9fd59f'
       if (dataItem.values[0].missingData) {
+        dataItem.value = 0
+        dataItem.formattedValue = dataItem.values[0].value
+        dataItem.stroke = 'none'
+        dataItem.strokeWidth = 0
       } else if (dataItem.values[0].anonymized) {
-
+        dataItem.formattedValue = dataItem.values[0].value
+        dataItem.value = 4
+        dataItem.stroke = dataItem.fill
+        dataItem.fill = 'none'
+        dataItem.strokeWidth = 2
       } else {
+        dataItem.stroke = 'none'
+        dataItem.strokeWidth = 0
         dataItem.value = dataItem.values[0].value
         dataItem.formattedValue = labelFormat(dataItem.value)
       }
-
-      dataItem.color = '#9fd59f'
 
       if (data.highlight) {
         const val = dataItem.values[0][data.highlight.dimensionName]
         if (val && data.highlight.value.indexOf(val) != -1) {
           const color = '#438444'
-          dataItem.color = color
+          dataItem.fill = color
           labels.push({
             x: x(dataItem.title),
             y: y(dataItem.values[0].value),
@@ -84,13 +93,15 @@ export default class BenchmarkChart extends React.Component {
     .attr('class', 'glanceBar')
     .attr('x', dataItem => x(dataItem.title))
     .attr('y', dataItem => {
-      return y(dataItem.values[0].value)
+      return y(dataItem.value)
     })
     .attr('width', dataItem => x.rangeBand())
     .attr('height', dataItem => {
-      return this.size.height - y(dataItem.values[0].value)
+      return this.size.height - y(dataItem.value)
     })
-    .style('fill', dataItem => dataItem.color)
+    .style('fill', dataItem => dataItem.fill)
+    .style('stroke', dataItem => dataItem.stroke)
+    .style('stroke-width', dataItem => dataItem.strokeWidth)
     .each(function (item) {
       item.el = this
     })
@@ -129,7 +140,7 @@ export default class BenchmarkChart extends React.Component {
     .style('text-anchor', 'middle')
     .style('font-size', String(fontSize) + 'px')
     .text(dataItem => dataItem.text)
-    .style('fill', dataItem => dataItem.color)
+    .style('fill', dataItem => dataItem.fill)
   }
 
   render() {

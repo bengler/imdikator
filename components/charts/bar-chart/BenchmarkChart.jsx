@@ -28,8 +28,7 @@ export default class BenchmarkChart extends React.Component {
     const y = yc.scale
     // Want the max value to be the end of the domain here
     y.domain([y.domain()[0], preparedData.maxValue])
-
-    let labelFormat = yc.format
+    const labelFormat = yc.format
 
     const labels = []
     // TODO: Move these colors out to CSS?
@@ -73,17 +72,33 @@ export default class BenchmarkChart extends React.Component {
     .attr('width', '100%')
     .attr('height', '100%')
 
-    if (data.unit === 'prosent') {
-      // Draw the lines per 10% in the background
-      const lines = d3.range(y.domain()[0], y.domain()[1], d3.max(y.domain()) / 10)
-      svg.selectAll('.line').data(lines).enter()
-      .append('line')
-      .attr('x1', 0)
-      .attr('x2', dataItem => this.size.width)
-      .attr('y1', dataItem => y(dataItem))
-      .attr('y2', dataItem => y(dataItem))
-      .style('stroke', 'white')
-    }
+    // Y "axis"
+    const fontSize = 12
+
+    const yAxis = d3.svg.axis().scale(yc.scale).orient('right')
+    .ticks(5)
+    .tickFormat(yc.format)
+    .outerTickSize(0)
+    .innerTickSize(0)
+
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+    .select('path').remove()
+    .selectAll('line').remove()
+
+    // Background lines
+    svg.selectAll('.axis .tick')
+    .append('line')
+    .attr('class', 'benchmark--line')
+    .attr('x1', 0)
+    .attr('x2', this.size.width)
+    .attr('y1', 0)
+    .attr('y2', 0)
+
+    svg.selectAll('.axis .tick text')
+    .attr('transform', 'translate(0,-6)')
+    .attr('class', 'benchmark--text')
 
     // Draw the bars
     svg.selectAll('rect.glanceBar')
@@ -129,7 +144,6 @@ export default class BenchmarkChart extends React.Component {
     })
 
     // Draw any labels (any datapoint that has highlight === true)
-    const fontSize = 14
     svg.selectAll('.label').data(labels).enter()
     .append('text')
     .attr('dx', dataItem => dataItem.x + x.rangeBand() / 2)
@@ -141,10 +155,20 @@ export default class BenchmarkChart extends React.Component {
     .style('font-size', String(fontSize) + 'px')
     .text(dataItem => dataItem.text)
     .style('fill', dataItem => dataItem.fill)
+
+    // Draw the bottom background line again on top of the bars
+    // since there is no z-index on svg elements
+    svg
+    .append('line')
+    .attr('class', 'benchmark--line')
+    .attr('x1', 0)
+    .attr('x2', this.size.width)
+    .attr('y1', this.size.height)
+    .attr('y2', this.size.height)
   }
 
   render() {
-    const margins = {left: 0, top: 0, right: 0, bottom: 0}
+    const margins = {left: 0, top: 20, right: 0, bottom: 0}
     return (
       <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
     )

@@ -7213,7 +7213,7 @@
     "imdi-styles": {
       "version": "0.0.0",
       "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#dd761b4680bb19f1efee755d4a396d5fa1d917ec"
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#11c9f53ff89b470070379065efd74016367c4f86"
     },
     "jsdom": {
       "version": "3.1.2",

@@ -1,12 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-<<<<<<< HEAD
 import RegionSelect from './RegionSelect'
 import {prefixify} from '../../lib/regionUtil'
-=======
-import RegionSelect from '../elements/filter/RegionSelect'
 import cx from 'classnames'
->>>>>>> Disabled filters get disabled filtert CSS
 
 import {_t} from '../../lib/translate'
 

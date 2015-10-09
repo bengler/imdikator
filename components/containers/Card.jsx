@@ -145,26 +145,22 @@ class Card extends Component {
             }
           ]
 
+        } else if (canExpandDimensionVariables) {
+          options = [
+            {
+              title: 'Skjult',
+              value: 'alle'
+            },
+            {
+              title: 'Vis',
+              value: valuesWithoutAggregate
+            }
+          ]
         } else {
-
-          if (canExpandDimensionVariables) {
-            options = [
-              {
-                title: 'Skjult',
-                value: 'alle'
-              },
-              {
-                title: 'Vis',
-                value: valuesWithoutAggregate
-              }
-            ]
-          } else {
-            // everything in the header group
-            options = values.map(value => {
-              return {value: value, title: dimensionLabelTitle(dimension.name, value)}
-            })
-          }
-
+          // everything in the header group
+          options = values.map(value => {
+            return {value: value, title: dimensionLabelTitle(dimension.name, value)}
+          })
         }
 
 

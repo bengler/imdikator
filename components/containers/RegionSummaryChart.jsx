@@ -19,15 +19,19 @@ class RegionSummaryChart extends Component {
     data: PropTypes.object,
     dispatch: PropTypes.func,
     region: PropTypes.object,
-    similarRegions: PropTypes.array
+    similarRegionCodes: PropTypes.array
   }
 
 
   componentWillMount() {
     const region = this.props.region
     const query = this.props.chartQuery.query
+    const similarRegionCodes = this.props.similarRegionCodes
 
     const regionQuery = Object.assign({}, query, {region: prefixify(region)})
+    if (similarRegionCodes.length > 0) {
+      regionQuery.comparisonRegions = similarRegionCodes
+    }
     const regionQueryOptions = {
       region: region,
       chartKind: 'benchmark',
@@ -73,8 +77,9 @@ class RegionSummaryChart extends Component {
     const title = chartQuery.title(titleParams)
     const subTitle = chartQuery.subTitle({share: Number(comparisonData.rows[0].tabellvariabel).toFixed(1)})
 
-    // overwrite dimensions because BenchmarkChart can only handle one dimension
+
     const modifiedData = update(data, {
+      // overwrite dimensions because BenchmarkChart can only handle one dimension
       dimensions: {$set: [getHeaderKey(region)]}
     })
 

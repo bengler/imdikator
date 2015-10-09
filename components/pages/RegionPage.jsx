@@ -1,8 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
-import {prefixify, split, typeForPrefix, regionByCode, comparableMunicipalities} from '../../lib/regionUtil'
-import {_t} from '../../lib/translate'
+import {
+  prefixify,
+  split,
+  typeForPrefix,
+  regionByCode,
+  comparableMunicipalityCodesPrefixified
+} from '../../lib/regionUtil'
 
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionSummaryChart from '../containers/RegionSummaryChart'
@@ -10,6 +15,7 @@ import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
 import RegionSearch from '../containers/RegionSearch'
 import chartQueries from '../../data/regionPageQueries'
+import {_t} from '../../lib/translate'
 
 
 class RegionPage extends Component {
@@ -47,7 +53,7 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const similarRegions = comparableMunicipalities(region, allRegions)
+    const similarRegionCodes = comparableMunicipalityCodesPrefixified(region, allRegions)
 
     return (
       <main className="page">
@@ -75,7 +81,7 @@ class RegionPage extends Component {
                     {chartQueries.map(chartQuery => {
                       const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
                       return (
-                        <RegionSummaryChart key={key} similarRegions={similarRegions} region={region} chartQuery={chartQuery} />
+                        <RegionSummaryChart key={key} similarRegionCodes={similarRegionCodes} region={region} chartQuery={chartQuery} />
                       )
                     })}
                   </div>

@@ -80,7 +80,12 @@ class RegionSummaryChart extends Component {
 
     const modifiedData = update(data, {
       // overwrite dimensions because BenchmarkChart can only handle one dimension
-      dimensions: {$set: [getHeaderKey(region)]}
+      dimensions: {$set: [getHeaderKey(region)]},
+      // highlight our current region
+      highlight: {$set: {
+        dimensionName: getHeaderKey(region),
+        value: [region.code]
+      }}
     })
 
     return (

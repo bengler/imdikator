@@ -42,6 +42,11 @@ export default class BenchmarkChart extends React.Component {
       } else if (dataItem.values[0].anonymized) {
         dataItem.formattedValue = dataItem.values[0].value
         dataItem.value = 4
+        if (data.unit === 'prosent') {
+          // FIXME: This d3 axis / 100 stuff should go
+          // We dont do this for per mille
+          dataItem.value /= 100
+        }
         dataItem.stroke = dataItem.fill
         dataItem.fill = 'none'
         dataItem.strokeWidth = 2

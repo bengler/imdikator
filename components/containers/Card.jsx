@@ -15,7 +15,7 @@ import {getHeaderKey} from '../../lib/regionUtil'
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
-    region: PropTypes.region,
+    region: PropTypes.object,
     query: PropTypes.object,
     data: PropTypes.object,
     headerGroup: PropTypes.object,

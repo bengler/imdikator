@@ -46,6 +46,27 @@ export default [
     },
   },
   {
+    name: 'bosatt_anmodet',
+    query: {
+      year: 'latest',
+      tableName: 'bosatt_anmodede',
+      unit: 'prosent',
+      dimensions: [
+        {
+          name: 'bosetting',
+          variables: ['anmodning']
+        }
+      ]
+    },
+    additionalTitleParams: ['aar'],
+    title: options => {
+      return `I ${options.aar} har de botatt ${options.share}% av de de ble anmodet om.`
+    },
+    subTitle: options => {
+      return `Gjennomsnittet i Norge er ${options.share}%`
+    },
+  },
+  {
     name: 'innvandrere_intro_arbied',
     query: {
       year: 'latest',
@@ -65,27 +86,6 @@ export default [
     additionalTitleParams: [],
     title: options => {
       return `${options.share}% av innvandrerne går direkte fra introprogram til arbeid/utdanning`
-    },
-    subTitle: options => {
-      return `Gjennomsnittet i Norge er ${options.share}%`
-    },
-  },
-  {
-    name: 'bosatt_anmodet',
-    query: {
-      year: 'latest',
-      tableName: 'bosatt_anmodede',
-      unit: 'prosent',
-      dimensions: [
-        {
-          name: 'bosetting',
-          variables: ['anmodning']
-        }
-      ]
-    },
-    additionalTitleParams: ['aar'],
-    title: options => {
-      return `I ${options.aar} har de botatt ${options.share}% av de de ble anmodet om.`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}%`

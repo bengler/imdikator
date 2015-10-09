@@ -44,7 +44,6 @@ class RegionPage extends Component {
   render() {
     const allRegions = this.props.allRegions
     const region = this.props.region
-
     if (!region) {
       return (
         <div className="col--main">

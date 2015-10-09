@@ -5,6 +5,7 @@ import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import {prefixify, getHeaderKey, countyNorway} from '../../lib/regionUtil'
 
+const norway = countyNorway()
 
 function queryKey(region, tableName) {
   return `${region.code}-${tableName}`
@@ -20,7 +21,31 @@ function share(value) {
   return Number(value).toFixed(1)
 }
 
-const norway = countyNorway()
+function dispatchQueries(props) {
+  const region = props.region
+  const query = props.chartQuery.query
+  const similarRegionCodes = props.similarRegionCodes
+
+  const regionQuery = Object.assign({}, query, {region: prefixify(region)})
+  if (similarRegionCodes.length > 0) {
+    regionQuery.comparisonRegions = similarRegionCodes
+  }
+  const regionQueryOptions = {
+    region: region,
+    chartKind: 'benchmark',
+    queryKey: queryKey(region, query.tableName)
+  }
+  props.dispatch(loadChartData(regionQuery, regionQueryOptions))
+
+  const norwayQuery = Object.assign({}, query, {region: prefixify(norway)})
+  const norwayQueryOptions = {
+    region: norway,
+    chartKind: 'benchmark',
+    queryKey: queryKey(norway, query.tableName)
+  }
+  props.dispatch(loadChartData(norwayQuery, norwayQueryOptions))
+}
+
 
 class RegionSummaryChart extends Component {
 
@@ -34,28 +59,14 @@ class RegionSummaryChart extends Component {
 
 
   componentWillMount() {
-    const region = this.props.region
-    const query = this.props.chartQuery.query
-    const similarRegionCodes = this.props.similarRegionCodes
+    dispatchQueries(this.props)
+  }
 
-    const regionQuery = Object.assign({}, query, {region: prefixify(region)})
-    if (similarRegionCodes.length > 0) {
-      regionQuery.comparisonRegions = similarRegionCodes
-    }
-    const regionQueryOptions = {
-      region: region,
-      chartKind: 'benchmark',
-      queryKey: queryKey(region, query.tableName)
-    }
-    this.props.dispatch(loadChartData(regionQuery, regionQueryOptions))
 
-    const norwayQuery = Object.assign({}, query, {region: prefixify(norway)})
-    const norwayQueryOptions = {
-      region: norway,
-      chartKind: 'benchmark',
-      queryKey: queryKey(norway, query.tableName)
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.region != this.props.region) {
+      dispatchQueries(nextProps)
     }
-    this.props.dispatch(loadChartData(norwayQuery, norwayQueryOptions))
   }
 
 

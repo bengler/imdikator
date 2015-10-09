@@ -175,7 +175,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTab} = this.props
+    const {card, activeTab, headerGroup} = this.props
 
     //console.log('query', query)
 

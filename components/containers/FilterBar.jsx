@@ -86,7 +86,7 @@ class FilterBar extends Component {
         <label htmlFor="filter-groups" className="subtle-select__label">{filter.title}:</label>
         <div className={selectContainerClassName}>
           <select
-            value={filter.value}
+            value={filter.options.indexOf(filter.value)}
             disabled={!filter.enabled || filter.options.length == 1}
             onChange={onChange}>
             {filter.options.map((option, i) => (

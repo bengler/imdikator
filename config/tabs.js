@@ -11,12 +11,12 @@ export const TABS = [
     chartKind: 'line',
     year: 'all'
   },
-  {
-    name: 'map',
-    title: 'Kart',
-    chartKind: 'map',
-    year: 'latest'
-  },
+  //{
+  //  name: 'map',
+  //  title: 'Kart',
+  //  chartKind: 'map',
+  //  year: 'latest'
+  //},
   {
     name: 'benchmark',
     title: 'Sammenliknet',

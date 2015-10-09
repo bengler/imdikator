@@ -4,12 +4,12 @@ import {queryResultPresenter} from '../../lib/queryResultPresenter'
 
 const QUERY = {
   tableName: 'befolkninghovedgruppe',
+  year: ['2012', '2013', '2014'],
+  unit: ['prosent'],
+  region: 'K0301',
   dimensions: [
-    {name: 'aar', variables: ['2012', '2013', '2014']},
-    {name: 'enhet', variables: ['prosent']},
     {name: 'innvkat5', variables: ['innvandrere']},
-    {name: 'kjonn', variables: ['0', '1']},
-    {name: 'kommuneId', variables: ['0301']}
+    {name: 'kjonn', variables: ['0', '1']}
   ]
 }
 
@@ -51,12 +51,25 @@ describe('queryResultPresenter', () => {
 
   it('removes time dimension if the query only has one distinct year', () => {
     const query = Object.assign({}, QUERY, {
-      dimensions: QUERY.dimensions.map(dim => {
-        return dim.name == 'aar' ? {aar: ['2015']} : dim
-      })
+      year: ['2015']
     })
     const pres = queryResultPresenter(query, {}, {chartKind: 'bar'})
     assert(!pres.dimensions.includes('aar'))
+  })
+
+  it('adds the region header keys', () => {
+    const query = {
+      tableName: 'befolkninghovedgruppe',
+      region: 'K0301',
+      comparisonRegions: ['F06'],
+      unit: ['prosent'],
+      dimensions: [
+        {name: 'innvkat5', variables: ['innvandrere']},
+        {name: 'kjonn', variables: ['0', '1']}
+      ]
+    }
+    const pres = queryResultPresenter(query, {}, {chartKind: 'bar'})
+    assert.deepEqual(pres.dimensions, [['kommuneNr', 'fylkeNr'], 'innvkat5', 'kjonn'])
   })
 
   it('sorts aar dimension last for line charts', () => {

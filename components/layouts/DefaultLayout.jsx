@@ -30,7 +30,7 @@ export default class DefaultLayout extends React.Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide header__row">
-                <a href="/" className="ident header__ident">
+                <a href="http://imdi-no.protolife.no/" className="ident header__ident">
                   <div className="ident__symbol">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212">
                       <switch>
@@ -93,17 +93,17 @@ export default class DefaultLayout extends React.Component {
                       <nav role="navigation" className="navigation navigation--footer">
                         <h2 className="t-only-screenreaders">Hovedmeny</h2>
                         <ul className="t-no-list-styles">
-                          <li><a href="/planlegging-og-bosetting" className="navigation__link navigation__link--primary">Planlegging
+                          <li><a href="http://imdi-no.protolife.no/planlegging-og-bosetting" className="navigation__link navigation__link--primary">Planlegging
                             og bosetting</a></li>
-                          <li><a href="/opplaering-og-utdanning" className="navigation__link navigation__link--primary">Opplæring
+                          <li><a href="http://imdi-no.protolife.no/opplaering-og-utdanning" className="navigation__link navigation__link--primary">Opplæring
                             og utdanning</a></li>
                           <li>
-                            <a href="/sysselsetting-og-arbeidsliv" className="navigation__link navigation__link--primary">Sysselsetting og arbeidsliv</a>
+                            <a href="http://imdi-no.protolife.no/sysselsetting-og-arbeidsliv" className="navigation__link navigation__link--primary">Sysselsetting og arbeidsliv</a>
                           </li>
-                          <li><a href="/fakta-om-integrering" className="navigation__link navigation__link--primary">Om
+                          <li><a href="http://imdi-no.protolife.no/fakta-om-integrering" className="navigation__link navigation__link--primary">Om
                             integrering i Norge</a></li>
-                          <li><a href="/tilskudd" className="navigation__link navigation__link--primary">Tilskudd</a></li>
-                          <li><a href="/om-oss" className="navigation__link navigation__link--primary">Om IMDi</a></li>
+                          <li><a href="http://imdi-no.protolife.no/tilskudd" className="navigation__link navigation__link--primary">Tilskudd</a></li>
+                          <li><a href="http://imdi-no.protolife.no/om-oss" className="navigation__link navigation__link--primary">Om IMDi</a></li>
                         </ul>
                       </nav>
                     </div>
@@ -126,23 +126,23 @@ export default class DefaultLayout extends React.Component {
 
                         <div className="footer__submenu">
                           <ul className="t-no-list-styles">
-                            <li><a href="/om-oss/kontakt-oss" className="navigation__link">Kontakt oss</a></li>
-                            <li><a href="/om-oss/arrangementer" className="navigation__link">Kurs og arrangementer</a>
+                            <li><a href="http://imdi-no.protolife.no/om-oss/kontakt-oss" className="navigation__link">Kontakt oss</a></li>
+                            <li><a href="http://imdi-no.protolife.no/om-oss/arrangementer" className="navigation__link">Kurs og arrangementer</a>
                             </li>
-                            <li><a href="/om-oss/rapporter" className="navigation__link">Rapporter</a></li>
-                            <li><a href="#" className="navigation__link">Ledige stillinger</a></li>
-                            <li><a href="#" className="navigation__link">Ord og begreper</a></li>
+                            <li><a href="http://imdi-no.protolife.no/om-oss/rapporter" className="navigation__link">Rapporter</a></li>
+                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Ledige stillinger</a></li>
+                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Ord og begreper</a></li>
                           </ul>
                         </div>
                         <div className="footer__submenu">
                           <h2 className="t-only-screenreaders">Portaler</h2>
                           <ul className="t-no-list-styles footer__submenu">
-                            <li><a href="#" className="navigation__link">Ny i Norge <i
+                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Ny i Norge <i
                               className="icon__external icon--white navigation__link-icon">
                               <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
-                            <li><a href="#" className="navigation__link">Tolkeportalen <i className="icon__external icon--white navigation__link-icon">
+                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Tolkeportalen <i className="icon__external icon--white navigation__link-icon">
                               <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
-                            <li><a href="#" className="navigation__link">Mangfoldsportalen
+                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Mangfoldsportalen
                               <i className="icon__external icon--white navigation__link-icon">
                               <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
                           </ul>

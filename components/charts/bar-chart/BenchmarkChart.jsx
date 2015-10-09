@@ -97,7 +97,7 @@ export default class BenchmarkChart extends React.Component {
     .attr('y2', 0)
 
     svg.selectAll('.axis .tick text')
-    .attr('transform', 'translate(0,-6)')
+    .attr('transform', `translate(0,-${fontSize / 2})`)
     .attr('class', 'benchmark--text')
 
     // Draw the bars

@@ -1,7 +1,7 @@
 [
   {
     "name": "befolkning",
-    "title": "Befolkning",
+    "title": "Befolkning og bosetting",
     "groupKind": "mainGroup",
     "cards": [
       {
@@ -320,7 +320,7 @@
   },
   {
     "name": "utdanning",
-    "title": "Utdanning",
+    "title": "Skole og utdanning",
     "groupKind": "mainGroup",
     "cards": [
       {
@@ -451,135 +451,6 @@
               "name": "kjonn",
               "variables": [
                 "alle"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "title": "Antall deltagere i introduksjonsprogram",
-        "name": "deltagere-introprogram",
-        "query": {
-          "tableName": "intro_deltakere",
-          "unit": "personer",
-          "dimensions": [
-            {
-              "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
-        "name": "norskopplaering-resultater",
-        "query": {
-          "tableName": "norsk_prover",
-          "unit": "prosent",
-          "dimensions": [
-            {
-              "name": "provetype"
-            },
-            {
-              "name": "spraaknivaa"
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "issue": "behov for sortering!",
-        "title": "Norskopplæring - antall deltagere",
-        "name": "norskopplaering-antall-deltagere",
-        "query": {
-          "tableName": "norsk_deltakere",
-          "unit": "personer",
-          "dimensions": [
-            {
-              "name": "rettigheterIntrolovNosfk"
-            },
-            {
-              "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "title": "Voksne elever i grunnskolen",
-        "name": "voksne-i-grunnskolen",
-        "query": {
-          "tableName": "voksne_grunnskole",
-          "unit": "personer",
-          "dimensions": [
-            {
-              "name": "spraak",
-              "visible": false,
-              "variables": [
-                "alle"
-              ]
-            },
-            {
-              "name": "undervisningGrskole"
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "issue": "behov for sortering!",
-        "title": "Voksne elever i videregående",
-        "name": "voksne-i-videregaaende",
-        "query": {
-          "tableName": "voksne_videregaende",
-          "unit": "prosent",
-          "dimensions": [
-            {
-              "name": "spraak"
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "title": "Hva gjorde de etter introduksjonsprogrammet?",
-        "name": "etter-intro",
-        "query": {
-          "tableName": "intro_avslutning_direkte",
-          "unit": "personer",
-          "dimensions": [
-            {
-              "name": "avslutningArsak8",
-              "variables": [
-                "kvalifisering",
-                "gr_skole",
-                "utdanning",
-                "arbeid",
-                "sos_stnd",
-                "trygd_annen",
-                "annet"
-              ]
-            },
-            {
-              "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
               ]
             }
           ]
@@ -758,8 +629,144 @@
     ]
   },
   {
+    "name": "utdanning",
+    "title": "Kvalifisering og intro",
+    "groupKind": "mainGroup",
+    "cards": [
+      {
+        "title": "Antall deltagere i introduksjonsprogram",
+        "name": "deltagere-introprogram",
+        "query": {
+          "tableName": "intro_deltakere",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
+        "name": "norskopplaering-resultater",
+        "query": {
+          "tableName": "norsk_prover",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "provetype"
+            },
+            {
+              "name": "spraaknivaa"
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "issue": "behov for sortering!",
+        "title": "Norskopplæring - antall deltagere",
+        "name": "norskopplaering-antall-deltagere",
+        "query": {
+          "tableName": "norsk_deltakere",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "rettigheterIntrolovNosfk"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "title": "Voksne elever i grunnskolen",
+        "name": "voksne-i-grunnskolen",
+        "query": {
+          "tableName": "voksne_grunnskole",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "spraak",
+              "visible": false,
+              "variables": [
+                "alle"
+              ]
+            },
+            {
+              "name": "undervisningGrskole"
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "issue": "behov for sortering!",
+        "title": "Voksne elever i videregående",
+        "name": "voksne-i-videregaaende",
+        "query": {
+          "tableName": "voksne_videregaende",
+          "unit": "prosent",
+          "dimensions": [
+            {
+              "name": "spraak"
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "title": "Hva gjorde de etter introduksjonsprogrammet?",
+        "name": "etter-intro",
+        "query": {
+          "tableName": "intro_avslutning_direkte",
+          "unit": "personer",
+          "dimensions": [
+            {
+              "name": "avslutningArsak8",
+              "variables": [
+                "kvalifisering",
+                "gr_skole",
+                "utdanning",
+                "arbeid",
+                "sos_stnd",
+                "trygd_annen",
+                "annet"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      }
+    ]
+  },
+  {
     "name": "arbeid",
-    "title": "Arbeid",
+    "title": "Arbeid og levekår",
     "groupKind": "mainGroup",
     "cards": [
       {
@@ -996,14 +1003,7 @@
         },
         "tabs": [
         ]
-      }
-    ]
-  },
-  {
-    "name": "levekaar",
-    "title": "Levekår",
-    "groupKind": "mainGroup",
-    "cards": [
+      },
       {
         "title": "Inntektsnivå – gjennomsnittsinntekt",
         "name": "gjennomsnittsinntekt",

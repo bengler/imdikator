@@ -20,7 +20,6 @@ class CardPageButtons extends Component {
     this.props.dispatch(loadCardPages())
   }
 
-
   render() {
     const {cardPages, pageConfig} = this.props
     if (!cardPages) {
@@ -32,6 +31,11 @@ class CardPageButtons extends Component {
       <nav className="tabs-button-menu">
         <h2 className="tabs-button-menu__title t-only-screenreaders">Tema:</h2>
         <ul className="t-no-list-styles tabs-button-menu__list">
+          <li key="summary" className="tabs-button-menu__list-item">
+            <a className={`tabs-button-menu__link ${!pageConfig ? 'tabs-button-menu__link--current' : ''}`} href={this.context.linkTo('/steder/:region')}>
+              Oppsummert
+            </a>
+          </li>
           {cardPages.map(cardPage => {
             const isButtonForCurrentPage = currentPageName == cardPage.name
             const firstCard = cardPage.cards[0]

@@ -1,4 +1,3 @@
-/* eslint no-console:1 */
 import fetchGoogleSheetExport from '../lib/fetchGoogleSheetExport'
 import csv from 'csv-parse'
 import fs from 'fs'
@@ -19,7 +18,6 @@ const mappings = {
 
 const rows = csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
   .map(row => {
-    console.info(row)
     return Object.keys(mappings).reduce((mapped, key) => {
       mapped[mappings[key]] = row[key]
       return mapped
@@ -27,7 +25,7 @@ const rows = csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
   })
 
 const dimensions = rows.filter(row => row.name && row.description).map(row => {
-  return {name: row.name, description: row.description, variables: []}
+  return {name: row.name, title: row.description, variables: []}
 })
 
 rows
@@ -50,9 +48,9 @@ rows
     return Rx.Observable.fromNodeCallback(fs.writeFile)(OUTFILE, JSON.stringify(tables, null, 2))
   })
   .subscribe(() => {
-    console.log('Done')
+    console.log('Done') // eslint-disable-line no-console
   }, error => {
-    console.log('Error: ', error)
+    console.log('Error: ', error) // eslint-disable-line no-console
   })
 
 

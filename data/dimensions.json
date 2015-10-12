@@ -1,7 +1,7 @@
 [
   {
     "name": "innvkat5",
-    "description": "Innvandrerbakgrunn femdelt",
+    "title": "Innvandrerbakgrunn femdelt",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -27,7 +27,7 @@
   },
   {
     "name": "innvkat3",
-    "description": "Innvandrerbakgrunn tredelt",
+    "title": "Innvandrerbakgrunn tredelt",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -45,7 +45,7 @@
   },
   {
     "name": "innvkat4",
-    "description": "Innvanndrerbakgrunn firedelt",
+    "title": "Innvanndrerbakgrunn firedelt",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -67,7 +67,7 @@
   },
   {
     "name": "innvkat2",
-    "description": "Innvandrerbakgrunn todelt",
+    "title": "Innvandrerbakgrunn todelt",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -81,7 +81,7 @@
   },
   {
     "name": "kjonn",
-    "description": "Kjønn",
+    "title": "Kjønn",
     "variables": [
       {
         "title": "alle",
@@ -99,7 +99,7 @@
   },
   {
     "name": "vreg2",
-    "description": "Todelt verdensregion",
+    "title": "Todelt verdensregion",
     "variables": [
       {
         "title": "EU/EFTA-land, Nord-Amerika, Australia og New Zealand",
@@ -113,7 +113,7 @@
   },
   {
     "name": "vreg3",
-    "description": "Tredelt verdensregion",
+    "title": "Tredelt verdensregion",
     "variables": [
       {
         "title": "alle",
@@ -131,7 +131,7 @@
   },
   {
     "name": "vreg5",
-    "description": "Femdelt verdensregion",
+    "title": "Femdelt verdensregion",
     "variables": [
       {
         "title": "Europa eks. Tyrkia",
@@ -157,7 +157,7 @@
   },
   {
     "name": "vreg9",
-    "description": "Nidelt verdensregion",
+    "title": "Nidelt verdensregion",
     "variables": [
       {
         "title": "Norden",
@@ -199,7 +199,7 @@
   },
   {
     "name": "botid5",
-    "description": "Botid i Norge (femdelt)",
+    "title": "Botid i Norge (femdelt)",
     "variables": [
       {
         "title": "alle",
@@ -225,7 +225,7 @@
   },
   {
     "name": "botid3",
-    "description": "Botid i Norge (tredelt)",
+    "title": "Botid i Norge (tredelt)",
     "variables": [
       {
         "title": "alle",
@@ -243,7 +243,7 @@
   },
   {
     "name": "invalder3",
-    "description": "Alder ved innvandring",
+    "title": "Alder ved innvandring",
     "variables": [
       {
         "title": "alle",
@@ -261,7 +261,7 @@
   },
   {
     "name": "forsteBosettingskommune",
-    "description": "Sekundærflytting",
+    "title": "Sekundærflytting",
     "variables": [
       {
         "title": "alle",
@@ -279,7 +279,7 @@
   },
   {
     "name": "flytting",
-    "description": "Flyttinger til og fra kommuner",
+    "title": "Flyttinger til og fra kommuner",
     "variables": [
       {
         "title": "Innvandring",
@@ -321,7 +321,7 @@
   },
   {
     "name": "bbhg",
-    "description": "Barn i barnehage",
+    "title": "Barn i barnehage",
     "variables": [
       {
         "title": "alle",
@@ -339,7 +339,7 @@
   },
   {
     "name": "barnikommune",
-    "description": "Barn i kommunen (alle, med innvandringsbakgrunn eks. utvalgte land, barn ellers)",
+    "title": "Barn i kommunen (alle, med innvandringsbakgrunn eks. utvalgte land, barn ellers)",
     "variables": [
       {
         "title": "alle",
@@ -357,7 +357,7 @@
   },
   {
     "name": "bhgalder",
-    "description": "Barn etter alder",
+    "title": "Barn etter alder",
     "variables": [
       {
         "title": "1-5 år",
@@ -387,7 +387,7 @@
   },
   {
     "name": "bhgdeltakelse",
-    "description": "Barnehagedeltakelse",
+    "title": "Barnehagedeltakelse",
     "variables": [
       {
         "title": "alle barn",
@@ -405,7 +405,7 @@
   },
   {
     "name": "grskpoeng",
-    "description": "Gjennomsnittlige grunnskolepoeng (en indikator)",
+    "title": "Gjennomsnittlige grunnskolepoeng (en indikator)",
     "variables": [
       {
         "title": "antall poeng",
@@ -415,7 +415,7 @@
   },
   {
     "name": "spraak",
-    "description": "Språkbakgrunn",
+    "title": "Språkbakgrunn",
     "variables": [
       {
         "title": "alle",
@@ -433,7 +433,7 @@
   },
   {
     "name": "undervisningGrskole",
-    "description": "Form for grunnskoleopplæring",
+    "title": "Form for grunnskoleopplæring",
     "variables": [
       {
         "title": "Alle",
@@ -455,7 +455,7 @@
   },
   {
     "name": "voksneigrunnsk",
-    "description": "Voksne i grunnskolen",
+    "title": "Voksne i grunnskolen",
     "variables": [
       {
         "title": "alle",
@@ -485,7 +485,7 @@
   },
   {
     "name": "utd4",
-    "description": "Utdanningsnivå firedelt",
+    "title": "Utdanningsnivå firedelt",
     "variables": [
       {
         "title": "Grunnskole",
@@ -507,7 +507,7 @@
   },
   {
     "name": "utd5",
-    "description": "Utdanningsnivå femdelt",
+    "title": "Utdanningsnivå femdelt",
     "variables": [
       {
         "title": "Ingen fullført utdanning",
@@ -533,7 +533,7 @@
   },
   {
     "name": "utd6",
-    "description": "Seksdelt utdanningsnivå",
+    "title": "Seksdelt utdanningsnivå",
     "variables": [
       {
         "title": "Grunnskole",
@@ -563,7 +563,7 @@
   },
   {
     "name": "spor1-3",
-    "description": "Sporinndeling",
+    "title": "Sporinndeling",
     "variables": [
       {
         "title": "spor 1",
@@ -581,7 +581,7 @@
   },
   {
     "name": "rettigheterIntrolovNosfk",
-    "description": "Rettighetskategori i norsk og samfunnskunnskap",
+    "title": "Rettighetskategori i norsk og samfunnskunnskap",
     "variables": [
       {
         "title": "Alle med rett og/eller plikt til opplæring i norsk og samfunnskunnskap",
@@ -603,7 +603,7 @@
   },
   {
     "name": "spraaknivaa",
-    "description": "Språknivå på prøver",
+    "title": "Språknivå på prøver",
     "variables": [
       {
         "title": "alle",
@@ -633,7 +633,7 @@
   },
   {
     "name": "provetype",
-    "description": "Prøveform",
+    "title": "Prøveform",
     "variables": [
       {
         "title": "Muntlig",
@@ -655,7 +655,7 @@
   },
   {
     "name": "antallasylnorsk",
-    "description": "Antall asylsøkere i opplæring i norsk og samfunnskunnskap",
+    "title": "Antall asylsøkere i opplæring i norsk og samfunnskunnskap",
     "variables": [
       {
         "title": "antall asylsøkere i norsk og samfunnskunnskap",
@@ -665,7 +665,7 @@
   },
   {
     "name": "antallanalfabet",
-    "description": "Antall analfabeter i opplæring i norsk og samfunnskunnskap",
+    "title": "Antall analfabeter i opplæring i norsk og samfunnskunnskap",
     "variables": [
       {
         "title": "analfabeter i opplæring i norsk og samfunnskunnskap",
@@ -675,7 +675,7 @@
   },
   {
     "name": "norsktimeantall",
-    "description": "Gjennomsnittlig antall norsktimer",
+    "title": "Gjennomsnittlig antall norsktimer",
     "variables": [
       {
         "title": "gjennomsnittlig antall norsktimer",
@@ -685,7 +685,7 @@
   },
   {
     "name": "alderGrupper",
-    "description": "Aldersinndeling syvdelt",
+    "title": "Aldersinndeling syvdelt",
     "variables": [
       {
         "title": "0-5 år",
@@ -719,7 +719,7 @@
   },
   {
     "name": "innvgrunn5",
-    "description": "Femdelt innvandringsgrunn",
+    "title": "Femdelt innvandringsgrunn",
     "variables": [
       {
         "title": "alle",
@@ -745,7 +745,7 @@
   },
   {
     "name": "innvgrunn6",
-    "description": "Seksdelt innvandringsgrunn",
+    "title": "Seksdelt innvandringsgrunn",
     "variables": [
       {
         "title": "alle",
@@ -775,7 +775,7 @@
   },
   {
     "name": "avslutningArsak8",
-    "description": "Årsak til avslutning/avbrytning av introduksjonsprogrammet",
+    "title": "Årsak til avslutning/avbrytning av introduksjonsprogrammet",
     "variables": [
       {
         "title": "Alle",
@@ -813,7 +813,7 @@
   },
   {
     "name": "avslutningArsak3",
-    "description": "Årsak til avslutning/avbrytning av introduksjonsprogram",
+    "title": "Årsak til avslutning/avbrytning av introduksjonsprogram",
     "variables": [
       {
         "title": "Alle",
@@ -831,7 +831,7 @@
   },
   {
     "name": "avslutningStatus4",
-    "description": "Status på arbeidsmarkedet etter avslutta/avbrutt introduksjonsprogram",
+    "title": "Status på arbeidsmarkedet etter avslutta/avbrutt introduksjonsprogram",
     "variables": [
       {
         "title": "Alle",
@@ -853,7 +853,7 @@
   },
   {
     "name": "arbeidsalder1869",
-    "description": "Arbeidsfør alder firedelt",
+    "title": "Arbeidsfør alder firedelt",
     "variables": [
       {
         "title": "18-69 år",
@@ -875,7 +875,7 @@
   },
   {
     "name": "antPersIkkeIArb/utd",
-    "description": "Personer som ikke er i arbeid eller utdanning (personer)",
+    "title": "Personer som ikke er i arbeid eller utdanning (personer)",
     "variables": [
       {
         "title": "antall personer som ikke er i arbeid eller utdanning",
@@ -885,7 +885,7 @@
   },
   {
     "name": "aldersinndelingEtterGrskole",
-    "description": "Todelt aldersinndeling etter grunnskole",
+    "title": "Todelt aldersinndeling etter grunnskole",
     "variables": [
       {
         "title": "16-66 år",
@@ -903,7 +903,7 @@
   },
   {
     "name": "gjennomsnittsinntektAlle",
-    "description": "Gjennomsnittsinntekt",
+    "title": "Gjennomsnittsinntekt",
     "variables": [
       {
         "title": "gjennomsnittsinntekt",
@@ -913,7 +913,7 @@
   },
   {
     "name": "lavinntekt",
-    "description": "Personer med lavinntekt i minst 3 år",
+    "title": "Personer med lavinntekt i minst 3 år",
     "variables": [
       {
         "title": "antall personer med vedvarende lavinntekt",
@@ -923,7 +923,7 @@
   },
   {
     "name": "soshjelp",
-    "description": "Personer som mottar sosialhjelp",
+    "title": "Personer som mottar sosialhjelp",
     "variables": [
       {
         "title": "Personer som mottar sosialhjelp",
@@ -933,7 +933,7 @@
   },
   {
     "name": "tilskuddTilKommuner",
-    "description": "Tilskuddstype",
+    "title": "Tilskuddstype",
     "variables": [
       {
         "title": "Totalt",
@@ -979,7 +979,7 @@
   },
   {
     "name": "bosetting",
-    "description": "Bosetting",
+    "title": "Bosetting",
     "variables": [
       {
         "title": "Anmodning om bosetting fra IMDi",
@@ -1017,7 +1017,7 @@
   },
   {
     "name": "bydelNr",
-    "description": "Bydelsnummer",
+    "title": "Bydelsnummer",
     "variables": [
       {
         "title": "bydel_nr",
@@ -1027,7 +1027,7 @@
   },
   {
     "name": "fylkeNr",
-    "description": "Fylkesnummer",
+    "title": "Fylkesnummer",
     "variables": [
       {
         "title": "fylke_nr",
@@ -1037,7 +1037,7 @@
   },
   {
     "name": "kommuneNr",
-    "description": "Kommunenummer",
+    "title": "Kommunenummer",
     "variables": [
       {
         "title": "kommune_nr",
@@ -1047,7 +1047,7 @@
   },
   {
     "name": "naringsgregionNr",
-    "description": "Næringsregionnummer",
+    "title": "Næringsregionnummer",
     "variables": [
       {
         "title": "naringsgregion_nr",
@@ -1057,7 +1057,7 @@
   },
   {
     "name": "enhet",
-    "description": "Enheter for tall",
+    "title": "Enheter for tall",
     "variables": [
       {
         "title": "Personer",
@@ -1083,7 +1083,7 @@
   },
   {
     "name": "?",
-    "description": "Utbetalt tilskudd",
+    "title": "Utbetalt tilskudd",
     "variables": [
       {
         "title": "?",
@@ -1093,7 +1093,7 @@
   },
   {
     "name": "landbakgrunn",
-    "description": "Landbakgrunn",
+    "title": "Landbakgrunn",
     "variables": [
       {
         "title": "Alle land",

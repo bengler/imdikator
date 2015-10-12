@@ -9,6 +9,7 @@ describe('resolveQuery', () => {
       table: 'befolkninghovedgruppe',
       unit: 'personer',
       year: 'latest',
+      comparisonRegions: [],
       dimensions: [
         {
           name: 'innvkat5',

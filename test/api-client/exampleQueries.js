@@ -5,6 +5,7 @@ export default [
       tableName: 'befolkninghovedgruppe',
       region: 'K0101',
       unit: 'personer',
+      comparisonRegions: [],
       dimensions: [
         {
           name: 'innvkat5',

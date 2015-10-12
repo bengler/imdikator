@@ -1,5 +1,6 @@
 import {assert} from 'chai'
 
+import {CHARTS} from '../../config/chartTypes'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 
 const QUERY = {
@@ -72,11 +73,12 @@ describe('queryResultPresenter', () => {
     assert.deepEqual(pres.dimensions, ['region', 'innvkat5', 'kjonn'])
   })
 
-  it('sorts aar dimension last for line charts', () => {
-    const query = Object.assign({}, QUERY)
-
-    const pres = queryResultPresenter(query, [], {chartKind: 'line'})
-    assert.equal(pres.dimensions.slice(-1)[0], 'aar')
+  Object.keys(CHARTS).forEach(chartKind => {
+    it(`sorts aar dimension last for ${chartKind}`, () => {
+      const query = Object.assign({}, QUERY)
+      const pres = queryResultPresenter(query, [], {chartKind: chartKind})
+      assert.equal(pres.dimensions.slice(-1)[0], 'aar')
+    })
   })
 
   it('figures out the unit to use when presenting based on the query', () => {

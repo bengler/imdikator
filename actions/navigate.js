@@ -6,7 +6,8 @@ export function navigate(match = {}) {
   return dispatch => {
     const {params} = match
     if (params.region) {
-      dispatch(loadRegionByCode(params.region))
+      const [regionCode] = params.region.split('-')
+      dispatch(loadRegionByCode(regionCode))
     }
     dispatch({
       type: NAVIGATE,

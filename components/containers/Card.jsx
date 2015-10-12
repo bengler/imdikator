@@ -5,6 +5,7 @@ import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
+import CardMetadata from '../elements/CardMetadata'
 import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 import {performQuery} from '../../actions/cardPages'
 import {comparableRegionCodesPrefixified} from '../../lib/regionUtil'
@@ -229,28 +230,17 @@ class Card extends Component {
           filters={this.getFilterState()}
           onChange={this.handleFilterChange.bind(this)}
           />
-        <div className="graph">  
+        <div className="graph">
           <ChartComponent data={this.props.data}/>
         </div>
-        <div className="graph__annotations">{tableDescription}</div>      
+        <div className="graph__annotations">{tableDescription}</div>
         <div className="graph__functions">
-		  <button type="button" className="button button--secondary button--small"><i className="icon__export"></i> Lenke til grafen</button>				
-		  <button type="button" className="button button--secondary button--small"><i className="icon__download"></i> Last ned</button>
-	    </div>
-	    <div className="graph__about">										
-		  <div className="toggle toggle--light t-no-margin">
-	        <a href="#" className="toggle__button"><span className="toggle__caption--contracted"> Veiledning og kilder</span><span className="toggle__caption--expanded">Skjul veiledning og kilder</span> <i className="icon__arrow-down toggle__icon"></i></a>
-		  </div>        
-        </div>
-        <div>
-        <h4 className="h2">Veiledning og kilder</h4>
-        <h5 className="h3">Sammendrag</h5>
-	    <p>{tableDescription}</p>
-	    <h5 className="h3">Begrepsforklaring</h5>
-	    <p>{tableTerminology}</p>
-	    <h5 className="h3">Kilder</h5>
-	    <p>{tableSource}, målt: {tableMeasuredAt}</p>
-        </div>
+    		  <button type="button" className="button button--secondary button--small"><i className="icon__export"></i> Lenke til grafen</button>
+    		  <button type="button" className="button button--secondary button--small"><i className="icon__download"></i> Last ned</button>
+
+          <CardMetadata metadata={card.metadata}/>
+
+	      </div>
       </div>
     )
   }

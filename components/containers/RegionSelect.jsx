@@ -109,9 +109,9 @@ class RegionSelect extends Component {
               </div>
               <div className="col--half">
                 <p className="text--small">
-                  [TODO] Disse 6 kommunene er nærmest Sandefjord på befolkningsstørrelse,
-                  innvandrerandel og flyktningsandel er mest anbefalt å
-                  sammenlikne med. <a href="#">Les mer om dette utvalget</a>.
+                  Disse stedene er nærmest det valgte stedet på befolkningsstørrelse,
+                  innvandrerandel og flyktningsandel og er mest anbefalt å
+                  sammenlikne med. <a href="#">Les mer om dette utvalget</a>. [TODO] 
                 </p>
               </div>
             </div>
@@ -131,7 +131,7 @@ class RegionSelect extends Component {
         )}
         <div className="fieldset">
           <label htmlFor="compare-search" className="legend">Legg til andre steder</label>
-          <div className="search search--subtle">
+          <div className="search search--autocomplete">
             <RegionSearch
               placeholder="Kommune/fylke/næringsregion/bydel etc."
               onSelect={region => this.handleAdd(prefixifyRegion(region))}/>

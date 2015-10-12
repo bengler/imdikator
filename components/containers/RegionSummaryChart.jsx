@@ -137,7 +137,7 @@ class RegionSummaryChart extends Component {
           {titleTwo && <h3 className="indicator__primary">{titleTwo}</h3>}
           {subtitleTwo && <p className="indicator__secondary">{subtitleTwo}</p>}
           <div className="indicator__graph">
-            <Chart data={modifiedData} className="summaryChart"/>
+            <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
         </section>
       </div>

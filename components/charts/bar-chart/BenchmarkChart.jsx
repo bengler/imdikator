@@ -1,13 +1,26 @@
 import React from 'react'
+import update from 'react-addons-update'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
+function sortData(data, direction) {
+  const sortedRows = data.rows.slice().sort((rowA, rowB) => {
+    const varA = rowA.tabellvariabel
+    const varB = rowB.tabellvariabel
+    return direction == 'ascending' ? (varA - varB) : (varB - varA)
+  })
+  return update(data, {
+    rows: {$set: sortedRows}
+  })
+}
+
 export default class BenchmarkChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    sortDirection: React.PropTypes.string
   }
 
   drawPoints(el, data) {
@@ -175,9 +188,11 @@ export default class BenchmarkChart extends React.Component {
   }
 
   render() {
+    const sortDirection = this.props.sortDirection
+    const data = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
     const margins = {left: 50, top: 20, right: 20, bottom: 0}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
+      <D3Chart data={data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
     )
   }
 }

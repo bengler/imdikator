@@ -81,22 +81,22 @@ export default class BenchmarkChart extends React.Component {
     const fontSize = 12
 
     yc.scale.nice() // To include the last tick
-    const yAxis = d3.svg.axis().scale(yc.scale).orient('right')
+    const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     .ticks(5)
     .tickFormat(yc.format)
+    .innerTickSize(0)
+    .outerTickSize(0)
 
-    svg.append('g')
+    const axisEl = svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
-    // We dont want the normal axis path or tick lines
     .select('path').remove()
-    .selectAll('line').remove()
 
     // Draw horizontal background lines where the tick marks are
     svg.selectAll('.axis .tick')
     .append('line')
     .attr('class', 'benchmark--line')
-    .attr('x1', 0)
+    .attr('x1', -this.margins.left)
     .attr('x2', this.size.width)
     .attr('y1', 0)
     .attr('y2', 0)
@@ -175,7 +175,7 @@ export default class BenchmarkChart extends React.Component {
   }
 
   render() {
-    const margins = {left: 0, top: 20, right: 0, bottom: 0}
+    const margins = {left: 50, top: 20, right: 20, bottom: 0}
     return (
       <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
     )

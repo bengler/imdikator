@@ -4,7 +4,7 @@ import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
-import {prefixifyRegion, getHeaderKey, countyNorway} from '../../lib/regionUtil'
+import {prefixifyRegion, countyNorway} from '../../lib/regionUtil'
 
 const norway = countyNorway()
 
@@ -14,13 +14,14 @@ function queryKey(region, tableName) {
 
 function share(value) {
   if (value == '.') {
-    return 'Ukjent '
+    return 'ukjent '
   }
   if (value == ':') {
     return 'Anonymisert '
   }
   return Number(value).toFixed(1)
 }
+
 
 function dispatchQueries(props) {
   const region = props.region
@@ -91,11 +92,12 @@ class RegionSummaryChart extends Component {
       )
     }
 
+    const regionDataRow = data.rows.find(row => row.region == prefixifyRegion(region))
     let titleParams = {
-      share: share(data.rows[0].tabellvariabel)
+      share: share(regionDataRow.tabellvariabel)
     }
     chartQuery.additionalTitleParams.map(param => {
-      titleParams[param] = data.rows[0][param]
+      titleParams[param] = regionDataRow[param]
     })
     const title = chartQuery.title(titleParams)
     const subtitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})

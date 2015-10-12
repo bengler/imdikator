@@ -105,6 +105,7 @@ class Card extends Component {
     const unitFilterState = {
       enabled: headerGroup.enhet.length > 1,
       name: 'unit',
+      value: query.unit,
       title: headerGroup.enhet.length > 1 ? headerGroup.enhet.join(' eller ') : 'Enhet',
       options: headerGroup.enhet.map(unit => {
         return {value: unit, title: unit}

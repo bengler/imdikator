@@ -69,13 +69,17 @@ describe('queryResultPresenter', () => {
         {name: 'kjonn', variables: ['0', '1']}
       ]
     }
-    const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
+    const pres = queryResultPresenter(query, [], {chartKind: 'pyramid'})
     assert.deepEqual(pres.dimensions, ['region', 'innvkat5', 'kjonn'])
   })
 
-  Object.keys(CHARTS).forEach(chartKind => {
+  ;['bar', 'stackedBar', 'pyramid'].forEach(chartKind => {
     it(`sorts aar dimension last for ${chartKind}`, () => {
-      const query = Object.assign({}, QUERY)
+      const query = Object.assign({}, QUERY, {
+        dimensions: [
+          {name: 'innvkat5', variables: ['innvandrere']}
+        ]
+      })
       const pres = queryResultPresenter(query, [], {chartKind: chartKind})
       assert.equal(pres.dimensions.slice(-1)[0], 'aar')
     })
@@ -85,13 +89,13 @@ describe('queryResultPresenter', () => {
     const qu = Object.assign({}, QUERY, {
       unit: 'kustom'
     })
-    const pres = queryResultPresenter(qu, [], {})
+    const pres = queryResultPresenter(qu, [], {chartKind: 'bar'})
     assert.equal(pres.unit, 'kustom')
   })
 
   it('includes the query result as a rows property', () => {
     const result = [{something: 'here'}]
-    const pres = queryResultPresenter(QUERY, result, {})
+    const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
     assert.deepEqual(pres.rows, result)
   })
 })

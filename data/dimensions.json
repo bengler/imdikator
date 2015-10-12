@@ -688,31 +688,31 @@
     "title": "Aldersinndeling syvdelt",
     "variables": [
       {
-        "title": "0-5 år",
+        "title": "0-5",
         "label": "0_5"
       },
       {
-        "title": "6-15 år",
+        "title": "6-15",
         "label": "6_15"
       },
       {
-        "title": "16-19 år",
+        "title": "16-19",
         "label": "16_19"
       },
       {
-        "title": "20-29 år",
+        "title": "20-29",
         "label": "20_29"
       },
       {
-        "title": "30-54 år",
+        "title": "30-54",
         "label": "30_54"
       },
       {
-        "title": "55-66 år",
+        "title": "55-66",
         "label": "55_66"
       },
       {
-        "title": "67 + år",
+        "title": "67 +",
         "label": "67+"
       }
     ]

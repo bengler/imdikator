@@ -124,10 +124,13 @@ class Card extends Component {
         const valuesWithoutAggregate = values.filter(val => val != 'alle')
         //const valuesContainsAggregate = values.some(val => val == 'alle')
 
-        // If we have avilable dimensions. Lock first dimension as to not confuse users.
+        // If we have available dimensions. Lock first dimension as to not confuse users.
 
+        let enabled = true
 
-        const enabled = (i > 0)
+        if (i == 0 && availDimensions > 0) {
+          enabled = false
+        }
 
         let canExpandDimensionVariables = false
 

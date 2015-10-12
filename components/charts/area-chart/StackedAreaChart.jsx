@@ -18,7 +18,7 @@ export default class StackedAreaChart extends React.Component {
 
     const svg = this.svg
 
-    let dimensionLabels = data.dimensions
+    const dimensionLabels = data.dimensions
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const parseDate = d3.time.format('%Y').parse

@@ -100,11 +100,6 @@ export default class BenchmarkChart extends React.Component {
     .innerTickSize(0)
     .outerTickSize(0)
 
-    const axisEl = svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-    .select('path').remove()
-
     // Draw horizontal background lines where the tick marks are
     svg.selectAll('.axis .tick')
     .append('line')

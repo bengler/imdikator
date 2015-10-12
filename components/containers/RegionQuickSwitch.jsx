@@ -15,9 +15,9 @@ class RegionQuickSwitch extends Component {
 
   render() {
     return (
-	  <div>
+      <div>
         <label htmlFor="compare-search" className="t-margin-top--large">Gå til sted</label>
-        <div className="search search--autocomplete">  
+        <div className="search search--autocomplete">
             <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
         </div>
       </div>

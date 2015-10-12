@@ -23,18 +23,17 @@ export default class CardMetadata extends Component {
     const {description, terminology, source, measuredAt} = metadata
 
     const buttonClasses = cx({
-      'toggle__button': true,
+      toggle__button: true,
       'toggle__button--expanded': this.state.expanded
     })
 
     const sectionClases = cx({
-      'toggle__section': true,
+      toggle__section: true,
       'toggle__section--expanded': this.state.expanded
     })
 
-
     return (
-      <div className="graph__about">  
+      <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
           <div className="toggle toggle--light t-no-margin">
               <a onClick={this.handleClick.bind(this)} href="#" className={buttonClasses}><span className="toggle__caption--contracted"> Veiledning og kilder</span><span className="toggle__caption--expanded">Skjul veiledning og kilder</span> <i className="icon__arrow-down toggle__icon"></i></a>

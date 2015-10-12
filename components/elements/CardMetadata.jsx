@@ -34,24 +34,25 @@ export default class CardMetadata extends Component {
 
 
     return (
-      <div className="graph__about">
+      <div className="graph__about">  
         <div className="toggle toggle--light t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="#" className={buttonClasses}><span className="toggle__caption--contracted"> Veiledning og kilder</span><span className="toggle__caption--expanded">Skjul veiledning og kilder</span> <i className="icon__arrow-down toggle__icon"></i></a>
-        </div>
-
-        {
-          this.state.expanded &&
-          <div className={sectionClases}>
-            <h4 className="h2">Veiledning og kilder</h4>
-            <h5 className="h3">Sammendrag</h5>
-            <p>{description}</p>
-            <h5 className="h3">Begrepsforklaring</h5>
-            <p>{terminology}</p>
-            <h5 className="h3">Kilder</h5>
-            <p>{source}, målt: {measuredAt}</p>
+          <div className="toggle toggle--light t-no-margin">
+              <a onClick={this.handleClick.bind(this)} href="#" className={buttonClasses}><span className="toggle__caption--contracted"> Veiledning og kilder</span><span className="toggle__caption--expanded">Skjul veiledning og kilder</span> <i className="icon__arrow-down toggle__icon"></i></a>
           </div>
-        }
 
+          {
+            this.state.expanded &&
+            <div className={sectionClases}>
+              <h4 className="h2">Veiledning og kilder</h4>
+              <h5 className="h3">Sammendrag</h5>
+              <p>{description}</p>
+              <h5 className="h3">Begrepsforklaring</h5>
+              <p>{terminology}</p>
+              <h5 className="h3">Kilder</h5>
+              <p>{source}, målt: {measuredAt}</p>
+            </div>
+          }
+        </div>
       </div>
     )
   }

@@ -234,14 +234,14 @@ class Card extends Component {
           <ChartComponent data={this.props.data}/>
         </div>
         <div className="graph__functions">
-        <button type="button" className="button button--secondary button--small">
-          <i className="icon__export"></i> Lenke til grafen
-        </button>
-        <button type="button" className="button button--secondary button--small">
-          <i className="icon__download"></i> Last ned
-        </button>
-        <CardMetadata metadata={card.metadata}/>
-	      </div>
+          <button type="button" className="button button--secondary button--small">
+            <i className="icon__export"></i> Lenke til grafen
+          </button>
+          <button type="button" className="button button--secondary button--small">
+            <i className="icon__download"></i> Last ned
+          </button>
+	    </div>
+	    <CardMetadata metadata={card.metadata}/>
       </div>
     )
   }

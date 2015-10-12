@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react'
 import Lightbox from '../elements/Lightbox'
 import ToggleButtonList from '../elements/ToggleButtonList'
 import RegionSearch from '../containers/RegionSearch'
-import {_t} from '../../lib/translate'
 import {connect} from 'react-redux'
 import difference from 'lodash.difference'
 import union from 'lodash.union'
@@ -111,7 +110,7 @@ class RegionSelect extends Component {
                 <p className="text--small">
                   Disse stedene er nærmest det valgte stedet på befolkningsstørrelse,
                   innvandrerandel og flyktningsandel og er mest anbefalt å
-                  sammenlikne med. <a href="#">Les mer om dette utvalget</a>. [TODO] 
+                  sammenlikne med. <a href="#">Les mer om dette utvalget</a>. [TODO]
                 </p>
               </div>
             </div>

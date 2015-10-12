@@ -78,7 +78,6 @@ class RegionSummaryChart extends Component {
     const tableName = chartQuery.query.tableName
     const data = this.props.data[queryKey(region, tableName)]
     const comparisonData = this.props.data[queryKey(norway, tableName)]
-    const Chart = chartQuery.chartKind == 'benchmark' ? BenchmarkChart : BarChart
 
     if (!(data && data.rows[0] && comparisonData)) {
       return (
@@ -101,9 +100,12 @@ class RegionSummaryChart extends Component {
     const title = chartQuery.title(titleParams)
     const subTitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})
 
+    const Chart = chartQuery.chartKind == 'benchmark' ? BenchmarkChart : BarChart
+    // BarChart can only handle one dimension
+    const dimensions = chartQuery.chartKind == 'benchmark' ? [getHeaderKey(region)] : ['innvkat3', getHeaderKey(region)]
+
     const modifiedData = update(data, {
-      // overwrite dimensions because BenchmarkChart can only handle one dimension
-      dimensions: {$set: [getHeaderKey(region)]},
+      dimensions: {$set: dimensions},
       // highlight our current region
       highlight: {$set: {
         dimensionName: getHeaderKey(region),

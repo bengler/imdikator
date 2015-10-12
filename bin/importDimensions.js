@@ -11,17 +11,15 @@ const SHEET_GID = 385917427
 const OUTFILE = './data/dimensions.json'
 
 const mappings = {
-  Variabelbeskrivelse: 'description',
-  'Kort variabelnavn': 'name',
-  'Menneskelesbar variabelkategorier': 'variableTitle',
-  'Maskinlesbar kortkategori': 'variableLabel',
-  Sammenslått: 'merged',
-  'brukt i tabellnr': 'tables',
-  kodekommentar: 'comment'
+  dimensionDescription: 'description',
+  dimension: 'name',
+  variableTitle: 'variableTitle',
+  variableLabel: 'variableLabel'
 }
 
 const rows = csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
   .map(row => {
+    console.info(row)
     return Object.keys(mappings).reduce((mapped, key) => {
       mapped[mappings[key]] = row[key]
       return mapped

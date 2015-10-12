@@ -69,7 +69,7 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
 
     const getActiveTab = getActiveCard.then(card => {
       const tab = TABS.find(t => t.name === activeTabName)
-      const tabOverrides = card.tabs.find(t => t.name === activeTabName)
+      const tabOverrides = (card.tabs || []).find(t => t.name === activeTabName)
       return Object.assign({}, tab, tabOverrides)
     })
 

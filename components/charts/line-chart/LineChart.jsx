@@ -38,7 +38,7 @@ export default class LineChart extends React.Component {
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
-    yAxis.tickFormat(yc.format)
+    yAxis.tickFormat(yc.axisFormat)
 
     const isPercent = data.unit === 'prosent'
     const dates = []
@@ -64,16 +64,10 @@ export default class LineChart extends React.Component {
         } else if (value.values[0].anonymized) {
           value.formattedValue = value.values[0].value
           value.value = 4
-          value.y = y(4)
         } else {
           value.value = parseFloat(value.values[0].tabellvariabel)
-          value.y = y(value.value)
-          value.formattedValue = yc.format(value.value)
-          if (isPercent) {
-            // Need to do this because of how d3 percentage scale works
-            // Is normally done in the queryResultNester
-            value.value /= 100
-          }
+          value.y = y(isPercent ? value.value / 100 : value.value)
+          value.formattedValue = yc.format(isPercent ? value.value / 100 : value.value)
         }
       })
     })
@@ -201,7 +195,7 @@ export default class LineChart extends React.Component {
   }
 
   render() {
-    const margins = {left: 40, top: 20, right: 40, bottom: 70}
+    const margins = {left: 50, top: 20, right: 40, bottom: 70}
     return (
       <D3Chart margins={margins} data={this.props.data} drawPoints={this.drawPoints}/>
     )

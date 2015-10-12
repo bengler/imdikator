@@ -63,10 +63,12 @@ class Chart {
   // Returns {scale: d3.scale, format: tickFormat}
   configureYscale(extent, unit) {
     let format = d3.format('d')
+    let axisFormat = d3.format('d')
     const y = d3.scale.linear().range([this.size.height, 0])
     switch (unit) {
       case 'prosent': {
         format = d3.format('.2%')
+        axisFormat = d3.format('%')
         y.domain([0, Math.max(1, extent[1])])
         break
       }
@@ -79,8 +81,11 @@ class Chart {
       }
       case 'kroner': {
         const _format = d3.format('s')
-        format = function (val) {
+        axisFormat = function (val) {
           return `${_format(val)} kr`
+        }
+        format = function (val) {
+          return `${d3.format('g')(val)} kr`
         }
         y.domain([0, extent[1]])
         break
@@ -89,7 +94,7 @@ class Chart {
         y.domain([Math.min(0, extent[0]), extent[1]])
       }
     }
-    return {scale: y, format: format}
+    return {scale: y, format: format, axisFormat: axisFormat}
   }
 
   legend() {

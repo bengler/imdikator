@@ -124,8 +124,8 @@ class RegionSummaryChart extends Component {
       dimensions: {$set: dimensions},
       // highlight our current region
       highlight: {$set: {
-        dimensionName: getHeaderKey(region),
-        value: [region.code]
+        dimensionName: 'region',
+        value: [prefixifyRegion(region)]
       }}
     })
 

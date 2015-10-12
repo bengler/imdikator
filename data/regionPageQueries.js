@@ -16,6 +16,8 @@ export default [
         }
       ]
     },
+    chartKind: 'benchmark',
+    compareRegionToSimilar: true,
     additionalTitleParams: [],
     title: options => {
       return `Innvandrere utgjør ${options.share}% av befolkning`
@@ -37,6 +39,8 @@ export default [
         }
       ]
     },
+    chartKind: 'benchmark',
+    compareRegionToSimilar: true,
     additionalTitleParams: [],
     title: options => {
       return `Flyktninger utgjør ${options.share}‰ av befolkningen`
@@ -58,12 +62,37 @@ export default [
         }
       ]
     },
+    chartKind: 'benchmark',
+    compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
     title: options => {
       return `I ${options.aar} har de botatt ${options.share}% av de de ble anmodet om.`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}%`
+    },
+  },
+  {
+    name: 'i_arbeid',
+    query: {
+      year: 'latest',
+      tableName: 'sysselsatte_innvkat',
+      unit: 'prosent',
+      dimensions: [
+        {
+          name: 'innvkat3',
+          variables: ['innvandrere', 'befolkningen_ellers']
+        }
+      ]
+    },
+    chartKind: 'bar',
+    compareRegionToSimilar: false,
+    additionalTitleParams: ['aar'],
+    title: options => {
+      return `title`
+    },
+    subTitle: options => {
+      return `subtitle`
     },
   },
   {
@@ -83,6 +112,8 @@ export default [
         }
       ]
     },
+    chartKind: 'benchmark',
+    compareRegionToSimilar: true,
     additionalTitleParams: [],
     title: options => {
       return `${options.share}% av innvandrerne går direkte fra introprogram til arbeid/utdanning`

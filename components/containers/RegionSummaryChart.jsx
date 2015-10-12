@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
+import BarChart from '../charts/bar-chart/BarChart'
 import {prefixify, getHeaderKey, countyNorway} from '../../lib/regionUtil'
 
 const norway = countyNorway()
@@ -23,16 +24,17 @@ function share(value) {
 
 function dispatchQueries(props) {
   const region = props.region
-  const query = props.chartQuery.query
+  const chartQuery = props.chartQuery
+  const query = chartQuery.query
   const similarRegionCodes = props.similarRegionCodes
 
   const regionQuery = Object.assign({}, query, {region: prefixify(region)})
-  if (similarRegionCodes.length > 0) {
+  if (chartQuery.compareRegionToSimilar && similarRegionCodes.length > 0) {
     regionQuery.comparisonRegions = similarRegionCodes
   }
   const regionQueryOptions = {
     region: region,
-    chartKind: 'benchmark',
+    chartKind: chartQuery.chartKind,
     queryKey: queryKey(region, query.tableName)
   }
   props.dispatch(loadChartData(regionQuery, regionQueryOptions))
@@ -40,7 +42,7 @@ function dispatchQueries(props) {
   const norwayQuery = Object.assign({}, query, {region: prefixify(norway)})
   const norwayQueryOptions = {
     region: norway,
-    chartKind: 'benchmark',
+    chartKind: chartQuery.chartKind,
     queryKey: queryKey(norway, query.tableName)
   }
   props.dispatch(loadChartData(norwayQuery, norwayQueryOptions))
@@ -72,9 +74,11 @@ class RegionSummaryChart extends Component {
 
   render() {
     const region = this.props.region
-    const tableName = this.props.chartQuery.query.tableName
+    const chartQuery = this.props.chartQuery
+    const tableName = chartQuery.query.tableName
     const data = this.props.data[queryKey(region, tableName)]
     const comparisonData = this.props.data[queryKey(norway, tableName)]
+    const Chart = chartQuery.chartKind == 'benchmark' ? BenchmarkChart : BarChart
 
     if (!(data && data.rows[0] && comparisonData)) {
       return (
@@ -87,7 +91,6 @@ class RegionSummaryChart extends Component {
         </div>
       )
     }
-    const chartQuery = this.props.chartQuery
 
     const titleParams = {
       share: share(data.rows[0].tabellvariabel)
@@ -114,7 +117,7 @@ class RegionSummaryChart extends Component {
           <h3 className="indicator__primary">{title}</h3>
           <p className="indicator__secondary">{subTitle}</p>
           <div className="indicator__graph">
-            <BenchmarkChart data={modifiedData} className="summaryChart"/>
+            <Chart data={modifiedData} className="summaryChart"/>
           </div>
         </section>
       </div>

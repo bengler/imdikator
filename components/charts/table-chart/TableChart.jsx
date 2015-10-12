@@ -41,26 +41,32 @@ export default class TableChart extends React.Component {
     this.generateCSV(this.props.data)
   }
 
+  componentWillReceiveProps(props) {
+    this.generateCSV(props.data)
+  }
+
   generateCSV(data) {
     if (!data || !data.rows) {
       return
     }
 
-    const regionKeys = ['fylkeNr', 'bydelNr', 'naringsregionNr', 'kommuneNr']
-    const regionKey = Object.keys(data.rows[0]).find(item => {
-      return regionKeys.indexOf(item) !== -1
-    })
+    const regionKey = 'region'
 
     // Generate TSV (for downloading, and we use this to draw the table)
     let csv = ''
     const separator = ';'
 
+
     if (data.dimensions.length > 0) {
+      if (data.dimensions.indexOf(regionKey) != -1) {
+        data.dimensions.shift()
+      }
       // See 04-befolkning_alder-fylke-2014.csv
       const nester = d3.nest().key(item => item[regionKey]).sortKeys(d3.ascending).key(item => data.dimensions.join(','))
       const xx = nester.entries(data.rows)
       // Headers
-      csv += regionKey + separator + 'Navn'
+
+      csv += `${regionKey}${separator}Navn`
       data.dimensions.forEach((dimension, idx) => {
         csv += separator
         if (idx > 0) {
@@ -73,7 +79,7 @@ export default class TableChart extends React.Component {
       })
 
       xx.forEach(region => {
-        csv += region.key + separator + dimensionLabelTitle(regionKey, region.key) + separator
+        csv += region.key.slice(1, region.key.length) + separator + dimensionLabelTitle(regionKey, region.key) + separator
         region.values[0].values.forEach(row => {
           csv += row.tabellvariabel + separator
         })
@@ -105,6 +111,7 @@ export default class TableChart extends React.Component {
 
     d3.select(el).style('overflow', 'scroll')
 
+    d3.select(el).select('table').remove()
     const table = d3.select(el).append('table')
     //const tableHeader = table.append('thead')
     const tableBody = table.append('tbody')

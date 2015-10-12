@@ -53,7 +53,6 @@
     "http-browserify": "git://github.com/bjoerge/http-browserify.git#fix-withcredentials-bug",
     "http-hash": "^2.0.0",
     "imdi-styles": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
-    "jsdom": "^3.1.2",
     "less": "^2.5.3",
     "lodash.difference": "^3.2.2",
     "lodash.omit": "^3.1.0",

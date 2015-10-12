@@ -6,7 +6,7 @@ import {
   split,
   typeForPrefix,
   regionByCode,
-  comparableMunicipalityCodesPrefixified
+  comparableRegionCodesPrefixified
 } from '../../lib/regionUtil'
 
 import CardPageButtons from '../containers/CardPageButtons'
@@ -52,7 +52,7 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const similarRegionCodes = comparableMunicipalityCodesPrefixified(region, allRegions)
+    const comparableRegionCodes = comparableRegionCodesPrefixified(region, allRegions)
 
     return (
       <main className="page">
@@ -80,7 +80,7 @@ class RegionPage extends Component {
                     {chartQueries.map(chartQuery => {
                       const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
                       return (
-                        <RegionSummaryChart key={key} similarRegionCodes={similarRegionCodes} region={region} chartQuery={chartQuery} />
+                        <RegionSummaryChart key={key} comparableRegionCodes={comparableRegionCodes} region={region} chartQuery={chartQuery} />
                       )
                     })}
                   </div>

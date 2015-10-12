@@ -26,11 +26,11 @@ function dispatchQueries(props) {
   const region = props.region
   const chartQuery = props.chartQuery
   const query = chartQuery.query
-  const similarRegionCodes = props.similarRegionCodes
+  const comparableRegionCodes = props.comparableRegionCodes
 
   const regionQuery = Object.assign({}, query, {region: prefixify(region)})
-  if (chartQuery.compareRegionToSimilar && similarRegionCodes.length > 0) {
-    regionQuery.comparisonRegions = similarRegionCodes
+  if (chartQuery.compareRegionToSimilar && comparableRegionCodes.length > 0) {
+    regionQuery.comparisonRegions = comparableRegionCodes
   }
   const regionQueryOptions = {
     region: region,

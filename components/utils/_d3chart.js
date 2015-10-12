@@ -78,9 +78,9 @@ class Chart {
         break
       }
       case 'kroner': {
-        const f = d3.format('g')
+        const _format = d3.format('s')
         format = function (val) {
-          return `${f(val)} kr`
+          return `${_format(val)} kr`
         }
         y.domain([0, extent[1]])
         break
@@ -195,14 +195,20 @@ class Chart {
   wrapTextNode(text, width) {
     text.each(function () {
       const txt = d3.select(this)
-      const words = txt.text().split(/\s+/).reverse()
+      const words = txt.text()
+      .split(/\s+/)
+      .reverse()
       const lineHeight = 1.1 // ems
       const y = txt.attr('y')
       const dy = parseFloat(txt.attr('dy'))
       let word = null
       let line = []
       let lineNumber = 0
-      let tspan = txt.text(null).append('tspan').attr('x', 0).attr('y', y).attr('dy', `${dy}em`)
+      let tspan = txt.text(null)
+      .append('tspan')
+      .attr('x', 0)
+      .attr('y', y)
+      .attr('dy', `${dy}em`)
       word = words.pop()
       while (word) {
         line.push(word)
@@ -211,7 +217,11 @@ class Chart {
           line.pop()
           tspan.text(line.join(' '))
           line = [word]
-          tspan = txt.append('tspan').attr('x', 0).attr('y', y).attr('dy', `${++lineNumber * lineHeight + dy}em`).text(word)
+          tspan = txt.append('tspan')
+          .attr('x', 0)
+          .attr('y', y)
+          .attr('dy', `${++lineNumber * lineHeight + dy}em`)
+          .text(word)
         }
         word = words.pop()
       }

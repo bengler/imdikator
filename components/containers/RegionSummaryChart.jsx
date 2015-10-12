@@ -81,15 +81,7 @@ class RegionSummaryChart extends Component {
     const comparisonData = this.props.data[queryKey(norway, tableName)]
 
     if (!(data && data.rows[0] && comparisonData)) {
-      return (
-        <div className="col--third col--flow">
-          <section className="indicator">
-            <div className="indicator__graph">
-              <pre>Ingen data å for {tableName}</pre>
-            </div>
-          </section>
-        </div>
-      )
+      return null
     }
 
     const regionDataRow = data.rows.find(row => row.region == prefixifyRegion(region))

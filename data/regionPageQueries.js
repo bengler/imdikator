@@ -50,7 +50,7 @@ export default [
     },
   },
   {
-    name: 'bosatt_anmodet',
+    name: 'bosatt_anmodede',
     query: {
       year: 'latest',
       tableName: 'bosatt_anmodede',
@@ -58,7 +58,7 @@ export default [
       dimensions: [
         {
           name: 'bosetting',
-          variables: ['anmodning']
+          variables: ['bosatt']
         }
       ]
     },
@@ -66,7 +66,7 @@ export default [
     compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
     title: options => {
-      return `I ${options.aar} har de botatt ${options.share}% av de de ble anmodet om.`
+      return `I ${options.aar} har de bosatt ${options.share}% av de de ble anmodet om.`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}%`
@@ -87,12 +87,12 @@ export default [
     },
     chartKind: 'bar',
     compareRegionToSimilar: false,
-    additionalTitleParams: ['aar'],
+    additionalTitleParams: ['innvkat3'],
     title: options => {
-      return `title`
+      return `${options.share}% av ${options.innvkat3.replace('_', ' ')} er i arbeid`
     },
     subTitle: options => {
-      return `subtitle`
+      return `For hele landet er tallet ${options.share}%`
     },
   },
   {

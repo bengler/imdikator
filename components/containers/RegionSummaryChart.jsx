@@ -91,14 +91,30 @@ class RegionSummaryChart extends Component {
       )
     }
 
-    const titleParams = {
+    let titleParams = {
       share: share(data.rows[0].tabellvariabel)
     }
     chartQuery.additionalTitleParams.map(param => {
       titleParams[param] = data.rows[0][param]
     })
     const title = chartQuery.title(titleParams)
-    const subTitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})
+    const subtitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})
+
+
+    // secondary titles, atm only used in barchart
+    let titleTwo = null
+    let subtitleTwo = null
+    if (chartQuery.chartKind == 'bar') {
+      titleParams = {
+        share: share(data.rows[1].tabellvariabel)
+      }
+      chartQuery.additionalTitleParams.map(param => {
+        titleParams[param] = data.rows[1][param]
+      })
+      titleTwo = chartQuery.title(titleParams)
+      subtitleTwo = chartQuery.subTitle({share: share(comparisonData.rows[1].tabellvariabel)})
+    }
+
 
     const Chart = chartQuery.chartKind == 'benchmark' ? BenchmarkChart : BarChart
     // BenchmarkChart can only handle one dimension
@@ -116,8 +132,10 @@ class RegionSummaryChart extends Component {
     return (
       <div className="col--third col--flow">
         <section className="indicator">
-          <h3 className="indicator__primary">{title}</h3>
-          <p className="indicator__secondary">{subTitle}</p>
+          {title && <h3 className="indicator__primary">{title}</h3>}
+          {subtitle && <p className="indicator__secondary">{subtitle}</p>}
+          {titleTwo && <h3 className="indicator__primary">{titleTwo}</h3>}
+          {subtitleTwo && <p className="indicator__secondary">{subtitleTwo}</p>}
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart"/>
           </div>

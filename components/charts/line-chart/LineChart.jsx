@@ -47,7 +47,7 @@ export default class LineChart extends React.Component {
     const seriesColor = this.colors.domain(series)
 
     preparedData.forEach(item => {
-      item.color = seriesColor(item.key)
+      item.color = seriesColor(item.title)
       item.values.forEach(value => {
         value.color = item.color
         value.date = parseDate(value.key)

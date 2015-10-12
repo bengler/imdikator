@@ -1,6 +1,5 @@
 import {assert} from 'chai'
 
-import {CHARTS} from '../../config/chartTypes'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 
 const QUERY = {
@@ -75,6 +74,18 @@ describe('queryResultPresenter', () => {
 
   ;['bar', 'stackedBar', 'pyramid'].forEach(chartKind => {
     it(`sorts aar dimension last for ${chartKind}`, () => {
+      const query = Object.assign({}, QUERY, {
+        dimensions: [
+          {name: 'innvkat5', variables: ['innvandrere']}
+        ]
+      })
+      const pres = queryResultPresenter(query, [], {chartKind: chartKind})
+      assert.equal(pres.dimensions.slice(-1)[0], 'aar')
+    })
+  })
+
+  ;['line', 'stackedArea'].forEach(chartKind => {
+    it(`always includes year as last dimension ${chartKind}`, () => {
       const query = Object.assign({}, QUERY, {
         dimensions: [
           {name: 'innvkat5', variables: ['innvandrere']}

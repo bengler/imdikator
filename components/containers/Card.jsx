@@ -125,7 +125,9 @@ class Card extends Component {
         //const valuesContainsAggregate = values.some(val => val == 'alle')
 
         // If we have avilable dimensions. Lock first dimension as to not confuse users.
-        const enabled = availDimensions > 0 && i > 0
+
+
+        const enabled = (i > 0)
 
         let canExpandDimensionVariables = false
 
@@ -139,7 +141,6 @@ class Card extends Component {
         let options
 
         if (!enabled) {
-
           // Perhaps there are others reasons something is disabled. Right now only reason is that the user can't change it
           options = [
             {
@@ -160,12 +161,14 @@ class Card extends Component {
             }
           ]
         } else {
-          // everything in the header group
+          // output everything in the header group
           options = values.map(value => {
-            return {value: value.join(','), title: dimensionLabelTitle(dimension.name, value)}
+            return {
+              value: value,
+              title: dimensionLabelTitle(dimension.name, value)
+            }
           })
         }
-
 
         /*
          if (enabled && !canExpandDimensionVariables) {

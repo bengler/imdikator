@@ -73,9 +73,11 @@ class Chart {
         break
       }
       case 'promille': {
+        const _format = d3.format('.2g')
         format = function (val) {
-          return `${val}‰`
+          return _format(val) + '‰'
         }
+        axisFormat = format
         y.domain([0, extent[1]])
         break
       }

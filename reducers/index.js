@@ -7,7 +7,6 @@ import cardState from './cardState'
 import openCards from './openCards'
 import cardPage from './cardPage'
 import cardPages from './cardPages'
-import tables from './tables'
 import chartData from './chartFodder'
 
 export default combineReducers({
@@ -19,6 +18,5 @@ export default combineReducers({
   headerGroups,
   cardState,
   openCards,
-  tables,
   chartData
 })

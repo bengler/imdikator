@@ -18,7 +18,7 @@ describe('Fetching tables using API client', () => {
       adapter: json
     })
 
-    return client.getTables().then(tables => {
+    return client._getTables().then(tables => {
       assert.ok(Array.isArray(tables))
     })
   })
@@ -29,7 +29,7 @@ describe('Fetching tables using API client', () => {
       adapter: json
     })
 
-    return client.getTables()
+    return client._getTables()
       .then(tables => tables[0])
       .then(tableName => client.getHeaderGroups(tableName))
       .then(tap(assert.ok))

@@ -257,7 +257,6 @@ function select(state, ownProps) {
   const {query, activeTab, data} = cardState
 
   const headerGroups = state.headerGroups[query.tableName]
-  const table = state.tables[query.tableName]
 
   const regionHeaderKey = getHeaderKey(state.region)
 
@@ -270,7 +269,6 @@ function select(state, ownProps) {
     headerGroup,
     data,
     headerGroups,
-    table,
     activeTab,
     query
   }

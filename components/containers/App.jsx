@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {loadTables} from '../../actions/tables'
 
 class App extends Component {
   static propTypes = {
@@ -23,10 +22,6 @@ class App extends Component {
         router.navigate(router.makeLink(...args))
       }
     }
-  }
-
-  componentWillMount() {
-    this.props.dispatch(loadTables())
   }
 
   renderBreadCrumbs() {

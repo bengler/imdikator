@@ -48,7 +48,7 @@ export const CHARTS = {
   },
   bubble: {
     capabilities: {
-      dimensions: 1
+      dimensions: 2
     },
     component: BubbleChart
   },

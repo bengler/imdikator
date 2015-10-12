@@ -20,7 +20,7 @@ export default [
     compareRegionToSimilar: true,
     additionalTitleParams: [],
     title: options => {
-      return `Innvandrere utgjør ${options.share}% av befolkning`
+      return `Innvandrere utgjør ${options.share}% av befolkningen`
     },
     subTitle: options => {
       return `For hele landet er tallet ${options.share}%`

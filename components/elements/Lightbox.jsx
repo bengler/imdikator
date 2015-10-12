@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 
 export default class Lightbox extends Component {
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.node,
     title: PropTypes.string,
     onClose: PropTypes.func,
     style: PropTypes.object,

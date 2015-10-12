@@ -5,9 +5,10 @@ import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
-import similarMunicipalities from '../../data/similarMunicipalities'
 import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 import {performQuery} from '../../actions/cardPages'
+import {comparableRegionCodesPrefixified} from '../../lib/regionUtil'
+
 
 //import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'
@@ -22,7 +23,8 @@ class Card extends Component {
     table: PropTypes.object,
     activeTab: PropTypes.object,
     boundUpdateCardQuery: PropTypes.func,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    allRegions: PropTypes.array
   }
 
   static contextTypes = {
@@ -37,9 +39,6 @@ class Card extends Component {
     })
   }
 
-  findSimilarMunicipalities(muniCode) {
-    return similarMunicipalities.find(muni => muni.code === muniCode).similar.map(code => `K${code}`)
-  }
 
   handleFilterChange(property, newValue) {
     const {card, activeTab, query} = this.props
@@ -87,7 +86,7 @@ class Card extends Component {
       enabled: ['latest', 'chronological', 'table'].includes(activeTab.name),
       value: query.comparisonRegions,
       options: {
-        similar: this.findSimilarMunicipalities(region.code).slice(0, 5),
+        similar: comparableRegionCodesPrefixified(region, this.props.allRegions),
         recommended: []
       }
     }

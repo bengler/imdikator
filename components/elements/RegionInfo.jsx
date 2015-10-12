@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {prefixify, regionByCode} from '../../lib/regionUtil'
+import {prefixifyRegion, regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 
 
@@ -31,12 +31,12 @@ export default class RegionInfo extends Component {
         <p>
           <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
           {region.type == 'borough'
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(commerceRegion)})}>{commerceRegion.name}</a>.</span>
           }
 
           {region.type == 'municipality'
             && county
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixify(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixify(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(commerceRegion)})}>{commerceRegion.name}</a>.</span>
           }
 
           <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> <code>[TODO]</code> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>

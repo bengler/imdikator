@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
-  prefixify,
+  prefixifyRegion,
   split,
   typeForPrefix,
   regionByCode,
@@ -38,7 +38,7 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixify(region)})
+    this.context.goTo('/steder/:region', {region: prefixifyRegion(region)})
   }
 
   render() {

@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import difference from 'lodash.difference'
 import union from 'lodash.union'
 import {loadAllRegions} from '../../actions/region'
-import {prefixify} from '../../lib/regionUtil'
+import {prefixifyRegion} from '../../lib/regionUtil'
 
 class RegionSelect extends Component {
   static propTypes = {
@@ -46,7 +46,7 @@ class RegionSelect extends Component {
 
   renderRegion(regionCode) {
     const region = this.props.allRegions.find(reg => {
-      return prefixify(reg) === regionCode
+      return prefixifyRegion(reg) === regionCode
     })
     return `${region.name} ${_t(region.type)}`
   }
@@ -134,7 +134,7 @@ class RegionSelect extends Component {
           <div className="search search--subtle">
             <RegionSearch
               placeholder="Kommune/fylke/næringsregion/bydel etc."
-              onSelect={region => this.handleAdd(prefixify(region))}/>
+              onSelect={region => this.handleAdd(prefixifyRegion(region))}/>
           </div>
           <ToggleButtonList
             options={other}

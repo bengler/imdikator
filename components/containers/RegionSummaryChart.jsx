@@ -4,7 +4,7 @@ import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
-import {prefixify, getHeaderKey, countyNorway} from '../../lib/regionUtil'
+import {prefixifyRegion, getHeaderKey, countyNorway} from '../../lib/regionUtil'
 
 const norway = countyNorway()
 
@@ -28,7 +28,7 @@ function dispatchQueries(props) {
   const query = chartQuery.query
   const comparableRegionCodes = props.comparableRegionCodes
 
-  const regionQuery = Object.assign({}, query, {region: prefixify(region)})
+  const regionQuery = Object.assign({}, query, {region: prefixifyRegion(region)})
   if (chartQuery.compareRegionToSimilar && comparableRegionCodes.length > 0) {
     regionQuery.comparisonRegions = comparableRegionCodes
   }
@@ -39,7 +39,7 @@ function dispatchQueries(props) {
   }
   props.dispatch(loadChartData(regionQuery, regionQueryOptions))
 
-  const norwayQuery = Object.assign({}, query, {region: prefixify(norway)})
+  const norwayQuery = Object.assign({}, query, {region: prefixifyRegion(norway)})
   const norwayQueryOptions = {
     region: norway,
     chartKind: chartQuery.chartKind,

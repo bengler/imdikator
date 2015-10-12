@@ -28,7 +28,7 @@ describe('queryResultPresenter', () => {
       ]
     }
 
-    const pres = queryResultPresenter(query, {}, {chartKind: 'bar'})
+    const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
     assert.deepEqual(pres.dimensions, ['kjonn'])
   })
 
@@ -45,7 +45,7 @@ describe('queryResultPresenter', () => {
       ]
     }
 
-    const pres = queryResultPresenter(query, {}, {chartKind: 'bar'})
+    const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
     assert.deepEqual(pres.dimensions, ['innvkat5', 'kjonn'])
   })
 
@@ -53,7 +53,7 @@ describe('queryResultPresenter', () => {
     const query = Object.assign({}, QUERY, {
       year: ['2015']
     })
-    const pres = queryResultPresenter(query, {}, {chartKind: 'bar'})
+    const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
     assert(!pres.dimensions.includes('aar'))
   })
 
@@ -68,14 +68,14 @@ describe('queryResultPresenter', () => {
         {name: 'kjonn', variables: ['0', '1']}
       ]
     }
-    const pres = queryResultPresenter(query, {}, {chartKind: 'bar'})
-    assert.deepEqual(pres.dimensions, [['kommuneNr', 'fylkeNr'], 'innvkat5', 'kjonn'])
+    const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
+    assert.deepEqual(pres.dimensions, ['region', 'innvkat5', 'kjonn'])
   })
 
   it('sorts aar dimension last for line charts', () => {
     const query = Object.assign({}, QUERY)
 
-    const pres = queryResultPresenter(query, {}, {chartKind: 'line'})
+    const pres = queryResultPresenter(query, [], {chartKind: 'line'})
     assert.equal(pres.dimensions.slice(-1)[0], 'aar')
   })
 
@@ -83,7 +83,7 @@ describe('queryResultPresenter', () => {
     const qu = Object.assign({}, QUERY, {
       unit: 'kustom'
     })
-    const pres = queryResultPresenter(qu, {}, {})
+    const pres = queryResultPresenter(qu, [], {})
     assert.equal(pres.unit, 'kustom')
   })
 

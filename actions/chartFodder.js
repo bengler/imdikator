@@ -1,5 +1,5 @@
 import apiClient from '../config/apiClient'
-import {prefixify} from '../lib/regionUtil'
+import {prefixifyRegion} from '../lib/regionUtil'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
 import {REQUEST_CHART_DATA, RECEIVE_CHART_DATA, RECEIVE_TABLE_HEADERS} from './actions'
@@ -24,7 +24,7 @@ export function loadChartData(userQuery, options) {
         headers: headerGroups,
         tableName: userQuery.tableName
       })
-      const newQuery = Object.assign({}, userQuery, {region: prefixify(region)})
+      const newQuery = Object.assign({}, userQuery, {region: prefixifyRegion(region)})
 
       let resolvedQuery
       try {

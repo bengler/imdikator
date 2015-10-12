@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import RegionSearch from '../containers/RegionSearch'
-import {prefixify} from '../../lib/regionUtil'
+import {prefixifyRegion} from '../../lib/regionUtil'
 
 export default class RegionPage extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ export default class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixify(region)})
+    this.context.goTo('/steder/:region', {region: prefixifyRegion(region)})
   }
 
   render() {

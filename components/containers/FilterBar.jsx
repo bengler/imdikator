@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import RegionSelect from './RegionSelect'
-import {prefixify} from '../../lib/regionUtil'
+import {prefixifyRegion} from '../../lib/regionUtil'
 import cx from 'classnames'
 
 import {_t} from '../../lib/translate'
@@ -25,7 +25,7 @@ class FilterBar extends Component {
 
   renderRegion(regionCode) {
     const region = this.props.allRegions.find(reg => {
-      return prefixify(reg) === regionCode
+      return prefixifyRegion(reg) === regionCode
     })
     return `${region.name} ${_t(region.type)}`
   }

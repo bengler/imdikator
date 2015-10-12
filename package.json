@@ -57,6 +57,7 @@
     "lodash.difference": "^3.2.2",
     "lodash.omit": "^3.1.0",
     "lodash.pick": "^3.1.0",
+    "lodash.reject": "^3.1.1",
     "lodash.union": "^3.1.0",
     "lodash.uniq": "^3.2.2",
     "object-inspect": "^1.0.2",

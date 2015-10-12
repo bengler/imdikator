@@ -1,7 +1,7 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
-import {prefixify} from '../lib/regionUtil'
+import {prefixifyRegion} from '../lib/regionUtil'
 import {TABS} from '../config/tabs'
 import {RECEIVE_REGION, RECEIVE_CARD_PAGE_DATA, RECEIVE_QUERY_RESULT, RECEIVE_CARD_PAGES, RECEIVE_TABLE_HEADERS} from './actions'
 
@@ -21,7 +21,7 @@ export function performQuery(card, tab, userQuery) {
     const {headerGroups, region} = getState()
 
     const newQuery = Object.assign({}, userQuery, {
-      region: prefixify(region)
+      region: prefixifyRegion(region)
     })
 
     const resolvedQuery = resolveQuery(region, newQuery, headerGroups[newQuery.tableName])

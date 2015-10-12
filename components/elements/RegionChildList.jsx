@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {_t} from '../../lib/translate'
-import {prefixify, regionsByParent} from '../../lib/regionUtil'
+import {prefixifyRegion, regionsByParent} from '../../lib/regionUtil'
 
 
 function capitalize(string) {
@@ -48,7 +48,7 @@ export default class RegionChildrenList extends Component {
             {childRegions.map(childRegion => {
               return (
               <li key={childRegion.code} className="col--third col--flow col--right-padding">
-                <a className="navigation__link" href={this.context.linkTo('/steder/:region', {region: prefixify(childRegion)})}>{childRegion.name}</a>
+                <a className="navigation__link" href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(childRegion)})}>{childRegion.name}</a>
               </li>
               )
             })}

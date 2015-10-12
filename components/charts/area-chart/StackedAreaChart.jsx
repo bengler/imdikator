@@ -30,7 +30,7 @@ export default class StackedAreaChart extends React.Component {
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
-    yAxis.tickFormat(yc.format)
+    yAxis.tickFormat(yc.axisFormat)
 
     const area = d3.svg.area()
     .x(dataItem => x(dataItem.date))

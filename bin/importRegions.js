@@ -65,11 +65,12 @@ const kommuner = parsedRegions
 
 const naeringsregioner = parsedRegions
   .distinct(region => region['Næringsregionnr'])
-  .map(pickKeys('Næringsregionnr', 'Næringsregion_ navn', 'Kommunenr'))
+  .map(pickKeys('Næringsregionnr', 'Næringsregion_ navn', 'Kommunenr', 'FylkeNr'))
   .map(renameKeys({
     Næringsregionnr: 'code',
     'Næringsregion_ navn': 'name',
-    Kommunenr: 'municipalityCode'
+    Kommunenr: 'municipalityCode',
+    FylkeNr: 'countyCode'
   }))
   .map(naeringsregion => {
     return Object.assign({}, naeringsregion, {

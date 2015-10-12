@@ -25,11 +25,7 @@ export default class RegionPage extends Component {
     return (
       <div>
         Finn ditt område:
-
         <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
-
-        <p>Test: <a href="/steder/k0301-Oslo/levekaar/gjennomsnittsinntekt">/steder/k0301-Oslo/levekaar/gjennomsnittsinntekt</a></p>
-
         <br/>
         <br/>
       </div>

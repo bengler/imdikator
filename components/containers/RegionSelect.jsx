@@ -48,7 +48,7 @@ class RegionSelect extends Component {
     const region = this.props.allRegions.find(reg => {
       return prefixifyRegion(reg) === regionCode
     })
-    return `${region.name} ${_t(region.type)}`
+    return `${region.name}`
   }
 
   rollback() {

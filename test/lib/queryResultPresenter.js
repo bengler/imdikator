@@ -1,6 +1,5 @@
 import {assert} from 'chai'
 
-import {CHARTS} from '../../config/chartTypes'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 
 const QUERY = {

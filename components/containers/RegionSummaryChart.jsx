@@ -101,8 +101,8 @@ class RegionSummaryChart extends Component {
     const subTitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})
 
     const Chart = chartQuery.chartKind == 'benchmark' ? BenchmarkChart : BarChart
-    // BarChart can only handle one dimension
-    const dimensions = chartQuery.chartKind == 'benchmark' ? [getHeaderKey(region)] : ['innvkat3', getHeaderKey(region)]
+    // BenchmarkChart can only handle one dimension
+    const dimensions = chartQuery.chartKind == 'benchmark' ? ['region'] : ['innvkat3', 'region']
 
     const modifiedData = update(data, {
       dimensions: {$set: dimensions},
@@ -139,6 +139,7 @@ function mapStateToProps(state, ownProps) {
   if (state.chartData[norwayKey]) {
     chartData[norwayKey] = state.chartData[norwayKey]
   }
+
   return {
     data: chartData
   }

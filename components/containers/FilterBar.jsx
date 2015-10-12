@@ -115,7 +115,7 @@ class FilterBar extends Component {
     return (
       <section className="graph__filter">
         <h5 className="t-only-screenreaders">Filter</h5>
-        <ul className="t-no-list-styles row">
+        <ul className="row t-position">
           <li className="col--fifth">
             <div className="subtle-select">
               <label htmlFor="filter-groups" className="subtle-select__label">

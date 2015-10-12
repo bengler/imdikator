@@ -1,20 +1,3 @@
 
-
-- [minor] http://imdikator-st.azurewebsites.net/api/v1/metadata/headerswithvalues/befolkninghovedgruppe returns array of one element, but you can not ask for more than one table
-- [minor] PascalCase in query:
-```json
-{
-  "TableName": "befolkninghovedgruppe",
-  "Conditions": {
-      "aar": [
-          "2014"
-      ]
-  },
-  "Include": [
-      "aar"
-  ],
-  "Exclude": []
-}
-```
-
-- Not very helpful error messages. Whenever status = 500, response body is: {"Message":"An error has occurred."}
+This one give 200 with something that looks like a JSON dump of an error. statusCode > 299 please!
+curl 'http://imdikator-st.azurewebsites.net/api/v1/data/query' -H 'Pragma: no-cache' -H 'Origin: http://localhost:3000' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: no,en-US;q=0.8,en;q=0.6,nb;q=0.4,da;q=0.2' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36' -H 'content-type: application/json; charset=UTF-8' -H 'accept: application/json,text/plain,* / *' -H 'Cache-Control: no-cache' -H 'Referer: http://localhost:3000/steder/K0301/befolkning/befolkning_hovedgruppe/latest' -H 'Connection: keep-alive' --data-binary '{"TableName":"befolkning_hovedgruppe","Include":["innvkat5","kjonn","kommuneNr","enhet","aar"],"Conditions":{"innvkat5":["innvandrere","bef_u_innv_og_norskf","norskfodte_m_innvf"],"kjonn":["0","1"],"kommuneNr":["0301"],"enhet":["personer"],"aar":[["2004"]]}}' --compressed

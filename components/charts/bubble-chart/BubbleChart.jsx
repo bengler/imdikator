@@ -29,9 +29,9 @@ export default class BubbleChart extends React.Component {
     const multipleRegions = preparedData.length > 1
     // Prepare needed data
     preparedData.forEach(row => {
-      row.fill = 'white'
+      row.fill = color(row.title)
       row.strokeWidth = multipleRegions ? 1 : 0
-      row.stroke = multipleRegions ? color(row.title) : 'none'
+      row.stroke = 'none'
       row.values.forEach(val => {
         if (val.values[0].anonymized) {
           val.value = 4
@@ -74,6 +74,12 @@ export default class BubbleChart extends React.Component {
     node.append('circle')
     .attr('r', item => item.r)
     .style('fill', item => item.fill)
+    .style('fill-opacity', item => {
+      if (item.depth < 2) {
+        return '0.1'
+      }
+      return '1'
+    })
     .style('stroke', item => item.stroke)
     .style('stroke-width', item => item.strokeWidth)
     .each(function (dataItem) {

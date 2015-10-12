@@ -34,10 +34,14 @@ class App extends Component {
       return null
     }
     const url = this.props.route.url
-    const segments = url.split('/').filter(Boolean)
+    const segments = url.split('/').slice(1).filter(Boolean)
     return (
       <nav className="breadcrumbs">
         <ul className="t-no-list-styles breadcrumbs__list">
+          <li key="/" className="breadcrumbs__list-item">
+            <a href="/" className="breadcrumbs__link">Tall og statistikk</a>
+            <span className="breadcrumbs__divider">/</span>
+          </li>
           {segments.map((segment, i) => {
             return (
               <li key={segment} className="breadcrumbs__list-item">
@@ -67,7 +71,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-
         <route.handler dispatch={this.props.dispatch} route={route}/>
       </div>
     )

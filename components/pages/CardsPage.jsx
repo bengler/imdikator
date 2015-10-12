@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {loadCardPage} from '../../actions/cardPages'
 import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtons from '../containers/CardPageButtons'
+import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import {_t} from '../../lib/translate'
 
 
@@ -121,7 +122,7 @@ class CardsPage extends Component {
             </div>
           </div>
         </div>
-
+        <RegionQuickSwitch/>
       </div>
     )
   }

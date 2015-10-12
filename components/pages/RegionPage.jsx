@@ -131,7 +131,6 @@ class RegionPage extends Component {
             </div>
           </div>
         </div>
-
       </main>
     )
   }

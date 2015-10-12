@@ -6,7 +6,8 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class BarChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    className: React.PropTypes.string
   }
 
   drawPoints(el, data) {
@@ -178,7 +179,7 @@ export default class BarChart extends React.Component {
     const margins = {left: 60, top: 10, right: 40, bottom: 80}
     return (
       <div>
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
       </div>
     )
   }

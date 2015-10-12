@@ -114,6 +114,9 @@ class Card extends Component {
     // Note: For robustness decorate card.query.dimensions with headergroups
 
     let availDimensions = capabilities.dimensions
+    if (query.comparisonRegions) {
+      availDimensions--
+    }
     const otherDimensions = card.query.dimensions
       .map((dimension, i) => {
         const configuredDimension = findDimensionByName(dimension.name)

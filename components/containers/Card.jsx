@@ -177,7 +177,7 @@ class Card extends Component {
         const value = query.dimensions.find(dim => dim.name == dimension.name).variables
         return {
           enabled,
-          value: value.join(','),
+          value: value && value.join(','),
           visible: dimension.visible,
           name: dimension.name,
           title: configuredDimension.title,

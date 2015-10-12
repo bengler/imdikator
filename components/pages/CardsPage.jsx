@@ -5,6 +5,7 @@ import {loadCardPage} from '../../actions/cardPages'
 import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
+import RegionInfo from '../elements/RegionInfo'
 import {_t} from '../../lib/translate'
 
 
@@ -27,6 +28,7 @@ class CardsPage extends Component {
     currentCard: PropTypes.object,
     pageConfig: PropTypes.object,
     region: PropTypes.object,
+    allRegions: PropTypes.array,    
     cards: PropTypes.array,
     openCards: PropTypes.array
   }
@@ -77,7 +79,7 @@ class CardsPage extends Component {
   }
 
   render() {
-    const {pageConfig, region, openCards} = this.props
+    const {pageConfig, region, openCards, allRegions} = this.props
     if (!pageConfig || !region) {
       return <div>Loading...</div>
     }
@@ -122,7 +124,19 @@ class CardsPage extends Component {
             </div>
           </div>
         </div>
-        <RegionQuickSwitch/>
+        <div className="page__footer">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main"> 
+                <section className="feature feature--white">
+              	  <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
+                  <RegionInfo region={region} allRegions={allRegions} />   
+			      <RegionQuickSwitch/>
+			    </section>
+			  </div>
+			</div>
+		  </div>
+		</div>
       </div>
     )
   }
@@ -134,7 +148,8 @@ function mapStateToProps(state) {
   return {
     pageConfig: state.cardPage,
     region: state.region,
-    openCards: state.openCards
+    openCards: state.openCards,
+    allRegions: state.allRegions
   }
 }
 

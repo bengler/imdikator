@@ -5,8 +5,8 @@ const ICON_CLASS_NAMES = {
   latest: 'icon__chart-bars',
   chronological: 'icon__chart-line',
   map: 'icon__location',
-  benchmark: 'icon__stack',
-  table: 'icon__file'
+  benchmark: 'icon__chart-set',
+  table: 'icon__table'
 }
 
 export default class TabBar extends Component {

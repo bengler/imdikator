@@ -5,9 +5,9 @@ import RxNode from 'rx-node'
 import Rx from 'rx'
 
 const SHEET_KEY = '1VEn9mXBh630Ww1ZsVkF-ykQ5E2Z7rBbFNDy_bjK7F0o'
-const SHEET_GID = 1205232570
+const SHEET_GID = 361486544
 
-const OUTFILE = './data/tables.json'
+const OUTFILE = './data/cardDescriptions.json'
 
 function csvToObjects(rs) {
   const rows = RxNode.fromReadableStream(rs.pipe(csv()))
@@ -25,11 +25,13 @@ function csvToObjects(rs) {
 csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
   .map(row => {
     const mappings = {
-      Tabellnr: 'id',
-      Tabellnavn: 'name',
-      Tabellnavn_kort: 'label', // eslint-disable-line camelcase
-      Kategori: 'category',
-      Tabellbeskrivelse: 'description'
+      cardName: 'cardName',
+      description: 'description',
+      terminology: 'terminology',
+      source: 'source',
+      measuredAt: 'measuredAt',
+      updatedAt: 'updatedAt',
+      population: 'population'
     }
 
     return Object.keys(mappings).reduce((mapped, key) => {

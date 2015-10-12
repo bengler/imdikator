@@ -128,9 +128,19 @@ class RegionSummaryChart extends Component {
 }
 
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  const tableName = ownProps.chartQuery.query.tableName
+  const regionKey = queryKey(ownProps.region, tableName)
+  const norwayKey = queryKey(norway, tableName)
+  const chartData = {}
+  if (state.chartData[regionKey]) {
+    chartData[regionKey] = state.chartData[regionKey]
+  }
+  if (state.chartData[norwayKey]) {
+    chartData[norwayKey] = state.chartData[norwayKey]
+  }
   return {
-    data: state.chartData
+    data: chartData
   }
 }
 

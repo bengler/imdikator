@@ -19,16 +19,6 @@ export default class StackedAreaChart extends React.Component {
     const svg = this.svg
 
     let dimensionLabels = data.dimensions
-    if (dimensionLabels.length > 2) {
-      // Need to reduce dimensions
-      // The first dimension is allowed in
-      dimensionLabels = [data.dimensions[0]]
-      // Next and last need to be 'aar'
-      const yearDimension = data.dimensions.find(item => item === 'aar')
-      if (yearDimension) {
-        dimensionLabels.push(yearDimension)
-      }
-    }
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const parseDate = d3.time.format('%Y').parse

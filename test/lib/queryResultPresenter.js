@@ -85,6 +85,18 @@ describe('queryResultPresenter', () => {
     })
   })
 
+  ;['line', 'stackedArea'].forEach(chartKind => {
+    it(`always includes year as last dimension ${chartKind}`, () => {
+      const query = Object.assign({}, QUERY, {
+        dimensions: [
+          {name: 'innvkat5', variables: ['innvandrere']}
+        ]
+      })
+      const pres = queryResultPresenter(query, [], {chartKind: chartKind})
+      assert.equal(pres.dimensions.slice(-1)[0], 'aar')
+    })
+  })
+
   it('figures out the unit to use when presenting based on the query', () => {
     const qu = Object.assign({}, QUERY, {
       unit: 'kustom'

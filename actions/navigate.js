@@ -1,16 +1,16 @@
-import {NAVIGATE, SELECT_DATA_VIEW} from './actions'
+import {NAVIGATE} from './actions'
+import {loadRegionByCode} from './region'
 
 /* Action creators */
 export function navigate(match = {}) {
-  return {
-    type: NAVIGATE,
-    match
-  }
-}
-
-export function selectDataView(dataView = 'bar') {
-  return {
-    type: SELECT_DATA_VIEW,
-    dataView: dataView
+  return dispatch => {
+    const {params} = match
+    if (params.region) {
+      dispatch(loadRegionByCode(params.region))
+    }
+    dispatch({
+      type: NAVIGATE,
+      match
+    })
   }
 }

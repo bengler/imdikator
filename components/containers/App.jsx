@@ -44,7 +44,7 @@ class App extends Component {
           </li>
           {segments.map((segment, i) => {
             return (
-              <li key={segment} className="breadcrumbs__list-item">
+              <li key={segment + i} className="breadcrumbs__list-item">
                 <a href={'/' + segments.slice(0, i + 1).join('/')} className="breadcrumbs__link">
                   {segment}
                 </a>

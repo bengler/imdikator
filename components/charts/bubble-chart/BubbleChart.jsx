@@ -16,34 +16,54 @@ export default class BubbleChart extends React.Component {
     }
 
     const diameter = [this.size.width, this.size.height]
+    if (data.dimensions.indexOf('region') == -1) {
+      data.dimensions.unshift('region')
+    }
     const color = this.colors
-
-    const bubble = d3.layout.pack()
-    .sort(null)
-    .size(diameter)
-    .padding(2)
 
     const dimensionLabels = data.dimensions
 
     const filteredData = queryResultFilter(data.rows, 'bubble')
     const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensionLabels), dimensionLabels)
 
+    const multipleRegions = preparedData.length > 1
     // Prepare needed data
     preparedData.forEach(row => {
-      if (row.values[0].anonymized) {
-        row.value = 4
-        row.fill = 'white'
-        row.strokeWidth = '1'
-        row.stroke = color(row.key)
-      } else {
-        row.value = row.values[0].value
-        row.fill = color(row.key)
-        row.strokeWidth = '0'
-        row.stroke = 'none'
-      }
+      row.fill = 'white'
+      row.strokeWidth = multipleRegions ? 1 : 0
+      row.stroke = multipleRegions ? color(row.title) : 'none'
+      row.values.forEach(val => {
+        if (val.values[0].anonymized) {
+          val.value = 4
+          val.fill = 'white'
+          val.strokeWidth = '1'
+          val.stroke = color(val.key)
+        } else {
+          val.value = row.values[0].value
+          val.fill = color(val.key)
+          val.strokeWidth = '0'
+          val.stroke = 'none'
+        }
+      })
+      row.children = row.values.map(item => {
+        const anon = item.values[0].anonymized
+        return {
+          title: item.title,
+          formattedValue: item.values[0].value,
+          value: anon ? 4 : item.values[0].value,
+          stroke: anon ? color(item.key) : 'none',
+          fill: anon ? 'white' : color(item.key),
+          strokeWidth: anon ? 1 : 0
+        }
+      })
     })
 
-    const nodes = bubble.nodes({children: preparedData}).filter(item => !item.children)
+    const bubble = d3.layout.pack()
+    .sort(null)
+    .size(diameter)
+    .padding(2)
+
+    const nodes = bubble.nodes({fill: 'white', children: preparedData})
 
     const node = this.svg.selectAll('.node')
     .data(nodes)
@@ -60,13 +80,22 @@ export default class BubbleChart extends React.Component {
       dataItem.el = this
     })
     .on('mouseover', item => {
+      if (item.depth < 1) {
+        return
+      }
+      if (item.depth == 1 && !multipleRegions) {
+        return
+      }
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
-        body: item.values[0].value,
+        body: item.formattedValue,
         el: item.el
       })
     })
-    .on('mouseout', () => {
+    .on('mouseout', item => {
+      if (item.depth < 1) {
+        return
+      }
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
@@ -76,6 +105,9 @@ export default class BubbleChart extends React.Component {
     .style('font-size', '13px')
     .style('pointer-events', 'none')
     .text(item => {
+      if (item.depth <= 1 || !item.title) {
+        return null
+      }
       return item.title.substring(0, item.r / 4)
     })
   }

@@ -81,16 +81,18 @@ class FilterBar extends Component {
       'subtle-select__select--disabled': !filter.enabled
     })
 
+    const value = filter.options.findIndex(opt => opt.value === filter.value)
+
     return (
       <div className="subtle-select">
         <label htmlFor="filter-groups" className="subtle-select__label">{filter.title}:</label>
         <div className={selectContainerClassName}>
           <select
-            value={filter.options.indexOf(filter.value)}
+            value={value}
             disabled={!filter.enabled || filter.options.length == 1}
             onChange={onChange}>
             {filter.options.map((option, i) => (
-              <option value={i} key={option.name + option.value}>{option.title}</option>
+              <option value={i} key={i}>{option.title}</option>
             ))}
           </select>
         </div>

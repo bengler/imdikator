@@ -1,7 +1,7 @@
 [
   {
     "name": "innvkat5",
-    "title": "Innvandrerbakgrunn femdelt",
+    "title": "Bakgrunn",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -27,7 +27,7 @@
   },
   {
     "name": "innvkat3",
-    "title": "Innvandrerbakgrunn tredelt",
+    "title": "Bakgrunn",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -45,7 +45,7 @@
   },
   {
     "name": "innvkat4",
-    "title": "Innvanndrerbakgrunn firedelt",
+    "title": "Bakgrunn",
     "variables": [
       {
         "title": "hele befolkningen",
@@ -67,7 +67,7 @@
   },
   {
     "name": "innvkat2",
-    "title": "Innvandrerbakgrunn todelt",
+    "title": "Bakgrunn",
     "variables": [
       {
         "title": "hele befolkningen",

@@ -93,6 +93,10 @@
           ]
         },
         "tabs": [
+          {
+            "name": "chronological",
+            "chartKind": "stackedArea"
+          }
         ]
       },
       {

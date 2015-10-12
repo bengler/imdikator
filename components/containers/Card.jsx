@@ -57,7 +57,7 @@ class Card extends Component {
                 return dim
               }
               return Object.assign({}, dim, {
-                variables: Array.isArray(newValue) ? newValue : [newValue]
+                variables: newValue.split(',')
               })
             })
           }
@@ -156,13 +156,13 @@ class Card extends Component {
             },
             {
               title: 'Vis',
-              value: valuesWithoutAggregate
+              value: valuesWithoutAggregate.join(',')
             }
           ]
         } else {
           // everything in the header group
           options = values.map(value => {
-            return {value: value, title: dimensionLabelTitle(dimension.name, value)}
+            return {value: value.join(','), title: dimensionLabelTitle(dimension.name, value)}
           })
         }
 
@@ -174,9 +174,10 @@ class Card extends Component {
          */
 
         availDimensions--
-
+        const value = query.dimensions.find(dim => dim.name == dimension.name).variables
         return {
           enabled,
+          value: value.join(','),
           visible: dimension.visible,
           name: dimension.name,
           title: configuredDimension.title,

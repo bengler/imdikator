@@ -208,11 +208,6 @@ class Card extends Component {
       return null
     }
 
-    let tableDescription = ''
-    if (this.props.table) {
-      tableDescription = this.props.table.description
-    }
-
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
       disabledTabs.push('chronological')

@@ -23,12 +23,12 @@ export default class CardMetadata extends Component {
     const {description, terminology, source, measuredAt} = metadata
 
     const buttonClasses = cx({
-      toggle__button: true,
+      toggle__button: true, // eslint-disable-line camelcase
       'toggle__button--expanded': this.state.expanded
     })
 
     const sectionClases = cx({
-      toggle__section: true,
+      toggle__section: true, // eslint-disable-line camelcase
       'toggle__section--expanded': this.state.expanded
     })
 
@@ -39,9 +39,8 @@ export default class CardMetadata extends Component {
               <a onClick={this.handleClick.bind(this)} href="#" className={buttonClasses}><span className="toggle__caption--contracted"> Veiledning og kilder</span><span className="toggle__caption--expanded">Skjul veiledning og kilder</span> <i className="icon__arrow-down toggle__icon"></i></a>
           </div>
 
-          {
-            this.state.expanded &&
-            <div className={sectionClases}>
+          {this.state.expanded
+            && <div className={sectionClases}>
               <h4 className="h2">Veiledning og kilder</h4>
               <h5 className="h3">Sammendrag</h5>
               <p>{description}</p>

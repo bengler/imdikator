@@ -82,7 +82,7 @@ export default class BarChart extends React.Component {
     })
 
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
-    yAxis.tickFormat(yc.format)
+    yAxis.tickFormat(yc.axisFormat)
 
     const category = svg.selectAll('.category')
     .data(preparedData)

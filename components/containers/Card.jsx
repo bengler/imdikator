@@ -240,8 +240,8 @@ class Card extends Component {
           <button type="button" className="button button--secondary button--small">
             <i className="icon__download"></i> Last ned
           </button>
-	    </div>
-	    <CardMetadata metadata={card.metadata}/>
+        </div>
+        <CardMetadata metadata={card.metadata}/>
       </div>
     )
   }

@@ -132,11 +132,11 @@ class CardsPage extends Component {
                   <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
                   <RegionInfo region={region} allRegions={allRegions} />
                 <RegionQuickSwitch/>
-			          </section>
-			        </div>
-			      </div>
-		      </div>
-		    </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

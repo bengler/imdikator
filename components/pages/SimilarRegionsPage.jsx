@@ -63,7 +63,7 @@ class SimilarRegionsPage extends Component {
                   && <header>
                     <h1>{capitalize(_t(`several-${region.type}`))} som ligner på {region.name}</h1>
                     <div className="ingress">
-                      De {_t(`those-${region.type}`)} som er nærmest {region.name} på befolkningsstørrelse, innvandrerandel og flyktningsandel er mest naturlig å sammenlikne med.
+                      De {_t(`those-${region.type}`)} som er nærmest {region.name} mhp. befolkningsstørrelse, innvandrerandel og flyktningsandel er mest naturlig å sammenligne med.
                     </div>
                   </header>
                 }

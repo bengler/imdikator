@@ -10,5 +10,9 @@
   "several-borough": "bydeler",
   "several-municipality": "kommuner",
   "several-county": "fylker",
-  "several-commerceRegion": "næringsregioner"
+  "several-commerceRegion": "næringsregioner",
+  "those-borough": "bydelene",
+  "those-municipality": "kommunene",
+  "those-county": "fylkene",
+  "those-commerceRegion": "næringsregionene"
 }

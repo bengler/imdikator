@@ -103,12 +103,11 @@ class SimilarRegionsPage extends Component {
 
                     <nav role="navigation" className="navigation">
                       <ul className="t-no-list-styles">
-
                         {similarRegions.map(similarRegion => {
                           return (
-                          <li key={similarRegion.code}>
-                            <a className="navigation__link navigation__link--primary" href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(similarRegion)})}>{similarRegion.name}</a>
-                          </li>
+                            <li key={similarRegion.code}>
+                              <a className="navigation__link navigation__link--primary" href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(similarRegion)})}>{similarRegion.name}</a>
+                            </li>
                           )
                         })}
                       </ul>

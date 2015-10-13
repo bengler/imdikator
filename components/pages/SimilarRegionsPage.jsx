@@ -58,34 +58,34 @@ class SimilarRegionsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide">
-                {region.type == 'borough' &&
-                  <header>
-                    <h1>{capitalize(_t('several-' + region.type))} i samme kommune som {region.name}</h1>
+                {region.type == 'borough'
+                  && <header>
+                    <h1>{capitalize(_t(`several-${region.type}`))} i samme kommune som {region.name}</h1>
                   </header>
                 }
-                {region.type == 'municipality' &&
-                  <header>
-                    <h1>{capitalize(_t('several-' + region.type))} som ligner på {region.name}</h1>
+                {region.type == 'municipality'
+                  && <header>
+                    <h1>{capitalize(_t(`several-${region.type}`))} som ligner på {region.name}</h1>
                     <div className="ingress">
                       De {_t('those-' + region.type)} som er nærmest {region.name} på befolkningsstørrelse, innvandrerandel og flyktningsandel er mest naturlig å sammenlikne med.
                     </div>
                   </header>
                 }
-                {region.type == 'county' &&
-                  <header>
+                {region.type == 'county'
+                  && <header>
                     <h1>Fylker å sammenligne {region.name} med</h1>
                   </header>
                 }
-                {region.type == 'commerceRegion' &&
-                  <header>
-                    <h1>{capitalize(_t('several-' + region.type))} i samme fylke som {region.name}</h1>
+                {region.type == 'commerceRegion'
+                  && <header>
+                    <h1>{capitalize(_t(`several-${region.type}`))} i samme fylke som {region.name}</h1>
                   </header>
                 }
               </div>
             </div>
             <div className="row">
               <div className="col--main">
-                <a href="/fakta-om-integrering/tall-og-statistikk/sandefjord" className="button">Gå til grafene for å sammenlikne</a>
+                <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(region)})} className="button">Gå til grafene for å sammenligne</a>
               </div>
             </div>
           </div>
@@ -95,14 +95,14 @@ class SimilarRegionsPage extends Component {
               <div className="row">
                 <div className="col--main">
                   <div className="feature">
-                    {region.type == 'borough' &&
-                      <h2 className="feature__section-title">De andre {_t('those-' + region.type)} i {parentRegion('municipality', region.municipalityCode, allRegions).name}</h2>
+                    {region.type == 'borough'
+                      && <h2 className="feature__section-title">De andre {_t(`those-${region.type}`)} i {parentRegion('municipality', region.municipalityCode, allRegions).name}</h2>
                     }
-                    {region.type == 'municipality' &&
-                      <h2 className="feature__section-title">{capitalize(_t('several-' + region.type))} i prioritert rekkefølge</h2>
+                    {region.type == 'municipality'
+                      && <h2 className="feature__section-title">{capitalize(_t(`several-${region.type}`))} i prioritert rekkefølge</h2>
                     }
-                    {region.type == 'county' &&
-                      <h2 className="feature__section-title">De andre fylkene i Norge</h2>
+                    {region.type == 'county'
+                      && <h2 className="feature__section-title">De andre fylkene i Norge</h2>
                     }
 
                     <nav role="navigation" className="navigation">

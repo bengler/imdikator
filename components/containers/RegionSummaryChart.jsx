@@ -5,6 +5,7 @@ import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
 import {prefixifyRegion, countyNorway} from '../../lib/regionUtil'
+import {_t} from '../../lib/translate'
 
 const norway = countyNorway()
 
@@ -60,6 +61,10 @@ class RegionSummaryChart extends Component {
     similarRegionCodes: PropTypes.array
   }
 
+  static contextTypes = {
+    linkTo: PropTypes.func,
+    goTo: PropTypes.func
+  }
 
   componentWillMount() {
     dispatchQueries(this.props)
@@ -123,6 +128,13 @@ class RegionSummaryChart extends Component {
       }}
     })
 
+    const drillDownUrl = this.context.linkTo('/steder/:region/:pageName/:cardName', {
+      region: prefixifyRegion(region),
+      pageName: chartQuery.drillDown.page,
+      cardName: chartQuery.drillDown.card
+    })
+
+    console.log('drillDownUrl', drillDownUrl)
     return (
       <div className="col--third col--flow">
         <section className="indicator">
@@ -133,6 +145,10 @@ class RegionSummaryChart extends Component {
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
+          <p className="indicator__subtext">
+            {region.name} og <a href="#">lignende {_t(`several-${region.type}`)}</a>
+          </p>
+          <a href={drillDownUrl} className="button button--secondary indicator__cta">{chartQuery.drillDown.buttonTitle}</a>
         </section>
       </div>
     )

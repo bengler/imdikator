@@ -16,6 +16,11 @@ export default [
         }
       ]
     },
+    drillDown: {
+      page: 'befolkning',
+      card: 'befolkning_hovedgruppe',
+      buttonTitle: 'Gå til befolkninssammensetning'
+    },
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: [],
@@ -38,6 +43,11 @@ export default [
           variables: ['bosatt_per_1000']
         }
       ]
+    },
+    drillDown: {
+      page: 'befolkning',
+      card: 'befolkning_innvandringsgrunn',
+      buttonTitle: 'Gå til innvandringsårsak'
     },
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
@@ -62,6 +72,11 @@ export default [
         }
       ]
     },
+    drillDown: {
+      page: 'befolkning',
+      card: 'bosatt_anmodede',
+      buttonTitle: 'Gå til bosetting'
+    },
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
@@ -84,6 +99,11 @@ export default [
           variables: ['innvandrere', 'befolkningen_ellers']
         }
       ]
+    },
+    drillDown: {
+      page: 'arbeid',
+      card: 'sysselsatte-innvkat',
+      buttonTitle: 'Gå til sysselsetting'
     },
     chartKind: 'bar',
     compareRegionToSimilar: false,
@@ -111,6 +131,11 @@ export default [
           variables: ['alle']
         }
       ]
+    },
+    drillDown: {
+      page: 'kvalifisering',
+      card: 'etter-intro',
+      buttonTitle: 'Gå til resultater fra introprogrammet'
     },
     chartKind: 'benchmark',
     compareRegionToSimilar: true,

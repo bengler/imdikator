@@ -32,17 +32,16 @@ export default class BarChart extends React.Component {
     const xScales = {}
     const maxSeries = d3.max(preparedData, item => item.values.length)
     const innerPaddingFactor = 0.05
+    const outerPaddingFactor = 0
     preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
       const seriesLength = catSeries.length
       while (catSeries.length < maxSeries) {
         catSeries.push(Math.random())
       }
-      const scale = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor)
+      const scale = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
       let xOffset = (scale.rangeBand() + (scale.rangeBand() * innerPaddingFactor)) * (maxSeries - seriesLength)
-      if (xOffset > 0) {
-        xOffset /= 2
-      }
+      xOffset /= 2
       xScales[cat.key] = {scale, xOffset}
     })
 

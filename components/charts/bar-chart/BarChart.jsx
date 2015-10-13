@@ -30,10 +30,20 @@ export default class BarChart extends React.Component {
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
+    const maxSeries = d3.max(preparedData, item => item.values.length)
+    const innerPaddingFactor = 0.05
     preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
-      const x = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], 0.05)
-      xScales[cat.key] = x
+      const seriesLength = catSeries.length
+      while (catSeries.length < maxSeries) {
+        catSeries.push(Math.random())
+      }
+      const scale = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor)
+      let xOffset = (scale.rangeBand() + (scale.rangeBand() * innerPaddingFactor)) * (maxSeries - seriesLength)
+      if (xOffset > 0) {
+        xOffset /= 2
+      }
+      xScales[cat.key] = {scale, xOffset}
     })
 
     // Y config
@@ -54,7 +64,8 @@ export default class BarChart extends React.Component {
         seriesColor = this.colors.domain(series)
 
         // Category specific X scale
-        val.scale = xScales[item.key]
+        val.scale = xScales[item.key].scale
+        val.xOffset = xScales[item.key].xOffset
 
         // Different handling of anonymized data
         if (val.values[0].anonymized) {
@@ -96,7 +107,7 @@ export default class BarChart extends React.Component {
     .enter().append('rect')
     .attr('class', 'bar')
     .attr('width', item => item.scale.rangeBand())
-    .attr('x', dataItem => dataItem.scale(dataItem.title))
+    .attr('x', dataItem => dataItem.scale(dataItem.title) + dataItem.xOffset)
     .attr('y', d => {
       const val = Math.max(0, d.value)
       return yc.scale(val)
@@ -114,7 +125,7 @@ export default class BarChart extends React.Component {
     .enter().append('rect')
     .attr('class', 'hover')
     .attr('width', item => item.scale.rangeBand())
-    .attr('x', dataItem => dataItem.scale(dataItem.title))
+    .attr('x', dataItem => dataItem.scale(dataItem.title) + dataItem.xOffset)
     // Want full height for this one
     .attr('y', 0)
     .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))

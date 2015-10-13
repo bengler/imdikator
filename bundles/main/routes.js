@@ -1,4 +1,5 @@
 import RegionPage from '../../components/pages/RegionPage'
+import SimilarRegionsPage from '../../components/pages/SimilarRegionsPage'
 import IndexPage from '../../components/pages/IndexPage'
 import NotFoundPage from '../../components/pages/NotFoundPage'
 import ChartsPage from '../../components/pages/ChartsPage'
@@ -11,6 +12,7 @@ export default {
   '/debug/charts/:chart': ChartsPage,
   '/debug/region-select': TestRegionSelect,
   '/steder/:region': RegionPage,
+  '/steder/:region/ligner': SimilarRegionsPage,
   '/steder/:region/:pageName': CardsPage,
   '/steder/:region/:pageName/:cardName': CardsPage,
   '/steder/:region/:pageName/:cardName/:tabName': CardsPage,

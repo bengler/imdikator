@@ -39,7 +39,7 @@ export default class RegionInfo extends Component {
             && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(commerceRegion)})}>{commerceRegion.name}</a>.</span>
           }
 
-          <span> Se <a href="">andre {_t('several-' + region.type)} som ligner på {region.name}</a> <code>[TODO]</code> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
+          <span> Se <a href={this.context.linkTo('/steder/:region/ligner', {region: prefixifyRegion(region)})}>andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
         </p>
       </div>
     )

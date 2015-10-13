@@ -500,7 +500,7 @@
         ]
       },
       {
-        "title": "Alder på minoritetsspråklige i barnehage",
+        "title": "Barnehagedeltagelse – Forhold mellom alle og minoriteter",
         "name": "barnehage-alder-minoriteter",
         "query": {
           "tableName": "barnehagedeltakelse",
@@ -509,7 +509,8 @@
             {
               "name": "spraak",
               "variables": [
-                "minoritet"
+                "minoritet",
+                "ikke_minoritet"
               ]
             },
             {

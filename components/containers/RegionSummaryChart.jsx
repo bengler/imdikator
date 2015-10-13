@@ -134,7 +134,6 @@ class RegionSummaryChart extends Component {
       cardName: chartQuery.drillDown.card
     })
 
-    console.log('drillDownUrl', drillDownUrl)
     return (
       <div className="col--third col--flow">
         <section className="indicator">

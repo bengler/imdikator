@@ -96,7 +96,7 @@ class RegionSelect extends Component {
       <Lightbox title="Legg til sammenlikning" onClose={onCancel}>
         {similar && (
           <fieldset>
-            <legend>Anbefalte kommuner</legend>
+            <legend>Anbefalte steder</legend>
             <div className="row">
               <div className="col--half">
                 <ToggleButtonList

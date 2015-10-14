@@ -68,7 +68,7 @@ export default class BarChart extends React.Component {
 
         // Different handling of anonymized data
         if (val.values[0].anonymized) {
-          val.value = 4
+          val.value = data.unit === 'prosent' ? 4 / 100 : 4
           val.fill = 'none'
           val.stroke = seriesColor(val.title)
           val.strokeWidth = 2

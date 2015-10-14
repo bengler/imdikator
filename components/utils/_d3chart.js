@@ -63,7 +63,7 @@ class Chart {
   // Returns {scale: d3.scale, format: tickFormat}
   configureYscale(extent, unit) {
     const maxValue = extent[1] < 0 ? 0 : extent[1]
-    let format = d3.format('d')
+    let format = d3.format('g')
     let axisFormat = d3.format('d')
     const y = d3.scale.linear().range([this.size.height, 0])
     switch (unit) {

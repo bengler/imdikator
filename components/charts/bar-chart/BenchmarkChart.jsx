@@ -96,7 +96,7 @@ export default class BenchmarkChart extends React.Component {
     yc.scale.nice() // To include the last tick
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     .ticks(5)
-    .tickFormat(yc.format)
+    .tickFormat(yc.axisFormat)
     .innerTickSize(0)
     .outerTickSize(0)
 

@@ -11,8 +11,7 @@ export default class D3Chart extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
     data: React.PropTypes.object,
-    drawPoints: React.PropTypes.func,
-    margins: React.PropTypes.object
+    drawPoints: React.PropTypes.func
   }
 
   componentDidMount() {
@@ -27,6 +26,7 @@ export default class D3Chart extends React.Component {
         containerRect: el.getBoundingClientRect()
       })
     })
+
     this.eventEmitter.on('datapoint:hover-out', () => {
       this.refs.focus.setState({
         el: null
@@ -37,7 +37,7 @@ export default class D3Chart extends React.Component {
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%'
-    }, this.getChartState(), this.props.drawPoints, this.props.margins, this.eventEmitter)
+    }, this.getChartState(), this.props.drawPoints, this.eventEmitter)
   }
 
   componentDidUpdate() {

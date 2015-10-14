@@ -119,17 +119,11 @@ export default class BubbleChart extends React.Component {
   }
 
   render() {
-    const margins = {
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0
-    }
     return (
       <D3Chart className="bubble"
         data={this.props.data}
         drawPoints={this.drawPoints}
-        margins={margins}/>
+        />
     )
   }
 }

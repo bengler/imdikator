@@ -139,9 +139,8 @@ export default class StackedBarChart extends Component {
   }
 
   render() {
-    const margin = {left: 40, top: 10, right: 40, bottom: 80}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margin} />
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 }

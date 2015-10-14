@@ -190,9 +190,8 @@ export default class BenchmarkChart extends React.Component {
   render() {
     const sortDirection = this.props.sortDirection
     const data = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
-    const margins = {left: 50, top: 20, right: 20, bottom: 0}
     return (
-      <D3Chart data={data} drawPoints={this.drawPoints} margins={margins} className={this.props.className}/>
+      <D3Chart data={data} drawPoints={this.drawPoints} className={this.props.className}/>
     )
   }
 }

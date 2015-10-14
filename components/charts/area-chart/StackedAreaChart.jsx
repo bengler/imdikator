@@ -184,9 +184,8 @@ export default class StackedAreaChart extends React.Component {
   }
 
   render() {
-    const margins = {left: 50, top: 10, right: 50, bottom: 100}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

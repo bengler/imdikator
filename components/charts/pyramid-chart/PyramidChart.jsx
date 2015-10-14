@@ -258,9 +258,8 @@ export default class PyramidChart extends React.Component {
   }
 
   render() {
-    const margins = {left: 0, top: 20, right: 0, bottom: 80}
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

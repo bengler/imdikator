@@ -195,9 +195,8 @@ export default class LineChart extends React.Component {
   }
 
   render() {
-    const margins = {left: 50, top: 10, right: 40, bottom: 80}
     return (
-      <D3Chart margins={margins} data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
     )
   }
 

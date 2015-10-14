@@ -74,14 +74,8 @@ export default class MapChart extends React.Component {
   }
 
   render() {
-    const margins = {
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0
-    }
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints} margins={margins}/>
+      <D3Chart data={sampleData} drawPoints={this.drawPoints}/>
     )
   }
 }

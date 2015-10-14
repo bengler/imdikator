@@ -2,9 +2,8 @@ import d3 from 'd3'
 import colorPalette from '../../data/colorPalette'
 
 class Chart {
-  // TODO: fix too many params
-  constructor(el, props, state, drawPoints, margins = {left: 40, top: 40, right: 40, bottom: 40}, eventEmitter) { // eslint-disable-line max-params
-
+  constructor(el, props, state, drawPoints, eventEmitter) {
+    const margins = {left: 0, top: 40, right: 0, bottom: 0}
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to

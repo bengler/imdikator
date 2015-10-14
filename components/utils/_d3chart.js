@@ -62,6 +62,7 @@ class Chart {
 
   // Returns {scale: d3.scale, format: tickFormat}
   configureYscale(extent, unit) {
+    const maxValue = extent[1] < 0 ? 0 : extent[1]
     let format = d3.format('d')
     let axisFormat = d3.format('d')
     const y = d3.scale.linear().range([this.size.height, 0])
@@ -69,7 +70,7 @@ class Chart {
       case 'prosent': {
         format = d3.format('.2%')
         axisFormat = d3.format('%')
-        y.domain([0, Math.max(1, extent[1])])
+        y.domain([0, Math.max(1, maxValue)])
         break
       }
       case 'promille': {
@@ -78,7 +79,7 @@ class Chart {
           return _format(val) + '‰'
         }
         axisFormat = format
-        y.domain([0, extent[1]])
+        y.domain([0, maxValue])
         break
       }
       case 'kroner': {
@@ -89,11 +90,11 @@ class Chart {
         format = function (val) {
           return `${d3.format('g')(val)} kr`
         }
-        y.domain([0, extent[1]])
+        y.domain([0, maxValue])
         break
       }
       default: {
-        y.domain([Math.min(0, extent[0]), extent[1]])
+        y.domain([Math.min(0, extent[0]), maxValue])
       }
     }
     return {scale: y, format: format, axisFormat: axisFormat}

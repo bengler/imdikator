@@ -1,5 +1,5 @@
 import d3 from 'd3'
-import colorPalette from '../../data/colorPalette'
+import {colors, colorTextures} from '../../data/colorPalette'
 
 class Chart {
   // TODO: fix too many params
@@ -19,7 +19,8 @@ class Chart {
 
     this.margins = margins
 
-    this.colors = d3.scale.ordinal().range(colorPalette)
+    this.colors = d3.scale.ordinal().range(colors)
+    this.textures = colorTextures
 
     this.eventDispatcher = eventEmitter
 

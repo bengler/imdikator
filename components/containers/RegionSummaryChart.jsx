@@ -4,7 +4,7 @@ import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
-import {prefixifyRegion, countyNorway} from '../../lib/regionUtil'
+import {countyNorway} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 
 const norway = countyNorway()
@@ -124,12 +124,12 @@ class RegionSummaryChart extends Component {
       // highlight our current region
       highlight: {$set: {
         dimensionName: 'region',
-        value: [prefixifyRegion(region)]
+        value: [region.prefixedCode]
       }}
     })
 
     const drillDownUrl = this.context.linkTo('/steder/:region/:pageName/:cardName', {
-      region: prefixifyRegion(region),
+      region: region.prefixedCode,
       pageName: chartQuery.drillDown.page,
       cardName: chartQuery.drillDown.card
     })

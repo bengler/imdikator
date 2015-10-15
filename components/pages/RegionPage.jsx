@@ -136,7 +136,7 @@ class RegionPage extends Component {
 function mapStateToProps(state, ownProps) {
   let region
   if (state.allRegions) {
-    const prefixedRegionCode = ownProps.route.params.region.split('-')[0]
+    const prefixedRegionCode = ownProps.route.params.region.split('-')[0].toUpperCase()
     region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
   }
 

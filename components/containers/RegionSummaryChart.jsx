@@ -30,7 +30,7 @@ function dispatchQueries(props) {
   const query = chartQuery.query
   const comparableRegionCodes = props.comparableRegionCodes
 
-  const regionQuery = Object.assign({}, query, {region: prefixifyRegion(region)})
+  const regionQuery = Object.assign({}, query, {region: region.prefixedCode})
   if (chartQuery.compareRegionToSimilar && comparableRegionCodes.length > 0) {
     regionQuery.comparisonRegions = comparableRegionCodes
   }
@@ -41,7 +41,7 @@ function dispatchQueries(props) {
   }
   props.dispatch(loadChartData(regionQuery, regionQueryOptions))
 
-  const norwayQuery = Object.assign({}, query, {region: prefixifyRegion(norway)})
+  const norwayQuery = Object.assign({}, query, {region: norway.prefixedCode})
   const norwayQueryOptions = {
     region: norway,
     chartKind: chartQuery.chartKind,
@@ -89,7 +89,7 @@ class RegionSummaryChart extends Component {
       return null
     }
 
-    const regionDataRow = data.rows.find(row => row.region == prefixifyRegion(region))
+    const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
     let titleParams = {
       share: share(regionDataRow.tabellvariabel)
     }

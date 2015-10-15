@@ -8,7 +8,7 @@ import FilterBar from './FilterBar'
 import CardMetadata from '../elements/CardMetadata'
 import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 import {performQuery} from '../../actions/cardPages'
-import {comparableRegionCodesPrefixified} from '../../lib/regionUtil'
+import {comparableRegions, prefixifyRegion} from '../../lib/regionUtil'
 
 
 //import {performQuery} from '../../actions/cardPages'
@@ -75,7 +75,7 @@ class Card extends Component {
   }
 
   getFilterState() {
-    const {activeTab, card, headerGroup, query, region} = this.props
+    const {activeTab, card, headerGroup, query, region, allRegions} = this.props
 
     const chartKind = this.getChartKind()
 
@@ -87,7 +87,7 @@ class Card extends Component {
       enabled: ['latest', 'chronological', 'table'].includes(activeTab.name),
       value: query.comparisonRegions,
       options: {
-        similar: comparableRegionCodesPrefixified(region, this.props.allRegions),
+        similar: comparableRegions(region, allRegions).map(prefixifyRegion),
         recommended: []
       }
     }

@@ -6,7 +6,7 @@ import {
   split,
   typeForPrefix,
   regionByCode,
-  comparableRegionCodesPrefixified
+  comparableRegions
 } from '../../lib/regionUtil'
 
 import CardPageButtons from '../containers/CardPageButtons'
@@ -52,7 +52,7 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const comparableRegionCodes = comparableRegionCodesPrefixified(region, allRegions)
+    const comparableRegionCodes = comparableRegions(region, allRegions).map(prefixifyRegion)
 
     return (
       <main className="page">

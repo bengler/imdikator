@@ -43,6 +43,7 @@ const fylker = parsedRegions
       prefixedCode: prefixify('county', fylke.code)
     })
   })
+  //.filter(region => !region.name.includes('Uoppgitt'))
   .toArray()
   .flatMap(serializeTo(OUTPUT_FILE_FYLKER))
 

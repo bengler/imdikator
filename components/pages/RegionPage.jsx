@@ -2,10 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
-  prefixifyRegion,
-  split,
-  typeForPrefix,
-  regionByCode,
+  regionByPrefixedCode,
   comparableRegions
 } from '../../lib/regionUtil'
 
@@ -38,7 +35,7 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixifyRegion(region)})
+    this.context.goTo('/steder/:region', {region: region.prefixedCode})
   }
 
   render() {
@@ -52,7 +49,7 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const comparableRegionCodes = comparableRegions(region, allRegions).map(prefixifyRegion)
+    const comparableRegionCodes = comparableRegions(region, allRegions).map(reg => reg.prefixedCode)
 
     return (
       <main className="page">
@@ -139,9 +136,8 @@ class RegionPage extends Component {
 function mapStateToProps(state, ownProps) {
   let region
   if (state.allRegions) {
-    const [regionTypePrefix, regionCode] = split(ownProps.route.params.region.split('-')[0])
-    const regionType = typeForPrefix(regionTypePrefix)
-    region = regionByCode(regionCode, regionType, state.allRegions)
+    const prefixedRegionCode = ownProps.route.params.region.split('-')[0]
+    region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
   }
 
   return {

@@ -3,108 +3,126 @@
     "code": "030101",
     "name": "Gamle Oslo",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030101"
   },
   {
     "code": "030102",
     "name": "Grünerløkka",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030102"
   },
   {
     "code": "030103",
     "name": "Sagene",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030103"
   },
   {
     "code": "030104",
     "name": "St. Hanshaugen",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030104"
   },
   {
     "code": "030105",
     "name": "Frogner",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030105"
   },
   {
     "code": "030106",
     "name": "Ullern",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030106"
   },
   {
     "code": "030107",
     "name": "Veste Aker",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030107"
   },
   {
     "code": "030108",
     "name": "Nordre Aker",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030108"
   },
   {
     "code": "030109",
     "name": "Bjerke",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030109"
   },
   {
     "code": "030110",
     "name": "Grorud",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030110"
   },
   {
     "code": "030111",
     "name": "Stovner",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030111"
   },
   {
     "code": "030112",
     "name": "Alna",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030112"
   },
   {
     "code": "030113",
     "name": "Østensjø",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030113"
   },
   {
     "code": "030114",
     "name": "Nordstrand",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030114"
   },
   {
     "code": "030115",
     "name": "Søndre Nordstrand",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030115"
   },
   {
     "code": "030116",
     "name": "Sentrum",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030116"
   },
   {
     "code": "030117",
     "name": "Marka",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030117"
   },
   {
     "code": "030199",
     "name": "Uoppgitt bydel Oslo",
     "municipalityCode": "0301",
-    "type": "borough"
+    "type": "borough",
+    "prefixedCode": "B030199"
   }
 ]

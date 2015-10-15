@@ -127,12 +127,12 @@ class RegionSummaryChart extends Component {
         value: [region.prefixedCode]
       }}
     })
-
     const drillDownUrl = this.context.linkTo('/steder/:region/:pageName/:cardName', {
       region: region.prefixedCode,
       pageName: chartQuery.drillDown.page,
       cardName: chartQuery.drillDown.card
     })
+    const similarUrl = this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
 
     return (
       <div className="col--third col--flow">
@@ -145,7 +145,7 @@ class RegionSummaryChart extends Component {
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
           <p className="indicator__subtext">
-            {region.name} og <a href="#">lignende {_t(`several-${region.type}`)}</a>
+            {region.name} og <a href={similarUrl}>lignende {_t(`several-${region.type}`)}</a>
           </p>
           <a href={drillDownUrl} className="button button--secondary indicator__cta">{chartQuery.drillDown.buttonTitle}</a>
         </section>

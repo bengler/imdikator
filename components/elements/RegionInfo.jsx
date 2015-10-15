@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {prefixifyRegion, regionByCode} from '../../lib/regionUtil'
+import {regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 
 
@@ -31,15 +31,15 @@ export default class RegionInfo extends Component {
         <p>
           <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
           {region.type == 'borough'
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(municipality)})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: municipality.prefixedCode})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: commerceRegion.prefixedCode})}>{commerceRegion.name}</a>.</span>
           }
 
           {region.type == 'municipality'
             && county
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(county)})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(commerceRegion)})}>{commerceRegion.name}</a>.</span>
+            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: county.prefixedCode})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: commerceRegion.prefixedCode})}>{commerceRegion.name}</a>.</span>
           }
 
-          <span> Se <a href={this.context.linkTo('/steder/:region/ligner', {region: prefixifyRegion(region)})}>andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
+          <span> Se <a href={this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})}>andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
         </p>
       </div>
     )

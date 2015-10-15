@@ -123,8 +123,7 @@ export default class PyramidChart extends React.Component {
     .enter()
     .append('g')
     .attr('class', 'category')
-    // -25 to make way for the outerXAxis in Y space
-    .attr('transform', (item, i) => this.translation(outerXScale(item.title), -25))
+    .attr('transform', (item, i) => this.translation(outerXScale(item.title), 0))
 
     // The bars
 

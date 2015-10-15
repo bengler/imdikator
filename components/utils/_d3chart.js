@@ -3,7 +3,7 @@ import colorPalette from '../../data/colorPalette'
 
 class Chart {
   constructor(el, props, state, drawPoints, eventEmitter) {
-    const margins = {left: 0, top: 40, right: 0, bottom: 0}
+    const margins = {left: 0, top: 0, right: 0, bottom: 0}
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
@@ -39,8 +39,8 @@ class Chart {
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
       .attr('class', 'd3')
-      .attr('width', this.props.width)
-      .attr('height', this.props.height)
+      .attr('width', this.size.width + this.margins.left + this.margins.right)
+      .attr('height', this.size.height + this.margins.top + this.margins.bottom)
 
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest

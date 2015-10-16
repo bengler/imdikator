@@ -4,7 +4,7 @@ import {loadAllRegions} from '../../actions/region'
 import {
   regionByPrefixedCode,
   comparableRegions,
-  parentRegion
+  parentRegionByType
 } from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 
@@ -89,7 +89,7 @@ class SimilarRegionsPage extends Component {
                 <div className="col--main">
                   <div className="feature">
                     {region.type == 'borough'
-                      && <h2 className="feature__section-title">De andre {_t(`those-${region.type}`)} i {parentRegion('municipality', region.municipalityCode, allRegions).name}</h2>
+                      && <h2 className="feature__section-title">De andre {_t(`those-${region.type}`)} i {parentRegionByType('municipality', region.municipalityCode, allRegions).name}</h2>
                     }
                     {region.type == 'municipality'
                       && <h2 className="feature__section-title">{capitalize(_t(`several-${region.type}`))} i prioritert rekkefølge</h2>

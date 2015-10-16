@@ -20,7 +20,6 @@ class Chart {
     this.margins = margins
 
     this.colors = d3.scale.ordinal().range(colors)
-    this.textures = colorTextures
 
     this.eventDispatcher = eventEmitter
 
@@ -43,6 +42,22 @@ class Chart {
       .attr('class', 'd3')
       .attr('width', this.props.width)
       .attr('height', this.props.height)
+
+    // Now that we have a SVG element, we can create textures
+    // They are added as <defs><pattern> nodes to the SVG and
+    // referred to by an url(). We can then use it as a fill
+    const textureFills = []
+    colors.forEach(color => {
+      let fill = color
+      const textureFunc = colorTextures[color]
+      if (textureFunc) {
+        const tx = textureFunc()
+        this._svg.call(tx) // eslint-disable-line prefer-reflect
+        fill = tx.url()
+      }
+      textureFills.push(fill)
+    })
+    this.textures = d3.scale.ordinal().range(textureFills)
 
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest

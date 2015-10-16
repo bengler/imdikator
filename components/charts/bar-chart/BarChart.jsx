@@ -50,7 +50,9 @@ export default class BarChart extends React.Component {
     const yc = this.configureYscale(extent, data.unit)
 
     // A range of 20 colors
-    let seriesColor = this.colors.domain([])
+    let seriesColor = this.textures
+    // Clear the domain
+    seriesColor.domain([])
 
     // Get the unique categories from the data
     const series = []
@@ -60,7 +62,7 @@ export default class BarChart extends React.Component {
         if (series.indexOf(val.title) == -1) {
           series.push(val.title)
         }
-        seriesColor = this.colors.domain(series)
+        seriesColor = seriesColor.domain(series)
 
         // Category specific X scale
         val.scale = xScales[item.key].scale
@@ -76,6 +78,7 @@ export default class BarChart extends React.Component {
           val.stroke = 'none'
           val.strokeWidth = 2
         } else {
+          val.fill = seriesColor(val.title)
           val.stroke = 'none'
           val.strokeWidth = 0
         }
@@ -87,15 +90,6 @@ export default class BarChart extends React.Component {
         }
       })
     })
-
-    const textures = []
-    this.colors.range().forEach(color => {
-      const tx = this.textures[color]()
-      svg.call(tx)
-      textures.push(tx.url())
-    })
-
-    this.colors.range(textures)
 
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     yAxis.tickFormat(yc.axisFormat)
@@ -118,12 +112,7 @@ export default class BarChart extends React.Component {
       return yc.scale(val)
     })
     .attr('height', d => Math.abs(yc.scale(0) - yc.scale(d.value)))
-    .style('fill', dataItem => {
-      if (dataItem.fill) {
-        return dataItem.fill
-      }
-      return this.colors(dataItem.title)
-    })
+    .style('fill', dataItem => dataItem.fill)
     .style('stroke', dataItem => dataItem.stroke)
     .style('stroke-width', dataItem => dataItem.strokeWidth)
     .each(function (item) {

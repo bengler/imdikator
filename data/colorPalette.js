@@ -1,5 +1,7 @@
 import textures from 'textures'
 
+export const colors = ['#ffd300', '#f56d00', '#15c2e8', '#1d70b7', '#c792ca', '#ba4b7a']
+
 export const colorTextures = {
   '#ffd300': () => {
     return textures.lines()
@@ -32,5 +34,3 @@ export const colorTextures = {
     .background('#f36d20')
   },
 }
-
-export const colors = Object.keys(colorTextures)

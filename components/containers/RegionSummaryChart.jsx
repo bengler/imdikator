@@ -20,7 +20,8 @@ function share(value) {
   if (value == ':') {
     return 'Anonymisert '
   }
-  return Number(value).toFixed(1)
+  return value
+  //return Number(value).toFixed(1)
 }
 
 

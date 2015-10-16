@@ -11,7 +11,7 @@ export default class D3Chart extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
     data: React.PropTypes.object,
-    drawPoints: React.PropTypes.func
+    functions: React.PropTypes.object
   }
 
   componentDidMount() {
@@ -37,7 +37,7 @@ export default class D3Chart extends React.Component {
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%'
-    }, this.getChartState(), this.props.drawPoints, this.eventEmitter)
+    }, this.getChartState(), this.eventEmitter, this.props.functions)
   }
 
   componentDidUpdate() {

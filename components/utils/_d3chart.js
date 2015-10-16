@@ -2,31 +2,40 @@ import d3 from 'd3'
 import colorPalette from '../../data/colorPalette'
 
 class Chart {
-  constructor(el, props, state, drawPoints, eventEmitter) {
-    const margins = {left: 0, top: 0, right: 0, bottom: 0}
+  constructor(el, props, state, eventEmitter, functions) {
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
     this.svg = null
 
-    this.size = {
-      width: el.offsetWidth - margins.left - margins.right,
-      height: el.offsetHeight - margins.top - margins.bottom
-    }
-
     this.props = props
-
-    this.margins = margins
-
     this.colors = d3.scale.ordinal().range(colorPalette)
-
     this.eventDispatcher = eventEmitter
 
-    this._drawPoints = drawPoints
+    if (functions) {
+      if (functions.hasOwnProperty('drawPoints')) {
+        this._drawPoints = functions.drawPoints
+      }
+      if (functions.hasOwnProperty('calculateHeight')) {
+        this._calculateHeight = functions.calculateHeight
+      }
+      if (functions.hasOwnProperty('calculateMargins')) {
+        this._calculateMargins = functions.calculateMargins
+      }
+    }
+
     this.update(el, state)
   }
 
   _drawPoints(el, data) {}
+
+  _calculateMargins(data) {
+    return {}
+  }
+
+  _calculateHeight(data) {
+    return 400
+  }
 
   update(el, state) {
     // We don't support redrawing on top of old graphs, so just remove any
@@ -35,12 +44,33 @@ class Chart {
       this._svg.remove()
     }
 
+    // Our width is determined by our element width
+    this.fullWidth = el.offsetWidth
+    const defaultMargins = {left: 60, top: 5, right: 5, bottom: 0}
+    this.margins = Object.assign({}, defaultMargins, this._calculateMargins(state.data))
+    const height = this._calculateHeight() + this.margins.top + this.margins.bottom
+
+    this.size = {
+      width: this.fullWidth - this.margins.left - this.margins.right,
+      height: height - this.margins.top - this.margins.bottom
+    }
+
     // TODO: https://css-tricks.com/scale-svg/
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
       .attr('class', 'd3')
-      .attr('width', this.size.width + this.margins.left + this.margins.right)
-      .attr('height', this.size.height + this.margins.top + this.margins.bottom)
+      .attr('width', this.fullWidth)
+      .attr('height', height)
+
+    // Visualize SVG
+    this._svg.append('rect')
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('width', this.fullWidth)
+    .attr('height', height)
+    .style('fill', '#ccc')
+    // TODO: Make vertical space for potential X axis labels (might line break)
+    // TODO: Make horizontal space for potential Y axis with formatted labels
 
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest
@@ -48,6 +78,14 @@ class Chart {
     this.svg = this._svg.append('g')
       .attr('class', 'd3-points')
       .attr('transform', this.translation(this.margins.left, this.margins.top))
+
+    // Visualize svg with margins
+    this.svg.append('rect')
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('width', this.size.width)
+    .attr('height', this.size.height)
+    .style('fill', '#655959')
 
     this._drawPoints(el, state.data)
   }
@@ -59,17 +97,14 @@ class Chart {
     return `translate(${x},${y})`
   }
 
-  // Returns {scale: d3.scale, format: tickFormat}
-  configureYscale(extent, unit) {
-    const maxValue = extent[1] < 0 ? 0 : extent[1]
-    let format = d3.format('d')
-    let axisFormat = d3.format('d')
-    const y = d3.scale.linear().range([this.size.height, 0])
+  unitFormatter(unit) {
+    let format = d3.format('g')
+    let axisFormat = d3.format('g')
+
     switch (unit) {
       case 'prosent': {
         format = d3.format('.2%')
         axisFormat = d3.format('%')
-        y.domain([0, Math.max(1, maxValue)])
         break
       }
       case 'promille': {
@@ -78,7 +113,6 @@ class Chart {
           return _format(val) + '‰'
         }
         axisFormat = format
-        y.domain([0, maxValue])
         break
       }
       case 'kroner': {
@@ -89,6 +123,30 @@ class Chart {
         format = function (val) {
           return `${d3.format('g')(val)} kr`
         }
+        break
+      }
+      default: {
+        break
+      }
+    }
+
+    return {axisFormat, format}
+  }
+
+  // Returns {scale: d3.scale, format: tickFormat}
+  configureYscale(extent, unit) {
+    const maxValue = extent[1] < 0 ? 0 : extent[1]
+    const y = d3.scale.linear().range([this.size.height, 0])
+    switch (unit) {
+      case 'prosent': {
+        y.domain([0, Math.max(1, maxValue)])
+        break
+      }
+      case 'promille': {
+        y.domain([0, maxValue])
+        break
+      }
+      case 'kroner': {
         y.domain([0, maxValue])
         break
       }
@@ -96,7 +154,9 @@ class Chart {
         y.domain([Math.min(0, extent[0]), maxValue])
       }
     }
-    return {scale: y, format: format, axisFormat: axisFormat}
+    return Object.assign({
+      scale: y
+    }, this.unitFormatter(unit))
   }
 
   legend() {
@@ -106,10 +166,11 @@ class Chart {
       height: (item, idx) => 15,
     }
     const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')
+    const wrapper = this.wrapTextNode
 
     function chart(selection) {
       selection.each(function (data, idx) {
-        if (data.length < 2) {
+        if (data.length < 1) {
           // Dont show single legends or none
           return
         }
@@ -138,18 +199,22 @@ class Chart {
           .attr('height', (item, i) => attr.height(item, i))
           .style('fill', dataItem => color(dataItem))
 
+        const parent = d3.select(wrap.node().parentNode)
+        const maxWidth = parent.attr('width') - attr.width() - 5
+
         legend
           .append('text')
           .text(dataItem => dataItem)
-          .attr('dy', () => attr.height())
+          .attr('y', () => attr.height())
+          .attr('dy', () => 0)
           .attr('font-size', () => attr.height())
           .attr('x', (node, index) => attr.width() * 1.5)
 
+        legend.selectAll('text')
+        .call(wrapper, maxWidth)
+
         let x = 0
         let y = 0
-        const parent = d3.select(wrap.node().parentNode)
-        const maxWidth = parent.attr('width')
-
         wrap.selectAll('g').each(function () {
           const el = d3.select(this)
           el.attr('transform', `translate(${x}, 0)`)
@@ -158,11 +223,11 @@ class Chart {
           const newX = x + width
           if (newX > maxWidth) {
             x = width
-            y += attr.height() + attr.height() * 0.5
+            y += bbox.height
           } else {
             x += width
           }
-          el.attr('transform', `translate(${x - width}, ${y})`)
+          el.attr('transform', `translate(${x - width}, ${y - bbox.height})`)
         })
       })
       return chart
@@ -194,7 +259,6 @@ class Chart {
     }
 
     return chart
-
   }
 
   // Wrapping text nodes
@@ -207,13 +271,14 @@ class Chart {
       .reverse()
       const lineHeight = 1.1 // ems
       const y = txt.attr('y')
+      const x = txt.attr('x')
       const dy = parseFloat(txt.attr('dy'))
       let word = null
       let line = []
       let lineNumber = 0
       let tspan = txt.text(null)
       .append('tspan')
-      .attr('x', 0)
+      .attr('x', x)
       .attr('y', y)
       .attr('dy', `${dy}em`)
       word = words.pop()

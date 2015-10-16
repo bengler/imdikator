@@ -1,13 +1,79 @@
 import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
+import {dimensionLabelTitle} from '../../../lib/labels'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+
+const legendPadding = 30
+
+d3.selection.prototype.first = function () {
+  return d3.select(this[0][0])
+}
+
+d3.selection.prototype.last = function () {
+  const last = this.size() - 1
+  return d3.select(this[0][last])
+}
 
 export default class BarChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string
+  }
+
+  calculateHeight(data) {
+    return 400
+  }
+
+  calculateMargins(data) {
+    if (!data) {
+      return null
+    }
+    const formatters = this.unitFormatter(data.unit)
+    const max = d3.max(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
+      return parseFloat(row.tabellvariabel)
+    })
+
+    // LEFT MARGIN
+    // Need to add a SVG > text element with largest Y axis label to compute left margin space
+    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
+    const axislabelLength = testSVG
+    .append('text')
+    .attr('class', 'axis text')
+    .text(formatters.axisFormat(max))
+    .node().getComputedTextLength() - 10 //Make room for axis ticks
+
+    // BOTTOM MARGIN
+    // Add some space between the x axis labels and the legends
+
+    const seriesDimension = data.dimensions[data.dimensions.length - 1]
+    const allSeries = data.rows.map(row => row[seriesDimension])
+    const series = d3.set(allSeries).values()
+    const labelledSeries = series.map(item => {
+      return dimensionLabelTitle(seriesDimension, item)
+    })
+
+    const leg = this.legend()
+    testSVG.append('g')
+    .attr('class', 'legendWrapper')
+    .attr('width', this.fullWidth - axislabelLength)
+    .datum(labelledSeries)
+    .call(leg)
+
+    const legendHeight = testSVG.select('.legendWrapper').node().getBBox().height
+
+    testSVG.remove()
+
+    const result = {
+      left: axislabelLength,
+      bottom: legendHeight + legendPadding
+    }
+    return result
+  }
+
+  prepareData(data) {
+
   }
 
   drawPoints(el, data) {
@@ -20,6 +86,7 @@ export default class BarChart extends React.Component {
       // Add a needed second dimension
       dimensionLabels.push('enhet')
     }
+
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
 
     const svg = this.svg
@@ -103,7 +170,8 @@ export default class BarChart extends React.Component {
 
     category.selectAll('rect.bar')
     .data(d => d.values)
-    .enter().append('rect')
+    .enter()
+    .append('rect')
     .attr('class', 'bar')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title) + dataItem.xOffset)
@@ -121,7 +189,8 @@ export default class BarChart extends React.Component {
 
     category.selectAll('rect.hover')
     .data(d => d.values)
-    .enter().append('rect')
+    .enter()
+    .append('rect')
     .attr('class', 'hover')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title) + dataItem.xOffset)
@@ -150,7 +219,7 @@ export default class BarChart extends React.Component {
     */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const legendBottom = this.size.height + legendPadding
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
@@ -174,9 +243,8 @@ export default class BarChart extends React.Component {
     // for negative values)
     xAxisEl.select('path').remove()
 
-    xAxisEl
-    .selectAll('.tick text')
-    .call(this.wrapTextNode, x0.rangeBand())
+    const txts = xAxisEl.selectAll('.tick text')
+    txts.call(this.wrapTextNode, x0.rangeBand())
 
     // Add a new zero-line, possibly translated up
     svg.append('g')
@@ -186,9 +254,14 @@ export default class BarChart extends React.Component {
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints,
+      calculateHeight: this.calculateHeight,
+      calculateMargins: this.calculateMargins
+    }
     return (
       <div>
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints} className={this.props.className}/>
+      <D3Chart data={this.props.data} functions={functions} className={this.props.className}/>
       </div>
     )
   }

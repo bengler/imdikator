@@ -11,10 +11,10 @@ import {_t} from '../../lib/translate'
 
 function loadData(props) {
   const {route, dispatch} = props
-  const [prefixedRegionCode] = route.params.region.split('-')[0].toUpperCase()
+  const prefixedRegionCode = route.params.region.split('-')[0].toUpperCase()
   const {pageName, cardName, tabName = 'latest'} = route.params
   // This may be hooked up at a higher level
-  dispatch(loadCardPage({pageName, prefixedRegionCode, activeCardName: cardName, activeTabName: tabName}))
+  dispatch(loadCardPage({pageName, regionCode: prefixedRegionCode, activeCardName: cardName, activeTabName: tabName}))
 
   if (cardName) {
     dispatch(openCard(cardName))

@@ -7022,7 +7022,7 @@
     },
     "redocify": {
       "version": "1.0.1",
-      "from": "redocify@1.0.1",
+      "from": "https://registry.npmjs.org/redocify/-/redocify-1.0.1.tgz",
       "resolved": "https://registry.npmjs.org/redocify/-/redocify-1.0.1.tgz",
       "dependencies": {
         "object-assign": {
@@ -7073,7 +7073,7 @@
     },
     "remon": {
       "version": "1.0.2",
-      "from": "remon@1.0.2",
+      "from": "https://registry.npmjs.org/remon/-/remon-1.0.2.tgz",
       "resolved": "https://registry.npmjs.org/remon/-/remon-1.0.2.tgz",
       "dependencies": {
         "ansi-html": {
@@ -7351,7 +7351,7 @@
     },
     "textures": {
       "version": "1.0.3",
-      "from": "textures@*",
+      "from": "https://registry.npmjs.org/textures/-/textures-1.0.3.tgz",
       "resolved": "https://registry.npmjs.org/textures/-/textures-1.0.3.tgz"
     },
     "topojson": {

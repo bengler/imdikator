@@ -10,7 +10,7 @@ import {_t} from '../../lib/translate'
 const norway = countyNorway()
 
 function queryKey(region, tableName) {
-  return `${region.code}-${tableName}`
+  return `${region.prefixedCode}-${tableName}`
 }
 
 function share(value) {

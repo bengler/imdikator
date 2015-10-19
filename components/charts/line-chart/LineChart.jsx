@@ -196,8 +196,11 @@ export default class LineChart extends React.Component {
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints
+    }
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} functions={functions}/>
     )
   }
 

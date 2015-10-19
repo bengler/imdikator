@@ -23,6 +23,13 @@ export default class BenchmarkChart extends React.Component {
     sortDirection: React.PropTypes.string
   }
 
+  calculateMargins(data) {
+    return {
+      left: 40,
+      top: 10
+    }
+  }
+
   drawPoints(el, data) {
 
     if (!data) {
@@ -187,8 +194,12 @@ export default class BenchmarkChart extends React.Component {
   render() {
     const sortDirection = this.props.sortDirection
     const data = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
+    const functions = {
+      drawPoints: this.drawPoints,
+      calculateMargins: this.calculateMargins
+    }
     return (
-      <D3Chart data={data} drawPoints={this.drawPoints} className={this.props.className}/>
+      <D3Chart data={data} functions={functions} className={this.props.className}/>
     )
   }
 }

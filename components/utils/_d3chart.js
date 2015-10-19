@@ -1,6 +1,8 @@
 import d3 from 'd3'
 import {colors, colorTextures} from '../../data/colorPalette'
 
+const showMargins = false
+
 class Chart {
   constructor(el, props, state, eventEmitter, functions) {
     // _svg is the actual SVG element
@@ -30,7 +32,7 @@ class Chart {
   _drawPoints(el, data) {}
 
   _calculateMargins(data) {
-    return {}
+    return {left: 0, top: 0}
   }
 
   _calculateHeight(data) {
@@ -62,15 +64,17 @@ class Chart {
       .attr('width', this.fullWidth)
       .attr('height', height)
 
-    // Visualize SVG
-    this._svg.append('rect')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', this.fullWidth)
-    .attr('height', height)
-    .style('fill', '#ccc')
-    // TODO: Make vertical space for potential X axis labels (might line break)
-    // TODO: Make horizontal space for potential Y axis with formatted labels
+    if (showMargins) {
+      // Visualize SVG
+      this._svg.append('rect')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', this.fullWidth)
+      .attr('height', height)
+      .style('fill', '#ccc')
+      // TODO: Make vertical space for potential X axis labels (might line break)
+      // TODO: Make horizontal space for potential Y axis with formatted labels
+    }
 
     // Now that we have a SVG element, we can create textures
     // They are added as <defs><pattern> nodes to the SVG and
@@ -96,12 +100,14 @@ class Chart {
       .attr('transform', this.translation(this.margins.left, this.margins.top))
 
     // Visualize svg with margins
-    this.svg.append('rect')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', this.size.width)
-    .attr('height', this.size.height)
-    .style('fill', '#655959')
+    if (showMargins) {
+      this.svg.append('rect')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', this.size.width)
+      .attr('height', this.size.height)
+      .style('fill', '#655959')
+    }
 
     this._drawPoints(el, state.data)
   }
@@ -149,9 +155,9 @@ class Chart {
   }
 
   // Returns {scale: d3.scale, format: tickFormat}
-  configureYscale(extent, unit) {
+  configureYscale(extent, unit, height = this.size.height) {
     const maxValue = extent[1] < 0 ? 0 : extent[1]
-    const y = d3.scale.linear().range([this.size.height, 0])
+    const y = d3.scale.linear().range([height, 0])
     switch (unit) {
       case 'prosent': {
         y.domain([0, Math.max(1, maxValue)])
@@ -176,9 +182,11 @@ class Chart {
 
   legend() {
     let color = d3.scale.category20()
+    let height = 0
     const attr = {
       width: (item, idx) => 15,
       height: (item, idx) => 15,
+      fontSize: (item, idx) => 15
     }
     const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')
     const wrapper = this.wrapTextNode
@@ -194,6 +202,7 @@ class Chart {
         let legend = null
         legend = wrap.enter()
           .append('g').attr('class', 'legend')
+          .attr('transform', `translate(0,0)`)
           .append('g')
           .on('click', (item, index) => {
             dispatch.legendClick(item, index)
@@ -214,41 +223,51 @@ class Chart {
           .attr('height', (item, i) => attr.height(item, i))
           .style('fill', dataItem => color(dataItem))
 
+        const textX = attr.width() + attr.fontSize() / 2
         const parent = d3.select(wrap.node().parentNode)
-        const maxWidth = parent.attr('width') - attr.width() - 5
+        const maxWidth = parent.attr('width') - textX
 
         legend
           .append('text')
           .text(dataItem => dataItem)
-          .attr('y', () => attr.height())
+          .attr('y', () => (attr.height() - attr.fontSize()) / 2)
           .attr('dy', () => 0)
-          .attr('font-size', () => attr.height())
-          .attr('x', (node, index) => attr.width() * 1.5)
+          .attr('x', 0)
+          .attr('dx', textX)
+          .attr('text-anchor', 'start')
+          .attr('font-size', () => attr.fontSize())
+          .attr('dominant-baseline', 'text-before-edge')
 
-        legend.selectAll('text')
-        .call(wrapper, maxWidth)
+        // Wrap lines
+        legend.selectAll('text').call(wrapper, maxWidth)
 
         let x = 0
         let y = 0
+        let previousHeight = 0
         wrap.selectAll('g').each(function () {
           const el = d3.select(this)
-          el.attr('transform', `translate(${x}, 0)`)
           const bbox = el.node().getBBox()
           const width = bbox.width + attr.width()
           const newX = x + width
           if (newX > maxWidth) {
             x = width
-            y += bbox.height
+            y += previousHeight + 5 // 5 pixels padding
           } else {
             x += width
           }
-          el.attr('transform', `translate(${x - width}, ${y - bbox.height})`)
+          el.attr('transform', `translate(${x - width}, ${y})`)
+          previousHeight = bbox.height
         })
+        height = this.getBBox().height
       })
       return chart
     }
 
     chart.dispatch = dispatch
+
+    chart.height = function () {
+      return height
+    }
 
     chart.color = function (newColor) {
       if (!arguments.length) {
@@ -288,6 +307,10 @@ class Chart {
       const y = txt.attr('y')
       const x = txt.attr('x')
       const dy = parseFloat(txt.attr('dy'))
+      let dx = parseFloat(txt.attr('dx'))
+      if (isNaN(dx)) {
+        dx = 0
+      }
       let word = null
       let line = []
       let lineNumber = 0
@@ -306,6 +329,7 @@ class Chart {
           line = [word]
           tspan = txt.append('tspan')
           .attr('x', 0)
+          .attr('dx', dx)
           .attr('y', y)
           .attr('dy', `${++lineNumber * lineHeight + dy}em`)
           .text(word)

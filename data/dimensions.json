@@ -1096,6 +1096,10 @@
     "title": "Landbakgrunn",
     "variables": [
       {
+        "title": "Alle",
+        "label": "1"
+      },
+      {
         "title": "Alle land",
         "label": "001"
       },

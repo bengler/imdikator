@@ -9,6 +9,10 @@ export default class PyramidChart extends React.Component {
     data: React.PropTypes.object
   }
 
+  calculateMargins() {
+    return {}
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -256,8 +260,11 @@ export default class PyramidChart extends React.Component {
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints,
+    }
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} functions={functions}/>
     )
   }
 

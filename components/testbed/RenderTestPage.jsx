@@ -66,7 +66,15 @@ const testData = {
     unit: 'personer',
     rows: [
       { 'aar': '2014', 'landbakgrunn': 'En kjempelang label, nesten for lang ville mange ha sagt. Men her er den altså', 'enhet': 'personer', 'tabellvariabel': '1', 'fylkeNr': 'Fryktelig lang og kjedelig label for denne dataserien som vi forsøker å få inn på X-aksen' },
-      { 'aar': '2014', 'landbakgrunn': 'En ikke veldig lang en', 'enhet': 'personer', 'tabellvariabel': '2', 'fylkeNr': 'Fryktelig lang og kjedelig label for denne dataserien som vi forsøker å få inn på X-aksen' },
+      { 'aar': '2014', 'landbakgrunn': 'En ikke veldig lang en', 'enhet': 'personer', 'tabellvariabel': '29', 'fylkeNr': 'Fryktelig lang og kjedelig label for denne dataserien som vi forsøker å få inn på X-aksen' },
+    ]
+  },
+  bar4: {
+    dimensions: ['fylkeNr', 'kat'],
+    unit: 'kroner',
+    rows: [
+      {fylkeNr: '03', tabellvariabel: '417123837', enhet: 'kroner', kat: 'kategory 1'},
+      {fylkeNr: '03', tabellvariabel: '82133218', enhet: 'kroner', kat: 'kategory 2'},
     ]
   }
 }
@@ -98,6 +106,10 @@ class RenderTestPage extends Component {
       <h3>Første veldig lang</h3>
       <div style={{width: '300px'}}>
       <BarChart data={testData.bar3}/>
+      </div>
+      <h3>Kroner i Y akse</h3>
+      <div style={{width: '300px'}}>
+      <BarChart data={testData.bar4}/>
       </div>
       </div>
     )

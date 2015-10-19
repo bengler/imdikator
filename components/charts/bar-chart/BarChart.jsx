@@ -1,11 +1,8 @@
 import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
-import {dimensionLabelTitle} from '../../../lib/labels'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
-
-const legendPadding = 30
 
 d3.selection.prototype.first = function () {
   return d3.select(this[0][0])
@@ -30,44 +27,32 @@ export default class BarChart extends React.Component {
     if (!data) {
       return null
     }
-    const formatters = this.unitFormatter(data.unit)
-    const max = d3.max(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
-      return parseFloat(row.tabellvariabel)
-    })
 
     // LEFT MARGIN
-    // Need to add a SVG > text element with largest Y axis label to compute left margin space
-    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
-    const axislabelLength = testSVG
-    .append('text')
-    .attr('class', 'axis text')
-    .text(formatters.axisFormat(max))
-    .node().getComputedTextLength() - 10 //Make room for axis ticks
-
-    // BOTTOM MARGIN
-    // Add some space between the x axis labels and the legends
-
-    const seriesDimension = data.dimensions[data.dimensions.length - 1]
-    const allSeries = data.rows.map(row => row[seriesDimension])
-    const series = d3.set(allSeries).values()
-    const labelledSeries = series.map(item => {
-      return dimensionLabelTitle(seriesDimension, item)
+    // Need to add a Y axis and see how wide the largest label is
+    const extent = d3.extent(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
+      return parseFloat(row.tabellvariabel)
     })
-
-    const leg = this.legend()
+    const yc = this.configureYscale(extent, data.unit, 100)
+    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
+    const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
     testSVG.append('g')
-    .attr('class', 'legendWrapper')
-    .attr('width', this.fullWidth - axislabelLength)
-    .datum(labelledSeries)
-    .call(leg)
+    .attr('class', 'axis')
+    .call(yAxis)
 
-    const legendHeight = testSVG.select('.legendWrapper').node().getBBox().height
+    // Find the longest text string on this axis
+    let axislabelLength = 0
+    testSVG.selectAll('text').each(function () {
+      const len = this.getComputedTextLength()
+      if (len > axislabelLength) {
+        axislabelLength = len
+      }
+    })
 
     testSVG.remove()
 
     const result = {
-      left: axislabelLength,
-      bottom: legendHeight + legendPadding
+      left: axislabelLength + 10 // Add some space for the actual axis and tick marks
     }
     return result
   }
@@ -210,24 +195,6 @@ export default class BarChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
-    const leg = this.legend().color(seriesColor)
-
-    /*
-    leg.dispatch.on('legendClick', (item, index) => {})
-    leg.dispatch.on('legendMouseout', (item, index) => {})
-    leg.dispatch.on('legendMouseover', (item, index) => {})
-    */
-
-    // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + legendPadding
-    svg.append('g')
-    .attr('class', 'legendWrapper')
-    .attr('width', this.size.width)
-    // Place it at the very bottom
-    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
-    .datum(series)
-    .call(leg)
-
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
@@ -251,6 +218,25 @@ export default class BarChart extends React.Component {
     .attr('class', 'axis')
     .attr('transform', 'translate(0,' + yc.scale(0) + ')')
     .call(xAxis.tickFormat('').tickSize(0))
+
+    const leg = this.legend().color(seriesColor)
+    .attr('width', () => 23)
+    .attr('height', () => 23)
+    .attr('fontSize', () => 14)
+    // Add some space between the x axis labels and the legends
+    const legendWrapper = svg.append('g')
+    .attr('class', 'legendWrapper')
+    .attr('width', this.size.width)
+    // Place it at the very bottom
+    .datum(series)
+    .call(leg)
+
+    const xAxisHeight = xAxisEl.node().getBBox().height
+    const legendBottom = this.size.height + xAxisHeight
+    legendWrapper.attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+
+    // Expand the height to fit the legend
+    this._svg.attr('height', legendBottom + leg.height())
   }
 
   render() {

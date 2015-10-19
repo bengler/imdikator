@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {_t} from '../../lib/translate'
-import {prefixifyRegion, regionsByParent} from '../../lib/regionUtil'
+import {childRegionsByParent} from '../../lib/regionUtil'
 
 
 function capitalize(string) {
@@ -24,15 +24,15 @@ export default class RegionChildrenList extends Component {
     let childRegions = []
     let childRegionType
     if (region.type == 'municipality') {
-      childRegions = regionsByParent('municipalityCode', region.code, allRegions)
+      childRegions = childRegionsByParent('borough', region, allRegions)
       childRegionType = capitalize(_t('several-borough'))
     }
     if (region.type == 'county') {
-      childRegions = regionsByParent('countyCode', region.code, allRegions)
+      childRegions = childRegionsByParent('municipality', region, allRegions)
       childRegionType = capitalize(_t('several-municipality'))
     }
     if (region.type == 'commerceRegion') {
-      childRegions = regionsByParent('commerceRegionCode', region.code, allRegions)
+      childRegions = childRegionsByParent('municipality', region, allRegions)
       childRegionType = capitalize(_t('several-municipality'))
     }
 
@@ -48,7 +48,7 @@ export default class RegionChildrenList extends Component {
             {childRegions.map(childRegion => {
               return (
               <li key={childRegion.code} className="col--third col--flow col--right-padding">
-                <a className="navigation__link" href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(childRegion)})}>{childRegion.name}</a>
+                <a className="navigation__link" href={this.context.linkTo('/steder/:region', {region: childRegion.prefixedCode})}>{childRegion.name}</a>
               </li>
               )
             })}

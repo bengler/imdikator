@@ -4,13 +4,13 @@ import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
-import {prefixifyRegion, countyNorway} from '../../lib/regionUtil'
+import {countyNorway} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 
 const norway = countyNorway()
 
 function queryKey(region, tableName) {
-  return `${region.code}-${tableName}`
+  return `${region.prefixedCode}-${tableName}`
 }
 
 function share(value) {
@@ -20,7 +20,8 @@ function share(value) {
   if (value == ':') {
     return 'Anonymisert '
   }
-  return Number(value).toFixed(1)
+  return value
+  //return Number(value).toFixed(1)
 }
 
 
@@ -30,7 +31,7 @@ function dispatchQueries(props) {
   const query = chartQuery.query
   const comparableRegionCodes = props.comparableRegionCodes
 
-  const regionQuery = Object.assign({}, query, {region: prefixifyRegion(region)})
+  const regionQuery = Object.assign({}, query, {region: region.prefixedCode})
   if (chartQuery.compareRegionToSimilar && comparableRegionCodes.length > 0) {
     regionQuery.comparisonRegions = comparableRegionCodes
   }
@@ -41,7 +42,7 @@ function dispatchQueries(props) {
   }
   props.dispatch(loadChartData(regionQuery, regionQueryOptions))
 
-  const norwayQuery = Object.assign({}, query, {region: prefixifyRegion(norway)})
+  const norwayQuery = Object.assign({}, query, {region: norway.prefixedCode})
   const norwayQueryOptions = {
     region: norway,
     chartKind: chartQuery.chartKind,
@@ -89,7 +90,7 @@ class RegionSummaryChart extends Component {
       return null
     }
 
-    const regionDataRow = data.rows.find(row => row.region == prefixifyRegion(region))
+    const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
     let titleParams = {
       share: share(regionDataRow.tabellvariabel)
     }
@@ -124,15 +125,15 @@ class RegionSummaryChart extends Component {
       // highlight our current region
       highlight: {$set: {
         dimensionName: 'region',
-        value: [prefixifyRegion(region)]
+        value: [region.prefixedCode]
       }}
     })
-
     const drillDownUrl = this.context.linkTo('/steder/:region/:pageName/:cardName', {
-      region: prefixifyRegion(region),
+      region: region.prefixedCode,
       pageName: chartQuery.drillDown.page,
       cardName: chartQuery.drillDown.card
     })
+    const similarUrl = this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
 
     return (
       <div className="col--third col--flow">
@@ -145,7 +146,7 @@ class RegionSummaryChart extends Component {
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
           <p className="indicator__subtext">
-            {region.name} og <a href="#">lignende {_t(`several-${region.type}`)}</a>
+            {region.name} og <a href={similarUrl}>lignende {_t(`several-${region.type}`)}</a>
           </p>
           <a href={drillDownUrl} className="button button--secondary indicator__cta">{chartQuery.drillDown.buttonTitle}</a>
         </section>

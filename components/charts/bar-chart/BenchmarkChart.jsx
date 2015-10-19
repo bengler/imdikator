@@ -48,25 +48,19 @@ export default class BenchmarkChart extends React.Component {
     preparedData.forEach((dataItem, i) => {
       dataItem.fill = '#9fd59f'
       if (dataItem.values[0].missingData) {
-        dataItem.value = 0
-        dataItem.formattedValue = dataItem.values[0].value
         dataItem.stroke = 'none'
         dataItem.strokeWidth = 0
       } else if (dataItem.values[0].anonymized) {
-        dataItem.formattedValue = dataItem.values[0].value
-        dataItem.value = 4
-        if (data.unit === 'prosent') {
-          // FIXME: This d3 axis / 100 stuff should go
-          // We dont do this for per mille
-          dataItem.value /= 100
-        }
         dataItem.stroke = dataItem.fill
         dataItem.fill = 'none'
         dataItem.strokeWidth = 2
       } else {
         dataItem.stroke = 'none'
         dataItem.strokeWidth = 0
-        dataItem.value = dataItem.values[0].value
+      }
+      dataItem.value = dataItem.values[0].value
+      dataItem.formattedValue = dataItem.values[0].formattedValue
+      if (!dataItem.formattedValue) {
         dataItem.formattedValue = labelFormat(dataItem.value)
       }
 
@@ -175,6 +169,7 @@ export default class BenchmarkChart extends React.Component {
     .style('font-size', `${String(fontSize)}px`)
     .text(dataItem => dataItem.text)
     .style('fill', dataItem => dataItem.fill)
+    .style('pointer-events', 'none')
 
     // Draw the bottom background line again on top of the bars
     // since there is no z-index on svg elements

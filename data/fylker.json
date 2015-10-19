@@ -2,106 +2,127 @@
   {
     "code": "01",
     "name": "Østfold",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F01"
   },
   {
     "code": "02",
     "name": "Akershus",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F02"
   },
   {
     "code": "03",
     "name": "Oslo",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F03"
   },
   {
     "code": "04",
     "name": "Hedmark",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F04"
   },
   {
     "code": "05",
     "name": "Oppland",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F05"
   },
   {
     "code": "06",
     "name": "Buskerud",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F06"
   },
   {
     "code": "07",
     "name": "Vestfold",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F07"
   },
   {
     "code": "08",
     "name": "Telemark",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F08"
   },
   {
     "code": "09",
     "name": "Aust-Agder",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F09"
   },
   {
     "code": "10",
     "name": "Vest-Agder",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F10"
   },
   {
     "code": "11",
     "name": "Rogaland",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F11"
   },
   {
     "code": "12",
     "name": "Hordaland",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F12"
   },
   {
     "code": "14",
     "name": "Sogn og Fjordane",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F14"
   },
   {
     "code": "15",
     "name": "Møre og Romsdal",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F15"
   },
   {
     "code": "16",
     "name": "Sør-Trøndelag",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F16"
   },
   {
     "code": "17",
     "name": "Nord-Trøndelag",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F17"
   },
   {
     "code": "18",
     "name": "Nordland",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F18"
   },
   {
     "code": "19",
     "name": "Troms",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F19"
   },
   {
     "code": "20",
     "name": "Finnmark",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F20"
   },
   {
     "code": "99",
     "name": "Uoppgitt fylke",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F99"
   },
   {
     "code": "00",
     "name": "Hele landet",
-    "type": "county"
+    "type": "county",
+    "prefixedCode": "F00"
   }
 ]

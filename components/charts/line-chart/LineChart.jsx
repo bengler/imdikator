@@ -64,6 +64,7 @@ export default class LineChart extends React.Component {
         } else if (value.values[0].anonymized) {
           value.formattedValue = value.values[0].value
           value.value = 4
+          value.y = y(isPercent ? value.value / 100 : value.value)
         } else {
           value.value = parseFloat(value.values[0].tabellvariabel)
           value.y = y(isPercent ? value.value / 100 : value.value)

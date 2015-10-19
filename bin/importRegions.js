@@ -4,6 +4,7 @@ import RxNode from 'rx-node'
 import pick from 'lodash.pick'
 import csv from 'csv-parse'
 import assert from 'assert'
+import {prefixify} from '../lib/regionUtil'
 
 const writeFile = Bluebird.promisify(fs.writeFile)
 
@@ -11,6 +12,10 @@ const log = console.log.bind(console) // eslint-disable-line
 
 const CSV_FILE_FYLKER_KOMMUNER = './import/regioninndeling-fylker-kommuner.csv'
 const CSV_FILE_KOMMUNER_BYDELER = './import/regioninndeling-kommuner-bydeler.csv'
+const OUTPUT_FILE_BYDELER = './data/bydeler.json'
+const OUTPUT_FILE_KOMMUNER = './data/kommuner.json'
+const OUTPUT_FILE_FYLKER = './data/fylker.json'
+const OUTPUT_FILE_NÆRINGSREGIONER = './data/naeringsregioner.json'
 
 function leftPad(str, padding, len) {
   let pad = ''
@@ -34,11 +39,13 @@ const fylker = parsedRegions
   }))
   .map(fylke => {
     return Object.assign({}, fylke, {
-      type: 'county'
+      type: 'county',
+      prefixedCode: prefixify('county', fylke.code)
     })
   })
+  //.filter(region => !region.name.includes('Uoppgitt'))
   .toArray()
-  .flatMap(serializeTo('./data/fylker.json'))
+  .flatMap(serializeTo(OUTPUT_FILE_FYLKER))
 
 const kommuner = parsedRegions
   .distinct(region => region.Kommunenr)
@@ -57,11 +64,12 @@ const kommuner = parsedRegions
   .map(kommune => {
     return Object.assign({}, kommune, {
       name: kommune.name === 'Oslo kommune' ? 'Oslo' : kommune.name,
-      type: 'municipality'
+      type: 'municipality',
+      prefixedCode: prefixify('municipality', kommune.code)
     })
   })
   .toArray()
-  .flatMap(serializeTo('./data/kommuner.json'))
+  .flatMap(serializeTo(OUTPUT_FILE_KOMMUNER))
 
 const naeringsregioner = parsedRegions
   .distinct(region => region['Næringsregionnr'])
@@ -74,11 +82,12 @@ const naeringsregioner = parsedRegions
   }))
   .map(naeringsregion => {
     return Object.assign({}, naeringsregion, {
-      type: 'commerceRegion'
+      type: 'commerceRegion',
+      prefixedCode: prefixify('commerceRegion', naeringsregion.code)
     })
   })
   .toArray()
-  .flatMap(serializeTo('./data/naeringsregioner.json'))
+  .flatMap(serializeTo(OUTPUT_FILE_NÆRINGSREGIONER))
 
 const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   .distinct(region => region.bydelsnr)
@@ -91,11 +100,12 @@ const bydeler = csvToObjects(CSV_FILE_KOMMUNER_BYDELER)
   }))
   .map(bydel => {
     return Object.assign({}, bydel, {
-      type: 'borough'
+      type: 'borough',
+      prefixedCode: prefixify('borough', bydel.code)
     })
   })
   .toArray()
-  .flatMap(serializeTo('./data/bydeler.json'))
+  .flatMap(serializeTo(OUTPUT_FILE_BYDELER))
 
 naeringsregioner.subscribe(res => log('Wrote %s næringsregioner to %s', res.entries.length, res.file))
 kommuner.subscribe(res => log('Wrote %s kommuner to %s', res.entries.length, res.file))

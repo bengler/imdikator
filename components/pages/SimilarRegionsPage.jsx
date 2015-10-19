@@ -2,12 +2,9 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
-  prefixifyRegion,
-  split,
-  typeForPrefix,
-  regionByCode,
+  regionByPrefixedCode,
   comparableRegions,
-  parentRegion
+  parentRegionByType
 } from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 
@@ -81,7 +78,7 @@ class SimilarRegionsPage extends Component {
             </div>
             <div className="row">
               <div className="col--main">
-                <a href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(region)})} className="button">Gå til grafene for å sammenligne</a>
+                <a href={this.context.linkTo('/steder/:region', {region: region.prefixedCode})} className="button">Gå til grafene for å sammenligne</a>
               </div>
             </div>
           </div>
@@ -92,7 +89,7 @@ class SimilarRegionsPage extends Component {
                 <div className="col--main">
                   <div className="feature">
                     {region.type == 'borough'
-                      && <h2 className="feature__section-title">De andre {_t(`those-${region.type}`)} i {parentRegion('municipality', region.municipalityCode, allRegions).name}</h2>
+                      && <h2 className="feature__section-title">De andre {_t(`those-${region.type}`)} i {parentRegionByType('municipality', region.municipalityCode, allRegions).name}</h2>
                     }
                     {region.type == 'municipality'
                       && <h2 className="feature__section-title">{capitalize(_t(`several-${region.type}`))} i prioritert rekkefølge</h2>
@@ -106,7 +103,7 @@ class SimilarRegionsPage extends Component {
                         {similarRegions.map(similarRegion => {
                           return (
                             <li key={similarRegion.code}>
-                              <a className="navigation__link navigation__link--primary" href={this.context.linkTo('/steder/:region', {region: prefixifyRegion(similarRegion)})}>{similarRegion.name}</a>
+                              <a className="navigation__link navigation__link--primary" href={this.context.linkTo('/steder/:region', {region: similarRegion.prefixedCode})}>{similarRegion.name}</a>
                             </li>
                           )
                         })}
@@ -126,9 +123,8 @@ class SimilarRegionsPage extends Component {
 function mapStateToProps(state, ownProps) {
   let region
   if (state.allRegions) {
-    const [regionTypePrefix, regionCode] = split(ownProps.route.params.region.split('-')[0])
-    const regionType = typeForPrefix(regionTypePrefix)
-    region = regionByCode(regionCode, regionType, state.allRegions)
+    const prefixedRegionCode = ownProps.route.params.region.split('-')[0].toUpperCase()
+    region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
   }
 
   return {

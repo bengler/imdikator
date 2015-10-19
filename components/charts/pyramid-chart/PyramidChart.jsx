@@ -37,22 +37,21 @@ export default class PyramidChart extends React.Component {
         color.domain(series)
         val.values.forEach(group => {
           if (group.values[0].anonymized) {
-            group.value = 4
             group.stroke = color(seriesName)
             group.strokeWidth = 1
             group.fill = 'none'
-            group.formattedValue = group.values[0].value
           } else if (group.values[0].missingData) {
-            group.value = 0
             group.stroke = 'none'
             group.strokeWidth = 0
             group.fill = 'none'
-            group.formattedValue = group.values[0].value
           } else {
-            group.value = group.values[0].value
             group.stroke = 'none'
             group.strokeWidth = 0
             group.fill = color(val.title)
+          }
+          group.value = group.values[0].value
+          group.formattedValue = group.values[0].formattedValue
+          if (!group.formattedValue) {
             group.formattedValue = format(group.values[0].value)
           }
           if (groups.indexOf(group.key) == -1) {

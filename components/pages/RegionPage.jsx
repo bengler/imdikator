@@ -2,11 +2,9 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
-  prefixifyRegion,
-  split,
-  typeForPrefix,
-  regionByCode,
-  comparableRegionCodesPrefixified
+  regionByPrefixedCode,
+  comparableRegions,
+  countyNorway
 } from '../../lib/regionUtil'
 
 import CardPageButtons from '../containers/CardPageButtons'
@@ -16,6 +14,8 @@ import RegionInfo from '../elements/RegionInfo'
 import RegionSearch from '../containers/RegionSearch'
 import chartQueries from '../../data/regionPageQueries'
 import {_t} from '../../lib/translate'
+
+const norway = countyNorway()
 
 
 class RegionPage extends Component {
@@ -38,7 +38,7 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixifyRegion(region)})
+    this.context.goTo('/steder/:region', {region: region.prefixedCode})
   }
 
   render() {
@@ -52,7 +52,7 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const comparableRegionCodes = comparableRegionCodesPrefixified(region, allRegions)
+    const comparableRegionCodes = comparableRegions(region, allRegions).map(reg => reg.prefixedCode)
 
     return (
       <main className="page">
@@ -139,9 +139,12 @@ class RegionPage extends Component {
 function mapStateToProps(state, ownProps) {
   let region
   if (state.allRegions) {
-    const [regionTypePrefix, regionCode] = split(ownProps.route.params.region.split('-')[0])
-    const regionType = typeForPrefix(regionTypePrefix)
-    region = regionByCode(regionCode, regionType, state.allRegions)
+    if (ownProps.route) {
+      const prefixedRegionCode = ownProps.route.params.region.split('-')[0].toUpperCase()
+      region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
+    } else {
+      region = norway
+    }
   }
 
   return {

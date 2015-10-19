@@ -117,7 +117,9 @@ export default class BarChart extends React.Component {
     const yc = this.configureYscale(extent, data.unit)
 
     // A range of 20 colors
-    let seriesColor = this.colors.domain([])
+    let seriesColor = this.textures
+    // Clear the domain
+    seriesColor.domain([])
 
     // Get the unique categories from the data
     const series = []
@@ -127,7 +129,7 @@ export default class BarChart extends React.Component {
         if (series.indexOf(val.title) == -1) {
           series.push(val.title)
         }
-        seriesColor = this.colors.domain(series)
+        seriesColor = seriesColor.domain(series)
 
         // Category specific X scale
         val.scale = xScales[item.key].scale
@@ -135,24 +137,22 @@ export default class BarChart extends React.Component {
 
         // Different handling of anonymized data
         if (val.values[0].anonymized) {
-          val.value = 4
           val.fill = 'none'
           val.stroke = seriesColor(val.title)
           val.strokeWidth = 2
-          // The nester has put '1-4' as the value
-          val.formattedValue = val.values[0].value
         } else if (val.values[0].missingData) {
-          val.value = 0
           val.fill = 'none'
           val.stroke = 'none'
           val.strokeWidth = 2
-          // The nester has put 'Mangler data' as the value
-          val.formattedValue = val.values[0].value
         } else {
-          val.value = val.values[0].value
           val.fill = seriesColor(val.title)
           val.stroke = 'none'
           val.strokeWidth = 0
+        }
+
+        val.value = val.values[0].value
+        val.formattedValue = val.values[0].formattedValue
+        if (!val.formattedValue) {
           val.formattedValue = yc.format(val.values[0].value)
         }
       })

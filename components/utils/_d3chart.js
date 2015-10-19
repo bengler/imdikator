@@ -1,5 +1,5 @@
 import d3 from 'd3'
-import colorPalette from '../../data/colorPalette'
+import {colors, colorTextures} from '../../data/colorPalette'
 
 class Chart {
   constructor(el, props, state, eventEmitter, functions) {
@@ -72,6 +72,22 @@ class Chart {
     // TODO: Make vertical space for potential X axis labels (might line break)
     // TODO: Make horizontal space for potential Y axis with formatted labels
 
+    // Now that we have a SVG element, we can create textures
+    // They are added as <defs><pattern> nodes to the SVG and
+    // referred to by an url(). We can then use it as a fill
+    const textureFills = []
+    colors.forEach(color => {
+      let fill = color
+      const textureFunc = colorTextures[color]
+      if (textureFunc) {
+        const tx = textureFunc()
+        this._svg.call(tx) // eslint-disable-line prefer-reflect
+        fill = tx.url()
+      }
+      textureFills.push(fill)
+    })
+    this.textures = d3.scale.ordinal().range(textureFills)
+
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest
     // of the code
@@ -100,7 +116,6 @@ class Chart {
   unitFormatter(unit) {
     let format = d3.format('g')
     let axisFormat = d3.format('g')
-
     switch (unit) {
       case 'prosent': {
         format = d3.format('.2%')

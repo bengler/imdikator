@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
   comparableRegions,
-  allCounties,
+  //allCounties,
   norway
 } from '../../lib/regionUtil'
 import RegionSummaryChart from '../containers/RegionSummaryChart'

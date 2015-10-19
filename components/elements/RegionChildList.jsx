@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {_t} from '../../lib/translate'
-import {childRegionsByParent} from '../../lib/regionUtil'
+import {childRegionsByParent, allCounties} from '../../lib/regionUtil'
 
 
 function capitalize(string) {
@@ -21,28 +21,28 @@ export default class RegionChildrenList extends Component {
   render() {
     const region = this.props.region
     const allRegions = this.props.allRegions
+
     let childRegions = []
-    let childRegionType
+    let childTitle
     if (region.type == 'municipality') {
       childRegions = childRegionsByParent('borough', region, allRegions)
-      childRegionType = capitalize(_t('several-borough'))
+      childTitle = `${capitalize(_t('several-borough'))} i ${region.name}`
     }
     if (region.type == 'county') {
       childRegions = childRegionsByParent('municipality', region, allRegions)
-      childRegionType = capitalize(_t('several-municipality'))
+      childTitle = `${capitalize(_t('several-municipality'))} i ${region.name}`
     }
     if (region.type == 'commerceRegion') {
       childRegions = childRegionsByParent('municipality', region, allRegions)
-      childRegionType = capitalize(_t('several-municipality'))
+      childTitle = `${capitalize(_t('several-municipality'))} i ${region.name}`
     }
-
-    if (childRegions.length < 2) {
-      // never mind rendering a single result in the list, it just looks sad
-      return null
+    if (region.prefixedCode == 'F00') {
+      childRegions = allCounties(allRegions)
+      childTitle = 'Fylker i Norge'
     }
     return (
       <div className="col-block-bleed--full-right">
-        <h2 className="feature__section-title">{childRegionType} i {region.name}</h2>
+        <h2 className="feature__section-title">{childTitle}</h2>
         <nav role="navigation" className="navigation">
           <ul className="t-no-list-styles">
             {childRegions.map(childRegion => {

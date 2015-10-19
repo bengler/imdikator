@@ -9,7 +9,7 @@ class Chart {
     this.svg = null
 
     this.props = props
-    this.colors = d3.scale.ordinal().range(colorPalette)
+    this.colors = d3.scale.ordinal().range(colors)
     this.eventDispatcher = eventEmitter
 
     if (functions) {

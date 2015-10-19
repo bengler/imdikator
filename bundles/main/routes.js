@@ -5,9 +5,11 @@ import NotFoundPage from '../../components/pages/NotFoundPage'
 import ChartsPage from '../../components/pages/ChartsPage'
 import CardsPage from '../../components/pages/CardsPage'
 import TestRegionSelect from '../../components/testbed/TestRegionSelect'
+import RenderTestPage from '../../components/testbed/RenderTestPage'
 
 export default {
   '/': IndexPage,
+  '/debug/render/': RenderTestPage,
   '/debug/charts/': ChartsPage,
   '/debug/charts/:chart': ChartsPage,
   '/debug/region-select': TestRegionSelect,

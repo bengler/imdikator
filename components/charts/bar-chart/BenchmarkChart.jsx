@@ -39,8 +39,10 @@ export default class BenchmarkChart extends React.Component {
     x.domain(preparedData.map(dataItem => dataItem.title))
     const yc = this.configureYscale(d3.extent(data.rows, item => parseFloat(item.value)), data.unit)
     const y = yc.scale
-    // Want the max value to be the end of the domain here
-    y.domain([y.domain()[0], preparedData.maxValue])
+    if (data.rows.length > 1) {
+      // Want the max value to be the end of the domain here
+      y.domain([y.domain()[0], preparedData.maxValue])
+    }
     const labelFormat = yc.format
 
     const labels = []

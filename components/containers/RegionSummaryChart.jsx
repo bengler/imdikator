@@ -4,10 +4,8 @@ import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
-import {countyNorway} from '../../lib/regionUtil'
+import {norway} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
-
-const norway = countyNorway()
 
 function queryKey(region, tableName) {
   return `${region.prefixedCode}-${tableName}`
@@ -30,6 +28,7 @@ function dispatchQueries(props) {
   const chartQuery = props.chartQuery
   const query = chartQuery.query
   const comparableRegionCodes = props.comparableRegionCodes
+  const isNotNorway = region.prefixedCode != norway.prefixedCode
 
   const regionQuery = Object.assign({}, query, {region: region.prefixedCode})
   if (chartQuery.compareRegionToSimilar && comparableRegionCodes.length > 0) {
@@ -42,13 +41,15 @@ function dispatchQueries(props) {
   }
   props.dispatch(loadChartData(regionQuery, regionQueryOptions))
 
-  const norwayQuery = Object.assign({}, query, {region: norway.prefixedCode})
-  const norwayQueryOptions = {
-    region: norway,
-    chartKind: chartQuery.chartKind,
-    queryKey: queryKey(norway, query.tableName)
+  if (isNotNorway) {
+    const norwayQuery = Object.assign({}, query, {region: norway.prefixedCode})
+    const norwayQueryOptions = {
+      region: norway,
+      chartKind: chartQuery.chartKind,
+      queryKey: queryKey(norway, query.tableName)
+    }
+    props.dispatch(loadChartData(norwayQuery, norwayQueryOptions))
   }
-  props.dispatch(loadChartData(norwayQuery, norwayQueryOptions))
 }
 
 
@@ -85,6 +86,7 @@ class RegionSummaryChart extends Component {
     const tableName = chartQuery.query.tableName
     const data = this.props.data[queryKey(region, tableName)]
     const comparisonData = this.props.data[queryKey(norway, tableName)]
+    const isNotNorway = region.prefixedCode != norway.prefixedCode
 
     if (!(data && data.rows[0] && comparisonData)) {
       return null
@@ -98,7 +100,7 @@ class RegionSummaryChart extends Component {
       titleParams[param] = regionDataRow[param]
     })
     const title = chartQuery.title(titleParams)
-    const subtitle = chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)})
+    const subtitle = isNotNorway ? chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)}) : null
 
 
     // secondary titles, atm only used in barchart
@@ -145,9 +147,11 @@ class RegionSummaryChart extends Component {
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
-          <p className="indicator__subtext">
-            {region.name} og <a href={similarUrl}>lignende {_t(`several-${region.type}`)}</a>
-          </p>
+          {isNotNorway
+            && <p className="indicator__subtext">
+              {region.name} og <a href={similarUrl}>lignende {_t(`several-${region.type}`)}</a>
+            </p>
+          }
           <a href={drillDownUrl} className="button button--secondary indicator__cta">{chartQuery.drillDown.buttonTitle}</a>
         </section>
       </div>

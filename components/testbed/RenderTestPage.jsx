@@ -84,7 +84,18 @@ const testData = {
     ]
   },
   bench1: {
-    "dimensions":["kommuneNr"],"unit":"personer","rows":[{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0302"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"39824","barnikommune":"barn_ellers","kommuneNr":"0303"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"19824","barnikommune":"barn_ellers","kommuneNr":"0304"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"21824","barnikommune":"barn_ellers","kommuneNr":"0305"}]
+    "dimensions":["kommuneNr"],
+    "unit":"personer",
+    "rows":[{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0302"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"39824","barnikommune":"barn_ellers","kommuneNr":"0303"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"19824","barnikommune":"barn_ellers","kommuneNr":"0304"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"21824","barnikommune":"barn_ellers","kommuneNr":"0305"}]
+  },
+  bench2: {
+    "dimensions":["kommuneNr"],
+    "unit":"personer",
+    "highlight": {
+      "dimensionName": "kommuneNr",
+      "value": ["0304"]
+    },
+    "rows":[{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0302"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"39824","barnikommune":"barn_ellers","kommuneNr":"0303"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"19824","barnikommune":"barn_ellers","kommuneNr":"0304"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"21824","barnikommune":"barn_ellers","kommuneNr":"0305"}]
   },
   line1: {
     "dimensions": ["innvkat5", "aar"],
@@ -158,6 +169,10 @@ class RenderTestPage extends Component {
       <h3>Benchmark</h3>
       <div style={{width: '320px'}}>
       <BenchmarkChart data={testData.bench1}/>
+      </div>
+      <h3>Benchmark with highlight</h3>
+      <div style={{width: '320px'}}>
+      <BenchmarkChart data={testData.bench2}/>
       </div>
       <h3>Line</h3>
       <div style={{width: '320px'}}>

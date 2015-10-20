@@ -11,6 +11,13 @@ export default class StackedAreaChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object
   }
+
+  calculateMargins(data) {
+    return {
+      right: 0
+    }
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -179,13 +186,15 @@ export default class StackedAreaChart extends React.Component {
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
-
-
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints,
+      calculateMargins: this.calculateMargins
+    }
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} functions={functions}/>
     )
   }
 

@@ -48,7 +48,7 @@ class Chart {
 
     // Our width is determined by our element width
     this.fullWidth = el.offsetWidth
-    const defaultMargins = {left: 60, top: 5, right: 5, bottom: 0}
+    const defaultMargins = {left: 0, top: 5, right: 5, bottom: 0}
     this.margins = Object.assign({}, defaultMargins, this._calculateMargins(state.data))
     const height = this._calculateHeight() + this.margins.top + this.margins.bottom
 

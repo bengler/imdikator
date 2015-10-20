@@ -26,7 +26,9 @@ export default class BenchmarkChart extends React.Component {
   calculateMargins(data) {
     return {
       left: 40,
-      top: 10
+      top: 15,
+      right: 0,
+      bottom: 5
     }
   }
 

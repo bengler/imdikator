@@ -132,9 +132,12 @@ export default class TableChart extends React.Component {
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints
+    }
     return (
       <div>
-      <D3Chart data={this.state} drawPoints={this.drawPoints} />
+      <D3Chart data={this.state} functions={functions} />
       {(() => {
         if (this.state && this.state.csv) {
           return (

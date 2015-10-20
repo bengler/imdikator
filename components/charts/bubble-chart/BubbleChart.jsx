@@ -119,10 +119,13 @@ export default class BubbleChart extends React.Component {
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints
+    }
     return (
-      <D3Chart className="bubble"
+      <D3Chart
         data={this.props.data}
-        drawPoints={this.drawPoints}
+        functions={functions}
         />
     )
   }

@@ -4,6 +4,7 @@ import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 import {queryResultFilter} from '../../../lib/queryResultFilter'
+import {colorLabels} from '../../../data/colorPalette'
 
 export default class BubbleChart extends React.Component {
   static propTypes = {
@@ -30,30 +31,32 @@ export default class BubbleChart extends React.Component {
     // Prepare needed data
     preparedData.forEach(row => {
       row.fill = color(row.title)
+      row.textFill = colorLabels[row.fill]
       row.strokeWidth = multipleRegions ? 1 : 0
       row.stroke = 'none'
       row.values.forEach(val => {
         if (val.values[0].anonymized) {
-          val.value = 4
           val.fill = 'white'
-          val.strokeWidth = '1'
-          val.stroke = color(val.key)
+          val.textFill = 'black'
         } else {
-          val.value = row.values[0].value
           val.fill = color(val.key)
-          val.strokeWidth = '0'
-          val.stroke = 'none'
+          val.textFill = colorLabels[val.fill]
         }
       })
       row.children = row.values.map(item => {
         const anon = item.values[0].anonymized
+        let formattedValue = item.values[0].formattedValue
+        if (!formattedValue) {
+          formattedValue = item.values[0].value
+        }
         return {
           title: item.title,
-          formattedValue: item.values[0].value,
+          formattedValue: formattedValue,
           value: anon ? 4 : item.values[0].value,
           stroke: anon ? color(item.key) : 'none',
           fill: anon ? 'white' : color(item.key),
-          strokeWidth: anon ? 1 : 0
+          strokeWidth: anon ? 1 : 0,
+          textFill: item.textFill
         }
       })
     })
@@ -109,6 +112,7 @@ export default class BubbleChart extends React.Component {
     .attr('dy', '.3em')
     .style('text-anchor', 'middle')
     .style('font-size', '13px')
+    .style('fill', item => item.textFill)
     .style('pointer-events', 'none')
     .text(item => {
       if (item.depth <= 1 || !item.title) {

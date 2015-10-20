@@ -136,7 +136,6 @@ class RegionPage extends Component {
 function mapStateToProps(state, ownProps) {
   let region
   if (state.allRegions) {
-    console.log('route', ownProps.route) // eslint-disable-line no-console
     const prefixedRegionCode = ownProps.route.params.region.split('-')[0].toUpperCase()
     region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
   }

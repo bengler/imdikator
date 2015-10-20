@@ -61,4 +61,3 @@ export const colorLabels = {
   '#ba4b7a': '#ffffff',
   '#f15540': '#000000'
 }
-

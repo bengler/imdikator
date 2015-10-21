@@ -83,6 +83,30 @@ const testData = {
       {fylkeNr: '03', tabellvariabel: '82133218', enhet: 'kroner', kat: 'kategory 2'},
     ]
   },
+  bar5: {
+    dimensions: ['fylkeNr', 'kat'],
+    unit: 'kroner',
+    rows: [
+      {fylkeNr: '03', tabellvariabel: '2029', enhet: 'kroner', kat: 'kategory 1'},
+      {fylkeNr: '03', tabellvariabel: '-1715', enhet: 'kroner', kat: 'kategory 2'},
+    ]
+  },
+  bar6: {
+    dimensions: ['fylkeNr', 'kat'],
+    unit: 'personer',
+    rows: [
+      {fylkeNr: '03', tabellvariabel: '2029', enhet: 'kroner', kat: 'kategory 1'},
+      {fylkeNr: '03', tabellvariabel: '-1715', enhet: 'kroner', kat: 'kategory 2'},
+    ]
+  },
+  bar7: {
+    dimensions: ['fylkeNr', 'kat'],
+    unit: 'personer',
+    rows: [
+      {fylkeNr: '03', tabellvariabel: '-2029', enhet: 'kroner', kat: 'kategory 1'},
+      {fylkeNr: '03', tabellvariabel: '-1715', enhet: 'kroner', kat: 'kategory 2'},
+    ]
+  },
   bench1: {
     "dimensions":["kommuneNr"],
     "unit":"personer",
@@ -97,10 +121,86 @@ const testData = {
     },
     "rows":[{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0302"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"39824","barnikommune":"barn_ellers","kommuneNr":"0303"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"19824","barnikommune":"barn_ellers","kommuneNr":"0304"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"21824","barnikommune":"barn_ellers","kommuneNr":"0305"}]
   },
+  bench3: {
+    "dimensions":["region"],
+    "unit":"personer",
+    "rows":[
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12","barnikommune":"innvandrerbakgr","region":"K0301"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29","barnikommune":"barn_ellers","region":"K0302"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":".","barnikommune":"barn_ellers","region":"K0303"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"8","barnikommune":"barn_ellers","region":"K0304"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":":","barnikommune":"barn_ellers","region":"K0305"}
+    ]
+  },
+  bench4: {
+    "dimensions":["region"],
+    "unit":"personer",
+    "highlight": {
+      "dimensionName": "region",
+      "value": ["K0302"]
+    },
+    "rows":[
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12","barnikommune":"innvandrerbakgr","region":"K0301"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":":","barnikommune":"barn_ellers","region":"K0302"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"8","barnikommune":"barn_ellers","region":"K0304"},
+    ]
+  },
+  bench5: {
+    "dimensions":["region"],
+    "unit":"personer",
+    "highlight": {
+      "dimensionName": "region",
+      "value": ["K0302"]
+    },
+    "rows":[
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12","barnikommune":"innvandrerbakgr","region":"K0301"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":".","barnikommune":"barn_ellers","region":"K0302"},
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"8","barnikommune":"barn_ellers","region":"K0304"},
+    ]
+  },
+  bench6: {
+    "dimensions":["region"],
+    "unit":"personer",
+    "rows":[
+      {"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12","barnikommune":"innvandrerbakgr","region":"K0301"},
+    ]
+  },
   line1: {
     "dimensions": ["innvkat5", "aar"],
     "unit": "personer",
     "rows": [ { "aar": "1986", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "449395" }, { "aar": "1986", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "33994" }, { "aar": "1986", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "415401" }, { "aar": "1986", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "4908" }, { "aar": "1986", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "410493" }, { "aar": "1987", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "451345" }, { "aar": "1987", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "36614" }, { "aar": "1987", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "414731" }, { "aar": "1987", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "5547" }, { "aar": "1987", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "409184" }, { "aar": "1988", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "453730" }, { "aar": "1988", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "40774" }, { "aar": "1988", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "412956" }, { "aar": "1988", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "6316" }, { "aar": "1988", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "406640" }, { "aar": "1989", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "456124" }, { "aar": "1989", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "44667" }, { "aar": "1989", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "411457" }, { "aar": "1989", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "7227" }, { "aar": "1989", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "404230" }, { "aar": "1990", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "458364" }, { "aar": "1990", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "47063" }, { "aar": "1990", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "411301" }, { "aar": "1990", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "8164" }, { "aar": "1990", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "403137" }, { "aar": "1991", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "461644" }, { "aar": "1991", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "49479" }, { "aar": "1991", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "412165" }, { "aar": "1991", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "9252" }, { "aar": "1991", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "402913" }, { "aar": "1992", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "467441" }, { "aar": "1992", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "51984" }, { "aar": "1992", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "415457" }, { "aar": "1992", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "10382" }, { "aar": "1992", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "405075" }, { "aar": "1993", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "473454" }, { "aar": "1993", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "54695" }, { "aar": "1993", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "418759" }, { "aar": "1993", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "11608" }, { "aar": "1993", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "407151" }, { "aar": "1994", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "477781" }, { "aar": "1994", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "56459" }, { "aar": "1994", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "421322" }, { "aar": "1994", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "12858" }, { "aar": "1994", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "408464" }, { "aar": "1995", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "483401" }, { "aar": "1995", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "59548" }, { "aar": "1995", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "423853" }, { "aar": "1995", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "14129" }, { "aar": "1995", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "409724" }, { "aar": "1996", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "488659" }, { "aar": "1996", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "61875" }, { "aar": "1996", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "426784" }, { "aar": "1996", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "15421" }, { "aar": "1996", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "411363" }, { "aar": "1997", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "494793" }, { "aar": "1997", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "64351" }, { "aar": "1997", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "430442" }, { "aar": "1997", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "16841" }, { "aar": "1997", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "413601" }, { "aar": "1998", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "499693" }, { "aar": "1998", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "67290" }, { "aar": "1998", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "432403" }, { "aar": "1998", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "18260" }, { "aar": "1998", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "414143" }, { "aar": "1999", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "502867" }, { "aar": "1999", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "70301" }, { "aar": "1999", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "432566" }, { "aar": "1999", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "19441" }, { "aar": "1999", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "413125" }, { "aar": "2000", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "507467" }, { "aar": "2000", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "73777" }, { "aar": "2000", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "433690" }, { "aar": "2000", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "20963" }, { "aar": "2000", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "412727" }, { "aar": "2001", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "508726" }, { "aar": "2001", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "76404" }, { "aar": "2001", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "432322" }, { "aar": "2001", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "22356" }, { "aar": "2001", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "409966" }, { "aar": "2002", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "512589" }, { "aar": "2002", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "79049" }, { "aar": "2002", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "433540" }, { "aar": "2002", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "23889" }, { "aar": "2002", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "409651" }, { "aar": "2003", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "517401" }, { "aar": "2003", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "84343" }, { "aar": "2003", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "433058" }, { "aar": "2003", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "25465" }, { "aar": "2003", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "407593" }, { "aar": "2004", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "521886" }, { "aar": "2004", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "86763" }, { "aar": "2004", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "435123" }, { "aar": "2004", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "27179" }, { "aar": "2004", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "407944" }, { "aar": "2005", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "529846" }, { "aar": "2005", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "89523" }, { "aar": "2005", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "440323" }, { "aar": "2005", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "28814" }, { "aar": "2005", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "411509" }, { "aar": "2006", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "538411" }, { "aar": "2006", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "93507" }, { "aar": "2006", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "444904" }, { "aar": "2006", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "30384" }, { "aar": "2006", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "414520" }, { "aar": "2007", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "548617" }, { "aar": "2007", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "98479" }, { "aar": "2007", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "450138" }, { "aar": "2007", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "32211" }, { "aar": "2007", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "417927" }, { "aar": "2008", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "560484" }, { "aar": "2008", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "106102" }, { "aar": "2008", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "454382" }, { "aar": "2008", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "33776" }, { "aar": "2008", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "420606" }, { "aar": "2009", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "575475" }, { "aar": "2009", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "116167" }, { "aar": "2009", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "459308" }, { "aar": "2009", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "35982" }, { "aar": "2009", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "423326" }, { "aar": "2010", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "586860" }, { "aar": "2010", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "122379" }, { "aar": "2010", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "464481" }, { "aar": "2010", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "38110" }, { "aar": "2010", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "426371" }, { "aar": "2011", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "599230" }, { "aar": "2011", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "130133" }, { "aar": "2011", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "469097" }, { "aar": "2011", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "40073" }, { "aar": "2011", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "429024" }, { "aar": "2012", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "613285" }, { "aar": "2012", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "139081" }, { "aar": "2012", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "474204" }, { "aar": "2012", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "42262" }, { "aar": "2012", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "431942" }, { "aar": "2013", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "623966" }, { "aar": "2013", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "145215" }, { "aar": "2013", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "478751" }, { "aar": "2013", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "44186" }, { "aar": "2013", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "434565" }, { "aar": "2014", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "634463" }, { "aar": "2014", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "151722" }, { "aar": "2014", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "482741" }, { "aar": "2014", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "45893" }, { "aar": "2014", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "436848" }, { "aar": "2015", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "647676" }, { "aar": "2015", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "158835" }, { "aar": "2015", "kommuneId": "0301", "innvkat5": "befolkningen_ellers", "enhet": "personer", "tabellvariabel": "488841" }, { "aar": "2015", "kommuneId": "0301", "innvkat5": "norskfodte_m_innvf", "enhet": "personer", "tabellvariabel": "47857" }, { "aar": "2015", "kommuneId": "0301", "innvkat5": "bef_u_innv_og_norskf", "enhet": "personer", "tabellvariabel": "440984" } ]
+  },
+  line2: {
+    "dimensions": ["innvkat5", "aar"],
+    "unit": "personer",
+    "rows": [
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "449395" },
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "339940" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "409395" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "309940" },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": ":" },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "319094" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "422000" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "389940" },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "390000" },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "299094" },
+    ]
+  },
+  line3: {
+    "dimensions": ["innvkat5", "aar"],
+    "unit": "personer",
+    "rows": [
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "449395" },
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "339940" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "409395" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "309940" },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "." },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "319094" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "422000" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "389940" },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "390000" },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "299094" },
+    ]
   },
   area1: {
     "dimensions": ["innvkat5", "aar"],
@@ -111,6 +211,30 @@ const testData = {
     "dimensions": ["innvkat3", "kjonn", "alderGrupper"],
     "unit": "personer",
     "rows": [ { "aar": "2014", "innvkat3": "alle", "alderGrupper": "0_5", "kjonn": "0", "enhet": "personer", "tabellvariabel": "25293", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "0_5", "kjonn": "1", "enhet": "personer", "tabellvariabel": "26584", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "6_15", "kjonn": "0", "enhet": "personer", "tabellvariabel": "30454", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "6_15", "kjonn": "1", "enhet": "personer", "tabellvariabel": "31679", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "16_19", "kjonn": "0", "enhet": "personer", "tabellvariabel": "11605", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "16_19", "kjonn": "1", "enhet": "personer", "tabellvariabel": "11982", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "20_29", "kjonn": "0", "enhet": "personer", "tabellvariabel": "59503", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "20_29", "kjonn": "1", "enhet": "personer", "tabellvariabel": "54228", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "30_54", "kjonn": "0", "enhet": "personer", "tabellvariabel": "116999", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "30_54", "kjonn": "1", "enhet": "personer", "tabellvariabel": "128565", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "55_66", "kjonn": "0", "enhet": "personer", "tabellvariabel": "36087", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "55_66", "kjonn": "1", "enhet": "personer", "tabellvariabel": "35425", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "67+", "kjonn": "0", "enhet": "personer", "tabellvariabel": "38378", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "alle", "alderGrupper": "67+", "kjonn": "1", "enhet": "personer", "tabellvariabel": "27681", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "0_5", "kjonn": "0", "enhet": "personer", "tabellvariabel": "1011", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "0_5", "kjonn": "1", "enhet": "personer", "tabellvariabel": "1050", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "6_15", "kjonn": "0", "enhet": "personer", "tabellvariabel": "2823", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "6_15", "kjonn": "1", "enhet": "personer", "tabellvariabel": "2947", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "16_19", "kjonn": "0", "enhet": "personer", "tabellvariabel": "1727", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "16_19", "kjonn": "1", "enhet": "personer", "tabellvariabel": "1845", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "20_29", "kjonn": "0", "enhet": "personer", "tabellvariabel": "17706", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "20_29", "kjonn": "1", "enhet": "personer", "tabellvariabel": "15589", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "30_54", "kjonn": "0", "enhet": "personer", "tabellvariabel": "38407", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "30_54", "kjonn": "1", "enhet": "personer", "tabellvariabel": "46581", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "55_66", "kjonn": "0", "enhet": "personer", "tabellvariabel": "6541", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "55_66", "kjonn": "1", "enhet": "personer", "tabellvariabel": "8016", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "67+", "kjonn": "0", "enhet": "personer", "tabellvariabel": "4195", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "67+", "kjonn": "1", "enhet": "personer", "tabellvariabel": "3284", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "0_5", "kjonn": "0", "enhet": "personer", "tabellvariabel": "24282", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "0_5", "kjonn": "1", "enhet": "personer", "tabellvariabel": "25534", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "6_15", "kjonn": "0", "enhet": "personer", "tabellvariabel": "27631", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "6_15", "kjonn": "1", "enhet": "personer", "tabellvariabel": "28732", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "16_19", "kjonn": "0", "enhet": "personer", "tabellvariabel": "9878", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "16_19", "kjonn": "1", "enhet": "personer", "tabellvariabel": "10137", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "20_29", "kjonn": "0", "enhet": "personer", "tabellvariabel": "41797", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "20_29", "kjonn": "1", "enhet": "personer", "tabellvariabel": "38639", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "30_54", "kjonn": "0", "enhet": "personer", "tabellvariabel": "78592", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "30_54", "kjonn": "1", "enhet": "personer", "tabellvariabel": "81984", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "55_66", "kjonn": "0", "enhet": "personer", "tabellvariabel": "29546", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "55_66", "kjonn": "1", "enhet": "personer", "tabellvariabel": "27409", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "67+", "kjonn": "0", "enhet": "personer", "tabellvariabel": "34183", "kommuneNr": "0301" }, { "aar": "2014", "innvkat3": "befolkningen_ellers", "alderGrupper": "67+", "kjonn": "1", "enhet": "personer", "tabellvariabel": "24397", "kommuneNr": "0301" } ]
+  },
+  pyramid2: {
+    "dimensions": ["innvkat3", "kjonn", "alderGrupper"],
+    "unit": "personer",
+    "rows": [
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "0_5", "kjonn": "0", "enhet": "personer", "tabellvariabel": "9", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "0_5", "kjonn": "1", "enhet": "personer", "tabellvariabel": "38", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "6_15", "kjonn": "0", "enhet": "personer", "tabellvariabel": "29", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "6_15", "kjonn": "1", "enhet": "personer", "tabellvariabel": ":", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "16_19", "kjonn": "0", "enhet": "personer", "tabellvariabel": "35", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "16_19", "kjonn": "1", "enhet": "personer", "tabellvariabel": "50", "kommuneNr": "1505" }
+    ]
+  },
+  pyramid3: {
+    "dimensions": ["innvkat3", "kjonn", "alderGrupper"],
+    "unit": "personer",
+    "rows": [
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "0_5", "kjonn": "0", "enhet": "personer", "tabellvariabel": "9", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "0_5", "kjonn": "1", "enhet": "personer", "tabellvariabel": "38", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "6_15", "kjonn": "0", "enhet": "personer", "tabellvariabel": "29", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "6_15", "kjonn": "1", "enhet": "personer", "tabellvariabel": ".", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "16_19", "kjonn": "0", "enhet": "personer", "tabellvariabel": "35", "kommuneNr": "1505" },
+      { "aar": "2014", "innvkat3": "innvandrere", "alderGrupper": "16_19", "kjonn": "1", "enhet": "personer", "tabellvariabel": "50", "kommuneNr": "1505" }
+    ]
   },
   bubble1: {
     "dimensions": ["landbakgrunn"],
@@ -147,59 +271,119 @@ class RenderTestPage extends Component {
   }
 
   render() {
+    const floatStyle = {
+      width: '300px',
+      float: 'left',
+      margin: '10px'
+    }
     return (
       <div style={{backgroundColor: '#aaa'}}>
       <h1>Rendering tests</h1>
+      <div style={{}}>
+      <div style={floatStyle}>
       <h3>Linjebrytende X akse label</h3>
-      <div style={{width: '300px'}}>
       <BarChart data={testData.bar}/>
       </div>
+      <div style={floatStyle}>
       <h3>Mange korte legends</h3>
-      <div style={{width: '300px'}}>
       <BarChart data={testData.bar2}/>
       </div>
+      <div style={floatStyle}>
       <h3>Første veldig lang</h3>
-      <div style={{width: '300px'}}>
       <BarChart data={testData.bar3}/>
       </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
       <h3>Kroner i Y akse</h3>
-      <div style={{width: '300px'}}>
       <BarChart data={testData.bar4}/>
       </div>
+      <div style={floatStyle}>
+      <h3>Negative kroner</h3>
+      <BarChart data={testData.bar5}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
+      <h3>negativ og positiv</h3>
+      <BarChart data={testData.bar6}/>
+      </div>
+      <div style={floatStyle}>
+      <h3>Bare negative</h3>
+      <BarChart data={testData.bar7}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      </div>
+      <div style={floatStyle}>
       <h3>Benchmark</h3>
-      <div style={{width: '320px'}}>
       <BenchmarkChart data={testData.bench1}/>
       </div>
-      <h3>Benchmark with highlight</h3>
-      <div style={{width: '320px'}}>
+      <div style={floatStyle}>
+      <h3>Benchmark med highlight</h3>
       <BenchmarkChart data={testData.bench2}/>
       </div>
+      <div style={floatStyle}>
+      <h3>Benchmark width</h3>
+      <BenchmarkChart data={testData.bench6}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
+      <h3>Benchmark anonymisert</h3>
+      <BenchmarkChart data={testData.bench3}/>
+      </div>
+      <div style={floatStyle}>
+      <h3>Benchmark anon highlight</h3>
+      <BenchmarkChart data={testData.bench4}/>
+      </div>
+      <div style={floatStyle}>
+      <h3>Benchmark missing highlight</h3>
+      <BenchmarkChart data={testData.bench5}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
       <h3>Line</h3>
-      <div style={{width: '320px'}}>
       <LineChart data={testData.line1}/>
       </div>
+      <div style={floatStyle}>
+      <h3>Line anon</h3>
+      <LineChart data={testData.line2}/>
+      </div>
+      <div style={floatStyle}>
+      <h3>Line missing data</h3>
+      <LineChart data={testData.line3}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
       <h3>Stacked Area</h3>
-      <div style={{width: '320px'}}>
       <StackedAreaChart data={testData.area1}/>
       </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
       <h3>Pyramid</h3>
-      <div style={{width: '320px'}}>
       <PyramidChart data={testData.pyramid1}/>
       </div>
+      <div style={floatStyle}>
+      <h3>Pyramid anon</h3>
+      <PyramidChart data={testData.pyramid2}/>
+      </div>
+      <div style={floatStyle}>
+      <h3>Pyramid missing</h3>
+      <PyramidChart data={testData.pyramid3}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
       <h3>Bubble</h3>
-      <div style={{width: '320px'}}>
       <BubbleChart data={testData.bubble1}/>
       </div>
+      <div style={floatStyle}>
       <h3>Bubble sammenliknet</h3>
-      <div style={{width: '640px'}}>
       <BubbleChart data={testData.bubble2}/>
       </div>
-      <h3>Bubble anonymisert og manglende data</h3>
-      <div style={{width: '640px'}}>
+      <div style={floatStyle}>
+      <h3>Bubble anonymisert</h3>
       <BubbleChart data={testData.bubble3}/>
       </div>
+      <br style={{clear: 'left'}}/>
       <h3>Table</h3>
-      <div style={{width: '320px'}}>
+      <div style={{width: '100%'}}>
       <TableChart data={testData.pyramid1}/>
       </div>
       </div>

@@ -1,5 +1,6 @@
 import d3 from 'd3'
 import {colors, colorTextures} from '../../data/colorPalette'
+import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 
 const showMargins = false
 
@@ -121,35 +122,7 @@ class Chart {
   }
 
   unitFormatter(unit) {
-    let format = d3.format('g')
-    let axisFormat = d3.format('g')
-    switch (unit) {
-      case 'prosent': {
-        format = d3.format('.2%')
-        axisFormat = d3.format('%')
-        break
-      }
-      case 'promille': {
-        const _format = d3.format('.2g')
-        format = function (val) {
-          return _format(val) + '‰'
-        }
-        axisFormat = format
-        break
-      }
-      case 'kroner': {
-        format = function (val) {
-          return `${val.toLocaleString()} kr`
-        }
-        axisFormat = format
-        break
-      }
-      default: {
-        break
-      }
-    }
-
-    return {axisFormat, format}
+    return _unitFormatter(unit)
   }
 
   // Returns {scale: d3.scale, format: tickFormat}

@@ -60,7 +60,11 @@ export default class BenchmarkChart extends React.Component {
 
     // TODO: Move these colors out to CSS?
     preparedData.forEach((dataItem, i) => {
-      dataItem.fill = benchmarkColor
+      let fill = benchmarkColor
+      if (this.textures.domain().indexOf(benchmarkColor) !== -1) {
+        fill = this.textures(fill)
+      }
+      dataItem.fill = fill
       if (dataItem.values[0].missingData) {
         dataItem.stroke = 'none'
         dataItem.strokeWidth = 0

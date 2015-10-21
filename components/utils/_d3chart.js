@@ -80,7 +80,8 @@ class Chart {
     // They are added as <defs><pattern> nodes to the SVG and
     // referred to by an url(). We can then use it as a fill
     const textureFills = []
-    colors.forEach(color => {
+    const textureColors = Object.keys(colorTextures)
+    textureColors.forEach(color => {
       let fill = color
       const textureFunc = colorTextures[color]
       if (textureFunc) {
@@ -90,7 +91,7 @@ class Chart {
       }
       textureFills.push(fill)
     })
-    this.textures = d3.scale.ordinal().range(textureFills)
+    this.textures = d3.scale.ordinal().range(textureFills).domain(textureColors)
 
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest

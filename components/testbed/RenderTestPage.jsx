@@ -117,9 +117,9 @@ const testData = {
     "unit":"personer",
     "highlight": {
       "dimensionName": "kommuneNr",
-      "value": ["0304"]
+      "value": ["0303"]
     },
-    "rows":[{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0302"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"39824","barnikommune":"barn_ellers","kommuneNr":"0303"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"19824","barnikommune":"barn_ellers","kommuneNr":"0304"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"21824","barnikommune":"barn_ellers","kommuneNr":"0305"}]
+    "rows":[{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0302"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"40000","barnikommune":"barn_ellers","kommuneNr":"0303"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"19824","barnikommune":"barn_ellers","kommuneNr":"0304"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"21824","barnikommune":"barn_ellers","kommuneNr":"0305"}]
   },
   bench3: {
     "dimensions":["region"],
@@ -278,7 +278,7 @@ class RenderTestPage extends Component {
     }
     return (
       <div style={{backgroundColor: '#aaa'}}>
-      <h1>Rendering tests</h1>
+      <h1>Rendering tests (RenderTestPage.jsx)</h1>
       <div style={{}}>
       <div style={floatStyle}>
       <h3>Linjebrytende X akse label</h3>

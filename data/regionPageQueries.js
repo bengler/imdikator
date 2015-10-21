@@ -51,9 +51,9 @@ export default [
     },
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
-    additionalTitleParams: [],
+    additionalTitleParams: ['aar'],
     title: options => {
-      return `Flyktninger utgjør ${options.share}‰ av befolkningen`
+      return `Bosatte ${options.share} flyktninger per tusen innbygger i år ${options.aar}`
     },
     subTitle: options => {
       return `For hele landet er tallet ${options.share}‰`

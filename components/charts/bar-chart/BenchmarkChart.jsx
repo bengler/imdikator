@@ -78,8 +78,10 @@ export default class BenchmarkChart extends React.Component {
       if (data.highlight) {
         const val = dataItem.values[0][data.highlight.dimensionName]
         if (val && data.highlight.value.indexOf(val) != -1) {
-          const color = '#438444'
-          dataItem.fill = color
+          if (!dataItem.fill) {
+            const color = '#438444'
+            dataItem.fill = color
+          }
           labels.push({
             x: x(dataItem.title),
             y: y(dataItem.values[0].value),

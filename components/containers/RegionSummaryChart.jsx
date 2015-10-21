@@ -31,6 +31,7 @@ function dispatchQueries(props) {
   const isNotNorway = region.prefixedCode != norway.prefixedCode
 
   const regionQuery = Object.assign({}, query, {region: region.prefixedCode})
+
   if (chartQuery.compareRegionToSimilar && comparableRegionCodes.length > 0) {
     regionQuery.comparisonRegions = comparableRegionCodes
   }
@@ -60,7 +61,7 @@ class RegionSummaryChart extends Component {
     data: PropTypes.object,
     dispatch: PropTypes.func,
     region: PropTypes.object,
-    similarRegionCodes: PropTypes.array
+    comparableRegionCodes: PropTypes.array
   }
 
   static contextTypes = {
@@ -75,6 +76,7 @@ class RegionSummaryChart extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.region != this.props.region) {
+      // only dispatch new queries if the region has changed
       dispatchQueries(nextProps)
     }
   }

@@ -12,7 +12,7 @@ export const colors = [
   '#f15540'
 ]
 export const benchmarkColor = '#9fd59f'
-export const benchmarkHighLightColor = '#438444'
+export const benchmarkHighLightColor = '#418541'
 
 export const colorTextures = {
   '#1d70b7': () => {

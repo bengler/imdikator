@@ -25,10 +25,10 @@ export default [
     compareRegionToSimilar: true,
     additionalTitleParams: [],
     title: options => {
-      return `Innvandrere utgjør ${options.share}% av befolkningen`
+      return `Innvandrere utgjør ${options.share} % av befolkningen`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share}%`
+      return `For hele landet er tallet ${options.share} %`
     }
   },
   {
@@ -56,7 +56,7 @@ export default [
       return `Bosatte ${options.share} flyktninger per tusen innbygger i år ${options.aar}`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share}‰`
+      return `For hele landet er tallet ${options.share} ‰`
     },
   },
   {
@@ -109,10 +109,10 @@ export default [
     compareRegionToSimilar: false,
     additionalTitleParams: ['innvkat3'],
     title: options => {
-      return `${options.share}% av ${options.innvkat3.replace('_', ' ')} er i arbeid`
+      return `${options.share} % av ${options.innvkat3.replace('_', ' ')} er i arbeid`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share}%`
+      return `For hele landet er tallet ${options.share} %`
     },
   },
   {
@@ -141,10 +141,10 @@ export default [
     compareRegionToSimilar: true,
     additionalTitleParams: [],
     title: options => {
-      return `${options.share}% av innvandrerne går direkte fra introprogram til arbeid/utdanning`
+      return `${options.share} % av innvandrerne går direkte fra introprogram til arbeid/utdanning`
     },
     subTitle: options => {
-      return `Gjennomsnittet i Norge er ${options.share}%`
+      return `Gjennomsnittet i Norge er ${options.share} %`
     },
   }
 ]

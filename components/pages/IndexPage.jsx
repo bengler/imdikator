@@ -37,7 +37,8 @@ class IndexPage extends Component {
   render() {
     const allRegions = this.props.allRegions
     const region = norway
-    if (!allRegions) {
+    const comparableRegionCodes = comparableRegions(region, allRegions).map(reg => reg.prefixedCode)
+    if (!allRegions || comparableRegionCodes.length == 0) {
       return (
         <div className="col--main">
           <span>Loading regions...</span>
@@ -45,7 +46,6 @@ class IndexPage extends Component {
         </div>
       )
     }
-    const comparableRegionCodes = comparableRegions(region, allRegions).map(reg => reg.prefixedCode)
 
     return (
       <main className="page">

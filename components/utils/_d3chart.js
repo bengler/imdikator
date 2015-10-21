@@ -138,13 +138,10 @@ class Chart {
         break
       }
       case 'kroner': {
-        const _format = d3.format('s')
-        axisFormat = function (val) {
-          return `${_format(val)} kr`
-        }
         format = function (val) {
-          return `${d3.format('g')(val)} kr`
+          return `${val.toLocaleString()} kr`
         }
+        axisFormat = format
         break
       }
       default: {

@@ -18,22 +18,36 @@ describe('unitFormatter', () => {
     assert.equal(formatters.axisFormat(1999), expected)
   })
 
-  it('formats permille with ‰ character', () => {
+  it('formats per mil with ‰ character and 2 decimals', () => {
     const formatters = unitFormatter('promille')
-    assert.equal(formatters.format(1.9), '1.9‰')
-    assert.equal(formatters.format(19), '19‰')
+    assert.equal(formatters.format(1.9), '1.90 ‰')
+    assert.equal(formatters.format(19), '19.00 ‰')
+    assert.equal(formatters.format(0.7512312), '0.75 ‰')
+
+    assert.equal(formatters.axisFormat(1.9), '1.90 ‰')
+    assert.equal(formatters.axisFormat(19), '19.00 ‰')
+    assert.equal(formatters.axisFormat(0.7512312), '0.75 ‰')
   })
 
   it('formats per cent by multiplying by 100, using 2 decimals and adding % character', () => {
     const formatters = unitFormatter('prosent')
-    assert.equal(formatters.format(1.9), '190.00%')
-    assert.equal(formatters.format(0.29), '29.00%')
+    assert.equal(formatters.format(1.9), '190.00 %')
+    assert.equal(formatters.format(0.29), '29.00 %')
+
+    assert.equal(formatters.axisFormat(1.9), '190.00 %')
+    assert.equal(formatters.axisFormat(0.29), '29.00 %')
   })
 
-  it('formats unknown units as plain numbers', () => {
+  it('formats unknown units with toLocaleString()', () => {
     const formatters = unitFormatter('something')
-    assert.equal(formatters.format(1.9), '1.9')
-    assert.equal(formatters.format(19), '19')
-    assert.equal(formatters.format(292929), '292929')
+    assert.equal(formatters.format(1.9), `${parseFloat(1.9).toLocaleString()}`)
+    assert.equal(formatters.format(19), `${parseFloat(19).toLocaleString()}`)
+    assert.equal(formatters.format(1.292929), `${parseFloat(1.292929).toLocaleString()}`)
+    assert.equal(formatters.format(292929), `${parseFloat(292929).toLocaleString()}`)
+
+    assert.equal(formatters.axisFormat(1.9), `${parseFloat(1.9).toLocaleString()}`)
+    assert.equal(formatters.axisFormat(19), `${parseFloat(19).toLocaleString()}`)
+    assert.equal(formatters.axisFormat(1.292929), `${parseFloat(1.292929).toLocaleString()}`)
+    assert.equal(formatters.axisFormat(292929), `${parseFloat(292929).toLocaleString()}`)
   })
 })

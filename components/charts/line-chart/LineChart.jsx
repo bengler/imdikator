@@ -55,19 +55,20 @@ export default class LineChart extends React.Component {
         dates.push(value.date)
         value.radius = 2
         value.x = value.date
+        value.formattedValue = value.values[0].formattedValue
+        value.value = value.values[0].value
         if (value.values[0].missingData) {
-          value.formattedValue = value.values[0].value
-          value.value = NaN
           value.radius = 0
+          value.value = NaN
           value.y = 0
           value.x = 0
         } else if (value.values[0].anonymized) {
-          value.formattedValue = value.values[0].value
           value.value = 4
           value.y = y(isPercent ? value.value / 100 : value.value)
         } else {
-          value.value = parseFloat(value.values[0].tabellvariabel)
           value.y = y(isPercent ? value.value / 100 : value.value)
+        }
+        if (!value.formattedValue) {
           value.formattedValue = yc.format(isPercent ? value.value / 100 : value.value)
         }
       })
@@ -172,7 +173,6 @@ export default class LineChart extends React.Component {
       focus
       .attr('transform', 'translate(' + x(item.date) + ',' + item.y + ')')
       .attr('fill', item.color)
-      focus.select('text').text(item.value)
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.series,
         body: item.formattedValue,

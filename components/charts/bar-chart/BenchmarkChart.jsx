@@ -4,6 +4,7 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+import {benchmarkColor, benchmarkHighLightColor} from '../../../data/colorPalette'
 
 function sortData(data, direction) {
   const sortedRows = data.rows.slice().sort((rowA, rowB) => {
@@ -55,9 +56,11 @@ export default class BenchmarkChart extends React.Component {
     const labelFormat = yc.format
 
     const labels = []
+    const fontSize = 12
+
     // TODO: Move these colors out to CSS?
     preparedData.forEach((dataItem, i) => {
-      dataItem.fill = '#9fd59f'
+      dataItem.fill = benchmarkColor
       if (dataItem.values[0].missingData) {
         dataItem.stroke = 'none'
         dataItem.strokeWidth = 0
@@ -78,15 +81,16 @@ export default class BenchmarkChart extends React.Component {
       if (data.highlight) {
         const val = dataItem.values[0][data.highlight.dimensionName]
         if (val && data.highlight.value.indexOf(val) != -1) {
-          if (!dataItem.fill) {
-            const color = '#438444'
-            dataItem.fill = color
+          if (!dataItem.values[0].anonymized) {
+            dataItem.fill = benchmarkHighLightColor
+          } else {
+            dataItem.stroke = benchmarkHighLightColor
           }
           labels.push({
             x: x(dataItem.title),
-            y: y(dataItem.values[0].value),
+            y: y(dataItem.values[0].value) - fontSize / 2,
             text: labelFormat(dataItem.values[0].value),
-            color: color
+            color: benchmarkColor
           })
         }
       }
@@ -98,8 +102,6 @@ export default class BenchmarkChart extends React.Component {
     .attr('height', '100%')
 
     // Y "axis"
-    const fontSize = 12
-
     yc.scale.nice() // To include the last tick
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     .ticks(5)
@@ -175,7 +177,7 @@ export default class BenchmarkChart extends React.Component {
     .append('text')
     .attr('dx', dataItem => dataItem.x + x.rangeBand() / 2)
     .attr('dy', dataItem => {
-      return dataItem.y - fontSize
+      return dataItem.y
     })
     .attr('width', dataItem => x.rangeBand())
     .style('text-anchor', 'middle')

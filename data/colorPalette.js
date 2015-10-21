@@ -1,6 +1,8 @@
 import textures from 'textures'
 
 export const colors = ['#1d70b7', '#15c2e8', '#418541', '#5abb5b', '#f56d00', '#ffd300', '#c792ca', '#ba4b7a', '#f15540']
+export const benchmarkColor = '#9fd59f'
+export const benchmarkHighLightColor = '#438444'
 
 export const colorTextures = {
   '#1d70b7': () => {

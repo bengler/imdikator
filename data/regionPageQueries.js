@@ -60,31 +60,31 @@ export default [
     },
   },
   {
-    name: 'bosatt_anmodede',
+    name: 'tilskudd',
     query: {
       year: 'latest',
-      tableName: 'bosatt_anmodede',
-      unit: 'prosent',
+      tableName: 'tilskudd',
+      unit: 'kroner',
       dimensions: [
         {
-          name: 'bosetting',
-          variables: ['bosatt']
+          name: 'tilskuddTilKommuner',
+          variables: ['totalt']
         }
       ]
     },
     drillDown: {
-      page: 'befolkning',
-      card: 'bosatt_anmodede',
-      buttonTitle: 'Gå til bosetting'
+      page: 'tilskudd',
+      card: 'tilskudd',
+      buttonTitle: 'Gå til tilskudd'
     },
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
     title: options => {
-      return `I ${options.aar} har de bosatt ${options.share}% av de de ble anmodet om.`
+      return `Mottok ${options.share} tilskuddskroner fra IMDi i år ${options.aar}`
     },
     subTitle: options => {
-      return `Gjennomsnittet i Norge er ${options.share}%`
+      return null
     },
   },
   {

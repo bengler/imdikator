@@ -20,6 +20,7 @@
     "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar",
     "import-card-descriptions": "DEBUG=imdikator* babel-node ./bin/importCardDescriptions",
+    "import-chart-description-labels": "DEBUG=imdikator* babel-node ./bin/importChartDescriptionLabels",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
     "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",
     "pre-commit-check": "npm run test-unit && (npm run lint -- --quiet || (echo 'Warning: project has lint errors. Please fix and re-commit with `git commit --amend`' && echo ''))"

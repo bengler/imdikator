@@ -1,0 +1,278 @@
+[
+  {
+    "cardName": "befolkning_hovedgruppe",
+    "personer": "antall personer",
+    "prosent": "andel personer",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "flyktninger_befolkningsandel",
+    "personer": "",
+    "prosent": "andel personer som er bosatt i Norge siste året",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_verdensregion_nidelt",
+    "personer": "antall personer med innvandrerbakgrunn",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_verdensregion_femdelt",
+    "personer": "antall personer med innvandrerbakgrunn",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_verdensregion_todelt",
+    "personer": "antall personer med innvandrerbakgrunn",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_opprinnelsesland",
+    "personer": "antall personer med innvandrerbakgrunn",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_alder",
+    "personer": "antall personer",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_innvandringsgrunn",
+    "personer": "antall innvandrere",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "befolkning_botid",
+    "personer": "antall innvandrere",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "flyktning_botid_flytting",
+    "personer": "antall flyktninger",
+    "prosent": "andel av flyktninger i gruppen over totalt antall flyktninger",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "flytting",
+    "personer": "antall flyttinger",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "bosatt_anmodede",
+    "personer": "antall flyktninger",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "bosatt_vedtak",
+    "personer": "antall flyktninger",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "barnehage-forholde-minoriteter",
+    "personer": "antall barn i barnehagealder",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "barnehage-alder-minoriteter",
+    "personer": "antall barn i barnehage",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "gjennomsnittlige-grunnskolepoeng",
+    "personer": "antall avgangselever",
+    "prosent": "",
+    "gjennomsnitt": "gjennomsnittlige grunnskolepoeng"
+  },
+  {
+    "cardName": "voksne-i-grunnskolen",
+    "personer": "antall voksne i grunnskolen",
+    "prosent": "andel voksne i grunnskolen",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "",
+    "personer": "antall elever i videregående skole",
+    "prosent": "andel elever i videregående skole",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "",
+    "personer": "antall elever som har fullført videregående skole innen fem år etter påbegynt",
+    "prosent": "andel elever som har fullført videregående skole innen fem år etter påbegynt",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "",
+    "personer": "antall personer som er mellom 16-25 år som ikke er i opplæring eller har fullført/bestått videregående",
+    "prosent": "andel personer som er mellom 16-25 år som ikke er i opplæring eller har fullført/bestått videregående av gruppen",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "voksne-i-videregaaende",
+    "personer": "antall voksne i videregående skole",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "utdanningsniva-grunnskole",
+    "personer": "antall personer mellom 30-49 år med utdanningsnivå grunnskole",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "utdanningsniva-videregaaende",
+    "personer": "antall personer mellom 30-49 år med utdanningsnivå grunnskole",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "utdanningsniva-universitet-og-hoyskole",
+    "personer": "antall personer mellom 30-49 år med utdanningsnivå grunnskole",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "utdanningsniva-uoppgitt-ingen",
+    "personer": "antall personer mellom 30-49 år med utdanningsnivå grunnskole",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "norskopplaering-antall-deltagere",
+    "personer": "antall deltakere på norskopplæringen med rettigheter etter introloven",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "norskopplaering-resultater",
+    "personer": "antall prøvedeltakere i norsk og samfunnskunnskap",
+    "prosent": "andel prøvedeltakere i norsk og samfunnskunnskap av prøveresultatet",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "",
+    "personer": "",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "deltakere-introprogram",
+    "personer": "antall deltakere i introduksjonsordningen",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "etter-intro",
+    "personer": "antall deltakere som har avsluttet introduksjonsprogrammet siste kalenderår",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "",
+    "personer": "",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "",
+    "personer": "antall tidligere deltakere i introduksjonsprogrammet som avsluttet eller avbrøt ett gitt år",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsetting-etter-innvandringsgrunn",
+    "personer": "antall sysselsatte",
+    "prosent": "andel sysselsatte av arbeidsføre i gruppa",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsetting-etter-innvandringsgrunn",
+    "personer": "antall sysselsatte",
+    "prosent": "andel sysselsatte av arbeidsføre i gruppa",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsetting-alder-innvkat",
+    "personer": "antall sysselsatte",
+    "prosent": "andel sysselsatte av arbeidsføre i gruppa",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsatte-innvandrere-botid",
+    "personer": "antall sysselsatte personer med innvandrerbakgrunn",
+    "prosent": "andel sysselsatte personer med innvandringsbakgrunn av arbeidsføre i gruppa",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsatte-innvandrere-botid-landbakgrunn",
+    "personer": "antall sysselsatte innvandrere",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsatte-innvandrere-kjonn-landbakgrunn",
+    "personer": "antall sysselsatte innvandrere",
+    "prosent": "andel sysselsatte innvandrere",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sysselsatte-innvandrere-landbakgrunn",
+    "personer": "antall sysselsatte innvandrere",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "ledige-innvkat-land",
+    "personer": "antall personer som er ledige og på tiltak",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "ikke-arbeid-innvkat-land",
+    "personer": "antall personer som ikke er i arbeid eller utdanning",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "ikke-arbeid-innvkat-alder",
+    "personer": "antall personer ikke er i arbeid eller utdanning",
+    "prosent": "andel personer ikke er i arbeid eller utdanning",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "gjennomsnittsinntekt",
+    "personer": "median gjennomsnittsinntekt",
+    "prosent": "",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "vedvarende-lavinntekt",
+    "personer": "",
+    "prosent": "andel personer som bor i husholdningsinntekt med vedvarende lavinntekt",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "sosialhjelp",
+    "personer": "antall personer som mottar sosialhjelp",
+    "prosent": "andel personer som mottar sosialhjelp",
+    "gjennomsnitt": ""
+  },
+  {
+    "cardName": "tilskudd",
+    "personer": "utbetalt tilskudd",
+    "prosent": "",
+    "gjennomsnitt": ""
+  }
+]

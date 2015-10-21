@@ -131,7 +131,7 @@ export default class BarChart extends React.Component {
     .enter()
     .append('g')
     .attr('class', 'category')
-    .attr('transform', dataItem => this.translation(x0(dataItem.title, 0)))
+    .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
 
     category.selectAll('rect.bar')
     .data(dataItem => dataItem.values)

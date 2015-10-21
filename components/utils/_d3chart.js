@@ -131,18 +131,17 @@ class Chart {
     const y = d3.scale.linear().range([height, 0])
     switch (unit) {
       case 'prosent': {
+        // Always 0 -> (100% or > 100%)
         y.domain([0, Math.max(1, maxValue)])
         break
       }
       case 'promille': {
-        y.domain([0, maxValue])
-        break
-      }
-      case 'kroner': {
+        // Always 0 -> max
         y.domain([0, maxValue])
         break
       }
       default: {
+        // Always 0 or < 0 -> max
         y.domain([Math.min(0, extent[0]), maxValue])
       }
     }

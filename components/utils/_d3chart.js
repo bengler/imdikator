@@ -154,8 +154,8 @@ class Chart {
     let color = d3.scale.category20()
     let height = 0
     const attr = {
-      width: (item, idx) => 15,
-      height: (item, idx) => 15,
+      width: (item, idx) => 25,
+      height: (item, idx) => 25,
       fontSize: (item, idx) => 15
     }
     const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')

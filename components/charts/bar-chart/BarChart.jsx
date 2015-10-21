@@ -220,9 +220,6 @@ export default class BarChart extends React.Component {
     .call(xAxis.tickFormat('').tickSize(0))
 
     const leg = this.legend().color(seriesColor)
-    .attr('width', () => 23)
-    .attr('height', () => 23)
-    .attr('fontSize', () => 14)
     // Add some space between the x axis labels and the legends
     const legendWrapper = svg.append('g')
     .attr('class', 'legendWrapper')

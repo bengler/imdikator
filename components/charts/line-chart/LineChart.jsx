@@ -5,9 +5,11 @@ import D3Chart from '../../utils/D3Chart'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class LineChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
   }
+  /* eslint-enable react/forbid-prop-types */
 
   drawPoints(el, data) {
     if (!data) {
@@ -126,13 +128,15 @@ export default class LineChart extends React.Component {
     // Add some space between the x axis labels and the legends
     const xAxisMargin = 30
     const legendBottom = this.size.height + xAxisMargin
+    /* eslint-disable prefer-reflect */
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
-    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    .attr('transform', () => this.translation(0, legendBottom))
     .datum(series)
     .call(leg)
+    /* eslint-enable prefer-reflect */
 
     // Increase our height to fit the legend
     this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
@@ -160,22 +164,21 @@ export default class LineChart extends React.Component {
       return item
     })
 
-    const nest = d3.nest().key(item => x(item.date) + ',' + item.y)
-    .rollup(value => value[0])
+    const nest = d3.nest().key(item => `${x(item.date)},${item.y}`).rollup(value => value[0])
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
     .enter().append('path')
-    .attr('d', item => 'M' + item.join('L') + 'Z')
+    .attr('d', item => `M${item.join('L')}Z`)
     .datum(dataItem => dataItem.point)
     .style('fill', 'none')
     .style('stroke', 'none')
     .style('pointer-events', 'all')
     .on('mouseover', item => {
       focus
-      .attr('transform', 'translate(' + x(item.date) + ',' + item.y + ')')
+      .attr('transform', this.translation(x(item.date), item.y))
       .attr('fill', item.color)
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.series,
@@ -188,14 +191,16 @@ export default class LineChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
+    /* eslint-disable prefer-reflect */
     svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + this.size.height + ')')
+    .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
 
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
+    /* eslint-enable prefer-reflect */
   }
 
   render() {

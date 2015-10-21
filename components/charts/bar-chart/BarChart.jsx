@@ -5,10 +5,12 @@ import D3Chart from '../../utils/D3Chart'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class BarChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string
   }
+  /* eslint-enable react/forbid-prop-types */
 
   calculateHeight(data) {
     return 400
@@ -44,7 +46,11 @@ export default class BarChart extends React.Component {
       while (catSeries.length < maxSeries) {
         catSeries.push(Math.random())
       }
-      const scale = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
+      const scale = d3.scale.ordinal()
+      .domain(catSeries)
+      .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
       let xOffset = (scale.rangeBand() + (scale.rangeBand() * innerPaddingFactor)) * (maxSeries - seriesLength)
       xOffset /= 2
       xScales[cat.key] = {scale, xOffset}
@@ -104,20 +110,20 @@ export default class BarChart extends React.Component {
     .enter()
     .append('g')
     .attr('class', 'category')
-    .attr('transform', d => 'translate(' + x0(d.title) + ',' + 0 + ')')
+    .attr('transform', dataItem => this.translation(x0(dataItem.title, 0)))
 
     category.selectAll('rect.bar')
-    .data(d => d.values)
+    .data(dataItem => dataItem.values)
     .enter()
     .append('rect')
     .attr('class', 'bar')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title) + dataItem.xOffset)
-    .attr('y', d => {
-      const val = Math.max(0, d.value)
+    .attr('y', dataItem => {
+      const val = Math.max(0, dataItem.value)
       return yc.scale(val)
     })
-    .attr('height', d => Math.abs(yc.scale(0) - yc.scale(d.value)))
+    .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
     .style('fill', dataItem => dataItem.fill)
     .style('stroke', dataItem => dataItem.stroke)
     .style('stroke-width', dataItem => dataItem.strokeWidth)
@@ -126,7 +132,7 @@ export default class BarChart extends React.Component {
     })
 
     category.selectAll('rect.hover')
-    .data(d => d.values)
+    .data(dataItem => dataItem.values)
     .enter()
     .append('rect')
     .attr('class', 'hover')
@@ -148,6 +154,7 @@ export default class BarChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
+    /* eslint-disable prefer-reflect */
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
@@ -156,7 +163,7 @@ export default class BarChart extends React.Component {
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
     const xAxisEl = svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + this.size.height + ')')
+    .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
 
     // Remove default X axis line (in case we translated up to make room
@@ -169,7 +176,7 @@ export default class BarChart extends React.Component {
     // Add a new zero-line, possibly translated up
     svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + yc.scale(0) + ')')
+    .attr('transform', this.translation(0, yc.scale(0)))
     .call(xAxis.tickFormat('').tickSize(0))
 
     const leg = this.legend().color(seriesColor)
@@ -180,10 +187,11 @@ export default class BarChart extends React.Component {
     // Place it at the very bottom
     .datum(series)
     .call(leg)
+    /* eslint-enable prefer-reflect */
 
     const xAxisHeight = xAxisEl.node().getBBox().height
     const legendBottom = this.size.height + xAxisHeight
-    legendWrapper.attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
     // Expand the height to fit the legend
     this._svg.attr('height', this.fullHeight + xAxisHeight + leg.height())

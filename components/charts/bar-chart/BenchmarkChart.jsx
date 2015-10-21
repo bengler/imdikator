@@ -18,11 +18,13 @@ function sortData(data, direction) {
 }
 
 export default class BenchmarkChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
     sortDirection: React.PropTypes.string
   }
+  /* eslint-enable react/forbid-prop-types */
 
   drawPoints(el, data) {
     if (!data) {
@@ -47,8 +49,9 @@ export default class BenchmarkChart extends React.Component {
 
     const labels = []
     const fontSize = 12
-
+    /* eslint-disable no-warning-comments */
     // TODO: Move these colors out to CSS?
+    /* eslint-enable no-warning-comments */
     preparedData.forEach((dataItem, i) => {
       let fill = benchmarkColor
       if (this.textures.domain().indexOf(benchmarkColor) !== -1) {
@@ -103,10 +106,12 @@ export default class BenchmarkChart extends React.Component {
     .innerTickSize(0)
     .outerTickSize(0)
 
+    /* eslint-disable prefer-reflect */
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
     .select('path').remove()
+    /* eslint-enable prefer-reflect */
 
     // Draw horizontal background lines where the tick marks are
     svg.selectAll('.axis .tick')

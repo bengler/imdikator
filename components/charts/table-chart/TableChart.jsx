@@ -33,9 +33,11 @@ const download = function (content, fileName, mimeType) {
 }
 
 export default class TableChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
   }
+  /* eslint-enable react/forbid-prop-types */
 
   componentWillMount() {
     this.generateCSV(this.props.data)
@@ -62,7 +64,11 @@ export default class TableChart extends React.Component {
         data.dimensions.shift()
       }
       // See 04-befolkning_alder-fylke-2014.csv
-      const nester = d3.nest().key(item => item[regionKey]).sortKeys(d3.ascending).key(item => data.dimensions.join(','))
+      const nester = d3.nest()
+      .key(item => item[regionKey])
+      .sortKeys(d3.ascending)
+      .key(item => data.dimensions.join(','))
+
       const xx = nester.entries(data.rows)
       // Headers
 
@@ -79,7 +85,11 @@ export default class TableChart extends React.Component {
       })
 
       xx.forEach(region => {
-        csv += region.key.slice(1, region.key.length) + separator + dimensionLabelTitle(regionKey, region.key) + separator
+        csv += region.key
+                  .slice(1, region.key.length)
+                + separator
+                + dimensionLabelTitle(regionKey, region.key)
+                + separator
         region.values[0].values.forEach(row => {
           csv += row.tabellvariabel + separator
         })
@@ -145,7 +155,9 @@ export default class TableChart extends React.Component {
               if (this.state.csv) {
                 download(this.state.csv, 'tabell.csv')
               }
-            }}>Last ned data</a>
+            }}>
+            Last ned data
+            </a>
           )
         }
       })()}

@@ -4,16 +4,15 @@ import Chart from './_d3chart'
 import EventEmitter from 'events'
 import Hoverbox from '../elements/Hoverbox'
 
-/**
- * Only for development
- */
 export default class D3Chart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     className: React.PropTypes.string,
     data: React.PropTypes.object,
     functions: React.PropTypes.object,
     config: React.PropTypes.object
   }
+  /* eslint-enable react/forbid-prop-types */
 
   componentDidMount() {
 

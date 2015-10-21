@@ -105,6 +105,27 @@ export default class BarChart extends React.Component {
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     yAxis.tickFormat(yc.axisFormat)
 
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+    .select('path').remove()
+
+    // Draw horizontal background lines where the tick marks are
+    svg.selectAll('.axis .tick')
+    .append('line')
+    .attr('class', 'benchmark--line')
+    .attr('x1', -this.margins.left)
+    .attr('x2', this.size.width)
+    .attr('y1', 0)
+    .attr('y2', 0)
+
+    // Translate the text up by half font size to make the text rest on top
+    // of the background lines
+    const fontSize = 12
+    svg.selectAll('.axis .tick text')
+    .attr('transform', `translate(0,-${fontSize / 2})`)
+    .attr('class', 'benchmark--text')
+
     const category = svg.selectAll('.category')
     .data(preparedData)
     .enter()
@@ -155,10 +176,6 @@ export default class BarChart extends React.Component {
     })
 
     /* eslint-disable prefer-reflect */
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
     // Add the x axis legend
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
     const xAxisEl = svg.append('g')

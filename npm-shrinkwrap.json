@@ -6620,6 +6620,11 @@
             }
           }
         },
+        "listify": {
+          "version": "1.0.0",
+          "from": "listify@*",
+          "resolved": "https://registry.npmjs.org/listify/-/listify-1.0.0.tgz"
+        },
         "lodash.clonedeep": {
           "version": "3.0.2",
           "from": "lodash.clonedeep@>=3.0.1 <4.0.0",

@@ -8,6 +8,7 @@ export default class LineChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object
   }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -114,17 +115,17 @@ export default class LineChart extends React.Component {
     .attr('r', dataItem => dataItem.radius)
     .style('fill', dataItem => dataItem.color)
 
-    const leg = this.legend()
-    .color(seriesColor)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
+    const leg = this.legend().color(seriesColor)
 
+    /*
     leg.dispatch.on('legendClick', (item, index) => {})
     leg.dispatch.on('legendMouseout', (item, index) => {})
     leg.dispatch.on('legendMouseover', (item, index) => {})
+    */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const xAxisMargin = 30
+    const legendBottom = this.size.height + xAxisMargin
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
@@ -132,6 +133,9 @@ export default class LineChart extends React.Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series)
     .call(leg)
+
+    // Increase our height to fit the legend
+    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
 
     // Voronoi Tesselation hover points
     const focus = svg.append('g')
@@ -192,15 +196,18 @@ export default class LineChart extends React.Component {
     svg.append('g')
     .attr('class', 'axis')
     .call(yAxis)
-
   }
 
   render() {
     const functions = {
-      drawPoints: this.drawPoints
+      drawPoints: this.drawPoints,
+      calculateMargins: this.calculateMargins
+    }
+    const config = {
+      shouldCalculateMargins: true
     }
     return (
-      <D3Chart data={this.props.data} functions={functions}/>
+      <D3Chart data={this.props.data} functions={functions} config={config}/>
     )
   }
 

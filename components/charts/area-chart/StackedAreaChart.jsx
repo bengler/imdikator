@@ -12,12 +12,6 @@ export default class StackedAreaChart extends React.Component {
     data: React.PropTypes.object
   }
 
-  calculateMargins(data) {
-    return {
-      right: 0
-    }
-  }
-
   drawPoints(el, data) {
     if (!data) {
       return
@@ -98,10 +92,7 @@ export default class StackedAreaChart extends React.Component {
     .style('stroke', 'none')
 
     // legend
-    const leg = this.legend()
-    .color(color)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
+    const leg = this.legend().color(color)
 
     /*
     leg.dispatch.on('legendClick', (item, index) => {})
@@ -110,7 +101,8 @@ export default class StackedAreaChart extends React.Component {
     */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const xAxisMargin = 30
+    const legendBottom = this.size.height + xAxisMargin
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
@@ -118,6 +110,8 @@ export default class StackedAreaChart extends React.Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series.map(serie => serie.title))
     .call(leg)
+
+    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
 
     // Voronoi Tesselation hover points
     const focus = svg.append('g')
@@ -193,8 +187,11 @@ export default class StackedAreaChart extends React.Component {
       drawPoints: this.drawPoints,
       calculateMargins: this.calculateMargins
     }
+    const config = {
+      shouldCalculateMargins: true
+    }
     return (
-      <D3Chart data={this.props.data} functions={functions}/>
+      <D3Chart data={this.props.data} functions={functions} config={config}/>
     )
   }
 

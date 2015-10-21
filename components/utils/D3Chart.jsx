@@ -11,7 +11,8 @@ export default class D3Chart extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
     data: React.PropTypes.object,
-    functions: React.PropTypes.object
+    functions: React.PropTypes.object,
+    config: React.PropTypes.object
   }
 
   componentDidMount() {
@@ -37,12 +38,15 @@ export default class D3Chart extends React.Component {
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%'
-    }, this.getChartState(), this.eventEmitter, this.props.functions)
+    }, this.getChartState(), this.props.functions, Object.assign({
+      eventEmitter: this.eventEmitter,
+      shouldCalculateMargins: false
+    }, this.props.config))
   }
 
   componentDidUpdate() {
     const el = findDOMNode(this)
-    this.chart.update(el, this.getChartState())
+    this.chart.update(el, this.getChartState(), this.props.config)
   }
 
   componentWillUnmount() {

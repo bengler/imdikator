@@ -108,10 +108,22 @@ export default class PyramidChart extends React.Component {
     // The axis
     const outerXAxis = d3.svg.axis().scale(outerXScale)
 
+    const outerXAxisMargin = 20
     const outerXAxisEl = svg.append('g')
     .attr('class', 'axis')
     .call(outerXAxis)
-    .attr('transform', this.translation(0, this.size.height))
+    .attr('transform', this.translation(0, this.size.height + outerXAxisMargin))
+
+    const txts = outerXAxisEl.selectAll('.tick text')
+    txts.call(this.wrapTextNode, outerXScale.rangeBand())
+
+    let xAxisLabelHeight = 0
+    txts.each(function (item) {
+      const height = this.getBBox().height
+      if (height > xAxisLabelHeight) {
+        xAxisLabelHeight = height
+      }
+    })
 
     outerXAxisEl
     .select('path')
@@ -238,7 +250,6 @@ export default class PyramidChart extends React.Component {
     .attr('transform', this.translation(pointB, this.size.height))
     .call(xAxisRight)
 
-
     // Legend
     const leg = this.legend().color(color)
 
@@ -249,7 +260,8 @@ export default class PyramidChart extends React.Component {
     */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const xAxisMargin = 20
+    const legendBottom = this.size.height + outerXAxisMargin + xAxisLabelHeight + xAxisMargin
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
@@ -257,6 +269,8 @@ export default class PyramidChart extends React.Component {
     .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
     .datum(series)
     .call(leg)
+
+    this._svg.attr('height', this.fullHeight + outerXAxisMargin + xAxisLabelHeight + xAxisMargin + leg.height())
   }
 
   render() {

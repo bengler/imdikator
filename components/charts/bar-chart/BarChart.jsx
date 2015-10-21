@@ -4,15 +4,6 @@ import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
-d3.selection.prototype.first = function () {
-  return d3.select(this[0][0])
-}
-
-d3.selection.prototype.last = function () {
-  const last = this.size() - 1
-  return d3.select(this[0][last])
-}
-
 export default class BarChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
@@ -21,44 +12,6 @@ export default class BarChart extends React.Component {
 
   calculateHeight(data) {
     return 400
-  }
-
-  calculateMargins(data) {
-    if (!data) {
-      return null
-    }
-
-    // LEFT MARGIN
-    // Need to add a Y axis and see how wide the largest label is
-    const extent = d3.extent(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
-      return parseFloat(row.tabellvariabel)
-    })
-    const yc = this.configureYscale(extent, data.unit, 100)
-    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
-    const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
-    testSVG.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
-    // Find the longest text string on this axis
-    let axislabelLength = 0
-    testSVG.selectAll('text').each(function () {
-      const len = this.getComputedTextLength()
-      if (len > axislabelLength) {
-        axislabelLength = len
-      }
-    })
-
-    testSVG.remove()
-
-    const result = {
-      left: axislabelLength + 10 // Add some space for the actual axis and tick marks
-    }
-    return result
-  }
-
-  prepareData(data) {
-
   }
 
   drawPoints(el, data) {
@@ -233,7 +186,7 @@ export default class BarChart extends React.Component {
     legendWrapper.attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
 
     // Expand the height to fit the legend
-    this._svg.attr('height', legendBottom + leg.height())
+    this._svg.attr('height', this.fullHeight + xAxisHeight + leg.height())
   }
 
   render() {
@@ -242,9 +195,14 @@ export default class BarChart extends React.Component {
       calculateHeight: this.calculateHeight,
       calculateMargins: this.calculateMargins
     }
+
+    const config = {
+      shouldCalculateMargins: true
+    }
+
     return (
       <div>
-      <D3Chart data={this.props.data} functions={functions} className={this.props.className}/>
+      <D3Chart data={this.props.data} config={config} functions={functions} className={this.props.className}/>
       </div>
     )
   }

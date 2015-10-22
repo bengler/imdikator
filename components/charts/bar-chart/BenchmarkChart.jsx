@@ -125,7 +125,9 @@ export default class BenchmarkChart extends React.Component {
     // Translate the text up by half font size to make the text rest on top
     // of the background lines
     svg.selectAll('.axis .tick text')
-    .attr('transform', `translate(0,-${fontSize / 2})`)
+    .attr('transform', function () {
+      return `translate(0, ${-this.getBBox().height / 2})`
+    })
     .attr('class', 'benchmark--text')
 
     // Draw the bars

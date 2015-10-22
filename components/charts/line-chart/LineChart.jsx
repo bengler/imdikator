@@ -42,6 +42,7 @@ export default class LineChart extends React.Component {
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
     yAxis.tickFormat(yc.axisFormat)
+    yAxis.scale().nice()
 
     const isPercent = data.unit === 'prosent'
     const dates = []
@@ -78,6 +79,30 @@ export default class LineChart extends React.Component {
     })
 
     x.domain(d3.extent(dates))
+
+    /* eslint-disable prefer-reflect */
+    svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+    .select('path').remove()
+    /* eslint-enable prefer-reflect */
+
+    // Draw horizontal background lines where the tick marks are
+    svg.selectAll('.axis .tick')
+    .append('line')
+    .attr('class', 'benchmark--line')
+    .attr('x1', -this.margins.left)
+    .attr('x2', this.size.width)
+    .attr('y1', 0)
+    .attr('y2', 0)
+
+    // Translate the text up by half font size to make the text rest on top
+    // of the background lines
+    svg.selectAll('.axis .tick text')
+    .attr('transform', function () {
+      return `translate(0, ${-this.getBBox().height / 2})`
+    })
+    .attr('class', 'benchmark--text')
 
     const line = d3.svg.line()
     .x(dataItem => {
@@ -192,15 +217,15 @@ export default class LineChart extends React.Component {
     })
 
     /* eslint-disable prefer-reflect */
-    svg.append('g')
+    const xAxisEl = svg.append('g')
     .attr('class', 'axis')
     .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
-
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
     /* eslint-enable prefer-reflect */
+
+    // Remove default X axis line
+    xAxisEl.select('path').remove()
+
   }
 
   render() {

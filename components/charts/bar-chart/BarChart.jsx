@@ -102,6 +102,7 @@ export default class BarChart extends React.Component {
       })
     })
 
+    yc.scale.nice()
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
     yAxis.tickFormat(yc.axisFormat)
 
@@ -121,9 +122,10 @@ export default class BarChart extends React.Component {
 
     // Translate the text up by half font size to make the text rest on top
     // of the background lines
-    const fontSize = 12
     svg.selectAll('.axis .tick text')
-    .attr('transform', `translate(0,-${fontSize / 2})`)
+    .attr('transform', function () {
+      return `translate(0, ${-this.getBBox().height / 2})`
+    })
     .attr('class', 'benchmark--text')
 
     const category = svg.selectAll('.category')
@@ -191,10 +193,6 @@ export default class BarChart extends React.Component {
     txts.call(this.wrapTextNode, x0.rangeBand())
 
     // Add a new zero-line, possibly translated up
-    svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', this.translation(0, yc.scale(0)))
-    .call(xAxis.tickFormat('').tickSize(0))
 
     const leg = this.legend().color(seriesColor)
     // Add some space between the x axis labels and the legends

@@ -80,6 +80,14 @@ export default class LineChart extends React.Component {
 
     x.domain(d3.extent(dates))
 
+    // Make sure we dont drop down to displaying months by
+    // having more ticks on the scale than we have unique dates
+    const defaultNumberOfTicks = xAxis.ticks()
+    const numberOfDates = d3.set(dates).size()
+    if (numberOfDates < defaultNumberOfTicks) {
+      xAxis.ticks(numberOfDates)
+    }
+
     this.addYAxis(yc.scale, yc.axisFormat)
 
     const line = d3.svg.line()

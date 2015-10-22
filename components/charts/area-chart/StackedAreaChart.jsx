@@ -49,6 +49,14 @@ export default class StackedAreaChart extends React.Component {
       })
     })
 
+    // Make sure we dont drop down to displaying months by
+    // having more ticks on the scale than we have unique dates
+    const defaultNumberOfTicks = xAxis.ticks()
+    const numberOfDates = d3.set(dates).size()
+    if (numberOfDates < defaultNumberOfTicks) {
+      xAxis.ticks(numberOfDates)
+    }
+
     // Preapre properties for the area() function
     preparedData.forEach(series => {
       series.total = 0

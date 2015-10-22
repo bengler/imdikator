@@ -9,11 +9,9 @@ import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
-import {isSimilarRegion, comparableRegions} from '../../lib/regionUtil'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
-
+import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
 //import {performQuery} from '../../actions/cardPages'
-import {getHeaderKey} from '../../lib/regionUtil'
 
 class Card extends Component {
   static propTypes = {
@@ -116,7 +114,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTab, headerGroup, query, region} = this.props
+    const {card, activeTab, headerGroup, query, region, allRegions} = this.props
 
     if (!card || !activeTab || !region) {
       return null

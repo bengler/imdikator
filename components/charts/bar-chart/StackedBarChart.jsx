@@ -27,10 +27,7 @@ export default class StackedBarChart extends Component {
 
     // X axis scale for categories
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], 0.1)
-    const y = d3.scale.linear().rangeRound([this.size.height, 0])
-
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
-    const yAxis = d3.svg.axis().scale(y).orient('left')
 
     let maxVal = 0
     const seriesNames = []
@@ -51,14 +48,14 @@ export default class StackedBarChart extends Component {
       })
     })
 
-    const colors = this.colors.domain(seriesNames)
+    // Y config
+    const extent = [0, maxVal]
+    console.log(extent)
+    const yc = this.configureYscale(extent, data.unit)
+    const y = yc.scale
+    this.addYAxis(y, yc.axisFormat)
 
-    yAxis.tickFormat(yAxisLabelFormat)
-    if (isPercent) {
-      y.domain([0, 1])
-    } else {
-      y.domain([0, maxVal])
-    }
+    const colors = this.textures
 
     x.domain(preparedData.map(item => item.title))
 
@@ -66,7 +63,7 @@ export default class StackedBarChart extends Component {
     .data(preparedData)
     .enter().append('g')
     .attr('class', 'category')
-    .attr('transform', cat => 'translate(' + x(cat.title) + ',0)')
+    .attr('transform', cat => this.translation(x(cat.title), 0))
 
     category.selectAll('rect')
     .data(cat => cat.values)
@@ -102,45 +99,54 @@ export default class StackedBarChart extends Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
+    // Add X axis
+    /* eslint-disable prefer-reflect */
+    const xAxisEl = this.svg.append('g')
+    .attr('class', 'axis')
+    .attr('transform', this.translation(0, this.size.height))
+    .call(xAxis)
+
+    xAxisEl
+    .select('path').remove()
+    .selectAll('text')
+    .call(this.wrapTextNode, x.rangeBand())
+    /* eslint-enable prefer-reflect */
 
     // Legend
-
     const leg = this.legend()
     .color(colors)
     .attr('width', () => 15)
     .attr('height', () => 15)
 
-    leg.dispatch.on('legendClick', (item, index) => {})
-    leg.dispatch.on('legendMouseout', (item, index) => {})
-    leg.dispatch.on('legendMouseover', (item, index) => {})
-
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
-    svg.append('g')
+    const xAxisHeight = xAxisEl.node().getBBox().height
+    const legendBottom = this.size.height + xAxisHeight
+
+    /* eslint-disable prefer-reflect */
+    const legendWrapper = svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
-    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    .attr('transform', () => this.translation(0, legendBottom))
     .datum(seriesNames)
     .call(leg)
+    /* eslint-enable prefer-reflect */
 
-    // Add Y axis
-    this.svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
+    legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
-    // Add X axis
-    this.svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + this.size.height + ')')
-    .call(xAxis)
-    .selectAll('text')
-    .call(this.wrapTextNode, x.rangeBand())
+    // Expand the height to fit the legend
+    this._svg.attr('height', this.fullHeight + xAxisHeight + leg.height())
   }
 
   render() {
+    const functions = {
+      drawPoints: this.drawPoints
+    }
+    const config = {
+      shouldCalculateMargins: true
+    }
     return (
-      <D3Chart data={this.props.data} drawPoints={this.drawPoints}/>
+      <D3Chart data={this.props.data} functions={functions} config={config}/>
     )
   }
 }

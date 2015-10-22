@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import BarChart from '../charts/bar-chart/BarChart'
+import StackedBarChart from '../charts/bar-chart/StackedBarChart'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import LineChart from '../charts/line-chart/LineChart'
 import StackedAreaChart from '../charts/area-chart/StackedAreaChart'
@@ -105,6 +106,20 @@ const testData = {
     rows: [
       {fylkeNr: '03', tabellvariabel: '-2029', enhet: 'kroner', kat: 'kategory 1'},
       {fylkeNr: '03', tabellvariabel: '-1715', enhet: 'kroner', kat: 'kategory 2'},
+    ]
+  },
+  stackedBar1: {
+    dimensions: ['kommuneNr', 'bhgalder'],
+    unit: 'personer',
+    rows: [
+      { "aar": "2013", "bhgalder": "1", "enhet": "personer", "tabellvariabel": "44", "barnikommune": "innvandrerbakgr", "kommuneNr": "1505" }, { "aar": "2013", "bhgalder": "2", "enhet": "personer", "tabellvariabel": "45", "barnikommune": "innvandrerbakgr", "kommuneNr": "1505" }, { "aar": "2013", "bhgalder": "3", "enhet": "personer", "tabellvariabel": "46", "barnikommune": "innvandrerbakgr", "kommuneNr": "1505" }, { "aar": "2013", "bhgalder": "4", "enhet": "personer", "tabellvariabel": "45", "barnikommune": "innvandrerbakgr", "kommuneNr": "1505" }, { "aar": "2013", "bhgalder": "5", "enhet": "personer", "tabellvariabel": "39", "barnikommune": "innvandrerbakgr", "kommuneNr": "1505" }, { "aar": "2013", "bhgalder": "1", "enhet": "personer", "tabellvariabel": ":", "barnikommune": "innvandrerbakgr", "kommuneNr": "1511" }, { "aar": "2013", "bhgalder": "2", "enhet": "personer", "tabellvariabel": "4", "barnikommune": "innvandrerbakgr", "kommuneNr": "1511" }, { "aar": "2013", "bhgalder": "3", "enhet": "personer", "tabellvariabel": ":", "barnikommune": "innvandrerbakgr", "kommuneNr": "1511" }, { "aar": "2013", "bhgalder": "4", "enhet": "personer", "tabellvariabel": ":", "barnikommune": "innvandrerbakgr", "kommuneNr": "1511" }, { "aar": "2013", "bhgalder": "5", "enhet": "personer", "tabellvariabel": ":", "barnikommune": "innvandrerbakgr", "kommuneNr": "1511" }, { "aar": "2013", "bhgalder": "1", "enhet": "personer", "tabellvariabel": "5", "barnikommune": "innvandrerbakgr", "kommuneNr": "1514" }, { "aar": "2013", "bhgalder": "2", "enhet": "personer", "tabellvariabel": "4", "barnikommune": "innvandrerbakgr", "kommuneNr": "1514" }, { "aar": "2013", "bhgalder": "3", "enhet": "personer", "tabellvariabel": "4", "barnikommune": "innvandrerbakgr", "kommuneNr": "1514" }, { "aar": "2013", "bhgalder": "4", "enhet": "personer", "tabellvariabel": "7", "barnikommune": "innvandrerbakgr", "kommuneNr": "1514" }, { "aar": "2013", "bhgalder": "5", "enhet": "personer", "tabellvariabel": "4", "barnikommune": "innvandrerbakgr", "kommuneNr": "1514" }
+    ]
+  },
+  stackedBar2: {
+    dimensions: ['kommuneNr', 'bhgalder'],
+    unit: 'personer',
+    rows: [
+      { "aar": "2013", "bhgalder": "1", "enhet": "personer", "tabellvariabel": "2495", "barnikommune": "innvandrerbakgr", "kommuneNr": "0301" }, { "aar": "2013", "bhgalder": "2", "enhet": "personer", "tabellvariabel": "2564", "barnikommune": "innvandrerbakgr", "kommuneNr": "0301" }, { "aar": "2013", "bhgalder": "3", "enhet": "personer", "tabellvariabel": "2550", "barnikommune": "innvandrerbakgr", "kommuneNr": "0301" }, { "aar": "2013", "bhgalder": "4", "enhet": "personer", "tabellvariabel": "2501", "barnikommune": "innvandrerbakgr", "kommuneNr": "0301" }, { "aar": "2013", "bhgalder": "5", "enhet": "personer", "tabellvariabel": "2419", "barnikommune": "innvandrerbakgr", "kommuneNr": "0301" }
     ]
   },
   bench1: {
@@ -314,6 +329,11 @@ class RenderTestPage extends Component {
       <BarChart data={testData.bar}/>
       </div>
       <br style={{clear: 'left'}}/>
+      <div style={fullFloatStyle}>
+      <h3>StackedBar width</h3>
+      <StackedBarChart data={testData.stackedBar2}/>
+      </div>
+      <br style={{clear: 'left'}}/>
       <div style={floatStyle}>
       <h3>Linjebrytende X akse label</h3>
       <BarChart data={testData.bar}/>
@@ -327,6 +347,10 @@ class RenderTestPage extends Component {
       <BarChart data={testData.bar3}/>
       </div>
       <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
+      <h3>Stacked bar</h3>
+      <StackedBarChart data={testData.stackedBar1}/>
+      </div>
       <div style={floatStyle}>
       <h3>Kroner i Y akse</h3>
       <BarChart data={testData.bar4}/>

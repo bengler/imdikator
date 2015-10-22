@@ -65,7 +65,7 @@ describe('chartDescriber', () => {
       showing: 'flyktninger',
       bounds: ['aldersfordeling avgrenset til 0-3 år', 'kjønnsfordeling avgrenset til kvinner', 'bakgrunn avgrenset til innvandrere']
     }
-    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner, og bakgrunn avgrenset til innvandrere'
+    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -99,7 +99,7 @@ describe('chartDescriber', () => {
       timePeriod: ['2013'],
       regions: ['Sandefjord', 'Drøbak', 'Larvik', 'Bø i Telemark']
     }
-    let expected = 'Figuren viser flyktninger i 2013 fra Sandefjord, Drøbak, Larvik, og Bø i Telemark'
+    let expected = 'Figuren viser flyktninger i 2013 fra Sandefjord, Drøbak, Larvik og Bø i Telemark'
     assert.equal(describeChart(opts), expected)
 
     opts.regions = ['Sandefjord']
@@ -117,7 +117,7 @@ describe('chartDescriber', () => {
       timePeriod: ['2012', '2014'],
       regions: ['Sandefjord', 'Drøbak', 'Larvik', 'Bø i Telemark']
     }
-    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner, og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord, Drøbak, Larvik, og Bø i Telemark'
+    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord, Drøbak, Larvik og Bø i Telemark'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -131,7 +131,7 @@ describe('chartDescriber', () => {
       regions: ['Sandefjord'],
       comparisonType: 'kommuner'
     }
-    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner, og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord sammenlignet med lignende kommuner'
+    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord sammenlignet med lignende kommuner'
     assert.equal(describeChart(opts), expected)
   })
 

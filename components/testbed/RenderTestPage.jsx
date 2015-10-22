@@ -10,6 +10,11 @@ import TableChart from '../charts/table-chart/TableChart'
 
 /* eslint-disable */
 const testData = {
+  barWidth: {
+    "dimensions": ['barnikommune', 'bhgalder'],
+    "unit": "personer",
+    "rows": [{"aar":"2013","bhgalder":"1","enhet":"personer","tabellvariabel":"2495","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"2","enhet":"personer","tabellvariabel":"2564","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"3","enhet":"personer","tabellvariabel":"2550","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"4","enhet":"personer","tabellvariabel":"2501","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"5","enhet":"personer","tabellvariabel":"2419","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0301"}]
+  },
   bar: {
     dimensions: ['fylkeNr', 'landbakgrunn'],
     unit: 'personer',
@@ -327,6 +332,11 @@ class RenderTestPage extends Component {
       <div style={fullFloatStyle}>
       <h3>Bar width</h3>
       <BarChart data={testData.bar}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={fullFloatStyle}>
+      <h3>Bar width multiple</h3>
+      <BarChart data={testData.barWidth}/>
       </div>
       <br style={{clear: 'left'}}/>
       <div style={fullFloatStyle}>

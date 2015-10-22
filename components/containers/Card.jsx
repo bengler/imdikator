@@ -5,12 +5,11 @@ import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
+import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
-import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
-import {isSimilarRegion, comparableRegions} from '../../lib/regionUtil'
-import {filtersToOptions, describeChart} from '../../lib/chartDescriber'
+import {isSimilarRegion} from '../../lib/regionUtil'
 
 //import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'
@@ -67,7 +66,7 @@ class Card extends Component {
     }
     const constrainedQuery = constrainQuery(newQuery, this.getQuerySpec(newQuery))
     constrainedQuery.operations.forEach(op => {
-      console.log('%s: %s', op.dimension, op.description)
+      debug('%s: %s', op.dimension, op.description)
     })
     this.props.dispatch(performQuery(card, activeTab, constrainedQuery.query))
   }
@@ -116,7 +115,7 @@ class Card extends Component {
   }
 
   render() {
-    const {card, activeTab, headerGroup, query, region, allRegions} = this.props
+    const {card, activeTab, headerGroup, query, region} = this.props
 
     if (!card || !activeTab || !region) {
       return null
@@ -131,7 +130,7 @@ class Card extends Component {
       disabledTabs.push('chronological')
     }
 
-    const graphDescription = describeChart(filtersToOptions(this.getFilterState()))
+    const graphDescription = '' // todo: thomas will fix
 
     const ChartComponent = CHARTS[this.getChartKind()].component
     return (

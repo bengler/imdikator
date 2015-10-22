@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import RegionSelect from './RegionSelect'
-import {prefixifyRegion} from '../../lib/regionUtil'
 import {dimensionLabelTitle} from '../../lib/labels'
+import listify from 'listify'
 import cx from 'classnames'
 
 import {_t} from '../../lib/translate'
@@ -73,7 +73,7 @@ class FilterBar extends Component {
     return (query.comparisonRegions || []).map(prefixedCode => choices.find(choice => prefixedCode === choice.prefixedCode))
   }
   renderRegionSelectLightbox() {
-    const {querySpec, query, regionGroups: {similar, recommended, choices}} = this.props
+    const {querySpec, regionGroups: {similar, recommended, choices}} = this.props
 
     const comparisonRegionsFilter = querySpec.find(dimension => dimension.name == 'comparisonRegions')
 
@@ -127,12 +127,6 @@ class FilterBar extends Component {
     const value = this.getDimensionValueFromQuery(dimension.name)
     const index = choices.findIndex(valuesEqual(value))
 
-    const conj = (joiner, arr) => {
-      if (arr.length === 1) {
-        return arr[0]
-      }
-      return `${arr.slice(0, arr.length - 1).join(', ')} ${joiner} ${arr.slice(-1)[0]}`
-    }
     return (
       <div className="subtle-select">
         <label htmlFor="filter-groups" className="subtle-select__label">{dimensionLabelTitle(dimension.name)}:</label>
@@ -143,7 +137,7 @@ class FilterBar extends Component {
             onChange={onChange}>
             {choices.map((choice, i) => (
               <option value={i} key={i}>{
-                Array.isArray(choice) ? conj(' og ', choice) : choice
+                Array.isArray(choice) ? listify(choice, {finalWord: 'og'}) : choice
               }</option>
             ))}
           </select>
@@ -153,7 +147,7 @@ class FilterBar extends Component {
   }
 
   render() {
-    const {querySpec, query} = this.props
+    const {querySpec} = this.props
 
     const dimensionsWithoutRegions = querySpec.filter(dimension => {
       return dimension.name !== 'comparisonRegions'

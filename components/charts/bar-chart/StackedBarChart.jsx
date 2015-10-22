@@ -75,19 +75,7 @@ export default class StackedBarChart extends Component {
     .each(function (item) {
       item.el = this
     })
-    .append('title')
-    .text(dataItem => dataItem.title + ': ' + yAxisLabelFormat(dataItem.y))
-
-    category.selectAll('rect.hover')
-    .data(d => d.values)
-    .enter().append('rect')
-    .attr('class', 'hover')
-    .attr('width', x.rangeBand())
-    // Want full height for this one
-    .attr('y', 0)
-    .attr('height', () => this.size.height - y(y.domain()[1]))
     .attr('pointer-events', 'all')
-    .style('fill', 'none')
     .on('mouseover', item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,

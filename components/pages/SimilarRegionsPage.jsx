@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
   regionByPrefixedCode,
-  comparableRegions,
+  isSimilarRegion,
   parentRegionByType
 } from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
@@ -43,7 +43,7 @@ class SimilarRegionsPage extends Component {
         </div>
       )
     }
-    const similarRegions = comparableRegions(region, allRegions)
+    const similarRegions = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
 
     return (
       <main className="page">

@@ -2,21 +2,24 @@ import React, {Component, PropTypes} from 'react'
 import Lightbox from '../elements/Lightbox'
 import ToggleButtonList from '../elements/ToggleButtonList'
 import RegionSearch from '../containers/RegionSearch'
-import {connect} from 'react-redux'
 import difference from 'lodash.difference'
 import union from 'lodash.union'
-import {loadAllRegions} from '../../actions/region'
 
-class RegionSelect extends Component {
+const RegionType = PropTypes.shape({
+  code: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string
+})
+
+export default class RegionSelect extends Component {
   static propTypes = {
-    similar: PropTypes.array,
-    average: PropTypes.array,
-    value: PropTypes.array,
+    similar: PropTypes.arrayOf(RegionType),
+    average: PropTypes.arrayOf(RegionType),
+    value: PropTypes.arrayOf(RegionType),
+    choices: PropTypes.arrayOf(RegionType),
     onApply: PropTypes.func,
     onApplyAll: PropTypes.func,
     onCancel: PropTypes.func,
-    dispatch: PropTypes.func,
-    allRegions: PropTypes.array
   }
   static defaultProps = {
     value: [],
@@ -32,20 +35,12 @@ class RegionSelect extends Component {
     }
   }
 
-  componentWillMount() {
-    this.props.dispatch(loadAllRegions())
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       this.setState({value: nextProps.value})
     }
   }
-
-  renderRegion(regionCode) {
-    const region = this.props.allRegions.find(reg => {
-      return reg.prefixedCode === regionCode
-    })
+  renderRegion(region) {
     return `${region.name}`
   }
 
@@ -79,11 +74,7 @@ class RegionSelect extends Component {
 
   render() {
 
-    const {allRegions, similar, average, onCancel} = this.props
-
-    if (allRegions.length === 0) {
-      return null
-    }
+    const {similar, average, onCancel} = this.props
 
     const {value} = this.state
 
@@ -158,10 +149,3 @@ class RegionSelect extends Component {
     )
   }
 }
-function mapStateToProps(state) {
-  return {
-    allRegions: state.allRegions
-  }
-}
-
-export default connect(mapStateToProps)(RegionSelect)

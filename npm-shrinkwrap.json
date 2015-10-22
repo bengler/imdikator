@@ -8153,6 +8153,35 @@
         }
       }
     },
+    "lodash.flatten": {
+      "version": "3.0.2",
+      "from": "lodash.flatten@>=3.0.2 <4.0.0",
+      "resolved": "https://registry.npmjs.org/lodash.flatten/-/lodash.flatten-3.0.2.tgz",
+      "dependencies": {
+        "lodash._baseflatten": {
+          "version": "3.1.4",
+          "from": "lodash._baseflatten@>=3.0.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/lodash._baseflatten/-/lodash._baseflatten-3.1.4.tgz",
+          "dependencies": {
+            "lodash.isarguments": {
+              "version": "3.0.4",
+              "from": "lodash.isarguments@>=3.0.0 <4.0.0",
+              "resolved": "https://registry.npmjs.org/lodash.isarguments/-/lodash.isarguments-3.0.4.tgz"
+            },
+            "lodash.isarray": {
+              "version": "3.0.4",
+              "from": "lodash.isarray@>=3.0.0 <4.0.0",
+              "resolved": "https://registry.npmjs.org/lodash.isarray/-/lodash.isarray-3.0.4.tgz"
+            }
+          }
+        },
+        "lodash._isiterateecall": {
+          "version": "3.0.9",
+          "from": "lodash._isiterateecall@>=3.0.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/lodash._isiterateecall/-/lodash._isiterateecall-3.0.9.tgz"
+        }
+      }
+    },
     "lodash.indexby": {
       "version": "3.1.1",
       "from": "lodash.indexby@*",

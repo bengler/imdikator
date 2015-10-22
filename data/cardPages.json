@@ -9,6 +9,8 @@
         "title": "Sammensetning",
         "query": {
           "tableName": "befolkning_hovedgruppe",
+          "comparisonRegions": [],
+          "year": "latest",
           "unit": "personer",
           "dimensions": [
             {
@@ -237,7 +239,8 @@
               ]
             },
             {
-              "name": "flytting"
+              "name": "flytting",
+              "variables": "all"
             },
             {
               "name": "innvkat3",

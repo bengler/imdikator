@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
   regionByPrefixedCode,
-  comparableRegions
+  isSimilarRegion
 } from '../../lib/regionUtil'
 
 import CardPageButtons from '../containers/CardPageButtons'
@@ -49,7 +49,7 @@ class RegionPage extends Component {
         </div>
       )
     }
-    const comparableRegionCodes = comparableRegions(region, allRegions).map(reg => reg.prefixedCode)
+    const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
 
     return (
       <main className="page">

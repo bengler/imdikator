@@ -26,7 +26,7 @@ describe('Fetching tables using API client', () => {
     const query = {
       tableName: 'introdeltakere',
       region: 'F16',
-      year: '2015',
+      year: ['2015'],
       unit: 'prosent',
       dimensions: [
         {name: 'kjonn', variables: ['0', '1', 'alle']}

@@ -168,8 +168,6 @@ export default class BarChart extends React.Component {
     const txts = xAxisEl.selectAll('.tick text')
     txts.call(this.wrapTextNode, x0.rangeBand())
 
-    // Add a new zero-line, possibly translated up
-
     const leg = this.legend().color(seriesColor)
     // Add some space between the x axis labels and the legends
     const legendWrapper = svg.append('g')

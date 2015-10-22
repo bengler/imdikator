@@ -186,6 +186,37 @@ class Chart {
     }, this.unitFormatter(unit))
   }
 
+  addYAxis(scale, format) {
+    scale.nice()
+
+    const yAxis = d3.svg.axis().scale(scale).orient('left')
+    yAxis.tickFormat(format)
+
+    /* eslint-disable prefer-reflect */
+    this.svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+    .select('path').remove()
+    /* eslint-enable prefer-reflect */
+
+    // Draw horizontal background lines where the tick marks are
+    this.svg.selectAll('.axis .tick')
+    .append('line')
+    .attr('class', 'benchmark--line')
+    .attr('x1', -this.margins.left)
+    .attr('x2', this.size.width)
+    .attr('y1', 0)
+    .attr('y2', 0)
+
+    // Translate the text up by half font size to make the text rest on top
+    // of the background lines
+    this.svg.selectAll('.axis .tick text')
+    .attr('transform', function () {
+      return `translate(0, ${-this.getBBox().height / 2})`
+    })
+    .attr('class', 'benchmark--text')
+  }
+
   legend() {
     let color = d3.scale.category20()
     let height = 0

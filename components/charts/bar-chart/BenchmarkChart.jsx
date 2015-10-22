@@ -99,36 +99,7 @@ export default class BenchmarkChart extends React.Component {
     .attr('height', '100%')
 
     // Y "axis"
-    yc.scale.nice() // To include the last tick
-    const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
-    .ticks(5)
-    .tickFormat(yc.axisFormat)
-    .innerTickSize(0)
-    .outerTickSize(0)
-
-    /* eslint-disable prefer-reflect */
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-    .select('path').remove()
-    /* eslint-enable prefer-reflect */
-
-    // Draw horizontal background lines where the tick marks are
-    svg.selectAll('.axis .tick')
-    .append('line')
-    .attr('class', 'benchmark--line')
-    .attr('x1', -this.margins.left)
-    .attr('x2', this.size.width)
-    .attr('y1', 0)
-    .attr('y2', 0)
-
-    // Translate the text up by half font size to make the text rest on top
-    // of the background lines
-    svg.selectAll('.axis .tick text')
-    .attr('transform', function () {
-      return `translate(0, ${-this.getBBox().height / 2})`
-    })
-    .attr('class', 'benchmark--text')
+    this.addYAxis(yc.scale, yc.axisFormat)
 
     // Draw the bars
     svg.selectAll('rect.glanceBar')
@@ -186,16 +157,6 @@ export default class BenchmarkChart extends React.Component {
     .text(dataItem => dataItem.text)
     .style('fill', dataItem => dataItem.fill)
     .style('pointer-events', 'none')
-
-    // Draw the bottom background line again on top of the bars
-    // since there is no z-index on svg elements
-    svg
-    .append('line')
-    .attr('class', 'benchmark--line')
-    .attr('x1', 0)
-    .attr('x2', this.size.width)
-    .attr('y1', this.size.height)
-    .attr('y2', this.size.height)
   }
 
   render() {

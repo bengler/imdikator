@@ -10,6 +10,7 @@ import app from '../../store'
 import routes from './routes'
 import Router from '../../lib/Router'
 import compileRoutes from '../../lib/compileRoutes'
+import util from 'util'
 
 const router = Router(compileRoutes(routes), match => {
   app.dispatch(navigate(match))
@@ -29,6 +30,12 @@ function isDevToolsVisible() {
 function toggleDevToolsVisibility() {
   window.localStorage.setItem('reduxDevToolsEnabled', isDevToolsVisible() ? 'false' : 'true')
   render()
+}
+
+if (config.env == 'development') {
+  window._inspect = thing => {
+    return util.inspect(thing, {depth: null})
+  }
 }
 
 function ReduxDevToolsPanel() {

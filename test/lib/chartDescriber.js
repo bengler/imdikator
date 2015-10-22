@@ -1,11 +1,45 @@
 import {assert} from 'chai'
-import {filtersToOptions, describeChart} from '../../lib/chartDescriber'
+import {queryToOptions, describeChart} from '../../lib/chartDescriber'
+import allRegions from '../fixtures/mockRegions'
 
-describe('filtersToOptions', () => {
+describe('queryToOptions', () => {
 
   it('returns a function', () => {
-    assert.typeOf(filtersToOptions, 'function')
-    assert.typeOf(filtersToOptions([]), 'object')
+    assert.typeOf(queryToOptions, 'function')
+  })
+
+  // nedbrytning vs avgrensning:
+  // groupedBy: dersom variables-arrayet inneholder fler enn ett element så er det alltid en nedbrytning
+  // bounds: dersom variables-arrayet inneholder kun ett element så er det alltid en avgrensning
+
+  it('works', () => {
+    const query = {
+      unit: 'personer',
+      region: 'K0301',
+      tableName: 'befolkning_innvandringsgrunn',
+      comparisonRegions: ['K0106', 'K0219', 'K0228'],
+      dimensions: [
+        {
+          name: 'innvgrunn5',
+          variables: ['arbeid', 'flukt', 'familie', 'annet_uoppgitt']
+        },
+        {
+          name: 'kjonn',
+          variables: ['0']
+        }
+      ],
+      year: ['2014']
+    }
+
+    const expected = {
+      showing: 'personer',
+      bounds: ['kjønnsfordeling avgrenset til kvinner'],
+      groupedBy: ['arbeid', 'flukt', 'familie', 'annet_uoppgitt'],
+      timePeriod: ['2014'],
+      regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
+    }
+    const result = queryToOptions(query, {}, allRegions)
+    assert.deepEqual(result, expected)
   })
 
 })

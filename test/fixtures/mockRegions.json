@@ -1,0 +1,46 @@
+[
+  {
+    "centralityName": "Sentrale kommuner",
+    "centralityNumber": "3",
+    "code": "0301",
+    "commerceRegionCode": "09",
+    "countyCode": "03",
+    "imdiRegion": "IMDi Øst",
+    "name": "Oslo",
+    "prefixedCode": "K0301",
+    "type": "municipality"
+  },
+  {
+    "centralityName": "Sentrale kommuner",
+    "centralityNumber": "3",
+    "code": "0106",
+    "commerceRegionCode": "04",
+    "countyCode": "01",
+    "imdiRegion": "IMDi Øst",
+    "name": "Fredrikstad",
+    "prefixedCode": "K0106",
+    "type": "municipality"
+  },
+  {
+    "centralityName": "Sentrale kommuner",
+    "centralityNumber": "3",
+    "code": "0219",
+    "commerceRegionCode": "05",
+    "countyCode": "02",
+    "imdiRegion": "IMDi Øst",
+    "name": "Bærum",
+    "prefixedCode": "K0219",
+    "type": "municipality"
+  },
+  {
+    "centralityName": "Sentrale kommuner",
+    "centralityNumber": "3",
+    "code": "0228",
+    "commerceRegionCode": "07",
+    "countyCode": "02",
+    "imdiRegion": "IMDi Øst",
+    "name": "Rælingen",
+    "prefixedCode": "K0228",
+    "type": "municipality"
+  }
+]

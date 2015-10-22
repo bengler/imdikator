@@ -101,10 +101,7 @@ export default class StackedBarChart extends Component {
     /* eslint-enable prefer-reflect */
 
     // Legend
-    const leg = this.legend()
-    .color(colors)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
+    const leg = this.legend().color(colors)
 
     // Add some space between the x axis labels and the legends
     const xAxisHeight = xAxisEl.node().getBBox().height

@@ -9,12 +9,8 @@ import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
-<<<<<<< Updated upstream
-import {isSimilarRegion} from '../../lib/regionUtil'
-=======
 import {isSimilarRegion, comparableRegions} from '../../lib/regionUtil'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
->>>>>>> Stashed changes
 
 //import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'

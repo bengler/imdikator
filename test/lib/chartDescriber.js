@@ -1,5 +1,14 @@
 import {assert} from 'chai'
-import {describeChart} from '../../lib/chartDescriber'
+import {filtersToOptions, describeChart} from '../../lib/chartDescriber'
+
+describe('filtersToOptions', () => {
+
+  it('returns a function', () => {
+    assert.typeOf(filtersToOptions, 'function')
+    assert.typeOf(filtersToOptions([]), 'object')
+  })
+
+})
 
 
 describe('chartDescriber', () => {
@@ -65,6 +74,7 @@ describe('chartDescriber', () => {
     assert.equal(describeChart(opts), expected)
   })
 
+
   it('describes everything at once', () => {
     const opts = {
       showing: 'flyktninger',
@@ -76,6 +86,7 @@ describe('chartDescriber', () => {
     const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner, og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord, Drøbak, Larvik, og Bø i Telemark'
     assert.equal(describeChart(opts), expected)
   })
+
 
   it('describes everything at once, with comaparisionType', () => {
     const opts = {

@@ -300,10 +300,20 @@ class RenderTestPage extends Component {
       float: 'left',
       margin: '10px'
     }
+    const fullFloatStyle = {
+      width: '940px',
+      float: 'left',
+      margin: '10px'
+    }
     return (
       <div style={{backgroundColor: '#aaa'}}>
       <h1>Rendering tests (RenderTestPage.jsx)</h1>
       <div style={{}}>
+      <div style={fullFloatStyle}>
+      <h3>Bar width</h3>
+      <BarChart data={testData.bar}/>
+      </div>
+      <br style={{clear: 'left'}}/>
       <div style={floatStyle}>
       <h3>Linjebrytende X akse label</h3>
       <BarChart data={testData.bar}/>

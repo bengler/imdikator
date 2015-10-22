@@ -192,7 +192,6 @@ export default class BarChart extends React.Component {
     const functions = {
       drawPoints: this.drawPoints,
       calculateHeight: this.calculateHeight,
-      calculateMargins: this.calculateMargins
     }
 
     const config = {

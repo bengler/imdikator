@@ -50,7 +50,7 @@ export default class StackedBarChart extends Component {
 
     // Y config
     const extent = [0, maxVal]
-    console.log(extent)
+    //console.log(extent)
     const yc = this.configureYscale(extent, data.unit)
     const y = yc.scale
     this.addYAxis(y, yc.axisFormat)

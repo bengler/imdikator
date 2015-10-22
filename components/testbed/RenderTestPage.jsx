@@ -334,6 +334,11 @@ class RenderTestPage extends Component {
       <StackedBarChart data={testData.stackedBar2}/>
       </div>
       <br style={{clear: 'left'}}/>
+      <div style={fullFloatStyle}>
+      <h3>Benchmark width</h3>
+      <BenchmarkChart data={testData.bench6}/>
+      </div>
+      <br style={{clear: 'left'}}/>
       <div style={floatStyle}>
       <h3>Linjebrytende X akse label</h3>
       <BarChart data={testData.bar}/>
@@ -377,10 +382,6 @@ class RenderTestPage extends Component {
       <div style={floatStyle}>
       <h3>Benchmark med highlight</h3>
       <BenchmarkChart data={testData.bench2}/>
-      </div>
-      <div style={floatStyle}>
-      <h3>Benchmark width</h3>
-      <BenchmarkChart data={testData.bench6}/>
       </div>
       <br style={{clear: 'left'}}/>
       <div style={floatStyle}>

@@ -9,8 +9,8 @@ import CardMetadata from '../elements/CardMetadata'
 import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
-import {isSimilarRegion} from '../../lib/regionUtil'
-
+import {isSimilarRegion, comparableRegions} from '../../lib/regionUtil'
+import {filtersToOptions, describeChart} from '../../lib/chartDescriber'
 
 //import {performQuery} from '../../actions/cardPages'
 import {getHeaderKey} from '../../lib/regionUtil'
@@ -131,6 +131,8 @@ class Card extends Component {
       disabledTabs.push('chronological')
     }
 
+    const graphDescription = describeChart(filtersToOptions(this.getFilterState()))
+
     const ChartComponent = CHARTS[this.getChartKind()].component
     return (
       <div
@@ -147,6 +149,11 @@ class Card extends Component {
         />
         <div className="graph">
           <ChartComponent data={this.props.data}/>
+        </div>
+        <div className="graph__description">
+          {graphDescription}
+        </div>
+        <div className="graph__annotations">
         </div>
         <div className="graph__functions">
           <button type="button" className="button button--secondary button--small">

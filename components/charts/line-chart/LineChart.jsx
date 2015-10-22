@@ -5,9 +5,12 @@ import D3Chart from '../../utils/D3Chart'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class LineChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
   }
+  /* eslint-enable react/forbid-prop-types */
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -39,6 +42,7 @@ export default class LineChart extends React.Component {
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
     const yAxis = d3.svg.axis().scale(y).orient('left')
     yAxis.tickFormat(yc.axisFormat)
+    yAxis.scale().nice()
 
     const isPercent = data.unit === 'prosent'
     const dates = []
@@ -55,25 +59,28 @@ export default class LineChart extends React.Component {
         dates.push(value.date)
         value.radius = 2
         value.x = value.date
+        value.formattedValue = value.values[0].formattedValue
+        value.value = value.values[0].value
         if (value.values[0].missingData) {
-          value.formattedValue = value.values[0].value
-          value.value = NaN
           value.radius = 0
+          value.value = NaN
           value.y = 0
           value.x = 0
         } else if (value.values[0].anonymized) {
-          value.formattedValue = value.values[0].value
           value.value = 4
           value.y = y(isPercent ? value.value / 100 : value.value)
         } else {
-          value.value = parseFloat(value.values[0].tabellvariabel)
           value.y = y(isPercent ? value.value / 100 : value.value)
+        }
+        if (!value.formattedValue) {
           value.formattedValue = yc.format(isPercent ? value.value / 100 : value.value)
         }
       })
     })
 
     x.domain(d3.extent(dates))
+
+    this.addYAxis(yc.scale, yc.axisFormat)
 
     const line = d3.svg.line()
     .x(dataItem => {
@@ -113,24 +120,29 @@ export default class LineChart extends React.Component {
     .attr('r', dataItem => dataItem.radius)
     .style('fill', dataItem => dataItem.color)
 
-    const leg = this.legend()
-    .color(seriesColor)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
+    const leg = this.legend().color(seriesColor)
 
+    /*
     leg.dispatch.on('legendClick', (item, index) => {})
     leg.dispatch.on('legendMouseout', (item, index) => {})
     leg.dispatch.on('legendMouseover', (item, index) => {})
+    */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const xAxisMargin = 30
+    const legendBottom = this.size.height + xAxisMargin
+    /* eslint-disable prefer-reflect */
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
-    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    .attr('transform', () => this.translation(0, legendBottom))
     .datum(series)
     .call(leg)
+    /* eslint-enable prefer-reflect */
+
+    // Increase our height to fit the legend
+    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
 
     // Voronoi Tesselation hover points
     const focus = svg.append('g')
@@ -155,24 +167,22 @@ export default class LineChart extends React.Component {
       return item
     })
 
-    const nest = d3.nest().key(item => x(item.date) + ',' + item.y)
-    .rollup(value => value[0])
+    const nest = d3.nest().key(item => `${x(item.date)},${item.y}`).rollup(value => value[0])
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
     .enter().append('path')
-    .attr('d', item => 'M' + item.join('L') + 'Z')
+    .attr('d', item => `M${item.join('L')}Z`)
     .datum(dataItem => dataItem.point)
     .style('fill', 'none')
     .style('stroke', 'none')
     .style('pointer-events', 'all')
     .on('mouseover', item => {
       focus
-      .attr('transform', 'translate(' + x(item.date) + ',' + item.y + ')')
+      .attr('transform', this.translation(x(item.date), item.y))
       .attr('fill', item.color)
-      focus.select('text').text(item.value)
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.series,
         body: item.formattedValue,
@@ -184,23 +194,28 @@ export default class LineChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
-    svg.append('g')
+    /* eslint-disable prefer-reflect */
+    const xAxisEl = svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + this.size.height + ')')
+    .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
+    /* eslint-enable prefer-reflect */
 
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
+    // Remove default X axis line
+    xAxisEl.select('path').remove()
 
   }
 
   render() {
     const functions = {
-      drawPoints: this.drawPoints
+      drawPoints: this.drawPoints,
+      calculateMargins: this.calculateMargins
+    }
+    const config = {
+      shouldCalculateMargins: true
     }
     return (
-      <D3Chart data={this.props.data} functions={functions}/>
+      <D3Chart data={this.props.data} functions={functions} config={config}/>
     )
   }
 

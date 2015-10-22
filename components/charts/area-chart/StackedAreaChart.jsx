@@ -8,15 +8,11 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
  * Only for development
  */
 export default class StackedAreaChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
   }
-
-  calculateMargins(data) {
-    return {
-      right: 0
-    }
-  }
+  /* eslint-enable react/forbid-prop-types */
 
   drawPoints(el, data) {
     if (!data) {
@@ -71,7 +67,7 @@ export default class StackedAreaChart extends React.Component {
     stack.values(dataItem => dataItem.values)
     const series = stack(preparedData)
 
-    const color = this.colors.domain(series.map(s => s.title))
+    const color = this.colors.domain(series.map(serie => serie.title))
 
     if (data.format !== 'prosent') {
       // Scale the y axis based on the maximum stacked value
@@ -87,6 +83,8 @@ export default class StackedAreaChart extends React.Component {
       y.domain([0, maxStackedValue])
     }
 
+    this.addYAxis(yc.scale, yc.axisFormat)
+
     svg.selectAll('.area')
     .data(series)
     .enter()
@@ -98,10 +96,7 @@ export default class StackedAreaChart extends React.Component {
     .style('stroke', 'none')
 
     // legend
-    const leg = this.legend()
-    .color(color)
-    .attr('width', () => 15)
-    .attr('height', () => 15)
+    const leg = this.legend().color(color)
 
     /*
     leg.dispatch.on('legendClick', (item, index) => {})
@@ -110,14 +105,19 @@ export default class StackedAreaChart extends React.Component {
     */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const xAxisMargin = 30
+    const legendBottom = this.size.height + xAxisMargin
+    /* eslint-disable prefer-reflect */
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
-    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    .attr('transform', () => this.translation(0, legendBottom))
     .datum(series.map(serie => serie.title))
     .call(leg)
+    /* eslint-enable prefer-reflect */
+
+    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
 
     // Voronoi Tesselation hover points
     const focus = svg.append('g')
@@ -145,7 +145,7 @@ export default class StackedAreaChart extends React.Component {
     })
 
     const nest = d3.nest().key(item => {
-      return x(item.date) + ',' + y(item.y + item.y0)
+      return `${x(item.date)},${y(item.y + item.y0)}`
     })
     .rollup(value => value[0])
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
@@ -155,7 +155,7 @@ export default class StackedAreaChart extends React.Component {
     .data(voronoi(voronoiData))
     .enter()
     .append('path')
-    .attr('d', item => 'M' + item.join('L') + 'Z')
+    .attr('d', item => `M${item.join('L')}Z`)
     .datum(dataItem => dataItem.point)
     .style('fill', 'none')
     .style('stroke', 'none')
@@ -177,15 +177,15 @@ export default class StackedAreaChart extends React.Component {
     })
 
     // Add the X axis
-    svg.append('g')
+    /* eslint-disable prefer-reflect */
+    const xAxisEl = svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + this.size.height + ')')
+    .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
+    /* eslint-enable prefer-reflect */
 
-    // Add the Y axis
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
+    // Remove default X axis line
+    xAxisEl.select('path').remove()
   }
 
   render() {
@@ -193,8 +193,11 @@ export default class StackedAreaChart extends React.Component {
       drawPoints: this.drawPoints,
       calculateMargins: this.calculateMargins
     }
+    const config = {
+      shouldCalculateMargins: true
+    }
     return (
-      <D3Chart data={this.props.data} functions={functions}/>
+      <D3Chart data={this.props.data} functions={functions} config={config}/>
     )
   }
 

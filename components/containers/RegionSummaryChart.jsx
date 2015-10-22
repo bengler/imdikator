@@ -5,6 +5,7 @@ import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
 import {norway} from '../../lib/regionUtil'
+import {unitFormatter} from '../../lib/unitFormatter'
 import {_t} from '../../lib/translate'
 
 function queryKey(region, tableName) {
@@ -93,30 +94,29 @@ class RegionSummaryChart extends Component {
     if (!(data && data.rows[0] && comparisonData)) {
       return null
     }
-
+    const formatter = unitFormatter(chartQuery.query.unit)
     const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
     let titleParams = {
-      share: share(regionDataRow.tabellvariabel)
+      share: formatter.format(share(regionDataRow.tabellvariabel))
     }
     chartQuery.additionalTitleParams.map(param => {
       titleParams[param] = regionDataRow[param]
     })
     const title = chartQuery.title(titleParams)
-    const subtitle = isNotNorway ? chartQuery.subTitle({share: share(comparisonData.rows[0].tabellvariabel)}) : null
-
+    const subtitle = isNotNorway ? chartQuery.subTitle({share: formatter.format(share(comparisonData.rows[0].tabellvariabel))}) : null
 
     // secondary titles, atm only used in barchart
     let titleTwo = null
     let subtitleTwo = null
     if (chartQuery.chartKind == 'bar') {
       titleParams = {
-        share: share(data.rows[1].tabellvariabel)
+        share: formatter.format(share(data.rows[1].tabellvariabel))
       }
       chartQuery.additionalTitleParams.map(param => {
         titleParams[param] = data.rows[1][param]
       })
       titleTwo = chartQuery.title(titleParams)
-      subtitleTwo = chartQuery.subTitle({share: share(comparisonData.rows[1].tabellvariabel)})
+      subtitleTwo = chartQuery.subTitle({share: formatter.format(share(comparisonData.rows[1].tabellvariabel))})
     }
 
 

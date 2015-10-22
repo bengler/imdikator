@@ -81,7 +81,7 @@ export default [
     compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
     title: options => {
-      return `Mottok ${options.share} tilskuddskroner fra IMDi i år ${options.aar}`
+      return `Mottok ${options.share} i tilskudd fra IMDi i år ${options.aar}`
     },
     subTitle: options => {
       return null

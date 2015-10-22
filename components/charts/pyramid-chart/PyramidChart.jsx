@@ -5,9 +5,11 @@ import D3Chart from '../../utils/D3Chart'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class PyramidChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
   }
+  /* eslint-enable react/forbid-prop-types */
 
   calculateMargins() {
     return {}
@@ -108,10 +110,24 @@ export default class PyramidChart extends React.Component {
     // The axis
     const outerXAxis = d3.svg.axis().scale(outerXScale)
 
+    const outerXAxisMargin = 20
+    /* eslint-disable prefer-reflect */
     const outerXAxisEl = svg.append('g')
     .attr('class', 'axis')
     .call(outerXAxis)
-    .attr('transform', this.translation(0, this.size.height))
+    .attr('transform', this.translation(0, this.size.height + outerXAxisMargin))
+
+    const txts = outerXAxisEl.selectAll('.tick text')
+    txts.call(this.wrapTextNode, outerXScale.rangeBand())
+    /* eslint-enable prefer-reflect */
+
+    let xAxisLabelHeight = 0
+    txts.each(function (item) {
+      const height = this.getBBox().height
+      if (height > xAxisLabelHeight) {
+        xAxisLabelHeight = height
+      }
+    })
 
     outerXAxisEl
     .select('path')
@@ -144,7 +160,7 @@ export default class PyramidChart extends React.Component {
 
     // Left side
     const leftBarGroup = category.append('g')
-    .attr('transform', this.translation(pointA, 0) + 'scale(-1,1)')
+    .attr('transform', `${this.translation(pointA, 0)}scale(-1,1)`)
 
     leftBarGroup.selectAll('.bar.left')
     .data(item => {
@@ -156,12 +172,12 @@ export default class PyramidChart extends React.Component {
     })
     .attr('class', 'bar left')
     .attr('x', 0)
-    .attr('y', d => yScale(d.title))
-    .attr('width', d => xScale(d.value))
+    .attr('y', dataItem => yScale(dataItem.title))
+    .attr('width', dataItem => xScale(dataItem.value))
     .attr('height', yScale.rangeBand())
-    .attr('fill', d => d.fill)
-    .attr('stroke', d => d.stroke)
-    .attr('stroke-width', d => d.strokeWidth)
+    .attr('fill', dataItem => dataItem.fill)
+    .attr('stroke', dataItem => dataItem.stroke)
+    .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
     leftBarGroup.selectAll('rect.hover')
     .data(item => {
@@ -172,7 +188,7 @@ export default class PyramidChart extends React.Component {
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())
     .attr('x', 0)
-    .attr('y', d => yScale(d.title))
+    .attr('y', dataItem => yScale(dataItem.title))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', mouseover)
@@ -192,12 +208,12 @@ export default class PyramidChart extends React.Component {
     })
     .attr('class', 'bar right')
     .attr('x', 0)
-    .attr('y', d => yScale(d.title))
-    .attr('width', d => xScale(d.value))
+    .attr('y', dataItem => yScale(dataItem.title))
+    .attr('width', dataItem => xScale(dataItem.value))
     .attr('height', yScale.rangeBand())
-    .attr('fill', d => d.fill)
-    .attr('stroke', d => d.stroke)
-    .attr('stroke-width', d => d.strokeWidth)
+    .attr('fill', dataItem => dataItem.fill)
+    .attr('stroke', dataItem => dataItem.stroke)
+    .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
     rightBarGroup.selectAll('rect.hover')
     .data(item => {
@@ -208,13 +224,14 @@ export default class PyramidChart extends React.Component {
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())
     .attr('x', 0)
-    .attr('y', d => yScale(d.title))
+    .attr('y', dataItem => yScale(dataItem.title))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
     .on('mouseover', mouseover)
     .on('mouseout', mouseout)
 
     // The axis
+    /* eslint-disable prefer-reflect */
     category
     .append('g')
     .attr('class', 'axis y left')
@@ -249,14 +266,18 @@ export default class PyramidChart extends React.Component {
     */
 
     // Add some space between the x axis labels and the legends
-    const legendBottom = this.size.height + 30
+    const xAxisMargin = 20
+    const legendBottom = this.size.height + outerXAxisMargin + xAxisLabelHeight + xAxisMargin
     svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
-    .attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    .attr('transform', () => this.translation(0, legendBottom))
     .datum(series)
     .call(leg)
+
+    /* eslint-enable prefer-reflect */
+    this._svg.attr('height', this.fullHeight + outerXAxisMargin + xAxisLabelHeight + xAxisMargin + leg.height())
   }
 
   render() {

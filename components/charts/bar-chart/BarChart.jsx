@@ -4,61 +4,16 @@ import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
-d3.selection.prototype.first = function () {
-  return d3.select(this[0][0])
-}
-
-d3.selection.prototype.last = function () {
-  const last = this.size() - 1
-  return d3.select(this[0][last])
-}
-
 export default class BarChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string
   }
+  /* eslint-enable react/forbid-prop-types */
 
   calculateHeight(data) {
     return 400
-  }
-
-  calculateMargins(data) {
-    if (!data) {
-      return null
-    }
-
-    // LEFT MARGIN
-    // Need to add a Y axis and see how wide the largest label is
-    const extent = d3.extent(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
-      return parseFloat(row.tabellvariabel)
-    })
-    const yc = this.configureYscale(extent, data.unit, 100)
-    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
-    const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
-    testSVG.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
-    // Find the longest text string on this axis
-    let axislabelLength = 0
-    testSVG.selectAll('text').each(function () {
-      const len = this.getComputedTextLength()
-      if (len > axislabelLength) {
-        axislabelLength = len
-      }
-    })
-
-    testSVG.remove()
-
-    const result = {
-      left: axislabelLength + 10 // Add some space for the actual axis and tick marks
-    }
-    return result
-  }
-
-  prepareData(data) {
-
   }
 
   drawPoints(el, data) {
@@ -91,7 +46,11 @@ export default class BarChart extends React.Component {
       while (catSeries.length < maxSeries) {
         catSeries.push(Math.random())
       }
-      const scale = d3.scale.ordinal().domain(catSeries).rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
+      const scale = d3.scale.ordinal()
+      .domain(catSeries)
+      .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
       let xOffset = (scale.rangeBand() + (scale.rangeBand() * innerPaddingFactor)) * (maxSeries - seriesLength)
       xOffset /= 2
       xScales[cat.key] = {scale, xOffset}
@@ -143,28 +102,27 @@ export default class BarChart extends React.Component {
       })
     })
 
-    const yAxis = d3.svg.axis().scale(yc.scale).orient('left')
-    yAxis.tickFormat(yc.axisFormat)
+    this.addYAxis(yc.scale, yc.axisFormat)
 
     const category = svg.selectAll('.category')
     .data(preparedData)
     .enter()
     .append('g')
     .attr('class', 'category')
-    .attr('transform', d => 'translate(' + x0(d.title) + ',' + 0 + ')')
+    .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
 
     category.selectAll('rect.bar')
-    .data(d => d.values)
+    .data(dataItem => dataItem.values)
     .enter()
     .append('rect')
     .attr('class', 'bar')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title) + dataItem.xOffset)
-    .attr('y', d => {
-      const val = Math.max(0, d.value)
+    .attr('y', dataItem => {
+      const val = Math.max(0, dataItem.value)
       return yc.scale(val)
     })
-    .attr('height', d => Math.abs(yc.scale(0) - yc.scale(d.value)))
+    .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
     .style('fill', dataItem => dataItem.fill)
     .style('stroke', dataItem => dataItem.stroke)
     .style('stroke-width', dataItem => dataItem.strokeWidth)
@@ -173,7 +131,7 @@ export default class BarChart extends React.Component {
     })
 
     category.selectAll('rect.hover')
-    .data(d => d.values)
+    .data(dataItem => dataItem.values)
     .enter()
     .append('rect')
     .attr('class', 'hover')
@@ -195,15 +153,12 @@ export default class BarChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
 
-    svg.append('g')
-    .attr('class', 'axis')
-    .call(yAxis)
-
+    /* eslint-disable prefer-reflect */
     // Add the x axis legend
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
     const xAxisEl = svg.append('g')
     .attr('class', 'axis')
-    .attr('transform', 'translate(0, ' + this.size.height + ')')
+    .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
 
     // Remove default X axis line (in case we translated up to make room
@@ -214,15 +169,8 @@ export default class BarChart extends React.Component {
     txts.call(this.wrapTextNode, x0.rangeBand())
 
     // Add a new zero-line, possibly translated up
-    svg.append('g')
-    .attr('class', 'axis')
-    .attr('transform', 'translate(0,' + yc.scale(0) + ')')
-    .call(xAxis.tickFormat('').tickSize(0))
 
     const leg = this.legend().color(seriesColor)
-    .attr('width', () => 23)
-    .attr('height', () => 23)
-    .attr('fontSize', () => 14)
     // Add some space between the x axis labels and the legends
     const legendWrapper = svg.append('g')
     .attr('class', 'legendWrapper')
@@ -230,24 +178,29 @@ export default class BarChart extends React.Component {
     // Place it at the very bottom
     .datum(series)
     .call(leg)
+    /* eslint-enable prefer-reflect */
 
     const xAxisHeight = xAxisEl.node().getBBox().height
     const legendBottom = this.size.height + xAxisHeight
-    legendWrapper.attr('transform', () => 'translate(' + 0 + ', ' + (legendBottom) + ')')
+    legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
     // Expand the height to fit the legend
-    this._svg.attr('height', legendBottom + leg.height())
+    this._svg.attr('height', this.fullHeight + xAxisHeight + leg.height())
   }
 
   render() {
     const functions = {
       drawPoints: this.drawPoints,
       calculateHeight: this.calculateHeight,
-      calculateMargins: this.calculateMargins
     }
+
+    const config = {
+      shouldCalculateMargins: true
+    }
+
     return (
       <div>
-      <D3Chart data={this.props.data} functions={functions} className={this.props.className}/>
+      <D3Chart data={this.props.data} config={config} functions={functions} className={this.props.className}/>
       </div>
     )
   }

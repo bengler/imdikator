@@ -5,7 +5,7 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, eventEmitter, functions) {
+  constructor(el, props, state, functions, config) {
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
@@ -13,7 +13,7 @@ class Chart {
 
     this.props = props
     this.colors = d3.scale.ordinal().range(colors)
-    this.eventDispatcher = eventEmitter
+    this.eventDispatcher = config.eventEmitter
 
     if (functions) {
       if (functions.hasOwnProperty('drawPoints')) {
@@ -22,25 +22,58 @@ class Chart {
       if (functions.hasOwnProperty('calculateHeight')) {
         this._calculateHeight = functions.calculateHeight
       }
-      if (functions.hasOwnProperty('calculateMargins')) {
-        this._calculateMargins = functions.calculateMargins
-      }
     }
 
-    this.update(el, state)
+    this.update(el, state, config)
   }
 
   _drawPoints(el, data) {}
 
   _calculateMargins(data) {
-    return {left: 0, top: 0}
+    if (!data) {
+      return null
+    }
+
+    // LEFT MARGIN
+    // Need to add a Y axis and see how wide the largest label is
+    const extent = d3.extent(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
+      return parseFloat(row.tabellvariabel)
+    })
+    const yc = this.configureYscale(extent, data.unit, 100)
+    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
+    const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
+    testSVG.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+
+    // Find the longest text string on this axis
+    let axislabelLength = 0
+    let axislabelHeight = 0
+    testSVG.selectAll('text').each(function () {
+      const height = d3.select(this).node().getBBox().height
+      if (height > axislabelHeight) {
+        axislabelHeight = height
+      }
+      const len = this.getComputedTextLength()
+      if (len > axislabelLength) {
+        axislabelLength = len
+      }
+    })
+
+    testSVG.remove()
+
+    const result = {
+      left: axislabelLength + 10, // Add some space for the actual axis and tick marks
+      top: axislabelHeight,
+    }
+    return result
   }
 
   _calculateHeight(data) {
     return 400
   }
 
-  update(el, state) {
+  update(el, state, config) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
     if (this._svg) {
@@ -49,13 +82,16 @@ class Chart {
 
     // Our width is determined by our element width
     this.fullWidth = el.offsetWidth
-    const defaultMargins = {left: 0, top: 5, right: 5, bottom: 0}
-    this.margins = Object.assign({}, defaultMargins, this._calculateMargins(state.data))
-    const height = this._calculateHeight() + this.margins.top + this.margins.bottom
+    const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
+    this.margins = defaultMargins
+    if (config.shouldCalculateMargins) {
+      this.margins = Object.assign(defaultMargins, this._calculateMargins(state.data))
+    }
+    this.fullHeight = this._calculateHeight() + this.margins.top + this.margins.bottom
 
     this.size = {
       width: this.fullWidth - this.margins.left - this.margins.right,
-      height: height - this.margins.top - this.margins.bottom
+      height: this.fullHeight - this.margins.top - this.margins.bottom
     }
 
     // TODO: https://css-tricks.com/scale-svg/
@@ -63,7 +99,7 @@ class Chart {
     this._svg = d3.select(el).append('svg')
       .attr('class', 'd3')
       .attr('width', this.fullWidth)
-      .attr('height', height)
+      .attr('height', this.fullHeight)
 
     if (showMargins) {
       // Visualize SVG
@@ -71,7 +107,7 @@ class Chart {
       .attr('x', 0)
       .attr('y', 0)
       .attr('width', this.fullWidth)
-      .attr('height', height)
+      .attr('height', this.fullHeight)
       .style('fill', '#ccc')
       // TODO: Make vertical space for potential X axis labels (might line break)
       // TODO: Make horizontal space for potential Y axis with formatted labels
@@ -150,12 +186,43 @@ class Chart {
     }, this.unitFormatter(unit))
   }
 
+  addYAxis(scale, format) {
+    scale.nice()
+
+    const yAxis = d3.svg.axis().scale(scale).orient('left')
+    yAxis.tickFormat(format)
+
+    /* eslint-disable prefer-reflect */
+    this.svg.append('g')
+    .attr('class', 'axis')
+    .call(yAxis)
+    .select('path').remove()
+    /* eslint-enable prefer-reflect */
+
+    // Draw horizontal background lines where the tick marks are
+    this.svg.selectAll('.axis .tick')
+    .append('line')
+    .attr('class', 'benchmark--line')
+    .attr('x1', -this.margins.left)
+    .attr('x2', this.size.width)
+    .attr('y1', 0)
+    .attr('y2', 0)
+
+    // Translate the text up by half font size to make the text rest on top
+    // of the background lines
+    this.svg.selectAll('.axis .tick text')
+    .attr('transform', function () {
+      return `translate(0, ${-this.getBBox().height / 2})`
+    })
+    .attr('class', 'benchmark--text')
+  }
+
   legend() {
     let color = d3.scale.category20()
     let height = 0
     const attr = {
-      width: (item, idx) => 15,
-      height: (item, idx) => 15,
+      width: (item, idx) => 25,
+      height: (item, idx) => 25,
       fontSize: (item, idx) => 15
     }
     const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')

@@ -202,6 +202,30 @@ const testData = {
       {"aar": "1990", "kommuneId": "0301", "innvkat5": "innvandrere", "enhet": "personer", "tabellvariabel": "299094" },
     ]
   },
+  line4: {
+    "dimensions": ["innvkat5", "aar"],
+    "unit": "personer",
+    "rows": [
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "29" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "12" },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "11" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "." },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "11" },
+      {"aar": "1992", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "." },
+      {"aar": "1993", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "11" },
+      {"aar": "1994", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "12" },
+      {"aar": "1995", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "16" },
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "9" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "10" },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "10" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "8" },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "9" },
+      {"aar": "1992", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "14" },
+      {"aar": "1993", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "9" },
+      {"aar": "1994", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "9" },
+      {"aar": "1995", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "8" },
+    ]
+  },
   area1: {
     "dimensions": ["innvkat5", "aar"],
     "unit": "personer",
@@ -276,10 +300,20 @@ class RenderTestPage extends Component {
       float: 'left',
       margin: '10px'
     }
+    const fullFloatStyle = {
+      width: '940px',
+      float: 'left',
+      margin: '10px'
+    }
     return (
       <div style={{backgroundColor: '#aaa'}}>
       <h1>Rendering tests (RenderTestPage.jsx)</h1>
       <div style={{}}>
+      <div style={fullFloatStyle}>
+      <h3>Bar width</h3>
+      <BarChart data={testData.bar}/>
+      </div>
+      <br style={{clear: 'left'}}/>
       <div style={floatStyle}>
       <h3>Linjebrytende X akse label</h3>
       <BarChart data={testData.bar}/>
@@ -346,9 +380,14 @@ class RenderTestPage extends Component {
       <h3>Line anon</h3>
       <LineChart data={testData.line2}/>
       </div>
+      <br style={{clear: 'left'}}/>
+      <div style={floatStyle}>
+      <h3>Line with gap</h3>
+      <LineChart data={testData.line3}/>
+      </div>
       <div style={floatStyle}>
       <h3>Line missing data</h3>
-      <LineChart data={testData.line3}/>
+      <LineChart data={testData.line4}/>
       </div>
       <br style={{clear: 'left'}}/>
       <div style={floatStyle}>

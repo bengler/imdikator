@@ -7212,8 +7212,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#1afb804bda281d0a4b53c43b5b30c6531fe57ae3",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#1afb804bda281d0a4b53c43b5b30c6531fe57ae3"
+      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
+      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#0c195623e29ade03649d4c44bd1202fe425ba082"
     },
     "jsdom": {
       "version": "3.1.2",
@@ -8094,6 +8094,11 @@
           }
         }
       }
+    },
+    "listify": {
+      "version": "1.0.0",
+      "from": "listify@latest",
+      "resolved": "https://registry.npmjs.org/listify/-/listify-1.0.0.tgz"
     },
     "lodash.difference": {
       "version": "3.2.2",

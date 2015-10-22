@@ -7,9 +7,11 @@ import {queryResultFilter} from '../../../lib/queryResultFilter'
 import {colorLabels} from '../../../data/colorPalette'
 
 export default class BubbleChart extends React.Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
   }
+  /* eslint-enable react/forbid-prop-types */
 
   drawPoints(el, data) {
     if (!data) {
@@ -72,7 +74,7 @@ export default class BubbleChart extends React.Component {
     .data(nodes)
     .enter().append('g')
     .attr('class', 'node')
-    .attr('transform', item => 'translate(' + item.x + ',' + item.y + ')')
+    .attr('transform', item => this.translation(item.x, item.y))
 
     node.append('circle')
     .attr('r', item => item.r)
@@ -118,7 +120,7 @@ export default class BubbleChart extends React.Component {
       if (item.depth <= 1 || !item.title) {
         return null
       }
-      return item.title.substring(0, item.r / 4)
+      return item.title.substring(0, item.r / 4) // eslint-disable-line id-length
     })
   }
 
@@ -130,7 +132,7 @@ export default class BubbleChart extends React.Component {
       <D3Chart
         data={this.props.data}
         functions={functions}
-        />
+      />
     )
   }
 }

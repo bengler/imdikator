@@ -38,7 +38,7 @@ describe('queryToOptions', () => {
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
-    const result = queryToOptions(query, {}, allRegions)
+    const result = queryToOptions(query, {aar: ['2012', '2013', '2014']}, allRegions)
     assert.deepEqual(result, expected)
   })
 

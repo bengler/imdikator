@@ -2,10 +2,15 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import RegionSelect from './RegionSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
-import listify from 'listify'
 import cx from 'classnames'
 
 import {_t} from '../../lib/translate'
+import humanizeList from 'humanize-list'
+
+function listify(arr, options = {}) {
+  const defaults = {oxfordComma: false, conjunction: 'og'}
+  return humanizeList(arr, Object.assign({}, defaults, options))
+}
 
 function renderRegion(region) {
   return `${region.name} ${_t(region.type)}`
@@ -137,7 +142,7 @@ class FilterBar extends Component {
             onChange={onChange}>
             {choices.map((choice, i) => (
               <option value={i} key={i}>{
-                Array.isArray(choice) ? listify(choice, {finalWord: 'og'}) : choice
+                Array.isArray(choice) ? listify(choice) : choice
               }</option>
             ))}
           </select>

@@ -445,10 +445,11 @@ class RenderTestPage extends Component {
       <PyramidChart data={testData.pyramid3}/>
       </div>
       <br style={{clear: 'left'}}/>
-      <div style={floatStyle}>
+      <div style={fullFloatStyle}>
       <h3>Bubble</h3>
       <BubbleChart data={testData.bubble1}/>
       </div>
+      <br style={{clear: 'left'}}/>
       <div style={floatStyle}>
       <h3>Bubble sammenliknet</h3>
       <BubbleChart data={testData.bubble2}/>

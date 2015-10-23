@@ -40,40 +40,36 @@ export default class BubbleChart extends React.Component {
       row.fill = color(row.title)
       row.strokeWidth = multipleRegions ? 1 : 0
       row.stroke = 'none'
-      row.values.forEach(val => {
-        if (val.values[0].anonymized) {
-          val.fill = 'white'
-          val.textFill = 'black'
-        } else {
-          val.fill = color(val.key)
-          val.textFill = colorLabels[row.fill]
-        }
-      })
-      row.minValue = INT_MAX
-      row.maxValue = 0
+      let minVal = INT_MAX
+      let maxVal = 0
       row.children = row.values.map(item => {
+        let fill = color(row.title)
+        let textFill = colorLabels[row.fill]
+        let stroke = 'none'
+        if (item.values[0].anonymized) {
+          fill = 'white'
+          stroke = color(row.title)
+          textFill = 'black'
+        }
         const anon = item.values[0].anonymized
         const value = anon ? 4 : item.values[0].value
-        if (value > row.maxValue) {
-          row.maxValue = value
+        if (value > maxVal) {
+          maxVal = value
         }
-        if (value < row.minValue) {
-          row.minValue = value
-        }
-        let formattedValue = item.values[0].formattedValue
-        if (!formattedValue) {
-          formattedValue = item.values[0].value
+        if (value < minVal) {
+          minVal = value
         }
         return {
           title: item.title,
-          formattedValue: formattedValue,
+          formattedValue: item.values[0].formattedValue || item.values[0].value,
           value: value,
-          stroke: anon ? color(item.key) : 'none',
-          fill: row.fill,
+          stroke: stroke,
+          fill: fill,
           strokeWidth: anon ? 1 : 0,
-          textFill: item.textFill
+          textFill: textFill
         }
       })
+      row.opacityScale = d3.scale.linear().range([0.5, 1.0]).domain([minVal, maxVal])
     })
 
     const bubble = d3.layout.pack()
@@ -93,7 +89,9 @@ export default class BubbleChart extends React.Component {
     .attr('r', item => item.r)
     .style('fill', item => item.fill)
     .style('fill-opacity', item => {
-      return '1'
+      const opacityScale = item.parent.opacityScale
+      const opacity = opacityScale(item.value)
+      return opacity
     })
     .style('stroke', item => item.stroke)
     .style('stroke-width', item => item.strokeWidth)
@@ -135,6 +133,7 @@ export default class BubbleChart extends React.Component {
 
     const leg = this.legend().color(color)
     // Add some space between the x axis labels and the legends
+    /* eslint-disable prefer-reflect */
     const legendWrapper = this.svg.append('g')
     .attr('class', 'legendWrapper')
     .attr('width', this.size.width)

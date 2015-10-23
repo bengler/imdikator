@@ -23,39 +23,43 @@ describe('queryResultNester', () => {
 
   it('saves a property maxValue with the biggest value from leaf nodes', () => {
     let nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '119', enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
+      // This dataset has gone through queryResultPresenter and has 'value' set
+      {aar: '2014', value: 119, enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 29, enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
     ], ['aar', 'innvkat5', 'kjonn'])
 
     assert.equal(nested.maxValue, 119)
 
     nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
-      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
+      // This dataset has gone through queryResultPresenter and has 'value' set
+      {aar: '2014', value: 100, enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 100, enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 50, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
+      {aar: '2014', value: 50, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
     ], ['aar', 'innvkat5'])
 
     assert.equal(nested.maxValue, 200)
 
     nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
-      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
-      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F02'},
-      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F02'},
+      // This dataset has gone through queryResultPresenter and has 'value' set
+      {aar: '2014', value: 100, enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 100, enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 50, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
+      {aar: '2014', value: 50, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
+      {aar: '2014', value: 500, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F02'},
+      {aar: '2014', value: 500, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F02'},
     ], ['aar', 'region'])
 
     assert.equal(nested.maxValue, 1000)
 
     nested = queryResultNester([
-      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '100', enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
-      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
-      {aar: '2014', tabellvariabel: '50', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
-      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F02'},
-      {aar: '2014', tabellvariabel: '500', enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F02'},
+      // This dataset has gone through queryResultPresenter and has 'value' set
+      {aar: '2014', value: 100, enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 100, enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
+      {aar: '2014', value: 50, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
+      {aar: '2014', value: 50, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
+      {aar: '2014', value: 500, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F02'},
+      {aar: '2014', value: 500, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F02'},
     ], ['aar', 'innvkat5'])
 
     assert.equal(nested.maxValue, 50 + 50 + 500 + 500)

@@ -109,4 +109,40 @@ describe('queryResultPresenter', () => {
     const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
     assert.deepEqual(pres.rows, result)
   })
+
+  it('parses tabellvariabel into value property', () => {
+    const result = [{tabellvariabel: '29'}]
+    const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
+    assert.equal(pres.rows[0].value, 29)
+  })
+
+  it('marks anonymized data', () => {
+    const result = [{tabellvariabel: ':'}]
+    const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
+    assert.property(pres.rows[0], 'anonymized')
+    assert.ok(pres.rows[0].anonymized)
+    assert.equal(pres.rows[0].value, 4)
+  })
+
+  it('anonymized data has formattedValue set', () => {
+    const result = [{tabellvariabel: ':'}]
+    const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
+    assert.property(pres.rows[0], 'formattedValue')
+    assert.equal(pres.rows[0].formattedValue, 'Under 5')
+  })
+
+  it('marks missing data', () => {
+    const result = [{tabellvariabel: '.'}]
+    const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
+    assert.property(pres.rows[0], 'missingData')
+    assert.ok(pres.rows[0].missingData)
+    assert.equal(pres.rows[0].value, 0)
+  })
+
+  it('missing data has formattedValue set', () => {
+    const result = [{tabellvariabel: '.'}]
+    const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
+    assert.property(pres.rows[0], 'formattedValue')
+    assert.equal(pres.rows[0].formattedValue, 'Mangler data')
+  })
 })

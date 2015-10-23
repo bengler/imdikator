@@ -32,9 +32,9 @@ describe('queryToOptions', () => {
     }
 
     const expected = {
-      showing: 'personer',
+      showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeid', 'flukt', 'familie', 'annet_uoppgitt'],
+      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse', 'Familieforente', 'Utdanning (inkl. au pair), uoppgitte eller andre grunner'],
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
@@ -56,7 +56,7 @@ describe('chartDescriber', () => {
     const opts = {
       showing: 'flyktninger'
     }
-    assert.equal(describeChart(opts), 'Figuren viser flyktninger')
+    assert.equal(describeChart(opts), 'Figuren viser flyktninger.')
   })
 
 
@@ -65,7 +65,7 @@ describe('chartDescriber', () => {
       showing: 'flyktninger',
       bounds: ['aldersfordeling avgrenset til 0-3 år', 'kjønnsfordeling avgrenset til kvinner', 'bakgrunn avgrenset til innvandrere']
     }
-    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere'
+    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere.'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -75,7 +75,7 @@ describe('chartDescriber', () => {
       showing: 'flyktninger',
       groupedBy: ['flyktninger', 'befolkningsgrupper']
     }
-    const expected = 'Figuren viser flyktninger fordelt på flyktninger og befolkningsgrupper'
+    const expected = 'Figuren viser flyktninger fordelt på flyktninger og befolkningsgrupper.'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -85,10 +85,10 @@ describe('chartDescriber', () => {
       showing: 'flyktninger',
       timePeriod: ['2013']
     }
-    let expected = 'Figuren viser flyktninger i 2013'
+    let expected = 'Figuren viser flyktninger i 2013.'
     assert.equal(describeChart(opts), expected)
     opts.timePeriod = ['2013', '2014']
-    expected = 'Figuren viser flyktninger i perioden 2013 til 2014'
+    expected = 'Figuren viser flyktninger i perioden 2013 til 2014.'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -99,12 +99,12 @@ describe('chartDescriber', () => {
       timePeriod: ['2013'],
       regions: ['Sandefjord', 'Drøbak', 'Larvik', 'Bø i Telemark']
     }
-    let expected = 'Figuren viser flyktninger i 2013 fra Sandefjord, Drøbak, Larvik og Bø i Telemark'
+    let expected = 'Figuren viser flyktninger i 2013 fra Sandefjord, Drøbak, Larvik og Bø i Telemark.'
     assert.equal(describeChart(opts), expected)
 
     opts.regions = ['Sandefjord']
     opts.comparisonType = 'kommuner'
-    expected = 'Figuren viser flyktninger i 2013 fra Sandefjord sammenlignet med lignende kommuner'
+    expected = 'Figuren viser flyktninger i 2013 fra Sandefjord sammenlignet med lignende kommuner.'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -117,7 +117,7 @@ describe('chartDescriber', () => {
       timePeriod: ['2012', '2014'],
       regions: ['Sandefjord', 'Drøbak', 'Larvik', 'Bø i Telemark']
     }
-    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord, Drøbak, Larvik og Bø i Telemark'
+    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord, Drøbak, Larvik og Bø i Telemark.'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -131,7 +131,7 @@ describe('chartDescriber', () => {
       regions: ['Sandefjord'],
       comparisonType: 'kommuner'
     }
-    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord sammenlignet med lignende kommuner'
+    const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til 2014 fra Sandefjord sammenlignet med lignende kommuner.'
     assert.equal(describeChart(opts), expected)
   })
 

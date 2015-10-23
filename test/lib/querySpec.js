@@ -16,7 +16,7 @@ const HEADER_GROUP = {
 const QUERY = {
   table: 'befolkninghovedgruppe',
   region: 'K0511',
-  unit: 'personer',
+  unit: ['personer'],
   //year: <inserted by tests>,
   //comparisonRegions: <inserted by tests>,
   dimensions: [
@@ -81,7 +81,7 @@ describe('getQuerySpec', () => {
           name: 'unit',
           fixed: true,
           locked: false,
-          choices: ['prosent', 'personer']
+          choices: [['prosent'], ['personer']]
         }
       ])
     })
@@ -129,7 +129,7 @@ describe('getQuerySpec', () => {
             name: 'unit',
             fixed: true,
             locked: false,
-            choices: ['prosent', 'personer']
+            choices: [['prosent'], ['personer']]
           }
         ])
       })
@@ -175,7 +175,7 @@ describe('getQuerySpec', () => {
             name: 'unit',
             fixed: true,
             locked: false,
-            choices: ['prosent', 'personer']
+            choices: [['prosent'], ['personer']]
           }
         ])
       })
@@ -222,7 +222,7 @@ describe('getQuerySpec', () => {
             name: 'unit',
             fixed: true,
             locked: false,
-            choices: ['prosent', 'personer']
+            choices: [['prosent'], ['personer']]
           }
         ])
       })
@@ -268,7 +268,7 @@ describe('getQuerySpec', () => {
             name: 'unit',
             fixed: true,
             locked: false,
-            choices: ['prosent', 'personer']
+            choices: [['prosent'], ['personer']]
           }
         ])
       })

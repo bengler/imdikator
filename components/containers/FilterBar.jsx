@@ -2,8 +2,8 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import RegionSelect from './RegionSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
+import capitalize from 'lodash.capitalize'
 
-import humanizeList from 'humanize-list'
 import cx from 'classnames'
 
 import {_t} from '../../lib/translate'
@@ -62,7 +62,7 @@ class FilterBar extends Component {
       <button type="button"
         className={`subtle-select__button subtle-select__button--${hasComparisonRegions ? 'expanded' : 'add'}`}
         onClick={() => this.setState({isRegionSelectOpen: true})}
-        >
+      >
         {hasComparisonRegions && comparisonRegions.map(renderRegion).join(', ')}
         {!hasComparisonRegions && 'Legg til sted'}
       </button>
@@ -73,6 +73,7 @@ class FilterBar extends Component {
     const {query, regionGroups: {choices}} = this.props
     return (query.comparisonRegions || []).map(prefixedCode => choices.find(choice => prefixedCode === choice.prefixedCode))
   }
+
   renderRegionSelectLightbox() {
     const {querySpec, regionGroups: {similar, recommended, choices}} = this.props
 
@@ -128,7 +129,20 @@ class FilterBar extends Component {
     const value = this.getDimensionValueFromQuery(dimension.name)
     const index = choices.findIndex(valuesEqual(value))
 
-    return (
+    const wrapInLocked = children => {
+      return (
+        // todo: animate when changes using css class 'field-notification--animate'
+        <div className="field-notification">
+          <p className="field-notification__caption">
+            <i className="icon__arrow-right"/>
+            Avgrenset
+          </p>
+          {children}
+        </div>
+      )
+    }
+
+    const filter = (
       <div className="subtle-select">
         <label htmlFor="filter-groups" className="subtle-select__label">{dimensionLabelTitle(dimension.name)}:</label>
         <div className={selectContainerClassName}>
@@ -137,14 +151,30 @@ class FilterBar extends Component {
             disabled={dimension.locked || choices.length == 1}
             onChange={onChange}>
             {choices.map((choice, i) => (
-              <option value={i} key={i}>{
-                Array.isArray(choice) ? humanizeList(choice, {conjunction: 'og'}) : choice
-              }</option>
+              <option value={i} key={i}>{this.renderChoice(dimension.name, choice, choices)}</option>
             ))}
           </select>
         </div>
       </div>
     )
+
+    return dimension.locked ? wrapInLocked(filter) : filter
+
+  }
+
+  renderChoice(dimension, choice, choices) {
+    if (choice === 'all') {
+      return 'Alle'
+    }
+
+    if (choice.length === 1 && choice[0] === 'alle') {
+      const hasAll = choices.some(c => c.length > 1)
+      return hasAll ? 'Skjul' : 'Alle'
+    }
+    if (choice.length > 1) {
+      return 'Vis'
+    }
+    return capitalize(dimensionLabelTitle(dimension, choice[0]))
   }
 
   render() {
@@ -174,8 +204,8 @@ class FilterBar extends Component {
           {/* todo: avoid rendering the lightbox in the adjacent <li> maybe? (and investigate possible ua issues?) */}
           {isRegionSelectOpen && this.renderRegionSelectLightbox()}
           {dimensionsWithoutRegions.map(dimension => (
-            <li key={dimension.name} className="col--fifth">{this.renderFilter(dimension)}</li>
-          ))}
+          <li key={dimension.name} className="col--fifth">{this.renderFilter(dimension)}</li>
+            ))}
         </ul>
         <div>
           {/*<div><pre>{JSON.stringify(query)}</pre></div>*/}

@@ -4,7 +4,7 @@ export default [
     query: {
       tableName: 'befolkninghovedgruppe',
       region: 'K0101',
-      unit: 'personer',
+      unit: ['personer'],
       comparisonRegions: [],
       dimensions: [
         {

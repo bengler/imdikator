@@ -5,62 +5,66 @@ import D3Chart from '../../utils/D3Chart'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class StackedBarChart extends Component {
+  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: PropTypes.object
+  }
+  /* eslint-enable react/forbid-prop-types */
+
+  prepareData(data) {
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+
+    const values = []
+    preparedData.forEach(item => {
+      let y0 = 0
+      item.values.forEach(value => {
+        const val = value.values[0].value
+        value.y = val
+        value.y0 = y0
+        value.y1 = value.y + value.y0
+        values.push(value.y1)
+        y0 += val
+      })
+    })
+    preparedData.extent = d3.extent(values)
+    return {
+      unit: data.unit,
+      preparedData,
+    }
   }
 
   // Called in context of _d3Chart
   drawPoints(el, data) {
-
     if (!data) {
       return
     }
 
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
-
     const svg = this.svg
 
-    // Get the unique categories from the data
-    const isPercent = data.unit === 'prosent'
-    const yAxisLabelFormat = isPercent ? d3.format('%') : d3.format('d')
+    const seriesNames = d3.set()
+    data.preparedData.forEach(item => {
+      item.values.forEach(value => {
+        seriesNames.add(value.title)
+      })
+    })
 
     // X axis scale for categories
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], 0.1)
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
 
-    let maxVal = 0
-    const seriesNames = []
-    preparedData.forEach(item => {
-      let y0 = 0
-      item.values.forEach(value => {
-        if (seriesNames.indexOf(value.title) == -1) {
-          seriesNames.push(value.title)
-        }
-        const val = value.values[0].value
-        value.y = val
-        value.y0 = y0
-        value.y1 = value.y + value.y0
-        if (value.y1 > maxVal) {
-          maxVal = value.y1
-        }
-        y0 += val
-      })
-    })
-
     // Y config
-    const extent = [0, maxVal]
-    console.log(extent)
+    const extent = [0, data.preparedData.extent[1]]
     const yc = this.configureYscale(extent, data.unit)
     const y = yc.scale
     this.addYAxis(y, yc.axisFormat)
 
     const colors = this.textures
 
-    x.domain(preparedData.map(item => item.title))
+    x.domain(data.preparedData.map(item => item.title))
 
     const category = svg.selectAll('.category')
-    .data(preparedData)
+    .data(data.preparedData)
     .enter().append('g')
     .attr('class', 'category')
     .attr('transform', cat => this.translation(x(cat.title), 0))
@@ -79,7 +83,7 @@ export default class StackedBarChart extends Component {
     .on('mouseover', item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
-        body: yAxisLabelFormat(item.y),
+        body: yc.format(item.y),
         el: item.el
       })
     })
@@ -113,7 +117,7 @@ export default class StackedBarChart extends Component {
     .attr('width', this.size.width)
     // Place it at the very bottom
     .attr('transform', () => this.translation(0, legendBottom))
-    .datum(seriesNames)
+    .datum(seriesNames.values())
     .call(leg)
     /* eslint-enable prefer-reflect */
 
@@ -130,8 +134,9 @@ export default class StackedBarChart extends Component {
     const config = {
       shouldCalculateMargins: true
     }
+    const preparedData = this.prepareData(this.props.data)
     return (
-      <D3Chart data={this.props.data} functions={functions} config={config}/>
+      <D3Chart data={preparedData} functions={functions} config={config}/>
     )
   }
 }

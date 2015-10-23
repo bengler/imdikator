@@ -11,11 +11,7 @@ export default class LineChart extends React.Component {
   }
   /* eslint-enable react/forbid-prop-types */
 
-  drawPoints(el, data) {
-    if (!data) {
-      return
-    }
-
+  prepareData(data) {
     let dimensionLabels = data.dimensions
     if (dimensionLabels.length > 2) {
       // Need to reduce dimensions
@@ -29,12 +25,23 @@ export default class LineChart extends React.Component {
     }
 
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
+
+    return {
+      unit: data.unit,
+      preparedData
+    }
+  }
+
+  drawPoints(el, data) {
+    if (!data) {
+      return
+    }
 
     const svg = this.svg
     const parseDate = d3.time.format('%Y').parse
 
-    const extent = d3.extent(data.rows, item => parseFloat(item.value))
-    const yc = this.configureYscale(extent, data.unit)
+    const yc = this.configureYscale(data.preparedData.extent, data.unit)
 
     const x = d3.time.scale().range([0, this.size.width])
     const y = yc.scale
@@ -47,10 +54,10 @@ export default class LineChart extends React.Component {
     const isPercent = data.unit === 'prosent'
     const dates = []
 
-    const series = preparedData.map(item => item.title)
+    const series = data.preparedData.map(item => item.title)
     const seriesColor = this.colors.domain(series)
 
-    preparedData.forEach(item => {
+    data.preparedData.forEach(item => {
       item.color = seriesColor(item.title)
       item.values.forEach(value => {
         value.color = item.color
@@ -98,7 +105,7 @@ export default class LineChart extends React.Component {
     .defined(dataItem => !isNaN(dataItem.value))
 
     const ss = this.svg.selectAll('g.line-serie')
-    .data(preparedData)
+    .data(data.preparedData)
     .enter()
     .append('g')
     .attr('id', dataItem => dataItem.key)
@@ -114,7 +121,7 @@ export default class LineChart extends React.Component {
     .attr('stroke-width', 1)
 
     const sc = this.svg.selectAll('g.line-dot')
-    .data(preparedData)
+    .data(data.preparedData)
     .enter()
     .append('g')
     .attr('class', 'line-dot')
@@ -169,7 +176,7 @@ export default class LineChart extends React.Component {
     .attr('class', 'voronoi')
 
     // Filter out any undefined points on the lines
-    const voronoiPoints = preparedData.map(item => {
+    const voronoiPoints = data.preparedData.map(item => {
       const vals = item.values.filter(val => !isNaN(val.value))
       item.values = vals
       return item
@@ -222,8 +229,9 @@ export default class LineChart extends React.Component {
     const config = {
       shouldCalculateMargins: true
     }
+    const data = this.prepareData(this.props.data)
     return (
-      <D3Chart data={this.props.data} functions={functions} config={config}/>
+      <D3Chart data={data} functions={functions} config={config}/>
     )
   }
 

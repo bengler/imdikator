@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {loadAllRegions} from '../../actions/region'
 import {
-  comparableRegions,
+  isSimilarRegion,
   norway
 } from '../../lib/regionUtil'
 import RegionSummaryChart from '../containers/RegionSummaryChart'
@@ -37,7 +37,7 @@ class IndexPage extends Component {
   render() {
     const allRegions = this.props.allRegions
     const region = norway
-    const comparableRegionCodes = comparableRegions(region, allRegions).map(reg => reg.prefixedCode)
+    const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
     if (!allRegions || comparableRegionCodes.length == 0) {
       return (
         <div className="col--main">

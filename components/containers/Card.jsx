@@ -5,15 +5,13 @@ import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
+import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
-import {findDimensionByName, dimensionLabelTitle} from '../../lib/labels'
+import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
-import {comparableRegions, prefixifyRegion} from '../../lib/regionUtil'
-import {filtersToOptions, describeChart} from '../../lib/chartDescriber'
-
-
+import {queryToOptions, describeChart} from '../../lib/chartDescriber'
+import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
 //import {performQuery} from '../../actions/cardPages'
-import {getHeaderKey} from '../../lib/regionUtil'
 
 class Card extends Component {
   static propTypes = {
@@ -41,7 +39,6 @@ class Card extends Component {
     })
   }
 
-
   handleFilterChange(property, newValue) {
     const {card, activeTab, query} = this.props
 
@@ -59,15 +56,18 @@ class Card extends Component {
                 return dim
               }
               return Object.assign({}, dim, {
-                variables: newValue.split(',')
+                variables: Array.isArray(newValue) ? newValue : [newValue]
               })
             })
           }
         }
       })
     }
-
-    this.props.dispatch(performQuery(card, activeTab, newQuery))
+    const constrainedQuery = constrainQuery(newQuery, this.getQuerySpec(newQuery))
+    constrainedQuery.operations.forEach(op => {
+      debug('%s: %s', op.dimension, op.description)
+    })
+    this.props.dispatch(performQuery(card, activeTab, constrainedQuery.query))
   }
 
   getChartKind() {
@@ -75,144 +75,61 @@ class Card extends Component {
     return activeTab.chartKind
   }
 
-  getFilterState() {
-    const {activeTab, card, headerGroup, query, region, allRegions} = this.props
+  // TODO: Maybe investigate a wrapper around query/querySpec
+  // const query = Query({
+  // })
+  // query.getFixedDimensions()
+  // query.constrain(constrainer)
 
-    const chartKind = this.getChartKind()
-
-    const capabilities = CHARTS[chartKind].capabilities
-
-    const regionFilterState = {
-      name: 'comparisonRegions',
-      title: 'Sammenlignet med',
-      enabled: ['latest', 'chronological', 'table'].includes(activeTab.name),
-      value: query.comparisonRegions,
-      options: {
-        similar: comparableRegions(region, allRegions).map(prefixifyRegion),
-        recommended: []
+  getValidComparisonRegions() {
+    const {allRegions, query} = this.props
+    const querySpec = this.getQuerySpec(query)
+    const invalid = []
+    const comparisonRegionsSpec = querySpec.find(spec => spec.name === 'comparisonRegions')
+    const regions = comparisonRegionsSpec.choices.map(prefixedCode => {
+      const found = allRegions.find(region => region.prefixedCode === prefixedCode)
+      if (!found) {
+        invalid.push(prefixedCode)
       }
+      return found
+    }).filter(Boolean)
+
+    if (invalid.length > 0) {
+      //const message = 'Warning: Query spec said the following region codes were valid comparison regions, '
+      //                 + `but none of them was found in list of known regions: ${invalid.join(', ')}`
+      //console.warn(new Error(message))
     }
+    return regions
+  }
 
-    const timeFilterState = {
-      enabled: !(['chronological'].includes(activeTab.name)),
-      name: 'year',
-      title: 'År',
-      value: query.year,
-      options: activeTab.name === 'chronological' ? [{name: 'alle', title: 'Alle'}] : headerGroup.aar.map(year => {
-        return {value: year, title: year}
-      })
-    }
-
-    const unitFilterState = {
-      enabled: headerGroup.enhet.length > 1,
-      name: 'unit',
-      value: query.unit,
-      title: headerGroup.enhet.length > 1 ? headerGroup.enhet.join(' eller ') : 'Enhet',
-      options: headerGroup.enhet.map(unit => {
-        return {value: unit, title: unit}
-      })
-    }
-
-    // Note: For robustness decorate card.query.dimensions with headergroups
-
-    let availDimensions = capabilities.dimensions
-    if (query.comparisonRegions.length > 0) {
-      availDimensions--
-    }
-    const otherDimensions = card.query.dimensions
-      .map((dimension, i) => {
-        const configuredDimension = findDimensionByName(dimension.name)
-        const values = headerGroup[dimension.name]
-        const valuesWithoutAggregate = values.filter(val => val != 'alle')
-        //const valuesContainsAggregate = values.some(val => val == 'alle')
-
-        // If we have available dimensions. Lock first dimension as to not confuse users.
-
-        let enabled = true
-
-        if (i == 0 && availDimensions > 0) {
-          enabled = false
-        }
-
-        let canExpandDimensionVariables = false
-
-        // Can dimension expand, or does the user need to choose amongst the variables
-        if (availDimensions > 0) {
-          canExpandDimensionVariables = true
-        }
-
-        // If headergroup for dimension does not contain 'alle' ->
-
-        let options
-
-        if (!enabled) {
-          // Perhaps there are others reasons something is disabled. Right now only reason is that the user can't change it
-          options = [
-            {
-              title: 'Viser alle',
-              value: ''
-            }
-          ]
-
-        } else if (canExpandDimensionVariables) {
-          options = [
-            {
-              title: 'Skjult',
-              value: 'alle'
-            },
-            {
-              title: 'Vis',
-              value: valuesWithoutAggregate.join(',')
-            }
-          ]
-        } else {
-          // output everything in the header group
-          options = values.map(value => {
-            return {
-              value: value,
-              title: dimensionLabelTitle(dimension.name, value)
-            }
-          })
-        }
-
-        /*
-         if (enabled && !canExpandDimensionVariables) {
-         // is enabled && canExpandDimensionVariables-> display as constrained with yellow border and stuff
-         }
-         */
-
-        availDimensions--
-        const value = query.dimensions.find(dim => dim.name == dimension.name).variables
-        return {
-          enabled,
-          value: value && value.join(','),
-          visible: dimension.visible,
-          name: dimension.name,
-          title: configuredDimension.title,
-          options
-        }
-      })
-
-    return [regionFilterState, timeFilterState, ...otherDimensions, unitFilterState]
+  getQuerySpec(query) {
+    const {activeTab, headerGroup, card} = this.props
+    const chart = CHARTS[this.getChartKind()]
+    return getQuerySpec(query, {
+      tab: activeTab,
+      headerGroup,
+      chart,
+      configuredDimensions: card.query.dimensions
+    })
   }
 
   render() {
-    const {card, activeTab, headerGroup} = this.props
+    const {card, activeTab, headerGroup, query, region, allRegions} = this.props
 
-    if (!card) {
+    if (!card || !activeTab || !region) {
       return null
     }
 
-    if (!activeTab) {
-      return null
-    }
+    const validRegions = this.getValidComparisonRegions()
+    const similarRegions = validRegions.filter(isSimilarRegion(region))
+    const recommended = [] // todo
 
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
       disabledTabs.push('chronological')
     }
 
-    const graphDescription = describeChart(filtersToOptions(this.getFilterState()))
+    const graphDescription = describeChart(queryToOptions(query, headerGroup, allRegions))
 
     const ChartComponent = CHARTS[this.getChartKind()].component
     return (
@@ -220,12 +137,14 @@ class Card extends Component {
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
-        >
+      >
         <TabBar activeTab={activeTab} disabledTabs={disabledTabs} tabs={TABS} makeLinkToTab={tab => this.makeLinkToTab(tab)}/>
         <FilterBar
-          filters={this.getFilterState()}
+          query={query}
+          regionGroups={{recommended: recommended, similar: similarRegions, choices: validRegions}}
+          querySpec={this.getQuerySpec(query)}
           onChange={this.handleFilterChange.bind(this)}
-          />
+        />
         <div className="graph">
           <ChartComponent data={this.props.data}/>
         </div>

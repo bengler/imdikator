@@ -135,6 +135,32 @@ describe('queryToOptions', () => {
     assert.deepEqual(result, expected)
   })
 
+
+  it('handles case where dimension.variables is a string', () => {
+    const query = {
+      unit: 'personer',
+      region: 'K0301',
+      tableName: 'befolkning_flytting',
+      comparisonRegions: [],
+      dimensions: [
+        {name: 'vreg3', visible: false, variables: ['alle']},
+        {name: 'flytting', variables: 'all'},
+        {name: 'innvkat3', variables: ['innvandrere', 'befolkningen_ellers']}
+      ],
+      year: ['2013']
+    }
+
+    const expected = {
+      showing: 'antall flyttinger',
+      regions: ['Oslo'],
+      timePeriod: ['2013'],
+      bounds: [],
+      groupedBy: ['innvandrere', 'befolkningen unntatt innvandrere']
+    }
+    const result = queryToOptions(query, {}, allRegions)
+    assert.deepEqual(result, expected)
+  })
+
 })
 
 

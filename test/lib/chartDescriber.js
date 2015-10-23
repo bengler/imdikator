@@ -3,25 +3,23 @@ import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import allRegions from '../fixtures/mockRegions'
 
 describe('queryToOptions', () => {
+  // nedbrytning vs avgrensning:
+  // groupedBy: dersom variables-arrayet inneholder fler enn ett element så er det alltid en nedbrytning
+  // bounds: dersom variables-arrayet inneholder kun ett element så er det alltid en avgrensning
 
   it('returns a function', () => {
     assert.typeOf(queryToOptions, 'function')
   })
 
-  // nedbrytning vs avgrensning:
-  // groupedBy: dersom variables-arrayet inneholder fler enn ett element så er det alltid en nedbrytning
-  // bounds: dersom variables-arrayet inneholder kun ett element så er det alltid en avgrensning
-
-  it('works', () => {
+  it('handles a basic transformation', () => {
     const query = {
       unit: 'personer',
       region: 'K0301',
       tableName: 'befolkning_innvandringsgrunn',
-      comparisonRegions: ['K0106', 'K0219', 'K0228'],
       dimensions: [
         {
           name: 'innvgrunn5',
-          variables: ['arbeid', 'flukt', 'familie', 'annet_uoppgitt']
+          variables: ['arbeid', 'flukt']
         },
         {
           name: 'kjonn',
@@ -34,11 +32,106 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse', 'Familieforente', 'Utdanning (inkl. au pair), uoppgitte eller andre grunner'],
+      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      timePeriod: ['2014'],
+      regions: ['Oslo']
+    }
+    const result = queryToOptions(query, {}, allRegions)
+    assert.deepEqual(result, expected)
+  })
+
+
+  it('handles comparisonRegions', () => {
+    const query = {
+      unit: 'personer',
+      region: 'K0301',
+      tableName: 'befolkning_innvandringsgrunn',
+      comparisonRegions: ['K0106', 'K0219', 'K0228'],
+      dimensions: [
+        {
+          name: 'innvgrunn5',
+          variables: ['arbeid', 'flukt']
+        },
+        {
+          name: 'kjonn',
+          variables: ['0']
+        }
+      ],
+      year: ['2014']
+    }
+
+    const expected = {
+      showing: 'antall innvandrere',
+      bounds: ['kjønnsfordeling avgrenset til kvinner'],
+      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
-    const result = queryToOptions(query, {aar: ['2012', '2013', '2014']}, allRegions)
+    const result = queryToOptions(query, {}, allRegions)
+    assert.deepEqual(result, expected)
+  })
+
+
+  it('handles all time periods, including sorting years', () => {
+    const query = {
+      unit: 'personer',
+      region: 'K0301',
+      tableName: 'befolkning_innvandringsgrunn',
+      dimensions: [
+        {
+          name: 'innvgrunn5',
+          variables: ['arbeid', 'flukt']
+        },
+        {
+          name: 'kjonn',
+          variables: ['0']
+        }
+      ],
+      year: 'all'
+    }
+
+    const expected = {
+      showing: 'antall innvandrere',
+      bounds: ['kjønnsfordeling avgrenset til kvinner'],
+      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      timePeriod: ['2011', '2012', '2013', '2014'],
+      regions: ['Oslo']
+    }
+    const result = queryToOptions(query, {aar: ['2012', '2011', '2013', '2014']}, allRegions)
+    assert.deepEqual(result, expected)
+  })
+
+
+  it('handles aldersfordeling', () => {
+    const query = {
+      unit: 'personer',
+      region: 'K0301',
+      tableName: 'befolkning_innvandringsgrunn',
+      dimensions: [
+        {
+          name: 'bhgalder',
+          variables: ['3']
+        },
+        {
+          name: 'innvgrunn5',
+          variables: ['arbeid', 'flukt']
+        },
+        {
+          name: 'kjonn',
+          variables: ['0']
+        }
+      ],
+      year: ['2014']
+    }
+
+    const expected = {
+      showing: 'antall innvandrere',
+      bounds: ['aldersfordeling avgrenset til 3 år', 'kjønnsfordeling avgrenset til kvinner'],
+      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      timePeriod: ['2014'],
+      regions: ['Oslo']
+    }
+    const result = queryToOptions(query, {}, allRegions)
     assert.deepEqual(result, expected)
   })
 

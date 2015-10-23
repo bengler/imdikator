@@ -26,25 +26,33 @@ export default class BenchmarkChart extends React.Component {
   }
   /* eslint-enable react/forbid-prop-types */
 
+  prepareData(data) {
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
+    if (data.rows.length > 1) {
+      // Want the max value to be the end of the domain here
+      preparedData.extent[1] = preparedData.maxValue
+    }
+    return {
+      unit: data.unit,
+      preparedData,
+      highlight: data.highlight
+    }
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
     }
 
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
-
     const svg = this.svg
     const interimSpacingFactor = 0.15
     const endMarginFactor = 0.2
     const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], interimSpacingFactor, endMarginFactor)
-    x.domain(preparedData.map(dataItem => dataItem.title))
-    const yc = this.configureYscale(d3.extent(data.rows, item => parseFloat(item.value)), data.unit)
+    x.domain(data.preparedData.map(dataItem => dataItem.title))
+    const yc = this.configureYscale(data.preparedData.extent, data.unit)
     const y = yc.scale
-    if (data.rows.length > 1) {
-      // Want the max value to be the end of the domain here
-      y.domain([y.domain()[0], preparedData.maxValue])
-    }
     const labelFormat = yc.format
 
     const labels = []
@@ -52,7 +60,7 @@ export default class BenchmarkChart extends React.Component {
     /* eslint-disable no-warning-comments */
     // TODO: Move these colors out to CSS?
     /* eslint-enable no-warning-comments */
-    preparedData.forEach((dataItem, i) => {
+    data.preparedData.forEach((dataItem, i) => {
       let fill = benchmarkColor
       if (this.textures.domain().indexOf(benchmarkColor) !== -1) {
         fill = this.textures(fill)
@@ -103,7 +111,7 @@ export default class BenchmarkChart extends React.Component {
 
     // Draw the bars
     svg.selectAll('rect.glanceBar')
-    .data(preparedData)
+    .data(data.preparedData)
     .enter()
     .append('rect')
     .attr('class', 'glanceBar')
@@ -123,7 +131,7 @@ export default class BenchmarkChart extends React.Component {
     })
 
     svg.selectAll('rect.hover')
-    .data(preparedData)
+    .data(data.preparedData)
     .enter()
     .append('rect')
     .attr('class', 'hover')
@@ -161,13 +169,14 @@ export default class BenchmarkChart extends React.Component {
 
   render() {
     const sortDirection = this.props.sortDirection
-    const data = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
     const functions = {
       drawPoints: this.drawPoints
     }
     const config = {
       shouldCalculateMargins: true
     }
+    const sortedData = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
+    const data = this.prepareData(sortedData)
     return (
       <D3Chart data={data} functions={functions} config={config} className={this.props.className}/>
     )

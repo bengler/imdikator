@@ -34,12 +34,13 @@ class Chart {
       return null
     }
 
+    if (!data.preparedData) {
+      return {}
+    }
+
     // LEFT MARGIN
     // Need to add a Y axis and see how wide the largest label is
-    const extent = d3.extent(data.rows, function (row) { // eslint-disable-line prefer-arrow-callback
-      return parseFloat(row.tabellvariabel)
-    })
-    const yc = this.configureYscale(extent, data.unit, 100)
+    const yc = this.configureYscale(data.preparedData.extent, data.unit, 100)
     const testSVG = d3.select('body').append('svg').style('display', 'hidden')
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
     testSVG.append('g')

@@ -14,6 +14,43 @@ export default class StackedAreaChart extends React.Component {
   }
   /* eslint-enable react/forbid-prop-types */
 
+  prepareData(data) {
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+
+    // Preapre properties for the area() function
+    preparedData.forEach(series => {
+      series.total = 0
+      series.values.forEach(val => {
+        val.series = series.title
+        val.y = val.values[0].value
+        series.total += val.y
+      })
+    })
+
+    // Stack our data
+    const stack = d3.layout.stack()
+    stack.values(dataItem => dataItem.values)
+    const series = stack(preparedData)
+    let maxStackedValue = 0
+    // Scale the y axis based on the maximum stacked value
+    series.forEach(cat => {
+      cat.values.forEach(item => {
+        const sum = item.y0 + item.y
+        if (sum > maxStackedValue) {
+          maxStackedValue = sum
+        }
+      })
+    })
+    preparedData.extent = [0, maxStackedValue]
+
+    return {
+      unit: data.unit,
+      preparedData,
+      series
+    }
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -21,14 +58,10 @@ export default class StackedAreaChart extends React.Component {
 
     const svg = this.svg
 
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
-
     const parseDate = d3.time.format('%Y').parse
 
     const x = d3.time.scale().range([0, this.size.width])
-    const extent = d3.extent(data.rows, item => parseFloat(item.value))
-    const yc = this.configureYscale(extent, data.unit)
+    const yc = this.configureYscale(data.preparedData.extent, data.unit)
     const y = yc.scale
 
     const xAxis = d3.svg.axis().scale(x).orient('bottom')
@@ -41,11 +74,10 @@ export default class StackedAreaChart extends React.Component {
     .y1(dataItem => y(dataItem.y0 + dataItem.y))
 
     const dates = []
-    preparedData.forEach(item => {
+    data.preparedData.forEach(item => {
       item.values.forEach(value => {
         value.date = parseDate(value.key)
         dates.push(value.date)
-        value.value = parseFloat(value.values[0].tabellvariabel)
       })
     })
 
@@ -57,44 +89,14 @@ export default class StackedAreaChart extends React.Component {
       xAxis.ticks(numberOfDates)
     }
 
-    // Preapre properties for the area() function
-    preparedData.forEach(series => {
-      series.total = 0
-      series.values.forEach(val => {
-        val.series = series.title
-        val.y = val.values[0].value
-        series.total += val.y
-      })
-    })
-
     // Scale the X axis by the date range in the data
     x.domain(d3.extent(dates))
 
-    // Stack our data
-    const stack = d3.layout.stack()
-    stack.values(dataItem => dataItem.values)
-    const series = stack(preparedData)
-
-    const color = this.colors.domain(series.map(serie => serie.title))
-
-    if (data.format !== 'prosent') {
-      // Scale the y axis based on the maximum stacked value
-      let maxStackedValue = 0
-      series.forEach(cat => {
-        cat.values.forEach(item => {
-          const sum = item.y0 + item.y
-          if (sum > maxStackedValue) {
-            maxStackedValue = sum
-          }
-        })
-      })
-      y.domain([0, maxStackedValue])
-    }
-
+    const color = this.colors.domain(data.series.map(serie => serie.title))
     this.addYAxis(yc.scale, yc.axisFormat)
 
     svg.selectAll('.area')
-    .data(series)
+    .data(data.series)
     .enter()
     .append('g')
     .append('path')
@@ -121,7 +123,7 @@ export default class StackedAreaChart extends React.Component {
     .attr('width', this.size.width)
     // Place it at the very bottom
     .attr('transform', () => this.translation(0, legendBottom))
-    .datum(series.map(serie => serie.title))
+    .datum(data.series.map(serie => serie.title))
     .call(leg)
     /* eslint-enable prefer-reflect */
 
@@ -146,8 +148,8 @@ export default class StackedAreaChart extends React.Component {
     .attr('class', 'voronoi')
 
     // Filter out any undefined points on the lines
-    const voronoiPoints = series.map(item => {
-      const vals = item.values.filter(val => !isNaN(val.value))
+    const voronoiPoints = data.series.map(item => {
+      const vals = item.values.filter(val => !isNaN(val.y))
       item.values = vals
       return item
     })
@@ -204,8 +206,9 @@ export default class StackedAreaChart extends React.Component {
     const config = {
       shouldCalculateMargins: true
     }
+    const data = this.prepareData(this.props.data)
     return (
-      <D3Chart data={this.props.data} functions={functions} config={config}/>
+      <D3Chart data={data} functions={functions} config={config}/>
     )
   }
 

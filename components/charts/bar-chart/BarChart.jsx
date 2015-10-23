@@ -12,15 +12,7 @@ export default class BarChart extends React.Component {
   }
   /* eslint-enable react/forbid-prop-types */
 
-  calculateHeight(data) {
-    return 400
-  }
-
-  drawPoints(el, data) {
-    if (!data) {
-      return
-    }
-
+  prepareData(data) {
     const dimensionLabels = data.dimensions
     if (dimensionLabels.length == 1) {
       // Add a needed second dimension
@@ -28,19 +20,31 @@ export default class BarChart extends React.Component {
     }
 
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
+
+    return {
+      unit: data.unit,
+      preparedData
+    }
+  }
+
+  drawPoints(el, data) {
+    if (!data) {
+      return
+    }
 
     const svg = this.svg
 
-    const categories = preparedData.map(entry => entry.title)
+    const categories = data.preparedData.map(entry => entry.title)
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
-    const maxSeries = d3.max(preparedData, item => item.values.length)
+    const maxSeries = d3.max(data.preparedData, item => item.values.length)
     const innerPaddingFactor = 0.05
     const outerPaddingFactor = 0
-    preparedData.forEach(cat => {
+    data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
       const seriesLength = catSeries.length
       while (catSeries.length < maxSeries) {
@@ -57,8 +61,7 @@ export default class BarChart extends React.Component {
     })
 
     // Y config
-    const extent = d3.extent(data.rows, item => parseFloat(item.value))
-    const yc = this.configureYscale(extent, data.unit)
+    const yc = this.configureYscale(data.preparedData.extent, data.unit)
 
     // A range of 20 colors
     let seriesColor = this.textures
@@ -67,7 +70,7 @@ export default class BarChart extends React.Component {
 
     // Get the unique categories from the data
     const series = []
-    preparedData.forEach(item => {
+    data.preparedData.forEach(item => {
       item.values.forEach(val => {
         // Expand the color domain if this is a new series
         if (series.indexOf(val.title) == -1) {
@@ -105,7 +108,7 @@ export default class BarChart extends React.Component {
     this.addYAxis(yc.scale, yc.axisFormat)
 
     const category = svg.selectAll('.category')
-    .data(preparedData)
+    .data(data.preparedData)
     .enter()
     .append('g')
     .attr('class', 'category')
@@ -188,17 +191,18 @@ export default class BarChart extends React.Component {
 
   render() {
     const functions = {
-      drawPoints: this.drawPoints,
-      calculateHeight: this.calculateHeight,
+      drawPoints: this.drawPoints
     }
 
     const config = {
       shouldCalculateMargins: true
     }
 
+    const data = this.prepareData(this.props.data)
+
     return (
       <div>
-      <D3Chart data={this.props.data} config={config} functions={functions} className={this.props.className}/>
+      <D3Chart data={data} config={config} functions={functions} className={this.props.className}/>
       </div>
     )
   }

@@ -96,9 +96,15 @@ export default class BenchmarkChart extends React.Component {
           } else {
             dataItem.stroke = benchmarkHighLightColor
           }
+          let labelY = y(dataItem.values[0].value) - fontSize / 2
+          // Make sure we do not draw the label outside the top of
+          // the SVG. This can happen if we highlight the biggest bar
+          if (labelY < fontSize) {
+            labelY = 0
+          }
           labels.push({
             x: x(dataItem.title),
-            y: y(dataItem.values[0].value) - fontSize / 2,
+            y: labelY,
             text: labelFormat(dataItem.values[0].value),
             color: benchmarkColor
           })

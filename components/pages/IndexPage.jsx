@@ -70,7 +70,7 @@ class IndexPage extends Component {
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     {chartQueries.map(chartQuery => {
-                      const key = `${chartQuery.query.tableName}-${chartQuery.query.unit}`
+                      const key = `${chartQuery.query.tableName}-${chartQuery.query.unit[0]}`
                       return (
                         <RegionSummaryChart key={key} comparableRegionCodes={comparableRegionCodes} region={region} chartQuery={chartQuery} />
                       )

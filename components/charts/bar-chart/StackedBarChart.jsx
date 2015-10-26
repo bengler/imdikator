@@ -3,6 +3,7 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+import {CHARTS} from '../../../config/chartTypes'
 
 export default class StackedBarChart extends Component {
   /* eslint-disable react/forbid-prop-types */
@@ -45,13 +46,10 @@ export default class StackedBarChart extends Component {
     const seriesNames = d3.set()
     data.preparedData.forEach(item => {
       item.values.forEach(value => {
+        value.category = item.title
         seriesNames.add(value.title)
       })
     })
-
-    // X axis scale for categories
-    const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], 0.1)
-    const xAxis = d3.svg.axis().scale(x).orient('bottom')
 
     // Y config
     const extent = [0, data.preparedData.extent[1]]
@@ -61,18 +59,40 @@ export default class StackedBarChart extends Component {
 
     const colors = this.textures
 
-    x.domain(data.preparedData.map(item => item.title))
+    // X axis scale for categories
+    // X axis scale for categories
+    const x0 = d3.scale.ordinal()
+    .domain(data.preparedData.map(item => item.title))
+    .rangeRoundBands([0, this.size.width], 0.1)
+
+    const xAxis = d3.svg.axis().scale(x0).orient('bottom')
+
+    const xScales = {}
+    const innerPaddingFactor = 0.05
+    const outerPaddingFactor = 0
+
+    const maxWidth = CHARTS.stackedBar.maxBarWidth
+    data.preparedData.forEach(cat => {
+
+      const scale = d3.scale.ordinal()
+      .domain(['stack'])
+      .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
+      this.limitScaleRangeBand(scale, maxWidth)
+      xScales[cat.title] = scale
+    })
 
     const category = svg.selectAll('.category')
     .data(data.preparedData)
     .enter().append('g')
     .attr('class', 'category')
-    .attr('transform', cat => this.translation(x(cat.title), 0))
+    .attr('transform', cat => this.translation(x0(cat.title), 0))
 
     category.selectAll('rect')
     .data(cat => cat.values)
     .enter().append('rect')
-    .attr('width', x.rangeBand())
+    .attr('width', item => xScales[item.category].rangeBand())
+    .attr('x', item => xScales[item.category]('stack'))
     .attr('y', dataItem => y(dataItem.y1))
     .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
     .style('fill', dataItem => colors(dataItem.title))
@@ -101,7 +121,7 @@ export default class StackedBarChart extends Component {
     xAxisEl
     .select('path').remove()
     .selectAll('text')
-    .call(this.wrapTextNode, x.rangeBand())
+    .call(this.wrapTextNode, x0.rangeBand())
     /* eslint-enable prefer-reflect */
 
     // Legend

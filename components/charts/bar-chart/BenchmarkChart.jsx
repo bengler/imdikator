@@ -5,6 +5,7 @@ import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 import {benchmarkColor, benchmarkHighLightColor} from '../../../data/colorPalette'
+import {CHARTS} from '../../../config/chartTypes'
 
 function sortData(data, direction) {
   const sortedRows = data.rows.slice().sort((rowA, rowB) => {
@@ -49,11 +50,15 @@ export default class BenchmarkChart extends React.Component {
     const svg = this.svg
     const interimSpacingFactor = 0.15
     const endMarginFactor = 0.2
-    const x = d3.scale.ordinal().rangeRoundBands([0, this.size.width], interimSpacingFactor, endMarginFactor)
-    x.domain(data.preparedData.map(dataItem => dataItem.title))
+    const x0 = d3.scale.ordinal().rangeRoundBands([0, this.size.width], interimSpacingFactor, endMarginFactor)
+    x0.domain(data.preparedData.map(dataItem => dataItem.title))
     const yc = this.configureYscale(data.preparedData.extent, data.unit)
     const y = yc.scale
     const labelFormat = yc.format
+
+    const x = x0.copy()
+    const maxWidth = CHARTS.benchmark.maxBarWidth
+    this.limitScaleRangeBand(x, maxWidth)
 
     const labels = []
     const fontSize = 12

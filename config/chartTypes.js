@@ -12,7 +12,6 @@ import indexBy from 'lodash.indexby'
 const CHART_TYPES = [
   {
     name: 'stackedArea',
-    maxBarWidth: 50,
     capabilities: {
       dimensions: 1
     },
@@ -35,6 +34,7 @@ const CHART_TYPES = [
   },
   {
     name: 'stackedBar',
+    maxBarWidth: 85,
     capabilities: {
       dimensions: 2
     },
@@ -49,6 +49,7 @@ const CHART_TYPES = [
   },
   {
     name: 'benchmark',
+    maxBarWidth: 50,
     capabilities: {
       dimensions: 1,
       variables: 1

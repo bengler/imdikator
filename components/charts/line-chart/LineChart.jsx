@@ -51,7 +51,6 @@ export default class LineChart extends React.Component {
     yAxis.tickFormat(yc.axisFormat)
     yAxis.scale().nice()
 
-    const isPercent = data.unit === 'prosent'
     const dates = []
 
     const series = data.preparedData.map(item => item.title)
@@ -75,12 +74,12 @@ export default class LineChart extends React.Component {
           value.x = 0
         } else if (value.values[0].anonymized) {
           value.value = 4
-          value.y = y(isPercent ? value.value / 100 : value.value)
+          value.y = y(value.value)
         } else {
-          value.y = y(isPercent ? value.value / 100 : value.value)
+          value.y = y(value.value)
         }
         if (!value.formattedValue) {
-          value.formattedValue = yc.format(isPercent ? value.value / 100 : value.value)
+          value.formattedValue = yc.format(value.value)
         }
       })
     })

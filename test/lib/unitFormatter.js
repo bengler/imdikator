@@ -29,13 +29,17 @@ describe('unitFormatter', () => {
     assert.equal(formatters.axisFormat(0.7512312), '0.75 ‰')
   })
 
-  it('formats per cent by multiplying by 100, using 2 decimals and adding % character', () => {
+  it('formats per cent using 2 decimals and adding % character', () => {
     const formatters = unitFormatter('prosent')
-    assert.equal(formatters.format(1.9), '190.00 %')
-    assert.equal(formatters.format(0.29), '29.00 %')
+    assert.equal(formatters.format(190), '190.00 %')
+    assert.equal(formatters.format(29), '29.00 %')
 
-    assert.equal(formatters.axisFormat(1.9), '190.00 %')
-    assert.equal(formatters.axisFormat(0.29), '29.00 %')
+  })
+
+  it('formats per cent on axis with no decimals', () => {
+    const formatters = unitFormatter('prosent')
+    assert.equal(formatters.axisFormat(19), '19 %')
+    assert.equal(formatters.axisFormat(0.29), '0 %')
   })
 
   it('formats unknown units with toLocaleString()', () => {

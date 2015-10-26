@@ -17,6 +17,7 @@ describe('queryResultPresenter', () => {
   it('does not collect invisible dimensions specified in the query', () => {
     const query = {
       table: 'befolkninghovedgruppe',
+      unit: ['personer'],
       dimensions: [
         {
           name: 'innvkat5',
@@ -35,6 +36,7 @@ describe('queryResultPresenter', () => {
   it('collects dimensions specified in the query', () => {
     const query = {
       table: 'befolkninghovedgruppe',
+      unit: ['personer'],
       dimensions: [
         {
           name: 'innvkat5'
@@ -98,7 +100,7 @@ describe('queryResultPresenter', () => {
 
   it('figures out the unit to use when presenting based on the query', () => {
     const qu = Object.assign({}, QUERY, {
-      unit: 'kustom'
+      unit: ['kustom']
     })
     const pres = queryResultPresenter(qu, [], {chartKind: 'bar'})
     assert.equal(pres.unit, 'kustom')

@@ -32,7 +32,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
@@ -63,7 +63,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
@@ -93,7 +93,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
       timePeriod: ['2011', '2012', '2013', '2014'],
       regions: ['Oslo']
     }
@@ -127,7 +127,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['aldersfordeling avgrenset til 3 år', 'kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['Arbeidsinnvandrere', 'Flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
       timePeriod: ['2014'],
       regions: ['Oslo']
     }

@@ -33,7 +33,8 @@ describe('unitFormatter', () => {
     const formatters = unitFormatter('prosent')
     assert.equal(formatters.format(190), '190.00 %')
     assert.equal(formatters.format(29), '29.00 %')
-
+    assert.equal(formatters.format(29.29), '29.29 %')
+    assert.equal(formatters.format(0.9), '0.90 %')
   })
 
   it('formats per cent on axis with no decimals', () => {

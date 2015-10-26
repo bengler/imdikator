@@ -122,7 +122,7 @@ class RegionSummaryChart extends Component {
 
     const Chart = chartQuery.chartKind == 'benchmark' ? BenchmarkChart : BarChart
     // BenchmarkChart can only handle one dimension
-    const dimensions = chartQuery.chartKind == 'benchmark' ? ['region'] : ['innvkat3', 'region']
+    const dimensions = chartQuery.chartKind == 'benchmark' ? ['region'] : ['region', 'innvkat3']
 
     const modifiedData = update(data, {
       dimensions: {$set: dimensions},

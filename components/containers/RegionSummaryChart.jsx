@@ -12,17 +12,6 @@ function queryKey(region, tableName) {
   return `${region.prefixedCode}-${tableName}`
 }
 
-function share(value) {
-  if (value == '.') {
-    return 'ukjent '
-  }
-  if (value == ':') {
-    return 'Anonymisert '
-  }
-  return value
-  //return Number(value).toFixed(1)
-}
-
 
 function dispatchQueries(props) {
   const region = props.region
@@ -41,6 +30,7 @@ function dispatchQueries(props) {
     chartKind: chartQuery.chartKind,
     queryKey: queryKey(region, query.tableName)
   }
+
   props.dispatch(loadChartData(regionQuery, regionQueryOptions))
 
   if (isNotNorway) {
@@ -94,29 +84,31 @@ class RegionSummaryChart extends Component {
     if (!(data && data.rows[0] && comparisonData)) {
       return null
     }
-    const formatter = unitFormatter(chartQuery.query.unit)
+    const formatter = unitFormatter(chartQuery.query.unit[0])
     const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
+
     let titleParams = {
-      share: formatter.format(share(regionDataRow.tabellvariabel))
+      share: formatter.format(regionDataRow.value)
     }
+
     chartQuery.additionalTitleParams.map(param => {
       titleParams[param] = regionDataRow[param]
     })
     const title = chartQuery.title(titleParams)
-    const subtitle = isNotNorway ? chartQuery.subTitle({share: formatter.format(share(comparisonData.rows[0].tabellvariabel))}) : null
+    const subtitle = isNotNorway ? chartQuery.subTitle({share: formatter.format(comparisonData.rows[0].value)}) : null
 
     // secondary titles, atm only used in barchart
     let titleTwo = null
     let subtitleTwo = null
     if (chartQuery.chartKind == 'bar') {
       titleParams = {
-        share: formatter.format(share(data.rows[1].tabellvariabel))
+        share: formatter.format(data.rows[1].value)
       }
       chartQuery.additionalTitleParams.map(param => {
         titleParams[param] = data.rows[1][param]
       })
       titleTwo = chartQuery.title(titleParams)
-      subtitleTwo = chartQuery.subTitle({share: formatter.format(share(comparisonData.rows[1].tabellvariabel))})
+      subtitleTwo = chartQuery.subTitle({share: formatter.format(comparisonData.rows[1].value)})
     }
 
 

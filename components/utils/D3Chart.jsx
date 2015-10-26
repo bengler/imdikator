@@ -37,21 +37,25 @@ export default class D3Chart extends React.Component {
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%'
-    }, this.getChartState(), this.props.functions, Object.assign({
-      eventEmitter: this.eventEmitter,
-      shouldCalculateMargins: false
-    }, this.props.config))
+    }, this.getChartState(), this.props.functions, this.config())
   }
 
   componentDidUpdate() {
     const el = findDOMNode(this)
-    this.chart.update(el, this.getChartState(), this.props.config)
+    this.chart.update(el, this.getChartState(), this.config())
   }
 
   componentWillUnmount() {
     this.eventEmitter.removeAllListeners()
     const el = findDOMNode(this)
     this.chart.destroy(el)
+  }
+
+  config() {
+    return Object.assign({
+      eventEmitter: this.eventEmitter,
+      shouldCalculateMargins: false
+    }, this.props.config)
   }
 
   getChartState() {

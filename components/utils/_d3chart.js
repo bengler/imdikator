@@ -162,6 +162,16 @@ class Chart {
     return _unitFormatter(unit)
   }
 
+  limitScaleRangeBand(scale, limit) {
+    const domain = scale.domain()
+    while (scale.rangeBand() > limit) {
+      domain.push(Math.random())
+      domain.unshift(Math.random())
+      scale.domain(domain)
+    }
+    return scale
+  }
+
   // Returns {scale: d3.scale, format: tickFormat}
   configureYscale(extent, unit, height = this.size.height) {
     const maxValue = extent[1] < 0 ? 0 : extent[1]

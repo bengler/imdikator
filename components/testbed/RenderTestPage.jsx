@@ -15,13 +15,22 @@ const testData = {
   barWidth: {
     "dimensions": ['barnikommune', 'bhgalder'],
     "unit": "personer",
-    "rows": queryRowParser([{"aar":"2013","bhgalder":"1","enhet":"personer","tabellvariabel":"2495","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"2","enhet":"personer","tabellvariabel":"2564","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"3","enhet":"personer","tabellvariabel":"2550","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"4","enhet":"personer","tabellvariabel":"2501","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"5","enhet":"personer","tabellvariabel":"2419","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"12529","barnikommune":"innvandrerbakgr","kommuneNr":"0301"},{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0301"}])
+    "rows": queryRowParser([
+      {"aar":"2013","bhgalder":"1","enhet":"personer","tabellvariabel":"2495","barnikommune":"innvandrerbakgr","kommuneNr":"0301"}
+      ,{"aar":"2013","bhgalder":"2","enhet":"personer","tabellvariabel":"2564","barnikommune":"innvandrerbakgr","kommuneNr":"0301"}
+      ,{"aar":"2013","bhgalder":"3","enhet":"personer","tabellvariabel":"2550","barnikommune":"innvandrerbakgr","kommuneNr":"0301"}
+      ,{"aar":"2013","bhgalder":"4","enhet":"personer","tabellvariabel":"2501","barnikommune":"innvandrerbakgr","kommuneNr":"0301"}
+      ,{"aar":"2013","bhgalder":"5","enhet":"personer","tabellvariabel":"2419","barnikommune":"innvandrerbakgr","kommuneNr":"0301"}
+      ,{"aar":"2013","bhgalder":"1_5","enhet":"personer","tabellvariabel":"29824","barnikommune":"barn_ellers","kommuneNr":"0301"}
+      ,{"aar":"2013","bhgalder":"29","enhet":"personer","tabellvariabel":"11000","barnikommune":"barn_ellers","kommuneNr":"0301"}
+    ])
   },
   bar: {
     dimensions: ['fylkeNr', 'landbakgrunn'],
     unit: 'personer',
     rows: queryRowParser([
-      { 'aar': '2014', 'landbakgrunn': '101', 'enhet': 'personer', 'tabellvariabel': '3294', 'fylkeNr': 'Fryktelig lang og kjedelig label for denne dataserien som vi forsøker å få inn på X-aksen' }
+      { 'aar': '2014', 'landbakgrunn': '101', 'enhet': 'personer', 'tabellvariabel': '3294', 'fylkeNr': 'Fryktelig lang og kjedelig label for denne dataserien som vi forsøker å få inn på X-aksen' },
+      { 'aar': '2014', 'landbakgrunn': '102', 'enhet': 'personer', 'tabellvariabel': '3294', 'fylkeNr': 'Fryktelig lang og kjedelig label for denne dataserien som vi forsøker å få inn på X-aksen' }
     ])
   },
   bar2: {
@@ -339,6 +348,11 @@ class RenderTestPage extends Component {
       <div style={fullFloatStyle}>
       <h3>Bar width multiple</h3>
       <BarChart data={testData.barWidth}/>
+      </div>
+      <br style={{clear: 'left'}}/>
+      <div style={fullFloatStyle}>
+      <h3>Stacked width multiple</h3>
+      <StackedBarChart data={testData.barWidth}/>
       </div>
       <br style={{clear: 'left'}}/>
       <div style={fullFloatStyle}>

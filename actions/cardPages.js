@@ -41,6 +41,7 @@ export function performQuery(card, tab, userQuery) {
 
 export function loadCardPage({regionCode, pageName, activeCardName, activeTabName, query}) {
   return dispatch => {
+    debugger
     const getCardPage = apiClient.getCardPageByName(pageName)
 
     const getRegion = apiClient.getRegionByCode(regionCode)

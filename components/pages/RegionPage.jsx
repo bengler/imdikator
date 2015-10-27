@@ -50,7 +50,8 @@ class RegionPage extends Component {
       )
     }
     const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
-
+    let factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: region.prefixedCode})
+    factSheetLink = '#'
     return (
       <main className="page">
         <div className="page__content page__content--section">
@@ -89,8 +90,8 @@ class RegionPage extends Component {
                     Et dokument hvor et utdrag av alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.
                   </p>
                   <p>
-                    <a href="#" className="button button-">
-                      <i className="icon__download icon--white"></i> Last ned faktaark (PDF)
+                    <a href={factSheetLink} className="button button-">
+                      <i className="icon__download icon--white"></i> Last ned faktaark
                     </a>
                   </p>
                 </section>

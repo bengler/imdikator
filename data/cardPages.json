@@ -121,20 +121,16 @@
         ]
       },
       {
-        "name": "befolkning_verdensregion_nidelt",
-        "title": "Opprinnelse - verdensregion",
+        "name": "befolkning_verdensregion_aattedelt",
+        "title": "Opprinnelse - åtte verdensregioner",
         "query": {
-          "tableName": "befolkning_verdensregion",
+          "tableName": "befolkning_verdensregion_9",
           "unit": ["personer"],
           "dimensions": [
             {
-              "name": "vreg9"
-            },
-            {
-              "name": "kjonn",
-              "visible": false,
+              "name": "vreg9",
               "variables": [
-                "alle"
+                "asia", "afrika", "vest_europa", "eu_ost_europa", "nord_amerika_oseania", "sor_og_mellom_amerika", "ost_europa_ellers", "norden"
               ]
             }
           ]
@@ -151,19 +147,15 @@
       },
       {
         "name": "befolkning_verdensregion_femdelt",
-        "title": "Opprinnelse - verdensregion",
+        "title": "Opprinnelse - fem verdensregioner",
         "query": {
-          "tableName": "befolkning_verdensregion",
+          "tableName": "befolkning_verdensregion_6",
           "unit": ["personer"],
           "dimensions": [
             {
-              "name": "vreg5"
-            },
-            {
-              "name": "kjonn",
-              "visible": false,
+              "name": "vreg6",
               "variables": [
-                "alle"
+                "asia", "afrika", "europa", "nord_amerika_oseania", "sor_og_mellom_amerika"
               ]
             }
           ]
@@ -179,11 +171,11 @@
         "name": "befolkning_verdensregion_todelt",
         "title": "Opprinnelse - todelt",
         "query": {
-          "tableName": "befolkning_verdensregion",
+          "tableName": "befolkning_verdensregion_3",
           "unit": ["personer"],
           "dimensions": [
             {
-              "name": "vreg2"
+              "name": "vreg3"
             },
             {
               "name": "kjonn",
@@ -232,21 +224,52 @@
           "unit": ["personer"],
           "dimensions": [
             {
-              "name": "vreg3",
-              "visible": false,
-              "variables": [
-                "alle"
-              ]
-            },
-            {
               "name": "flytting",
-              "variables": "all"
+              "variables": [
+                "innvandring",
+                "utvandring",
+                "innflytting",
+                "utflytting",
+                "innvandring_og_innflytting",
+                "utvandring_og_utflytting",
+                "nettoinnvandring_og_nettoinnflytting"
+              ]
             },
             {
               "name": "innvkat3",
               "variables": [
                 "innvandrere",
                 "befolkningen_ellers"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "name": "flytting_verdensregion",
+        "title": "Flytting etter verdensregion",
+        "query": {
+          "tableName": "befolkning_flytting_vreg",
+          "unit": ["personer"],
+          "dimensions": [
+            {
+              "name": "flytting",
+              "variables": [
+                "innvandring",
+                "utvandring",
+                "innflytting",
+                "utflytting",
+                "innvandring_og_innflytting",
+                "utvandring_og_utflytting",
+                "nettoinnvandring_og_nettoinnflytting"
+              ]
+            },
+            {
+              "name": "vreg3",
+              "variables": [
+                "1","2"
               ]
             }
           ]
@@ -360,7 +383,8 @@
             {
               "name": "kjonn",
               "variables": [
-                "alle"
+                "0",
+                "1"
               ]
             }
           ]
@@ -394,7 +418,8 @@
             {
               "name": "kjonn",
               "variables": [
-                "alle"
+                "0",
+                "1"
               ]
             }
           ]
@@ -428,7 +453,8 @@
             {
               "name": "kjonn",
               "variables": [
-                "alle"
+                "0",
+                "1"
               ]
             }
           ]
@@ -672,10 +698,23 @@
           "unit": ["prosent"],
           "dimensions": [
             {
-              "name": "provetype"
+              "name": "provetype",
+              "variables": [
+                "muntlig",
+                "skriftlig",
+                "lytting",
+                "lese"
+              ]
             },
             {
-              "name": "spraaknivaa"
+              "name": "spraaknivaa",
+              "variables": [
+                "b1",
+                "a2",
+                "a1",
+                "under_a1",
+                "ikke_vurdert"
+              ]
             }
           ]
         },
@@ -744,10 +783,57 @@
         ]
       },
       {
-        "title": "Hva gjorde de etter introduksjonsprogrammet?",
+        "title": "Status etter introprogram",
+        "name": "status-etter-intro",
+        "query": {
+          "tableName": "intro_status_arbutd",
+          "unit": ["prosent"],
+          "dimensions": [
+            {
+              "name": "avslutta"
+            },
+            {
+              "name": "avslstat4"
+            },
+            {
+              "name": "kjonn"
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "title": "Introprogram: avslutningsårsaker",
         "name": "etter-intro",
         "query": {
-          "tableName": "intro_avslutning_direkte",
+          "tableName": "intro_avslutning_direkte_3",
+          "unit": ["personer"],
+          "dimensions": [
+            {
+              "name": "avslutningArsak3",
+              "variables": [
+                "arbutd",
+                "annet"
+              ]
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "title": "Introprogram: avslutningsårsaker finmasket",
+        "name": "etter-intro-finmasket",
+        "query": {
+          "tableName": "intro_avslutning_direkte_8",
           "unit": ["personer"],
           "dimensions": [
             {
@@ -765,8 +851,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "0",
-                "1"
+                "alle"
               ]
             }
           ]

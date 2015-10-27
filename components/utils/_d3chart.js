@@ -216,7 +216,7 @@ class Chart {
     .append('line')
     .attr('class', 'benchmark--line')
     .attr('x1', -this.margins.left)
-    .attr('x2', this.size.width)
+    .attr('x2', this.fullWidth)
     .attr('y1', 0)
     .attr('y2', 0)
 

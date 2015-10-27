@@ -66,6 +66,7 @@ class Chart {
     const result = {
       left: axislabelLength + 10, // Add some space for the actual axis and tick marks
       top: axislabelHeight,
+      right: 15
     }
     return result
   }

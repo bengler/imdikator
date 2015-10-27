@@ -185,15 +185,8 @@ export default class LineChart extends React.Component {
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
-    voronoiGroup.selectAll('path')
-    .data(voronoi(voronoiData))
-    .enter().append('path')
-    .attr('d', item => `M${item.join('L')}Z`)
-    .datum(dataItem => dataItem.point)
-    .style('fill', 'none')
-    .style('stroke', 'none')
-    .style('pointer-events', 'all')
-    .on('mouseover', item => {
+    let hoveropen = false
+    const open = item => {
       focus
       .attr('transform', this.translation(x(item.date), item.y))
       .attr('fill', item.color)
@@ -202,11 +195,31 @@ export default class LineChart extends React.Component {
         body: item.formattedValue,
         el: focus.node()
       })
-    })
-    .on('mouseout', item => {
+      hoveropen = true
+    }
+    const close = () => {
       focus.attr('transform', 'translate(-100,-100)')
       this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
+
+    voronoiGroup.selectAll('path')
+    .data(voronoi(voronoiData))
+    .enter().append('path')
+    .attr('d', item => `M${item.join('L')}Z`)
+    .datum(dataItem => dataItem.point)
+    .style('fill', 'none')
+    .style('stroke', 'none')
+    .style('pointer-events', 'all')
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
     })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
 
     /* eslint-disable prefer-reflect */
     const xAxisEl = svg.append('g')

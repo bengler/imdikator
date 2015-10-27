@@ -161,16 +161,8 @@ export default class StackedAreaChart extends React.Component {
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
 
-    voronoiGroup.selectAll('path')
-    .data(voronoi(voronoiData))
-    .enter()
-    .append('path')
-    .attr('d', item => `M${item.join('L')}Z`)
-    .datum(dataItem => dataItem.point)
-    .style('fill', 'none')
-    .style('stroke', 'none')
-    .style('pointer-events', 'all')
-    .on('mouseover', item => {
+    let hoveropen = false
+    const open = item => {
       const xPos = x(item.date)
       const yPos = y(item.y + item.y0)
       focus.attr('transform', this.translation(xPos, yPos))
@@ -180,11 +172,31 @@ export default class StackedAreaChart extends React.Component {
         body: yc.format(item.y),
         el: focus.node()
       })
-    })
-    .on('mouseout', () => {
+      hoveropen = true
+    }
+    const close = () => {
       this.eventDispatcher.emit('datapoint:hover-out')
-      focus.attr('transform', this.translation(-100, -100))
+      hoveropen = false
+    }
+
+    voronoiGroup.selectAll('path')
+    .data(voronoi(voronoiData))
+    .enter()
+    .append('path')
+    .attr('d', item => `M${item.join('L')}Z`)
+    .datum(dataItem => dataItem.point)
+    .style('fill', 'none')
+    .style('stroke', 'none')
+    .style('pointer-events', 'all')
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
     })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
 
     // Add the X axis
     /* eslint-disable prefer-reflect */

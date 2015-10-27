@@ -88,6 +88,19 @@ export default class StackedBarChart extends Component {
     .attr('class', 'category')
     .attr('transform', cat => this.translation(x0(cat.title), 0))
 
+    let hoveropen = false
+    const open = item => {
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.title,
+        body: item.formattedValue,
+        el: item.el
+      })
+      hoveropen = true
+    }
+    const close = () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
     category.selectAll('rect')
     .data(cat => cat.values)
     .enter().append('rect')
@@ -100,16 +113,15 @@ export default class StackedBarChart extends Component {
       item.el = this
     })
     .attr('pointer-events', 'all')
-    .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
-        body: yc.format(item.y),
-        el: item.el
-      })
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
     })
-    .on('mouseout', () => {
-      this.eventDispatcher.emit('datapoint:hover-out')
-    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
 
     // Add X axis
     /* eslint-disable prefer-reflect */

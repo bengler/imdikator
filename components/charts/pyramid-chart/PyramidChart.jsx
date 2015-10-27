@@ -145,17 +145,18 @@ export default class PyramidChart extends React.Component {
     .attr('transform', (item, i) => this.translation(outerXScale(item.title), 0))
 
     // The bars
-
-    const mouseover = item => {
+    let hoveropen = false
+    const open = item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
         body: item.formattedValue,
         el: item.el
       })
+      hoveropen = true
     }
-
-    const mouseout = () => {
+    const close = () => {
       this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
     }
 
     // Left side
@@ -191,8 +192,15 @@ export default class PyramidChart extends React.Component {
     .attr('y', dataItem => yScale(dataItem.title))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout)
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
+    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
 
     // Right side
     const rightBarGroup = category.append('g')
@@ -227,8 +235,15 @@ export default class PyramidChart extends React.Component {
     .attr('y', dataItem => yScale(dataItem.title))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout)
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
+    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
 
     // The axis
     /* eslint-disable prefer-reflect */

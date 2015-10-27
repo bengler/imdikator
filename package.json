@@ -9,7 +9,7 @@
     "watch-test": "npm run test -- --watch",
     "cover": "babel-istanbul --report=text --report=html cover _mocha -- --reporter=dot",
     "publish-coverage-report": "babel-istanbul --print=none --report=html --dir=./public/coverage cover _mocha -- --reporter=dot",
-    "test": "npm run mocha -- ./test ./test-integration",
+    "test": "npm run mocha -- ./test ./test-integration && npm run lint",
     "mocha": "mocha",
     "test-unit": "mocha ./test",
     "test-integration": "mocha ./test-integration",
@@ -18,17 +18,12 @@
     "lint": "eslint --quiet --ext .jsx,.js .",
     "compile-assets": "staticr --require babel/register public ./static-routes",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
-    "import-groups": "DEBUG=imdikator* babel-node ./bin/importGroups",
     "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar",
     "import-card-descriptions": "DEBUG=imdikator* babel-node ./bin/importCardDescriptions",
     "import-chart-description-labels": "DEBUG=imdikator* babel-node ./bin/importChartDescriptionLabels",
     "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
-    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables",
-    "pre-commit-check": "npm run test-unit && (npm run lint -- --quiet || (echo 'Warning: project has lint errors. Please fix and re-commit with `git commit --amend`' && echo ''))"
+    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
   },
-  "pre-commit": [
-    "pre-commit-check"
-  ],
   "dependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.0.10",

@@ -120,10 +120,12 @@ class FilterBar extends Component {
       this.handleFilterChange(dimension, value)
     }
 
+    const disabled = dimension.locked || choices.length == 1
+
     const selectContainerClassName = cx({
       select: true,
       'subtle-select__select': true,
-      'subtle-select__select--disabled': dimension.locked
+      'subtle-select__select--disabled': disabled
     })
 
     const value = this.getDimensionValueFromQuery(dimension.name)
@@ -148,7 +150,7 @@ class FilterBar extends Component {
         <div className={selectContainerClassName}>
           <select
             value={index}
-            disabled={dimension.locked || choices.length == 1}
+            disabled={disabled}
             onChange={onChange}>
             {choices.map((choice, i) => (
               <option value={i} key={i}>{this.renderChoice(dimension.name, choice, choices)}</option>

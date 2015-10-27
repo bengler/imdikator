@@ -56,7 +56,7 @@ export default [
       return `Bosatte ${options.share} flyktninger per tusen innbygger i år ${options.aar}`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share} ‰`
+      return `For hele landet er tallet ${options.share}`
     },
   },
   {
@@ -112,7 +112,7 @@ export default [
       return `${options.share} av ${options.innvkat3.replace('_', ' ')} er i arbeid`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share} %`
+      return `For hele landet er tallet ${options.share}`
     },
   },
   {
@@ -144,7 +144,7 @@ export default [
       return `${options.share} av innvandrerne går direkte fra introprogram til arbeid/utdanning`
     },
     subTitle: options => {
-      return `Gjennomsnittet i Norge er ${options.share} %`
+      return `Gjennomsnittet i Norge er ${options.share}`
     },
   }
 ]

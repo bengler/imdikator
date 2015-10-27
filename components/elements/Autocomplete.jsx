@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
-const scrollIntoView = require('dom-scroll-into-view')
+import scrollIntoView from 'dom-scroll-into-view'
 
 /**
  * Based on https://github.com/rackt/react-autocomplete

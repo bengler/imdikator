@@ -1,4 +1,4 @@
-Imdikator frontend
+Imdikator frontend [![Build Status](https://travis-ci.org/bengler/imdikator.svg)](https://travis-ci.org/bengler/imdikator)
 ==================
 
 # Prerequisites

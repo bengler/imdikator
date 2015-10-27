@@ -7217,8 +7217,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#0c195623e29ade03649d4c44bd1202fe425ba082"
+      "from": "netliferesearch/imdi-styles",
+      "resolved": "git://github.com/netliferesearch/imdi-styles.git#0c195623e29ade03649d4c44bd1202fe425ba082"
     },
     "jsdom": {
       "version": "3.1.2",

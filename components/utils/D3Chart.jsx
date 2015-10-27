@@ -38,6 +38,11 @@ export default class D3Chart extends React.Component {
       width: '100%',
       height: '100%'
     }, this.getChartState(), this.props.functions, this.config())
+
+    this.resizeFunction = () => {
+      this.resizeThrottler()
+    }
+    window.addEventListener('resize', this.resizeFunction, false)
   }
 
   componentDidUpdate() {
@@ -47,9 +52,26 @@ export default class D3Chart extends React.Component {
 
   componentWillUnmount() {
     this.eventEmitter.removeAllListeners()
+    if (this.resizeFunction) {
+      window.removeEventListener('resize', this.resizeFunction, false)
+    }
     const el = findDOMNode(this)
     this.chart.destroy(el)
   }
+
+  resizeThrottler() {
+    // ignore resize events as long as an actualResizeHandler execution is in the queue
+    if (!this.resizeTimeout) {
+      this.resizeTimeout = setTimeout(() => {
+        this.resizeTimeout = null
+        const el = findDOMNode(this)
+        if (el) {
+          this.chart.update(el, this.getChartState(), this.config())
+        }
+      }, 66) // 15 fps (1000 / 15)
+    }
+  }
+
 
   config() {
     return Object.assign({

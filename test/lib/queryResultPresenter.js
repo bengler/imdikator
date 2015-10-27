@@ -130,7 +130,7 @@ describe('queryResultPresenter', () => {
     const result = [{tabellvariabel: ':'}]
     const pres = queryResultPresenter(QUERY, result, {chartKind: 'bar'})
     assert.property(pres.rows[0], 'formattedValue')
-    assert.equal(pres.rows[0].formattedValue, 'Under 5')
+    assert.equal(pres.rows[0].formattedValue, 'Skjult av personvernshensyn')
   })
 
   it('marks missing data', () => {

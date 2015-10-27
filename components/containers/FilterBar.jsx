@@ -123,7 +123,7 @@ class FilterBar extends Component {
     const selectContainerClassName = cx({
       select: true,
       'subtle-select__select': true,
-      'subtle-select__select--disabled': !dimension.enabled
+      'subtle-select__select--disabled': dimension.locked
     })
 
     const value = this.getDimensionValueFromQuery(dimension.name)

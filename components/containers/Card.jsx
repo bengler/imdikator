@@ -161,7 +161,7 @@ class Card extends Component {
         </div>
         <div className="graph__functions">
           <button type="button" className="button button--secondary button--small">
-            <i className="icon__export"></i> Lenke til grafen
+            <i className="icon__export"></i> Lenke til figuren
           </button>
           <button type="button" className="button button--secondary button--small">
             <i className="icon__download"></i> Last ned

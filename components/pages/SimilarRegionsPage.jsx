@@ -43,7 +43,8 @@ class SimilarRegionsPage extends Component {
         </div>
       )
     }
-    const similarRegions = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
+
+    const similarRegions = allRegions.filter(isSimilarRegion(region))
 
     return (
       <main className="page">
@@ -78,7 +79,7 @@ class SimilarRegionsPage extends Component {
             </div>
             <div className="row">
               <div className="col--main">
-                <a href={this.context.linkTo('/steder/:region', {region: region.prefixedCode})} className="button">Gå til figuren for å sammenligne</a>
+                <a href={this.context.linkTo('/steder/:region', {region: region.prefixedCode})} className="button">Gå til oppsummeringen for å sammenligne</a>
               </div>
             </div>
           </div>
@@ -103,7 +104,9 @@ class SimilarRegionsPage extends Component {
                         {similarRegions.map(similarRegion => {
                           return (
                             <li key={similarRegion.code}>
-                              <a className="navigation__link navigation__link--primary" href={this.context.linkTo('/steder/:region', {region: similarRegion.prefixedCode})}>{similarRegion.name}</a>
+                              <a className="navigation__link navigation__link--primary"
+                                href={this.context.linkTo('/steder/:region', {region: similarRegion.prefixedCode})}>{similarRegion.name}
+                              </a>
                             </li>
                           )
                         })}

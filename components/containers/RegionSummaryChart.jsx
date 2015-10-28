@@ -131,6 +131,8 @@ class RegionSummaryChart extends Component {
     })
     const similarUrl = this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
 
+    const comparisonDescription = region.type == 'municipality' ? 'lignende' : 'andre'
+
     return (
       <div className="col--third col--flow">
         <section className="indicator">
@@ -143,7 +145,7 @@ class RegionSummaryChart extends Component {
           </div>
           {isNotNorway && region.type == 'municipality'
             && <p className="indicator__subtext">
-              {region.name} og <a href={similarUrl}>lignende {_t(`several-${region.type}`)}</a>
+              {region.name} og <a href={similarUrl}>{comparisonDescription} {_t(`several-${region.type}`)}</a>
             </p>
           }
           {isNotNorway && region.type == 'commerceRegion'

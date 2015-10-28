@@ -36,10 +36,14 @@ export default class RegionInfo extends Component {
 
           {region.type == 'municipality'
             && county
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: county.prefixedCode})}>{county.name}</a> fylke og er en del av <a href={this.context.linkTo('/steder/:region', {region: commerceRegion.prefixedCode})}>{commerceRegion.name}</a>.</span>
+            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: county.prefixedCode})}>{county.name}</a> fylke og er en del av næringsregionen <a href={this.context.linkTo('/steder/:region', {region: commerceRegion.prefixedCode})}>{commerceRegion.name}</a>.</span>
           }
 
-          <span> Se <a href={this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})}>andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
+          {region.type == 'municipality'
+          && <span> Se <a href={this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})}>andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
+          }
+
+
         </p>
       </div>
     )

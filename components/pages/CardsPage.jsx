@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import Card from '../containers/Card'
 import {connect} from 'react-redux'
-import {loadCardPage} from '../../actions/cardPages'
+import {loadCardPageData} from '../../actions/cardPages'
 import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtons from '../containers/CardPageButtons'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
@@ -14,7 +14,7 @@ function loadData(props) {
   const prefixedRegionCode = route.params.region.split('-')[0].toUpperCase()
   const {pageName, cardName, tabName = 'latest'} = route.params
   // This may be hooked up at a higher level
-  dispatch(loadCardPage({pageName, regionCode: prefixedRegionCode, activeCardName: cardName, activeTabName: tabName}))
+  dispatch(loadCardPageData({pageName, regionCode: prefixedRegionCode, activeCardName: cardName, activeTabName: tabName}))
 
   if (cardName) {
     dispatch(openCard(cardName))
@@ -114,7 +114,7 @@ class CardsPage extends Component {
                       <li key={card.name}>
                         <section className="toggle-list">
                           {this.renderToggleCardLink(card)}
-                          {isOpen && <Card card={card}/>}
+                          {isOpen && <Card card={card} pageName={pageConfig.name}/>}
                         </section>
                       </li>
                     )
@@ -146,7 +146,7 @@ class CardsPage extends Component {
 // Note: use https://github.com/faassen/reselect for better performance.
 function mapStateToProps(state) {
   return {
-    pageConfig: state.cardPage,
+    pageConfig: state.cardPageData,
     region: state.region,
     openCards: state.openCards,
     allRegions: state.allRegions

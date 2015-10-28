@@ -66,7 +66,7 @@
     "react-a11y": "^0.2.6",
     "react-addons-update": "^0.14.0",
     "react-docgen": "^2.1.2",
-    "react-dom": "^0.14.0",
+    "react-dom": "^0.14.1",
     "react-redux": "^4.0.0",
     "rebundler": "^0.2.0",
     "redocify": "^1.0.1",

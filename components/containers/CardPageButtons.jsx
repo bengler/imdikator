@@ -68,7 +68,7 @@ class CardPageButtons extends Component {
 
 function mapStateToProps(state) {
   return {
-    pageConfig: state.cardPage,
+    pageConfig: state.cardPageData,
     cardPages: state.cardPages,
     region: state.region
   }

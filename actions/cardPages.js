@@ -39,10 +39,9 @@ export function performQuery(card, tab, userQuery) {
   }
 }
 
-export function loadCardPage({regionCode, pageName, activeCardName, activeTabName, query}) {
+export function loadCardPageData({regionCode, pageName, activeCardName, activeTabName, query}) {
   return dispatch => {
-    debugger
-    const getCardPage = apiClient.getCardPageByName(pageName)
+    const getCardPageData = apiClient.getCardPageByName(pageName)
 
     const getRegion = apiClient.getRegionByCode(regionCode)
 
@@ -53,10 +52,10 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       })
     })
 
-    getCardPage.then(cardPage => {
+    getCardPageData.then(cardPageData => {
       dispatch({
         type: RECEIVE_CARD_PAGE_DATA,
-        cardPage
+        cardPageData
       })
     })
 
@@ -64,8 +63,8 @@ export function loadCardPage({regionCode, pageName, activeCardName, activeTabNam
       return
     }
 
-    const getActiveCard = getCardPage.then(cardPage => {
-      return cardPage.cards.find(card => card.name === activeCardName)
+    const getActiveCard = getCardPageData.then(cardPageData => {
+      return cardPageData.cards.find(card => card.name === activeCardName)
     })
 
     const getActiveTab = getActiveCard.then(card => {

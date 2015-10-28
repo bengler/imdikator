@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import resolveQuery from '../../lib/resolveQuery'
+import resolveQuery from '../../../lib/resolveQuery'
 
 describe('resolveQuery', () => {
 

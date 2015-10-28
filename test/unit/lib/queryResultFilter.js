@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {queryResultFilter} from '../../lib/queryResultFilter'
+import {queryResultFilter} from '../../../lib/queryResultFilter'
 
 describe('queryResultFilter', () => {
 

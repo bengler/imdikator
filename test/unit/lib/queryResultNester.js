@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {queryResultNester, nestedQueryResultLabelizer} from '../../lib/queryResultNester'
+import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 //const util = require('util')
 

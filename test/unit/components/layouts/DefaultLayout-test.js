@@ -2,7 +2,7 @@ import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import {findInShallowRenderTree} from '../_react-utils/findInShallowRenderTree.js'
 import {assert} from 'chai'
-import DefaultLayout from '../../../components/layouts/DefaultLayout'
+import DefaultLayout from '../../../../components/layouts/DefaultLayout'
 
 describe('DefaultLayout', () => {
 

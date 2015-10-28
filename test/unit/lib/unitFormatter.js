@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {unitFormatter} from '../../lib/unitFormatter'
+import {unitFormatter} from '../../../lib/unitFormatter'
 
 describe('unitFormatter', () => {
   it('returns an object with format and axisFormat functions', () => {

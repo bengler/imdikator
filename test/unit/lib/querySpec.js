@@ -1,6 +1,6 @@
 import {assert} from 'chai'
-import {getQuerySpec} from '../../lib/querySpec'
-import {CHARTS} from '../../config/chartTypes'
+import {getQuerySpec} from '../../../lib/querySpec'
+import {CHARTS} from '../../../config/chartTypes'
 
 const HEADER_GROUP = {
   aar: ['2010', '2012'],
@@ -263,6 +263,56 @@ describe('getQuerySpec', () => {
             name: 'kjonn',
             locked: false,
             choices: [['alle'], ['0'], ['1']]
+          },
+          {
+            name: 'unit',
+            fixed: true,
+            locked: false,
+            choices: [['prosent'], ['personer']]
+          }
+        ])
+      })
+    })
+    describe('with configured dimensions', () => {
+
+      it('works', () => {
+        const query = Object.assign({}, QUERY, {
+          year: ['2010'],
+          comparisonRegions: []
+        })
+        const viewOpts = {
+          tab: {name: 'latest'},
+          headerGroup: HEADER_GROUP,
+          chart: CHARTS.bar,
+          dimensionsConfig: {
+            innvkat5: {
+              include: ['innvandrere', 'bef_u_innv_og_norskf', 'norskfodte_m_innvf']
+            }
+          }
+        }
+        const actual = getQuerySpec(query, viewOpts)
+        assert.deepEqual(actual, [
+          {
+            name: 'comparisonRegions',
+            fixed: true,
+            locked: false,
+            choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
+          },
+          {
+            name: 'year',
+            fixed: true,
+            locked: false,
+            choices: [['2010'], ['2012']]
+          },
+          {
+            name: 'innvkat5',
+            locked: true,
+            choices: [['innvandrere', 'bef_u_innv_og_norskf', 'norskfodte_m_innvf']]
+          },
+          {
+            name: 'kjonn',
+            locked: false,
+            choices: [['alle'], ['0', '1']]
           },
           {
             name: 'unit',

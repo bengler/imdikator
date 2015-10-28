@@ -1,6 +1,6 @@
 import {assert} from 'chai'
 
-import {queryResultPresenter} from '../../lib/queryResultPresenter'
+import {queryResultPresenter} from '../../../lib/queryResultPresenter'
 
 const QUERY = {
   tableName: 'befolkninghovedgruppe',

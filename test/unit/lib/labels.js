@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {dimensionLabelTitle} from '../../lib/labels'
+import {dimensionLabelTitle} from '../../../lib/labels'
 
 describe('Title for category', () => {
   it('returns the title stored in data/dimensions.json', () => {

@@ -1,6 +1,6 @@
 import {assert} from 'chai'
-import {queryToOptions, describeChart} from '../../lib/chartDescriber'
-import allRegions from '../fixtures/mockRegions'
+import {queryToOptions, describeChart} from '../../../lib/chartDescriber'
+import allRegions from '../../fixtures/mockRegions'
 
 describe('queryToOptions', () => {
   // nedbrytning vs avgrensning:

@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {canStack} from '../../lib/canStack'
+import {canStack} from '../../../lib/canStack'
 
 const QUERY = {
   tableName: 'befolkninghovedgruppetidsserie',

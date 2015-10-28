@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {chartForQuery} from '../../lib/chartForQuery'
+import {chartForQuery} from '../../../lib/chartForQuery'
 
 describe('chartForQuery', () => {
   it('selects the preferred chartKind of no other was determined', () => {

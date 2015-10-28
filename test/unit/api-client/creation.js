@@ -1,6 +1,6 @@
 import {assert} from 'chai'
-import * as APIClient from '../../lib/api-client'
-import * as json from '../../lib/http/json'
+import * as APIClient from '../../../lib/api-client'
+import * as json from '../../../lib/http/json'
 
 describe('Creating a client', () => {
   it('throws an error if required options are missing', () => {

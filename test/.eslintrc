@@ -4,6 +4,7 @@
   },
   "rules": {
     "complexity": [1, 5],
-    "max-nested-callbacks": [1, 5]
+    "max-nested-callbacks": [1, 5],
+    "arrow-parens": 0 // due to https://github.com/eslint/eslint/issues/3354
   }
 }

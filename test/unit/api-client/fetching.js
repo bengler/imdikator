@@ -1,6 +1,6 @@
 //import {assert} from 'chai'
 import sinon, {assert} from 'sinon'
-import * as APIClient from '../../lib/api-client'
+import * as APIClient from '../../../lib/api-client'
 
 describe('Fetching tables using API client', () => {
   it('can retrieve headers for a given table', () => {

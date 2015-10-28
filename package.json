@@ -13,6 +13,7 @@
     "mocha": "mocha",
     "test-unit": "mocha ./test/unit",
     "test-integration": "mocha ./test/integration",
+    "bench": "test/benchmarks/all.sh",
     "start": "remon --require ./.init.js ./bin/server.js",
     "bloat": "staticr --stdout --require ./.init.js --route /js/bundles/main.js static-routes/browserify-bundles.js | discify --open",
     "lint": "eslint --quiet --ext .jsx,.js .",

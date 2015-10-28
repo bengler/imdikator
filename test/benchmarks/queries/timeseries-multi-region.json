@@ -1,0 +1,39 @@
+{
+  "TableName": "befolkning_hovedgruppe",
+  "Include": [
+    "innvkat5",
+    "kjonn",
+    "kommuneNr",
+    "enhet",
+    "aar"
+  ],
+  "Conditions": {
+    "innvkat5": [
+      "alle"
+    ],
+    "kjonn": [
+      "alle"
+    ],
+    "kommuneNr": [
+      "0301",
+      "0104",
+      "0105",
+      "0106",
+      "0219",
+      "0220",
+      "0228",
+      "0235",
+      "0230",
+      "0602",
+      "1001",
+      "1102",
+      "0231",
+      "1601",
+      "1201",
+      "1103"
+    ],
+    "enhet": [
+      "personer"
+    ]
+  }
+}

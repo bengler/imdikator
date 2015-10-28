@@ -1,0 +1,29 @@
+{
+  "TableName": "befolkning_hovedgruppe",
+  "Include": [
+    "innvkat5",
+    "kjonn",
+    "kommuneNr",
+    "enhet",
+    "aar"
+  ],
+  "Conditions": {
+    "innvkat5": [
+      "innvandrere",
+      "bef_u_innv_og_norskf",
+      "norskfodte_m_innvf"
+    ],
+    "kjonn": [
+      "alle"
+    ],
+    "kommuneNr": [
+      "0301"
+    ],
+    "enhet": [
+      "personer"
+    ],
+    "aar": [
+      "2015"
+    ]
+  }
+}

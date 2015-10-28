@@ -141,9 +141,19 @@ class RegionSummaryChart extends Component {
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
-          {isNotNorway
+          {isNotNorway && region.type == 'municipality'
             && <p className="indicator__subtext">
               {region.name} og <a href={similarUrl}>lignende {_t(`several-${region.type}`)}</a>
+            </p>
+          }
+          {isNotNorway && region.type == 'commerceRegion'
+            && <p className="indicator__subtext">
+              {region.name} og <a href={similarUrl}> de andre næringsregionene i samme fylke</a>
+            </p>
+          }
+          {isNotNorway && region.type != 'municipality' && region.type != 'commerceRegion'
+            && <p className="indicator__subtext">
+              {region.name} og <a href={similarUrl}> de andre {_t(`those-${region.type}`)}</a>
             </p>
           }
           <a href={drillDownUrl} className="button button--secondary indicator__cta">{chartQuery.drillDown.buttonTitle}</a>

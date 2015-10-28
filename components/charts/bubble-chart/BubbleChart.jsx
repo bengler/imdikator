@@ -85,6 +85,29 @@ export default class BubbleChart extends React.Component {
     .attr('class', 'node')
     .attr('transform', item => this.translation(item.x, item.y))
 
+    let hoveropen = false
+    const open = item => {
+      if (item.depth < 1) {
+        return
+      }
+      if (item.depth == 1 && !multipleRegions) {
+        return
+      }
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.title,
+        body: item.formattedValue,
+        el: item.el
+      })
+      hoveropen = true
+    }
+    const close = item => {
+      if (item.depth < 1) {
+        return
+      }
+      this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
+
     node.append('circle')
     .attr('r', item => item.r)
     .style('fill', item => item.fill)
@@ -98,25 +121,15 @@ export default class BubbleChart extends React.Component {
     .each(function (dataItem) {
       dataItem.el = this
     })
-    .on('mouseover', item => {
-      if (item.depth < 1) {
-        return
+    .on('touchend', item => {
+      if (hoveropen) {
+        close(item)
+      } else {
+        open(item)
       }
-      if (item.depth == 1 && !multipleRegions) {
-        return
-      }
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
-        body: item.formattedValue,
-        el: item.el
-      })
     })
-    .on('mouseout', item => {
-      if (item.depth < 1) {
-        return
-      }
-      this.eventDispatcher.emit('datapoint:hover-out')
-    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', item => close(item))
 
     node.append('text')
     .attr('dy', '.3em')

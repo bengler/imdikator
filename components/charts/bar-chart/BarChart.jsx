@@ -131,6 +131,19 @@ export default class BarChart extends React.Component {
       item.el = this
     })
 
+    let hoveropen = false
+    const open = item => {
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.title,
+        body: item.formattedValue,
+        el: item.el
+      })
+      hoveropen = true
+    }
+    const close = () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
     category.selectAll('rect.hover')
     .data(dataItem => dataItem.values)
     .enter()
@@ -143,16 +156,15 @@ export default class BarChart extends React.Component {
     .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
-    .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
-        body: item.formattedValue,
-        el: item.el
-      })
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
     })
-    .on('mouseout', () => {
-      this.eventDispatcher.emit('datapoint:hover-out')
-    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend

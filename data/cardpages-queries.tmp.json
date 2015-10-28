@@ -10,7 +10,7 @@
         "tabs": [
           {
             "name": "currentYear",
-            "title": "Nåtid",
+            "title": "Enkeltår",
             "chartKind": "bar",
             "query": {
               "table": "befolkninghovedgruppe",

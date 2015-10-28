@@ -46,7 +46,7 @@ export default [
     },
     drillDown: {
       page: 'befolkning',
-      card: 'befolkning_innvandringsgrunn',
+      card: 'flyktninger_befolkningsandel',
       buttonTitle: 'Gå til innvandringsårsak'
     },
     chartKind: 'benchmark',

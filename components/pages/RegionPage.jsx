@@ -50,8 +50,8 @@ class RegionPage extends Component {
       )
     }
     const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
-    let factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: region.prefixedCode})
-    factSheetLink = '#'
+    const factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: region.prefixedCode})
+
     return (
       <main className="page">
         <div className="page__content page__content--section">

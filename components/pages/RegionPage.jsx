@@ -119,8 +119,8 @@ class RegionPage extends Component {
         </div>
 
         {
-        allRegions.length &&
-        <div className="page__footer">
+        allRegions.length
+        && <div className="page__footer">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">

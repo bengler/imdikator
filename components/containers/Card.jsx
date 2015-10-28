@@ -9,13 +9,14 @@ import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
+import {loadAllRegions} from '../../actions/region'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
-//import {performQuery} from '../../actions/cardPages'
 
 class Card extends Component {
   static propTypes = {
     card: PropTypes.object,
+    pageName: PropTypes.string,
     region: PropTypes.object,
     query: PropTypes.object,
     data: PropTypes.object,
@@ -32,9 +33,14 @@ class Card extends Component {
     goTo: PropTypes.func
   }
 
+  componentWillMount() {
+    this.props.dispatch(loadAllRegions())
+  }
+
   makeLinkToTab(tab) {
     return this.context.linkTo('/steder/:region/:pageName/:cardName/:tabName', {
       cardName: this.props.card.name,
+      pageName: this.props.pageName,
       tabName: tab.name
     })
   }
@@ -116,7 +122,7 @@ class Card extends Component {
   render() {
     const {card, activeTab, headerGroup, query, region, allRegions} = this.props
 
-    if (!card || !activeTab || !region) {
+    if (!card || !activeTab || !region || !allRegions) {
       return null
     }
 

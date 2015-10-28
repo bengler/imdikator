@@ -60,7 +60,7 @@ class RegionPage extends Component {
               <div className="col--main-wide">
                 <header>
                   <h1>{region.name} {_t(region.type)}</h1>
-                  <p className="ingress">Tall og statistikk over integreringen i {_t(`the-${region.type}`)}</p>
+                  <p className="ingress">Tall og statistikk om integrering i {_t(`the-${region.type}`)}</p>
                   <CardPageButtons />
                 </header>
               </div>
@@ -118,6 +118,8 @@ class RegionPage extends Component {
           </div>
         </div>
 
+        {
+        allRegions.length &&
         <div className="page__footer">
           <div className="wrapper">
             <div className="row">
@@ -129,6 +131,7 @@ class RegionPage extends Component {
             </div>
           </div>
         </div>
+        }
       </main>
     )
   }

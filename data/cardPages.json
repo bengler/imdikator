@@ -6,7 +6,7 @@
     "cards": [
       {
         "name": "befolkning_hovedgruppe",
-        "title": "Sammensetning",
+        "title": "Sammensetning av befolkning",
         "query": {
           "tableName": "befolkning_hovedgruppe",
           "comparisonRegions": [],
@@ -38,7 +38,7 @@
       },
       {
         "name": "befolkning_alder",
-        "title": "Aldersgrupper",
+        "title": "Aldersgrupper og kjønn",
         "query": {
           "tableName": "befolkning_alder",
           "unit": ["personer"],
@@ -312,23 +312,12 @@
           "unit": ["personer"],
           "dimensions": [
             {
-              "name": "bosetting"
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "issue": "should be line chart – and area chart",
-        "name": "bosatt_edtak",
-        "title": "Flyktninger som ble bosatt",
-        "query": {
-          "tableName": "bosatt_vedtak",
-          "unit": ["prosent"],
-          "dimensions": [
-            {
-              "name": "bosetting"
+              "name": "bosetting",
+              "variables": [
+                "anmodning",
+                "vedtak",
+                "bosatt"
+              ]
             }
           ]
         },
@@ -337,7 +326,7 @@
       },
       {
         "name": "flyktninger_befolkningsandel",
-        "title": "Andel flyktninger av befolkningen",
+        "title": "Bosatte flyktninger som andel av befolkningen",
         "query": {
           "tableName": "bosatt_befolkning",
           "unit": ["promille"],
@@ -358,9 +347,8 @@
     "groupKind": "mainGroup",
     "cards": [
       {
-        "issue": "should not be stacked (why art thou stacked?)",
         "name": "utdanningsniva-grunnskole",
-        "title": "Utdanningsnivå - Grunnskole",
+        "title": "Grunnskole som høyeste utdanningsnivå",
         "query": {
           "tableName": "utdanningsniva",
           "unit": ["prosent"],
@@ -393,9 +381,8 @@
         ]
       },
       {
-        "issue": "should not be stacked (why art thou stacked?)",
-        "title": "Utdanningsnivå  - Videregående",
         "name": "utdanningsniva-videregaaende",
+        "title": "Videregående som høyeste utdanningsnivå",
         "query": {
           "tableName": "utdanningsniva",
           "unit": ["prosent"],
@@ -429,7 +416,7 @@
       },
       {
         "issue": "should not be stacked (why art thou stacked?)",
-        "title": "Utdanningsnivå  - Universitet og høyskole",
+        "title": "Universitet og høyskole som høyeste utdanningsnivå",
         "name": "utdanningsniva-universitet-og-hoyskole",
         "query": {
           "tableName": "utdanningsniva",
@@ -496,8 +483,8 @@
         ]
       },
       {
-        "title": "Barnehagedeltagelse - Forhold mellom alle og minoriteter",
         "name": "barnehage-forholde-minoriteter",
+        "title": "Barn: forholdet mellom alle og minoriteter",
         "query": {
           "tableName": "barnehagedeltakelse",
           "unit": ["personer"],
@@ -526,8 +513,8 @@
         ]
       },
       {
-        "title": "Barnehagedeltagelse – Forhold mellom alle og minoriteter",
         "name": "barnehage-alder-minoriteter",
+        "title": "Barnehagedeltakelse etter alder",
         "query": {
           "tableName": "barnehagedeltakelse",
           "unit": ["personer"],
@@ -555,7 +542,6 @@
         ]
       },
       {
-        "issue": "NB: mye mer data på fylkes og muligens også for næringsregioner",
         "name": "gjennomsnittlige-grunnskolepoeng",
         "title": "Gjennomsnittlige grunnskolepoeng",
         "query": {
@@ -609,8 +595,8 @@
         ]
       },
       {
-        "title": "Ble ferdig med videregående innen fem år",
         "name": "ferdig-med-videregaaende",
+        "title": "Fullført videregående innen fem år, etter kjønn",
         "query": {
           "tableName": "videregaende_fullfort",
           "unit": ["prosent"],
@@ -691,6 +677,29 @@
         ]
       },
       {
+        "issue": "behov for sortering!",
+        "title": "Norskopplæring - antall deltagere",
+        "name": "norskopplaering-antall-deltagere",
+        "query": {
+          "tableName": "norsk_deltakere",
+          "unit": ["personer"],
+          "dimensions": [
+            {
+              "name": "rettigheterIntrolovNosfk"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
         "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
         "name": "norskopplaering-resultater",
         "query": {
@@ -715,67 +724,6 @@
                 "under_a1",
                 "ikke_vurdert"
               ]
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "issue": "behov for sortering!",
-        "title": "Norskopplæring - antall deltagere",
-        "name": "norskopplaering-antall-deltagere",
-        "query": {
-          "tableName": "norsk_deltakere",
-          "unit": ["personer"],
-          "dimensions": [
-            {
-              "name": "rettigheterIntrolovNosfk"
-            },
-            {
-              "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
-              ]
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "title": "Voksne elever i grunnskolen",
-        "name": "voksne-i-grunnskolen",
-        "query": {
-          "tableName": "voksne_grunnskole",
-          "unit": ["personer"],
-          "dimensions": [
-            {
-              "name": "spraak",
-              "visible": false,
-              "variables": [
-                "alle"
-              ]
-            },
-            {
-              "name": "undervisningGrskole"
-            }
-          ]
-        },
-        "tabs": [
-        ]
-      },
-      {
-        "issue": "behov for sortering!",
-        "title": "Voksne elever i videregående",
-        "name": "voksne-i-videregaaende",
-        "query": {
-          "tableName": "voksne_videregaende",
-          "unit": ["prosent"],
-          "dimensions": [
-            {
-              "name": "spraak"
             }
           ]
         },
@@ -858,6 +806,44 @@
         },
         "tabs": [
         ]
+      },
+      {
+        "title": "Voksne elever i grunnskolen",
+        "name": "voksne-i-grunnskolen",
+        "query": {
+          "tableName": "voksne_grunnskole",
+          "unit": ["personer"],
+          "dimensions": [
+            {
+              "name": "spraak"
+            },
+            {
+              "name": "undervisningGrskole"
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
+      {
+        "issue": "behov for sortering!",
+        "title": "Voksne elever i videregående",
+        "name": "voksne-i-videregaaende",
+        "query": {
+          "tableName": "voksne_videregaende",
+          "unit": ["personer"],
+          "dimensions": [
+            {
+              "name": "spraak",
+              "variables": [
+                "minoritet",
+                "ikke_minoritet"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+        ]
       }
     ]
   },
@@ -867,7 +853,7 @@
     "groupKind": "mainGroup",
     "cards": [
       {
-        "title": "Sysselsatte etter innvandringskategori",
+        "title": "Sysselsetting",
         "name": "sysselsatte-innvkat",
         "query": {
           "tableName": "sysselsatte_innvkat",
@@ -886,7 +872,7 @@
         ]
       },
       {
-        "title": "Sysselsetting etter alder og innvandringskategori",
+        "title": "Sysselsetting etter alder",
         "name": "sysselsetting-alder-innvkat",
         "query": {
           "tableName": "sysselsatte_innvkat_alder",
@@ -1023,7 +1009,7 @@
         ]
       },
       {
-        "title": "Antall ledige eller på tiltak etter innvandringskategori og landbakgrunn",
+        "title": "Arbeidsledige eller på tiltak etter landbakgrunn",
         "name": "ledige-innvkat-land",
         "query": {
           "tableName": "arbledige_innvkat_land",
@@ -1049,7 +1035,6 @@
         ]
       },
       {
-        "issue": "lopsided",
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "name": "ikke-arbeid-innvkat-land",
         "query": {
@@ -1128,7 +1113,7 @@
       },
       {
         "issue": "lopsided",
-        "title": "Personer med vedvarende lavinntekt",
+        "title": "Personer i husholdninger med vedvarende lavinntekt etter landbakgrunn",
         "name": "vedvarende-lavinntekt",
         "query": {
           "tableName": "vedvarende_lavinntekt",

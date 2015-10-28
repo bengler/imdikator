@@ -78,7 +78,7 @@ class SimilarRegionsPage extends Component {
             </div>
             <div className="row">
               <div className="col--main">
-                <a href={this.context.linkTo('/steder/:region', {region: region.prefixedCode})} className="button">Gå til grafene for å sammenligne</a>
+                <a href={this.context.linkTo('/steder/:region', {region: region.prefixedCode})} className="button">Gå til figuren for å sammenligne</a>
               </div>
             </div>
           </div>

@@ -233,8 +233,8 @@ class Chart {
     let color = d3.scale.category20()
     let height = 0
     const attr = {
-      width: (item, idx) => 25,
-      height: (item, idx) => 25,
+      width: (item, idx) => 20,
+      height: (item, idx) => 20,
       fontSize: (item, idx) => 15
     }
     const dispatch = d3.dispatch('legendClick', 'legendMouseover', 'legendMouseout')
@@ -293,6 +293,7 @@ class Chart {
         let x = 0
         let y = 0
         let previousHeight = 0
+        const heightMargin = attr.height()
         wrap.selectAll('g').each(function () {
           const el = d3.select(this)
           const bbox = el.node().getBBox()
@@ -300,14 +301,14 @@ class Chart {
           const newX = x + width
           if (newX > maxWidth) {
             x = width
-            y += previousHeight + 5 // 5 pixels padding
+            y += previousHeight + heightMargin
           } else {
             x += width
           }
           el.attr('transform', `translate(${x - width}, ${y})`)
           previousHeight = bbox.height
         })
-        height = this.getBBox().height
+        height = y + previousHeight
       })
       return chart
     }

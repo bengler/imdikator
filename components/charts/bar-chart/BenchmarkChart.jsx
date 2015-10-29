@@ -60,8 +60,6 @@ export default class BenchmarkChart extends React.Component {
     const maxWidth = CHARTS.benchmark.maxBarWidth
     this.limitScaleRangeBand(x, maxWidth)
 
-    const labels = []
-    const fontSize = 12
     /* eslint-disable no-warning-comments */
     // TODO: Move these colors out to CSS?
     /* eslint-enable no-warning-comments */
@@ -96,18 +94,6 @@ export default class BenchmarkChart extends React.Component {
           } else {
             dataItem.stroke = benchmarkHighLightColor
           }
-          let labelY = y(dataItem.values[0].value) - fontSize / 2
-          // Make sure we do not draw the label outside the top of
-          // the SVG. This can happen if we highlight the biggest bar
-          if (labelY < fontSize) {
-            labelY = 0
-          }
-          labels.push({
-            x: x(dataItem.title),
-            y: labelY,
-            text: labelFormat(dataItem.values[0].value),
-            color: benchmarkColor
-          })
         }
       }
     })
@@ -162,20 +148,6 @@ export default class BenchmarkChart extends React.Component {
     .on('mouseout', () => {
       this.eventDispatcher.emit('datapoint:hover-out')
     })
-
-    // Draw any labels (any datapoint that has highlight === true)
-    svg.selectAll('.label').data(labels).enter()
-    .append('text')
-    .attr('dx', dataItem => dataItem.x + x.rangeBand() / 2)
-    .attr('dy', dataItem => {
-      return dataItem.y
-    })
-    .attr('width', dataItem => x.rangeBand())
-    .style('text-anchor', 'middle')
-    .style('font-size', `${String(fontSize)}px`)
-    .text(dataItem => dataItem.text)
-    .style('fill', dataItem => dataItem.fill)
-    .style('pointer-events', 'none')
   }
 
   render() {

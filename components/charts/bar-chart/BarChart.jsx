@@ -197,6 +197,15 @@ export default class BarChart extends React.Component {
 
     // Expand the height to fit the legend
     this._svg.attr('height', this.fullHeight + xAxisHeight + leg.height())
+
+    // Add zero-line
+    this.svg
+    .append('line')
+    .attr('class', 'graph__backgroundLine--zero')
+    .attr('x1', -this.margins.left)
+    .attr('x2', this.fullWidth)
+    .attr('y1', yc.scale(0))
+    .attr('y2', yc.scale(0))
   }
 
   render() {

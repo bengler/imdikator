@@ -168,7 +168,7 @@ export default class BarChart extends React.Component {
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend
-    const xAxis = d3.svg.axis().scale(x0).orient('bottom')
+    const xAxis = d3.svg.axis().scale(x0).orient('bottom').innerTickSize(10)
     const xAxisEl = svg.append('g')
     .attr('class', 'axis')
     .attr('transform', this.translation(0, this.size.height))

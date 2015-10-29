@@ -100,15 +100,18 @@ export default class PyramidChart extends React.Component {
     .orient('bottom')
     .tickFormat(format)
     .ticks(3)
+    .innerTickSize(10)
 
     const xAxisLeft = d3.svg.axis()
     .scale(xScale.copy().range([pointA, 0]))
     .orient('bottom')
     .tickFormat(format)
     .ticks(3)
+    .innerTickSize(10)
 
     // The axis
     const outerXAxis = d3.svg.axis().scale(outerXScale)
+    .innerTickSize(10)
 
     const outerXAxisMargin = 20
     /* eslint-disable prefer-reflect */

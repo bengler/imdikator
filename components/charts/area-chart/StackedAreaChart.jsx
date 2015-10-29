@@ -64,7 +64,7 @@ export default class StackedAreaChart extends React.Component {
     const yc = this.configureYscale(data.preparedData.extent, data.unit)
     const y = yc.scale
 
-    const xAxis = d3.svg.axis().scale(x).orient('bottom')
+    const xAxis = d3.svg.axis().scale(x).orient('bottom').innerTickSize(10)
     const yAxis = d3.svg.axis().scale(y).orient('left')
     yAxis.tickFormat(yc.axisFormat)
 

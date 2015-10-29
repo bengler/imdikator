@@ -65,7 +65,7 @@ export default class StackedBarChart extends Component {
     .domain(data.preparedData.map(item => item.title))
     .rangeRoundBands([0, this.size.width], 0.1)
 
-    const xAxis = d3.svg.axis().scale(x0).orient('bottom')
+    const xAxis = d3.svg.axis().scale(x0).orient('bottom').innerTickSize(10)
 
     const xScales = {}
     const innerPaddingFactor = 0.2

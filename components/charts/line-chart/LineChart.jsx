@@ -46,7 +46,7 @@ export default class LineChart extends React.Component {
     const x = d3.time.scale().range([0, this.size.width])
     const y = yc.scale
 
-    const xAxis = d3.svg.axis().scale(x).orient('bottom')
+    const xAxis = d3.svg.axis().scale(x).orient('bottom').innerTickSize(10)
     const yAxis = d3.svg.axis().scale(y).orient('left')
     yAxis.tickFormat(yc.axisFormat)
     yAxis.scale().nice()

@@ -13,9 +13,12 @@ echo "# Header groups"
 
 for TABLE in "${TABLES[@]}"
 do
+  ab_cmd="ab -n 100 -c 10 http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/$TABLE"
+
   echo
   echo "## For table: $TABLE"
+  echo "\`\$ $ab_cmd\`"
   echo "\`\`\`"
-  ab -n 100 -c 10 "http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/$TABLE"
+  $ab_cmd
   echo "\`\`\`"
 done

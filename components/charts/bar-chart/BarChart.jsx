@@ -43,7 +43,7 @@ export default class BarChart extends React.Component {
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
-    const innerPaddingFactor = 0.05
+    const innerPaddingFactor = 0.2
     const outerPaddingFactor = 0
 
     const maxWidth = CHARTS.bar.maxBarWidth

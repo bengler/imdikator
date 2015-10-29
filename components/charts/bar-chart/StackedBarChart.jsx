@@ -68,7 +68,7 @@ export default class StackedBarChart extends Component {
     const xAxis = d3.svg.axis().scale(x0).orient('bottom')
 
     const xScales = {}
-    const innerPaddingFactor = 0.05
+    const innerPaddingFactor = 0.2
     const outerPaddingFactor = 0
 
     const maxWidth = CHARTS.stackedBar.maxBarWidth

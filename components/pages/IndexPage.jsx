@@ -81,11 +81,11 @@ class IndexPage extends Component {
                 <section className="feature">
                   <h2 className="feature__title">Faktaark</h2>
                   <p>
-                    Et dokument hvor et utdrag av nøkkeltallene for hele landet er gjengitt.
+                    Et dokument hvor nøkkeltallene for hele landet er gjengitt.
                   </p>
                   <p>
                     <a href="#" className="button button-">
-                      <i className="icon__download icon--white"></i> Last ned faktaark (PDF)
+                      <i className="icon__download icon--white"></i> Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </section>

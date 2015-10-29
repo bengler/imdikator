@@ -89,11 +89,11 @@ class RegionPage extends Component {
                 <section className="feature">
                   <h2 className="feature__title">Faktaark</h2>
                   <p>
-                    Et dokument hvor et utdrag av alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.
+                    Et dokument hvor alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.
                   </p>
                   <p>
                     <a href={factSheetLink} className="button button-">
-                      <i className="icon__download icon--white"></i> Last ned faktaark
+                      <i className="icon__download icon--white"></i> Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </section>

@@ -21,7 +21,7 @@ export default class PyramidChart extends React.Component {
     }
 
     // Config
-    const middleMargin = 20
+    const middleMargin = 30
     const svg = this.svg
 
     // Prepare data
@@ -31,7 +31,7 @@ export default class PyramidChart extends React.Component {
     // We only care about the format here
     const format = this.configureYscale([0, 0], data.unit).format
 
-    const color = this.colors
+    const color = this.textures
     const groups = []
     const series = []
     preparedData.forEach(item => {
@@ -77,7 +77,6 @@ export default class PyramidChart extends React.Component {
     const xScale = d3.scale.linear()
     .domain([0, preparedData.maxValue])
     .range([0, regionWidth])
-    .nice()
 
     const yScale = d3.scale.ordinal()
     .domain(groups)
@@ -99,14 +98,14 @@ export default class PyramidChart extends React.Component {
     .scale(xScale)
     .orient('bottom')
     .tickFormat(format)
-    .ticks(3)
+    .ticks(1)
     .innerTickSize(10)
 
     const xAxisLeft = d3.svg.axis()
     .scale(xScale.copy().range([pointA, 0]))
     .orient('bottom')
     .tickFormat(format)
-    .ticks(3)
+    .ticks(1)
     .innerTickSize(10)
 
     // The axis

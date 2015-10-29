@@ -5,6 +5,7 @@ import {prefixifyRegion, isSimilarRegion} from '../lib/regionUtil'
 import {TABS} from '../config/tabs'
 import {RECEIVE_REGION, RECEIVE_ALL_REGIONS, RECEIVE_CARD_PAGE_DATA, RECEIVE_QUERY_RESULT, RECEIVE_CARD_PAGES, RECEIVE_TABLE_HEADERS} from './actions'
 
+
 export function loadCardPages() {
   return dispatch => {
     apiClient.getCardPages().then(cardPages => {
@@ -93,14 +94,18 @@ export function loadCardPageData({regionCode, pageName, activeCardName, activeTa
     const queryResolved = Promise
       .all([getRegion, getTabQuery, getHeaderGroups])
       .then(([region, tabQuery, headerGroups]) => {
-        return resolveQuery(region, tabQuery, headerGroups)
+        const aQuery = resolveQuery(region, tabQuery, headerGroups)
+        if (activeTabName !== 'benchmark') {
+          return aQuery
+        }
+        return getAllRegions.then(allRegions => {
+          const comparisonRegions = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
+          const queryWithComparisons = Object.assign({}, aQuery, {comparisonRegions: comparisonRegions})
+          return queryWithComparisons
+        })
       })
 
-    const promises = activeTabName == 'benchmark' ? [queryResolved, getRegion, getAllRegions] : [queryResolved]
-    const getQueryResults = Promise.all(promises).then(([resolvedQuery, region, allRegions]) => {
-      if (allRegions) {
-        resolvedQuery.comparisonRegions = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
-      }
+    const getQueryResults = queryResolved.then(resolvedQuery => {
       return apiClient.query(resolvedQuery)
     })
 

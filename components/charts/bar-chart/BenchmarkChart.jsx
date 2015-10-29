@@ -89,10 +89,12 @@ export default class BenchmarkChart extends React.Component {
       if (data.highlight) {
         const val = dataItem.values[0][data.highlight.dimensionName]
         if (val && data.highlight.value.indexOf(val) != -1) {
+          const color = this.textures.domain().includes(benchmarkHighLightColor)
+          ? this.textures(benchmarkHighLightColor) : benchmarkHighLightColor
           if (!dataItem.values[0].anonymized) {
-            dataItem.fill = benchmarkHighLightColor
+            dataItem.fill = color
           } else {
-            dataItem.stroke = benchmarkHighLightColor
+            dataItem.stroke = color
           }
         }
       }

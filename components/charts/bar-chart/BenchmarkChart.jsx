@@ -9,8 +9,8 @@ import {CHARTS} from '../../../config/chartTypes'
 
 function sortData(data, direction) {
   const sortedRows = data.rows.slice().sort((rowA, rowB) => {
-    const varA = rowA.tabellvariabel
-    const varB = rowB.tabellvariabel
+    const varA = rowA.value
+    const varB = rowB.value
     return direction == 'ascending' ? (varA - varB) : (varB - varA)
   })
   return update(data, {

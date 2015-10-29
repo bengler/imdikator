@@ -9,7 +9,7 @@
     "watch-test": "npm run test -- --watch",
     "cover": "babel-istanbul --report=text --report=html cover _mocha -- --reporter=dot",
     "publish-coverage-report": "babel-istanbul --print=none --report=html --dir=./public/coverage cover _mocha -- --reporter=dot",
-    "test": "npm run mocha -- --timeout 4000 ./test/unit ./test/integration && npm run lint",
+    "test": "npm run mocha -- --timeout 8000 ./test/unit ./test/integration && npm run lint",
     "mocha": "mocha",
     "test-unit": "mocha ./test/unit",
     "test-integration": "mocha ./test/integration",

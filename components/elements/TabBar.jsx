@@ -26,7 +26,7 @@ export default class TabBar extends Component {
 
       const linkClassName = cx({
         'tabs-menu__link': true,
-        'tabs-menu__link--current': activeTab === tab,
+        'tabs-menu__link--current': activeTab.name === tab.name,
         'tabs-menu__link--disabled': disabled
       })
 
@@ -47,7 +47,7 @@ export default class TabBar extends Component {
       }
 
       return (
-        <li key={tab.name} className="tabs-menu__list-item">
+        <li title={tab.title} key={tab.name} className="tabs-menu__list-item">
           <a href={makeLinkToTab(tab)} className={linkClassName}>
             <i className={iconClassName}></i>
             {tab.title}

@@ -4,7 +4,7 @@ import {queryResultPresenter} from '../lib/queryResultPresenter'
 import {REQUEST_CHART_DATA, RECEIVE_CHART_DATA, RECEIVE_TABLE_HEADERS} from './actions'
 
 
-export function loadChartData(userQuery, options) {
+export function loadRegionSummaryData(userQuery, options) {
   const queryKey = options.queryKey
   const region = options.region
   const chartKind = options.chartKind

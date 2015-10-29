@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import update from 'react-addons-update'
-import {loadChartData} from '../../actions/chartFodder'
+import {loadRegionSummaryData} from '../../actions/regionSummary'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
 import {norway, comparisonDescription} from '../../lib/regionUtil'
@@ -30,7 +30,7 @@ function dispatchQueries(props) {
     queryKey: queryKey(region, query.tableName)
   }
 
-  props.dispatch(loadChartData(regionQuery, regionQueryOptions))
+  props.dispatch(loadRegionSummaryData(regionQuery, regionQueryOptions))
 
   if (isNotNorway) {
     const norwayQuery = Object.assign({}, query, {region: norway.prefixedCode})
@@ -39,7 +39,7 @@ function dispatchQueries(props) {
       chartKind: chartQuery.chartKind,
       queryKey: queryKey(norway, query.tableName)
     }
-    props.dispatch(loadChartData(norwayQuery, norwayQueryOptions))
+    props.dispatch(loadRegionSummaryData(norwayQuery, norwayQueryOptions))
   }
 }
 
@@ -160,11 +160,11 @@ function mapStateToProps(state, ownProps) {
   const regionKey = queryKey(ownProps.region, tableName)
   const norwayKey = queryKey(norway, tableName)
   const chartData = {}
-  if (state.chartData[regionKey]) {
-    chartData[regionKey] = state.chartData[regionKey]
+  if (state.regionSummaryData[regionKey]) {
+    chartData[regionKey] = state.regionSummaryData[regionKey]
   }
-  if (state.chartData[norwayKey]) {
-    chartData[norwayKey] = state.chartData[norwayKey]
+  if (state.regionSummaryData[norwayKey]) {
+    chartData[norwayKey] = state.regionSummaryData[norwayKey]
   }
 
   return {

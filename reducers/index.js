@@ -8,7 +8,7 @@ import openCards from './openCards'
 import cardPageData from './cardPageData'
 import cardPagesData from './cardPagesData'
 import cardPages from './cardPages'
-import chartData from './chartFodder'
+import regionSummaryData from './regionSummary'
 
 export default combineReducers({
   route,
@@ -20,5 +20,5 @@ export default combineReducers({
   headerGroups,
   cardState,
   openCards,
-  chartData
+  regionSummaryData
 })

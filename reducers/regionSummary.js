@@ -1,6 +1,6 @@
 import {RECEIVE_CHART_DATA} from '../actions/actions'
 
-export default function chartData(state = {}, action) {
+export default function regionSummaryData(state = {}, action) {
   switch (action.type) {
     case RECEIVE_CHART_DATA:
       const data = Object.assign({}, state.data || {}, action.data, {queryKey: action.queryKey})

@@ -128,6 +128,9 @@ class Card extends Component {
 
     const validRegions = this.getValidComparisonRegions()
     const similarRegions = validRegions.filter(isSimilarRegion(region))
+    // if (activeTab.name == 'benchmark') {
+    //   similarRegions = allRegions.filter(isSimilarRegion(region))
+    // }
     const recommended = [] // todo
 
     const disabledTabs = []
@@ -138,6 +141,17 @@ class Card extends Component {
     const graphDescription = describeChart(queryToOptions(query, headerGroup, allRegions))
 
     const ChartComponent = CHARTS[this.getChartKind()].component
+    let sortDirection = null
+
+    const chartData = Object.assign({}, this.props.data)
+    if (activeTab.name == 'benchmark') {
+      sortDirection = 'ascending'
+      chartData.highlight = {
+        dimensionName: 'region',
+        value: [region.prefixedCode]
+      }
+    }
+
     return (
       <div
         className="toggle-list__section toggle-list__section--expanded"
@@ -152,7 +166,7 @@ class Card extends Component {
           onChange={this.handleFilterChange.bind(this)}
         />
         <div className="graph">
-          <ChartComponent data={this.props.data}/>
+          <ChartComponent data={chartData} sortDirection={sortDirection}/>
         </div>
         <div className="graph__description">
           {graphDescription}

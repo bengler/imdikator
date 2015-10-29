@@ -146,22 +146,6 @@ export default class LineChart extends React.Component {
     leg.dispatch.on('legendMouseover', (item, index) => {})
     */
 
-    // Add some space between the x axis labels and the legends
-    const xAxisMargin = 30
-    const legendBottom = this.size.height + xAxisMargin
-    /* eslint-disable prefer-reflect */
-    svg.append('g')
-    .attr('class', 'legendWrapper')
-    .attr('width', this.size.width)
-    // Place it at the very bottom
-    .attr('transform', () => this.translation(0, legendBottom))
-    .datum(series)
-    .call(leg)
-    /* eslint-enable prefer-reflect */
-
-    // Increase our height to fit the legend
-    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
-
     // Voronoi Tesselation hover points
     const focus = svg.append('g')
     .attr('transform', 'translate(-100,-100)')
@@ -234,6 +218,23 @@ export default class LineChart extends React.Component {
 
     // Remove default X axis line
     xAxisEl.select('path').remove()
+
+    // Add some space between the x axis labels and the legends
+    const xAxisMargin = xAxisEl.node().getBBox().height + 42
+    const legendBottom = this.fullHeight + xAxisMargin
+    /* eslint-disable prefer-reflect */
+    this._svg.append('g')
+    .attr('class', 'legendWrapper')
+    .attr('width', this.fullWidth)
+    // Place it at the very bottom
+    .attr('transform', () => this.translation(0, legendBottom))
+    .datum(series)
+    .call(leg)
+    /* eslint-enable prefer-reflect */
+
+    // Increase our height to fit the legend
+    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
+
 
   }
 

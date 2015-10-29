@@ -136,23 +136,23 @@ export default class StackedBarChart extends Component {
     .call(this.wrapTextNode, x0.rangeBand())
     /* eslint-enable prefer-reflect */
 
+
     // Legend
     const leg = this.legend().color(colors)
 
-    // Add some space between the x axis labels and the legends
-    const xAxisHeight = xAxisEl.node().getBBox().height
-    const legendBottom = this.size.height + xAxisHeight
 
     /* eslint-disable prefer-reflect */
-    const legendWrapper = svg.append('g')
+    const legendWrapper = this._svg.append('g')
     .attr('class', 'legendWrapper')
-    .attr('width', this.size.width)
+    .attr('width', this.fullWidth)
     // Place it at the very bottom
-    .attr('transform', () => this.translation(0, legendBottom))
     .datum(seriesNames.values())
     .call(leg)
     /* eslint-enable prefer-reflect */
 
+    // Add some space between the x axis labels and the legends
+    const xAxisHeight = xAxisEl.node().getBBox().height + 42
+    const legendBottom = this.fullHeight + xAxisHeight
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
     // Expand the height to fit the legend

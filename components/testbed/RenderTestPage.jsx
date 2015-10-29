@@ -257,6 +257,17 @@ const testData = {
       {"aar": "1995", "kommuneId": "0301", "innvkat5": "ingen", "enhet": "personer", "tabellvariabel": "8" },
     ])
   },
+  line5: {
+    "dimensions": ["innvkat5", "aar"],
+    "unit": "personer",
+    "rows": queryRowParser([
+      {"aar": "1986", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "14" },
+      {"aar": "1987", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "15" },
+      {"aar": "1988", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": ":" },
+      {"aar": "1989", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "12" },
+      {"aar": "1990", "kommuneId": "0301", "innvkat5": "alle", "enhet": "personer", "tabellvariabel": "10" },
+    ])
+  },
   area1: {
     "dimensions": ["innvkat5", "aar"],
     "unit": "personer",
@@ -440,6 +451,11 @@ class RenderTestPage extends Component {
       <h3>Line missing data</h3>
       <LineChart data={testData.line4}/>
       </div>
+      <div style={floatStyle}>
+      <h3>Line anon</h3>
+      <LineChart data={testData.line5}/>
+      </div>
+      <br style={{clear: 'left'}}/>
       <br style={{clear: 'left'}}/>
       <div style={floatStyle}>
       <h3>Stacked Area</h3>

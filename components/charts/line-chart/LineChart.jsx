@@ -63,7 +63,7 @@ export default class LineChart extends React.Component {
         value.date = parseDate(value.key)
         value.series = item.title
         dates.push(value.date)
-        value.radius = 2
+        value.radius = 4
         value.x = value.date
         value.formattedValue = value.values[0].formattedValue
         value.value = value.values[0].value
@@ -74,6 +74,7 @@ export default class LineChart extends React.Component {
           value.x = 0
         } else if (value.values[0].anonymized) {
           value.value = 4
+          value.anonymized = true
           value.y = y(value.value)
         } else {
           value.y = y(value.value)
@@ -121,7 +122,7 @@ export default class LineChart extends React.Component {
     .attr('d', dataItem => line(dataItem.values))
     .attr('fill', 'none')
     .attr('stroke', dataItem => dataItem.color)
-    .attr('stroke-width', 1)
+    .attr('class', 'graph__path')
 
     const sc = this.svg.selectAll('g.line-dot')
     .data(data.preparedData)
@@ -130,13 +131,34 @@ export default class LineChart extends React.Component {
     .attr('class', 'line-dot')
 
     sc.selectAll('circle')
-    .data(dataItem => dataItem.values)
+    .data(dataItem => dataItem.values.filter(item => !item.anonymized))
     .enter()
     .append('circle')
     .attr('cx', dataItem => x(dataItem.date))
     .attr('cy', dataItem => dataItem.y)
     .attr('r', dataItem => dataItem.radius)
     .style('fill', dataItem => dataItem.color)
+
+    sc.selectAll('circle.anon')
+    .data(dataItem => {
+      const items = []
+      dataItem.values.filter(item => item.anonymized).forEach(item => {
+        let idx = 0
+        while (idx < 5) {
+          items.push(Object.assign({}, item, {
+            y: y(idx++)
+          }))
+        }
+      })
+      return items
+    })
+    .enter()
+    .append('circle')
+    .attr('cx', dataItem => x(dataItem.date))
+    .attr('cy', dataItem => dataItem.y)
+    .attr('r', dataItem => dataItem.radius)
+    .style('stroke', dataItem => dataItem.color)
+    .style('fill', 'none')
 
     const leg = this.legend().color(seriesColor)
 

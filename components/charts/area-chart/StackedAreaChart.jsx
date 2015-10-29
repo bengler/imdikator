@@ -88,6 +88,9 @@ export default class StackedAreaChart extends React.Component {
     if (numberOfDates < defaultNumberOfTicks) {
       xAxis.ticks(numberOfDates)
     }
+    if (xAxis.ticks()[0] > (this.size.width / 50)) {
+      xAxis.ticks(this.size.width / 50)
+    }
 
     // Scale the X axis by the date range in the data
     x.domain(d3.extent(dates))

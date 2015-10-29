@@ -94,6 +94,10 @@ export default class LineChart extends React.Component {
       xAxis.ticks(numberOfDates)
     }
 
+    if (xAxis.ticks()[0] > (this.size.width / 50)) {
+      xAxis.ticks(this.size.width / 50)
+    }
+
     this.addYAxis(yc.scale, yc.axisFormat)
 
     const line = d3.svg.line()

@@ -1,9 +1,9 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
 import {queryResultPresenter} from '../lib/queryResultPresenter'
-import {prefixifyRegion} from '../lib/regionUtil'
+import {prefixifyRegion, isSimilarRegion} from '../lib/regionUtil'
 import {TABS} from '../config/tabs'
-import {RECEIVE_REGION, RECEIVE_CARD_PAGE_DATA, RECEIVE_QUERY_RESULT, RECEIVE_CARD_PAGES, RECEIVE_TABLE_HEADERS} from './actions'
+import {RECEIVE_REGION, RECEIVE_ALL_REGIONS, RECEIVE_CARD_PAGE_DATA, RECEIVE_QUERY_RESULT, RECEIVE_CARD_PAGES, RECEIVE_TABLE_HEADERS} from './actions'
 
 export function loadCardPages() {
   return dispatch => {
@@ -41,10 +41,8 @@ export function performQuery(card, tab, userQuery) {
 
 export function loadCardPageData({regionCode, pageName, activeCardName, activeTabName, query}) {
   return dispatch => {
-    const getCardPageData = apiClient.getCardPageByName(pageName)
 
     const getRegion = apiClient.getRegionByCode(regionCode)
-
     getRegion.then(region => {
       dispatch({
         type: RECEIVE_REGION,
@@ -52,6 +50,15 @@ export function loadCardPageData({regionCode, pageName, activeCardName, activeTa
       })
     })
 
+    const getAllRegions = apiClient.getAllRegions()
+    getAllRegions.then(regions => {
+      dispatch({
+        type: RECEIVE_ALL_REGIONS,
+        regions
+      })
+    })
+
+    const getCardPageData = apiClient.getCardPageByName(pageName)
     getCardPageData.then(cardPageData => {
       dispatch({
         type: RECEIVE_CARD_PAGE_DATA,
@@ -89,7 +96,11 @@ export function loadCardPageData({regionCode, pageName, activeCardName, activeTa
         return resolveQuery(region, tabQuery, headerGroups)
       })
 
-    const getQueryResults = queryResolved.then(resolvedQuery => {
+    const promises = activeTabName == 'benchmark' ? [queryResolved, getRegion, getAllRegions] : [queryResolved]
+    const getQueryResults = Promise.all(promises).then(([resolvedQuery, region, allRegions]) => {
+      if (allRegions) {
+        resolvedQuery.comparisonRegions = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
+      }
       return apiClient.query(resolvedQuery)
     })
 

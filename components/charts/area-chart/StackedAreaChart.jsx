@@ -95,7 +95,7 @@ export default class StackedAreaChart extends React.Component {
     // Scale the X axis by the date range in the data
     x.domain(d3.extent(dates))
 
-    const color = this.colors.domain(data.series.map(serie => serie.title))
+    const color = this.textures.domain(data.series.map(serie => serie.title))
     this.addYAxis(yc.scale, yc.axisFormat)
 
     svg.selectAll('.area')

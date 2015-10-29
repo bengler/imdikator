@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import RegionSelect from './RegionSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
 import capitalize from 'lodash.capitalize'
+import {comparisonDescription, regionByPrefixedCode} from '../../lib/regionUtil'
 
 import cx from 'classnames'
 
@@ -36,6 +37,7 @@ class FilterBar extends Component {
   static propTypes = {
     querySpec: PropTypes.array,
     query: PropTypes.object,
+    allRegions: PropTypes.array,
     onChange: PropTypes.func,
     regionGroups: PropTypes.shape({
       recommended: PropTypes.arrayOf(RegionType),
@@ -55,16 +57,29 @@ class FilterBar extends Component {
   }
 
   renderRegionFilter() {
+    const {querySpec} = this.props
     const comparisonRegions = this.getSelectedComparisonRegions()
     const hasComparisonRegions = comparisonRegions.length > 0
+    const comparisonRegionsSpec = querySpec.find(dimension => dimension.name == 'comparisonRegions')
 
+    function getButtonText(region) {
+      if (comparisonRegionsSpec.locked) {
+        return comparisonDescription(region)
+      }
+      if (hasComparisonRegions) {
+        return comparisonRegions.map(renderRegion).join(', ')
+      }
+      return 'Legg til sted'
+    }
+
+    const region = regionByPrefixedCode(this.props.query.region, this.props.allRegions)
     return (
       <button type="button"
+        disabled={comparisonRegionsSpec.locked}
         className={`subtle-select__button subtle-select__button--${hasComparisonRegions ? 'expanded' : 'add'}`}
         onClick={() => this.setState({isRegionSelectOpen: true})}
       >
-        {hasComparisonRegions && comparisonRegions.map(renderRegion).join(', ')}
-        {!hasComparisonRegions && 'Legg til sted'}
+        {getButtonText(region)}
       </button>
     )
   }

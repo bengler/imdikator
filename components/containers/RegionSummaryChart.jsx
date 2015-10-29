@@ -4,9 +4,8 @@ import update from 'react-addons-update'
 import {loadChartData} from '../../actions/chartFodder'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
-import {norway} from '../../lib/regionUtil'
+import {norway, comparisonDescription} from '../../lib/regionUtil'
 import {unitFormatter} from '../../lib/unitFormatter'
-import {_t} from '../../lib/translate'
 
 function queryKey(region, tableName) {
   return `${region.prefixedCode}-${tableName}`
@@ -129,9 +128,9 @@ class RegionSummaryChart extends Component {
       pageName: chartQuery.drillDown.page,
       cardName: chartQuery.drillDown.card
     })
-    const similarUrl = this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
 
-    const comparisonDescription = region.type == 'municipality' ? 'lignende' : 'andre'
+    const similarUrl = this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
+    const comparison = comparisonDescription(region).toLowerCase()
 
     return (
       <div className="col--third col--flow">
@@ -143,19 +142,9 @@ class RegionSummaryChart extends Component {
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
-          {isNotNorway && region.type == 'municipality'
+          {isNotNorway
             && <p className="indicator__subtext">
-              {region.name} og <a href={similarUrl}>{comparisonDescription} {_t(`several-${region.type}`)}</a>
-            </p>
-          }
-          {isNotNorway && region.type == 'commerceRegion'
-            && <p className="indicator__subtext">
-              {region.name} og <a href={similarUrl}> de andre næringsregionene i samme fylke</a>
-            </p>
-          }
-          {isNotNorway && region.type != 'municipality' && region.type != 'commerceRegion'
-            && <p className="indicator__subtext">
-              {region.name} og <a href={similarUrl}> de andre {_t(`those-${region.type}`)}</a>
+              {region.name} og <a href={similarUrl}>{comparison}</a>
             </p>
           }
           <a href={drillDownUrl} className="button button--secondary indicator__cta">{chartQuery.drillDown.buttonTitle}</a>

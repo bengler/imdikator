@@ -71,7 +71,7 @@ class Chart {
     return result
   }
 
-  _calculateHeight(data) {
+  _calculateHeight(el) {
     return 400
   }
 
@@ -89,7 +89,7 @@ class Chart {
     if (config.shouldCalculateMargins) {
       this.margins = Object.assign(defaultMargins, this._calculateMargins(state.data))
     }
-    this.fullHeight = this._calculateHeight() + this.margins.top + this.margins.bottom
+    this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
 
     this.size = {
       width: this.fullWidth - this.margins.left - this.margins.right,

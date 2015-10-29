@@ -15,6 +15,10 @@ export default class BubbleChart extends React.Component {
   }
   /* eslint-enable react/forbid-prop-types */
 
+  calculateHeight(el) {
+    return el.getBoundingClientRect().width
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -163,7 +167,8 @@ export default class BubbleChart extends React.Component {
 
   render() {
     const functions = {
-      drawPoints: this.drawPoints
+      drawPoints: this.drawPoints,
+      calculateHeight: this.calculateHeight
     }
     const config = {
       shouldCalculateMargins: false

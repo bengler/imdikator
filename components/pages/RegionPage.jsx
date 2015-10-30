@@ -77,9 +77,11 @@ class RegionPage extends Component {
                   <div className="row">
                     {chartQueries.map(chartQuery => {
                       const key = `${chartQuery.query.tableName}-${chartQuery.query.unit[0]}`
-                      return (
-                        <RegionSummaryChart key={key} comparableRegionCodes={comparableRegionCodes} region={region} chartQuery={chartQuery} />
-                      )
+                      if (chartQuery.relevantFor.includes(region.type)) {
+                        return (
+                          <RegionSummaryChart key={key} comparableRegionCodes={comparableRegionCodes} region={region} chartQuery={chartQuery} />
+                        )
+                      }
                     })}
                   </div>
                 </div>

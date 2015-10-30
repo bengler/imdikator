@@ -24,6 +24,7 @@ export default [
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: [],
+    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
       return `Innvandrere utgjør ${options.share} av befolkningen`
     },
@@ -52,6 +53,7 @@ export default [
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
+    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
       return `Bosatte ${options.share} flyktninger per tusen innbygger i år ${options.aar}`
     },
@@ -80,6 +82,7 @@ export default [
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: ['aar'],
+    relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: options => {
       return `Mottok ${options.share} i tilskudd fra IMDi i år ${options.aar}`
     },
@@ -108,6 +111,7 @@ export default [
     chartKind: 'bar',
     compareRegionToSimilar: false,
     additionalTitleParams: ['innvkat3'],
+    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
       return `${options.share} av ${options.innvkat3.replace('_', ' ')} er i arbeid`
     },
@@ -140,6 +144,7 @@ export default [
     chartKind: 'benchmark',
     compareRegionToSimilar: true,
     additionalTitleParams: [],
+    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
       return `${options.share} av innvandrerne går direkte fra introprogram til arbeid/utdanning`
     },

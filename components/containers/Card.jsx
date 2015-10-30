@@ -125,7 +125,6 @@ class Card extends Component {
     if (!card || !activeTab || !region || !allRegions) {
       return null
     }
-
     const validRegions = this.getValidComparisonRegions()
     const similarRegions = validRegions.filter(isSimilarRegion(region))
     // if (activeTab.name == 'benchmark') {
@@ -138,7 +137,7 @@ class Card extends Component {
       disabledTabs.push('chronological')
     }
 
-    const graphDescription = describeChart(queryToOptions(query, headerGroup, allRegions))
+    const graphDescription = describeChart(queryToOptions(query, card.name, headerGroup, allRegions))
 
     const ChartComponent = CHARTS[this.getChartKind()].component
     let sortDirection = null

@@ -32,11 +32,11 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
-    const result = queryToOptions(query, {}, allRegions)
+    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -63,11 +63,11 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
-    const result = queryToOptions(query, {}, allRegions)
+    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -93,11 +93,11 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
       timePeriod: ['2011', '2012', '2013', '2014'],
       regions: ['Oslo']
     }
-    const result = queryToOptions(query, {aar: ['2012', '2011', '2013', '2014']}, allRegions)
+    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {aar: ['2012', '2011', '2013', '2014']}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -127,11 +127,11 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['aldersfordeling avgrenset til 3 år', 'kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og familiegjenforente til disse'],
+      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
-    const result = queryToOptions(query, {}, allRegions)
+    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -151,13 +151,13 @@ describe('queryToOptions', () => {
     }
 
     const expected = {
-      showing: 'antall flyttinger',
+      showing: 'antall innvandrere',
       regions: ['Oslo'],
       timePeriod: ['2013'],
       bounds: [],
       groupedBy: ['innvandrere', 'befolkningen unntatt innvandrere']
     }
-    const result = queryToOptions(query, {}, allRegions)
+    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions)
     assert.deepEqual(result, expected)
   })
 

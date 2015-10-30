@@ -34,10 +34,28 @@ csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
       population: 'population'
     }
 
-    return Object.keys(mappings).reduce((mapped, key) => {
+    const unitDescriptionsMappings = {
+      personer: 'personer',
+      prosent: 'prosent',
+      gjennomsnitt: 'gjennomsnitt',
+      kroner: 'kroner',
+      promille: 'promille'
+    }
+
+    const resultObj = Object.keys(mappings).reduce((mapped, key) => {
       mapped[mappings[key]] = row[key]
       return mapped
     }, {})
+
+    resultObj["unitDescriptions"] = {}
+
+    return Object.keys(unitDescriptionsMappings).reduce((mapped, key) => {
+      if (row[key].trim() != '') {
+        mapped["unitDescriptions"][unitDescriptionsMappings[key]] = row[key].trim()
+      }
+      return mapped
+    }, resultObj)
+
   })
   .toArray()
   .flatMap(tables => {

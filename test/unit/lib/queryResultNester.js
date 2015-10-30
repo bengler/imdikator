@@ -76,8 +76,8 @@ describe('nestedQueryResultLabelizer', () => {
     ], ['aar', 'innvkat5', 'kjonn'])
 
     assert.equal(labelized[0].title, '2014')
-    assert.equal(labelized[0].values[0].title, 'norskfødte med innvandrerforeldre')
-    assert.equal(labelized[0].values[0].values[0].title, 'kvinne')
+    assert.equal(labelized[0].values[0].title, 'Norskfødte med innvandrerforeldre')
+    assert.equal(labelized[0].values[0].values[0].title, 'Kvinner')
   })
 
   it('knows about cities', () => {

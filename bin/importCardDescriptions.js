@@ -47,11 +47,11 @@ csvToObjects(fetchGoogleSheetExport(SHEET_KEY, SHEET_GID))
       return mapped
     }, {})
 
-    resultObj["unitDescriptions"] = {}
+    resultObj.unitDescriptions = {}
 
     return Object.keys(unitDescriptionsMappings).reduce((mapped, key) => {
       if (row[key].trim() != '') {
-        mapped["unitDescriptions"][unitDescriptionsMappings[key]] = row[key].trim()
+        mapped.unitDescriptions[unitDescriptionsMappings[key]] = row[key].trim()
       }
       return mapped
     }, resultObj)

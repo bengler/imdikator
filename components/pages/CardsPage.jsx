@@ -83,7 +83,7 @@ class CardsPage extends Component {
     if (!pageConfig || !region) {
       return <div>Loading...</div>
     }
-
+    const regionName = region.name == 'Hele landet' ? 'Norge' : `${region.name} ${_t(region.type)}`
     return (
       <div>
         <div className="page__content page__content--section">
@@ -92,7 +92,7 @@ class CardsPage extends Component {
               <div className="col--main-wide">
 
                 <header>
-                  <h1>Integreringen i {region.name} {_t(region.type)}</h1>
+                  <h1>Integreringen i {regionName}</h1>
                   <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
                 </header>
                 <CardPageButtons />

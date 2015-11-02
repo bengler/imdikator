@@ -203,7 +203,7 @@ class Card extends Component {
   }
 }
 
-function select(state, ownProps) {
+function mapStateToProps(state, ownProps) {
   const cardState = state.cardState[ownProps.card.name]
 
   if (!cardState) {
@@ -231,4 +231,4 @@ function select(state, ownProps) {
   }
 }
 
-export default connect(select)(Card)
+export default connect(mapStateToProps)(Card)

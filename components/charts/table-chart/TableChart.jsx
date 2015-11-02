@@ -32,6 +32,7 @@ const download = function (content, fileName, mimeType) {
   return true
 }
 
+
 export default class TableChart extends React.Component {
   /* eslint-disable react/forbid-prop-types */
   static propTypes = {
@@ -39,18 +40,26 @@ export default class TableChart extends React.Component {
   }
   /* eslint-enable react/forbid-prop-types */
 
+
   componentWillMount() {
     this.generateCSV(this.props.data)
   }
+
 
   componentWillReceiveProps(props) {
     this.generateCSV(props.data)
   }
 
-  generateCSV(data) {
-    if (!data || !data.rows) {
+
+  generateCSV(incomingData) {
+    if (!incomingData || !incomingData.rows) {
       return
     }
+
+    const data = Object.assign({}, incomingData, {
+      dimensions: incomingData.dimensions.slice(),
+      rows: incomingData.rows.slice()
+    })
 
     const regionKey = 'region'
 
@@ -111,6 +120,7 @@ export default class TableChart extends React.Component {
     this.setState({csv, separator})
   }
 
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -140,6 +150,7 @@ export default class TableChart extends React.Component {
     .append('td')
     .text(dataItem => dataItem)
   }
+
 
   render() {
     const functions = {

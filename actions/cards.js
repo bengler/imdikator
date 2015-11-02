@@ -1,7 +1,7 @@
 import apiClient from '../config/apiClient'
 import assert from 'assert'
 //import createDefaultQueryForCard from '../lib/createDefaultQueryForCard'
-import {REQUEST_CARD_QUERY, RECEIVE_CARD_QUERY, OPEN_CARD, CLOSE_CARD, UPDATE_CARD_QUERY} from './actions'
+import {SET_TABLE_VISIBILITY, REQUEST_CARD_QUERY, RECEIVE_CARD_QUERY, OPEN_CARD, CLOSE_CARD, UPDATE_CARD_QUERY} from './actions'
 
 
 export function performCardQuery({table, card, query}) {
@@ -50,6 +50,15 @@ export function updateCardQuery(cardName, query) {
   }
 }
 
+export function tableVisibility(cardName, showTable) {
+  return dispatch => {
+    dispatch({
+      type: SET_TABLE_VISIBILITY,
+      cardName: cardName,
+      showTable: showTable
+    })
+  }
+}
 
 // Todo: not complete yet
 

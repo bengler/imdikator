@@ -10,8 +10,10 @@ import CardMetadata from '../elements/CardMetadata'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
 import {loadAllRegions} from '../../actions/region'
+import {tableVisibility} from '../../actions/cards'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
+
 
 class Card extends Component {
   static propTypes = {
@@ -25,6 +27,7 @@ class Card extends Component {
     activeTab: PropTypes.object,
     boundUpdateCardQuery: PropTypes.func,
     dispatch: PropTypes.func,
+    showTable: PropTypes.bool,
     allRegions: PropTypes.array
   }
 
@@ -74,6 +77,11 @@ class Card extends Component {
       debug('%s: %s', op.dimension, op.description)
     })
     this.props.dispatch(performQuery(card, activeTab, constrainedQuery.query))
+  }
+
+  handleTableToggle(event) {
+    event.preventDefault()
+    this.props.dispatch(tableVisibility(this.props.card.name, !this.props.showTable))
   }
 
   getChartKind() {
@@ -138,12 +146,14 @@ class Card extends Component {
     }
 
     const graphDescription = describeChart(queryToOptions(query, card.name, headerGroup, allRegions))
-
-    const ChartComponent = CHARTS[this.getChartKind()].component
+    const chartData = Object.assign({}, this.props.data)
     let sortDirection = null
 
-    const chartData = Object.assign({}, this.props.data)
-    if (activeTab.name == 'benchmark') {
+    let ChartComponent = CHARTS[this.getChartKind()].component
+    if (activeTab.name == 'benchmark' && this.props.showTable) {
+      ChartComponent = CHARTS.table.component
+    }
+    if (activeTab.name == 'benchmark' && !this.props.showTable) {
       sortDirection = 'ascending'
       chartData.highlight = {
         dimensionName: 'region',
@@ -164,6 +174,13 @@ class Card extends Component {
           querySpec={this.getQuerySpec(query)}
           onChange={this.handleFilterChange.bind(this)}
         />
+
+        {activeTab.name == 'benchmark'
+          && <button type="button" className="button button--secondary button--small" onClick={this.handleTableToggle.bind(this)}>
+            <i className="icon__table"></i> Vis data i tabell
+          </button>
+        }
+
         <div className="graph">
           <ChartComponent data={chartData} sortDirection={sortDirection}/>
         </div>
@@ -205,6 +222,7 @@ function select(state, ownProps) {
   return {
     region: state.region,
     allRegions: state.allRegions,
+    showTable: cardState.showTable,
     headerGroup,
     data,
     headerGroups,

@@ -7,13 +7,12 @@ import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
 import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
-import PopupChoicesBox from './PopupChoicesBox'
+import DownloadWidget from './DownloadWidget'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
 import {loadAllRegions} from '../../actions/region'
-import {tableVisibility} from '../../actions/cards'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
-import {isSimilarRegion, getHeaderKey, downloadChoicesByRegion} from '../../lib/regionUtil'
+import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
 
 
 class Card extends Component {
@@ -40,7 +39,8 @@ class Card extends Component {
   constructor(props) {
     super()
     this.state = {
-      isRegionSelectOpen: false
+      isRegionSelectOpen: false,
+      showTable: false
     }
   }
 
@@ -90,7 +90,7 @@ class Card extends Component {
 
   handleTableToggle(event) {
     event.preventDefault()
-    this.props.dispatch(tableVisibility(this.props.card.name, !this.props.showTable))
+    this.setState({showTable: !this.state.showTable})
   }
 
 
@@ -137,35 +137,9 @@ class Card extends Component {
     })
   }
 
-  handleOpenDownloadSelect(event) {
-    event.preventDefault()
-    this.setState({isDownloadSelectOpen: !this.state.isDownloadSelectOpen})
-  }
-
-  renderDownloadSelect() {
-    const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
-    const handApplyChoice = newValue => {
-      //console.log('handApplyChoice', newValue, choices[Number(newValue)])
-      this.setState({isDownloadSelectOpen: false})
-    }
-
-    const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
-    return (
-      <PopupChoicesBox
-        onCancel={handleCancelDownloadSelect}
-        onApply={handApplyChoice}
-        choices={choices}
-        applyButtonText="Last ned"
-        cancelButtonText="Avbryt"
-        title="Velg innhold til CSV-fil"
-      />
-    )
-  }
-
 
   render() {
     const {card, activeTab, headerGroup, query, region, allRegions} = this.props
-    const {isDownloadSelectOpen} = this.state
 
     if (!card || !activeTab || !region || !allRegions) {
       return null
@@ -185,14 +159,15 @@ class Card extends Component {
     let sortDirection = null
 
     let ChartComponent = CHARTS[this.getChartKind()].component
-    if (activeTab.name == 'benchmark' && this.props.showTable) {
-      ChartComponent = CHARTS.table.component
-    }
-    if (activeTab.name == 'benchmark' && !this.props.showTable) {
-      sortDirection = 'ascending'
-      chartData.highlight = {
-        dimensionName: 'region',
-        value: [region.prefixedCode]
+    if (activeTab.name == 'benchmark') {
+      if (this.state.showTable) {
+        ChartComponent = CHARTS.table.component
+      } else {
+        sortDirection = 'ascending'
+        chartData.highlight = {
+          dimensionName: 'region',
+          value: [region.prefixedCode]
+        }
       }
     }
 
@@ -210,11 +185,11 @@ class Card extends Component {
           onChange={this.handleFilterChange.bind(this)}
         />
 
-        {activeTab.name == 'benchmark'
-          && <button type="button" className="button button--secondary button--small" onClick={this.handleTableToggle.bind(this)}>
+        {activeTab.name == 'benchmark' && (
+          <button type="button" className="button button--secondary button--small" onClick={this.handleTableToggle.bind(this)}>
             <i className="icon__table"></i> Vis data i tabell
           </button>
-        }
+        )}
 
         <div className="graph">
           <ChartComponent data={chartData} sortDirection={sortDirection}/>
@@ -228,10 +203,7 @@ class Card extends Component {
           <button type="button" className="button button--secondary button--small">
             <i className="icon__export"></i> Lenke til figuren
           </button>
-          <button type="button" className="button button--secondary button--small" onClick={this.handleOpenDownloadSelect.bind(this)}>
-            <i className="icon__download"></i> Last ned
-          </button>
-          {isDownloadSelectOpen && this.renderDownloadSelect()}
+          <DownloadWidget region={region} allRegions={allRegions} data={chartData}/>
         </div>
         <CardMetadata metadata={card.metadata}/>
       </div>
@@ -259,7 +231,6 @@ function mapStateToProps(state, ownProps) {
   return {
     region: state.region,
     allRegions: state.allRegions,
-    showTable: cardState.showTable,
     headerGroup,
     data,
     headerGroups,

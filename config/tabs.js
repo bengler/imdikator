@@ -23,10 +23,10 @@ export const TABS = [
     chartKind: 'benchmark',
     year: 'latest'
   },
-  {
-    name: 'table',
-    title: 'Tabell',
-    chartKind: 'table',
-    year: 'latest'
-  }
+  // {
+  //   name: 'table',
+  //   title: 'Tabell',
+  //   chartKind: 'table',
+  //   year: 'latest'
+  // }
 ]

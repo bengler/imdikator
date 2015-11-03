@@ -13,6 +13,8 @@ import {performQuery} from '../../actions/cardPages'
 import {loadAllRegions} from '../../actions/region'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
+import Clipboard from 'clipboard'
+import config from '../../config'
 
 
 class Card extends Component {
@@ -137,6 +139,18 @@ class Card extends Component {
     })
   }
 
+  chartUrl() {
+    const route = '/steder/:region/:pageName/:cardName/:tabName'
+    const routeOpts = {
+      cardName: this.props.card.name,
+      tabName: this.props.activeTab.name
+    }
+    const host = window.location.hostname
+    const port = `:${window.location.port}`
+    const path = this.context.linkTo(route, routeOpts)
+    return `${host}${config.env == 'development' ? port : ''}${path}`
+  }
+
 
   render() {
     const {card, activeTab, headerGroup, query, region, allRegions} = this.props
@@ -146,8 +160,8 @@ class Card extends Component {
     }
     const validRegions = this.getValidComparisonRegions()
     const similarRegions = validRegions.filter(isSimilarRegion(region))
-
     const recommended = [] // todo
+    const clipboard = new Clipboard('.clipboardButton') // eslint-disable-line no-unused-vars
 
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
@@ -167,7 +181,6 @@ class Card extends Component {
         value: [region.prefixedCode]
       }
     }
-
     return (
       <div
         className="toggle-list__section toggle-list__section--expanded"
@@ -196,7 +209,7 @@ class Card extends Component {
         <div className="graph__annotations">
         </div>
         <div className="graph__functions">
-          <button type="button" className="button button--secondary button--small">
+          <button type="button" className="button button--secondary button--small clipboardButton" data-clipboard-text={this.chartUrl()}>
             <i className="icon__export"></i> Lenke til figuren
           </button>
           <DownloadWidget region={region} allRegions={allRegions} data={chartData}/>

@@ -1,4 +1,4 @@
-import {RECEIVE_QUERY_RESULT, SET_TABLE_VISIBILITY} from '../actions/actions'
+import {RECEIVE_QUERY_RESULT} from '../actions/actions'
 
 export default function cardPage(state = {}, action) {
   switch (action.type) {
@@ -10,13 +10,6 @@ export default function cardPage(state = {}, action) {
           activeTab: tab,
           query: query,
           data: data
-        })
-      })
-
-    case SET_TABLE_VISIBILITY:
-      return Object.assign({}, state, {
-        [action.cardName]: Object.assign({}, state[action.cardName] || {}, {
-          showTable: action.showTable
         })
       })
 

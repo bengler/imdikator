@@ -72,10 +72,9 @@ export default class DownloadWidget extends Component {
 
     const regionKey = 'region'
 
-    // Generate TSV (for downloading, and we use this to draw the table)
+    // Generate CSV (for downloading, and we use this to draw the table)
     let csv = ''
     const separator = ';'
-
 
     if (data.dimensions.length > 0) {
       if (data.dimensions.indexOf(regionKey) != -1) {
@@ -127,7 +126,6 @@ export default class DownloadWidget extends Component {
       })
     }
     this.setState({csv: csv, separator: separator})
-    //console.log('done baking csv')
   }
 
 

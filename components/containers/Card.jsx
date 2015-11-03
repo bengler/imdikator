@@ -140,7 +140,7 @@ class Card extends Component {
 
   render() {
     const {card, activeTab, headerGroup, query, region, allRegions} = this.props
-
+    const showTable = this.state.showTable
     if (!card || !activeTab || !region || !allRegions) {
       return null
     }
@@ -158,16 +158,13 @@ class Card extends Component {
     const chartData = Object.assign({}, this.props.data)
     let sortDirection = null
 
-    let ChartComponent = CHARTS[this.getChartKind()].component
+    const ChartComponent = showTable ? CHARTS.table.component : CHARTS[this.getChartKind()].component
+
     if (activeTab.name == 'benchmark') {
-      if (this.state.showTable) {
-        ChartComponent = CHARTS.table.component
-      } else {
-        sortDirection = 'ascending'
-        chartData.highlight = {
-          dimensionName: 'region',
-          value: [region.prefixedCode]
-        }
+      sortDirection = 'ascending'
+      chartData.highlight = {
+        dimensionName: 'region',
+        value: [region.prefixedCode]
       }
     }
 
@@ -185,11 +182,10 @@ class Card extends Component {
           onChange={this.handleFilterChange.bind(this)}
         />
 
-        {activeTab.name == 'benchmark' && (
-          <button type="button" className="button button--secondary button--small" onClick={this.handleTableToggle.bind(this)}>
-            <i className="icon__table"></i> Vis data i tabell
-          </button>
-        )}
+        <button type="button" className="button button--secondary button--small" onClick={this.handleTableToggle.bind(this)}>
+          {showTable && (<span><i className="icon__chart-bars"></i> Vis data i figur</span>)}
+          {!showTable && (<span><i className="icon__table"></i> Vis data i tabell</span>)}
+        </button>
 
         <div className="graph">
           <ChartComponent data={chartData} sortDirection={sortDirection}/>

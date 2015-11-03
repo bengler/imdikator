@@ -7,12 +7,13 @@ import TabBar from '../elements/TabBar'
 import FilterBar from './FilterBar'
 import debug from '../../lib/debug'
 import CardMetadata from '../elements/CardMetadata'
+import PopupChoicesBox from './PopupChoicesBox'
 import {constrainQuery, getQuerySpec} from '../../lib/querySpec'
 import {performQuery} from '../../actions/cardPages'
 import {loadAllRegions} from '../../actions/region'
 import {tableVisibility} from '../../actions/cards'
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
-import {isSimilarRegion, getHeaderKey} from '../../lib/regionUtil'
+import {isSimilarRegion, getHeaderKey, downloadChoicesByRegion} from '../../lib/regionUtil'
 
 
 class Card extends Component {
@@ -35,6 +36,14 @@ class Card extends Component {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
   }
+
+  constructor(props) {
+    super()
+    this.state = {
+      isRegionSelectOpen: false
+    }
+  }
+
 
   componentWillMount() {
     this.props.dispatch(loadAllRegions())
@@ -84,6 +93,7 @@ class Card extends Component {
     this.props.dispatch(tableVisibility(this.props.card.name, !this.props.showTable))
   }
 
+
   getChartKind() {
     const {activeTab} = this.props
     return activeTab.chartKind
@@ -127,17 +137,42 @@ class Card extends Component {
     })
   }
 
+  handleOpenDownloadSelect(event) {
+    event.preventDefault()
+    this.setState({isDownloadSelectOpen: !this.state.isDownloadSelectOpen})
+  }
+
+  renderDownloadSelect() {
+    const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
+    const handApplyChoice = newValue => {
+      //console.log('handApplyChoice', newValue, choices[Number(newValue)])
+      this.setState({isDownloadSelectOpen: false})
+    }
+
+    const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
+    return (
+      <PopupChoicesBox
+        onCancel={handleCancelDownloadSelect}
+        onApply={handApplyChoice}
+        choices={choices}
+        applyButtonText="Last ned"
+        cancelButtonText="Avbryt"
+        title="Velg innhold til CSV-fil"
+      />
+    )
+  }
+
+
   render() {
     const {card, activeTab, headerGroup, query, region, allRegions} = this.props
+    const {isDownloadSelectOpen} = this.state
 
     if (!card || !activeTab || !region || !allRegions) {
       return null
     }
     const validRegions = this.getValidComparisonRegions()
     const similarRegions = validRegions.filter(isSimilarRegion(region))
-    // if (activeTab.name == 'benchmark') {
-    //   similarRegions = allRegions.filter(isSimilarRegion(region))
-    // }
+
     const recommended = [] // todo
 
     const disabledTabs = []
@@ -193,15 +228,17 @@ class Card extends Component {
           <button type="button" className="button button--secondary button--small">
             <i className="icon__export"></i> Lenke til figuren
           </button>
-          <button type="button" className="button button--secondary button--small">
+          <button type="button" className="button button--secondary button--small" onClick={this.handleOpenDownloadSelect.bind(this)}>
             <i className="icon__download"></i> Last ned
           </button>
+          {isDownloadSelectOpen && this.renderDownloadSelect()}
         </div>
         <CardMetadata metadata={card.metadata}/>
       </div>
     )
   }
 }
+
 
 function mapStateToProps(state, ownProps) {
   const cardState = state.cardState[ownProps.card.name]

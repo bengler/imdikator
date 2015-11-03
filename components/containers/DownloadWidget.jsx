@@ -1,11 +1,11 @@
 import React, {Component, PropTypes} from 'react'
-import d3 from 'd3'
-import {dimensionLabelTitle} from '../../lib/labels'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
+import {generateCSV} from '../../lib/csvWrangler'
 
 
 // http://stackoverflow.com/a/29304414/194404
+// TODO: refactor by moving this wo csvWrangler so we dont need to duplicate it in TableChart
 function download(content, fileName, mimeType) {
   const anchor = document.createElement('a')
   const _mimeType = mimeType || 'application/octet-stream'
@@ -51,81 +51,12 @@ export default class DownloadWidget extends Component {
 
 
   componentWillMount() {
-    this.generateCSV(this.props.data)
+    this.setState(generateCSV(this.props.data))
   }
 
 
   componentWillReceiveProps(props) {
-    this.generateCSV(props.data)
-  }
-
-
-  generateCSV(incomingData) {
-    if (!incomingData || !incomingData.rows) {
-      return
-    }
-
-    const data = Object.assign({}, incomingData, {
-      dimensions: incomingData.dimensions.slice(),
-      rows: incomingData.rows.slice()
-    })
-
-    const regionKey = 'region'
-
-    // Generate CSV (for downloading, and we use this to draw the table)
-    let csv = ''
-    const separator = ';'
-
-    if (data.dimensions.length > 0) {
-      if (data.dimensions.indexOf(regionKey) != -1) {
-        data.dimensions.shift()
-      }
-      // See 04-befolkning_alder-fylke-2014.csv
-      const nester = d3.nest()
-        .key(item => item[regionKey])
-        .sortKeys(d3.ascending)
-        .key(item => data.dimensions.join(','))
-
-      const xx = nester.entries(data.rows)
-      // Headers
-
-      csv += `${regionKey}${separator}Navn`
-      data.dimensions.forEach((dimension, idx) => {
-        csv += separator
-        if (idx > 0) {
-          csv += separator
-        }
-        xx[0].values[0].values.forEach(row => {
-          csv += dimensionLabelTitle(dimension, row[dimension]) + separator
-        })
-        csv += '\n'
-      })
-
-      xx.forEach(region => {
-        csv += region.key
-                  .slice(1, region.key.length)
-                + separator
-                + dimensionLabelTitle(regionKey, region.key)
-                + separator
-        region.values[0].values.forEach(row => {
-          csv += row.tabellvariabel + separator
-        })
-        csv += '\n'
-      })
-    } else {
-      // Flat render, all keys as table headers, all values as rows
-      const dimensions = Object.keys(data.rows[0])
-      csv += dimensions.join(separator)
-      csv += '\n'
-      data.rows.forEach(row => {
-        dimensions.forEach(dim => {
-          csv += row[dim]
-          csv += separator
-        })
-        csv += '\n'
-      })
-    }
-    this.setState({csv: csv, separator: separator})
+    this.setState(generateCSV(props.data))
   }
 
 

@@ -1,38 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
-import {generateCSV} from '../../lib/csvWrangler'
-
-
-// http://stackoverflow.com/a/29304414/194404
-// TODO: refactor by moving this wo csvWrangler so we dont need to duplicate it in TableChart
-function download(content, fileName, mimeType) {
-  const anchor = document.createElement('a')
-  const _mimeType = mimeType || 'application/octet-stream'
-
-  if (navigator.msSaveBlob) { // IE10
-    const blob = new Blob([content], {type: _mimeType})
-    return navigator.msSaveBlob(blob, fileName)
-  } else if ('download' in anchor) { //html5 A[download]
-    anchor.href = `data:${_mimeType},${encodeURIComponent(content)}`
-    anchor.setAttribute('download', fileName)
-    document.body.appendChild(anchor)
-
-    setTimeout(() => {
-      anchor.click()
-      document.body.removeChild(anchor)
-    }, 66)
-  } else { //do iframe dataURL download (old ch+FF):
-    const frame = document.createElement('iframe')
-    document.body.appendChild(frame)
-    frame.src = `data:${_mimeType},${encodeURIComponent(content)}`
-
-    setTimeout(() => {
-      document.body.removeChild(frame)
-    }, 333)
-  }
-  return true
-}
+import {generateCSV, downloadCSV} from '../../lib/csvWrangler'
 
 
 export default class DownloadWidget extends Component {
@@ -69,7 +38,7 @@ export default class DownloadWidget extends Component {
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
     const handApplyChoice = newValue => {
       if (this.state.csv) {
-        download(this.state.csv, 'tabell.csv')
+        downloadCSV(this.state.csv, 'tabell.csv')
         this.setState({isDownloadSelectOpen: false})
       } else {
         alert('CSV not done baking yet :/') // eslint-disable-line no-alert

@@ -83,55 +83,55 @@ export default class RegionSelect extends Component {
     const hasChanges = this.state.value !== this.props.value
 
     return (
-      <Lightbox title="Legg til sammenlikning" onClose={onCancel}>
+      <Lightbox title="Sammenliknet med:" onClose={onCancel}>
+        <div className="row">
         {similar && (
+          <div className="col--half">
           <fieldset>
             <legend>Anbefalte steder</legend>
-            <div className="row">
-              <div className="col--half">
-                <ToggleButtonList
-                  options={similar}
-                  value={value}
-                  renderButton={this.renderRegion.bind(this)}
-                  onAdd={this.handleAdd.bind(this)}
-                  onRemove={this.handleRemove.bind(this)}/>
-              </div>
-              <div className="col--half">
-                <p className="text--small">
-                  Disse stedene er nærmest det valgte stedet på befolkningsstørrelse,
-                  innvandrerandel og flyktningsandel og er mest anbefalt å
-                  sammenlikne med. <a href="#">Les mer om dette utvalget</a>. [TODO]
-                </p>
-              </div>
-            </div>
-          </fieldset>
-        )}
-        {average && (
-          <fieldset>
-            <legend>Anbefalte gjennomsnitt</legend>
             <ToggleButtonList
-              options={average}
+              options={similar}
               value={value}
               renderButton={this.renderRegion.bind(this)}
               onAdd={this.handleAdd.bind(this)}
-              onRemove={this.handleRemove.bind(this)}
-              />
+              onRemove={this.handleRemove.bind(this)}/>
+            <p className="text--small">
+              Disse stedene er nærmest det valgte stedet på befolkningsstørrelse,
+              innvandrerandel og flyktningsandel og er mest anbefalt å
+              sammenlikne med. <a href="#">Les mer om dette utvalget</a>. [TODO]
+            </p>
           </fieldset>
-        )}
-        <div className="fieldset">
-          <label htmlFor="compare-search" className="legend">Legg til andre steder</label>
-          <div className="search search--autocomplete">
-            <RegionSearch
-              placeholder="Kommune/fylke/næringsregion/bydel etc."
-              onSelect={region => this.handleAdd(region.prefixedCode)}/>
           </div>
-          <ToggleButtonList
-            options={other}
-            value={value}
-            renderButton={this.renderRegion.bind(this)}
-            onAdd={this.handleAdd.bind(this)}
-            onRemove={this.handleRemove.bind(this)}
-          />
+        )}
+          <div className="col--half">
+            {average && (
+              <fieldset>
+                <legend>Anbefalte gjennomsnitt</legend>
+                <ToggleButtonList
+                  options={average}
+                  value={value}
+                  renderButton={this.renderRegion.bind(this)}
+                  onAdd={this.handleAdd.bind(this)}
+                  onRemove={this.handleRemove.bind(this)}
+                  />
+              </fieldset>
+            )}
+            <div className="fieldset">
+              <label htmlFor="compare-search" className="legend">Legg til sted</label>
+              <div className="search search--autocomplete">
+                <RegionSearch
+                  placeholder="Kommune/fylke/næringsregion/bydel etc."
+                  onSelect={region => this.handleAdd(region.prefixedCode)}/>
+              </div>
+              <ToggleButtonList
+                options={other}
+                value={value}
+                renderButton={this.renderRegion.bind(this)}
+                onAdd={this.handleAdd.bind(this)}
+                onRemove={this.handleRemove.bind(this)}
+              />
+            </div>
+          </div>
         </div>
         <div className="lightbox__footer">
           <button type="button" className="button" onClick={this.apply.bind(this)}>Oppdater graf</button>

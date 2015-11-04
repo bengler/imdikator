@@ -95,7 +95,7 @@ class CardsPage extends Component {
                   <h1>Integreringen i {regionName}</h1>
                   <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
                 </header>
-                <CardPageButtons />
+
               </div>
             </div>
           </div>
@@ -105,8 +105,8 @@ class CardsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-
-                <h2 className="feature__section-title">{pageConfig.title} i {region.name}</h2>
+                <CardPageButtons />
+                <h2 className="t-only-screenreaders">{pageConfig.title} i {region.name}</h2>
                 <ul className="t-no-list-styles">
                   {pageConfig.cards.map(card => {
                     const isOpen = openCards.includes(card.name)

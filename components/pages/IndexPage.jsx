@@ -66,7 +66,7 @@ class IndexPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-                <h2 className="page__section-title">Oppsummering</h2>
+                <h2 className="t-only-screenreaders">Oppsummering</h2>
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     {chartQueries.map(chartQuery => {

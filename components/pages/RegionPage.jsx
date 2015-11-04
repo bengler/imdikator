@@ -61,7 +61,6 @@ class RegionPage extends Component {
                 <header>
                   <h1>{region.name} {_t(region.type)}</h1>
                   <p className="ingress">Tall og statistikk om integrering i {_t(`the-${region.type}`)}</p>
-                  <CardPageButtons />
                 </header>
               </div>
             </div>
@@ -72,7 +71,8 @@ class RegionPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-                <h2 className="page__section-title">Oppsummering</h2>
+                <CardPageButtons />
+                <h2 className="t-only-screenreaders">Oppsummering</h2>
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     {chartQueries.map(chartQuery => {

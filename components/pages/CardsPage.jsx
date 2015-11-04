@@ -131,7 +131,7 @@ class CardsPage extends Component {
                 <section className="feature feature--white">
                   <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
                   <RegionInfo region={region} allRegions={allRegions} />
-                <RegionQuickSwitch/>
+                  <RegionQuickSwitch/>
                 </section>
               </div>
             </div>

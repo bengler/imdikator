@@ -10,7 +10,7 @@ import CardPageButtons from '../containers/CardPageButtons'
 import RegionSummaryChart from '../containers/RegionSummaryChart'
 import RegionChildList from '../elements/RegionChildList'
 import RegionInfo from '../elements/RegionInfo'
-import RegionSearch from '../containers/RegionSearch'
+import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import chartQueries from '../../data/regionPageQueries'
 import {_t} from '../../lib/translate'
 
@@ -108,12 +108,9 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <section className="feature feature--white">
-                  <h2 className="feature__title">{region.name}</h2>
+                  <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
                   <RegionInfo region={region} allRegions={allRegions} />
-                  <div>
-                    <span>Finn område: </span>
-                    <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
-                  </div>
+                  <RegionQuickSwitch/>
                 </section>
               </div>
             </div>

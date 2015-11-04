@@ -7,7 +7,7 @@ import {
 } from '../../lib/regionUtil'
 import RegionSummaryChart from '../containers/RegionSummaryChart'
 import RegionChildList from '../elements/RegionChildList'
-import RegionSearch from '../containers/RegionSearch'
+import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import chartQueries from '../../data/regionPageQueries'
 
 
@@ -100,10 +100,7 @@ class IndexPage extends Component {
             <div className="row">
               <div className="col--main">
                 <section className="feature feature--white">
-                  <div>
-                    <span>Finn område: </span>
-                    <RegionSearch onSelect={this.handleSelectRegion.bind(this)}/>
-                  </div>
+                  <RegionQuickSwitch/>
                 </section>
               </div>
             </div>

@@ -19,11 +19,21 @@ export default class D3Chart extends React.Component {
     this.eventEmitter = new EventEmitter()
     this.eventEmitter.on('datapoint:hover-in', state => {
       const el = findDOMNode(this)
+      const boundingRect = el.getBoundingClientRect()
+      const rect = {
+        top: boundingRect.top,
+        right: boundingRect.right,
+        bottom: boundingRect.bottom,
+        left: boundingRect.left - el.scrollLeft * 2,
+        height: boundingRect.height,
+        width: boundingRect.width
+      }
+      rect.left += el.scrollLeft
       this.refs.focus.setState({
         title: state.title,
         body: state.body,
         el: state.el,
-        containerRect: el.getBoundingClientRect()
+        containerRect: rect
       })
     })
 

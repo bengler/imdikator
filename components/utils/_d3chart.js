@@ -22,6 +22,9 @@ class Chart {
       if (functions.hasOwnProperty('calculateHeight')) {
         this._calculateHeight = functions.calculateHeight
       }
+      if (functions.hasOwnProperty('calculateWidth')) {
+        this._calculateWidth = functions.calculateWidth
+      }
     }
 
     this.update(el, state, config)
@@ -75,6 +78,10 @@ class Chart {
     return 400
   }
 
+  _calculateWidth(el, data) {
+    return el.offsetWidth
+  }
+
   update(el, state, config) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
@@ -82,13 +89,12 @@ class Chart {
       this._svg.remove()
     }
 
-    // Our width is determined by our element width
-    this.fullWidth = el.offsetWidth
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
     this.margins = defaultMargins
     if (config.shouldCalculateMargins) {
       this.margins = Object.assign(defaultMargins, this._calculateMargins(state.data))
     }
+    this.fullWidth = this._calculateWidth(el, state.data) + this.margins.left + this.margins.right
     this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
 
     this.size = {

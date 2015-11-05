@@ -27,6 +27,7 @@ const CHART_TYPES = [
   {
     name: 'bar',
     maxBarWidth: 50,
+    minWidthPerCategory: 120,
     capabilities: {
       dimensions: 2
     },

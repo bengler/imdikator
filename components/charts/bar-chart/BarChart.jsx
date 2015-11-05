@@ -30,6 +30,18 @@ export default class BarChart extends React.Component {
     }
   }
 
+  calculateWidth(el, data) {
+    const numCategories = data.preparedData.length
+    const minWidth = numCategories * CHARTS.bar.minWidthPerCategory
+    d3.select(el)
+    .style('min-width', `${minWidth}px`)
+
+    if (el.offsetWidth < minWidth) {
+      return minWidth
+    }
+    return el.offsetWidth
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -38,6 +50,8 @@ export default class BarChart extends React.Component {
     const svg = this.svg
 
     const categories = data.preparedData.map(entry => entry.title)
+
+    // Set a minimum width
 
     // X axis scale for categories
     const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
@@ -211,7 +225,8 @@ export default class BarChart extends React.Component {
 
   render() {
     const functions = {
-      drawPoints: this.drawPoints
+      drawPoints: this.drawPoints,
+      calculateWidth: this.calculateWidth
     }
 
     const config = {

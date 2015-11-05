@@ -1,53 +1,63 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
-import {queryResultPresenter} from '../lib/queryResultPresenter'
-import {REQUEST_CHART_DATA, RECEIVE_CHART_DATA, RECEIVE_TABLE_HEADERS} from './actions'
+import {isSimilarRegion} from '../lib/regionUtil'
+import {REQUEST_REGION_SUMMARY_DATA, RECEIVE_REGION_SUMMARY_DATA} from './ActionTypes'
 
+function requestSummaryData({region, summaryConfig}) {
+  return {
+    type: REQUEST_REGION_SUMMARY_DATA,
+    region: region,
+    summaryConfig: summaryConfig
+  }
+}
 
-export function loadRegionSummaryData(userQuery, options) {
-  const queryKey = options.queryKey
-  const region = options.region
-  const chartKind = options.chartKind
+function receiveSummaryData({region, summaryConfig, query, queryResult}) {
+  return {
+    type: RECEIVE_REGION_SUMMARY_DATA,
+    region: region,
+    summaryConfig: summaryConfig,
+    query: query,
+    queryResult: queryResult
+  }
+}
 
+export function loadRegionSummaryDataForRegion(region, summaryConfig) {
   return (dispatch, getState) => {
-    dispatch({
-      type: REQUEST_CHART_DATA,
-      region: region,
-      chartKind: chartKind,
-      query: userQuery
-    })
 
-    apiClient.getHeaderGroups(userQuery.tableName).then(headerGroups => {
-      dispatch({
-        type: RECEIVE_TABLE_HEADERS,
-        headers: headerGroups,
-        tableName: userQuery.tableName
-      })
-      const newQuery = Object.assign({}, userQuery, {region: region.prefixedCode})
+    const state = getState()
 
-      let resolvedQuery
-      try {
-        resolvedQuery = resolveQuery(region, newQuery, headerGroups)
-      } catch (err) {
-        if (err.name == 'AssertionError') {
-          return null
-        }
-      }
+    if ((state.regionSummaries[region.prefixedCode] || {})[summaryConfig.name]) {
+      // we got it already
+      return
+    }
 
-      apiClient.query(resolvedQuery).then(queryResults => {
-        const data = {}
-        data[queryKey] = queryResultPresenter(resolvedQuery, queryResults, {chartKind})
-        dispatch({
-          type: RECEIVE_CHART_DATA,
-          userQuery: userQuery,
-          query: resolvedQuery,
-          queryKey: queryKey,
-          region: region,
-          data: data
-        })
+    const {allRegions} = state
+
+    dispatch(requestSummaryData({region, summaryConfig}))
+
+    apiClient.getHeaderGroups(summaryConfig.query.tableName).then(headerGroups => {
+
+      const query = resolveQuery(region, extendQuery(summaryConfig), headerGroups)
+
+      apiClient.query(query).then(queryResult => {
+
+        dispatch(receiveSummaryData({
+          region,
+          summaryConfig,
+          query,
+          queryResult
+        }))
       })
 
     })
 
+    function extendQuery(summary) {
+      // extend the configured query with region and comparison regions
+      const comparisonRegions = summary.compareWithSimilarRegions ? allRegions.filter(isSimilarRegion(region)) : []
+      return Object.assign({}, summary.query, {
+        region: region.prefixedCode,
+        comparisonRegions: comparisonRegions.map(reg => reg.prefixedCode)
+      })
+    }
   }
 }

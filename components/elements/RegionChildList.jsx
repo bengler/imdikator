@@ -1,55 +1,49 @@
 import React, {Component, PropTypes} from 'react'
 import {_t} from '../../lib/translate'
-import {childRegionsByParent, allCounties} from '../../lib/regionUtil'
-
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import capitalize from 'lodash.capitalize'
 
 export default class RegionChildrenList extends Component {
 
   static propTypes = {
-    region: PropTypes.object,
-    allRegions: PropTypes.array
+    region: ImdiPropTypes.region,
+    childRegions: PropTypes.arrayOf(ImdiPropTypes.region),
+    createLinkToRegion: PropTypes.func.isRequired
   }
 
-  static contextTypes = {
-    linkTo: PropTypes.func
+  renderTitle(region) {
+    if (region.prefixedCode == 'F00') {
+      return 'Fylker i Norge'
+    }
+    switch (region.type) {
+      case 'municipality':
+        return `${capitalize(_t('several-borough'))} i ${region.name}`
+      case 'county':
+        return `${capitalize(_t('several-municipality'))} i ${region.name}`
+      case 'commerceRegion':
+        return `${capitalize(_t('several-municipality'))} i ${region.name}`
+      case 'borough':
+        return ''
+      default:
+        throw new Error(`Unknown region type ${region.type}`)
+    }
   }
 
   render() {
-    const region = this.props.region
-    const allRegions = this.props.allRegions
+    const {region, childRegions, createLinkToRegion} = this.props
 
-    let childRegions = []
-    let childTitle
-    if (region.type == 'municipality') {
-      childRegions = childRegionsByParent('borough', region, allRegions)
-      childTitle = `${capitalize(_t('several-borough'))} i ${region.name}`
-    }
-    if (region.type == 'county') {
-      childRegions = childRegionsByParent('municipality', region, allRegions)
-      childTitle = `${capitalize(_t('several-municipality'))} i ${region.name}`
-    }
-    if (region.type == 'commerceRegion') {
-      childRegions = childRegionsByParent('municipality', region, allRegions)
-      childTitle = `${capitalize(_t('several-municipality'))} i ${region.name}`
-    }
-    if (region.prefixedCode == 'F00') {
-      childRegions = allCounties(allRegions)
-      childTitle = 'Fylker i Norge'
-    }
     return (
       <div className="col-block-bleed--full-right">
-        <h2 className="feature__section-title">{childTitle}</h2>
+        <h2 className="feature__section-title">
+          {this.renderTitle(region)}
+        </h2>
         <nav role="navigation" className="navigation">
           <ul className="t-no-list-styles">
             {childRegions.map(childRegion => {
               return (
-              <li key={childRegion.code} className="col--third col--flow col--right-padding">
-                <a className="navigation__link" href={this.context.linkTo('/steder/:region', {region: childRegion.prefixedCode})}>{childRegion.name}</a>
-              </li>
+                <li key={childRegion.prefixedCode} className="col--third col--flow col--right-padding">
+                  <a className="navigation__link" href={createLinkToRegion(region)}>{childRegion.name}</a>
+                </li>
               )
             })}
           </ul>

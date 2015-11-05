@@ -59,27 +59,34 @@ describe('getQuerySpec', () => {
           name: 'comparisonRegions',
           fixed: true,
           locked: false,
+          hidden: false,
           choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
         },
         {
           name: 'year',
           fixed: true,
+          hidden: false,
           locked: false,
           choices: [['2010'], ['2012']]
         },
         {
           name: 'innvkat5',
           locked: true,
+          hidden: false,
+          constrained: false,
           choices: [['innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']]
         },
         {
           name: 'kjonn',
           locked: false,
+          hidden: false,
+          constrained: false,
           choices: [['alle'/*skjult*/], ['0', '1'/*vis*/]]
         },
         {
           name: 'unit',
           fixed: true,
+          hidden: false,
           locked: false,
           choices: [['prosent'], ['personer']]
         }
@@ -106,28 +113,35 @@ describe('getQuerySpec', () => {
           {
             name: 'comparisonRegions',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
           },
           {
             name: 'year',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: [['2010'], ['2012']]
           },
           {
             name: 'innvkat5',
             locked: true,
+            hidden: false,
+            constrained: false,
             choices: [['innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']]
           },
           {
             name: 'kjonn',
             locked: false,
+            hidden: false,
+            constrained: false,
             choices: [['alle'/*skjult*/], ['0', '1'/*vis*/]]
           },
           {
             name: 'unit',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: [['prosent'], ['personer']]
           }
@@ -152,28 +166,35 @@ describe('getQuerySpec', () => {
           {
             name: 'comparisonRegions',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
           },
           {
             name: 'year',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: [['2010'], ['2012']]
           },
           {
             name: 'innvkat5',
+            constrained: false,
+            hidden: false,
             locked: true,
             choices: [['innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']]
           },
           {
             name: 'kjonn',
             locked: false,
+            constrained: true,
+            hidden: false,
             choices: [['alle'], ['0'], ['1']]
           },
           {
             name: 'unit',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: [['prosent'], ['personer']]
           }
@@ -199,28 +220,35 @@ describe('getQuerySpec', () => {
           {
             name: 'comparisonRegions',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
           },
           {
             name: 'year',
             fixed: true,
+            hidden: false,
             locked: true,
             choices: ['all']
           },
           {
             name: 'innvkat5',
             locked: true,
+            constrained: false,
+            hidden: false,
             choices: [['innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']]
           },
           {
             name: 'kjonn',
+            constrained: false,
             locked: false,
+            hidden: false,
             choices: [['alle'], ['0', '1']]
           },
           {
             name: 'unit',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: [['prosent'], ['personer']]
           }
@@ -245,28 +273,35 @@ describe('getQuerySpec', () => {
           {
             name: 'comparisonRegions',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
           },
           {
             name: 'year',
             fixed: true,
+            hidden: false,
             locked: true,
             choices: ['all']
           },
           {
             name: 'innvkat5',
+            constrained: false,
+            hidden: false,
             locked: true,
             choices: [['innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']]
           },
           {
             name: 'kjonn',
+            constrained: true,
+            hidden: false,
             locked: false,
             choices: [['alle'], ['0'], ['1']]
           },
           {
             name: 'unit',
             fixed: true,
+            hidden: false,
             locked: false,
             choices: [['prosent'], ['personer']]
           }

@@ -1,15 +1,15 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 export default class NotFoundPage extends Component {
   static propTypes = {
-    route: PropTypes.object
+    route: ImdiPropTypes.route
   }
 
   render() {
     return (
       <div>
-        <pre>{JSON.stringify(this.props.route, null, 2)}</pre>
-        Not found!!
+        Denne siden fant vi visst ikke
       </div>
     )
   }

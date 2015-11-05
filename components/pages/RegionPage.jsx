@@ -1,27 +1,20 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {loadAllRegions} from '../../actions/region'
-import {
-  regionByPrefixedCode,
-  isSimilarRegion
-} from '../../lib/regionUtil'
 
-import CardPageButtons from '../containers/CardPageButtons'
-import RegionSummaryChart from '../containers/RegionSummaryChart'
-import RegionChildList from '../elements/RegionChildList'
-import RegionInfo from '../elements/RegionInfo'
+import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
+import RegionChildListContainer from '../containers/RegionChildListContainer'
+import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
+import RegionInfoContainer from '../containers/RegionInfoContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
-import chartQueries from '../../data/regionPageQueries'
 import {_t} from '../../lib/translate'
 
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class RegionPage extends Component {
 
   static propTypes = {
-    route: PropTypes.object,
-    region: PropTypes.object,
-    allRegions: PropTypes.array,
-    dispatch: PropTypes.func
+    currentRegion: ImdiPropTypes.region,
+    comparableRegions: PropTypes.arrayOf(ImdiPropTypes.region)
   }
 
   static contextTypes = {
@@ -29,28 +22,18 @@ class RegionPage extends Component {
     goTo: PropTypes.func
   }
 
-
-  componentWillMount() {
-    this.props.dispatch(loadAllRegions())
-  }
-
   handleSelectRegion(region) {
     this.context.goTo('/steder/:region', {region: region.prefixedCode})
   }
 
   render() {
-    const allRegions = this.props.allRegions
-    const region = this.props.region
-    if (!region) {
-      return (
-        <div className="col--main">
-          <span>Loading regions...</span>
-          <pre>{JSON.stringify(this.props, null, 2)}</pre>
-        </div>
-      )
+    const {currentRegion} = this.props
+
+    if (!currentRegion) {
+      return null
     }
-    const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
-    const factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: region.prefixedCode})
+
+    const factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: currentRegion.prefixedCode})
 
     return (
       <main className="page">
@@ -59,41 +42,34 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 <header>
-                  <h1>{region.name} {_t(region.type)}</h1>
-                  <p className="ingress">Tall og statistikk om integrering i {_t(`the-${region.type}`)}</p>
+                  <h1>{currentRegion.name} {_t(currentRegion.type)}</h1>
+                  <p className="ingress">Tall og statistikk om integrering i {_t(`the-${currentRegion.type}`)}</p>
                 </header>
               </div>
             </div>
           </div>
         </div>
-
         <section className="page__section page__section--grey">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-                <CardPageButtons />
+                <CardPageButtonsContainer />
                 <h2 className="t-only-screenreaders">Oppsummering</h2>
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
-                    {chartQueries.map(chartQuery => {
-                      const key = `${chartQuery.query.tableName}-${chartQuery.query.unit[0]}`
-                      if (chartQuery.relevantFor.includes(region.type)) {
-                        return (
-                          <RegionSummaryChart key={key} comparableRegionCodes={comparableRegionCodes} region={region} chartQuery={chartQuery} />
-                        )
-                      }
-                    })}
+                    <RegionSummaryChartsContainer region={currentRegion}/>
                   </div>
                 </div>
 
                 <section className="feature">
                   <h2 className="feature__title">Faktaark</h2>
                   <p>
-                    Et dokument hvor alle nøkkeltallene fra {region.name} {_t(region.type)} er gjengitt.
+                    Et dokument hvor alle nøkkeltallene fra {currentRegion.name} {_t(currentRegion.type)} er gjengitt.
                   </p>
                   <p>
                     <a href={factSheetLink} className="button button-">
-                      <i className="icon__download icon--white"></i> Utskriftsvennlig faktaark
+                      <i className="icon__download icon--white"/>
+                      Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </section>
@@ -108,44 +84,33 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <section className="feature feature--white">
-                  <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
-                  <RegionInfo region={region} allRegions={allRegions} />
+                  <h2 className="feature__title">{currentRegion.name}</h2>
+                  <RegionInfoContainer region={currentRegion}/>
                   <RegionQuickSwitch/>
                 </section>
               </div>
             </div>
           </div>
         </div>
-
-        {
-        allRegions.length
-        && <div className="page__footer">
+        <div className="page__footer">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
                 <section className="feature feature--white">
-                  <RegionChildList region={region} allRegions={allRegions}/>
+                  <RegionChildListContainer region={currentRegion}/>
                 </section>
               </div>
             </div>
           </div>
         </div>
-        }
       </main>
     )
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  let region
-  if (state.allRegions) {
-    const prefixedRegionCode = ownProps.route.params.region.split('-')[0].toUpperCase()
-    region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
-  }
-
+function mapStateToProps(state) {
   return {
-    allRegions: state.allRegions,
-    region: region
+    currentRegion: state.currentRegion
   }
 }
 

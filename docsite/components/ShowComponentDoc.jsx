@@ -1,11 +1,15 @@
-import React, {PropTypes, addons} from 'react/addons'
+import React, {PropTypes} from 'react'
+import update from 'react-addons-update'
 import PropForm from './PropForm'
 
 function attributize(value) {
-  if (typeof value === 'object') {
+  if (Array.isArray(value) || typeof value === 'object') {
     return `{${JSON.stringify(value)}}`
   }
   if (typeof value === 'number') {
+    return `{${value}}`
+  }
+  if (typeof value === 'boolean') {
     return `{${value}}`
   }
   if (typeof value === 'string') {
@@ -29,21 +33,22 @@ function toAttrs(props) {
     .join(' ')
 }
 
-export default class Tester extends React.Component {
+export default class ShowComponentDoc extends React.Component {
   static propTypes = {
-    component: PropTypes.func.isRequired
+    component: PropTypes.func.isRequired,
+    componentProps: PropTypes.any
   }
 
-  constructor() {
+  constructor(props) {
     super()
     this.state = {
-      props: {}
+      props: Object.assign({}, props.componentProps || {})
     }
   }
 
   handlePropChange(prop, newValue) {
     this.setState({
-      props: addons.update(this.state.props, {
+      props: update(this.state.props, {
         [prop.name]: {$set: newValue}
       })
     })
@@ -96,22 +101,22 @@ export default class Tester extends React.Component {
               <div className="col--main">
                 <h1>{Component.name}</h1>
 
-                <p><span>{Component.doc.description}</span></p>
+                <div><span>{Component.doc.description}</span></div>
 
                 <h3>PropTypes</h3>
-                <p>
+                <div>
                 {this.renderPropTypes()}
-                </p>
+                </div>
 
                 <h3>Usage</h3>
-                <p>
+                <div>
                   {this.renderUsage()}
-                </p>
+                </div>
 
                 <h3 className="feature-small__title">Live example</h3>
-                <p className="feature-small__meta">
+                <div className="feature-small__meta">
                   <Component {...componentProps}/>
-                </p>
+                </div>
               </div>
             </div>
           </div>

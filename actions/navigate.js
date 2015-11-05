@@ -1,16 +1,10 @@
-import {NAVIGATE} from './actions'
-import {loadRegionByCode} from './region'
+import {NAVIGATE} from './ActionTypes'
 
-/* Action creators */
-export function navigate(match = {}) {
+export function navigate(PageComponent, match = {}) {
   return dispatch => {
-    const {params} = match
-    if (params.region) {
-      const prefixedRegionCode = params.region.split('-')[0].toUpperCase()
-      dispatch(loadRegionByCode(prefixedRegionCode))
-    }
     dispatch({
       type: NAVIGATE,
+      PageComponent,
       match
     })
   }

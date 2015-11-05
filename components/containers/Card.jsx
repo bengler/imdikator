@@ -10,6 +10,7 @@ import DownloadWidget from './DownloadWidget'
 import {getHeaderKey} from '../../lib/regionUtil'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import Clipboard from 'clipboard'
 import config from '../../config'
 
 class Card extends Component {
@@ -106,6 +107,8 @@ class Card extends Component {
         value: [region.prefixedCode]
       }
     }
+
+    const clipboard = new Clipboard('.clipboardButton') // eslint-disable-line no-unused-vars
 
     return (
       <div

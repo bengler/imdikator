@@ -2,7 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-import {CHARTS} from '../../../config/chartTypes'
+import CHARTS_CONFIG from '../../../config/chartsConfigs'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
@@ -46,7 +46,7 @@ export default class BarChart extends React.Component {
     const innerPaddingFactor = 0.2
     const outerPaddingFactor = 0
 
-    const maxWidth = CHARTS.bar.maxBarWidth
+    const maxWidth = CHARTS_CONFIG.bar.maxBarWidth
 
     data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)

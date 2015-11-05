@@ -3,7 +3,7 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
-import {CHARTS} from '../../../config/chartTypes'
+import CHARTS_CONFIG from '../../../config/chartsConfigs'
 
 export default class StackedBarChart extends Component {
   /* eslint-disable react/forbid-prop-types */
@@ -71,7 +71,7 @@ export default class StackedBarChart extends Component {
     const innerPaddingFactor = 0.2
     const outerPaddingFactor = 0
 
-    const maxWidth = CHARTS.stackedBar.maxBarWidth
+    const maxWidth = CHARTS_CONFIG.stackedBar.maxBarWidth
     data.preparedData.forEach(cat => {
 
       const scale = d3.scale.ordinal()

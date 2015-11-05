@@ -5,7 +5,7 @@ import D3Chart from '../../utils/D3Chart'
 
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 import {benchmarkColor, benchmarkHighLightColor} from '../../../data/colorPalette'
-import {CHARTS} from '../../../config/chartTypes'
+import CHARTS_CONFIG from '../../../config/chartsConfigs'
 
 function sortData(data, direction) {
   const sortedRows = data.rows.slice().sort((rowA, rowB) => {
@@ -57,7 +57,7 @@ export default class BenchmarkChart extends React.Component {
     const labelFormat = yc.format
 
     const x = x0.copy()
-    const maxWidth = CHARTS.benchmark.maxBarWidth
+    const maxWidth = CHARTS_CONFIG.benchmark.maxBarWidth
     this.limitScaleRangeBand(x, maxWidth)
 
     /* eslint-disable no-warning-comments */

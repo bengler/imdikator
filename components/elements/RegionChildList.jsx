@@ -42,7 +42,7 @@ export default class RegionChildrenList extends Component {
             {childRegions.map(childRegion => {
               return (
                 <li key={childRegion.prefixedCode} className="col--third col--flow col--right-padding">
-                  <a className="navigation__link" href={createLinkToRegion(region)}>{childRegion.name}</a>
+                  <a className="navigation__link" href={createLinkToRegion(childRegion)}>{childRegion.name}</a>
                 </li>
               )
             })}

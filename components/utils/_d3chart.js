@@ -22,9 +22,6 @@ class Chart {
       if (functions.hasOwnProperty('calculateHeight')) {
         this._calculateHeight = functions.calculateHeight
       }
-      if (functions.hasOwnProperty('calculateWidth')) {
-        this._calculateWidth = functions.calculateWidth
-      }
     }
 
     this.update(el, state, config)
@@ -69,17 +66,13 @@ class Chart {
     const result = {
       left: axislabelLength + 10, // Add some space for the actual axis and tick marks
       top: axislabelHeight,
-      right: 15
+      right: 20
     }
     return result
   }
 
   _calculateHeight(el) {
     return 400
-  }
-
-  _calculateWidth(el, data) {
-    return el.offsetWidth
   }
 
   update(el, state, config) {
@@ -94,7 +87,14 @@ class Chart {
     if (config.shouldCalculateMargins) {
       this.margins = Object.assign(defaultMargins, this._calculateMargins(state.data))
     }
-    this.fullWidth = this._calculateWidth(el, state.data) + this.margins.left + this.margins.right
+
+    this.fullWidth = el.offsetWidth
+    if (config.minimumWidth) {
+      const minimumWidthWithMargins = config.minimumWidth + this.margins.left + this.margins.right
+      if (this.fullWidth < minimumWidthWithMargins) {
+        this.fullWidth = minimumWidthWithMargins
+      }
+    }
     this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
 
     this.size = {

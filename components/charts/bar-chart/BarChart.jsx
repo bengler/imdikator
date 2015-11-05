@@ -229,11 +229,16 @@ export default class BarChart extends React.Component {
       calculateWidth: this.calculateWidth
     }
 
+    const data = this.prepareData(this.props.data)
+
     const config = {
       shouldCalculateMargins: true
     }
 
-    const data = this.prepareData(this.props.data)
+    if (CHARTS.bar.minWidthPerCategory) {
+      const numCategories = data.preparedData.length
+      config.minimumWidth = numCategories * CHARTS.bar.minWidthPerCategory
+    }
 
     return (
       <div>

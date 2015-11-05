@@ -19,6 +19,7 @@ const CHART_TYPES = [
   },
   {
     name: 'line',
+    minWidthPerCategory: 10,
     capabilities: {
       dimensions: 1
     },

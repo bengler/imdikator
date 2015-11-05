@@ -2,6 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+import {CHARTS} from '../../../config/chartTypes'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class LineChart extends React.Component {
@@ -263,12 +264,19 @@ export default class LineChart extends React.Component {
   render() {
     const functions = {
       drawPoints: this.drawPoints,
-      calculateMargins: this.calculateMargins
+      calculateMargins: this.calculateMargins,
     }
-    const config = {
-      shouldCalculateMargins: true
-    }
+
     const data = this.prepareData(this.props.data)
+    const config = {
+      shouldCalculateMargins: true,
+    }
+
+    if (CHARTS.line.minWidthPerCategory) {
+      const numCategories = data.preparedData.length
+      config.minimumWidth = numCategories * CHARTS.line.minWidthPerCategory
+    }
+
     return (
       <D3Chart data={data} functions={functions} config={config}/>
     )

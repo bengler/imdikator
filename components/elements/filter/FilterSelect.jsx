@@ -56,7 +56,7 @@ export default class FilterSelect extends Component {
     const selectContainerClasses = cx({
       select: true,
       'subtle-select__select': true,
-      'subtle-select__select--disabled': locked
+      'subtle-select__select--disabled': disabled
     })
 
     const selectedIndex = choices.findIndex(valuesEqual(value))

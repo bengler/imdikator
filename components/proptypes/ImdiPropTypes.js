@@ -36,9 +36,9 @@ export const cardsPage = PropTypes.shape({
 })
 
 export const chartData = PropTypes.shape({
-  rows: PropTypes.arrayOf({
+  rows: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.number
-  })
+  }))
   //... add more
 })
 
@@ -52,3 +52,9 @@ export const query = PropTypes.shape({
   tableName: PropTypes.string,
   //... add more
 })
+
+export const dowloadChoices = PropTypes.arrayOf(PropTypes.shape({
+  value: PropTypes.number,
+  description: PropTypes.string,
+  regions: PropTypes.arrayOf(region)
+}))

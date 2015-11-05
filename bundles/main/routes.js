@@ -44,9 +44,7 @@ routes.add('/steder/:region/:cardsPageName/:cardName', (dispatch, match) => {
       cardName: params.cardName
     })
   )
-  if (params.cardName) {
-    dispatch(openCard(params.cardName))
-  }
+  dispatch(openCard(params.cardName))
   return CardsPage
 })
 
@@ -58,6 +56,7 @@ routes.add('/steder/:region/:cardsPageName/:cardName/:tabName', (dispatch, match
       tabName: params.tabName
     })
   )
+  dispatch(openCard(params.cardName))
   return CardsPage
 })
 

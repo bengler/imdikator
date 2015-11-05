@@ -123,6 +123,10 @@ function mapStateToProps(state) {
 
   const currentRegion = state.currentRegion
 
+  if (!state.currentCardsPage) {
+    return {}
+  }
+
   function cardHasValues(card) {
     const regionHeaderKey = getHeaderKey(currentRegion)
     const tableName = card.query.tableName

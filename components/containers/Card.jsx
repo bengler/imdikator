@@ -11,7 +11,6 @@ import {getHeaderKey} from '../../lib/regionUtil'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import config from '../../config'
-import Clipboard from 'clipboard'
 
 class Card extends Component {
   static propTypes = {
@@ -94,6 +93,10 @@ class Card extends Component {
     const chart = CHARTS[this.getChartKind()]
     const ChartComponent = chart.component
 
+    if (!chart.component) {
+      throw new Error(`Uh oh, missing chart component for ${chart.name}`)
+    }
+
     const sortDirection = activeTab.name === 'benchmark' ? 'ascending' : null
 
     const chartData = Object.assign({}, data)
@@ -126,7 +129,7 @@ class Card extends Component {
           chart={chart}
           dimensionsConfig={card.dimensionsConfig}
         />
-        {loading && 'Laster…'}
+        {loading && <span>Laster…</span>}
         <div className="graph">
           {data && <ChartComponent data={data} sortDirection={sortDirection}/>}
         </div>
@@ -137,8 +140,9 @@ class Card extends Component {
           headerGroups={headerGroups}
         />
         <div className="graph__functions">
-          <button type="button" className="button button--secondary button--small clipboardButton"
-                  data-clipboard-text={this.chartUrl()}>
+          <button
+            type="button" className="button button--secondary button--small clipboardButton"
+            data-clipboard-text={this.chartUrl()}>
             <i className="icon__export"></i> Lenke til figuren
           </button>
           <DownloadWidget region={region} data={chartData}/>

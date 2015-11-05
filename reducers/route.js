@@ -1,4 +1,4 @@
-import {NAVIGATE} from '../actions/actions'
+import {NAVIGATE} from '../actions/ActionTypes'
 
 export default function route(state = {}, action) {
   switch (action.type) {

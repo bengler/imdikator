@@ -26,6 +26,7 @@
     "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
   },
   "dependencies": {
+    "array-equal": "^1.0.0",
     "babel": "^5.8.23",
     "babel-eslint": "^4.0.10",
     "babel-istanbul": "^0.4.1",
@@ -89,7 +90,7 @@
     "disc": "^1.3.2",
     "error-capture-middleware": "0.0.2",
     "eslint": "^1.6.0",
-    "eslint-config-bengler": "^0.3.5",
+    "eslint-config-bengler": "^0.3.7",
     "eslint-plugin-import": "^0.8.1",
     "eslint-plugin-react": "^3.2.3",
     "mocha": "^2.2.5",

@@ -15,6 +15,7 @@ export default class Autocomplete extends Component {
     onSelect: PropTypes.func,
     shouldItemRender: PropTypes.func,
     renderMenu: PropTypes.func,
+    openOnFocus: PropTypes.bool,
     renderItem: PropTypes.func.isRequired,
     sortItems: PropTypes.func,
     menuStyle: PropTypes.object,
@@ -26,6 +27,7 @@ export default class Autocomplete extends Component {
 
   static defaultProps = {
     inputProps: {},
+    openOnFocus: true,
     onChange() {
     },
     onSelect(value, item) {
@@ -300,11 +302,13 @@ export default class Autocomplete extends Component {
     if (this._ignoreBlur) {
       return
     }
-    this.setState({isOpen: true})
+    if (this.props.openOnFocus) {
+      this.setState({isOpen: true})
+    }
   }
 
   handleInputClick() {
-    if (this.state.isOpen === false) {
+    if (this.state.isOpen === false && this.props.openOnFocus) {
       this.setState({isOpen: true})
     }
   }
@@ -332,5 +336,3 @@ export default class Autocomplete extends Component {
     )
   }
 }
-
-module.exports = Autocomplete

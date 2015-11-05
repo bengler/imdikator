@@ -1,11 +1,9 @@
 import React, {Component, PropTypes} from 'react'
-import {connect} from 'react-redux'
 import {prefixifyRegion} from '../../lib/regionUtil'
-import RegionSearch from './RegionSearch'
+import RegionSearch from './RegionSearchContainer'
 
-class RegionQuickSwitch extends Component {
+export default class RegionQuickSwitch extends Component {
   static contextTypes = {
-    linkTo: PropTypes.func,
     goTo: PropTypes.func
   }
 
@@ -25,7 +23,3 @@ class RegionQuickSwitch extends Component {
     )
   }
 }
-
-
-// Wrap the component to inject dispatch and state into it
-export default connect()(RegionQuickSwitch)

@@ -7,6 +7,15 @@
       {
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning av befolkning",
+        "dimensionsConfig": {
+          "innvkat5": {
+            "include": [
+              "innvandrere",
+              "bef_u_innv_og_norskf",
+              "norskfodte_m_innvf"
+            ]
+          }
+        },
         "query": {
           "tableName": "befolkning_hovedgruppe",
           "comparisonRegions": [],
@@ -14,12 +23,7 @@
           "unit": ["personer"],
           "dimensions": [
             {
-              "name": "innvkat5",
-              "variables": [
-                "innvandrere",
-                "bef_u_innv_og_norskf",
-                "norskfodte_m_innvf"
-              ]
+              "name": "innvkat5"
             },
             {
               "name": "kjonn",
@@ -29,7 +33,7 @@
             }
           ]
         },
-        "tabs": [
+        "tab": [
           {
             "name": "chronological",
             "chartKind": "stackedArea"

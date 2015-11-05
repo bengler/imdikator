@@ -1,10 +1,10 @@
-import {RECEIVE_TABLE_HEADERS} from '../actions/actions'
+import {RECEIVE_HEADER_GROUPS} from '../actions/ActionTypes'
 
 export default function tables(state = {}, action) {
   switch (action.type) {
-    case RECEIVE_TABLE_HEADERS:
+    case RECEIVE_HEADER_GROUPS:
       return Object.assign({}, state, {
-        [action.tableName]: action.headers
+        [action.tableName]: action.headerGroups
       })
     default:
       return state

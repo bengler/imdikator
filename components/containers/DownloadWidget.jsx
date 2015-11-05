@@ -1,17 +1,16 @@
 import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
 import {generateCSV, downloadCSV} from '../../lib/csvWrangler'
 
 
-export default class DownloadWidget extends Component {
-  /* eslint-disable react/forbid-prop-types */
+class DownloadWidget extends Component {
   static propTypes = {
     data: PropTypes.object,
     region: PropTypes.object,
-    allRegions: PropTypes.array
+    choices: PropTypes.object,
   }
-  /* eslint-enable react/forbid-prop-types */
 
   constructor(props) {
     super()
@@ -35,7 +34,9 @@ export default class DownloadWidget extends Component {
   }
 
   renderDownloadSelect() {
-    const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
+
+    const {choices} = this.props
+
     const handApplyChoice = newValue => {
       if (this.state.csv) {
         downloadCSV(this.state.csv, 'tabell.csv')
@@ -72,3 +73,14 @@ export default class DownloadWidget extends Component {
     )
   }
 }
+
+function mapStateToProps(state, ownProps) {
+  const {region} = ownProps
+  const {allRegions} = state
+  const choices = downloadChoicesByRegion(region, allRegions)
+  return {
+    choices: choices
+  }
+}
+
+export default connect(mapStateToProps)(DownloadWidget)

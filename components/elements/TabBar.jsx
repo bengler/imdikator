@@ -13,7 +13,7 @@ export default class TabBar extends Component {
   static propTypes = {
     activeTab: PropTypes.object,
     tabs: PropTypes.array.isRequired,
-    disabledTabs: PropTypes.array,
+    disabledTabs: PropTypes.arrayOf(PropTypes.string),
     makeLinkToTab: PropTypes.func.isRequired
   }
 
@@ -39,7 +39,7 @@ export default class TabBar extends Component {
         return (
           <li key={tab.name} className="tabs-menu__list-item">
             <span className={linkClassName}>
-            <i className={iconClassName}></i>
+            <i className={iconClassName}/>
             {tab.title}
             </span>
           </li>
@@ -49,7 +49,7 @@ export default class TabBar extends Component {
       return (
         <li title={tab.title} key={tab.name} className="tabs-menu__list-item">
           <a href={makeLinkToTab(tab)} className={linkClassName}>
-            <i className={iconClassName}></i>
+            <i className={iconClassName}/>
             {tab.title}
           </a>
         </li>

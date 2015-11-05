@@ -41,7 +41,17 @@ export default class DefaultLayout extends React.Component {
                           <polygon fill="#FFD666" points="192,105 192,105 105,18 105,105 " />
                         </g>
                         <foreignObject>
-                          <img alt="" height="128" width="128" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABfCAMAAAC5kuvHAAAAMFBMVEX///8drkvwVUFau1v+1mYdrkvwVUEvsVB5uFAdrkstsU9au1twt1B3ulLwVUH+1mazBh7uAAAACXRSTlMAEBCgoNDQ3NwIDyB5AAABUUlEQVR4Ae3Nu1HEYBgEQQHHgwWk/LPFlKOi/7qtD+smgJ5tqee3rcn8Pszvw/w+zO/D/D7M78P8Psuf/m2EP/3jNsKfPgZ38qfvwTp/5XOwzl/7Hqzz174H6/y17wH5P3wPzMPHgDx8DMjDx4A8fAzIw8eAPHwMyMPHgLx8DMTTxwC8fQzA28cAvH0MwNvHALx9DMDbxwC8fQzI2/fAvH0PzNv3ADx8D8DD90A8fA/Ws98PjuHBMTw4hgfH8OAYHhxDA/gevHwt9fO90sd27yCfC70+bR7AB88BfPAcwAfPAXzwxSAV70HMV4OQ7wYRXw4Cvh0EfDsI+HYQ8O0g4NtBwLeDgG8HAd8OAr4dBHw7CPh2EPDtIODbQcC3g4BvBwHfDgK+HQR8Owj4dhDw7SDg20HAt4OAbwcB3w4Cvh0EfDsI+HYQ8O3gHfz/9ejRo1+OVZGj1UP9lQAAAABJRU5ErkJggg=="
+                          <img alt="" height="128" width="128"
+                            src={
+                              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABfCAMAAAC5kuvHAAAAMFBMVEX///8d'
+                              + 'rkvwVUFau1v+1mYdrkvwVUEvsVB5uFAdrkstsU9au1twt1B3ulLwVUH+1mazBh7uAAAACXRSTlMAEBCgoNDQ3NwID'
+                              + 'yB5AAABUUlEQVR4Ae3Nu1HEYBgEQQHHgwWk/LPFlKOi/7qtD+smgJ5tqee3rcn8Pszvw/w+zO/D/D7M78P8Psuf/m'
+                              + '2EP/3jNsKfPgZ38qfvwTp/5XOwzl/7Hqzz174H6/y17wH5P3wPzMPHgDx8DMjDx4A8fAzIw8eAPHwMyMPHgLx8DMTTxw'
+                              + 'C8fQzA28cAvH0MwNvHALx9DMDbxwC8fQzI2/fAvH0PzNv3ADx8D8DD90A8fA/Ws98PjuHBMTw4hgfH8OAYHhxDA/gevHw'
+                              + 't9fO90sd27yCfC70+bR7AB88BfPAcwAfPAXzwxSAV70HMV4OQ7wYRXw4Cvh0EfDsI+HYQ8O0g4NtBwLeDgG8HAd8OAr4d'
+                              + 'BHw7CPh2EPDtIODbQcC3g4BvBwHfDgK+HQR8Owj4dhDw7SDg20HAt4OAbwcB3w4Cvh0EfDsI+HYQ8O3gHfz/9ejRo1+OV'
+                              + 'ZGj1UP9lQAAAABJRU5ErkJggg=='
+                            }
                           />
                         </foreignObject>
                       </switch>
@@ -93,12 +103,20 @@ export default class DefaultLayout extends React.Component {
                       <nav role="navigation" className="navigation navigation--footer">
                         <h2 className="t-only-screenreaders">Hovedmeny</h2>
                         <ul className="t-no-list-styles">
-                          <li><a href="http://imdi-no.protolife.no/planlegging-og-bosetting" className="navigation__link navigation__link--primary">Planlegging
-                            og bosetting</a></li>
-                          <li><a href="http://imdi-no.protolife.no/opplaering-og-utdanning" className="navigation__link navigation__link--primary">Opplæring
-                            og utdanning</a></li>
                           <li>
-                            <a href="http://imdi-no.protolife.no/sysselsetting-og-arbeidsliv" className="navigation__link navigation__link--primary">Sysselsetting og arbeidsliv</a>
+                            <a
+                              href="http://imdi-no.protolife.no/planlegging-og-bosetting"
+                              className="navigation__link navigation__link--primary">
+                              Planlegging og bosetting</a></li>
+                          <li>
+                            <a
+                              href="http://imdi-no.protolife.no/opplaering-og-utdanning"
+                              className="navigation__link navigation__link--primary">
+                              Opplæring og utdanning</a></li>
+                          <li>
+                            <a href="http://imdi-no.protolife.no/sysselsetting-og-arbeidsliv" className="navigation__link navigation__link--primary">
+                              Sysselsetting og arbeidsliv
+                            </a>
                           </li>
                           <li><a href="http://imdi-no.protolife.no/fakta-om-integrering" className="navigation__link navigation__link--primary">Om
                             integrering i Norge</a></li>
@@ -140,7 +158,8 @@ export default class DefaultLayout extends React.Component {
                             <li><a href="http://imdi-no.protolife.no" className="navigation__link">Ny i Norge <i
                               className="icon__external icon--white navigation__link-icon">
                               <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
-                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Tolkeportalen <i className="icon__external icon--white navigation__link-icon">
+                            <li><a href="http://imdi-no.protolife.no" className="navigation__link">Tolkeportalen
+                              <i className="icon__external icon--white navigation__link-icon">
                               <span className="t-only-screenreaders">(ekstern lenke)</span></i></a></li>
                             <li><a href="http://imdi-no.protolife.no" className="navigation__link">Mangfoldsportalen
                               <i className="icon__external icon--white navigation__link-icon">

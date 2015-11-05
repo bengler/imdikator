@@ -25,9 +25,47 @@ Now the app should be up and running on http://localhost:3000
 
 https://drive.google.com/open?id=0B47juxCZT96UNFgxYlhsb0FQdFk
 
-m# Architectural overview
+# Architectural overview
 
 https://dl.dropboxusercontent.com/u/250506/slack_for_ios_upload.jpg
+
+## Query spec
+```
+{
+  headerGroups: {},
+  config: {
+    "name": "befolkning_hovedgruppe",
+    "title": "Sammensetning av befolkning",
+    "tableName": "befolkning_hovedgruppe",
+     "tabs": [
+       {
+         "name": "chronological",
+         "chartKind": "stackedArea"
+       }
+     ],
+    "dimensions": [
+      {
+        "name": "innvkat5",
+        "include": [
+          "innvandrere",
+          "bef_u_innv_og_norskf",
+          "norskfodte_m_innvf"
+        ]
+      },
+      {
+        "name": "kjonn",
+        "default": "alle"
+      }
+    ]
+  }
+  dimensions: {
+    year: {
+      fixed: true
+    }
+  }
+}
+
+```
 
 # How queries are represented internally - an example
 

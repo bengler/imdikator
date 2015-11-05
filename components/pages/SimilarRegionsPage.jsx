@@ -1,24 +1,17 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {loadAllRegions} from '../../actions/region'
-import {
-  regionByPrefixedCode,
-  isSimilarRegion,
-  parentRegionByType
-} from '../../lib/regionUtil'
+import {isSimilarRegion, parentRegionByType} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
+import capitalize from 'lodash.capitalize'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 
 class SimilarRegionsPage extends Component {
 
   static propTypes = {
-    route: PropTypes.object,
-    region: PropTypes.object,
-    allRegions: PropTypes.array,
+    currentRegion: ImdiPropTypes.region.isRequired,
+    similarRegions: PropTypes.arrayOf(ImdiPropTypes.region),
+    parentRegion: ImdiPropTypes.region,
     dispatch: PropTypes.func
   }
 
@@ -27,24 +20,41 @@ class SimilarRegionsPage extends Component {
     goTo: PropTypes.func
   }
 
-  componentWillMount() {
-    this.props.dispatch(loadAllRegions())
-  }
+  renderHeader() {
+    const {currentRegion} = this.props
+    const several = capitalize(_t(`several-${currentRegion.type}`))
 
+    switch (currentRegion.type) {
 
-  render() {
-    const allRegions = this.props.allRegions
-    const region = this.props.region
-    if (!region) {
-      return (
-        <div className="col--main">
-          <span>Loading regions...</span>
-          <pre>{JSON.stringify(this.props, null, 2)}</pre>
-        </div>
-      )
+      case 'borough':
+        return <h2>{several} i samme kommune som ${currentRegion.name}`</h2>
+
+      case 'municipality':
+        return [
+          (<h2>${several} som ligner på ${currentRegion.name}</h2>),
+          (<div className="ingress">
+            De {_t(`those-${currentRegion.type}`)} som er nærmest {currentRegion.name} mhp.
+            befolkningsstørrelse, innvandrerandel og flyktningsandel er mest naturlig å sammenligne med.`
+          </div>)
+        ]
+
+      case 'county':
+        return <h2>Fylker å sammenligne {currentRegion.name} med</h2>
+
+      case 'commerceRegion':
+        return <h2>{several} i samme fylke som {currentRegion.name}</h2>
+
+      default:
+        throw new Error(`Invalid region type ${currentRegion.type}`)
     }
+  }
+  render() {
+    const {similarRegions, currentRegion, parentRegion} = this.props
+    const {linkTo} = this.context
 
-    const similarRegions = allRegions.filter(isSimilarRegion(region))
+    if (!currentRegion) {
+      return null
+    }
 
     return (
       <main className="page">
@@ -52,34 +62,14 @@ class SimilarRegionsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide">
-                {region.type == 'borough'
-                  && <header>
-                    <h1>{capitalize(_t(`several-${region.type}`))} i samme kommune som {region.name}</h1>
-                  </header>
-                }
-                {region.type == 'municipality'
-                  && <header>
-                    <h1>{capitalize(_t(`several-${region.type}`))} som ligner på {region.name}</h1>
-                    <div className="ingress">
-                      De {_t(`those-${region.type}`)} som er nærmest {region.name} mhp. befolkningsstørrelse, innvandrerandel og flyktningsandel er mest naturlig å sammenligne med.
-                    </div>
-                  </header>
-                }
-                {region.type == 'county'
-                  && <header>
-                    <h1>Fylker å sammenligne {region.name} med</h1>
-                  </header>
-                }
-                {region.type == 'commerceRegion'
-                  && <header>
-                    <h1>{capitalize(_t(`several-${region.type}`))} i samme fylke som {region.name}</h1>
-                  </header>
-                }
+                {this.renderHeader()}
               </div>
             </div>
             <div className="row">
               <div className="col--main">
-                <a href={this.context.linkTo('/steder/:region', {region: region.prefixedCode})} className="button">Gå til oppsummeringen for å sammenligne</a>
+                <a href={linkTo('/steder/:region', {region: currentRegion.prefixedCode})} className="button">
+                  Gå til oppsummeringen for å sammenligne
+                </a>
               </div>
             </div>
           </div>
@@ -89,23 +79,29 @@ class SimilarRegionsPage extends Component {
               <div className="row">
                 <div className="col--main">
                   <div className="feature">
-                    {region.type == 'borough'
-                      && <h2 className="feature__section-title">De andre {_t(`those-${region.type}`)} i {parentRegionByType('municipality', region.municipalityCode, allRegions).name}</h2>
-                    }
-                    {region.type == 'municipality'
-                      && <h2 className="feature__section-title">{capitalize(_t(`several-${region.type}`))} i prioritert rekkefølge</h2>
-                    }
-                    {region.type == 'county'
-                      && <h2 className="feature__section-title">De andre fylkene i Norge</h2>
-                    }
+                    {currentRegion.type == 'borough' && (
+                      <h2 className="feature__section-title">
+                        De andre {_t(`those-${currentRegion.type}`)} i {parentRegion.name}
+                      </h2>
+                    )}
+                    {currentRegion.type == 'municipality' && (
+                      <h2 className="feature__section-title">
+                        {capitalize(_t(`several-${currentRegion.type}`))} i prioritert rekkefølge
+                      </h2>
+                    )}
+
+                    {currentRegion.type == 'county' && <h2 className="feature__section-title">De andre fylkene i Norge</h2>}
 
                     <nav role="navigation" className="navigation">
                       <ul className="t-no-list-styles">
                         {similarRegions.map(similarRegion => {
                           return (
                             <li key={similarRegion.code}>
-                              <a className="navigation__link navigation__link--primary"
-                                href={this.context.linkTo('/steder/:region', {region: similarRegion.prefixedCode})}>{similarRegion.name}
+                              <a
+                                className="navigation__link navigation__link--primary"
+                                href={this.context.linkTo('/steder/:region', {region: similarRegion.prefixedCode})}
+                              >
+                                {similarRegion.name}
                               </a>
                             </li>
                           )
@@ -124,15 +120,15 @@ class SimilarRegionsPage extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  let region
-  if (state.allRegions) {
-    const prefixedRegionCode = ownProps.route.params.region.split('-')[0].toUpperCase()
-    region = regionByPrefixedCode(prefixedRegionCode, state.allRegions)
-  }
+
+  const {allRegions, currentRegion} = state
+
+  const similarRegions = allRegions.filter(isSimilarRegion(currentRegion))
 
   return {
-    allRegions: state.allRegions,
-    region: region
+    similarRegions: similarRegions,
+    currentRegion: currentRegion,
+    parentRegion: parentRegionByType('municipality', currentRegion.municipalityCode, allRegions)
   }
 }
 

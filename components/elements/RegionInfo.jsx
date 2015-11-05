@@ -1,49 +1,60 @@
 import React, {Component, PropTypes} from 'react'
-import {regionByCode} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
-
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
+import capitalize from 'lodash.capitalize'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 export default class RegionInfo extends Component {
 
   static propTypes = {
-    region: PropTypes.object,
-    allRegions: PropTypes.array
-  }
-
-  static contextTypes = {
-    linkTo: PropTypes.func
+    region: ImdiPropTypes.region,
+    municipality: ImdiPropTypes.region,
+    county: ImdiPropTypes.region,
+    commerceRegion: ImdiPropTypes.region,
+    createLinkToRegion: PropTypes.func.isRequired,
+    createLinkToSimilarRegion: PropTypes.func.isRequired
   }
 
   render() {
-    const region = this.props.region
-    const allRegions = this.props.allRegions
-    const municipality = region.municipalityCode ? regionByCode(region.municipalityCode, 'municipality', allRegions) : null
-    const county = region.countyCode ? regionByCode(region.countyCode, 'county', allRegions) : null
-    const commerceRegionCode = region.commerceRegionCode || (municipality ? municipality.commerceRegionCode : null)
-    const commerceRegion = commerceRegionCode ? regionByCode(commerceRegionCode, 'commerceRegion', allRegions) : null
-
+    const {region, municipality, county, commerceRegion, createLinkToRegion, createLinkToSimilarRegion} = this.props
     return (
       <div>
         <p>
           <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
-          {region.type == 'borough'
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: municipality.prefixedCode})}>{municipality.name}</a> kommune og er en del av <a href={this.context.linkTo('/steder/:region', {region: commerceRegion.prefixedCode})}>{commerceRegion.name}</a>.</span>
-          }
+          {region.type == 'borough' && (
+          <span>
+              {capitalize(_t(`the-${region.type}`))} ligger i
+              <a href={createLinkToRegion(municipality)}>
+                {municipality.name}
+              </a>
+              kommune og er en del av
+              <a href={createLinkToRegion(commerceRegion)}>
+                {commerceRegion.name}
+              </a>.
+            </span>
+            )}
 
-          {region.type == 'municipality'
-            && county
-            && <span>{capitalize(_t('the-' + region.type))} ligger i <a href={this.context.linkTo('/steder/:region', {region: county.prefixedCode})}>{county.name}</a> fylke og er en del av næringsregionen <a href={this.context.linkTo('/steder/:region', {region: commerceRegion.prefixedCode})}>{commerceRegion.name}</a>.</span>
-          }
+          {region.type == 'municipality' && county && (
+          <span>
+              {capitalize(_t(`the-${region.type}`))} ligger i
+              <a href={createLinkToRegion(county)}>
+                {county.name}
+              </a>
+              fylke og er en del av næringsregionen
+              <a href={createLinkToRegion(commerceRegion)}>
+                {commerceRegion.name}
+              </a>.
+            </span>
+            )}
 
-          {region.type == 'municipality'
-          && <span> Se <a href={this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})}>andre {_t('several-' + region.type)} som ligner på {region.name}</a> når det kommer til folketall, innvandrerandel og flyktningsandel.</span>
-          }
-
-
+          {region.type == 'municipality' && (
+          <span>
+              Se
+              <a href={createLinkToSimilarRegion(region)}>
+                andre {_t(`several-${region.type}`)} som ligner på {region.name}
+              </a>
+              når det kommer til folketall, innvandrerandel og flyktningsandel.
+            </span>
+            )}
         </p>
       </div>
     )

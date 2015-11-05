@@ -1,10 +1,39 @@
-import React, {PropTypes} from 'react/addons'
+import React, {PropTypes} from 'react'
 
 const valueParsers = {
   string: val => val.trim() ? val : void 0,
-  func: val => val.trim() ? Function(val) : void 0, // eslint-disable-line no-new-func
+  bool: val => val.trim() == 'true',
+  func: val => val.trim() ? Function(`return ${val}`)() : void 0, // eslint-disable-line no-new-func
   number: val => val.trim() ? Number(val) : void 0,
-  object: val => val.trim() ? JSON.parse(val) : void 0
+  object: val => val.trim() ? JSON.parse(val) : void 0,
+  any: val => valueParsers.object(val),
+  shape: val => valueParsers.object(val),
+  arrayOf: val => valueParsers.object(val)
+}
+const checkShouldParse = {
+  string: val => true,
+  bool: val => val.trim() == 'true' || val.trim() == 'false',
+  func: val => {
+    try {
+      Function(`return ${val}`)() // eslint-disable-line no-new-func
+      return true
+    } catch (e) {
+      return false
+    }
+  },
+  shape: val => true,
+  number: val => true,
+  array: val => checkShouldParse.object(val),
+  arrayOf: val => checkShouldParse.object(val),
+  any: val => checkShouldParse.object(val),
+  object: val => {
+    try {
+      JSON.parse(val)
+      return true
+    } catch (e) {
+      return false
+    }
+  }
 }
 
 // Builds a form based on React.PropTypes
@@ -18,8 +47,11 @@ export default class PropForm extends React.Component {
   emitPropValueChange(prop) {
     return event => {
       const {onPropChange} = this.props
+      const shouldParse = checkShouldParse[prop.type.name]
+      const parser = valueParsers[prop.type.name] || JSON.parse
       if (onPropChange) {
-        onPropChange(prop, valueParsers[prop.type.name](event.target.value))
+        const value = event.target.value
+        onPropChange(prop, shouldParse(value) ? parser(value) : value)
       }
     }
   }
@@ -32,6 +64,16 @@ export default class PropForm extends React.Component {
           <div>
             <input type="text" value={propValues[prop.name]} onChange={this.emitPropValueChange(prop)}/>
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value})</span>}
+          </div>
+        )
+      case 'bool':
+        return (
+          <div>
+            <select value={propValues[prop.name] || false} onChange={this.emitPropValueChange(prop)}>
+              <option value="true">true</option>
+              <option value="false">false</option>
+            </select>
+            <span>(Default: false)</span>
           </div>
         )
       case 'number':
@@ -53,20 +95,20 @@ export default class PropForm extends React.Component {
       case 'func':
         const value = propValues[prop.name]
         const fn = value && value.toString()
-        const body = (fn ? fn.substring(fn.indexOf('{') + 1, fn.lastIndexOf('}')) : '')
-          .replace(/^\s?\n?/, '')
-          .replace(/\n$/, '')
-
         return (
           <div>
-            <pre>{'function() {'}</pre>
-            <textarea value={body} onChange={this.emitPropValueChange(prop)}/>
-            <pre>}</pre>
+            <textarea value={fn} onChange={this.emitPropValueChange(prop)}/>
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value.toString()})</span>}
           </div>
         )
       default:
-        return <div>No registered editor for {prop.type.name}. Debug: <pre style={{fontSize: '60%'}}>{JSON.stringify(prop, null, 2)}</pre></div>
+        return (
+          <div>
+            <input type="text" value={value} onChange={this.emitPropValueChange(prop)}/>
+            {prop.defaultValue && <span>(Default: {prop.defaultValue.value})</span>}
+          </div>
+
+        )
     }
   }
 
@@ -91,7 +133,7 @@ export default class PropForm extends React.Component {
     return (
       <div>
           {this.getProps().map(prop => {
-            return <div>{this.renderFieldForProp(prop)}</div>
+            return <div key={prop.name}>{this.renderFieldForProp(prop)}</div>
           })}
       </div>
     )

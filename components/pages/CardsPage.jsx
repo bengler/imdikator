@@ -67,12 +67,10 @@ class CardsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide">
-
                 <header>
                   <h1>Integreringen i {region.name} {_t(region.type)}</h1>
                   <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
                 </header>
-                <CardPageButtonsContainer />
               </div>
             </div>
           </div>
@@ -82,7 +80,7 @@ class CardsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-
+                <CardPageButtonsContainer />
                 <h2 className="feature__section-title">{cardsPage.title} i {region.name}</h2>
                 <ul className="t-no-list-styles">
                   {cards.map(card => {

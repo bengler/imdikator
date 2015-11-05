@@ -66,7 +66,7 @@ class RegionSummaryChartsContainer extends Component {
         {summaries.map(summary => {
           return (
             <RegionSummaryChart
-              key={summary.name}
+              key={summary.config.name}
               region={region}
               config={summary.config}
               query={summary.query}

@@ -353,31 +353,30 @@
       {
         "name": "utdanningsniva-grunnskole",
         "title": "Grunnskole som høyeste utdanningsnivå",
+        "dimensionsConfig": {
+          "utd4": {
+            "hidden": true,
+            "excludeFromChart": true,
+            "include": ["grunnskole"]
+          },
+          "innvkat3": {
+            "include": ["innvandrere", "befolkningen_ellers"]
+          }
+        },
         "query": {
           "tableName": "utdanningsniva",
           "unit": ["prosent"],
           "dimensions": [
             {
               "name": "utd4",
-              "visible": false,
-              "variables": [
-                "grunnskole"
-              ]
+              "visible": false
             },
             {
-              "name": "innvkat3",
-              "variables": [
-                "alle",
-                "innvandrere",
-                "befolkningen_ellers"
-              ]
+              "name": "innvkat3"
             },
             {
               "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
-              ]
+              "variables": ["0","1"]
             }
           ]
         },
@@ -387,6 +386,11 @@
       {
         "name": "utdanningsniva-videregaaende",
         "title": "Videregående som høyeste utdanningsnivå",
+        "dimensionsConfig": {
+          "utd4": {
+            "hidden": true
+          }
+        },
         "query": {
           "tableName": "utdanningsniva",
           "unit": ["prosent"],
@@ -422,6 +426,11 @@
         "issue": "should not be stacked (why art thou stacked?)",
         "title": "Universitet og høyskole som høyeste utdanningsnivå",
         "name": "utdanningsniva-universitet-og-hoyskole",
+        "dimensionsConfig": {
+          "utd4": {
+            "hidden": true
+          }
+        },
         "query": {
           "tableName": "utdanningsniva",
           "unit": ["prosent"],
@@ -456,13 +465,17 @@
       {
         "title": "Utdanningsnivå  - Uoppgitt / ingen",
         "name": "utdanningsniva-uoppgitt-ingen",
+        "dimensionsConfig": {
+          "utd4": {
+            "hidden": true
+          }
+        },
         "query": {
           "tableName": "utdanningsniva",
           "unit": ["prosent"],
           "dimensions": [
             {
               "name": "utd4",
-              "visible": false,
               "variables": [
                 "uoppgitt_ingen"
               ]

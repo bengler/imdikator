@@ -200,7 +200,10 @@ function select(state, ownProps) {
     headerGroups,
     allRegions: state.allRegions,
     queryResult: queryResult,
-    data: !loading && queryResultPresenter(query, queryResult, {chartKind: activeTab.chartKind}),
+    data: !loading && queryResultPresenter(query, queryResult, {
+      chartKind: activeTab.chartKind,
+      dimensions: ownProps.card.dimensionsConfig
+    }),
     query
   }
 }

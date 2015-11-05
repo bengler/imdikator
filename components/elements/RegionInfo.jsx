@@ -22,11 +22,11 @@ export default class RegionInfo extends Component {
           <span>Dette er tall og statistikk fra <a href="#oppsummert">{region.name}</a>. </span>
           {region.type == 'borough' && (
           <span>
-              {capitalize(_t(`the-${region.type}`))} ligger i
+              {capitalize(_t(`the-${region.type}`))} {' ligger i '}
               <a href={createLinkToRegion(municipality)}>
                 {municipality.name}
               </a>
-              kommune og er en del av
+              {' kommune og er en del av '}
               <a href={createLinkToRegion(commerceRegion)}>
                 {commerceRegion.name}
               </a>.
@@ -35,11 +35,11 @@ export default class RegionInfo extends Component {
 
           {region.type == 'municipality' && county && (
           <span>
-              {capitalize(_t(`the-${region.type}`))} ligger i
+              {capitalize(_t(`the-${region.type}`))} {' ligger i '}
               <a href={createLinkToRegion(county)}>
                 {county.name}
               </a>
-              fylke og er en del av næringsregionen
+               {' fylke og er en del av næringsregionen '}
               <a href={createLinkToRegion(commerceRegion)}>
                 {commerceRegion.name}
               </a>.
@@ -48,11 +48,11 @@ export default class RegionInfo extends Component {
 
           {region.type == 'municipality' && (
           <span>
-              Se
+               {' Se '}
               <a href={createLinkToSimilarRegion(region)}>
                 andre {_t(`several-${region.type}`)} som ligner på {region.name}
               </a>
-              når det kommer til folketall, innvandrerandel og flyktningsandel.
+              {' når det kommer til folketall, innvandrerandel og flyktningsandel.'}
             </span>
             )}
         </p>

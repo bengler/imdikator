@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
 import {generateCSV, downloadCSV} from '../../lib/csvWrangler'
@@ -7,9 +8,10 @@ import {generateCSV, downloadCSV} from '../../lib/csvWrangler'
 
 class DownloadWidget extends Component {
   static propTypes = {
-    data: PropTypes.object,
-    region: PropTypes.object,
-    choices: PropTypes.object,
+    data: ImdiPropTypes.chartData.isRequired,
+    region: ImdiPropTypes.region.isRequired,
+    allRegions: PropTypes.arrayOf(ImdiPropTypes.region)
+    //choices: ImdiPropTypes.dowloadChoices
   }
 
   constructor(props) {
@@ -34,9 +36,7 @@ class DownloadWidget extends Component {
   }
 
   renderDownloadSelect() {
-
-    const {choices} = this.props
-
+    const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
     const handApplyChoice = newValue => {
       if (this.state.csv) {
         downloadCSV(this.state.csv, 'tabell.csv')
@@ -77,9 +77,9 @@ class DownloadWidget extends Component {
 function mapStateToProps(state, ownProps) {
   const {region} = ownProps
   const {allRegions} = state
-  const choices = downloadChoicesByRegion(region, allRegions)
   return {
-    choices: choices
+    region: region,
+    allRegions: allRegions
   }
 }
 

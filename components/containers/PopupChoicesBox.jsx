@@ -1,20 +1,12 @@
 import React, {Component, PropTypes} from 'react'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 export default class PopupChoicesBox extends Component {
-
-  // choices should look something like this
-  // choices = [
-  //   {
-  //     value: 0,
-  //     description: 'Description of alternative one'
-  //   },
-  //   ...
-  // ]
 
   static propTypes = {
     onCancel: PropTypes.func,
     onApply: PropTypes.func,
-    choices: PropTypes.array,
+    choices: ImdiPropTypes.dowloadChoices,
     title: PropTypes.string,
     cancelButtonText: PropTypes.string,
     applyButtonText: PropTypes.string

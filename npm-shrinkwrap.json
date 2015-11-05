@@ -5692,29 +5692,29 @@
     },
     "clipboard": {
       "version": "1.5.3",
-      "from": "clipboard@*",
+      "from": "https://registry.npmjs.org/clipboard/-/clipboard-1.5.3.tgz",
       "resolved": "https://registry.npmjs.org/clipboard/-/clipboard-1.5.3.tgz",
       "dependencies": {
         "good-listener": {
           "version": "1.1.2",
-          "from": "good-listener@>=1.1.2 <2.0.0",
+          "from": "https://registry.npmjs.org/good-listener/-/good-listener-1.1.2.tgz",
           "resolved": "https://registry.npmjs.org/good-listener/-/good-listener-1.1.2.tgz",
           "dependencies": {
             "delegate": {
               "version": "2.0.2",
-              "from": "delegate@>=2.0.2 <3.0.0",
+              "from": "https://registry.npmjs.org/delegate/-/delegate-2.0.2.tgz",
               "resolved": "https://registry.npmjs.org/delegate/-/delegate-2.0.2.tgz"
             }
           }
         },
         "select": {
           "version": "1.0.4",
-          "from": "select@>=1.0.4 <2.0.0",
+          "from": "https://registry.npmjs.org/select/-/select-1.0.4.tgz",
           "resolved": "https://registry.npmjs.org/select/-/select-1.0.4.tgz"
         },
         "tiny-emitter": {
           "version": "1.0.1",
-          "from": "tiny-emitter@>=1.0.0 <2.0.0",
+          "from": "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-1.0.1.tgz",
           "resolved": "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-1.0.1.tgz"
         }
       }

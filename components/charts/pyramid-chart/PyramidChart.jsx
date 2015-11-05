@@ -2,7 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-import {CHARTS} from '../../../config/chartTypes'
+import CHARTS_CONFIG from '../../../config/chartsConfigs'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class PyramidChart extends React.Component {
@@ -316,9 +316,9 @@ export default class PyramidChart extends React.Component {
     }
     const data = this.prepareData(this.props.data)
     const config = {}
-    if (CHARTS.pyramid.minWidthPerCategory) {
+    if (CHARTS_CONFIG.pyramid.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS.pyramid.minWidthPerCategory
+      config.minimumWidth = numCategories * CHARTS_CONFIG.pyramid.minWidthPerCategory
     }
     return (
       <D3Chart data={data} config={config} functions={functions}/>

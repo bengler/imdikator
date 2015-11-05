@@ -169,9 +169,9 @@ export default class StackedBarChart extends Component {
       shouldCalculateMargins: true
     }
 
-    if (CHARTS.bar.minWidthPerCategory) {
+    if (CHARTS_CONFIG.bar.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS.bar.minWidthPerCategory
+      config.minimumWidth = numCategories * CHARTS_CONFIG.bar.minWidthPerCategory
     }
 
     return (

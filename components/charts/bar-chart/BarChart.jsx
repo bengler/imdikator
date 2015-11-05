@@ -32,7 +32,7 @@ export default class BarChart extends React.Component {
 
   calculateWidth(el, data) {
     const numCategories = data.preparedData.length
-    const minWidth = numCategories * CHARTS.bar.minWidthPerCategory
+    const minWidth = numCategories * CHARTS_CONFIG.bar.minWidthPerCategory
     d3.select(el)
     .style('min-width', `${minWidth}px`)
 
@@ -235,9 +235,9 @@ export default class BarChart extends React.Component {
       shouldCalculateMargins: true
     }
 
-    if (CHARTS.bar.minWidthPerCategory) {
+    if (CHARTS_CONFIG.bar.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS.bar.minWidthPerCategory
+      config.minimumWidth = numCategories * CHARTS_CONFIG.bar.minWidthPerCategory
     }
 
     return (

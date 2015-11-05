@@ -2,7 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-import {CHARTS} from '../../../config/chartTypes'
+import CHARTS_CONFIG from '../../../config/chartsConfigs'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class LineChart extends React.Component {
@@ -203,7 +203,7 @@ export default class LineChart extends React.Component {
       .attr('fill', item.color)
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.series,
-        body: item.formattedValue,
+        body: `${item.title}: ${item.formattedValue}`,
         el: focus.node()
       })
       hoveropen = true
@@ -272,9 +272,9 @@ export default class LineChart extends React.Component {
       shouldCalculateMargins: true,
     }
 
-    if (CHARTS.line.minWidthPerCategory) {
+    if (CHARTS_CONFIG.line.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS.line.minWidthPerCategory
+      config.minimumWidth = numCategories * CHARTS_CONFIG.line.minWidthPerCategory
     }
 
     return (

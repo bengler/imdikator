@@ -2,7 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
-import {CHARTS} from '../../../config/chartTypes'
+import CHARTS_CONFIG from '../../../config/chartsConfigs'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 /**
@@ -158,7 +158,7 @@ export default class StackedAreaChart extends React.Component {
 
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.series,
-        body: yc.format(item.y),
+        body: `${item.title}: ${yc.format(item.y)}`,
         el: focus.node()
       })
       hoveropen = true
@@ -225,9 +225,9 @@ export default class StackedAreaChart extends React.Component {
       shouldCalculateMargins: true,
     }
 
-    if (CHARTS.stackedArea.minWidthPerCategory) {
+    if (CHARTS_CONFIG.stackedArea.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS.stackedArea.minWidthPerCategory
+      config.minimumWidth = numCategories * CHARTS_CONFIG.stackedArea.minWidthPerCategory
     }
 
     return (

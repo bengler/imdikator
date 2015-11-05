@@ -12,13 +12,16 @@ import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import Clipboard from 'clipboard'
 import config from '../../config'
+import {performQuery} from '../../actions/cardsPage'
 
 class Card extends Component {
   static propTypes = {
+    dispatch: PropTypes.func,
     loading: PropTypes.bool,
     card: ImdiPropTypes.card.isRequired,
     region: ImdiPropTypes.region.isRequired,
     query: PropTypes.object,
+    cardsPage: PropTypes.object,
     currentTabName: PropTypes.string,
     data: PropTypes.object,
     headerGroups: PropTypes.array,
@@ -54,6 +57,12 @@ class Card extends Component {
       return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
     })
   }
+
+  handleFilterChange(newQuery) {
+    const {cardsPage, card, activeTab, dispatch} = this.props
+    dispatch(performQuery({cardsPage: cardsPage, card: card, tab: activeTab, query: newQuery}))
+  }
+
 
   handleTableToggle(event) {
     event.preventDefault()
@@ -131,6 +140,7 @@ class Card extends Component {
           tab={activeTab}
           chart={chart}
           dimensionsConfig={card.dimensionsConfig}
+          onChange={this.handleFilterChange.bind(this)}
         />
         {loading && <span>Laster…</span>}
         <div className="graph">
@@ -162,7 +172,7 @@ class Card extends Component {
 }
 
 function select(state, ownProps) {
-  window.state = state
+
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
 
   if (cardState.initializing) {
@@ -178,10 +188,13 @@ function select(state, ownProps) {
     return {loading: true}
   }
 
+  const cardsPage = state.allCardsPages.find(cp => cp.name === ownProps.cardsPageName)
+
   const {loading, query, queryResult, headerGroups} = tabState
 
   return {
     loading,
+    cardsPage,
     region: state.currentRegion,
     activeTab,
     headerGroups,

@@ -5,7 +5,6 @@ import update from 'react-addons-update'
 import RegionFilterSelect from '../elements/filter/RegionFilterSelect'
 import FilterSelect from '../elements/filter/FilterSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
-import {performQuery} from '../../actions/cardsPage'
 import {getQuerySpec, constrainQuery} from '../../lib/querySpec'
 import arrayEqual from 'array-equal'
 import {getHeaderKey, comparisonDescription, isSimilarRegion} from '../../lib/regionUtil'
@@ -14,7 +13,6 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class FilterBarContainer extends Component {
   static propTypes = {
-    dispatch: PropTypes.func,
     allRegions: PropTypes.arrayOf(ImdiPropTypes.region).isRequired,
     query: ImdiPropTypes.query.isRequired,
     headerGroups: PropTypes.array.isRequired,
@@ -27,7 +25,8 @@ class FilterBarContainer extends Component {
       })
     }).isRequired,
     dimensionsConfig: PropTypes.object,
-    region: ImdiPropTypes.region.isRequired
+    region: ImdiPropTypes.region.isRequired,
+    onChange: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -67,7 +66,7 @@ class FilterBarContainer extends Component {
     constrainedQuery.operations.forEach(op => {
       console.log('%s: %s', op.dimension, op.description) // eslint-disable-line no-console
     })
-    this.props.dispatch(performQuery({query: constrainedQuery.query}))
+    this.props.onChange(constrainedQuery.query)
   }
 
   getDimensionValueFromQuery(dimensionName) {

@@ -2,6 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+import {CHARTS} from '../../../config/chartTypes'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 /**
@@ -219,10 +220,16 @@ export default class StackedAreaChart extends React.Component {
       drawPoints: this.drawPoints,
       calculateMargins: this.calculateMargins
     }
-    const config = {
-      shouldCalculateMargins: true
-    }
     const data = this.prepareData(this.props.data)
+    const config = {
+      shouldCalculateMargins: true,
+    }
+
+    if (CHARTS.stackedArea.minWidthPerCategory) {
+      const numCategories = data.preparedData.length
+      config.minimumWidth = numCategories * CHARTS.stackedArea.minWidthPerCategory
+    }
+
     return (
       <D3Chart data={data} functions={functions} config={config}/>
     )

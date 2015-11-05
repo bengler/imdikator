@@ -2,6 +2,7 @@ import React from 'react'
 import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 
+import {CHARTS} from '../../../config/chartTypes'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class PyramidChart extends React.Component {
@@ -25,8 +26,7 @@ export default class PyramidChart extends React.Component {
     const svg = this.svg
 
     // Prepare data
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    const preparedData = data.preparedData
 
     // We only care about the format here
     const format = this.configureYscale([0, 0], data.unit).format
@@ -266,12 +266,15 @@ export default class PyramidChart extends React.Component {
     .attr('class', 'axis x left')
     .attr('transform', this.translation(0, this.size.height))
     .call(xAxisLeft)
+    .selectAll('text')
+    .style('text-anchor', 'start')
 
     category.append('g')
     .attr('class', 'axis x right')
     .attr('transform', this.translation(pointB, this.size.height))
     .call(xAxisRight)
-
+    .selectAll('text')
+    .style('text-anchor', 'end')
 
     // Legend
     const leg = this.legend().color(color)
@@ -297,13 +300,28 @@ export default class PyramidChart extends React.Component {
     this._svg.attr('height', this.fullHeight + outerXAxisMargin + xAxisLabelHeight + xAxisMargin + leg.height())
   }
 
+  prepareData(data) {
+    const dimensionLabels = data.dimensions
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+
+    return {
+      unit: data.unit,
+      preparedData
+    }
+  }
+
   render() {
     const functions = {
       drawPoints: this.drawPoints,
     }
+    const data = this.prepareData(this.props.data)
+    const config = {}
+    if (CHARTS.pyramid.minWidthPerCategory) {
+      const numCategories = data.preparedData.length
+      config.minimumWidth = numCategories * CHARTS.pyramid.minWidthPerCategory
+    }
     return (
-      <D3Chart data={this.props.data} functions={functions}/>
+      <D3Chart data={data} config={config} functions={functions}/>
     )
   }
-
 }

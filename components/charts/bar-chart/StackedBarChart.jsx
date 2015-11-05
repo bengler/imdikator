@@ -163,12 +163,19 @@ export default class StackedBarChart extends Component {
     const functions = {
       drawPoints: this.drawPoints
     }
+    const data = this.prepareData(this.props.data)
+
     const config = {
       shouldCalculateMargins: true
     }
-    const preparedData = this.prepareData(this.props.data)
+
+    if (CHARTS.bar.minWidthPerCategory) {
+      const numCategories = data.preparedData.length
+      config.minimumWidth = numCategories * CHARTS.bar.minWidthPerCategory
+    }
+
     return (
-      <D3Chart data={preparedData} functions={functions} config={config}/>
+      <D3Chart data={data} functions={functions} config={config}/>
     )
   }
 }

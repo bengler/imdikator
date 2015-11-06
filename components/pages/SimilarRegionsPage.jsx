@@ -33,8 +33,8 @@ class SimilarRegionsPage extends Component {
         return [
           (<h2>{several} som ligner på {currentRegion.name}</h2>),
           (<div className="ingress">
-            De {_t(`those-${currentRegion.type}`)} som er nærmest {currentRegion.name} mhp.
-            befolkningsstørrelse, innvandrerandel og flyktningsandel er mest naturlig å sammenligne med.`
+            De {_t(`those-${currentRegion.type}`)} som ligner mest på {currentRegion.name} når det kommer til
+            befolkningsstørrelse, innvandrerandel og flyktningsandel.`
           </div>)
         ]
 

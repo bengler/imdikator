@@ -14,25 +14,6 @@ const QUERY = {
 }
 
 describe('queryResultPresenter', () => {
-  it('does not collect invisible dimensions specified in the query', () => {
-    const query = {
-      table: 'befolkninghovedgruppe',
-      unit: ['personer'],
-      dimensions: [
-        {
-          name: 'innvkat5',
-          visible: false
-        },
-        {
-          name: 'kjonn'
-        }
-      ]
-    }
-
-    const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
-    assert.deepEqual(pres.dimensions, ['kjonn'])
-  })
-
   it('collects dimensions specified in the query', () => {
     const query = {
       table: 'befolkninghovedgruppe',

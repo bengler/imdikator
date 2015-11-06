@@ -1,5 +1,4 @@
 import {assert} from 'chai'
-
 import {queryResultPresenter} from '../../../lib/queryResultPresenter'
 
 const QUERY = {
@@ -14,6 +13,31 @@ const QUERY = {
 }
 
 describe('queryResultPresenter', () => {
+  it('does not collect invisible dimensions specified in the query', () => {
+    const query = {
+      table: 'befolkninghovedgruppe',
+      unit: ['personer'],
+      dimensions: [
+        {
+          name: 'innvkat5'
+        },
+        {
+          name: 'kjonn'
+        }
+      ]
+    }
+
+    const pres = queryResultPresenter(query, [], {
+      chartKind: 'bar',
+      dimensionsConfig: {
+        innvkat5: {
+          excludeFromChart: true
+        }
+      }
+    })
+    assert.deepEqual(pres.dimensions, ['kjonn'])
+  })
+
   it('collects dimensions specified in the query', () => {
     const query = {
       table: 'befolkninghovedgruppe',

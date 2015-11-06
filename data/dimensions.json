@@ -298,7 +298,7 @@
         "label": "alle"
       },
       {
-        "title": "Første bosettingskommune",
+        "title": "Bor i første bosettingskommune",
         "label": "ja"
       },
       {
@@ -768,11 +768,11 @@
         "label": "arbeid"
       },
       {
-        "title": "Flyktninger og deres familiegjenforente",
+        "title": "Flyktninger og deres familieinnvandrede",
         "label": "flukt"
       },
       {
-        "title": "Familieforente",
+        "title": "Familieinnvandrede",
         "label": "familie"
       },
       {
@@ -794,11 +794,11 @@
         "label": "arbeid"
       },
       {
-        "title": "Flyktninger og deres familiegjenforente",
+        "title": "Flyktninger og deres familieinnvandrede",
         "label": "flukt"
       },
       {
-        "title": "Familieforente",
+        "title": "Familieinnvandrede",
         "label": "familie"
       },
       {
@@ -1028,7 +1028,7 @@
         "label": "vedtak"
       },
       {
-        "title": "Faktisk bosatt i kommunen",
+        "title": "Faktisk bosetting",
         "label": "bosatt"
       },
       {
@@ -1088,7 +1088,7 @@
         "label": "avslutning_status_4.ledig_tiltak"
       },
       {
-        "title": "Avslutningssatus annen",
+        "title": "Avslutningsstatus annen",
         "label": "avslutning_status_4.annet"
       }
     ]

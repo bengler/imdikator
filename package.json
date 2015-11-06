@@ -15,7 +15,7 @@
     "test-integration": "mocha ./test/integration",
     "bench": "echo 'Benchmarking Visma API. Hang on...' && test/benchmarks/all.sh > benchmarks.md && echo 'Report written to benchmarks.md'",
     "start": "remon --require ./.init.js ./bin/server.js",
-    "bloat": "staticr --stdout --require ./.init.js --route /js/bundles/main.js static-routes/browserify-bundles.js | discify --open",
+    "bloat": "staticr --stdout --require ./.init.js --route /build/js/bundles/main.js static-routes/browserify-bundles.js | discify --open",
     "lint": "eslint --quiet --ext .jsx,.js .",
     "compile-assets": "staticr --require babel/register --out-dir public ./static-routes",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",

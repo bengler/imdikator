@@ -277,8 +277,12 @@ export function loadTab({tabName, query}) {
           headerGroup,
           dimensionsConfig: currentCard.dimensionsConfig
         })
-        return constrainQuery(resolvedQuery, querySpec, currentCard.dimensionsConfig).query
 
+        const constrained = constrainQuery(resolvedQuery, querySpec, currentCard.dimensionsConfig)
+        constrained.operations.forEach(op => {
+          console.log('[debug] %s ', op.description) // eslint-disable-line no-console
+        })
+        return constrained.query
       })
       .then(initialQuery => {
         dispatch(performQuery({

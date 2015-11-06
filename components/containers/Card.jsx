@@ -93,7 +93,7 @@ class Card extends Component {
     if (!activeTab) {
       return <div>Laster…</div>
     }
-
+    const showTable = this.state.showTable
     const headerGroup = this.getHeaderGroupForQuery(query)
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
@@ -101,7 +101,7 @@ class Card extends Component {
     }
 
     const chart = CHARTS[this.getChartKind()]
-    const ChartComponent = chart.component
+    const ChartComponent = showTable ? CHARTS.table.component : chart.component
 
     if (!chart.component) {
       throw new Error(`Uh oh, missing chart component for ${chart.name}`)
@@ -143,6 +143,16 @@ class Card extends Component {
           onChange={this.handleFilterChange.bind(this)}
         />
         {loading && <span>Laster…</span>}
+
+        <button
+          type="button"
+          className="button button--secondary button--small"
+          onClick={this.handleTableToggle.bind(this)}
+        >
+          {showTable && (<span><i className="icon__chart-bars"></i> Vis data i figur</span>)}
+          {!showTable && (<span><i className="icon__table"></i> Vis data i tabell</span>)}
+        </button>
+
         <div className="graph">
           {data && <ChartComponent data={data} sortDirection={sortDirection}/>}
         </div>

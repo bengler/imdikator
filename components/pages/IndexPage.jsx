@@ -30,7 +30,7 @@ class IndexPage extends Component {
     if (!allRegions || comparableRegionCodes.length == 0) {
       return (
         <div className="col--main">
-          <span>Loading regions...</span>
+          <span><i className="loading-indicator"></i> Laster steder...</span>
           <pre>{JSON.stringify(this.props, null, 2)}</pre>
         </div>
       )

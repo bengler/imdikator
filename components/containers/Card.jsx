@@ -91,7 +91,7 @@ class Card extends Component {
     const {loading, card, data, activeTab, query, region, headerGroups} = this.props
 
     if (!activeTab) {
-      return <div>Laster…</div>
+      return <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"></i> Laster…</div>
     }
     const showTable = this.state.showTable
     const headerGroup = this.getHeaderGroupForQuery(query)

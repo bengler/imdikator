@@ -58,7 +58,7 @@ class CardsPage extends Component {
   render() {
     const {cardsPage, region, openCards, cards} = this.props
     if (!cardsPage || !region) {
-      return <div>Loading...</div>
+      return <div className="page__content page__content--section"><i className="loading-indicator"></i> Laster...</div>
     }
 
     return (

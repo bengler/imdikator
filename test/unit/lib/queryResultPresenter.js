@@ -29,7 +29,7 @@ describe('queryResultPresenter', () => {
 
     const pres = queryResultPresenter(query, [], {
       chartKind: 'bar',
-      dimensionsConfig: {
+      dimensions: {
         innvkat5: {
           excludeFromChart: true
         }

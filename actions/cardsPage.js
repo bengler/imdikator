@@ -1,7 +1,10 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
+import {getQuerySpec, constrainQuery} from '../lib/querySpec'
+import {findHeaderGroupForQuery} from '../lib/queryUtil'
 import {isSimilarRegion} from '../lib/regionUtil'
 import {setCurrentRegionByCode} from './region'
+import {CHARTS} from '../config/chartTypes'
 import {prefixifyRegion} from '../lib/regionUtil'
 
 import {TABS} from '../config/tabs'
@@ -262,7 +265,20 @@ export function loadTab({tabName, query}) {
 
     Promise
       .all([maybeAddComparisonRegions, getHeaderGroups]).then(([qury, headerGroups]) => {
-        return resolveQuery(currentRegion, qury, headerGroups, currentCard.dimensionsConfig)
+
+        const resolvedQuery = resolveQuery(currentRegion, qury, headerGroups, currentCard.dimensionsConfig)
+        const headerGroup = findHeaderGroupForQuery(resolvedQuery, headerGroups)
+
+        const chart = CHARTS[tab.chartKind]
+
+        const querySpec = getQuerySpec(resolvedQuery, {
+          tab,
+          chart,
+          headerGroup,
+          dimensionsConfig: currentCard.dimensionsConfig
+        })
+        return constrainQuery(resolvedQuery, querySpec, currentCard.dimensionsConfig).query
+
       })
       .then(initialQuery => {
         dispatch(performQuery({

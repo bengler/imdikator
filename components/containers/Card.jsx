@@ -7,7 +7,7 @@ import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from '../elements/CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import DownloadWidget from './DownloadWidget'
-import {getHeaderKey} from '../../lib/regionUtil'
+import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import Clipboard from 'clipboard'
@@ -51,11 +51,8 @@ class Card extends Component {
   }
 
   getHeaderGroupForQuery(query) {
-    const {headerGroups, region} = this.props
-    const regionHeaderKey = getHeaderKey(region)
-    return headerGroups.find(group => {
-      return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
-    })
+    const {headerGroups} = this.props
+    return findHeaderGroupForQuery(query, headerGroups)
   }
 
   handleFilterChange(newQuery) {

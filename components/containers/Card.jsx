@@ -174,7 +174,7 @@ class Card extends Component {
         )}
 
         <div className="graph">
-          {data && <ChartComponent data={data} sortDirection={sortDirection}/>}
+          {data && <ChartComponent data={chartData} sortDirection={sortDirection}/>}
         </div>
         <ChartDescriptionContainer
           query={query}
@@ -201,7 +201,7 @@ class Card extends Component {
   }
 }
 
-function select(state, ownProps) {
+function mapStateToProps(state, ownProps) {
 
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
 
@@ -238,4 +238,4 @@ function select(state, ownProps) {
   }
 }
 
-export default connect(select)(Card)
+export default connect(mapStateToProps)(Card)

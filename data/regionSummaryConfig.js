@@ -48,7 +48,7 @@ export default [
     drillDown: {
       page: 'befolkning',
       card: 'flyktninger_befolkningsandel',
-      buttonTitle: 'Gå til innvandringsårsak'
+      buttonTitle: 'Gå til andel innvandrere'
     },
     chartKind: 'benchmark',
     compareWithSimilarRegions: true,

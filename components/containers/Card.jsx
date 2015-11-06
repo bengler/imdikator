@@ -144,14 +144,19 @@ class Card extends Component {
         />
         {loading && <span>Laster…</span>}
 
-        <button
-          type="button"
-          className="button button--secondary button--small"
-          onClick={this.handleTableToggle.bind(this)}
-        >
-          {showTable && (<span><i className="icon__chart-bars"></i> Vis data i figur</span>)}
-          {!showTable && (<span><i className="icon__table"></i> Vis data i tabell</span>)}
-        </button>
+        {/* TODO: Make to toggle as tabs */}
+        {showTable && (<span></span>)}
+        {!showTable && (<span></span>)}
+        <div className="graph__types">
+          <ul className="tabs-mini">
+            <li className="tabs-mini__item">
+              <span className="tabs-mini__link tabs-mini__link--current">Figur</span>
+            </li>
+            <li className="tabs-mini__item">
+              <a href="#" className="tabs-mini__link tabs-mini__link--current" onClick={this.handleTableToggle.bind(this)}>Tabell</a>
+            </li>
+          </ul>
+        </div>
 
         <div className="graph">
           {data && <ChartComponent data={data} sortDirection={sortDirection}/>}

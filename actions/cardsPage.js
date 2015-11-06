@@ -5,7 +5,6 @@ import {findHeaderGroupForQuery} from '../lib/queryUtil'
 import {isSimilarRegion} from '../lib/regionUtil'
 import {setCurrentRegionByCode} from './region'
 import {CHARTS} from '../config/chartTypes'
-import {prefixifyRegion} from '../lib/regionUtil'
 
 import {TABS} from '../config/tabs'
 import {

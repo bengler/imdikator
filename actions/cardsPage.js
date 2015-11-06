@@ -308,27 +308,23 @@ export function performQuery({cardsPage, card, tab, query}) {
   return (dispatch, getState) => {
     const {currentRegion} = getState()
 
-    const newQuery = Object.assign({}, query, {
-      region: prefixifyRegion(currentRegion)
-    })
-
     dispatch(requestQueryResult({
       region: currentRegion,
       cardsPage: cardsPage,
       card: card,
       tab: tab,
-      query: newQuery
+      query: query
     }))
 
     const getHeaderGroups = apiClient.getHeaderGroups(query.tableName)
-    Promise.all([apiClient.query(newQuery), getHeaderGroups]).then(([queryResult, headerGroups]) => {
+    Promise.all([apiClient.query(query), getHeaderGroups]).then(([queryResult, headerGroups]) => {
       dispatch(receiveQueryResult({
         region: currentRegion,
         cardsPage: cardsPage,
         card: card,
         tab: tab,
         headerGroups: headerGroups,
-        query: newQuery,
+        query: query,
         queryResult
       }))
     })

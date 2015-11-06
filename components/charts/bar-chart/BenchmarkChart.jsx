@@ -42,6 +42,11 @@ export default class BenchmarkChart extends React.Component {
     }
   }
 
+  calculateHeight(el) {
+    return 300
+    // return el.getBoundingClientRect().width
+  }
+
   drawPoints(el, data) {
     if (!data) {
       return
@@ -155,7 +160,8 @@ export default class BenchmarkChart extends React.Component {
   render() {
     const sortDirection = this.props.sortDirection
     const functions = {
-      drawPoints: this.drawPoints
+      drawPoints: this.drawPoints,
+      calculateHeight: this.calculateHeight
     }
     const config = {
       shouldCalculateMargins: true

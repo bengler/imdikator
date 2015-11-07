@@ -19,6 +19,8 @@ class FactsPage extends Component {
   render() {
     const {region, cardsPages} = this.props
 
+    const regionPageLink = this.context.linkTo('/steder/:region/', {region: region.prefixedCode})
+
     return (
       <div>
         <div className="page__content page__content--section">
@@ -26,8 +28,13 @@ class FactsPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 <header>
-                  <h1>Integreringen i {region.name} {_t(region.type)}</h1>
+                  <h1>Faktaark for integreringen i {region.name} {_t(region.type)}</h1>
                   <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
+                  <p className="t-margin-bottom--large t-hide-on-print">
+                    <a href={regionPageLink} className="button button--secondary">
+                      <i className="icon__arrow-left"/> Tilbake til oppsummering
+                    </a>
+                  </p>
                 </header>
               </div>
             </div>

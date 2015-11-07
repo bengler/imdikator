@@ -43,23 +43,23 @@ export default class RegionSearch extends Component {
     })
     const itemDescription = _t(item.type) ? item.name + ', ' + _t(item.type) : item.name
     return (
-      <div
-        key={item.name + item.type}
-        className={classes}
-      >
+      <li>
+        <a
+          key={item.name + item.type}
+          className={classes}
+          role={'option'}
+        >
         {itemDescription}
-      </div>
+        <i className="icon__arrow-right icon--red search-result__icon"></i>
+        </a>
+      </li>
     )
   }
 
   renderMenu(items, value, style) {
-    const styles = {
-      highlightedItem: {},
-      item: {}
-    }
 
     if (items.length === 0) {
-      return wrap(<div style={{padding: 6}}>Ingen treff for '{value}'</div>)
+      return wrap(<li><div className="search-result__result search-result__result--message" role={'option'}>Ingen treff - prøv et annet stedsnavn i Norge</div></li>)
     }
 
     const displayItems = 15 + Math.pow(value.length, 4)
@@ -67,7 +67,7 @@ export default class RegionSearch extends Component {
     return wrap(items.slice(0, displayItems))
 
     function wrap(children) {
-      return <div style={{...styles.menu, ...style}}>{children}</div>
+      return <ul className="search-result">{children}</ul>
     }
   }
 

@@ -22,7 +22,7 @@ const Hoverbox = React.createClass({
 
   calculateDirection(element) {
     const horizontalMargin = 150
-    const verticalMargin = 120
+    const verticalMargin = 135
 
     const offset = element.getBoundingClientRect()
     const left = offset.left - this.state.containerRect.left + offset.width / 2

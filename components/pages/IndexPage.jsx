@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {isSimilarRegion, norway} from '../../lib/regionUtil'
 import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
 import RegionChildListContainer from '../containers/RegionChildListContainer'
+import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 
 class IndexPage extends Component {
@@ -17,6 +18,10 @@ class IndexPage extends Component {
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
+  }
+
+  handleSelectRegion(region) {
+    this.context.goTo('/steder/:region', {region: region.prefixedCode})
   }
 
   createLinkToRegion(region) {
@@ -45,6 +50,12 @@ class IndexPage extends Component {
                 <header>
                   <h1>Norge</h1>
                   <p className="ingress">Tall og statistikk over integreringen i hele landet</p>
+                  <div className="t-margin-bottom--large">
+                    <label htmlFor="compare-search" className="">Gå til sted</label>
+                    <div className="search search--autocomplete">
+                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                    </div>
+                  </div>
                 </header>
               </div>
             </div>

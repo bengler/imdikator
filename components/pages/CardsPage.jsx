@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {getHeaderKey} from '../../lib/regionUtil'
 import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
+import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
 import {_t} from '../../lib/translate'
@@ -22,6 +23,10 @@ class CardsPage extends Component {
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
+  }
+
+  handleSelectRegion(region) {
+    this.context.goTo('/steder/:region', {region: region.prefixedCode})
   }
 
   renderToggleCardLink(card) {
@@ -70,6 +75,12 @@ class CardsPage extends Component {
                 <header>
                   <h1>Integreringen i {region.name} {_t(region.type)}</h1>
                   <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
+                  <div className="t-margin-bottom--large">
+                    <label htmlFor="compare-search" className="">Gå til sted</label>
+                    <div className="search search--autocomplete">
+                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                    </div>
+                  </div>
                 </header>
               </div>
             </div>

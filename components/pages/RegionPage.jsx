@@ -5,6 +5,7 @@ import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsConta
 import RegionChildListContainer from '../containers/RegionChildListContainer'
 import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
+import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import {_t} from '../../lib/translate'
 
@@ -42,8 +43,14 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 <header>
-                  <h1>{currentRegion.name} {_t(currentRegion.type)}</h1>
+                  <h1>Integrering i {currentRegion.name} {_t(currentRegion.type)}</h1>
                   <p className="ingress">Tall og statistikk om integrering i {_t(`the-${currentRegion.type}`)}</p>
+                  <div className="t-margin-bottom--large">
+                    <label htmlFor="compare-search" className="">Gå til sted</label>
+                    <div className="search search--autocomplete">
+                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                    </div>
+                  </div>
                 </header>
               </div>
             </div>
@@ -54,7 +61,7 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <CardPageButtonsContainer />
-                <h2 className="t-only-screenreaders">Oppsummering</h2>
+                <h2 className="page__section-title">Oppsummering</h2>
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     <RegionSummaryChartsContainer region={currentRegion}/>

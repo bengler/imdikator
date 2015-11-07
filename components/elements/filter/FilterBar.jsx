@@ -25,13 +25,13 @@ export default class FilterBar extends Component {
     return (
       <section className="graph__filter">
         <h5 className="t-only-screenreaders">Filter</h5>
-        <ul className="row t-position">
+        <div className="row t-position">
           {filters.filter(f => !f.props.hidden).map(filter => (
-            <li key={filter.name} className="col--fifth">
+            <div key={filter.name} className="col--fifth">
               <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)}/>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
     )
   }

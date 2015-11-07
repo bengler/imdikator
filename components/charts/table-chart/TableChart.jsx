@@ -30,18 +30,29 @@ export default class TableChart extends React.Component {
     // We don't draw in the SVG in this Component
     d3.select(el).select('svg').remove()
 
-    d3.select(el).style('overflow', 'scroll')
+    d3.select(el).classed('table__wrapper', true)
 
     d3.select(el).select('table').remove()
     const table = d3.select(el).append('table')
-    //const tableHeader = table.append('thead')
-    const tableBody = table.append('tbody')
+    table.classed('table', true)
+    table.classed('table--fluid', true)
 
     const parser = d3.dsv(data.separator, 'text/plain')
     const parsedData = parser.parseRows(data.csv)
 
+
+    table.append('thead')
+    .append('tr')
+    .selectAll('th')
+    .data(parsedData[0])
+    .enter()
+    .append('th')
+    .text(dataItem => dataItem)
+
+    const tableBody = table.append('tbody')
+
     const rows = tableBody.selectAll('tr')
-    .data(parsedData)
+    .data(parsedData.slice(1))
     .enter()
     .append('tr')
 

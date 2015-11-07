@@ -33,7 +33,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
+      groupedBy: ['oppholdsgrunnlag'],
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
@@ -64,7 +64,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
+      groupedBy: ['oppholdsgrunnlag'],
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
@@ -94,7 +94,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
+      groupedBy: ['oppholdsgrunnlag'],
       timePeriod: ['2011', '2012', '2013', '2014'],
       regions: ['Oslo']
     }
@@ -130,7 +130,7 @@ describe('queryToOptions', () => {
     const expected = {
       showing: 'antall innvandrere',
       bounds: ['aldersfordeling avgrenset til 3 år', 'kjønnsfordeling avgrenset til kvinner'],
-      groupedBy: ['arbeidsinnvandrere', 'flyktninger og deres familiegjenforente'],
+      groupedBy: ['oppholdsgrunnlag'],
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
@@ -158,7 +158,7 @@ describe('queryToOptions', () => {
       regions: ['Oslo'],
       timePeriod: ['2013'],
       bounds: [],
-      groupedBy: ['innvandrere', 'befolkningen unntatt innvandrere']
+      groupedBy: ['bakgrunn']
     }
     const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions, mockCardDescriptions)
     assert.deepEqual(result, expected)
@@ -199,7 +199,7 @@ describe('chartDescriber', () => {
       showing: 'flyktninger',
       groupedBy: ['flyktninger', 'befolkningsgrupper']
     }
-    const expected = 'Figuren viser flyktninger fordelt på flyktninger og befolkningsgrupper.'
+    const expected = 'Figuren viser flyktninger fordelt etter flyktninger og befolkningsgrupper.'
     assert.equal(describeChart(opts), expected)
   })
 
@@ -242,7 +242,7 @@ describe('chartDescriber', () => {
       regions: ['Sandefjord', 'Drøbak', 'Larvik', 'Bø i Telemark']
     }
     const expected = 'Figuren viser flyktninger med aldersfordeling avgrenset til 0-3 år, kjønnsfordeling avgrenset til'
-      + ' kvinner og bakgrunn avgrenset til innvandrere fordelt på flyktninger og befolkningsgrupper i perioden 2012 til'
+      + ' kvinner og bakgrunn avgrenset til innvandrere fordelt etter flyktninger og befolkningsgrupper i perioden 2012 til'
       + ' 2014 fra Sandefjord, Drøbak, Larvik og Bø i Telemark.'
     assert.equal(describeChart(opts), expected)
   })

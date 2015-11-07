@@ -75,8 +75,7 @@ class RegionPage extends Component {
                   </p>
                   <p>
                     <a href={factSheetLink} className="button button-">
-                      <i className="icon__download icon--white"/>
-                      Utskriftsvennlig faktaark
+                      <i className="icon__download icon--white"/> Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </section>

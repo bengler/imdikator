@@ -34,7 +34,7 @@ class FactsPage extends Component {
           </div>
         </div>
 
-        <div className="page__section page__section--grey">
+        <div className="page__section">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
@@ -47,13 +47,12 @@ class FactsPage extends Component {
                           return (
                             <li key={card.name}>
                               <section className="toggle-list">
-                                <h3 className="toggle-list__button-title">{card.title}
-                                  <i className="icon__arrow-down toggle-list__button-icon"/>
-                                </h3>
+                                <h3 className="toggle-list__button-title">{card.title}</h3>
                                 <Card
                                   region={region}
                                   card={card}
                                   cardsPageName={cardsPage.name}
+                                  printable
                                 />
                               </section>
                             </li>

@@ -28,6 +28,7 @@ class Card extends Component {
     table: PropTypes.object,
     cardsPageName: PropTypes.string.isRequired,
     activeTab: PropTypes.object,
+    printable: PropTypes.bool,
   }
 
   static contextTypes = {
@@ -85,7 +86,7 @@ class Card extends Component {
   }
 
   render() {
-    const {loading, card, data, activeTab, query, region, headerGroups} = this.props
+    const {loading, card, data, activeTab, query, region, headerGroups, printable} = this.props
 
     if (!activeTab) {
       return <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"></i> Laster…</div>
@@ -122,6 +123,8 @@ class Card extends Component {
         aria-hidden="false"
         style={{display: 'block'}}
       >
+
+        {!printable && (
         <TabBar
           activeTab={activeTab}
           disabledTabs={disabledTabs}
@@ -129,6 +132,9 @@ class Card extends Component {
           tabs={TABS}
           makeLinkToTab={tab => this.makeLinkToTab(tab)}
         />
+        )}
+
+        {!printable && (
         <FilterBarContainer
           query={query}
           region={region}
@@ -139,21 +145,32 @@ class Card extends Component {
           dimensionsConfig={card.dimensionsConfig}
           onChange={this.handleFilterChange.bind(this)}
         />
-        {loading && <span>Laster…</span>}
+        )}
 
-        {/* TODO: Make to toggle as tabs */}
-        {showTable && (<span></span>)}
-        {!showTable && (<span></span>)}
+        {loading && <span><i className="loading-indicator"></i> Laster…</span>}
+
+        {!printable && (
         <div className="graph__types">
           <ul className="tabs-mini">
             <li className="tabs-mini__item">
+              {showTable && (
+              <a href="#" className="tabs-mini__link tabs-mini__link--current" onClick={this.handleTableToggle.bind(this)}>Figur</a>
+              )}
+              {!showTable && (
               <span className="tabs-mini__link tabs-mini__link--current">Figur</span>
+              )}
             </li>
             <li className="tabs-mini__item">
+              {showTable && (
+              <span className="tabs-mini__link tabs-mini__link--current">Tabell</span>
+              )}
+              {!showTable && (
               <a href="#" className="tabs-mini__link tabs-mini__link--current" onClick={this.handleTableToggle.bind(this)}>Tabell</a>
+              )}
             </li>
           </ul>
         </div>
+        )}
 
         <div className="graph">
           {data && <ChartComponent data={data} sortDirection={sortDirection}/>}
@@ -164,6 +181,7 @@ class Card extends Component {
           card={card}
           headerGroups={headerGroups}
         />
+        {!printable && (
         <div className="graph__functions">
           <button
             type="button" className="button button--secondary button--small clipboardButton"
@@ -172,12 +190,15 @@ class Card extends Component {
           </button>
           <DownloadWidget region={region} data={chartData}/>
         </div>
+        )}
+        {!printable && (
         <CardMetadata
           description={card.metadata.description}
           terminology={card.metadata.terminology}
           source={card.metadata.source}
           measuredAt={card.metadata.source}
         />
+        )}
       </div>
     )
   }

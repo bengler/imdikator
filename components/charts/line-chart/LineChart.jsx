@@ -243,7 +243,7 @@ export default class LineChart extends React.Component {
     xAxisEl.select('path').remove()
 
     // Add some space between the x axis labels and the legends
-    const xAxisMargin = xAxisEl.node().getBBox().height + 42
+    const xAxisMargin = xAxisEl.node().getBBox().height + 21
     const legendBottom = this.fullHeight + xAxisMargin
     /* eslint-disable prefer-reflect */
     this._svg.append('g')

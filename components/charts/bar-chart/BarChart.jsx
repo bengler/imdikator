@@ -206,7 +206,7 @@ export default class BarChart extends React.Component {
     /* eslint-enable prefer-reflect */
 
     // Add some space between the x axis labels and the legends
-    const xAxisHeight = xAxisEl.node().getBBox().height + 42
+    const xAxisHeight = xAxisEl.node().getBBox().height + 21
     const legendBottom = this.fullHeight + xAxisHeight
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 

@@ -26,12 +26,12 @@ export const colorTextures = {
     .background('#15c2e8')
   },
   '#418541': () => {
-    return textures.lines().orientation('vertical').size(8).strokeWidth(1).shapeRendering('crispEdges')
+    return textures.lines().orientation('horizontal').size(5).shapeRendering('crispEdges')
     .stroke('#679d67')
     .background('#418541')
   },
   '#5abb5b': () => {
-    return textures.lines().orientation('horizontal').size(5).shapeRendering('crispEdges')
+    return textures.lines().orientation('vertical').size(8).strokeWidth(1).shapeRendering('crispEdges')
     .stroke('#7bc97c')
     .background('#5abb5b')
   },

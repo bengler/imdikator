@@ -37,7 +37,7 @@ export default class PopupChoicesBox extends Component {
 
   render() {
     return (
-      <div className="lightbox lightbox--as-popup">
+      <div className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
         <div className="lightbox__backdrop"></div>
         <dialog open="open" role="alertdialog" aria-labeledby="lightbox_title02" className="lightbox__box">
           <i className="lightbox__point" style={{left: '9.5em'}}></i>
@@ -51,7 +51,7 @@ export default class PopupChoicesBox extends Component {
             <p>{this.props.description}</p>
 
             <label htmlFor="popupchoicesbox-select">{this.props.choiceLabel}</label>
-            <div className="select">
+            <div className="select t-margin-bottom">
               <select id="popupchoicesbox-select" value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
                 {this.props.choices.map(choice => (
                   <option value={choice.value} key={choice.value}>{choice.description}</option>

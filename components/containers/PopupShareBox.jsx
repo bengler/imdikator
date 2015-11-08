@@ -25,7 +25,7 @@ export default class PopupShareBox extends Component {
     return (
       <div className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
         <div className="lightbox__backdrop"></div>
-        <dialog open="open" role="alertdialog" aria-labeledby="lightbox_title02" className="lightbox__box">
+        <dialog open="open" className="lightbox__box">
           <i className="lightbox__point" style={{left: '2.90em'}}></i>
           <div role="document">
             <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>

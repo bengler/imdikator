@@ -3,7 +3,6 @@ import ToggleButtonList from '../ToggleButtonList'
 import RegionSearch from '../RegionSearch'
 import difference from 'lodash.difference'
 import union from 'lodash.union'
-import arrayEqual from 'array-equal'
 
 import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 
@@ -40,10 +39,6 @@ export default class RegionPicker extends Component {
     if (nextProps.value !== this.props.value) {
       this.setState({value: nextProps.value})
     }
-  }
-
-  rollback() {
-    this.setState({value: this.props.value})
   }
 
   clear() {
@@ -109,8 +104,6 @@ export default class RegionPicker extends Component {
 
     const other = difference(value, grouped)
 
-    const hasChanges = !arrayEqual(this.state.value, this.props.value)
-
     return (
       <div>
 
@@ -150,15 +143,6 @@ export default class RegionPicker extends Component {
               <i className="icon__apply"/> Oppdater alle figurer
             </button>
           )}
-
-          <button
-            type="button"
-            className="button button--small button--secondary button__sidekick"
-            disabled={!hasChanges}
-            onClick={this.rollback.bind(this)}
-          >
-            <i/> Tilbakestill
-          </button>
 
           <button
             type="button"

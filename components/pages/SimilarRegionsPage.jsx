@@ -27,22 +27,22 @@ class SimilarRegionsPage extends Component {
     switch (currentRegion.type) {
 
       case 'borough':
-        return <h2>{several} i samme kommune som ${currentRegion.name}`</h2>
+        return <h1>{several} i samme kommune som ${currentRegion.name}`</h1>
 
       case 'municipality':
         return [
-          (<h2>{several} som ligner på {currentRegion.name}</h2>),
+          (<h1>{several} som ligner på {currentRegion.name}</h1>),
           (<div className="ingress">
-            De {_t(`those-${currentRegion.type}`)} som ligner mest på {currentRegion.name} når det kommer til
-            befolkningsstørrelse, innvandrerandel og flyktningsandel.`
+            De {_t('those-${currentRegion.type}')} som ligner mest på {currentRegion.name} når det kommer til
+            befolkningsstørrelse, innvandrerandel og flyktningsandel.
           </div>)
         ]
 
       case 'county':
-        return <h2>Fylker å sammenligne {currentRegion.name} med</h2>
+        return <h1>Fylker å sammenligne {currentRegion.name} med</h1>
 
       case 'commerceRegion':
-        return <h2>{several} i samme fylke som {currentRegion.name}</h2>
+        return <h1>{several} i samme fylke som {currentRegion.name}</h1>
 
       default:
         throw new Error(`Invalid region type ${currentRegion.type}`)
@@ -63,13 +63,11 @@ class SimilarRegionsPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 {this.renderHeader()}
-              </div>
-            </div>
-            <div className="row">
-              <div className="col--main">
-                <a href={linkTo('/steder/:region', {region: currentRegion.prefixedCode})} className="button">
-                  Gå til oppsummeringen for å sammenligne
-                </a>
+                <p className="t-margin-bottom--large t-hide-on-print">
+                  <a href={linkTo('/steder/:region', {region: currentRegion.prefixedCode})} className="button button--secondary">
+                    <i className="icon__arrow-left"/> Tilbake til {currentRegion.name}
+                  </a>
+                </p>
               </div>
             </div>
           </div>

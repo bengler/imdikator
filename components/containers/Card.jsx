@@ -6,6 +6,7 @@ import TabBar from '../elements/TabBar'
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from '../elements/CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
+import ShareWidget from './ShareWidget'
 import DownloadWidget from './DownloadWidget'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
@@ -183,11 +184,7 @@ class Card extends Component {
         />
         {!printable && (
         <div className="graph__functions">
-          <button
-            type="button" className="button button--secondary button--small clipboardButton"
-            data-clipboard-text={this.chartUrl()}>
-            <i className="icon__export"></i> Lenke til figuren
-          </button>
+          <ShareWidget chartUrl={this.chartUrl()}/>
           <DownloadWidget region={region} data={chartData}/>
         </div>
         )}

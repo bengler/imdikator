@@ -14,7 +14,7 @@ export default class Lightbox extends Component {
     return (
       <div className={`lightbox ${className}`} style={style}>
         <div className="lightbox__backdrop"></div>
-        <section className="lightbox__box">
+        <dialog open="open" className="lightbox__box">
           <i className="lightbox__point"/>
           <button type="button" className="lightbox__close-button" onClick={onClose}>
             <i className="icon__close icon--red lightbox__close-button-icon"/>
@@ -22,7 +22,7 @@ export default class Lightbox extends Component {
           </button>
           <h6 className="lightbox__title">{title}</h6>
           {children}
-        </section>
+        </dialog>
       </div>
     )
   }

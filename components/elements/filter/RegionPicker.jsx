@@ -87,26 +87,16 @@ export default class RegionPicker extends Component {
         onRemove={this.handleRemove.bind(this)}
       />
     )
-    const description = group.description && (<p className="text--small">{group.description}</p>)
+    const description = group.description && (<p className="t-margin-top text--small">{group.description}</p>)
 
     return (
       <fieldset>
         <legend>{group.title}</legend>
-        <div className="row">
-          {split(buttons, description)}
-        </div>
+        {buttons}
+        {description}
       </fieldset>
     )
 
-    function split(left, right) {
-      if (!left || !right) {
-        return left || right
-      }
-      return [
-        (<div className="col--half">{left}</div>),
-        (<div className="col--half">{right}</div>)
-      ]
-    }
   }
 
   render() {
@@ -124,24 +114,29 @@ export default class RegionPicker extends Component {
     return (
       <div>
 
-        {groups.map(group => this.renderGroup(group))}
-
-        <div className="fieldset">
-          <label htmlFor="compare-search" className="legend">Legg til andre steder</label>
-          <div className="search search--autocomplete">
-            <RegionSearch
-              placeholder="Kommune/fylke/næringsregion/bydel etc."
-              regions={choices}
-              onSelect={region => this.handleAdd(region)}
-            />
+        <div className="row">
+          <div className="col--half">
+            {groups.map(group => this.renderGroup(group))}
           </div>
-          <ToggleButtonList
-            options={other}
-            value={value}
-            renderButton={this.renderButton.bind(this)}
-            onAdd={this.handleAdd.bind(this)}
-            onRemove={this.handleRemove.bind(this)}
-          />
+          <div className="col--half">
+            <div className="fieldset">
+              <label htmlFor="compare-search" className="legend">Legg til andre steder</label>
+              <div className="search search--autocomplete">
+                <RegionSearch
+                  placeholder="Kommune/fylke/næringsregion/bydel etc."
+                  regions={choices}
+                  onSelect={region => this.handleAdd(region)}
+                />
+              </div>
+              <ToggleButtonList
+                options={other}
+                value={value}
+                renderButton={this.renderButton.bind(this)}
+                onAdd={this.handleAdd.bind(this)}
+                onRemove={this.handleRemove.bind(this)}
+              />
+            </div>
+          </div>
         </div>
         <div className="lightbox__footer">
           <button type="button" className="button" onClick={this.apply.bind(this)}>Oppdater figur</button>

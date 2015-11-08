@@ -113,7 +113,7 @@ export default class RegionPicker extends Component {
           </div>
           <div className="col--half">
             <div className="fieldset">
-              <label htmlFor="compare-search" className="legend">Legg til andre steder</label>
+              <label htmlFor="compare-search" className="legend">Legg til sted</label>
               <div className="search search--autocomplete">
                 <RegionSearch
                   placeholder="Kommune/fylke/næringsregion/bydel etc."

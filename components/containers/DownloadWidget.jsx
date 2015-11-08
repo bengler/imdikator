@@ -53,8 +53,9 @@ class DownloadWidget extends Component {
         onApply={handApplyChoice}
         choices={choices}
         applyButtonText="Last ned"
-        cancelButtonText="Avbryt"
-        title="Velg innhold til CSV-fil"
+        title="Last ned tallgrunnlag"
+        choiceLabel="Velg innhold"
+        description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."
       />
     )
   }

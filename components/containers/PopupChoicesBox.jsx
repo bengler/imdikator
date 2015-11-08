@@ -8,7 +8,8 @@ export default class PopupChoicesBox extends Component {
     onApply: PropTypes.func,
     choices: ImdiPropTypes.dowloadChoices,
     title: PropTypes.string,
-    cancelButtonText: PropTypes.string,
+    description: PropTypes.string,
+    choiceLabel: PropTypes.string,
     applyButtonText: PropTypes.string
   }
 
@@ -36,27 +37,31 @@ export default class PopupChoicesBox extends Component {
 
   render() {
     return (
-      <div className="lightbox">
+      <div className="lightbox lightbox--as-popup">
         <div className="lightbox__backdrop"></div>
-        <section className="lightbox__box" style={{marginTop: '15px', position: 'relative'}}>
-          <i className="lightbox__point"/>
-          <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>
-            <i className="icon__close icon--red lightbox__close-button-icon"/>
-            <span className="t-only-screenreaders">Lukk</span>
-          </button>
-          <h6 className="lightbox__title">{this.props.title}</h6>
+        <dialog open="open" role="alertdialog" aria-labeledby="lightbox_title02" className="lightbox__box">
+          <i className="lightbox__point" style={{left: '9.5em'}}></i>
+          <div role="document">
+            <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>
+              <i className="icon__close icon--red lightbox__close-button-icon"/>
+              <span className="t-only-screenreaders">Lukk</span>
+            </button>
+            <h6 className="lightbox__title">{this.props.title}</h6>
 
-          <select value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
-            {this.props.choices.map(choice => (
-              <option value={choice.value} key={choice.value}>{choice.description}</option>
-            ))}
-          </select>
+            <p>{this.props.description}</p>
 
-          <div className="lightbox__footer">
+            <label htmlFor="popupchoicesbox-select">{this.props.choiceLabel}</label>
+            <div className="select">
+              <select id="popupchoicesbox-select" value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
+                {this.props.choices.map(choice => (
+                  <option value={choice.value} key={choice.value}>{choice.description}</option>
+                ))}
+              </select>
+            </div>
             <button type="button" className="button" onClick={this.onApply.bind(this)}>{this.props.applyButtonText}</button>
-            <button type="button" className="button" onClick={this.onCancel.bind(this)}>{this.props.cancelButtonText}</button>
+
           </div>
-        </section>
+        </dialog>
       </div>
     )
   }

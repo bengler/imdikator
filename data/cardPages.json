@@ -699,7 +699,12 @@
             }
           ]
         },
-        "tabs": []
+        "tabs": [
+          {
+            "name": "latest",
+            "chartKind": "stackedBar"
+          }
+        ]
       },
       {
         "name": "barnehage-alder-minoriteter",
@@ -739,7 +744,12 @@
             }
           ]
         },
-        "tabs": []
+        "tabs": [
+          {
+            "name": "latest",
+            "chartKind": "stackedBar"
+          }
+        ]
       },
       {
         "name": "gjennomsnittlige-grunnskolepoeng",
@@ -1075,7 +1085,9 @@
       {
         "name": "voksne-i-grunnskolen",
         "title": "Voksne elever i grunnskolen",
-        "config": {},
+        "config": {
+          "isLopsided": true
+        },
         "query": {
           "tableName": "voksne_grunnskole",
           "unit": [
@@ -1340,6 +1352,7 @@
         "name": "ledige-innvkat-land",
         "title": "Arbeidsledige eller på tiltak etter landbakgrunn",
         "config": {
+          "isLopsided": true,
           "dimensions": {
             "innvkat3": {
               "include": [
@@ -1379,6 +1392,7 @@
         "name": "ikke-arbeid-innvkat-land",
         "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "config": {
+          "isLopsided": true,
           "dimensions": {
             "innvkat3": {
               "include": [
@@ -1494,6 +1508,7 @@
         "name": "vedvarende-lavinntekt",
         "title": "Personer i husholdninger med vedvarende lavinntekt etter landbakgrunn",
         "config": {
+          "isLopsided": true,
           "dimensions": {
             "innvkat3": {
               "include": [
@@ -1526,8 +1541,7 @@
             }
           ]
         },
-        "tabs": [],
-        "issue": "lopsided"
+        "tabs": []
       },
       {
         "name": "sosialhjelp",

@@ -54,12 +54,6 @@
                 "innvandrere",
                 "befolkningen_ellers"
               ]
-            },
-            "kjonn": {
-              "hidden": true
-            },
-            "alderGrupper": {
-              "hidden": true
             }
           }
         },

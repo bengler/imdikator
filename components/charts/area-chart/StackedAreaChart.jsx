@@ -99,6 +99,51 @@ export default class StackedAreaChart extends React.Component {
     const color = this.textures.domain(data.series.map(serie => serie.title))
     this.addYAxis(yc.scale, yc.axisFormat)
 
+    const focus = svg.append('g')
+    .attr('transform', 'translate(-100,-100)')
+    .attr('class', 'focus')
+    focus.append('circle')
+    .attr('r', 3.5)
+
+    let hoveropen = false
+    const open = item => {
+      const xPos = x(item.date)
+      const yPos = y(item.y + item.y0)
+      focus.attr('transform', this.translation(xPos, yPos))
+
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.series,
+        body: `${item.title}: ${yc.format(item.y)}`,
+        el: focus.node()
+      })
+      hoveropen = true
+    }
+    const close = () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
+
+    // Add hover dots for screen readers
+    const sc = this.svg.selectAll('g.line-dot')
+    .data(data.series)
+    .enter()
+    .append('g')
+    .attr('class', 'line-dot')
+
+    sc.selectAll('circle')
+    .data(dataItem => dataItem.values.filter(item => !item.anonymized))
+    .enter()
+    .append('svg:a')
+    .attr('xlink:href', '#')
+    .on('focus', item => {
+      open(item)
+    })
+    .append('circle')
+    .attr('cx', dataItem => x(dataItem.date))
+    .attr('cy', dataItem => y(dataItem.y + dataItem.y0))
+    .attr('r', dataItem => 1)
+    .style('fill', 'none')
+
     svg.selectAll('.area')
     .data(data.series)
     .enter()
@@ -119,11 +164,6 @@ export default class StackedAreaChart extends React.Component {
     */
 
     // Voronoi Tesselation hover points
-    const focus = svg.append('g')
-    .attr('transform', 'translate(-100,-100)')
-    .attr('class', 'focus')
-    focus.append('circle')
-    .attr('r', 3.5)
 
     // Add a voronoi tesselation for mouseover
     const voronoi = d3.geom.voronoi()
@@ -149,24 +189,6 @@ export default class StackedAreaChart extends React.Component {
     .rollup(value => value[0])
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
-
-    let hoveropen = false
-    const open = item => {
-      const xPos = x(item.date)
-      const yPos = y(item.y + item.y0)
-      focus.attr('transform', this.translation(xPos, yPos))
-
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.series,
-        body: `${item.title}: ${yc.format(item.y)}`,
-        el: focus.node()
-      })
-      hoveropen = true
-    }
-    const close = () => {
-      this.eventDispatcher.emit('datapoint:hover-out')
-      hoveropen = false
-    }
 
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))

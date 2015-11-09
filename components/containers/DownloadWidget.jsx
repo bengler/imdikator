@@ -3,15 +3,20 @@ import {connect} from 'react-redux'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
+import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import {generateCSV, downloadCSV} from '../../lib/csvWrangler'
+import {queryResultPresenter} from '../../lib/queryResultPresenter'
+import apiClient from '../../config/apiClient'
 
 
 class DownloadWidget extends Component {
   static propTypes = {
     data: ImdiPropTypes.chartData.isRequired,
     region: ImdiPropTypes.region.isRequired,
-    allRegions: PropTypes.arrayOf(ImdiPropTypes.region)
-    //choices: ImdiPropTypes.dowloadChoices
+    allRegions: PropTypes.arrayOf(ImdiPropTypes.region),
+    query: ImdiPropTypes.query.isRequired,
+    headerGroups: PropTypes.object,
+    dispatch: PropTypes.func
   }
 
   constructor(props) {
@@ -20,30 +25,55 @@ class DownloadWidget extends Component {
   }
 
 
-  componentWillMount() {
-    this.setState(generateCSV(this.props.data))
-  }
-
-
-  componentWillReceiveProps(props) {
-    this.setState(generateCSV(props.data))
-  }
-
-
   handleOpenDownloadSelect(event) {
     event.preventDefault()
     this.setState({isDownloadSelectOpen: !this.state.isDownloadSelectOpen})
   }
 
+  buildCsvQuery(comparisonRegions) {
+    const {region, query, headerGroups} = this.props
+    const headerGroup = findHeaderGroupForQuery(query, headerGroups)
+    return {
+      tableName: query.tableName,
+      region: region.prefixedCode,
+      dimensions: Object.keys(headerGroup).map(headerKey => {
+        if (['aar', 'enhet', 'fylkeNr', 'kommuneNr', 'naringsregionNr', 'bydelNr'].includes(headerKey)) {
+          return null
+        }
+        return {name: headerKey}
+      }).filter(Boolean),
+      year: query.year,
+      unit: query.unit,
+      comparisonRegions: comparisonRegions.map(reg => reg.prefixedCode)
+    }
+  }
+
   renderDownloadSelect() {
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
+
     const handApplyChoice = newValue => {
-      if (this.state.csv) {
-        downloadCSV(this.state.csv, 'tabell.csv')
+      const csvQuery = this.buildCsvQuery(choices[newValue].regions)
+
+      apiClient.query(csvQuery).then(queryResult => {
+        let data = queryResultPresenter(this.props.query, queryResult, {
+          chartKind: 'table'
+        })
+
+        // Make sure the data looks smart in a table
+        const dimensions = data.dimensions.slice()
+        if (!dimensions.includes('region')) {
+          dimensions.unshift('region')
+        }
+        if (!dimensions.includes('enhet')) {
+          dimensions.push('enhet')
+        }
+        data = Object.assign({}, data, {dimensions: dimensions})
+
+        // Bake CSV and trigger client download
+        const csvData = generateCSV(data).csv
+        downloadCSV(csvData, 'tabell.csv')
         this.setState({isDownloadSelectOpen: false})
-      } else {
-        alert('CSV not done baking yet :/') // eslint-disable-line no-alert
-      }
+      })
     }
 
     const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
@@ -76,11 +106,8 @@ class DownloadWidget extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  const {region} = ownProps
-  const {allRegions} = state
   return {
-    region: region,
-    allRegions: allRegions
+    allRegions: state.allRegions
   }
 }
 

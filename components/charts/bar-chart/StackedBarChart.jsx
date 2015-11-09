@@ -103,7 +103,11 @@ export default class StackedBarChart extends Component {
     }
     category.selectAll('rect')
     .data(cat => cat.values)
-    .enter().append('rect')
+    .enter()
+    .append('svg:a')
+    .attr('xlink:href', '#')
+    .on('focus', item => open(item))
+    .append('rect')
     .attr('width', item => xScales[item.category].rangeBand())
     .attr('x', item => xScales[item.category]('stack'))
     .attr('y', dataItem => y(dataItem.y1))

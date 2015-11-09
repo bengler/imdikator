@@ -134,9 +134,27 @@ export default class BenchmarkChart extends React.Component {
       item.el = this
     })
 
+    let hoveropen = false
+    const open = item => {
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.title,
+        body: item.formattedValue,
+        el: item.el
+      })
+      hoveropen = true
+    }
+    const close = () => {
+      this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
+
     svg.selectAll('rect.hover')
     .data(data.preparedData)
     .enter()
+    .append('svg:a')
+    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    .on('click', () => d3.event.stopPropagation())
+    .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'hover')
     .attr('x', dataItem => x(dataItem.title))
@@ -145,16 +163,15 @@ export default class BenchmarkChart extends React.Component {
     .attr('height', dataItem => this.size.height)
     .attr('pointer-events', 'all')
     .style('fill', 'none')
-    .on('mouseover', item => {
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.title,
-        body: item.formattedValue,
-        el: item.el
-      })
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
     })
-    .on('mouseout', () => {
-      this.eventDispatcher.emit('datapoint:hover-out')
-    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
   }
 
   render() {

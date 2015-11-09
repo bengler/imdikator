@@ -7382,7 +7382,7 @@
     "imdi-styles": {
       "version": "0.0.0",
       "from": "netliferesearch/imdi-styles",
-      "resolved": "git://github.com/netliferesearch/imdi-styles.git#5efc2679b0c64563ae8cd1fec55a12e09f02da90"
+      "resolved": "git://github.com/netliferesearch/imdi-styles.git#8d17bf6e6c6c684120a726930f25b0ca0f5e9b5e"
     },
     "less": {
       "version": "2.5.3",

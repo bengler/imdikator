@@ -19,7 +19,8 @@ import {
   SET_CURRENT_TAB,
   RECEIVE_CARD_QUERY_RESULT,
   REQUEST_CARD_QUERY_RESULT,
-  RECEIVE_HEADER_GROUPS
+  RECEIVE_HEADER_GROUPS,
+  NO_DATA_FOR_CARD
 } from './ActionTypes'
 
 
@@ -73,6 +74,16 @@ function receivedHeaderGroups({tableName, headerGroups}) {
     type: RECEIVE_HEADER_GROUPS,
     tableName: tableName,
     headerGroups
+  }
+}
+
+function noDataForCard({cardsPage, card, tab, region}) {
+  return {
+    type: NO_DATA_FOR_CARD,
+    cardsPage,
+    card,
+    tab,
+    region
   }
 }
 
@@ -147,74 +158,44 @@ export function openCard(cardName) {
 
 export function loadCardsPage(regionCode, cardsPageName, {cardName, tabName, query} = {}) {
   return (dispatch, getState) => {
-
     const region = dispatch(setCurrentRegionByCode(regionCode))
 
     if (!region) {
       // Probably means region wasnt found
       return
     }
+    const {allCardsPages, headerGroups} = getState()
 
-    const state = getState()
-    const foundCardsPage = state.allCardsPages.find(cardsPage => cardsPage.name.toLowerCase() === cardsPageName.toLowerCase())
+    const foundCardsPage = allCardsPages.find(cardsPage => cardsPage.name.toLowerCase() === cardsPageName.toLowerCase())
 
     if (!foundCardsPage) {
       dispatch(cardsPageNotFound(foundCardsPage))
       return
     }
 
-    if (state.currentCardsPage !== foundCardsPage) {
-      dispatch(setCurrentCardsPage(foundCardsPage))
-    }
-
     // Load header groups for all cards in cardPage
     foundCardsPage.cards.forEach(card => {
-      if (!state.headerGroups[card.query.tableName]) {
+      if (!headerGroups[card.query.tableName]) {
         dispatch(loadHeaderGroupsForTable(card.query.tableName))
       }
     })
 
+    dispatch(setCurrentCardsPage(foundCardsPage))
+
     if (!cardName) {
+      cardName = foundCardsPage.cards[0].name
+    }
+
+    const foundCard = foundCardsPage.cards.find(card => card.name === cardName)
+
+    if (!foundCard) {
+      dispatch(cardNotFoundInPage(foundCardsPage, cardName))
       return
-      //cardName = foundCardsPage.cards[0].name
-    }
-
-    dispatch(loadCard({cardName, tabName, query}))
-  }
-}
-
-export function loadCard({cardName, tabName, query}) {
-  return (dispatch, getState) => {
-
-    const {currentCardsPage, currentCard} = getState()
-
-    if (!currentCardsPage) {
-      throw new Error('No current cards page')
-    }
-
-    const foundCard = cardName && currentCardsPage.cards.find(card => card.name.toLowerCase() === cardName.toLowerCase())
-
-    if (cardName && !foundCard) {
-      dispatch(cardNotFoundInPage({cardsPage: currentCardsPage, cardName}))
-      return
-    }
-
-    if (currentCard !== foundCard) {
-      dispatch(setCurrentCard(foundCard))
     }
 
     if (!tabName) {
       tabName = TABS[0].name
     }
-
-    dispatch(loadTab({tabName, query}))
-  }
-}
-
-export function loadTab({tabName, query}) {
-  return (dispatch, getState) => {
-
-    const {currentCardsPage, currentCard, currentRegion, allRegions} = getState()
 
     // Tabs are fixed across all, not configured
     const foundTab = TABS.find(tab => {
@@ -222,39 +203,53 @@ export function loadTab({tabName, query}) {
     })
 
     if (!foundTab) {
-      dispatch(tabNotFoundInCard({card: currentCard, tabName}))
+      dispatch(tabNotFoundInCard({card: foundCard, tabName}))
       return
     }
 
-    const tabOverrides = (currentCard.tabs || []).find(tab => tab.name === foundTab.name)
+    dispatch(loadCard({region, cardsPage: foundCardsPage, card: foundCard, tab: foundTab, query}))
+  }
+}
 
-    const tab = Object.assign({}, foundTab, tabOverrides)
+export function loadCard({region, cardsPage, card, tab, query}) {
+  return (dispatch, getState) => {
+    dispatch(loadTab({region, cardsPage, card, tab, query}))
+  }
+}
+
+export function loadTab({region, cardsPage, card, tab, query}) {
+  return (dispatch, getState) => {
+
+    const {allRegions} = getState()
+
+    const tabOverrides = (card.tabs || []).find(_tab => _tab.name === tab.name)
+
+    const tabWithConfig = Object.assign({}, tab, tabOverrides)
 
     dispatch(setCurrentTab({
-      region: currentRegion,
-      card: currentCard,
-      tab: tab
+      region: region,
+      card: card,
+      tab: tabWithConfig
     }))
 
     if (query) {
       dispatch(performQuery({
-        cardsPage: currentCardsPage,
-        card: currentCard,
-        tab: tab,
+        cardsPage: cardsPage,
+        card: card,
+        tab: tabWithConfig,
         query
       }))
       return
     }
 
     // Load up initial query for tab and query
-
-    const tabQuery = Object.assign({}, currentCard.query, {year: foundTab.year})
+    const tabQuery = Object.assign({}, card.query, {region: region.prefixedCode, year: tabWithConfig.year})
 
     const getHeaderGroups = apiClient.getHeaderGroups(tabQuery.tableName)
 
     const maybeAddComparisonRegions = Promise.resolve(tabQuery).then(qry => {
-      if (foundTab.name == 'benchmark') {
-        const prefixes = allRegions.filter(isSimilarRegion(currentRegion)).map(reg => reg.prefixedCode)
+      if (tab.name == 'benchmark') {
+        const prefixes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
         return Object.assign({}, qry, {
           comparisonRegions: prefixes
         })
@@ -265,36 +260,49 @@ export function loadTab({tabName, query}) {
     Promise
       .all([maybeAddComparisonRegions, getHeaderGroups]).then(([qury, headerGroups]) => {
 
-        const resolvedQuery = resolveQuery(currentRegion, qury, headerGroups, currentCard.config)
-        const headerGroup = findHeaderGroupForQuery(resolvedQuery, headerGroups)
+        const headerGroup = findHeaderGroupForQuery(qury, headerGroups)
+        if (!headerGroup) {
+          dispatch(noDataForCard({
+            region: region,
+            cardsPage: cardsPage,
+            card: card,
+            tab: tabWithConfig
+          }))
+          return null
+        }
 
-        const chart = CHARTS[tab.chartKind]
+        const resolvedQuery = resolveQuery(region, qury, headerGroup, region.config)
+
+        const chart = CHARTS[tabWithConfig.chartKind]
 
         const querySpec = getQuerySpec(resolvedQuery, {
-          tab,
+          tab: tabWithConfig,
           chart,
           headerGroup,
-          config: currentCard.config
+          config: card.config
         })
 
-        const constrained = constrainQuery(resolvedQuery, querySpec, currentCard.config)
+        const constrained = constrainQuery(resolvedQuery, querySpec, card.config)
         constrained.operations.forEach(op => {
           console.log('[debug] %s: %s ', op.dimension, op.description) // eslint-disable-line no-console
         })
         return constrained.query
       })
       .then(initialQuery => {
-        dispatch(performQuery({
-          cardsPage: currentCardsPage,
-          card: currentCard,
-          tab: tab,
-          query: initialQuery
-        }))
+        if (initialQuery) {
+          dispatch(performQuery({
+            region: region,
+            cardsPage: cardsPage,
+            card: card,
+            tab: tabWithConfig,
+            query: initialQuery
+          }))
+        }
       })
   }
 }
 
-export function performQuery({cardsPage, card, tab, query}) {
+export function performQuery({region, cardsPage, card, tab, query}) {
   if (!cardsPage) {
     throw new Error('Missing required option: cardsPage')
   }
@@ -305,10 +313,9 @@ export function performQuery({cardsPage, card, tab, query}) {
     throw new Error('Missing required option: tab')
   }
   return (dispatch, getState) => {
-    const {currentRegion} = getState()
 
     dispatch(requestQueryResult({
-      region: currentRegion,
+      region: region,
       cardsPage: cardsPage,
       card: card,
       tab: tab,
@@ -318,7 +325,7 @@ export function performQuery({cardsPage, card, tab, query}) {
     const getHeaderGroups = apiClient.getHeaderGroups(query.tableName)
     Promise.all([apiClient.query(query), getHeaderGroups]).then(([queryResult, headerGroups]) => {
       dispatch(receiveQueryResult({
-        region: currentRegion,
+        region: region,
         cardsPage: cardsPage,
         card: card,
         tab: tab,

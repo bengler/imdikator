@@ -13,6 +13,7 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 class CardsPage extends Component {
   static propTypes = {
     loading: PropTypes.bool,
+    noValues: PropTypes.bool,
     dispatch: PropTypes.func,
     cards: PropTypes.arrayOf(ImdiPropTypes.card),
     cardsPage: ImdiPropTypes.cardsPage,
@@ -60,10 +61,40 @@ class CardsPage extends Component {
     )
   }
 
+  renderCards() {
+    const {region, openCards, cards, cardsPage, noValues} = this.props
+
+    if (noValues) {
+      return (
+        <div className="page__content page__content--section">
+          Ingenting å vise her…
+        </div>
+      )
+    }
+
+    return (
+      <ul className="t-no-list-styles">
+      {cards.map(card => {
+        const isOpen = openCards.includes(card.name)
+        const noValues = card.noValues
+        return (
+          <li key={card.name}>
+            <section className="toggle-list">
+              {this.renderToggleCardLink(card)}
+              {isOpen && !noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
+              {isOpen && noValues && <div>Ingen data å vise her</div>}
+            </section>
+          </li>
+          )
+      })}
+    </ul>
+  )
+  }
   render() {
-    const {cardsPage, region, openCards, cards} = this.props
+    const {cardsPage, region} = this.props
+
     if (!cardsPage || !region) {
-      return <div className="page__content page__content--section"><i className="loading-indicator"></i> Laster...</div>
+      return <div className="page__content page__content--section"><i className="loading-indicator"/> Laster...</div>
     }
 
     return (
@@ -93,19 +124,7 @@ class CardsPage extends Component {
               <div className="col--main">
                 <CardPageButtonsContainer />
                 <h2 className="feature__section-title">{cardsPage.title} i {region.name}</h2>
-                <ul className="t-no-list-styles">
-                  {cards.map(card => {
-                    const isOpen = openCards.includes(card.name)
-                    return (
-                      <li key={card.name}>
-                        <section className="toggle-list">
-                          {this.renderToggleCardLink(card)}
-                          {isOpen && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
-                        </section>
-                      </li>
-                    )
-                  })}
-                </ul>
+                {this.renderCards()}
               </div>
             </div>
           </div>
@@ -147,19 +166,20 @@ function mapStateToProps(state) {
 
     const headerGroups = state.headerGroups[tableName]
 
-    const hasValues = headerGroups.some(group => {
+    return headerGroups.some(group => {
       return group[regionHeaderKey] && group[regionHeaderKey].includes(currentRegion.code)
     })
-
-    if (!hasValues) {
-      console.log(`No values in header groups for ${currentRegion.name} and ${tableName}`)// eslint-disable-line no-console
-    }
-
-    return hasValues
   }
 
+  const someGotValues = state.currentCardsPage.cards.some(cardHasValues)
+
   return {
-    cards: state.currentCardsPage.cards.filter(cardHasValues),
+    cards: state.currentCardsPage.cards.map(card => {
+      return Object.assign({}, card, {
+        noValues: !cardHasValues(card)
+      })
+    }),
+    noValues: !someGotValues,
     cardsPage: state.currentCardsPage,
     region: state.currentRegion,
     openCards: state.openCards

@@ -58,8 +58,8 @@ class Card extends Component {
   }
 
   handleFilterChange(newQuery) {
-    const {cardsPage, card, activeTab, dispatch} = this.props
-    dispatch(performQuery({cardsPage: cardsPage, card: card, tab: activeTab, query: newQuery}))
+    const {region, cardsPage, card, activeTab, dispatch} = this.props
+    dispatch(performQuery({region, cardsPage: cardsPage, card: card, tab: activeTab, query: newQuery}))
   }
 
 
@@ -90,7 +90,7 @@ class Card extends Component {
     const {loading, card, data, activeTab, query, region, headerGroups, printable} = this.props
 
     if (!activeTab) {
-      return <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"></i> Laster…</div>
+      return <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"/> Laster…</div>
     }
     const showTable = this.state.showTable
     const headerGroup = this.getHeaderGroupForQuery(query)
@@ -161,7 +161,7 @@ class Card extends Component {
         />
         )}
 
-        {loading && <span><i className="loading-indicator"></i> Laster…</span>}
+        {loading && <span><i className="loading-indicator"/> Laster…</span>}
 
         {!printable && (
         <div className="graph__types">

@@ -58,12 +58,12 @@ class RegionSummaryChartsContainer extends Component {
     const {summaries, region, loading} = this.props
 
     if (loading || !summaries || summaries.some(summary => summary.loading)) {
-      return <div><i className="loading-indicator"></i> Henter data...</div>
+      return <div><i className="loading-indicator"/> Henter data...</div>
     }
 
     return (
       <div>
-        {summaries.map(summary => {
+        {summaries.filter(summary => !summary.noData).map(summary => {
           return (
             <RegionSummaryChart
               key={summary.config.name}
@@ -103,6 +103,7 @@ function mapStateToProps(state, ownProps) {
     const forNorway = state.regionSummaries[norway.prefixedCode][config.name]
     return {
       config: config,
+      noData: fromState.noData,
       loading: fromState.loading,
       query: fromState.query,
       queryResult: fromState.queryResult,

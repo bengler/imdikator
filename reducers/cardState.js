@@ -1,7 +1,8 @@
 import {
   REQUEST_CARD_QUERY_RESULT,
   RECEIVE_CARD_QUERY_RESULT,
-  SET_CURRENT_TAB
+  SET_CURRENT_TAB,
+  NO_DATA_FOR_CARD
 } from '../actions/ActionTypes'
 
 
@@ -15,6 +16,15 @@ function reduceTabState(state = {initializing: true}, action) {
       return Object.assign({}, state, {
         loading: true
       })
+    case NO_DATA_FOR_CARD:
+      return {
+        initializing: false,
+        loading: false,
+        noData: true,
+        region: action.region,
+        cardsPage: action.cardsPage,
+        card: action.card
+      }
     case RECEIVE_CARD_QUERY_RESULT:
       return {
         initializing: false,
@@ -35,6 +45,7 @@ function reduceTabs(state = {}, action) {
   switch (action.type) {
     case SET_CURRENT_TAB:
     case REQUEST_CARD_QUERY_RESULT:
+    case NO_DATA_FOR_CARD:
     case RECEIVE_CARD_QUERY_RESULT:
       return Object.assign({}, state, {
         [action.tab.name]: reduceTabState(state[action.tab.name], action)
@@ -72,6 +83,7 @@ function reduceCardStateForRegion(state = {}, action) {
     case SET_CURRENT_TAB:
     case REQUEST_CARD_QUERY_RESULT:
     case RECEIVE_CARD_QUERY_RESULT:
+    case NO_DATA_FOR_CARD:
       return Object.assign({}, state, {
         [action.card.name]: reduceCardState(state[action.card.name], action)
       })
@@ -86,6 +98,7 @@ export default function cardState(state = {}, action) {
     case SET_CURRENT_TAB:
     case REQUEST_CARD_QUERY_RESULT:
     case RECEIVE_CARD_QUERY_RESULT:
+    case NO_DATA_FOR_CARD:
       return Object.assign({}, state, {
         [action.region.prefixedCode]: reduceCardStateForRegion(state[action.region.prefixedCode], action)
       })

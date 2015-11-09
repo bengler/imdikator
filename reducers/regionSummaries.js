@@ -1,5 +1,4 @@
-import {REQUEST_REGION_SUMMARY_DATA, RECEIVE_REGION_SUMMARY_DATA} from '../actions/ActionTypes'
-
+import {REQUEST_REGION_SUMMARY_DATA, RECEIVE_REGION_SUMMARY_DATA, NO_SUMMARY_DATA} from '../actions/ActionTypes'
 
 function reduceSummary(state = {}, action) {
   switch (action.type) {
@@ -15,6 +14,11 @@ function reduceSummary(state = {}, action) {
         query: action.query,
         queryResult: action.queryResult
       })
+    case NO_SUMMARY_DATA:
+      return {
+        loading: false,
+        noData: true
+      }
     default:
       return state
   }
@@ -24,6 +28,7 @@ function reduceSummaryForRegion(state = {}, action) {
   switch (action.type) {
     case REQUEST_REGION_SUMMARY_DATA:
     case RECEIVE_REGION_SUMMARY_DATA:
+    case NO_SUMMARY_DATA:
       return Object.assign({}, state, {
         [action.summaryConfig.name]: reduceSummary(state[action.summaryConfig.name], action)
       })
@@ -37,6 +42,7 @@ export default function regionSummaries(state = {}, action) {
   switch (action.type) {
     case REQUEST_REGION_SUMMARY_DATA:
     case RECEIVE_REGION_SUMMARY_DATA:
+    case NO_SUMMARY_DATA:
       return Object.assign({}, state, {
         [action.region.prefixedCode]: reduceSummaryForRegion(state[action.region.prefixedCode], action)
       })

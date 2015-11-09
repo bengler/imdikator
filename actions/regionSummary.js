@@ -1,7 +1,8 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
+import {findHeaderGroupForQuery} from '../lib/queryUtil'
 import {isSimilarRegion} from '../lib/regionUtil'
-import {REQUEST_REGION_SUMMARY_DATA, RECEIVE_REGION_SUMMARY_DATA} from './ActionTypes'
+import {REQUEST_REGION_SUMMARY_DATA, RECEIVE_REGION_SUMMARY_DATA, NO_SUMMARY_DATA} from './ActionTypes'
 
 function requestSummaryData({region, summaryConfig}) {
   return {
@@ -21,6 +22,14 @@ function receiveSummaryData({region, summaryConfig, query, queryResult}) {
   }
 }
 
+function noSummaryData({region, summaryConfig}) {
+  return {
+    type: NO_SUMMARY_DATA,
+    region: region,
+    summaryConfig: summaryConfig
+  }
+}
+
 export function loadRegionSummaryDataForRegion(region, summaryConfig) {
   return (dispatch, getState) => {
 
@@ -37,14 +46,24 @@ export function loadRegionSummaryDataForRegion(region, summaryConfig) {
 
     apiClient.getHeaderGroups(summaryConfig.query.tableName).then(headerGroups => {
 
-      const query = resolveQuery(region, extendQuery(summaryConfig), headerGroups)
+      const query = extendQuery(summaryConfig)
 
-      apiClient.query(query).then(queryResult => {
+      const headerGroup = findHeaderGroupForQuery(query, headerGroups)
+      if (!headerGroup) {
+        dispatch(noSummaryData({
+          region,
+          summaryConfig
+        }))
+        return
+      }
 
+      const resolvedQuery = resolveQuery(region, extendQuery(summaryConfig), headerGroup)
+
+      apiClient.query(resolvedQuery).then(queryResult => {
         dispatch(receiveSummaryData({
           region,
           summaryConfig,
-          query,
+          query: resolvedQuery,
           queryResult
         }))
       })

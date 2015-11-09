@@ -395,7 +395,6 @@
         }
       },
       {
-        "issue": "should be line chart – and area chart",
         "name": "bosatt_anmodede",
         "title": "Flyktninger kommunen ble bedt om å bosette",
         "query": {
@@ -491,13 +490,13 @@
         "dimensionsConfig": {
           "utd4": {
             "hidden": true,
+            "excludeFromChart": true,
             "include": [
               "vgs"
             ]
           },
           "innvkat3": {
             "include": [
-              "alle",
               "innvandrere",
               "befolkningen_ellers"
             ]
@@ -535,13 +534,13 @@
         "dimensionsConfig": {
           "utd4": {
             "hidden": true,
+            "excludeFromChart": true,
             "include": [
               "universitet_og_hogskole"
             ]
           },
           "innvkat3": {
             "include": [
-              "alle",
               "innvandrere",
               "befolkningen_ellers"
             ]
@@ -578,13 +577,13 @@
         "dimensionsConfig": {
           "utd4": {
             "hidden": true,
+            "excludeFromChart": true,
             "include": [
               "uoppgitt_ingen"
             ]
           },
           "innvkat3": {
             "include": [
-              "alle",
               "innvandrere",
               "befolkningen_ellers"
             ]
@@ -607,7 +606,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "alle"
+                "0", "1"
               ]
             }
           ]
@@ -633,7 +632,12 @@
             }
           ]
         },
-        "tabs": [],
+        "tabs": [
+          {
+            "name": "latest",
+            "chartKind": "stackedBar"
+          }
+        ],
         "dimensionsConfig": {
           "barnikommune": {
             "include": [
@@ -643,7 +647,6 @@
           },
           "bhgalder": {
             "include": [
-              "1_5",
               "1",
               "2",
               "3",

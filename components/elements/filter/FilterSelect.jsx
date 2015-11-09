@@ -79,21 +79,23 @@ export default class FilterSelect extends Component {
 
     const filter = (
       <div className="subtle-select">
-        <label htmlFor="filter-groups" className="subtle-select__label">
-          {label}:
+        <label>
+          <span className="subtle-select__label">
+            {label}:
+          </span>
+          <div className={selectContainerClasses}>
+            <select
+              value={selectedIndex}
+              disabled={disabled}
+              onChange={this.handleChange.bind(this)}>
+              {choices.map((choice, i) => (
+                <option key={i} value={i}>
+                  {renderChoice(choice, i, choices)}
+                </option>
+              ))}
+            </select>
+          </div>
         </label>
-        <div className={selectContainerClasses}>
-          <select
-            value={selectedIndex}
-            disabled={disabled}
-            onChange={this.handleChange.bind(this)}>
-            {choices.map((choice, i) => (
-              <option key={i} value={i}>
-                {renderChoice(choice, i, choices)}
-              </option>
-            ))}
-          </select>
-        </div>
       </div>
     )
 

@@ -110,10 +110,12 @@ export default class RegionFilterSelect extends Component {
     return (
       <div>
         <div className={classes}>
-          <label htmlFor="filter-groups" className="subtle-select__label">
+          <label>
+            <span className="subtle-select__label">
             Sammenliknet med:
+            </span>
+            {this.renderFilterButton()}
           </label>
-          {this.renderFilterButton()}
         </div>
         {isRegionPickerOpen && this.renderRegionPickerLightbox()}
       </div>

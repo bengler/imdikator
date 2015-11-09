@@ -36,8 +36,10 @@ export default class PopupShareBox extends Component {
 
             <p>{this.props.description}</p>
 
-            <label htmlFor="popupsharebox-input">{this.props.inputLabel}</label>
-            <input id="popupsharebox-input" className="input form--small form--inline" type="text" value={this.props.chartUrl}/>
+            <label style={{display: 'inline-block'}}>
+              <span className="label">{this.props.inputLabel}</span>
+              <input id="popupsharebox-input" className="input form--small form--inline" type="text" value={this.props.chartUrl}/>
+            </label>
             <button type="button" className="button button--secondary clipboardButton"
               data-clipboard-text={this.props.chartUrl}>{this.props.applyButtonText}</button>
 

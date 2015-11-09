@@ -50,14 +50,16 @@ export default class PopupChoicesBox extends Component {
 
             <p>{this.props.description}</p>
 
-            <label htmlFor="popupchoicesbox-select">{this.props.choiceLabel}</label>
-            <div className="select t-margin-bottom">
-              <select id="popupchoicesbox-select" value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
-                {this.props.choices.map(choice => (
-                  <option value={choice.value} key={choice.value}>{choice.description}</option>
-                ))}
-              </select>
-            </div>
+            <label style={{display: 'inline-block'}}>
+              <span className="label">{this.props.choiceLabel}</span>
+              <div className="select t-margin-bottom">
+                <select id="popupchoicesbox-select" value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
+                  {this.props.choices.map(choice => (
+                    <option value={choice.value} key={choice.value}>{choice.description}</option>
+                  ))}
+                </select>
+              </div>
+            </label>
             <button type="button" className="button" onClick={this.onApply.bind(this)}>{this.props.applyButtonText}</button>
 
           </div>

@@ -112,7 +112,11 @@ export default class BubbleChart extends React.Component {
       hoveropen = false
     }
 
-    node.append('circle')
+    node
+    .append('svg:a')
+    .attr('xlink:href', '#')
+    .on('focus', item => open(item))
+    .append('circle')
     .attr('r', item => item.r)
     .style('fill', item => item.fill)
     /* Fjernet til vi får fikset kontrastproblemene ved bruk av lys farge

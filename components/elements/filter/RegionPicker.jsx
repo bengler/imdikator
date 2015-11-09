@@ -113,14 +113,15 @@ export default class RegionPicker extends Component {
           </div>
           <div className="col--half">
             <div className="fieldset">
-              <label htmlFor="compare-search" className="legend">Legg til sted</label>
-              <div className="search search--autocomplete">
-                <RegionSearch
-                  placeholder="Kommune/fylke/næringsregion/bydel etc."
-                  regions={choices}
-                  onSelect={region => this.handleAdd(region)}
-                />
-              </div>
+              <label><span className="label legend">Legg til sted</span>
+                <div className="search search--autocomplete">
+                  <RegionSearch
+                    placeholder="Kommune/fylke/næringsregion/bydel etc."
+                    regions={choices}
+                    onSelect={region => this.handleAdd(region)}
+                  />
+                </div>
+              </label>
               <ToggleButtonList
                 options={other}
                 value={value}

@@ -51,10 +51,11 @@ class IndexPage extends Component {
                   <h1>Norge</h1>
                   <p className="ingress">Tall og statistikk over integreringen i hele landet</p>
                   <div className="t-margin-bottom--large">
-                    <label htmlFor="compare-search" className="">Gå til sted</label>
-                    <div className="search search--autocomplete">
-                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
-                    </div>
+                    <label><span className="label">Gå til sted</span>
+                      <div className="search search--autocomplete">
+                          <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                      </div>
+                    </label>
                   </div>
                 </header>
               </div>

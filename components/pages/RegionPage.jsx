@@ -46,10 +46,11 @@ class RegionPage extends Component {
                   <h1>Integrering i {currentRegion.name} {_t(currentRegion.type)}</h1>
                   <p className="ingress">Tall og statistikk om integrering i {_t(`the-${currentRegion.type}`)}</p>
                   <div className="t-margin-bottom--large">
-                    <label htmlFor="compare-search" className="">Gå til sted</label>
-                    <div className="search search--autocomplete">
-                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
-                    </div>
+                    <label><span className="label">Gå til sted</span>
+                      <div className="search search--autocomplete">
+                          <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                      </div>
+                    </label>
                   </div>
                 </header>
               </div>

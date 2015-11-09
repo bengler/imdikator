@@ -11,11 +11,10 @@ import apiClient from '../../config/apiClient'
 
 class DownloadWidget extends Component {
   static propTypes = {
-    data: ImdiPropTypes.chartData.isRequired,
     region: ImdiPropTypes.region.isRequired,
     allRegions: PropTypes.arrayOf(ImdiPropTypes.region),
     query: ImdiPropTypes.query.isRequired,
-    headerGroups: PropTypes.object,
+    headerGroups: PropTypes.array,
     dispatch: PropTypes.func
   }
 
@@ -30,29 +29,40 @@ class DownloadWidget extends Component {
     this.setState({isDownloadSelectOpen: !this.state.isDownloadSelectOpen})
   }
 
-  buildCsvQuery(comparisonRegions) {
+  buildCsvQuery(choice) {
+    const comparisonRegions = choice.regions.slice().map(reg => reg.prefixedCode)
     const {region, query, headerGroups} = this.props
     const headerGroup = findHeaderGroupForQuery(query, headerGroups)
-    return {
+    const unwantedDimensions = ['aar', 'enhet', 'fylkeNr', 'kommuneNr', 'naringsregionNr', 'bydelNr']
+
+    const csvQuery = {
       tableName: query.tableName,
       region: region.prefixedCode,
       dimensions: Object.keys(headerGroup).map(headerKey => {
-        if (['aar', 'enhet', 'fylkeNr', 'kommuneNr', 'naringsregionNr', 'bydelNr'].includes(headerKey)) {
+        if (unwantedDimensions.includes(headerKey)) {
           return null
         }
         return {name: headerKey}
       }).filter(Boolean),
       year: query.year,
       unit: query.unit,
-      comparisonRegions: comparisonRegions.map(reg => reg.prefixedCode)
+      comparisonRegions: comparisonRegions
     }
+
+    // Instead of comparing a county with a bunch of municipalities, we want to just look at those municipalities
+    if (choice.overrideRegion) {
+      const arbitraryRegion = comparisonRegions[0]
+      csvQuery.region = arbitraryRegion
+      csvQuery.comparisonRegions = csvQuery.comparisonRegions.filter(prefixedCode => prefixedCode !== arbitraryRegion)
+    }
+    return csvQuery
   }
 
   renderDownloadSelect() {
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
 
     const handApplyChoice = newValue => {
-      const csvQuery = this.buildCsvQuery(choices[newValue].regions)
+      const csvQuery = this.buildCsvQuery(choices[newValue])
 
       apiClient.query(csvQuery).then(queryResult => {
         let data = queryResultPresenter(this.props.query, queryResult, {

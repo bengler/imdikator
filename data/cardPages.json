@@ -90,7 +90,21 @@
             "name": "latest",
             "chartKind": "pyramid"
           }
-        ]
+        ],
+        "dimensionsConfig": {
+          "innvkat3": {
+            "include": [
+              "innvandrere",
+              "befolkningen_ellers"
+            ]
+          },
+          "kjonn": {
+            "hidden": true
+          },
+          "alderGrupper": {
+            "hidden": true
+          }
+        }
       },
       {
         "name": "befolkning_innvandringsgrunn",
@@ -136,7 +150,18 @@
       {
         "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
-        "config": {},
+        "config": {
+          "dimensions": {
+            "innvgrunn5": {
+              "include": [
+                "arbeid",
+                "flukt",
+                "familie",
+                "annet_uoppgitt"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_opprinnelsesland",
           "unit": [
@@ -523,7 +548,6 @@
             },
             "innvkat3": {
               "include": [
-                "alle",
                 "innvandrere",
                 "befolkningen_ellers"
               ]
@@ -568,7 +592,6 @@
             },
             "innvkat3": {
               "include": [
-                "alle",
                 "innvandrere",
                 "befolkningen_ellers"
               ]
@@ -614,7 +637,6 @@
             },
             "innvkat3": {
               "include": [
-                "alle",
                 "innvandrere",
                 "befolkningen_ellers"
               ]
@@ -638,7 +660,7 @@
             {
               "name": "kjonn",
               "variables": [
-                "alle"
+                "0", "1"
               ]
             }
           ]
@@ -658,7 +680,6 @@
             },
             "bhgalder": {
               "include": [
-                "1_5",
                 "1",
                 "2",
                 "3",

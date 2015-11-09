@@ -15,6 +15,7 @@ import Clipboard from 'clipboard'
 import config from '../../config'
 import {performQuery} from '../../actions/cardsPage'
 
+
 class Card extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
@@ -86,6 +87,25 @@ class Card extends Component {
     return `${host}${config.env == 'development' ? port : ''}${path}`
   }
 
+
+  tableFriendlyData(data, query, tabName) {
+    let tableData = Object.assign({}, data)
+    if (tableData.dimensions && !tableData.dimensions.includes('region')) {
+      const dimensions = tableData.dimensions.slice()
+      dimensions.unshift('region')
+      dimensions.push('enhet')
+      tableData = Object.assign({}, tableData, {dimensions: dimensions})
+    }
+    if (tabName == 'benchmark') {
+      const dimensions = query.dimensions.slice().map(dim => dim.name)
+      dimensions.unshift('region')
+      dimensions.push('enhet')
+      tableData = Object.assign({}, tableData, {dimensions: dimensions})
+    }
+    return tableData
+  }
+
+
   render() {
     const {loading, card, data, activeTab, query, region, headerGroups, printable} = this.props
 
@@ -116,17 +136,8 @@ class Card extends Component {
       }
     }
 
-    if (showTable && chartData.dimensions && !chartData.dimensions.includes('region')) {
-      const dimensions = chartData.dimensions.slice()
-      dimensions.unshift('region')
-      dimensions.push('enhet')
-      chartData = Object.assign({}, chartData, {dimensions: dimensions})
-    }
-    if (showTable && activeTab.name == 'benchmark') {
-      const dimensions = query.dimensions.slice().map(dim => dim.name)
-      dimensions.unshift('region')
-      dimensions.push('enhet')
-      chartData = Object.assign({}, chartData, {dimensions: dimensions})
+    if (showTable) {
+      chartData = this.tableFriendlyData(chartData, query, activeTab.name)
     }
 
     const clipboard = new Clipboard('.clipboardButton') // eslint-disable-line no-unused-vars
@@ -198,7 +209,7 @@ class Card extends Component {
         {!printable && (
         <div className="graph__functions">
           <ShareWidget chartUrl={this.chartUrl()}/>
-          <DownloadWidget region={region} data={chartData}/>
+          <DownloadWidget region={region} query={query} headerGroups={headerGroups}/>
         </div>
         )}
         {!printable && (
@@ -234,7 +245,6 @@ function mapStateToProps(state, ownProps) {
   const cardsPage = state.allCardsPages.find(cp => cp.name === ownProps.cardsPageName)
 
   const {loading, query, queryResult, headerGroups} = tabState
-
   return {
     loading,
     cardsPage,

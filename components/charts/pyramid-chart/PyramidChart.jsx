@@ -186,7 +186,11 @@ export default class PyramidChart extends React.Component {
     .data(item => {
       return item.values[0].values
     })
-    .enter().append('rect')
+    .enter()
+    .append('svg:a')
+    .attr('xlink:href', '#')
+    .on('focus', item => open(item))
+    .append('rect')
     .attr('class', 'hover')
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())
@@ -229,7 +233,11 @@ export default class PyramidChart extends React.Component {
     .data(item => {
       return item.values[1].values
     })
-    .enter().append('rect')
+    .enter()
+    .append('svg:a')
+    .attr('xlink:href', '#')
+    .on('focus', item => open(item))
+    .append('rect')
     .attr('class', 'hover')
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())

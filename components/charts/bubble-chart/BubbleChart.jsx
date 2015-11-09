@@ -115,11 +115,13 @@ export default class BubbleChart extends React.Component {
     node.append('circle')
     .attr('r', item => item.r)
     .style('fill', item => item.fill)
+    /* Fjernet til vi får fikset kontrastproblemene ved bruk av lys farge
     .style('fill-opacity', item => {
       const opacityScale = item.parent.opacityScale
       const opacity = opacityScale(item.value)
       return opacity
     })
+    */
     .style('stroke', item => item.stroke)
     .style('stroke-width', item => item.strokeWidth)
     .each(function (dataItem) {

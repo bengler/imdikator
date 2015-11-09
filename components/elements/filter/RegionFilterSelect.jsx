@@ -30,7 +30,7 @@ export default class RegionFilterSelect extends Component {
 
   renderFilterButton() {
     const {value, locked, choices, renderChoice} = this.props
-    const hasValue = value.length > 1
+    const hasValue = value.length > 0
     const disabled = locked || choices.length == 1
 
     function getButtonText() {

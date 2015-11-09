@@ -14,7 +14,6 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import Clipboard from 'clipboard'
 import config from '../../config'
 import {performQuery} from '../../actions/cardsPage'
-import util from 'util'
 
 class Card extends Component {
   static propTypes = {

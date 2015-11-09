@@ -50,7 +50,7 @@ class CardsPage extends Component {
     return (
       <a href={this.context.linkTo('/steder/:region/:cardsPageName/:cardName', {cardName: card.name})}
         onClick={handleClick}
-        className={`toggle-list__button ${isOpen ? 'toggle-list__button--expanded' : ''}`}
+        className={`toggle-list__button ${card.noValues ? 'toggle-list__button--disablet' : ''} ${isOpen ? 'toggle-list__button--expanded' : ''}`}
         aria-expanded="true"
         aria-controls="befolkning"
         role="button">
@@ -67,7 +67,7 @@ class CardsPage extends Component {
     if (noValues) {
       return (
         <div className="page__content page__content--section">
-          Ingenting å vise her…
+          <p className="t-margin-bottom--xlarge">Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn eller ikke tilgjengelig for denne regionen.</p>
         </div>
       )
     }
@@ -81,7 +81,7 @@ class CardsPage extends Component {
             <section className="toggle-list">
               {this.renderToggleCardLink(card)}
               {isOpen && !card.noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
-              {isOpen && card.noValues && <div>Ingen data å vise her</div>}
+              {isOpen && card.noValues && <div className="toggle-list__section toggle-list__section--expanded"><p>Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn eller ikke tilgjengelig for denne regionen.</p></div>}
             </section>
           </li>
           )

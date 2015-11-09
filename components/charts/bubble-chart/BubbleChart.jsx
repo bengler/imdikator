@@ -37,22 +37,24 @@ export default class BubbleChart extends React.Component {
     const multipleRegions = preparedData.length > 1
     // Prepare needed data
     const regions = d3.set()
-    const color = this.colors
+    const textures = this.textures
+    const colors = this.colors
     preparedData.forEach(row => {
       regions.add(row.title)
-      color.domain(regions.values())
-      row.fill = color(row.title)
+      textures.domain(regions.values())
+      colors.domain(regions.values())
+      row.fill = textures(row.title)
       row.strokeWidth = multipleRegions ? 1 : 0
       row.stroke = 'none'
       let minVal = INT_MAX
       let maxVal = 0
       row.children = row.values.map(item => {
-        let fill = color(row.title)
-        let textFill = colorLabels[row.fill]
+        let fill = textures(row.title)
+        let textFill = colorLabels[colors(row.title)]
         let stroke = 'none'
         if (item.values[0].anonymized) {
           fill = 'white'
-          stroke = color(row.title)
+          stroke = colors(row.title)
           textFill = 'black'
         }
         const anon = item.values[0].anonymized
@@ -155,7 +157,7 @@ export default class BubbleChart extends React.Component {
       return item.title.substring(0, item.r / 4) // eslint-disable-line id-length
     })
 
-    const leg = this.legend().color(color)
+    const leg = this.legend().color(textures)
     // Add some space between the x axis labels and the legends
     /* eslint-disable prefer-reflect */
     const legendWrapper = this.svg.append('g')

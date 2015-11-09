@@ -76,13 +76,12 @@ class CardsPage extends Component {
       <ul className="t-no-list-styles">
       {cards.map(card => {
         const isOpen = openCards.includes(card.name)
-        const noValues = card.noValues
         return (
           <li key={card.name}>
             <section className="toggle-list">
               {this.renderToggleCardLink(card)}
-              {isOpen && !noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
-              {isOpen && noValues && <div>Ingen data å vise her</div>}
+              {isOpen && !card.noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
+              {isOpen && card.noValues && <div>Ingen data å vise her</div>}
             </section>
           </li>
           )

@@ -193,6 +193,8 @@ export function loadCardsPage(regionCode, cardsPageName, {cardName, tabName, que
       return
     }
 
+    dispatch(setCurrentCard(foundCardsPage))
+
     if (!tabName) {
       tabName = TABS[0].name
     }

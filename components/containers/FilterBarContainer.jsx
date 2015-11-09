@@ -24,13 +24,15 @@ class FilterBarContainer extends Component {
         dimensions: PropTypes.number
       })
     }).isRequired,
-    dimensionsConfig: PropTypes.object,
+    config: PropTypes.object,
     region: ImdiPropTypes.region.isRequired,
     onChange: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    dimensionsConfig: {}
+    config: {
+      dimensions: {}
+    }
   }
 
   handleFilterChange(dimension, newValue) {
@@ -38,7 +40,7 @@ class FilterBarContainer extends Component {
       newValue = newValue.map(val => val.prefixedCode)
     }
 
-    const {query, dimensionsConfig} = this.props
+    const {query, config} = this.props
 
     let newQuery
     if (['comparisonRegions', 'unit', 'year'].includes(dimension)) {
@@ -62,7 +64,7 @@ class FilterBarContainer extends Component {
       })
     }
 
-    const constrainedQuery = constrainQuery(newQuery, this.getQuerySpec(newQuery), dimensionsConfig)
+    const constrainedQuery = constrainQuery(newQuery, this.getQuerySpec(newQuery), config)
     constrainedQuery.operations.forEach(op => {
       console.log('%s: %s', op.dimension, op.description) // eslint-disable-line no-console
     })
@@ -85,12 +87,12 @@ class FilterBarContainer extends Component {
   }
 
   getQuerySpec(query) {
-    const {tab, chart, dimensionsConfig} = this.props
+    const {tab, chart, config} = this.props
     return getQuerySpec(query, {
       tab: tab,
       chart: chart,
       headerGroup: this.getHeaderGroupForQuery(query),
-      dimensionsConfig: dimensionsConfig
+      config: config
     })
   }
 
@@ -161,7 +163,7 @@ class FilterBarContainer extends Component {
 
   render() {
 
-    const {query, dimensionsConfig} = this.props
+    const {query, config} = this.props
     if (!query) {
       return null
     }
@@ -187,8 +189,8 @@ class FilterBarContainer extends Component {
       }
 
       function renderSelectContent(dimensionValue, index, all) {
-        const config = dimensionsConfig[spec.name]
-        if (dimensionValue === 'all' || config && arrayEqual(dimensionValue, config.include || [])) {
+        const dimensionConfig = (config.dimensions || {})[spec.name]
+        if (dimensionValue === 'all' || dimensionConfig && arrayEqual(dimensionValue, dimensionConfig.include || [])) {
           return 'Alle' // aggregated
         }
         if (spec.name == 'kjonn' && dimensionValue.length === 1 && dimensionValue[0] === 'alle') {

@@ -114,7 +114,8 @@ export default class BubbleChart extends React.Component {
 
     node
     .append('svg:a')
-    .attr('xlink:href', '#')
+    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('circle')
     .attr('r', item => item.r)

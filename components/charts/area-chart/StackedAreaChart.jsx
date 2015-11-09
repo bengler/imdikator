@@ -134,10 +134,9 @@ export default class StackedAreaChart extends React.Component {
     .data(dataItem => dataItem.values.filter(item => !item.anonymized))
     .enter()
     .append('svg:a')
-    .attr('xlink:href', '#')
-    .on('focus', item => {
-      open(item)
-    })
+    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    .on('click', () => d3.event.stopPropagation())
+    .on('focus', item => open(item))
     .append('circle')
     .attr('cx', dataItem => x(dataItem.date))
     .attr('cy', dataItem => y(dataItem.y + dataItem.y0))

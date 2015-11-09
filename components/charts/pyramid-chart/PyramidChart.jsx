@@ -188,7 +188,8 @@ export default class PyramidChart extends React.Component {
     })
     .enter()
     .append('svg:a')
-    .attr('xlink:href', '#')
+    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'hover')
@@ -235,7 +236,8 @@ export default class PyramidChart extends React.Component {
     })
     .enter()
     .append('svg:a')
-    .attr('xlink:href', '#')
+    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'hover')

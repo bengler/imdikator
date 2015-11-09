@@ -131,9 +131,39 @@ export default class LineChart extends React.Component {
     .append('g')
     .attr('class', 'line-dot')
 
+    const focus = svg.append('g')
+    .attr('transform', 'translate(-100,-100)')
+    .attr('class', 'focus')
+    focus.append('circle')
+    .attr('r', 4)
+
+    let hoveropen = false
+    const open = item => {
+      focus
+      .attr('transform', this.translation(x(item.date), item.y))
+      .attr('fill', item.color)
+      this.eventDispatcher.emit('datapoint:hover-in', {
+        title: item.series,
+        body: `${item.title}: ${item.formattedValue}`,
+        el: focus.node()
+      })
+      hoveropen = true
+    }
+
+    const close = () => {
+      focus.attr('transform', 'translate(-100,-100)')
+      this.eventDispatcher.emit('datapoint:hover-out')
+      hoveropen = false
+    }
+
     sc.selectAll('circle')
     .data(dataItem => dataItem.values.filter(item => !item.anonymized))
     .enter()
+    .append('svg:a')
+    .attr('xlink:href', '#')
+    .on('focus', item => {
+      open(item)
+    })
     .append('circle')
     .attr('cx', dataItem => x(dataItem.date))
     .attr('cy', dataItem => dataItem.y)
@@ -170,12 +200,6 @@ export default class LineChart extends React.Component {
     */
 
     // Voronoi Tesselation hover points
-    const focus = svg.append('g')
-    .attr('transform', 'translate(-100,-100)')
-    .attr('class', 'focus')
-    focus.append('circle')
-    .attr('r', 4)
-
     // Add a voronoi tesselation for mouseover
     const voronoi = d3.geom.voronoi()
     .x(dataItem => x(dataItem.date))
@@ -195,24 +219,6 @@ export default class LineChart extends React.Component {
     const nest = d3.nest().key(item => `${x(item.date)},${item.y}`).rollup(value => value[0])
     const voronoiData = nest.entries(d3.merge(voronoiPoints.map(item => item.values)))
     .map(item => item.values)
-
-    let hoveropen = false
-    const open = item => {
-      focus
-      .attr('transform', this.translation(x(item.date), item.y))
-      .attr('fill', item.color)
-      this.eventDispatcher.emit('datapoint:hover-in', {
-        title: item.series,
-        body: `${item.title}: ${item.formattedValue}`,
-        el: focus.node()
-      })
-      hoveropen = true
-    }
-    const close = () => {
-      focus.attr('transform', 'translate(-100,-100)')
-      this.eventDispatcher.emit('datapoint:hover-out')
-      hoveropen = false
-    }
 
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))

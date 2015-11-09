@@ -14,6 +14,7 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import Clipboard from 'clipboard'
 import config from '../../config'
 import {performQuery} from '../../actions/cardsPage'
+import util from 'util'
 
 class Card extends Component {
   static propTypes = {
@@ -108,12 +109,25 @@ class Card extends Component {
 
     const sortDirection = activeTab.name === 'benchmark' ? 'ascending' : null
 
-    const chartData = Object.assign({}, data)
+    let chartData = Object.assign({}, data)
     if (activeTab.name == 'benchmark') {
       chartData.highlight = {
         dimensionName: 'region',
         value: [region.prefixedCode]
       }
+    }
+
+    if (showTable && chartData.dimensions && !chartData.dimensions.includes('region')) {
+      const dimensions = chartData.dimensions.slice()
+      dimensions.unshift('region')
+      dimensions.push('enhet')
+      chartData = Object.assign({}, chartData, {dimensions: dimensions})
+    }
+    if (showTable && activeTab.name == 'benchmark') {
+      const dimensions = query.dimensions.slice().map(dim => dim.name)
+      dimensions.unshift('region')
+      dimensions.push('enhet')
+      chartData = Object.assign({}, chartData, {dimensions: dimensions})
     }
 
     const clipboard = new Clipboard('.clipboardButton') // eslint-disable-line no-unused-vars

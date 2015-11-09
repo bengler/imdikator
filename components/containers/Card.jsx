@@ -157,7 +157,7 @@ class Card extends Component {
           headerGroups={headerGroups}
           tab={activeTab}
           chart={chart}
-          dimensionsConfig={card.dimensionsConfig}
+          config={card.config}
           onChange={this.handleFilterChange.bind(this)}
         />
         )}
@@ -246,7 +246,7 @@ function mapStateToProps(state, ownProps) {
     queryResult: queryResult,
     data: !loading && queryResultPresenter(query, queryResult, {
       chartKind: activeTab.chartKind,
-      dimensions: ownProps.card.dimensionsConfig
+      dimensions: ownProps.card.config.dimensions
     }),
     query
   }

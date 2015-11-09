@@ -7,13 +7,15 @@
       {
         "name": "befolkning_hovedgruppe",
         "title": "Sammensetning av befolkning",
-        "dimensionsConfig": {
-          "innvkat5": {
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
+        "config": {
+          "dimensions": {
+            "innvkat5": {
+              "include": [
+                "innvandrere",
+                "bef_u_innv_og_norskf",
+                "norskfodte_m_innvf"
+              ]
+            }
           }
         },
         "query": {
@@ -45,6 +47,22 @@
       {
         "name": "befolkning_alder",
         "title": "Aldersgrupper og kjønn",
+        "config": {
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            "kjonn": {
+              "hidden": true
+            },
+            "alderGrupper": {
+              "hidden": true
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_alder",
           "unit": [
@@ -91,6 +109,18 @@
       {
         "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
+        "config": {
+          "dimensions": {
+            "innvgrunn5": {
+              "include": [
+                "arbeid",
+                "flukt",
+                "familie",
+                "annet_uoppgitt"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_innvandringsgrunn",
           "unit": [
@@ -115,21 +145,23 @@
             "name": "chronological",
             "chartKind": "stackedArea"
           }
-        ],
-        "dimensionsConfig": {
-          "innvgrunn5": {
-            "include": [
-              "arbeid",
-              "flukt",
-              "familie",
-              "annet_uoppgitt"
-            ]
-          }
-        }
+        ]
       },
       {
         "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
+        "config": {
+          "dimensions": {
+            "innvgrunn5": {
+              "include": [
+                "arbeid",
+                "flukt",
+                "familie",
+                "annet_uoppgitt"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_opprinnelsesland",
           "unit": [
@@ -151,6 +183,22 @@
       {
         "name": "befolkning_verdensregion_aattedelt",
         "title": "Opprinnelse - åtte verdensregioner",
+        "config": {
+          "dimensions": {
+            "vreg9": {
+              "include": [
+                "asia",
+                "afrika",
+                "vest_europa",
+                "eu_ost_europa",
+                "nord_amerika_oseania",
+                "sor_og_mellom_amerika",
+                "ost_europa_ellers",
+                "norden"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_verdensregion_9",
           "unit": [
@@ -171,25 +219,24 @@
               "year": "latest"
             }
           }
-        ],
-        "dimensionsConfig": {
-          "vreg9": {
-            "include": [
-              "asia",
-              "afrika",
-              "vest_europa",
-              "eu_ost_europa",
-              "nord_amerika_oseania",
-              "sor_og_mellom_amerika",
-              "ost_europa_ellers",
-              "norden"
-            ]
-          }
-        }
+        ]
       },
       {
         "name": "befolkning_verdensregion_femdelt",
         "title": "Opprinnelse - fem verdensregioner",
+        "config": {
+          "dimensions": {
+            "vreg6": {
+              "include": [
+                "asia",
+                "afrika",
+                "europa",
+                "nord_amerika_oseania",
+                "sor_og_mellom_amerika"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_verdensregion_6",
           "unit": [
@@ -207,22 +254,12 @@
             "name": "latest",
             "chartKind": "bubble"
           }
-        ],
-        "dimensionsConfig": {
-          "vreg6": {
-            "include": [
-              "asia",
-              "afrika",
-              "europa",
-              "nord_amerika_oseania",
-              "sor_og_mellom_amerika"
-            ]
-          }
-        }
+        ]
       },
       {
         "name": "befolkning_verdensregion_todelt",
         "title": "Opprinnelse - todelt",
+        "config": {},
         "query": {
           "tableName": "befolkning_verdensregion_3",
           "unit": [
@@ -246,6 +283,23 @@
       {
         "name": "befolkning_botid",
         "title": "Innvandrernes botid",
+        "config": {
+          "dimensions": {
+            "botid5": {
+              "include": [
+                "0_4",
+                "5_9",
+                "10+"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_botid",
           "unit": [
@@ -262,26 +316,32 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "botid5": {
-            "include": [
-              "0_4",
-              "5_9",
-              "10+"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "flytting",
         "title": "Flytting",
+        "config": {
+          "dimensions": {
+            "flytting": {
+              "include": [
+                "innvandring",
+                "utvandring",
+                "innflytting",
+                "utflytting",
+                "innvandring_og_innflytting",
+                "utvandring_og_utflytting",
+                "nettoinnvandring_og_nettoinnflytting"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_flytting",
           "unit": [
@@ -298,30 +358,32 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "flytting": {
-            "include": [
-              "innvandring",
-              "utvandring",
-              "innflytting",
-              "utflytting",
-              "innvandring_og_innflytting",
-              "utvandring_og_utflytting",
-              "nettoinnvandring_og_nettoinnflytting"
-            ]
-          },
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "flytting_verdensregion",
         "title": "Flytting etter verdensregion",
+        "config": {
+          "dimensions": {
+            "flytting": {
+              "include": [
+                "innvandring",
+                "utvandring",
+                "innflytting",
+                "utflytting",
+                "innvandring_og_innflytting",
+                "utvandring_og_utflytting",
+                "nettoinnvandring_og_nettoinnflytting"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_flytting_vreg",
           "unit": [
@@ -338,30 +400,27 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "flytting": {
-            "include": [
-              "innvandring",
-              "utvandring",
-              "innflytting",
-              "utflytting",
-              "innvandring_og_innflytting",
-              "utvandring_og_utflytting",
-              "nettoinnvandring_og_nettoinnflytting"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "flyktning_botid_flytting",
         "title": "Sekundærflytting blant flyktninger",
+        "config": {
+          "dimensions": {
+            "botid3": {
+              "include": [
+                "0_4",
+                "5+"
+              ]
+            },
+            "forsteBosettingskommune": {
+              "include": [
+                "ja",
+                "nei"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "flyktning_botid_flytting",
           "unit": [
@@ -378,25 +437,22 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "botid3": {
-            "include": [
-              "0_4",
-              "5+"
-            ]
-          },
-          "forsteBosettingskommune": {
-            "include": [
-              "ja",
-              "nei"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "bosatt_anmodede",
         "title": "Flyktninger kommunen ble bedt om å bosette",
+        "config": {
+          "dimensions": {
+            "bosetting": {
+              "include": [
+                "anmodning",
+                "vedtak",
+                "bosatt"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "bosatt_anmodede",
           "unit": [
@@ -410,19 +466,12 @@
           ]
         },
         "tabs": [],
-        "dimensionsConfig": {
-          "bosetting": {
-            "include": [
-              "anmodning",
-              "vedtak",
-              "bosatt"
-            ]
-          }
-        }
+        "issue": "should be line chart – and area chart"
       },
       {
         "name": "flyktninger_befolkningsandel",
         "title": "Bosatte flyktninger som andel av befolkningen",
+        "config": {},
         "query": {
           "tableName": "bosatt_befolkning",
           "unit": [
@@ -446,19 +495,21 @@
       {
         "name": "utdanningsniva-grunnskole",
         "title": "Grunnskole som høyeste utdanningsnivå",
-        "dimensionsConfig": {
-          "utd4": {
-            "hidden": true,
-            "excludeFromChart": true,
-            "include": [
-              "grunnskole"
-            ]
-          },
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+        "config": {
+          "dimensions": {
+            "utd4": {
+              "hidden": true,
+              "excludeFromChart": true,
+              "include": [
+                "grunnskole"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
           }
         },
         "query": {
@@ -487,19 +538,20 @@
       {
         "name": "utdanningsniva-videregaaende",
         "title": "Videregående som høyeste utdanningsnivå",
-        "dimensionsConfig": {
-          "utd4": {
-            "hidden": true,
-            "excludeFromChart": true,
-            "include": [
-              "vgs"
-            ]
-          },
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+        "config": {
+          "dimensions": {
+            "utd4": {
+              "hidden": true,
+              "include": [
+                "vgs"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
           }
         },
         "query": {
@@ -528,22 +580,22 @@
         "tabs": []
       },
       {
-        "issue": "should not be stacked (why art thou stacked?)",
-        "title": "Universitet og høyskole som høyeste utdanningsnivå",
         "name": "utdanningsniva-universitet-og-hoyskole",
-        "dimensionsConfig": {
-          "utd4": {
-            "hidden": true,
-            "excludeFromChart": true,
-            "include": [
-              "universitet_og_hogskole"
-            ]
-          },
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+        "title": "Universitet og høyskole som høyeste utdanningsnivå",
+        "config": {
+          "dimensions": {
+            "utd4": {
+              "hidden": true,
+              "include": [
+                "universitet_og_hogskole"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
           }
         },
         "query": {
@@ -569,24 +621,26 @@
             }
           ]
         },
-        "tabs": []
+        "tabs": [],
+        "issue": "should not be stacked (why art thou stacked?)"
       },
       {
-        "title": "Utdanningsnivå  - Uoppgitt / ingen",
         "name": "utdanningsniva-uoppgitt-ingen",
-        "dimensionsConfig": {
-          "utd4": {
-            "hidden": true,
-            "excludeFromChart": true,
-            "include": [
-              "uoppgitt_ingen"
-            ]
-          },
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
+        "title": "Utdanningsnivå  - Uoppgitt / ingen",
+        "config": {
+          "dimensions": {
+            "utd4": {
+              "hidden": true,
+              "include": [
+                "uoppgitt_ingen"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
           }
         },
         "query": {
@@ -616,6 +670,25 @@
       {
         "name": "barnehage-forholde-minoriteter",
         "title": "Barn: forholdet mellom alle og minoriteter",
+        "config": {
+          "dimensions": {
+            "barnikommune": {
+              "include": [
+                "innvandrerbakgr",
+                "barn_ellers"
+              ]
+            },
+            "bhgalder": {
+              "include": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "barnehagedeltakelse",
           "unit": [
@@ -632,33 +705,30 @@
             }
           ]
         },
-        "tabs": [
-          {
-            "name": "latest",
-            "chartKind": "stackedBar"
-          }
-        ],
-        "dimensionsConfig": {
-          "barnikommune": {
-            "include": [
-              "innvandrerbakgr",
-              "barn_ellers"
-            ]
-          },
-          "bhgalder": {
-            "include": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "barnehage-alder-minoriteter",
         "title": "Barnehagedeltakelse etter alder",
+        "config": {
+          "dimensions": {
+            "spraak": {
+              "include": [
+                "minoritet",
+                "ikke_minoritet"
+              ]
+            },
+            "bhgalder": {
+              "include": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "barnehagedeltakelse",
           "unit": [
@@ -675,28 +745,22 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "spraak": {
-            "include": [
-              "minoritet",
-              "ikke_minoritet"
-            ]
-          },
-          "bhgalder": {
-            "include": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "gjennomsnittlige-grunnskolepoeng",
         "title": "Gjennomsnittlige grunnskolepoeng",
+        "config": {
+          "dimensions": {
+            "innvkat4": {
+              "include": [
+                "innvandrere",
+                "bef_u_innv_og_norskf",
+                "norskfodte_m_innvf"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "grunnskolepoeng",
           "unit": [
@@ -715,20 +779,22 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat4": {
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Elever i videregående skole (siste 3 år)",
         "name": "elever-i-videregaaende",
+        "title": "Elever i videregående skole (siste 3 år)",
+        "config": {
+          "dimensions": {
+            "innvkat4": {
+              "include": [
+                "innvandrere",
+                "bef_u_innv_og_norskf",
+                "norskfodte_m_innvf"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "videregaende_deltakelse",
           "unit": [
@@ -748,20 +814,23 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat4": {
-            "include": [
-              "innvandrere",
-              "bef_u_innv_og_norskf",
-              "norskfodte_m_innvf"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "ferdig-med-videregaaende",
         "title": "Fullført videregående innen fem år, etter kjønn",
+        "config": {
+          "dimensions": {
+            "innvkat5": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers",
+                "norskfodte_m_innvf",
+                "bef_u_innv_og_norskf"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "videregaende_fullfort",
           "unit": [
@@ -781,21 +850,23 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat5": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers",
-              "norskfodte_m_innvf",
-              "bef_u_innv_og_norskf"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
         "name": "ungdom-ikke-fullfoert",
         "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
+        "config": {
+          "dimensions": {
+            "innvkat5": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers",
+                "norskfodte_m_innvf",
+                "bef_u_innv_og_norskf"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "ungdom_utenfor_opplaring",
           "unit": [
@@ -815,17 +886,7 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat5": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers",
-              "norskfodte_m_innvf",
-              "bef_u_innv_og_norskf"
-            ]
-          }
-        }
+        "tabs": []
       }
     ]
   },
@@ -835,8 +896,9 @@
     "groupKind": "mainGroup",
     "cards": [
       {
-        "title": "Antall deltagere i introduksjonsprogram",
         "name": "deltagere-introprogram",
+        "title": "Antall deltagere i introduksjonsprogram",
+        "config": {},
         "query": {
           "tableName": "intro_deltakere",
           "unit": [
@@ -855,9 +917,9 @@
         "tabs": []
       },
       {
-        "issue": "behov for sortering!",
-        "title": "Norskopplæring - antall deltagere",
         "name": "norskopplaering-antall-deltagere",
+        "title": "Norskopplæring - antall deltagere",
+        "config": {},
         "query": {
           "tableName": "norsk_deltakere",
           "unit": [
@@ -876,11 +938,33 @@
             }
           ]
         },
-        "tabs": []
+        "tabs": [],
+        "issue": "behov for sortering!"
       },
       {
-        "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
         "name": "norskopplaering-resultater",
+        "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
+        "config": {
+          "dimensions": {
+            "provetype": {
+              "include": [
+                "muntlig",
+                "skriftlig",
+                "lytting",
+                "lese"
+              ]
+            },
+            "spraaknivaa": {
+              "include": [
+                "b1",
+                "a2",
+                "a1",
+                "under_a1",
+                "ikke_vurdert"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "norsk_prover",
           "unit": [
@@ -897,30 +981,12 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "provetype": {
-            "include": [
-              "muntlig",
-              "skriftlig",
-              "lytting",
-              "lese"
-            ]
-          },
-          "spraaknivaa": {
-            "include": [
-              "b1",
-              "a2",
-              "a1",
-              "under_a1",
-              "ikke_vurdert"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Status etter introprogram",
         "name": "status-etter-intro",
+        "title": "Status etter introprogram",
+        "config": {},
         "query": {
           "tableName": "intro_status_arbutd",
           "unit": [
@@ -941,8 +1007,18 @@
         "tabs": []
       },
       {
-        "title": "Introprogram: avslutningsårsaker",
         "name": "etter-intro",
+        "title": "Introprogram: avslutningsårsaker",
+        "config": {
+          "dimensions": {
+            "avslutningArsak3": {
+              "include": [
+                "arbutd",
+                "annet"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "intro_avslutning_direkte_3",
           "unit": [
@@ -962,19 +1038,26 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "avslutningArsak3": {
-            "include": [
-              "arbutd",
-              "annet"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Introprogram: avslutningsårsaker finmasket",
         "name": "etter-intro-finmasket",
+        "title": "Introprogram: avslutningsårsaker finmasket",
+        "config": {
+          "dimensions": {
+            "avslutningArsak8": {
+              "include": [
+                "kvalifisering",
+                "gr_skole",
+                "utdanning",
+                "arbeid",
+                "sos_stnd",
+                "trygd_annen",
+                "annet"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "intro_avslutning_direkte_8",
           "unit": [
@@ -993,24 +1076,12 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "avslutningArsak8": {
-            "include": [
-              "kvalifisering",
-              "gr_skole",
-              "utdanning",
-              "arbeid",
-              "sos_stnd",
-              "trygd_annen",
-              "annet"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Voksne elever i grunnskolen",
         "name": "voksne-i-grunnskolen",
+        "title": "Voksne elever i grunnskolen",
+        "config": {},
         "query": {
           "tableName": "voksne_grunnskole",
           "unit": [
@@ -1028,9 +1099,18 @@
         "tabs": []
       },
       {
-        "issue": "behov for sortering!",
-        "title": "Voksne elever i videregående",
         "name": "voksne-i-videregaaende",
+        "title": "Voksne elever i videregående",
+        "config": {
+          "dimensions": {
+            "spraak": {
+              "include": [
+                "minoritet",
+                "ikke_minoritet"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "voksne_videregaende",
           "unit": [
@@ -1044,14 +1124,7 @@
           ]
         },
         "tabs": [],
-        "dimensionsConfig": {
-          "spraak": {
-            "include": [
-              "minoritet",
-              "ikke_minoritet"
-            ]
-          }
-        }
+        "issue": "behov for sortering!"
       }
     ]
   },
@@ -1061,8 +1134,18 @@
     "groupKind": "mainGroup",
     "cards": [
       {
-        "title": "Sysselsetting",
         "name": "sysselsatte-innvkat",
+        "title": "Sysselsetting",
+        "config": {
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sysselsatte_innvkat",
           "unit": [
@@ -1075,19 +1158,21 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Sysselsetting etter alder",
         "name": "sysselsetting-alder-innvkat",
+        "title": "Sysselsetting etter alder",
+        "config": {
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sysselsatte_innvkat_alder",
           "unit": [
@@ -1103,19 +1188,23 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Sysselsetting etter innvandringsgrunn",
         "name": "sysselsetting-etter-innvandringsgrunn",
+        "title": "Sysselsetting etter innvandringsgrunn",
+        "config": {
+          "dimensions": {
+            "innvgrunn5": {
+              "include": [
+                "arbeid",
+                "familie",
+                "flukt",
+                "annet_uoppgitt"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sysselsatte_innvandringsgrunn",
           "unit": [
@@ -1135,21 +1224,22 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvgrunn5": {
-            "include": [
-              "arbeid",
-              "familie",
-              "flukt",
-              "annet_uoppgitt"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Sysselsatte innvandrere etter botid",
         "name": "sysselsatte-innvandrere-botid",
+        "title": "Sysselsatte innvandrere etter botid",
+        "config": {
+          "dimensions": {
+            "botid5": {
+              "include": [
+                "0_4",
+                "5_9",
+                "10+"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sysselsatte_botid",
           "unit": [
@@ -1162,20 +1252,27 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "botid5": {
-            "include": [
-              "0_4",
-              "5_9",
-              "10+"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
         "name": "sysselsatte-innvandrere-botid-landbakgrunn",
+        "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
+        "config": {
+          "dimensions": {
+            "botid3": {
+              "include": [
+                "0-4",
+                "5+"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sysselsatte_botid_land",
           "unit": [
@@ -1192,25 +1289,21 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "botid3": {
-            "include": [
-              "0-4",
-              "5+"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
         "name": "sysselsatte-innvandrere-kjonn-landbakgrunn",
+        "title": "Sysselsatte innvandrere etter kjønn og landbakgrunn",
+        "config": {
+          "dimensions": {
+            "vreg3": {
+              "include": [
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sysselsatte_kjonn_land",
           "unit": [
@@ -1230,19 +1323,12 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "vreg3": {
-            "include": [
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Sysselsatte innvandrere etter landbakgrunn",
         "name": "sysselsatte-innvandrere-landbakgrunn",
+        "title": "Sysselsatte innvandrere etter landbakgrunn",
+        "config": {},
         "query": {
           "tableName": "sysselsatte_land",
           "unit": [
@@ -1257,8 +1343,26 @@
         "tabs": []
       },
       {
-        "title": "Arbeidsledige eller på tiltak etter landbakgrunn",
         "name": "ledige-innvkat-land",
+        "title": "Arbeidsledige eller på tiltak etter landbakgrunn",
+        "config": {
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "alle",
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "arbledige_innvkat_land",
           "unit": [
@@ -1275,27 +1379,29 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "alle",
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
         "name": "ikke-arbeid-innvkat-land",
+        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
+        "config": {
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "alle",
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "ikke_arbutd_innvkat_land",
           "unit": [
@@ -1312,27 +1418,27 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "alle",
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
         "name": "ikke-arbeid-innvkat-alder",
+        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
+        "config": {
+          "dimensions": {
+            "aldersinndelingEtterGrskole": {
+              "include": [
+                "16_25",
+                "26_66"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "befolkningen_ellers",
+                "innvandrere"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "ikke_arbutd_innvkat_alder",
           "unit": [
@@ -1349,25 +1455,29 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "aldersinndelingEtterGrskole": {
-            "include": [
-              "16_25",
-              "26_66"
-            ]
-          },
-          "innvkat3": {
-            "include": [
-              "befolkningen_ellers",
-              "innvandrere"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "title": "Inntektsnivå – gjennomsnittsinntekt",
         "name": "gjennomsnittsinntekt",
+        "title": "Inntektsnivå – gjennomsnittsinntekt",
+        "config": {
+          "isLopsided": true,
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "gjennomsnittsinntekt",
           "unit": [
@@ -1384,27 +1494,28 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
-          }
-        }
+        "tabs": []
       },
       {
-        "issue": "lopsided",
-        "title": "Personer i husholdninger med vedvarende lavinntekt etter landbakgrunn",
         "name": "vedvarende-lavinntekt",
+        "title": "Personer i husholdninger med vedvarende lavinntekt etter landbakgrunn",
+        "config": {
+          "dimensions": {
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            },
+            "vreg3": {
+              "include": [
+                "alle",
+                "1",
+                "2"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "vedvarende_lavinntekt",
           "unit": [
@@ -1422,25 +1533,22 @@
           ]
         },
         "tabs": [],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          },
-          "vreg3": {
-            "include": [
-              "alle",
-              "1",
-              "2"
-            ]
-          }
-        }
+        "issue": "lopsided"
       },
       {
-        "title": "Personer som mottar sosialhjelp",
         "name": "sosialhjelp",
+        "title": "Personer som mottar sosialhjelp",
+        "config": {
+          "dimensions": {
+            "innvkat5": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers",
+                "norskfodte_m_innvf"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "sosialhjelp",
           "unit": [
@@ -1460,16 +1568,7 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "innvkat5": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers",
-              "norskfodte_m_innvf"
-            ]
-          }
-        }
+        "tabs": []
       }
     ]
   },
@@ -1479,8 +1578,24 @@
     "groupKind": "mainGroup",
     "cards": [
       {
-        "title": "Tilskudd",
         "name": "tilskudd",
+        "title": "Tilskudd",
+        "config": {
+          "dimensions": {
+            "tilskuddTilKommuner": {
+              "include": [
+                "inttilsk_1",
+                "inttilsk_2_5",
+                "funkhem",
+                "norsk_samf_tilsk",
+                "em_tilsk",
+                "barnehage_tilsk",
+                "eldre_tilsk",
+                "skole_tilsk"
+              ]
+            }
+          }
+        },
         "query": {
           "tableName": "tilskudd",
           "unit": [
@@ -1493,21 +1608,7 @@
             }
           ]
         },
-        "tabs": [],
-        "dimensionsConfig": {
-          "tilskuddTilKommuner": {
-            "include": [
-              "inttilsk_1",
-              "inttilsk_2_5",
-              "funkhem",
-              "norsk_samf_tilsk",
-              "em_tilsk",
-              "barnehage_tilsk",
-              "eldre_tilsk",
-              "skole_tilsk"
-            ]
-          }
-        }
+        "tabs": []
       }
     ]
   }

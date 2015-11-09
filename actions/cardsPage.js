@@ -265,7 +265,7 @@ export function loadTab({tabName, query}) {
     Promise
       .all([maybeAddComparisonRegions, getHeaderGroups]).then(([qury, headerGroups]) => {
 
-        const resolvedQuery = resolveQuery(currentRegion, qury, headerGroups, currentCard.dimensionsConfig)
+        const resolvedQuery = resolveQuery(currentRegion, qury, headerGroups, currentCard.config)
         const headerGroup = findHeaderGroupForQuery(resolvedQuery, headerGroups)
 
         const chart = CHARTS[tab.chartKind]
@@ -274,12 +274,12 @@ export function loadTab({tabName, query}) {
           tab,
           chart,
           headerGroup,
-          dimensionsConfig: currentCard.dimensionsConfig
+          config: currentCard.config
         })
 
-        const constrained = constrainQuery(resolvedQuery, querySpec, currentCard.dimensionsConfig)
+        const constrained = constrainQuery(resolvedQuery, querySpec, currentCard.config)
         constrained.operations.forEach(op => {
-          console.log('[debug] %s ', op.description) // eslint-disable-line no-console
+          console.log('[debug] %s: %s ', op.dimension, op.description) // eslint-disable-line no-console
         })
         return constrained.query
       })

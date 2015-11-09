@@ -25,12 +25,12 @@ describe('resolveQuery', () => {
         }
       ]
     }
-    const resolved = resolveQuery({type: 'municipality', code: '0103'}, exampleQuery, [{
+    const resolved = resolveQuery({type: 'municipality', code: '0103'}, exampleQuery, {
       kommuneNr: ['0103'],
       aar: ['2014'],
       innvkat5: ['alle'],
       kjonn: ['0', '1']
-    }])
+    })
     assert.equal(resolved.year, '2014')
   })
 })

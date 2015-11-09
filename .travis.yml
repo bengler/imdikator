@@ -6,4 +6,4 @@ node_js:
 notifications:
   slack:
     on_success: change
-    secure: ck61FprRe8bAM0L2cFN2wPExmJgLXXXTFo6TR5+iDGfXr3RKj3G3Pqv7T3xnDj+FNUag+qFKcUyM1R51fNzRyDHLxds7MoaGL7/J1OT48WFiukJNwCtO+ufQXjYu4f0HakZhyCfFFfntYG0CWA+udSm0/QPTgMj+rn9tfLCHf+o=
+    secure: HTWyZ6J2aDXGssdTAFh5L5kc86rqbPAtmS9/H0Ux3g3hoIfdmCKCzr3UpHsdXDbUB7yUX0quNmA7Hqeey5apDTUaD8v6TjDs98JhMEKuR96JHRPECeKMjHdicwFLY6AAehsfhqZKDi8nMjPoPtf9H/TcgZ5GvBMJMIZS+m+kXy8=

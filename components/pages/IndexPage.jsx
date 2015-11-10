@@ -32,7 +32,7 @@ class IndexPage extends Component {
     const allRegions = this.props.allRegions
     const region = norway
     const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
-    const factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: region.prefixedCode})
+    const factSheetLink = this.context.linkTo('/indikator/steder/:region/fakta', {region: region.prefixedCode})
 
     if (!allRegions || comparableRegionCodes.length == 0) {
       return (

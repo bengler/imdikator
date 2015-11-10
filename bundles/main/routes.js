@@ -14,30 +14,30 @@ import {loadFactsPageData} from '../../actions/factsPage'
 
 const routes = routeBuilder()
 
-routes.add('/', () => IndexPage)
+routes.add('/indikator/', () => IndexPage)
 
-routes.add('/steder/:region', (dispatch, match) => {
+routes.add('/indikator/steder/:region', (dispatch, match) => {
   dispatch(setCurrentRegionByCode(match.params.region))
   return RegionPage
 })
 
-routes.add('/steder/:region/lignende', (dispatch, match) => {
+routes.add('/indikator/steder/:region/lignende', (dispatch, match) => {
   dispatch(setCurrentRegionByCode(match.params.region))
   return SimilarRegionsPage
 })
 
-routes.add('/steder/:region/fakta', (dispatch, match) => {
+routes.add('/indikator/steder/:region/fakta', (dispatch, match) => {
   dispatch(loadFactsPageData(match.params.region))
   return FactsPage
 })
 
-routes.add('/steder/:region/:cardsPageName', (dispatch, match) => {
+routes.add('/indikator/steder/:region/:cardsPageName', (dispatch, match) => {
   const {params} = match
   dispatch(loadCardsPage(params.region, params.cardsPageName))
   return CardsPage
 })
 
-routes.add('/steder/:region/:cardsPageName/:cardName', (dispatch, match) => {
+routes.add('/indikator/steder/:region/:cardsPageName/:cardName', (dispatch, match) => {
   const {params} = match
   dispatch(
     loadCardsPage(params.region, params.cardsPageName, {
@@ -48,7 +48,7 @@ routes.add('/steder/:region/:cardsPageName/:cardName', (dispatch, match) => {
   return CardsPage
 })
 
-routes.add('/steder/:region/:cardsPageName/:cardName/:tabName', (dispatch, match) => {
+routes.add('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', (dispatch, match) => {
   const {params} = match
   dispatch(
     loadCardsPage(params.region, params.cardsPageName, {

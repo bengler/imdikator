@@ -83,7 +83,7 @@ export default class RegionSummaryChart extends Component {
       cardName: config.drillDown.card
     })
 
-    const similarUrl = this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
+    const similarUrl = this.context.linkTo('/steder/:region/lignende', {region: region.prefixedCode})
     const comparison = comparisonDescription(region).toLowerCase()
 
     return (

@@ -27,7 +27,7 @@ class SimilarRegionsPage extends Component {
     switch (currentRegion.type) {
 
       case 'borough':
-        return <h1>{several} i samme kommune som ${currentRegion.name}`</h1>
+        return <h1>{several} i samme kommune som {currentRegion.name}</h1>
 
       case 'municipality':
         return [

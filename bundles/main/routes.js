@@ -21,7 +21,7 @@ routes.add('/steder/:region', (dispatch, match) => {
   return RegionPage
 })
 
-routes.add('/steder/:region/ligner', (dispatch, match) => {
+routes.add('/steder/:region/lignende', (dispatch, match) => {
   dispatch(setCurrentRegionByCode(match.params.region))
   return SimilarRegionsPage
 })

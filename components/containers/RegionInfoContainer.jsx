@@ -21,7 +21,7 @@ class RegionInfoContainer extends Component {
   }
 
   createLinkToSimilarRegion(region) {
-    return this.context.linkTo('/steder/:region/ligner', {region: region.prefixedCode})
+    return this.context.linkTo('/steder/:region/lignende', {region: region.prefixedCode})
   }
 
   render() {

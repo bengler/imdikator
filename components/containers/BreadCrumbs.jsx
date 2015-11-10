@@ -14,7 +14,6 @@ function translateCrumbs(crumbs, region, page, card, tab) {
         return {url: crumb.url, title: capitalize(region.name)} // Oslo
       case 2:
         title = page ? page.title : capitalize(crumb.title) // befolkning --> Befolkning og bosetting
-        title = title == 'Ligner' ? 'Lignende' : title
         return {url: crumb.url, title: title}
       case 3:
         title = card ? card.title : capitalize(crumb.title) // befolkning_hovedgruppe --> Sammensetning av befolkning

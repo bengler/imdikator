@@ -7,8 +7,9 @@ import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
 import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
-import {_t} from '../../lib/translate'
 
+import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
+import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class RegionPage extends Component {
@@ -43,8 +44,8 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 <header>
-                  <h1>Integrering i {currentRegion.name} {_t(currentRegion.type)}</h1>
-                  <p className="ingress">Tall og statistikk om integrering i {_t(`the-${currentRegion.type}`)}</p>
+                  <h1>{getPageTitle(currentRegion)}</h1>
+                  <p className="ingress">{getPageIngress(currentRegion)}</p>
                   <div className="t-margin-bottom--large">
                     <label><span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">

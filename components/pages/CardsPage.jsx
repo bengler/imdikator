@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import Card from '../containers/Card'
 import {connect} from 'react-redux'
-import {getHeaderKey} from '../../lib/regionUtil'
+import {getHeaderKey, getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import {openCard, closeCard} from '../../actions/cards'
 import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
 import RegionSearch from '../containers/RegionSearchContainer'
@@ -9,6 +9,7 @@ import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+
 
 class CardsPage extends Component {
   static propTypes = {
@@ -74,21 +75,22 @@ class CardsPage extends Component {
 
     return (
       <ul className="t-no-list-styles">
-      {cards.map(card => {
-        const isOpen = openCards.includes(card.name)
-        return (
-          <li key={card.name}>
-            <section className="toggle-list">
-              {this.renderToggleCardLink(card)}
-              {isOpen && !card.noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
-              {isOpen && card.noValues && <div className="toggle-list__section toggle-list__section--expanded"><p>Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn eller ikke tilgjengelig for denne regionen.</p></div>}
-            </section>
-          </li>
-          )
-      })}
-    </ul>
-  )
+        {cards.map(card => {
+          const isOpen = openCards.includes(card.name)
+          return (
+            <li key={card.name}>
+              <section className="toggle-list">
+                {this.renderToggleCardLink(card)}
+                {isOpen && !card.noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
+                {isOpen && card.noValues && <div className="toggle-list__section toggle-list__section--expanded"><p>Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn eller ikke tilgjengelig for denne regionen.</p></div>}
+              </section>
+            </li>
+            )
+        })}
+      </ul>
+    )
   }
+
   render() {
     const {cardsPage, region} = this.props
 
@@ -103,8 +105,8 @@ class CardsPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 <header>
-                  <h1>Integreringen i {region.name} {_t(region.type)}</h1>
-                  <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
+                  <h1>{getPageTitle(region)}</h1>
+                  <p className="ingress">{getPageIngress(region)}</p>
                   <div className="t-margin-bottom--large">
                     <label><span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">

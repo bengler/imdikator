@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {childRegionsByParent} from '../../lib/regionUtil'
+import {childRegionsByParent, allCounties} from '../../lib/regionUtil'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import RegionChildList from '../elements/RegionChildList'
 import {connect} from 'react-redux'
@@ -39,7 +39,7 @@ function mapStateToProps(state, ownProps) {
   const isTheWholeOfNorway = region.prefixedCode == 'F00'
 
   const childRegions = isTheWholeOfNorway
-    ? allRegions.filter(reg => reg.type === 'county')
+    ? allCounties(allRegions)
     : childRegionsByParent(childTypes[region.type], region, allRegions)
 
   return {

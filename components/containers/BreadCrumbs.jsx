@@ -8,25 +8,23 @@ function translateCrumbs(crumbs, region, page, card, tab) {
     let title
     switch (index) {
       case 0:
-        title = capitalize(crumb.title) // steder
-        break
+        // skip "steder" level, but show any other route
+        return crumb.title.toLowerCase() == 'steder' ? null : {url: crumb.url, title: capitalize(crumb.title)}
       case 1:
-        title = capitalize(crumb.title) // K0301, maybe translate to region.name instead?
-        break
+        return {url: crumb.url, title: capitalize(region.name)} // Oslo
       case 2:
         title = page ? page.title : capitalize(crumb.title) // befolkning --> Befolkning og bosetting
-        break
+        return {url: crumb.url, title: title}
       case 3:
         title = card ? card.title : capitalize(crumb.title) // befolkning_hovedgruppe --> Sammensetning av befolkning
-        break
+        return {url: crumb.url, title: title}
       case 4:
-        title = tab ? tab.title : capitalize(crumb.title) // benchmark --> Sammenliknet
-        break
+        // skip this level if we're showing a tab, but pass thru other stuff if thar be such
+        return tab ? null : {url: crumb.url, title: crumb.title}
       default:
-        title = ''
+        return null
     }
-    return Object.assign({}, {url: crumb.url, title: title})
-  })
+  }).filter(Boolean)
 }
 
 

@@ -5,7 +5,6 @@ import capitalize from 'lodash.capitalize'
 
 function translateCrumbs(crumbs, region, page, card, tab) {
   return crumbs.map((crumb, index) => {
-    console.log('crumb', index, crumb.url)
     let title
     switch (index) {
       case 0:

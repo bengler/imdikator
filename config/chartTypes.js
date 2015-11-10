@@ -4,7 +4,7 @@ import StackedBarChart from '../components/charts/bar-chart/StackedBarChart'
 import StackedAreaChart from '../components/charts/area-chart/StackedAreaChart'
 import LineChart from '../components/charts/line-chart/LineChart'
 import BubbleChart from '../components/charts/bubble-chart/BubbleChart'
-import MapChart from '../components/charts/map-chart/MapChart'
+//import MapChart from '../components/charts/map-chart/MapChart'
 import PyramidChart from '../components/charts/pyramid-chart/PyramidChart'
 import TableChart from '../components/charts/table-chart/TableChart'
 import indexBy from 'lodash.indexby'
@@ -60,14 +60,14 @@ const CHART_TYPES = [
     },
     component: BubbleChart
   },
-  {
-    name: 'map',
-    capabilities: {
-      dimensions: 1,
-      variables: 1
-    },
-    component: MapChart
-  },
+  //{
+  //  name: 'map',
+  //  capabilities: {
+  //    dimensions: 1,
+  //    variables: 1
+  //  },
+  //  component: MapChart
+  //},
   {
     name: 'table',
     capabilities: {},

@@ -115,7 +115,7 @@ export default class PyramidChart extends React.Component {
     const outerXAxisMargin = 20
     /* eslint-disable prefer-reflect */
     const outerXAxisEl = svg.append('g')
-    .attr('class', 'axis')
+    .attr('class', 'chart__axis')
     .call(outerXAxis)
     .attr('transform', this.translation(0, this.size.height + outerXAxisMargin))
 
@@ -139,11 +139,11 @@ export default class PyramidChart extends React.Component {
     .selectAll('line')
     .remove()
 
-    const category = svg.selectAll('.category')
+    const category = svg.selectAll('.chart__category')
     .data(preparedData)
     .enter()
     .append('g')
-    .attr('class', 'category')
+    .attr('class', 'chart__category')
     .attr('transform', (item, i) => this.translation(outerXScale(item.title), 0))
 
     // The bars
@@ -165,7 +165,7 @@ export default class PyramidChart extends React.Component {
     const leftBarGroup = category.append('g')
     .attr('transform', `${this.translation(pointA, 0)}scale(-1,1)`)
 
-    leftBarGroup.selectAll('.bar.left')
+    leftBarGroup.selectAll('.chart__bar.chart__bar--left')
     .data(item => {
       return item.values[0].values
     })
@@ -173,7 +173,7 @@ export default class PyramidChart extends React.Component {
     .each(function (item) {
       item.el = this
     })
-    .attr('class', 'bar left')
+    .attr('class', 'chart__bar chart__bar--left')
     .attr('x', 0)
     .attr('y', dataItem => yScale(dataItem.title))
     .attr('width', dataItem => xScale(dataItem.value))
@@ -182,7 +182,7 @@ export default class PyramidChart extends React.Component {
     .attr('stroke', dataItem => dataItem.stroke)
     .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
-    leftBarGroup.selectAll('rect.hover')
+    leftBarGroup.selectAll('rect.chart__bar-hover')
     .data(item => {
       return item.values[0].values
     })
@@ -192,7 +192,7 @@ export default class PyramidChart extends React.Component {
     .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('rect')
-    .attr('class', 'hover')
+    .attr('class', 'chart__bar-hover')
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())
     .attr('x', 0)
@@ -213,7 +213,7 @@ export default class PyramidChart extends React.Component {
     const rightBarGroup = category.append('g')
     .attr('transform', this.translation(pointB, 0))
 
-    rightBarGroup.selectAll('.bar.right')
+    rightBarGroup.selectAll('.chart__bar.chart__bar--right')
     .data(item => {
       return item.values[1].values
     })
@@ -221,7 +221,7 @@ export default class PyramidChart extends React.Component {
     .each(function (item) {
       item.el = this
     })
-    .attr('class', 'bar right')
+    .attr('class', 'chart__bar chart__bar--right')
     .attr('x', 0)
     .attr('y', dataItem => yScale(dataItem.title))
     .attr('width', dataItem => xScale(dataItem.value))
@@ -230,7 +230,7 @@ export default class PyramidChart extends React.Component {
     .attr('stroke', dataItem => dataItem.stroke)
     .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
-    rightBarGroup.selectAll('rect.hover')
+    rightBarGroup.selectAll('rect.chart__bar-hover')
     .data(item => {
       return item.values[1].values
     })
@@ -240,7 +240,7 @@ export default class PyramidChart extends React.Component {
     .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('rect')
-    .attr('class', 'hover')
+    .attr('class', 'chart__bar-hover')
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())
     .attr('x', 0)
@@ -261,26 +261,26 @@ export default class PyramidChart extends React.Component {
     /* eslint-disable prefer-reflect */
     category
     .append('g')
-    .attr('class', 'axis y left')
+    .attr('class', 'chart__axis chart__axis--y chart__axis--left')
     .attr('transform', this.translation(pointA, 0))
     .call(yAxisLeft)
     .selectAll('text')
     .style('text-anchor', 'middle')
 
     category.append('g')
-    .attr('class', 'axis y right')
+    .attr('class', 'chart__axis chart__axis--y chart__axis--right')
     .attr('transform', this.translation(pointB, 0))
     .call(yAxisRight)
 
     category.append('g')
-    .attr('class', 'axis x left')
+    .attr('class', 'chart__axis chart__axis--x chart__axis--left')
     .attr('transform', this.translation(0, this.size.height))
     .call(xAxisLeft)
     .selectAll('text')
     .style('text-anchor', 'start')
 
     category.append('g')
-    .attr('class', 'axis x right')
+    .attr('class', 'chart__axis chart__axis--x chart__axis--right')
     .attr('transform', this.translation(pointB, this.size.height))
     .call(xAxisRight)
     .selectAll('text')
@@ -299,7 +299,7 @@ export default class PyramidChart extends React.Component {
     const xAxisMargin = 20
     const legendBottom = this.size.height + outerXAxisMargin + xAxisLabelHeight + xAxisMargin
     svg.append('g')
-    .attr('class', 'legendWrapper')
+    .attr('class', 'chart__legend-wrapper')
     .attr('width', this.size.width)
     // Place it at the very bottom
     .attr('transform', () => this.translation(0, legendBottom))

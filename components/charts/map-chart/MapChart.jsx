@@ -42,17 +42,17 @@ export default class MapChart extends React.Component {
     .style('fill', 'rgb(42, 164, 242)')
 
     // All municipalities
-    svg.selectAll('.municipality')
+    svg.selectAll('.chart__municipality')
     .data(topojson.feature(topology, topology.objects.kommuner).features)
     .enter().append('path')
-    .attr('class', dataItem => 'municipality' + dataItem.id)
+    .attr('class', dataItem => 'chart__municipality' + dataItem.id)
     .attr('d', path)
     .style('fill', (dataItem, index) => dataItem.id == municipality.id ? 'rgb(78, 200, 34)' : 'rgb(186, 195, 204)')
 
-    svg.selectAll('.subunit-label')
+    svg.selectAll('.chart__subunit-label')
     .data(topojson.feature(topology, topology.objects.kommuner).features)
     .enter().append('text')
-    .attr('class', dataItem => 'municipality-label ' + dataItem.id)
+    .attr('class', dataItem => 'chart__municipality-label ' + dataItem.id)
     .attr('transform', dataItem => 'translate(' + path.centroid(dataItem) + ')')
     .attr('dy', '.35em')
     .text(dataItem => dataItem.properties.name)
@@ -61,14 +61,14 @@ export default class MapChart extends React.Component {
     svg.append('path')
     .datum(topojson.mesh(topology, state))
     .attr('d', path)
-    .attr('class', 'subunit-boundary')
+    .attr('class', 'chart__subunit-boundary')
     .style('fill', 'none')
     .style('stroke', 'red')
 
     svg.append('path')
     .datum(topojson.mesh(topology, topology.objects.kommuner))
     .attr('d', path)
-    .attr('class', 'subunit-boundary')
+    .attr('class', 'chart__subunit-boundary')
     .style('fill', 'none')
     .style('stroke', 'black')
   }

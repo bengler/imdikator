@@ -119,18 +119,18 @@ export default class BarChart extends React.Component {
 
     this.addYAxis(yc.scale, yc.axisFormat)
 
-    const category = svg.selectAll('.category')
+    const category = svg.selectAll('.chart__category')
     .data(data.preparedData)
     .enter()
     .append('g')
-    .attr('class', 'category')
+    .attr('class', 'chart__category')
     .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
 
-    category.selectAll('rect.bar')
+    category.selectAll('rect.chart__bar')
     .data(dataItem => dataItem.values)
     .enter()
     .append('rect')
-    .attr('class', 'bar')
+    .attr('class', 'chart__bar')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
     .attr('y', dataItem => {
@@ -158,7 +158,7 @@ export default class BarChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
       hoveropen = false
     }
-    category.selectAll('rect.hover')
+    category.selectAll('rect.chart__bar-hover')
     .data(dataItem => dataItem.values)
     .enter()
     .append('svg:a')
@@ -166,7 +166,7 @@ export default class BarChart extends React.Component {
     .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('rect')
-    .attr('class', 'hover')
+    .attr('class', 'chart__bar-hover')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
     // Want full height for this one
@@ -188,7 +188,7 @@ export default class BarChart extends React.Component {
     // Add the x axis legend
     const xAxis = d3.svg.axis().scale(x0).orient('bottom').innerTickSize(10)
     const xAxisEl = svg.append('g')
-    .attr('class', 'axis')
+    .attr('class', 'chart__axis chart__axis--category')
     .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
 
@@ -202,7 +202,7 @@ export default class BarChart extends React.Component {
     const leg = this.legend().color(seriesColor)
     // Add some space between the x axis labels and the legends
     const legendWrapper = this._svg.append('g')
-    .attr('class', 'legendWrapper')
+    .attr('class', 'chart__legend-wrapper')
     .attr('width', this.fullWidth)
     // Place it at the very bottom
     .datum(series)
@@ -220,7 +220,7 @@ export default class BarChart extends React.Component {
     // Add zero-line
     this.svg
     .append('line')
-    .attr('class', 'graph__backgroundLine--zero')
+    .attr('class', 'chart__line chart__line--zero')
     .attr('x1', -this.margins.left)
     .attr('x2', this.fullWidth)
     .attr('y1', yc.scale(0))

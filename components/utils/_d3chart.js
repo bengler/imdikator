@@ -44,7 +44,7 @@ class Chart {
     const testSVG = d3.select('body').append('svg').style('display', 'hidden')
     const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
     testSVG.append('g')
-    .attr('class', 'axis')
+    .attr('class', 'chart__axis')
     .call(yAxis)
 
     // Find the longest text string on this axis
@@ -105,7 +105,7 @@ class Chart {
     // TODO: https://css-tricks.com/scale-svg/
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
-      .attr('class', 'd3')
+      .attr('class', 'chart__d3')
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
 
@@ -142,7 +142,7 @@ class Chart {
     // Translating an outer 'g' so we dont have to consider margins in the rest
     // of the code
     this.svg = this._svg.append('g')
-      .attr('class', 'd3-points')
+      .attr('class', 'chart__d3-points')
       .attr('transform', this.translation(this.margins.left, this.margins.top))
 
     // Visualize svg with margins
@@ -212,15 +212,15 @@ class Chart {
 
     /* eslint-disable prefer-reflect */
     this.svg.append('g')
-    .attr('class', 'axis')
+    .attr('class', 'chart__axis')
     .call(yAxis)
     .select('path').remove()
     /* eslint-enable prefer-reflect */
 
     // Draw horizontal background lines where the tick marks are
-    this.svg.selectAll('.axis .tick')
+    this.svg.selectAll('.chart__axis .tick')
     .append('line')
-    .attr('class', 'benchmark--line')
+    .attr('class', 'chart__line--benchmark')
     .attr('x1', -this.margins.left)
     .attr('x2', this.fullWidth)
     .attr('y1', 0)
@@ -228,11 +228,11 @@ class Chart {
 
     // Translate the text up by half font size to make the text rest on top
     // of the background lines
-    this.svg.selectAll('.axis .tick text')
+    this.svg.selectAll('.chart__axis .tick text')
     .attr('transform', function () {
       return `translate(0, ${-this.getBBox().height / 2})`
     })
-    .attr('class', 'benchmark--text')
+    .attr('class', 'chart__text--benchmark')
   }
 
   legend() {
@@ -253,10 +253,10 @@ class Chart {
           return
         }
 
-        const wrap = d3.select(this).selectAll('g.legend').data(data)
+        const wrap = d3.select(this).selectAll('g.chart__legend').data(data)
         let legend = null
         legend = wrap.enter()
-          .append('g').attr('class', 'legend')
+          .append('g').attr('class', 'chart__legend')
           .attr('transform', `translate(0,0)`)
           .append('g')
           .on('click', (item, index) => {

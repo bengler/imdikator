@@ -5,6 +5,7 @@ import capitalize from 'lodash.capitalize'
 
 function translateCrumbs(crumbs, region, page, card, tab) {
   return crumbs.map((crumb, index) => {
+    console.log('crumb', index, crumb.url)
     let title
     switch (index) {
       case 0:
@@ -52,12 +53,14 @@ class BreadCrumbs extends Component {
             <a href="/" className="breadcrumbs__link">Tall og statistikk</a>
             <span className="breadcrumbs__divider">/</span>
           </li>
-          {translatedCrumbs.map(crumb => (
+          {translatedCrumbs.map((crumb, index) => (
             <li key={crumb.url} className="breadcrumbs__list-item">
+              {index > 0 && (
+                <span className="breadcrumbs__divider">/</span>
+              )}
               <a href={crumb.url} className="breadcrumbs__link">
                 {crumb.title}
               </a>
-              <span className="breadcrumbs__divider">/</span>
             </li>
           ))}
         </ul>

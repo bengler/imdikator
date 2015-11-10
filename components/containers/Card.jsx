@@ -46,7 +46,7 @@ class Card extends Component {
   }
 
   makeLinkToTab(tab) {
-    return this.context.linkTo('/steder/:region/:cardsPageName/:cardName/:tabName', {
+    return this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', {
       cardName: this.props.card.name,
       cardsPageName: this.props.cardsPageName,
       tabName: tab.name
@@ -75,7 +75,7 @@ class Card extends Component {
   }
 
   chartUrl() {
-    const route = '/steder/:region/:cardsPageName/:cardName/:tabName'
+    const route = '/indikator/steder/:region/:cardsPageName/:cardName/:tabName'
     const routeOpts = {
       cardName: this.props.card.name,
       tabName: this.props.activeTab.name,

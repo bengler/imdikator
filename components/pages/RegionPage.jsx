@@ -25,7 +25,7 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: region.prefixedCode})
+    this.context.goTo('/indikator/steder/:region', {region: region.prefixedCode})
   }
 
   render() {
@@ -35,7 +35,7 @@ class RegionPage extends Component {
       return null
     }
 
-    const factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: currentRegion.prefixedCode})
+    const factSheetLink = this.context.linkTo('/indikator/steder/:region/fakta', {region: currentRegion.prefixedCode})
 
     return (
       <main className="page">

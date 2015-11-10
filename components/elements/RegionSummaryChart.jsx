@@ -77,13 +77,13 @@ export default class RegionSummaryChart extends Component {
       }
     })
 
-    const drillDownUrl = this.context.linkTo('/steder/:region/:cardsPageName/:cardName', {
+    const drillDownUrl = this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {
       region: region.prefixedCode,
       cardsPageName: config.drillDown.page,
       cardName: config.drillDown.card
     })
 
-    const similarUrl = this.context.linkTo('/steder/:region/lignende', {region: region.prefixedCode})
+    const similarUrl = this.context.linkTo('/indikator/steder/:region/lignende', {region: region.prefixedCode})
     const comparison = comparisonDescription(region).toLowerCase()
 
     return (

@@ -28,7 +28,7 @@ class CardsPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: region.prefixedCode})
+    this.context.goTo('/indikator/steder/:region', {region: region.prefixedCode})
   }
 
   renderToggleCardLink(card) {
@@ -41,15 +41,15 @@ class CardsPage extends Component {
       event.preventDefault()
       event.nativeEvent.stopImmediatePropagation()
       if (isOpen) {
-        this.context.goTo('/steder/:region/:cardsPageName/:cardName', {cardName: prevCard})
+        this.context.goTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: prevCard})
         this.props.dispatch(closeCard(card.name))
       } else {
-        this.context.goTo('/steder/:region/:cardsPageName/:cardName', {cardName: card.name})
+        this.context.goTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: card.name})
         this.props.dispatch(openCard(card.name))
       }
     }
     return (
-      <a href={this.context.linkTo('/steder/:region/:cardsPageName/:cardName', {cardName: card.name})}
+      <a href={this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: card.name})}
         onClick={handleClick}
         className={`toggle-list__button ${card.noValues ? 'toggle-list__button--disablet' : ''} ${isOpen ? 'toggle-list__button--expanded' : ''}`}
         aria-expanded="true"

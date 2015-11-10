@@ -35,8 +35,15 @@ if (config.env === 'development') {
   app.get('/docs*', docsite)
 }
 
-app.get('/*', (req, res) => {
-  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<Layout/>))
+app.get('/debug/embeds', (req, res) => {
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<EmbedTest/>))
+})
+
+app.get('/indikator*', (req, res) => {
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest/>))
+})
+app.get('/', (req, res) => {
+  res.redirect('/indikator')
 })
 
 app.use(devErrorHandler)

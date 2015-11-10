@@ -16,7 +16,7 @@ Now the app should be up and running on http://localhost:3000
 
 # URL schema
 
-/steder/K0912/levekaar/gjennomsnittsinntekt/latest?q=dimensions=[innvkat3:[innv,alle],kjonn:[0]]&compare=[{municipality=m0002,year=2004}, …]
+/indikator/steder/K0912/levekaar/gjennomsnittsinntekt/latest?q=dimensions=[innvkat3:[innv,alle],kjonn:[0]]&compare=[{municipality=m0002,year=2004}, …]
 
 # Styleguide
 - [Imdi.no styleguide](http://imdi-no.protolife.no/styleguide)

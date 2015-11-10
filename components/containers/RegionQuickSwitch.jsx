@@ -8,7 +8,7 @@ export default class RegionQuickSwitch extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: prefixifyRegion(region)})
+    this.context.goTo('/indikator/steder/:region', {region: prefixifyRegion(region)})
   }
 
   render() {

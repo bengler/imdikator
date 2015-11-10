@@ -64,7 +64,7 @@ class SimilarRegionsPage extends Component {
               <div className="col--main-wide">
                 {this.renderHeader()}
                 <p className="t-margin-bottom--large t-hide-on-print">
-                  <a href={linkTo('/steder/:region', {region: currentRegion.prefixedCode})} className="button button--secondary">
+                  <a href={linkTo('/indikator/steder/:region', {region: currentRegion.prefixedCode})} className="button button--secondary">
                     <i className="icon__arrow-left"/> Tilbake til {currentRegion.name}
                   </a>
                 </p>
@@ -97,7 +97,7 @@ class SimilarRegionsPage extends Component {
                             <li key={similarRegion.code}>
                               <a
                                 className="navigation__link navigation__link--primary"
-                                href={this.context.linkTo('/steder/:region', {region: similarRegion.prefixedCode})}
+                                href={this.context.linkTo('/indikator/steder/:region', {region: similarRegion.prefixedCode})}
                               >
                                 {similarRegion.name}
                               </a>

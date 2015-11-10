@@ -21,11 +21,11 @@ class IndexPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.context.goTo('/steder/:region', {region: region.prefixedCode})
+    this.context.goTo('/indikator/steder/:region', {region: region.prefixedCode})
   }
 
   createLinkToRegion(region) {
-    return this.context.linkTo('/steder/:region', {region: region.prefixedCode})
+    return this.context.linkTo('/indikator/steder/:region', {region: region.prefixedCode})
   }
 
   render() {

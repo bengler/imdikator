@@ -135,10 +135,11 @@ export default class StackedBarChart extends Component {
     .attr('transform', this.translation(0, this.size.height))
     .call(xAxis)
 
-    xAxisEl
-    .select('path').remove()
-    .selectAll('text')
-    .call(this.wrapTextNode, x0.rangeBand())
+    xAxisEl.select('path').remove()
+
+    // Wrap the labels on the X axis
+    const txts = xAxisEl.selectAll('.tick text')
+    txts.call(this.wrapTextNode, x0.rangeBand())
     /* eslint-enable prefer-reflect */
 
 

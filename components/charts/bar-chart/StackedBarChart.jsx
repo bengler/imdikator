@@ -92,7 +92,7 @@ export default class StackedBarChart extends Component {
     const open = item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
-        body: item.formattedValue,
+        body: item.values[0].formattedValue || yc.format(item.values[0].value),
         el: item.el
       })
       hoveropen = true

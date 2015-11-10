@@ -32,6 +32,8 @@ class IndexPage extends Component {
     const allRegions = this.props.allRegions
     const region = norway
     const comparableRegionCodes = allRegions.filter(isSimilarRegion(region)).map(reg => reg.prefixedCode)
+    const factSheetLink = this.context.linkTo('/steder/:region/fakta', {region: region.prefixedCode})
+
     if (!allRegions || comparableRegionCodes.length == 0) {
       return (
         <div className="col--main">
@@ -80,7 +82,7 @@ class IndexPage extends Component {
                     Et dokument hvor nøkkeltallene for hele landet er gjengitt.
                   </p>
                   <p>
-                    <a href="#" className="button button-">
+                    <a href={factSheetLink} className="button button-">
                       <i className="icon__download icon--white"></i> Utskriftsvennlig faktaark
                     </a>
                   </p>

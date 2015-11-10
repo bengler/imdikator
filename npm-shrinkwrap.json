@@ -9994,6 +9994,11 @@
       "from": "https://registry.npmjs.org/rx-node/-/rx-node-1.0.1.tgz",
       "resolved": "https://registry.npmjs.org/rx-node/-/rx-node-1.0.1.tgz"
     },
+    "shallow-equals": {
+      "version": "0.0.0",
+      "from": "shallow-equals@*",
+      "resolved": "https://registry.npmjs.org/shallow-equals/-/shallow-equals-0.0.0.tgz"
+    },
     "sinon": {
       "version": "1.17.2",
       "from": "https://registry.npmjs.org/sinon/-/sinon-1.17.2.tgz",

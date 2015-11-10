@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import equals from 'shallow-equals'
 
 class CardPageButtons extends Component {
 
@@ -13,6 +14,13 @@ class CardPageButtons extends Component {
 
   static contextTypes = {
     linkTo: PropTypes.func
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (!nextProps.shouldUpdate) {
+      return false
+    }
+    return !equals(this.props, nextProps)
   }
 
   render() {
@@ -70,7 +78,9 @@ class CardPageButtons extends Component {
 }
 
 function mapStateToProps(state) {
+
   return {
+    shouldUpdate: state.route.route.startsWith('/steder/:region'),
     allCardsPages: state.allCardsPages,
     currentCardsPage: state.currentCardsPage,
     currentRegion: state.currentRegion

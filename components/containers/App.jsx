@@ -50,6 +50,7 @@ class App extends Component {
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
   return {
+    route: state.route,
     component: state.page
   }
 }

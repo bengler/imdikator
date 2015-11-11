@@ -53,6 +53,17 @@
                 "innvandrere",
                 "befolkningen_ellers"
               ]
+            },
+            "alderGrupper": {
+              "include": [
+                "0_5",
+                "16_19",
+                "20_29",
+                "30_54",
+                "55_66",
+                "6_15",
+                "67+"
+              ]
             }
           }
         },
@@ -83,21 +94,7 @@
             "name": "latest",
             "chartKind": "pyramid"
           }
-        ],
-        "dimensionsConfig": {
-          "innvkat3": {
-            "include": [
-              "innvandrere",
-              "befolkningen_ellers"
-            ]
-          },
-          "kjonn": {
-            "hidden": true
-          },
-          "alderGrupper": {
-            "hidden": true
-          }
-        }
+        ]
       },
       {
         "name": "befolkning_innvandringsgrunn",

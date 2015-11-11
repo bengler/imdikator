@@ -536,6 +536,7 @@
           "dimensions": {
             "utd4": {
               "hidden": true,
+              "excludeFromChart": true,
               "include": [
                 "vgs"
               ]
@@ -555,12 +556,10 @@
           ],
           "dimensions": [
             {
-              "name": "utd4",
-              "variables": "all"
+              "name": "utd4"
             },
             {
-              "name": "innvkat3",
-              "variables": "all"
+              "name": "innvkat3"
             },
             {
               "name": "kjonn",
@@ -580,6 +579,7 @@
           "dimensions": {
             "utd4": {
               "hidden": true,
+              "excludeFromChart": true,
               "include": [
                 "universitet_og_hogskole"
               ]
@@ -625,6 +625,7 @@
           "dimensions": {
             "utd4": {
               "hidden": true,
+              "excludeFromChart": true,
               "include": [
                 "uoppgitt_ingen"
               ]

@@ -2,7 +2,6 @@
   {
     "name": "befolkning",
     "title": "Befolkning og bosetting",
-    "groupKind": "mainGroup",
     "cards": [
       {
         "name": "befolkning_hovedgruppe",
@@ -484,7 +483,6 @@
   {
     "name": "utdanning",
     "title": "Skole og utdanning",
-    "groupKind": "mainGroup",
     "cards": [
       {
         "name": "utdanningsniva-grunnskole",
@@ -898,7 +896,6 @@
   {
     "name": "kvalifisering",
     "title": "Kvalifisering og intro",
-    "groupKind": "mainGroup",
     "cards": [
       {
         "name": "deltagere-introprogram",
@@ -1138,7 +1135,6 @@
   {
     "name": "arbeid",
     "title": "Arbeid og levekår",
-    "groupKind": "mainGroup",
     "cards": [
       {
         "name": "sysselsatte-innvkat",
@@ -1584,7 +1580,6 @@
   {
     "name": "tilskudd",
     "title": "Tilskudd",
-    "groupKind": "mainGroup",
     "cards": [
       {
         "name": "tilskudd",

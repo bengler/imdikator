@@ -48,6 +48,8 @@ class SimilarRegionsPage extends Component {
         throw new Error(`Invalid region type ${currentRegion.type}`)
     }
   }
+
+
   render() {
     const {similarRegions, currentRegion, parentRegion} = this.props
     const {linkTo} = this.context
@@ -94,7 +96,7 @@ class SimilarRegionsPage extends Component {
                       <ul className="t-no-list-styles">
                         {similarRegions.map(similarRegion => {
                           return (
-                            <li key={similarRegion.code}>
+                            <li key={similarRegion.prefixedCode}>
                               <a
                                 className="navigation__link navigation__link--primary"
                                 href={this.context.linkTo('/indikator/steder/:region', {region: similarRegion.prefixedCode})}

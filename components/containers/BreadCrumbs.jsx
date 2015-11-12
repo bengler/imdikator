@@ -8,17 +8,21 @@ function translateCrumbs(crumbs, region, page, card, tab) {
     let title
     switch (index) {
       case 0:
+        // root always has same title, though url may vary
+        return {url: crumb.url, title: 'Tall og statistikk'}
+      case 1:
         // skip "steder" level, but show any other route
         return crumb.title.toLowerCase() == 'steder' ? null : {url: crumb.url, title: capitalize(crumb.title)}
-      case 1:
-        return {url: crumb.url, title: capitalize(region.name)} // Oslo
       case 2:
-        title = page ? page.title : capitalize(crumb.title) // befolkning --> Befolkning og bosetting
+        title = region ? region.name : capitalize(crumb.title) // Oslos
         return {url: crumb.url, title: title}
       case 3:
-        title = card ? card.title : capitalize(crumb.title) // befolkning_hovedgruppe --> Sammensetning av befolkning
+        title = page ? page.title : capitalize(crumb.title) // befolkning --> Befolkning og bosetting
         return {url: crumb.url, title: title}
       case 4:
+        title = card ? card.title : capitalize(crumb.title) // befolkning_hovedgruppe --> Sammensetning av befolkning
+        return {url: crumb.url, title: title}
+      case 5:
         // skip this level if we're showing a tab, but pass thru other stuff if thar be such
         return tab ? null : {url: crumb.url, title: crumb.title}
       default:
@@ -49,7 +53,7 @@ class BreadCrumbs extends Component {
       <nav className="breadcrumbs">
         <ul className="t-no-list-styles breadcrumbs__list">
           <li key="/" className="breadcrumbs__list-item">
-            <a href="/" className="breadcrumbs__link">Tall og statistikk</a>
+            <a href="/" className="breadcrumbs__link">Forside</a>
           </li>
           {translatedCrumbs.map(crumb => (
             <li key={crumb.url} className="breadcrumbs__list-item">

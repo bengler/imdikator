@@ -14,7 +14,10 @@ function translateCrumbs(crumbs, region, page, card, tab) {
         // skip "steder" level, but show any other route
         return crumb.title.toLowerCase() == 'steder' ? null : {url: crumb.url, title: capitalize(crumb.title)}
       case 2:
-        title = region ? region.name : capitalize(crumb.title) // Oslos
+        if (region.prefixedCode == 'F00' && crumbs.length == 3) {
+          return null
+        }
+        title = region ? region.name : capitalize(crumb.title) // Oslo
         return {url: crumb.url, title: title}
       case 3:
         title = page ? page.title : capitalize(crumb.title) // befolkning --> Befolkning og bosetting

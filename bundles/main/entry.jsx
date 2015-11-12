@@ -1,4 +1,5 @@
-import 'babel/polyfill'
+import 'core-js/shim'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'

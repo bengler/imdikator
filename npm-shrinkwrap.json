@@ -5736,6 +5736,11 @@
         }
       }
     },
+    "core-js": {
+      "version": "1.2.6",
+      "from": "core-js@*",
+      "resolved": "https://registry.npmjs.org/core-js/-/core-js-1.2.6.tgz"
+    },
     "csv-parse": {
       "version": "1.0.0",
       "from": "https://registry.npmjs.org/csv-parse/-/csv-parse-1.0.0.tgz",

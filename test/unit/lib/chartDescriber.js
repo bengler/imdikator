@@ -223,12 +223,12 @@ describe('chartDescriber', () => {
       timePeriod: ['2013'],
       regions: ['Sandefjord', 'Drøbak', 'Larvik', 'Bø i Telemark']
     }
-    let expected = 'Figuren viser flyktninger i 2013 fra Sandefjord, Drøbak, Larvik og Bø i Telemark.'
+    let expected = 'Figuren viser flyktninger i 2013 i Sandefjord, Drøbak, Larvik og Bø i Telemark.'
     assert.equal(describeChart(opts), expected)
 
     opts.regions = ['Sandefjord']
     opts.comparisonType = 'kommuner'
-    expected = 'Figuren viser flyktninger i 2013 fra Sandefjord.'
+    expected = 'Figuren viser flyktninger i 2013 i Sandefjord.'
     assert.equal(describeChart(opts), expected)
   })
 

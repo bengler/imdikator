@@ -181,7 +181,12 @@ class Chart {
 
   // Returns {scale: d3.scale, format: tickFormat}
   configureYscale(extent, unit, height = this.size.height) {
-    const maxValue = extent[1] < 0 ? 0 : extent[1]
+    let maxValue = extent[1] < 0 ? 0 : extent[1]
+    if (maxValue == extent[0]) {
+      // We have a problem, no scale!
+      // Add 10 to the maxValue just to have something to show
+      maxValue = extent[0] + 10
+    }
     const y = d3.scale.linear().range([height, 0])
     switch (unit) {
       case 'prosent': {

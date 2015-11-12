@@ -29,7 +29,7 @@ export default [
       return `Innvandrere utgjør ${options.share} av befolkningen`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share}`
+      return `For Norge er tallet ${options.share}`
     }
   },
   {

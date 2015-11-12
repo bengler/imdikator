@@ -15,9 +15,9 @@ Script-taggen laster imdikator-loader.js asynkront uten å blokkere og bør inkl
 Script-tagg som laster imdikator på polkaposten.
 
 ```html
-<script type="text/javascript"
-  src="http://imdikator.o5.no/build/js/imdikator-loader.js"
+<script
   id="imdikator-loader"
+  src="http://imdikator.o5.no/build/js/imdikator-loader.js"
   async
   defer>
 </script>
@@ -84,4 +84,4 @@ Eneste gyldige verdi er `imdikator`
 
 # Endringslogg
 
-- 12.11.2015: Dette dokumentet opprettet
+- 12.11.2015: Dette dokumentet ble opprettet

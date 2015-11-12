@@ -1,0 +1,8 @@
+.DS_Store
+coverage
+.idea
+_site
+public
+node_modules
+config
+.sass-cache

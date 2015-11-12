@@ -1,0 +1,15 @@
+
+# Use --server and --auto command line options for
+#   jekyll --server --auto
+# Or set the server and auto options
+#auto: true
+#server: true
+
+
+#Simulate GitHub Flavored Markdown
+#https://github.com/mojombo/jekyll/wiki/install
+markdown: redcarpet
+pygments: true
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]

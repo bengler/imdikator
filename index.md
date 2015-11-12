@@ -26,8 +26,7 @@ Script-tagg som laster imdikator på polkaposten.
 ## Spesifikasjon attributter
 ### `src="<url til imdikator-loader.js>"` (påkrevd)
 
-- For servere i produksjon skal dette være: `http://amedia.o5.no/api/imdikator/v1/js/imdikator-loader.js`
-- For staging/testservere skal dette være: `http://amedia.staging.o5.no/api/imdikator/v1/js/imdikator-loader.js`
+(Hva den endelige urlen her blir må vi komme tilbake til)
 
 ### `id="imdikator-loader"`  (påkrevd)
 Eneste gyldige verdi er `imdikator-loader`

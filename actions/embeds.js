@@ -34,7 +34,9 @@ export function loadEmbedData({regionCode, cardsPageName, cardName, tabName, que
       }
 
       // Tabs are fixed across all, not configured
-      const foundTab = TABS.find(tab => tab.name.toLowerCase() == tabName.toLowerCase())
+      const foundTab = TABS.find(tab => {
+        return [tab.urlName, tab.name].includes(tabName.toLowerCase())
+      })
 
       if (!foundTab) {
 

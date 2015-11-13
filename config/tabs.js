@@ -1,7 +1,7 @@
 export const TABS = [
   {
     name: 'latest',
-    urlName: 'siste',
+    urlName: 'enkeltaar',
     title: 'Enkeltår',
     chartKind: 'bar',
     year: 'latest'

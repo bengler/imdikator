@@ -46,7 +46,7 @@ export default {
       .transform(envify, {global: env !== 'development'})
 
     if (env !== 'development') {
-      bundle.plugin(collapser)
+      //bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()

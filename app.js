@@ -36,11 +36,9 @@ if (config.env === 'development') {
 }
 
 app.get('/', (req, res) => {
-  res.redirect('/indikator/steder/F00')
+  res.redirect('/indikator')
 })
-app.get('/indikator', (req, res) => {
-  res.redirect('/indikator/steder/F00')
-})
+
 app.get('/indikator*', (req, res) => {
   res.status(200).send(ReactDOMServer.renderToStaticMarkup(<Layout/>))
 })

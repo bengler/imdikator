@@ -49,7 +49,7 @@ export default {
       .then(output => output.css)
   },
   '/build/stylesheets/codemirror.css'() {
-    const combinedStream = CombinedStream.create();
+    const combinedStream = CombinedStream.create()
     combinedStream.append(fs.createReadStream(require.resolve('codemirror/lib/codemirror.css')))
     combinedStream.append(fs.createReadStream(require.resolve('codemirror/theme/solarized.css')))
     return combinedStream

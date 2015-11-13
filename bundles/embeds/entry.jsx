@@ -6,8 +6,7 @@ import createImdiAppStore from '../../lib/redux-utils/createImdiAppStore'
 import {Provider} from 'react-redux'
 import compileRoutes from '../../lib/compileRoutes'
 import {loadEmbedData} from '../../actions/embeds'
-
-import {SELECTOR_EMBED} from '../common'
+import {API_GLOBAL, SELECTOR_EMBED} from '../common'
 
 import apiClient from '../../config/apiClient'
 
@@ -41,18 +40,35 @@ function loadInitialState() {
   })
 }
 
+
 async function bootstrap() {
   const store = createImdiAppStore(await loadInitialState())
 
-  const elements = document.querySelectorAll(SELECTOR_EMBED)
+  const API = window[API_GLOBAL] = window[API_GLOBAL] || {}
 
-  Array.from(elements).forEach(el => {
-    const config = readConfig(el)
-    const params = parseEmbedUrl(config.url)
-    store.dispatch(loadEmbedData(params))
+  if (API.reload) {
+    throw new Error('Imdikator embeds API loaded twice')
+  }
 
-    render(params, el)
-  })
+  API.reload = setupElements
+
+  API.destroy = function destroy(el) {
+    ReactDOM.unmountComponentAtNode(el)
+  }
+
+  setupElements()
+
+  function setupElements(root = document) {
+    const elements = root.querySelectorAll(SELECTOR_EMBED)
+
+    Array.from(elements).forEach(el => {
+      const config = readConfig(el)
+      const params = parseEmbedUrl(config.url)
+      store.dispatch(loadEmbedData(params))
+
+      render(params, el)
+    })
+  }
 
   function render(params, element) {
 
@@ -73,7 +89,5 @@ async function bootstrap() {
   }
 }
 
-bootstrap()
 
-window._IMDIKATOR = window._IMDIKATOR || {}
-window._IMDIKATOR.reload = bootstrap
+bootstrap()

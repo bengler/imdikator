@@ -1,9 +1,41 @@
 import React, {Component} from 'react'
 import {API_GLOBAL} from '../../bundles/common'
 
-import Highlight from 'react-highlight'
+import CodeMirror from 'react-codemirror'
+import 'codemirror/mode/javascript/javascript'
+import 'codemirror/mode/htmlmixed/htmlmixed'
 
 const DEFAULT_URL = '/indikator/steder/K0912/arbeid/sysselsatte-innvandrere-landbakgrunn/latest'
+
+function makeEmbedConfig(url) {
+  return JSON.stringify({
+    version: 1,
+    url: url
+  }, null, 2)
+}
+
+const SCRIPT_TAG = `<script
+  id="imdikator-loader"
+  data-api-host="imdikator-st.azurewebsites.net"
+  src="http://imdikator.staging.o5.no/build/js/loader.js"
+  async
+  defer
+/>`
+
+
+const CODE = `<div data-imdikator="embed">
+  <script type="application/json">
+    ${indent(4)(makeEmbedConfig(DEFAULT_URL))}
+  </script>
+  Henter figur…
+</div>`
+
+const CODEMIRROR_OPTS = {
+  mode: 'htmlmixed',
+  theme: 'solarized dark',
+  lineNumbers: true,
+  viewportMargin: Infinity
+}
 
 function indent(spaces) {
   return str => {
@@ -21,8 +53,8 @@ class RenderTestPage extends Component {
   constructor(props) {
     super()
     this.state = {
-      editValue: DEFAULT_URL,
-      exampleUrl: DEFAULT_URL
+      editValue: CODE,
+      code: CODE
     }
   }
 
@@ -32,90 +64,75 @@ class RenderTestPage extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.exampleUrl !== prevState.exampleUrl) {
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.code !== nextState.code) {
       const imdikator = window[API_GLOBAL]
-      imdikator.reload()
+      const components = this.refs.container.querySelectorAll('[data-imdikator=embed]')
+      Array.from(components).forEach(el => {
+        imdikator.destroy(el)
+      })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.code !== prevState.code) {
+      const imdikator = window[API_GLOBAL]
+      imdikator.reload(this.refs.container)
     }
   }
 
   commit(e) {
     e.preventDefault()
-    this.setState({exampleUrl: this.state.editValue})
-  }
-
-  makeEmbedConfig(url) {
-    return JSON.stringify({
-      version: 1,
-      url: url
-    }, null, 2)
-  }
-
-  renderScriptTag() {
-    return `<script
-  id="imdikator-loader"
-  data-api-host="imdikator-st.azurewebsites.net"
-  src="http://imdikator.staging.o5.no/build/js/loader.js"
-  async
-  defer
-/>`
-  }
-
-  renderEmbed(url) {
-    return `<div data-imdikator="embed">
-  <script type="application/json">
-    ${indent(4)(this.makeEmbedConfig(url))}
-  </script>
-  Henter figur…
-</div>
-`
+    this.setState({code: this.state.editValue})
   }
 
   render() {
 
-    const {exampleUrl, editValue} = this.state
+    const {editValue, code} = this.state
 
-    const changed = exampleUrl !== editValue
+    const changed = code !== editValue
 
-    const editExample = event => {
-      this.setState({editValue: event.target.value})
+    const editExample = newCode => {
+      this.setState({editValue: newCode})
     }
 
     return (
       <div className="wrapper">
-        <h2>Imdi indikator embeds debugger</h2>
+        <h2>Indikator embeds debugger</h2>
         <div className="row">
           <h2>Script tag</h2>
           <p>Place this as high up as possible in the document, preferably immediately after {'<head>'}</p>
-          <Highlight className="html">
-            {this.renderScriptTag()}
-          </Highlight>
+          <CodeMirror
+            value={SCRIPT_TAG}
+            options={Object.assign({}, CODEMIRROR_OPTS, {readOnly: true})}
+          />
         </div>
         <br/>
         <div className="row">
-          <h2>Embed code</h2>
-          <p>Place this where the chart should appear</p>
-          <Highlight className="html">
-            {this.renderEmbed(editValue)}
-          </Highlight>
           <br/>
           <form onSubmit={this.commit.bind(this)}>
-            <div style={{display: 'flex', flex: 1}}>
-              <div style={{flex: 0.8}}>
-                <input type="text" onChange={editExample} value={editValue}/>
-              </div>
-              <div style={{flex: 0.2}}>
-                <button className="button" type="submit" disabled={!changed} style={{margin: 0}}>
-                  Try another URL…
-                </button>
-              </div>
+            <h2>Embed code</h2>
+            <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'baseline'}}>
+              <p style={{flex: 0.7}}>
+                Place this where you'd like the chart to appear. Hint: you can edit the code below.
+              </p>
+              <button style={{float: 'right', margin: 0, visibility: changed ? 'visible' : 'hidden'}} className="button" type="submit">
+                Run example
+              </button>
             </div>
+            <CodeMirror
+              value={editValue}
+              onChange={editExample}
+              options={CODEMIRROR_OPTS}
+            />
           </form>
         </div>
+        <br/>
         <div className="row">
+          <br/>
           <h2>Rendered chart</h2>
           <div className="col--main">
-            <div dangerouslySetInnerHTML={{__html: this.renderEmbed(exampleUrl)}}/>
+            <div ref="container" dangerouslySetInnerHTML={{__html: code}}/>
           </div>
         </div>
       </div>

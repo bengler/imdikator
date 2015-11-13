@@ -68,30 +68,6 @@ export default class DefaultLayout extends Component {
                     <span className="ident__textmark-secondary">Integrerings- og <br />mangfoldsdirektoratet</span>
                   </span>
                 </a>
-                <a href="#footer" data-behaviour="main-menu-toggle" className="button header__button header__button--menu"
-                  aria-expanded="false"><span className="header__button-text--open">Meny</span>
-                  <span className="header__button-text--close">Lukk</span>
-                  <i className="header__menu-icon">
-                    <span className="header__menu-icon-bar"/>
-                    <span className="header__menu-icon-bar"/>
-                    <span className="header__menu-icon-bar"/>
-                  </i>
-                </a>
-                <a href="#footer-search" data-behaviour="main-search-toggle"
-                  className="button header__button header__button--search" aria-expanded="false">
-                  <span className="header__button-text">Søk</span> <i className="icon__search header__search-icon"/>
-                </a>
-                <div className="header__search">
-                  <div className="search search--header">
-                    <form action="/sok" method="get" role="search">
-                      <label htmlFor="header-search" className="t-only-screenreaders">Søk nettstedet</label>
-                      <input className="input search__input" type="text" name="query" defaultValue
-                        placeholder="Søk nettstedet"/>
-                      <button type="submit" className="button search__button">Søk <i
-                        className="icon__search search__button-icon"/></button>
-                    </form>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

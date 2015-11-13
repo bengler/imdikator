@@ -7,12 +7,15 @@ class RenderTestPage extends Component {
     const extraHead = [
       <script src="/build/js/embeds-debug.js" async defer/>,
       <script id="imdikator-loader" data-api-host="imdikator-st.azurewebsites.net" src="/build/js/loader.js" async defer/>,
-      <link rel="stylesheet" href="/build/stylesheets/highlight.css"/>,
+      <link rel="stylesheet" href="/build/stylesheets/codemirror.css"/>,
       (<style type="text/css" dangerouslySetInnerHTML={{__html: `
-        .hljs {
+        .CodeMirror {
           font-size: 0.8em;
-          white-space: pre;
-          word-wrap: normal;
+          height: auto;
+          border: 1px solid #eee;
+        }
+        .CodeMirror-scroll {
+          height: auto;
         }
       `}}>
       </style>)

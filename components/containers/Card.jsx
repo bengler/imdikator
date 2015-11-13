@@ -13,7 +13,7 @@ import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import Clipboard from 'clipboard'
 import config from '../../config'
-import {performQuery} from '../../actions/cardsPage'
+import {performQuery} from '../../actions/query'
 
 class Card extends Component {
   static propTypes = {

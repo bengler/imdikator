@@ -4,9 +4,4 @@ coverage
 public/coverage
 node_modules
 dataset/*
-public/bundles
-public/gfx
-public/fonts
-public/imdi-no
-public/stylesheets
-public/UI
+public

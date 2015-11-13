@@ -24,7 +24,8 @@ export default class RegionSearch extends Component {
   }
 
   static defaultProps = {
-    onSelect() {}
+    onSelect() {
+    }
   }
 
   constructor() {
@@ -50,7 +51,7 @@ export default class RegionSearch extends Component {
           role={'option'}
         >
         {itemDescription}
-        <i className="icon__arrow-right icon--red search-result__icon"></i>
+        <i className="icon__arrow-right icon--red search-result__icon"/>
         </a>
       </li>
     )
@@ -59,7 +60,13 @@ export default class RegionSearch extends Component {
   renderMenu(items, value, style) {
 
     if (items.length === 0) {
-      return wrap(<li><div className="search-result__result search-result__result--message" role={'option'}>Ingen treff - prøv et annet stedsnavn i Norge</div></li>)
+      return wrap(
+        <li>
+          <div className="search-result__result search-result__result--message" role={'option'}>
+            Ingen treff - prøv et annet stedsnavn i Norge
+          </div>
+        </li>
+      )
     }
 
     const displayItems = 15 + Math.pow(value.length, 4)

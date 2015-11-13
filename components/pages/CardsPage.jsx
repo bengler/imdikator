@@ -68,7 +68,10 @@ class CardsPage extends Component {
     if (noValues) {
       return (
         <div className="page__content page__content--section">
-          <p className="t-margin-bottom--xlarge">Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn eller ikke tilgjengelig for denne regionen.</p>
+          <p className="t-margin-bottom--xlarge">
+            Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av
+            personvernhensyn eller ikke tilgjengelig for denne regionen.
+          </p>
         </div>
       )
     }
@@ -82,7 +85,14 @@ class CardsPage extends Component {
               <section className="toggle-list">
                 {this.renderToggleCardLink(card)}
                 {isOpen && !card.noValues && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
-                {isOpen && card.noValues && <div className="toggle-list__section toggle-list__section--expanded"><p>Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn eller ikke tilgjengelig for denne regionen.</p></div>}
+                {isOpen && card.noValues && (
+                  <div className="toggle-list__section toggle-list__section--expanded">
+                    <p>
+                      Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn
+                      eller ikke tilgjengelig for denne regionen.
+                    </p>
+                  </div>
+                )}
               </section>
             </li>
             )

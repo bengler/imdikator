@@ -39,7 +39,7 @@ const checkShouldParse = {
 // Builds a form based on React.PropTypes
 export default class PropForm extends React.Component {
   static propTypes = {
-    propTypes: PropTypes.object,
+    componentPropTypes: PropTypes.object,
     propValues: PropTypes.object,
     onPropChange: PropTypes.func
   }
@@ -113,9 +113,9 @@ export default class PropForm extends React.Component {
   }
 
   getProps() {
-    const {propTypes} = this.props
-    return Object.keys(propTypes).map(propName => {
-      return Object.assign({name: propName}, propTypes[propName])
+    const {componentPropTypes} = this.props
+    return Object.keys(componentPropTypes).map(propName => {
+      return Object.assign({name: propName}, componentPropTypes[propName])
     })
   }
 

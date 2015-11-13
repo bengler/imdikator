@@ -1,6 +1,5 @@
 import RegionPage from '../../components/pages/RegionPage'
 import SimilarRegionsPage from '../../components/pages/SimilarRegionsPage'
-import IndexPage from '../../components/pages/IndexPage'
 import NotFoundPage from '../../components/pages/NotFoundPage'
 import CardsPage from '../../components/pages/CardsPage'
 import FactsPage from '../../components/pages/FactsPage'
@@ -14,7 +13,10 @@ import {loadFactsPageData} from '../../actions/factsPage'
 
 const routes = routeBuilder()
 
-routes.add('/indikator/', () => IndexPage)
+routes.add('/indikator/', (dispatch, match) => {
+  dispatch(setCurrentRegionByCode('F00'))
+  return RegionPage
+})
 
 routes.add('/indikator/steder/:region', (dispatch, match) => {
   dispatch(setCurrentRegionByCode(match.params.region))

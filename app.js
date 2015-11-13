@@ -2,7 +2,8 @@ import express from 'express'
 import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import Layout from './components/layouts/DefaultLayout'
+import SiteTest from './components/testbed/SiteTest'
+import EmbedTest from './components/testbed/EmbedTest'
 import config from './config'
 import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
@@ -35,12 +36,16 @@ if (config.env === 'development') {
   app.get('/docs*', docsite)
 }
 
+app.get('/debug/embeds', (req, res) => {
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<EmbedTest/>))
+})
+
 app.get('/', (req, res) => {
   res.redirect('/indikator')
 })
 
 app.get('/indikator*', (req, res) => {
-  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<Layout/>))
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest/>))
 })
 
 app.use(devErrorHandler)

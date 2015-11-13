@@ -1,5 +1,6 @@
 import less from 'less'
 import path from 'path'
+import fs from 'fs'
 import config from '../config'
 import readdir from 'fs-readdir-recursive'
 
@@ -45,5 +46,8 @@ export default {
         })
       })
       .then(output => output.css)
+  },
+  '/build/stylesheets/highlight.css'() {
+    return fs.createReadStream(require.resolve('highlight.js/styles/solarized_dark.css'))
   }
 }

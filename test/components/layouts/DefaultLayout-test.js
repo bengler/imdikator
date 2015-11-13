@@ -2,7 +2,7 @@ import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import {someInTree} from '../_react-utils/iterators'
 import {assert} from 'chai'
-import DefaultLayout from '../../../components/layouts/DefaultLayout'
+import DefaultLayout from '../../../components/testbed/DefaultLayout'
 
 describe('DefaultLayout', () => {
 

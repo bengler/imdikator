@@ -1,5 +1,6 @@
 import * as APIClient from '../lib/api-client'
 import {defaults} from '../lib/http/json'
+import config from './index'
 
 export const adapter = defaults({
   headers: {
@@ -9,6 +10,6 @@ export const adapter = defaults({
 })
 
 export default APIClient.create({
-  baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
+  baseUrl: `http://${config.apiHost}/api/v1/`,
   adapter: adapter
 })

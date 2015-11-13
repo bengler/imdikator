@@ -43,6 +43,7 @@ app.get('/debug/embeds', (req, res) => {
 app.get('/', (req, res) => {
   res.redirect('/indikator')
 })
+
 app.get('/indikator*', (req, res) => {
   res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest/>))
 })

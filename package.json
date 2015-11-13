@@ -83,7 +83,6 @@
     "remon": "^1.0.1",
     "rx": "^4.0.0",
     "rx-node": "^1.0.1",
-    "shallow-equals": "0.0.0",
     "spawn-stream": "^1.0.2",
     "staticr": "^3.0.1",
     "textures": "^1.0.3",

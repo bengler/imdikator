@@ -1,12 +1,14 @@
 export const TABS = [
   {
     name: 'latest',
+    urlName: 'siste',
     title: 'Enkeltår',
     chartKind: 'bar',
     year: 'latest'
   },
   {
     name: 'chronological',
+    urlName: 'historikk',
     title: 'Over tid',
     chartKind: 'line',
     year: 'all'
@@ -19,6 +21,7 @@ export const TABS = [
   //},
   {
     name: 'benchmark',
+    urlName: 'sammenliknet',
     title: 'Sammenliknet',
     chartKind: 'benchmark',
     year: 'latest'

@@ -173,7 +173,7 @@ export function loadCardsPage(regionCode, cardsPageName, {cardName, tabName, que
 
     // Tabs are fixed across all, not configured
     const foundTab = TABS.find(tab => {
-      return tab.name.toLowerCase() == tabName.toLowerCase()
+      return [tab.urlName, tab.name].includes(tabName.toLowerCase())
     })
 
     if (!foundTab) {

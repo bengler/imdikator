@@ -48,7 +48,7 @@ class Card extends Component {
     return this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', {
       cardName: this.props.card.name,
       cardsPageName: this.props.cardsPageName,
-      tabName: tab.name
+      tabName: tab.urlName
     })
   }
 

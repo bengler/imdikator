@@ -5,7 +5,7 @@ import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/htmlmixed/htmlmixed'
 
-const DEFAULT_URL = '/indikator/steder/K0912/arbeid/sysselsatte-innvandrere-landbakgrunn/latest'
+const DEFAULT_URL = '/indikator/steder/K0301/befolkning/befolkning_hovedgruppe/historikk'
 
 function makeEmbedConfig(url) {
   return JSON.stringify({

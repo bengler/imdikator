@@ -15,7 +15,6 @@ import Clipboard from 'clipboard'
 import config from '../../config'
 import {performQuery} from '../../actions/cardsPage'
 
-
 class Card extends Component {
   static propTypes = {
     dispatch: PropTypes.func,

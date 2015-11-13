@@ -2,6 +2,8 @@ import React, {Component, PropTypes} from 'react'
 import {findDOMNode} from 'react-dom'
 import scrollIntoView from 'dom-scroll-into-view'
 
+const DISABLE_AUTO_COMPLETE_INPUT_TEXT = true
+
 /**
  * Based on https://github.com/rackt/react-autocomplete
  * but sadly included here to get more control of styling and custom behavior
@@ -201,9 +203,11 @@ export default class Autocomplete extends Component {
   }
 
   maybeAutoCompleteText() {
-    if (this.state.value === '') {
+
+    if (DISABLE_AUTO_COMPLETE_INPUT_TEXT || this.state.value === '') {
       return
     }
+
     const {highlightedIndex} = this.state
     const items = this.getFilteredItems()
     if (items.length === 0) {

@@ -11,8 +11,8 @@ import {API_GLOBAL, SELECTOR_EMBED} from '../common'
 import apiClient from '../../config/apiClient'
 
 const routes = compileRoutes({
-  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName'() {
-  }
+  '/indikator/steder/:regionCode/:cardsPageName/:cardName'() {},
+  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName'() {}
 })
 
 function parseEmbedUrl(url) {

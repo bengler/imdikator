@@ -18,7 +18,6 @@ export function loadEmbedData({regionCode, cardsPageName, cardName, tabName, que
     requireOption(regionCode, 'regionCode')
     requireOption(cardsPageName, 'cardsPageName')
     requireOption(cardName, 'cardName')
-    requireOption(tabName, 'tabName')
 
     const getRegion = apiClient.getRegionByCode(regionCode.toLowerCase())
     const getCardsPage = apiClient.getCardsPageByName(cardsPageName)

@@ -1,4 +1,4 @@
-Imdikator frontend [![Build Status](https://travis-ci.org/bengler/imdikator.svg)](https://travis-ci.org/bengler/imdikator)  [![Dependency status](https://david-dm.org/bengler/imdikator.svg)](https://david-dm.org/bengler/imdikator)
+Imdikator frontend [![Build Status](https://travis-ci.org/bengler/imdikator.svg?branch=master)](https://travis-ci.org/bengler/imdikator)[![Dependency status](https://david-dm.org/bengler/imdikator.svg)](https://david-dm.org/bengler/imdikator)
 ==================
 
 # Prerequisites

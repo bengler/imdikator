@@ -3,6 +3,7 @@ import SimilarRegionsPage from '../../components/pages/SimilarRegionsPage'
 import NotFoundPage from '../../components/pages/NotFoundPage'
 import CardsPage from '../../components/pages/CardsPage'
 import FactsPage from '../../components/pages/FactsPage'
+import UrlQuery from '../../lib/UrlQuery'
 
 import {setCurrentRegionByCode} from '../../actions/region'
 import {loadCardsPage, openCard} from '../../actions/cardsPage'
@@ -56,6 +57,29 @@ routes.add('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', (dispa
     loadCardsPage(params.region, params.cardsPageName, {
       cardName: params.cardName,
       tabName: params.tabName
+    })
+  )
+  dispatch(openCard(params.cardName))
+  return CardsPage
+})
+
+routes.add('/indikator/steder/:region/:cardsPageName/:cardName/:tabName/:query', (dispatch, match) => {
+  const {params} = match
+
+  let query = null
+  if (params.query) {
+    try {
+      query = UrlQuery.parse(params.query.substring(1 /* strip @ */))
+    } catch (error) {
+      console.error('Unable to parse query: %s', error.message) // eslint-disable-line no-console
+    }
+  }
+
+  dispatch(
+    loadCardsPage(params.region, params.cardsPageName, {
+      cardName: params.cardName,
+      tabName: params.tabName,
+      query: query
     })
   )
   dispatch(openCard(params.cardName))

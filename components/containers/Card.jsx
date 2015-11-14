@@ -9,11 +9,11 @@ import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
 import DownloadWidget from './DownloadWidget'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
+import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import Clipboard from 'clipboard'
 import config from '../../config'
-import {performQuery} from '../../actions/query'
 
 class Card extends Component {
   static propTypes = {
@@ -58,8 +58,17 @@ class Card extends Component {
   }
 
   handleFilterChange(newQuery) {
-    const {region, cardsPage, card, activeTab, dispatch} = this.props
-    dispatch(performQuery({region, cardsPage: cardsPage, card: card, tab: activeTab, query: newQuery}))
+    const {card, cardsPageName, activeTab} = this.props
+
+    const params = {
+      cardName: card.name,
+      cardsPageName: cardsPageName,
+      tabName: activeTab.urlName,
+      query: '@' + UrlQuery.stringify(newQuery)
+    }
+
+    return this.context.goTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName/:query', params)
+
   }
 
 

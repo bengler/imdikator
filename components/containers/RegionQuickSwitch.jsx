@@ -14,7 +14,8 @@ export default class RegionQuickSwitch extends Component {
   render() {
     return (
       <div>
-        <label><span className="label h3 t-margin-top--large">Gå til sted</span>
+        <label>
+          <span className="label h3 t-margin-top--large">Gå til sted</span>
           <div className="search search--autocomplete">
               <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion"/>
           </div>

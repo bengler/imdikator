@@ -44,7 +44,8 @@ class Card extends Component {
     }
   }
 
-  makeLinkToTab(tab) {
+
+  getUrlToTab(tab) {
     return this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', {
       cardName: this.props.card.name,
       cardsPageName: this.props.cardsPageName,
@@ -58,7 +59,7 @@ class Card extends Component {
   }
 
   handleFilterChange(newQuery) {
-    return this.context.navigate(this.getUrlForQuery(newQuery))
+    return this.context.navigate(this.getUrlForQuery(newQuery), {replace: true, keepScrollPosition: true})
   }
 
   getChartKind() {
@@ -143,7 +144,7 @@ class Card extends Component {
           disabledTabs={disabledTabs}
           region={region}
           tabs={TABS}
-          makeLinkToTab={tab => this.makeLinkToTab(tab)}
+          makeLinkToTab={tab => this.getUrlToTab(tab)}
         />
           )}
 
@@ -170,7 +171,7 @@ class Card extends Component {
         )}
 
         <div className="graph">
-          {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
+          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
         </div>
 
         <ChartDescriptionContainer
@@ -204,7 +205,7 @@ function mapStateToProps(state, ownProps) {
 
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
 
-  if (cardState.initializing) {
+  if (!cardState || cardState.initializing) {
     return {loading: true}
   }
 

@@ -38,7 +38,7 @@ export default class CardMetadata extends Component {
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
           <div className="toggle toggle--light t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="#" className={buttonClasses}>
+            <a onClick={this.handleClick.bind(this)} href="" className={buttonClasses}>
               <span className="toggle__caption--contracted">
                 Veiledning og kilder
               </span>

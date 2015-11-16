@@ -48,7 +48,7 @@ export default class TabBar extends Component {
 
       return (
         <li title={tab.title} key={tab.name} className="tabs-menu__list-item">
-          <a href={makeLinkToTab(tab)} className={linkClassName}>
+          <a href={makeLinkToTab(tab)} className={linkClassName} data-keep-scroll-position>
             <i className={iconClassName}/>
             {tab.title}
           </a>

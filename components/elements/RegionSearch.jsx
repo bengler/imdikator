@@ -28,11 +28,6 @@ export default class RegionSearch extends Component {
     }
   }
 
-  constructor() {
-    super()
-    this.state = {didForceOpen: false}
-  }
-
   handleSelectRegion(region) {
     this.props.onSelect(region)
   }
@@ -48,7 +43,7 @@ export default class RegionSearch extends Component {
         <a
           key={item.name + item.type}
           className={classes}
-          role={'option'}
+          role="option"
         >
         {itemDescription}
         <i className="icon__arrow-right icon--red search-result__icon"/>
@@ -62,7 +57,7 @@ export default class RegionSearch extends Component {
     if (items.length === 0) {
       return wrap(
         <li>
-          <div className="search-result__result search-result__result--message" role={'option'}>
+          <div className="search-result__result search-result__result--message" role="option">
             Ingen treff - prøv et annet stedsnavn i Norge
           </div>
         </li>
@@ -87,8 +82,6 @@ export default class RegionSearch extends Component {
         getItemValue={item => item.name}
         openOnFocus={false}
         shouldItemRender={shouldItemRender}
-        onForceOpen={() => this.setState({forceOpen: true})}
-        onClose={() => this.setState({forceOpen: false})}
         onSelect={(value, item) => this.handleSelectRegion(item)}
         sortItems={sortRegions}
         inputProps={{placeholder: placeholder}}

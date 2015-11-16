@@ -16,7 +16,7 @@ class EmbeddedChartContainer extends Component {
     query: ImdiPropTypes.query,
     cardsPage: ImdiPropTypes.cardsPage,
     loading: PropTypes.boolean,
-    data: PropTypes.object,
+    queryResult: PropTypes.array,
     headerGroups: PropTypes.array,
     activeTab: PropTypes.object,
   }
@@ -30,42 +30,54 @@ class EmbeddedChartContainer extends Component {
 
   getChartKind() {
     const {activeTab} = this.props
-    return activeTab.chartKind
+    const {chartViewMode} = this.state
+    return chartViewMode === 'table' ? 'table' : activeTab.chartKind
   }
 
   render() {
-    const {card, data, query, region, headerGroups, loading} = this.props
+    const {card, activeTab, query, queryResult, region, headerGroups} = this.props
+    const {chartViewMode} = this.state
 
-    if (loading) {
+    if (!activeTab) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded">
-          <i className="loading-indicator"/> Laster…
+        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"/>
+          Laster…
         </div>
       )
     }
 
-    const chart = CHARTS[this.getChartKind()]
+    const chartKind = this.getChartKind()
+
+    const chart = CHARTS[chartKind]
     const ChartComponent = chart.component
 
-    if (!chart.component) {
-      throw new Error(`Uh oh, missing chart component for ${chart.name}`)
+    if (!ChartComponent) {
+      return (
+        <div className="toggle-list__section toggle-list__section--expanded">
+          Error: No chart component for {JSON.stringify(chartKind)}
+        </div>
+      )
     }
 
-    const sortDirection = chart.name === 'benchmark' ? 'ascending' : null
+    const data = queryResultPresenter(query, queryResult, {
+      chartKind: chartKind,
+      dimensions: card.config.dimensions
+    })
 
-    const chartData = Object.assign({}, data)
     if (chart.name == 'benchmark') {
-      chartData.highlight = {
+      data.highlight = {
         dimensionName: 'region',
         value: [region.prefixedCode]
       }
     }
 
+
     return (
       <figure className="image-block">
         <div className="col-block-bleed">
           <div className="image-block__image">
-            {data && <ChartComponent data={chartData} sortDirection={sortDirection}/>}
+            <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})}/>
+            {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
           </div>
         </div>
         <figcaption className="image-block__caption">
@@ -108,10 +120,6 @@ function mapStateToProps(state, ownProps) {
     activeTab,
     headerGroups,
     queryResult: queryResult,
-    data: !loading && queryResultPresenter(query, queryResult, {
-      chartKind: activeTab.chartKind,
-      dimensions: card.config.dimensions
-    }),
     query
   }
 }

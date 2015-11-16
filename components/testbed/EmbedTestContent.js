@@ -5,8 +5,22 @@ import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/htmlmixed/htmlmixed'
 
-const DEFAULT_URL = '/indikator/steder/K0301/arbeid/sysselsetting-etter-innvandringsgrunn/enkeltaar/'
-  + '@$cmp:K0104,K0231,K1103;$u:prosent;$y:2013;innvgrunn5:arbeid,familie,flukt,annet_uoppgitt;kjonn:0'
+const DEFAULT_URL = '/indikator/steder/K1235/befolkning/befolkning_hovedgruppe/sammenliknet'
+
+const OTHER_EXAMPLES = [
+  {
+    title: 'Sysselsetting etter innvandringsgrunn, sammenlignet',
+    url: '/indikator/steder/K0301/arbeid/sysselsetting-etter-innvandringsgrunn/enkeltaar/'
+    + '@$cmp:K0104,K0231,K1103;$u:prosent;$y:2013;innvgrunn5:arbeid,familie,flukt,annet_uoppgitt;kjonn:0'
+  },
+
+  {
+    title: 'Befolkning verdensregion, åttedelt, sammenlignet',
+    url: '/indikator/steder/K1235/befolkning/befolkning_verdensregion_aattedelt/enkeltaar/@$u:personer;'
+    + '$y:2014;$cmp:K0528,K0543;vreg9:asia,afrika,vest_europa,eu_ost_europa,nord_amerika_oseania,sor_og_mellom_amerika,ost_europa_ellers,norden'
+  }
+
+]
 
 function makeEmbedConfig(url) {
   return JSON.stringify({
@@ -24,12 +38,14 @@ const SCRIPT_TAG = `<script
 />`
 
 
-const CODE = `<div data-imdikator="embed">
+function getCode(url) {
+  return `<div data-imdikator="embed">
   <script type="application/json">
-    ${indent(4)(makeEmbedConfig(DEFAULT_URL))}
+    ${indent(4)(makeEmbedConfig(url))}
   </script>
   Henter figur…
 </div>`
+}
 
 const CODEMIRROR_OPTS = {
   mode: 'htmlmixed',
@@ -54,8 +70,8 @@ class RenderTestPage extends Component {
   constructor(props) {
     super()
     this.state = {
-      editValue: CODE,
-      code: CODE
+      editValue: getCode(DEFAULT_URL),
+      code: getCode(DEFAULT_URL)
     }
   }
 
@@ -126,6 +142,16 @@ class RenderTestPage extends Component {
               onChange={editExample}
               options={CODEMIRROR_OPTS}
             />
+            {/*
+            <select value="-1" onChange={e => {
+              this.setState({editValue: getCode(e.target.value)})
+            }}>
+              <option value="-1">Choose an example url</option>
+              {OTHER_EXAMPLES.map(example => {
+                return <option value={example.url}>{example.title}</option>
+              })}
+            </select>
+            */}
           </form>
         </div>
         <br/>

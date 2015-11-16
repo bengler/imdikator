@@ -13,7 +13,6 @@ import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import Clipboard from 'clipboard'
 import config from '../../config'
 
 class Card extends Component {
@@ -35,7 +34,8 @@ class Card extends Component {
 
   static contextTypes = {
     linkTo: PropTypes.func,
-    goTo: PropTypes.func
+    goTo: PropTypes.func,
+    navigate: PropTypes.func
   }
 
   constructor(props) {
@@ -59,17 +59,7 @@ class Card extends Component {
   }
 
   handleFilterChange(newQuery) {
-    const {card, cardsPageName, activeTab} = this.props
-
-    const params = {
-      cardName: card.name,
-      cardsPageName: cardsPageName,
-      tabName: activeTab.urlName,
-      query: '@' + UrlQuery.stringify(newQuery)
-    }
-
-    return this.context.goTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName/:query', params)
-
+    return this.context.navigate(this.getUrlForQuery(newQuery))
   }
 
   getChartKind() {
@@ -78,17 +68,24 @@ class Card extends Component {
     return chartViewMode === 'table' ? 'table' : activeTab.chartKind
   }
 
-  getChartUrl() {
-    const route = '/indikator/steder/:region/:cardsPageName/:cardName/:tabName'
-    const routeOpts = {
-      cardName: this.props.card.name,
-      tabName: this.props.activeTab.name,
-      cardsPageName: this.props.cardsPageName
+  getUrlForQuery(query) {
+    const {card, cardsPageName, activeTab} = this.props
+
+    const params = {
+      cardName: card.name,
+      cardsPageName: cardsPageName,
+      tabName: activeTab.urlName,
+      query: `@${UrlQuery.stringify(query)}`
     }
-    const host = window.location.hostname
-    const port = `:${window.location.port}`
-    const path = this.context.linkTo(route, routeOpts)
-    return `${host}${config.env == 'development' ? port : ''}${path}`
+    return this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName/:query', params)
+  }
+
+  getShareUrl() {
+    const {query} = this.props
+    const protocol = window.location.protocol
+    const host = window.location.host
+    const path = this.getUrlForQuery(query)
+    return `${protocol}//${host}${path}`
   }
 
   render() {
@@ -186,7 +183,7 @@ class Card extends Component {
 
         {!printable && (
         <div className="graph__functions">
-          <ShareWidget chartUrl={this.getChartUrl()}/>
+          <ShareWidget chartUrl={this.getShareUrl()}/>
           <DownloadWidget region={region} query={query} headerGroups={headerGroups}/>
         </div>
           )}

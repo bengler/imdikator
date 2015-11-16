@@ -1,51 +1,72 @@
 import React, {Component, PropTypes} from 'react'
+import Clipboard from 'clipboard'
+import Lightbox from '../elements/Lightbox'
 
 export default class PopupShareBox extends Component {
 
   static propTypes = {
     onCancel: PropTypes.func,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    inputLabel: PropTypes.string,
-    chartUrl: PropTypes.string,
-    applyButtonText: PropTypes.string
+    chartUrl: PropTypes.string.isRequired
   }
 
   constructor(props) {
     super()
-    this.state = {choiceNumber: 0}
+    this.state = {copied: false}
   }
 
-
-  onCancel() {
-    this.props.onCancel()
+  componentDidMount() {
+    this._clipboardInstance = new Clipboard(this.refs.clipboardButton)
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.copied) {
+      clearTimeout(this._resetCopiedState)
+      this._resetCopiedState = setTimeout(() => {
+        this.setState({copied: false})
+      }, 2000)
+    }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._resetCopiedState)
+    this._clipboardInstance.destroy()
+  }
+
 
   render() {
+    const {onCancel, chartUrl} = this.props
+    const {copied} = this.state
+
     return (
-      <div className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
-        <div className="lightbox__backdrop"></div>
-        <dialog open="open" className="lightbox__box">
-          <i className="lightbox__point" style={{left: '2.90em'}}></i>
-          <div role="document">
-            <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>
-              <i className="icon__close icon--red lightbox__close-button-icon"/>
-              <span className="t-only-screenreaders">Lukk</span>
-            </button>
-            <h6 className="lightbox__title">{this.props.title}</h6>
-
-            <p>{this.props.description}</p>
-
-            <label style={{display: 'inline-block'}}>
-              <span className="label">{this.props.inputLabel}</span>
-              <input id="popupsharebox-input" className="input form--small form--inline" type="text" value={this.props.chartUrl}/>
-            </label>
-            <button type="button" className="button button--secondary clipboardButton"
-              data-clipboard-text={this.props.chartUrl}>{this.props.applyButtonText}</button>
-
-          </div>
-        </dialog>
-      </div>
+      <Lightbox
+        className="lightbox--as-popup lightbox--inline lightbox--animate"
+        onClose={onCancel}
+        title="Lenke til figuren"
+      >
+        <div role="document">
+          <p>
+            Lenken vil vise til valgt figur med den samme filtreringen som nå er valgt.
+          </p>
+          <label style={{display: 'inline-block'}}>
+            <span className="label">Lenke til figuren</span>
+            <input
+              type="text"
+              id="popupsharebox-input"
+              className="input form--small form--inline" readOnly value={chartUrl}
+              onFocus={e => e.target.select()}
+            />
+          </label>
+          <button
+            ref="clipboardButton"
+            type="button"
+            className="button button--secondary"
+            data-clipboard-text={chartUrl}
+            onClick={() => this.setState({copied: true})}
+          >
+            {copied ? '✓ Kopiert' : 'Kopier'}
+          </button>
+        </div>
+      </Lightbox>
     )
   }
 }

@@ -23,11 +23,7 @@ class ShareWidget extends Component {
     return (
       <PopupShareBox
         onCancel={handleCancelDialog}
-        title="Lenke til figuren"
-        inputLabel="Lenke til figuren"
-        applyButtonText="Kopier"
         chartUrl={this.props.chartUrl}
-        description="Lenken vil vise til valgt figur med den samme filtreringen som nå er valgt."
       />
     )
   }

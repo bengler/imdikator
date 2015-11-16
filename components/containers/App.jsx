@@ -11,7 +11,8 @@ class App extends Component {
 
   static childContextTypes = {
     linkTo: PropTypes.func,
-    goTo: PropTypes.func
+    goTo: PropTypes.func,
+    navigate: PropTypes.func,
   }
 
   static defaultProps = {
@@ -21,6 +22,7 @@ class App extends Component {
     const {router} = this.props
     return {
       linkTo: router.makeLink,
+      navigate: router.navigate,
       goTo: (...args) => {
         router.navigate(router.makeLink(...args))
       }

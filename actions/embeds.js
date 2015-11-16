@@ -62,11 +62,18 @@ export function loadTab({region, cardsPage, card, tab, query}) {
     const tabWithConfig = Object.assign({}, tab, tabOverrides)
 
     if (query) {
+
+      const preparedQuery = Object.assign({}, query, {
+        region: region.prefixedCode,
+        tableName: card.query.tableName,
+      })
+
       dispatch(performQuery({
+        region: region,
         cardsPage: cardsPage,
         card: card,
         tab: tabWithConfig,
-        query
+        query: preparedQuery
       }))
       return
     }

@@ -7,16 +7,30 @@ import {Provider} from 'react-redux'
 import compileRoutes from '../../lib/compileRoutes'
 import {loadEmbedData} from '../../actions/embeds'
 import {API_GLOBAL, SELECTOR_EMBED} from '../common'
+import UrlQuery from '../../lib/UrlQuery'
 
 import apiClient from '../../config/apiClient'
 
 const routes = compileRoutes({
   '/indikator/steder/:regionCode/:cardsPageName/:cardName'() {},
-  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName'() {}
+  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName'() {},
+  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName/:query'() {}
 })
 
 function parseEmbedUrl(url) {
-  return routes.match(url).params
+  const params = routes.match(url).params
+  let query = null
+  if (params.query) {
+    try {
+      query = UrlQuery.parse(params.query.substring(1 /* strip @ */))
+    } catch (error) {
+      console.error('Unable to parse query: %s', error.message) // eslint-disable-line no-console
+    }
+  }
+
+  return Object.assign({}, params, {
+    query: query
+  })
 }
 function readConfig(element) {
   const json = element.querySelector('script').innerHTML

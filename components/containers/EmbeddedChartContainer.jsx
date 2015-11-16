@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {CHARTS} from '../../config/chartTypes'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
+import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class EmbeddedChartContainer extends Component {
@@ -18,6 +19,13 @@ class EmbeddedChartContainer extends Component {
     data: PropTypes.object,
     headerGroups: PropTypes.array,
     activeTab: PropTypes.object,
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      chartViewMode: 'chart'
+    }
   }
 
   getChartKind() {

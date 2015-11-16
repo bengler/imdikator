@@ -7,6 +7,7 @@ import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from '../elements/CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
+import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 import DownloadWidget from './DownloadWidget'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
@@ -22,9 +23,9 @@ class Card extends Component {
     card: ImdiPropTypes.card.isRequired,
     region: ImdiPropTypes.region.isRequired,
     query: PropTypes.object,
+    queryResult: PropTypes.array,
     cardsPage: PropTypes.object,
     currentTabName: PropTypes.string,
-    data: PropTypes.object,
     headerGroups: PropTypes.array,
     table: PropTypes.object,
     cardsPageName: PropTypes.string.isRequired,
@@ -40,7 +41,7 @@ class Card extends Component {
   constructor(props) {
     super()
     this.state = {
-      showTable: false
+      chartViewMode: 'chart'
     }
   }
 
@@ -71,18 +72,13 @@ class Card extends Component {
 
   }
 
-
-  handleTableToggle(event) {
-    event.preventDefault()
-    this.setState({showTable: !this.state.showTable})
-  }
-
   getChartKind() {
     const {activeTab} = this.props
-    return activeTab.chartKind
+    const {chartViewMode} = this.state
+    return chartViewMode === 'table' ? 'table' : activeTab.chartKind
   }
 
-  chartUrl() {
+  getChartUrl() {
     const route = '/indikator/steder/:region/:cardsPageName/:cardName/:tabName'
     const routeOpts = {
       cardName: this.props.card.name,
@@ -95,60 +91,48 @@ class Card extends Component {
     return `${host}${config.env == 'development' ? port : ''}${path}`
   }
 
-
-  tableFriendlyData(data, query, tabName) {
-    let tableData = Object.assign({}, data)
-    if (tableData.dimensions && !tableData.dimensions.includes('region')) {
-      const dimensions = tableData.dimensions.slice()
-      dimensions.unshift('region')
-      dimensions.push('enhet')
-      tableData = Object.assign({}, tableData, {dimensions: dimensions})
-    }
-    if (tabName == 'benchmark') {
-      const dimensions = query.dimensions.slice().map(dim => dim.name)
-      dimensions.unshift('region')
-      dimensions.push('enhet')
-      tableData = Object.assign({}, tableData, {dimensions: dimensions})
-    }
-    return tableData
-  }
-
-
   render() {
-    const {loading, card, data, activeTab, query, region, headerGroups, printable} = this.props
+    const {loading, card, activeTab, query, queryResult, region, headerGroups, printable} = this.props
+    const {chartViewMode} = this.state
 
     if (!activeTab) {
-      return <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"/> Laster…</div>
+      return (
+        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"/>
+          Laster…
+        </div>
+      )
     }
-    const showTable = this.state.showTable
+
     const headerGroup = this.getHeaderGroupForQuery(query)
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
       disabledTabs.push('chronological')
     }
 
-    const chart = CHARTS[this.getChartKind()]
-    const ChartComponent = showTable ? CHARTS.table.component : chart.component
+    const chartKind = this.getChartKind()
 
-    if (!chart.component) {
-      throw new Error(`Uh oh, missing chart component for ${chart.name}`)
+    const chart = CHARTS[chartKind]
+    const ChartComponent = chart.component
+
+    if (!ChartComponent) {
+      return (
+        <div className="toggle-list__section toggle-list__section--expanded">
+          Error: No chart component for {JSON.stringify(chartKind)}
+        </div>
+      )
     }
 
-    const sortDirection = activeTab.name === 'benchmark' ? 'ascending' : null
+    const data = queryResultPresenter(query, queryResult, {
+      chartKind: chartKind,
+      dimensions: card.config.dimensions
+    })
 
-    let chartData = Object.assign({}, data)
-    if (activeTab.name == 'benchmark') {
-      chartData.highlight = {
+    if (chart.name == 'benchmark') {
+      data.highlight = {
         dimensionName: 'region',
         value: [region.prefixedCode]
       }
     }
-
-    if (showTable) {
-      chartData = this.tableFriendlyData(chartData, query, activeTab.name)
-    }
-
-    const clipboard = new Clipboard('.clipboardButton') // eslint-disable-line no-unused-vars
 
     return (
       <div
@@ -165,7 +149,7 @@ class Card extends Component {
           tabs={TABS}
           makeLinkToTab={tab => this.makeLinkToTab(tab)}
         />
-        )}
+          )}
 
         {!printable && (
         <FilterBarContainer
@@ -178,48 +162,35 @@ class Card extends Component {
           config={card.config}
           onChange={this.handleFilterChange.bind(this)}
         />
-        )}
+          )}
 
         {loading && <span><i className="loading-indicator"/> Laster…</span>}
 
         {!printable && (
-        <div className="graph__types">
-          <ul className="tabs-mini">
-            <li className="tabs-mini__item">
-              {showTable && (
-              <a href="#" className="tabs-mini__link tabs-mini__link--current" onClick={this.handleTableToggle.bind(this)}>Figur</a>
-              )}
-              {!showTable && (
-              <span className="tabs-mini__link tabs-mini__link--current">Figur</span>
-              )}
-            </li>
-            <li className="tabs-mini__item">
-              {showTable && (
-              <span className="tabs-mini__link tabs-mini__link--current">Tabell</span>
-              )}
-              {!showTable && (
-              <a href="#" className="tabs-mini__link tabs-mini__link--current" onClick={this.handleTableToggle.bind(this)}>Tabell</a>
-              )}
-            </li>
-          </ul>
-        </div>
+          <ChartViewModeSelect
+            mode={chartViewMode}
+            onChange={newMode => this.setState({chartViewMode: newMode})}
+          />
         )}
 
         <div className="graph">
-          {data && <ChartComponent data={chartData} sortDirection={sortDirection}/>}
+          {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
         </div>
+
         <ChartDescriptionContainer
           query={query}
           region={region}
           card={card}
           headerGroups={headerGroups}
         />
+
         {!printable && (
         <div className="graph__functions">
-          <ShareWidget chartUrl={this.chartUrl()}/>
+          <ShareWidget chartUrl={this.getChartUrl()}/>
           <DownloadWidget region={region} query={query} headerGroups={headerGroups}/>
         </div>
-        )}
+          )}
+
         {!printable && (
         <CardMetadata
           description={card.metadata.description}
@@ -227,7 +198,7 @@ class Card extends Component {
           source={card.metadata.source}
           measuredAt={card.metadata.source}
         />
-        )}
+          )}
       </div>
     )
   }
@@ -261,10 +232,6 @@ function mapStateToProps(state, ownProps) {
     headerGroups,
     allRegions: state.allRegions,
     queryResult: queryResult,
-    data: !loading && queryResultPresenter(query, queryResult, {
-      chartKind: activeTab.chartKind,
-      dimensions: ownProps.card.config.dimensions
-    }),
     query
   }
 }

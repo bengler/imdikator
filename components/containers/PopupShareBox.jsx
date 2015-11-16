@@ -2,6 +2,10 @@ import React, {Component, PropTypes} from 'react'
 import Clipboard from 'clipboard'
 import Lightbox from '../elements/Lightbox'
 
+function defer(wait, fn) {
+  return setTimeout(fn, wait)
+}
+
 export default class PopupShareBox extends Component {
 
   static propTypes = {
@@ -21,9 +25,9 @@ export default class PopupShareBox extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.copied) {
       clearTimeout(this._resetCopiedState)
-      this._resetCopiedState = setTimeout(() => {
-        this.setState({copied: false})
-      }, 2000)
+      this._resetCopiedState = defer(2000, () => {
+        this.setState({copied: false}) // eslint-disable-line react/no-did-update-set-state
+      })
     }
   }
 

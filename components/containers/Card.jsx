@@ -13,7 +13,6 @@ import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import config from '../../config'
 
 class Card extends Component {
   static propTypes = {

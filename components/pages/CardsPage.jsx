@@ -62,7 +62,7 @@ class CardsPage extends Component {
                 <header>
                   <h1>{getPageTitle(region)}</h1>
                   <p className="ingress">{getPageIngress(region)}</p>
-                  <div className="t-margin-bottom--large">
+                  <div className="t-margin-bottom--large t-hide-on-print">
                     <label><span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">
                         <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />

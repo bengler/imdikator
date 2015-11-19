@@ -13,7 +13,7 @@ export default class RegionQuickSwitch extends Component {
 
   render() {
     return (
-      <div>
+      <div className="t-hide-on-print">
         <label>
           <span className="label h3 t-margin-top--large">Gå til sted</span>
           <div className="search search--autocomplete">

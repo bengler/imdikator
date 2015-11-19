@@ -162,7 +162,11 @@ export default class StackedBarChart extends Component {
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
     // Expand the height to fit the legend
-    this._svg.attr('height', this.fullHeight + xAxisHeight + leg.height())
+    const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
+    this._svg
+    .attr('height', expandedHeight)
+    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+
   }
 
   render() {

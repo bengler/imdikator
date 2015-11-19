@@ -306,8 +306,13 @@ export default class PyramidChart extends React.Component {
     .datum(series)
     .call(leg)
 
+    // Expand the height to fit the legend
     /* eslint-enable prefer-reflect */
-    this._svg.attr('height', this.fullHeight + outerXAxisMargin + xAxisLabelHeight + xAxisMargin + leg.height())
+    const expandedHeight = this.fullHeight + outerXAxisMargin + xAxisLabelHeight + xAxisMargin + leg.height()
+    this._svg
+    .attr('height', expandedHeight)
+    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+
   }
 
   prepareData(data) {

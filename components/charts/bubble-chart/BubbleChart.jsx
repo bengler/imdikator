@@ -171,7 +171,10 @@ export default class BubbleChart extends React.Component {
     legendWrapper.attr('transform', () => this.translation(0, this.size.height))
 
     // Expand the height to fit the legend
-    this._svg.attr('height', this.fullHeight + leg.height())
+    const expandedHeight = this.fullHeight + leg.height()
+    this._svg
+    .attr('height', expandedHeight)
+    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
   }
 
   render() {

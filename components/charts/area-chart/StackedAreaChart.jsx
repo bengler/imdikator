@@ -232,7 +232,11 @@ export default class StackedAreaChart extends React.Component {
     .call(leg)
     /* eslint-enable prefer-reflect */
 
-    this._svg.attr('height', this.fullHeight + xAxisMargin + leg.height())
+    // Expand the height to fit the legend
+    const expandedHeight = this.fullHeight + xAxisMargin + leg.height()
+    this._svg
+    .attr('height', expandedHeight)
+    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
 
   }
 

@@ -105,9 +105,11 @@ class Chart {
     // TODO: https://css-tricks.com/scale-svg/
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
-      .attr('class', 'chart__d3')
+      .attr('class', 'chart__svg')
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
+      .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + this.fullHeight)
+      .attr('preserveAspectRatio', 'xMinYMin meet')
 
     if (showMargins) {
       // Visualize SVG

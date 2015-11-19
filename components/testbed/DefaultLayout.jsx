@@ -73,7 +73,9 @@ export default class DefaultLayout extends Component {
           </div>
         </header>
         <div className="page__master">
-          {children}
+          <div className="page">
+            {children}
+          </div>
         </div>
         <footer className="footer" tabIndex={-1} data-toggle-menu="footer--overlay">
           <div className="wrapper">

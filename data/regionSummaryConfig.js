@@ -19,7 +19,7 @@ export default [
     drillDown: {
       page: 'befolkning',
       card: 'befolkning_hovedgruppe',
-      buttonTitle: 'Gå til befolkninssammensetning'
+      buttonTitle: 'Gå til befolkningssammensetning'
     },
     chartKind: 'benchmark',
     compareWithSimilarRegions: true,

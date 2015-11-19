@@ -91,35 +91,6 @@ export default [
     },
   },
   {
-    name: 'i_arbeid',
-    query: {
-      year: 'latest',
-      tableName: 'sysselsatte_innvkat',
-      unit: ['prosent'],
-      dimensions: [
-        {
-          name: 'innvkat3',
-          variables: ['innvandrere', 'befolkningen_ellers']
-        }
-      ]
-    },
-    drillDown: {
-      page: 'arbeid',
-      card: 'sysselsatte-innvkat',
-      buttonTitle: 'Gå til sysselsetting'
-    },
-    chartKind: 'bar',
-    compareWithSimilarRegions: false,
-    additionalTitleParams: ['innvkat3'],
-    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
-    title: options => {
-      return `${options.share} av ${options.innvkat3.replace('_', ' ')} er i arbeid`
-    },
-    subTitle: options => {
-      return `For hele landet er tallet ${options.share}`
-    },
-  },
-  {
     name: 'innvandrere_intro_arbied',
     query: {
       year: 'latest',
@@ -150,6 +121,35 @@ export default [
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}`
+    },
+  },
+  {
+    name: 'i_arbeid',
+    query: {
+      year: 'latest',
+      tableName: 'sysselsatte_innvkat',
+      unit: ['prosent'],
+      dimensions: [
+        {
+          name: 'innvkat3',
+          variables: ['innvandrere', 'befolkningen_ellers']
+        }
+      ]
+    },
+    drillDown: {
+      page: 'arbeid',
+      card: 'sysselsatte-innvkat',
+      buttonTitle: 'Gå til sysselsetting'
+    },
+    chartKind: 'bar',
+    compareWithSimilarRegions: false,
+    additionalTitleParams: ['innvkat3'],
+    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
+    title: options => {
+      return `${options.share} av ${options.innvkat3.replace('_', ' ')} er i arbeid`
+    },
+    subTitle: options => {
+      return `For hele landet er tallet ${options.share}`
     },
   }
 ]

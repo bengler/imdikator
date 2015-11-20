@@ -69,9 +69,10 @@ class Card extends Component {
   }
 
   getUrlForQuery(query) {
-    const {card, cardsPageName, activeTab} = this.props
+    const {card, region, cardsPageName, activeTab} = this.props
 
     const params = {
+      region: region.name,
       cardName: card.name,
       cardsPageName: cardsPageName,
       tabName: activeTab.urlName,

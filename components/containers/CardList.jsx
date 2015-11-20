@@ -59,7 +59,7 @@ class CardList extends Component {
       event.preventDefault()
       event.nativeEvent.stopImmediatePropagation()
       const link = isOpen
-        ? linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: prevCard})
+        ? linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: prevCard || ''})
         : linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: card.name})
 
       navigate(link, {keepScrollPosition: true})

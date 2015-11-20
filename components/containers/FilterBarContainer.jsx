@@ -191,7 +191,7 @@ class FilterBarContainer extends Component {
       function renderSelectContent(dimensionValue, index, all) {
         const dimensionConfig = (config.dimensions || {})[spec.name]
         if (dimensionValue === 'all' || dimensionConfig && arrayEqual(dimensionValue, dimensionConfig.include || [])) {
-          return 'Alle' // aggregated
+          return 'Alle' // aggregert
         }
         if (spec.name == 'kjonn' && dimensionValue.length === 1 && dimensionValue[0] === 'alle') {
           return 'Skjul' // vis nedbrytninger

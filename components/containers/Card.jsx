@@ -139,27 +139,27 @@ class Card extends Component {
       >
 
         {!printable && (
-        <TabBar
-          activeTab={activeTab}
-          disabledTabs={disabledTabs}
-          region={region}
-          tabs={TABS}
-          makeLinkToTab={tab => this.getUrlToTab(tab)}
-        />
-          )}
+          <TabBar
+            activeTab={activeTab}
+            disabledTabs={disabledTabs}
+            region={region}
+            tabs={TABS}
+            makeLinkToTab={tab => this.getUrlToTab(tab)}
+          />
+        )}
 
         {!printable && (
-        <FilterBarContainer
-          query={query}
-          region={region}
-          card={card}
-          headerGroups={headerGroups}
-          tab={activeTab}
-          chart={chart}
-          config={card.config}
-          onChange={this.handleFilterChange.bind(this)}
-        />
-          )}
+          <FilterBarContainer
+            query={query}
+            region={region}
+            card={card}
+            headerGroups={headerGroups}
+            tab={activeTab}
+            chart={CHARTS[activeTab.chartKind]}
+            config={card.config}
+            onChange={this.handleFilterChange.bind(this)}
+          />
+        )}
 
         {loading && <span><i className="loading-indicator"/> Laster…</span>}
 
@@ -182,20 +182,20 @@ class Card extends Component {
         />
 
         {!printable && (
-        <div className="graph__functions">
-          <ShareWidget chartUrl={this.getShareUrl()}/>
-          <DownloadWidget region={region} query={query} headerGroups={headerGroups}/>
-        </div>
-          )}
+          <div className="graph__functions">
+            <ShareWidget chartUrl={this.getShareUrl()}/>
+            <DownloadWidget region={region} query={query} headerGroups={headerGroups}/>
+          </div>
+        )}
 
         {!printable && (
-        <CardMetadata
-          description={card.metadata.description}
-          terminology={card.metadata.terminology}
-          source={card.metadata.source}
-          measuredAt={card.metadata.source}
-        />
-          )}
+          <CardMetadata
+            description={card.metadata.description}
+            terminology={card.metadata.terminology}
+            source={card.metadata.source}
+            measuredAt={card.metadata.source}
+          />
+        )}
       </div>
     )
   }

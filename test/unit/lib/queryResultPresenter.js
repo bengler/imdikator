@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import {queryResultPresenter} from '../../../lib/queryResultPresenter'
+import {queryResultPresenter as originalQueryResultPresenter} from '../../../lib/queryResultPresenter'
 
 const QUERY = {
   tableName: 'befolkninghovedgruppe',
@@ -13,6 +13,15 @@ const QUERY = {
 }
 
 describe('queryResultPresenter', () => {
+  let queryResultPresenter
+  beforeEach(() => {
+    queryResultPresenter = (...args) => {
+      const argsBefore = JSON.parse(JSON.stringify(args))
+      const result = originalQueryResultPresenter(...args)
+      assert.deepEqual(args, argsBefore, 'Unexpected mutation of arguments passed to queryResultPresenter.')
+      return result
+    }
+  })
   it('does not collect invisible dimensions specified in the query', () => {
     const query = {
       table: 'befolkninghovedgruppe',

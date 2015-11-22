@@ -72,7 +72,7 @@ class Card extends Component {
     const {card, region, cardsPageName, activeTab} = this.props
 
     const params = {
-      region: region.name,
+      region: region.prefixedCode,
       cardName: card.name,
       cardsPageName: cardsPageName,
       tabName: activeTab.urlName,

@@ -1013,11 +1013,6 @@
                   "from": "abbrev@1",
                   "resolved": "https://registry.npmjs.org/abbrev/-/abbrev-1.0.7.tgz"
                 },
-                "ansi-styles": {
-                  "version": "2.1.0",
-                  "from": "ansi-styles@^2.1.0",
-                  "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.1.0.tgz"
-                },
                 "ansi": {
                   "version": "0.3.0",
                   "from": "ansi@~0.3.0",
@@ -1027,6 +1022,11 @@
                   "version": "2.0.0",
                   "from": "ansi-regex@^2.0.0",
                   "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-2.0.0.tgz"
+                },
+                "ansi-styles": {
+                  "version": "2.1.0",
+                  "from": "ansi-styles@^2.1.0",
+                  "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-2.1.0.tgz"
                 },
                 "are-we-there-yet": {
                   "version": "1.0.4",
@@ -1068,15 +1068,15 @@
                   "from": "boom@^2.8.x",
                   "resolved": "https://registry.npmjs.org/boom/-/boom-2.10.1.tgz"
                 },
-                "caseless": {
-                  "version": "0.11.0",
-                  "from": "caseless@~0.11.0",
-                  "resolved": "https://registry.npmjs.org/caseless/-/caseless-0.11.0.tgz"
-                },
                 "brace-expansion": {
                   "version": "1.1.1",
                   "from": "brace-expansion@>=1.0.0 <2.0.0",
                   "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.1.tgz"
+                },
+                "caseless": {
+                  "version": "0.11.0",
+                  "from": "caseless@~0.11.0",
+                  "resolved": "https://registry.npmjs.org/caseless/-/caseless-0.11.0.tgz"
                 },
                 "chalk": {
                   "version": "1.1.1",
@@ -1103,30 +1103,30 @@
                   "from": "core-util-is@~1.0.0",
                   "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.1.tgz"
                 },
-                "cryptiles": {
-                  "version": "2.0.5",
-                  "from": "cryptiles@2.x.x",
-                  "resolved": "https://registry.npmjs.org/cryptiles/-/cryptiles-2.0.5.tgz"
-                },
                 "ctype": {
                   "version": "0.5.3",
                   "from": "ctype@0.5.3",
                   "resolved": "https://registry.npmjs.org/ctype/-/ctype-0.5.3.tgz"
+                },
+                "cryptiles": {
+                  "version": "2.0.5",
+                  "from": "cryptiles@2.x.x",
+                  "resolved": "https://registry.npmjs.org/cryptiles/-/cryptiles-2.0.5.tgz"
                 },
                 "debug": {
                   "version": "0.7.4",
                   "from": "debug@~0.7.2",
                   "resolved": "https://registry.npmjs.org/debug/-/debug-0.7.4.tgz"
                 },
-                "deep-extend": {
-                  "version": "0.2.11",
-                  "from": "deep-extend@~0.2.5",
-                  "resolved": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.2.11.tgz"
-                },
                 "delayed-stream": {
                   "version": "1.0.0",
                   "from": "delayed-stream@~1.0.0",
                   "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
+                },
+                "deep-extend": {
+                  "version": "0.2.11",
+                  "from": "deep-extend@~0.2.5",
+                  "resolved": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.2.11.tgz"
                 },
                 "delegates": {
                   "version": "0.1.0",
@@ -1268,15 +1268,15 @@
                   "from": "lodash.pad@^3.0.0",
                   "resolved": "https://registry.npmjs.org/lodash.pad/-/lodash.pad-3.1.1.tgz"
                 },
-                "lodash.padright": {
-                  "version": "3.1.1",
-                  "from": "lodash.padright@^3.0.0",
-                  "resolved": "https://registry.npmjs.org/lodash.padright/-/lodash.padright-3.1.1.tgz"
-                },
                 "lodash.padleft": {
                   "version": "3.1.1",
                   "from": "lodash.padleft@^3.0.0",
                   "resolved": "https://registry.npmjs.org/lodash.padleft/-/lodash.padleft-3.1.1.tgz"
+                },
+                "lodash.padright": {
+                  "version": "3.1.1",
+                  "from": "lodash.padright@^3.0.0",
+                  "resolved": "https://registry.npmjs.org/lodash.padright/-/lodash.padright-3.1.1.tgz"
                 },
                 "lodash.repeat": {
                   "version": "3.0.1",
@@ -1308,15 +1308,15 @@
                   "from": "node-uuid@~1.4.3",
                   "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.3.tgz"
                 },
-                "oauth-sign": {
-                  "version": "0.8.0",
-                  "from": "oauth-sign@~0.8.0",
-                  "resolved": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.8.0.tgz"
-                },
                 "npmlog": {
                   "version": "1.2.1",
                   "from": "npmlog@~1.2.0",
                   "resolved": "https://registry.npmjs.org/npmlog/-/npmlog-1.2.1.tgz"
+                },
+                "oauth-sign": {
+                  "version": "0.8.0",
+                  "from": "oauth-sign@~0.8.0",
+                  "resolved": "https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.8.0.tgz"
                 },
                 "once": {
                   "version": "1.1.1",
@@ -7245,8 +7245,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "git://github.com/netliferesearch/imdi-styles.git#575123a7477cd42c5f6ec912057c9c51f8d0b7fb",
-      "resolved": "git://github.com/netliferesearch/imdi-styles.git#575123a7477cd42c5f6ec912057c9c51f8d0b7fb"
+      "from": "netliferesearch/imdi-styles#master",
+      "resolved": "git://github.com/netliferesearch/imdi-styles.git#b0b2f6522d2e9212242430b3566ebb07659e4bd8"
     },
     "less": {
       "version": "2.5.3",

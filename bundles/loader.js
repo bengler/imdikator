@@ -23,14 +23,9 @@ function scan() {
     throw new Error('Having both embeds and the full imdikator site on the same page is not supported')
   }
 
-  const scriptUrl = url.parse(scriptEl.src)
+  const scriptFile = hasEmbed ? 'embeds.js' : 'site.js'
 
-  if (hasEmbed) {
-    loadScript(url.resolve(scriptUrl.pathname, 'embeds.js'))
-  }
-  if (hasSite) {
-    loadScript(url.resolve(scriptUrl.pathname, 'site.js'))
-  }
+  loadScript(url.resolve(scriptEl.src, scriptFile))
 }
 
 domready(scan)

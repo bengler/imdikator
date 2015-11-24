@@ -280,6 +280,7 @@ export default class Autocomplete extends Component {
         {cursor: 'default'}
       )
       return React.cloneElement(element, {
+        key: item.prefixedCode,
         onMouseDown: () => this.setIgnoreBlur(true),
         onMouseEnter: () => this.highlightItemFromMouse(index),
         onClick: () => this.selectItemFromMouse(item),

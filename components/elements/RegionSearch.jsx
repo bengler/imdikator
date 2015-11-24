@@ -5,6 +5,9 @@ import cx from 'classnames'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 function shouldItemRender(region, value) {
+  if (region.prefixedCode == 'F00') {
+    return false
+  }
   return region.name.toLowerCase().includes(value.toLowerCase())
 }
 
@@ -75,7 +78,6 @@ export default class RegionSearch extends Component {
 
   render() {
     const {regions, placeholder} = this.props
-
     return (
       <Autocomplete
         items={regions}

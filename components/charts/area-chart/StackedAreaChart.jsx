@@ -135,6 +135,7 @@ export default class StackedAreaChart extends React.Component {
     .enter()
     .append('svg:a')
     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    .attr('aria-label', item => 'År: ' + item.title + ', Verdi: ' + item.y) // For screenreaders
     .on('click', () => d3.event.stopPropagation())
     .on('focus', item => open(item))
     .append('circle')

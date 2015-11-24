@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import Card from '../containers/Card'
 import {_t} from '../../lib/translate'
+import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 //import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class FactsPage extends Component {
@@ -28,8 +29,8 @@ class FactsPage extends Component {
             <div className="row">
               <div className="col--main-wide">
                 <header>
-                  <h1>Faktaark for integreringen i {region.name} {_t(region.type)}</h1>
-                  <p className="ingress">Tall og statistikk over integreringen i {_t('the-' + region.type)}</p>
+                  <h1>{getPageTitle(region, 'Faktaark for')}</h1>
+                  <p className="ingress">{getPageIngress(region)}</p>
                   <p className="t-margin-bottom--large t-hide-on-print">
                     <a href={regionPageLink} className="button button--secondary">
                       <i className="icon__arrow-left"/> Tilbake til oppsummering

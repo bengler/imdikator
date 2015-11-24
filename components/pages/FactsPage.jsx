@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import Card from '../containers/Card'
-import {_t} from '../../lib/translate'
 import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 //import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 

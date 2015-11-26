@@ -1,7 +1,7 @@
 [
   {
     "cardName": "befolkning_hovedgruppe",
-    "description": "Her ser du befolkningssammensetningen fordelt på kjønn for valgt område. Du kan velge mellom antall personer eller prosentandel. Det skilles mellom hele befolkningen, innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen unntatt innvandrere og norskfødte med innvandrerforeldre. ",
+    "description": "Her ser du befolkningssammensetningen fordelt på kjønn for valgt område. Du kan velge mellom antall personer eller prosentandel. Det skilles mellom  innvandrere, norskfødte med innvandrerforeldre, og befolkningen unntatt innvandrere og norskfødte med innvandrerforeldre. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -13,7 +13,7 @@
   },
   {
     "cardName": "flyktninger_befolkningsandel",
-    "description": "Her ser du andelen personer som er bosatt i Norge siste år per 1000 innbyggere ved inngangen av året, befolkningstall er tilgjengelig for kommuner, fylker, næringsregioner og hele landet.",
+    "description": "Her ser du andelen personer som er bosatt i Norge siste år per 1000 innbyggere ved inngangen av året. Tall er tilgjenglig for kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Bosatt: En flyktning er bosatt når han eller hun ankommer kommunen som har vedtatt å bosette han eller henne.",
     "source": "IMDi",
     "measuredAt": "",
@@ -24,7 +24,7 @@
   },
   {
     "cardName": "befolkning_verdensregion_aattedelt",
-    "description": "Her ser du opprinnelsen til innvandrere og norskfødte med innvandrerforeldre i valgt område. Opprinnelsen er delt opp i åtte verdensregioner. Figuren viser antall personer.",
+    "description": "Her ser du opprinnelsen til innvandrere og norskfødte med innvandrerforeldre i valgt område. Opprinnelsen er delt opp i åtte verdensregioner. Figuren viser antall personer. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -35,7 +35,7 @@
   },
   {
     "cardName": "befolkning_verdensregion_femdelt",
-    "description": "Her ser du opprinnelsen til innvandrere og norskfødte med innvandrerforeldre i valgt område. Opprinnelsen er delt opp i fem verdensregioner. Figuren viser antall personer.",
+    "description": "Her ser du opprinnelsen til innvandrere og norskfødte med innvandrerforeldre i valgt område. Opprinnelsen er delt opp i fem verdensregioner. Figuren viser antall personer. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -46,7 +46,7 @@
   },
   {
     "cardName": "befolkning_verdensregion_todelt",
-    "description": "Her ser du opprinnelsen til innvandrere og norskfødte med innvandrerforeldre i valgt område. Opprinnelsen er delt opp i to verdensregioner. Figuren viser antall personer fordelt på kjønn.",
+    "description": "Her ser du opprinnelsen til innvandrere og norskfødte med innvandrerforeldre i valgt område. Opprinnelsen er delt opp i to verdensregioner. Figuren viser antall personer fordelt på kjønn. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -57,7 +57,7 @@
   },
   {
     "cardName": "befolkning_opprinnelsesland",
-    "description": "Her ser du opprinnelseslandene til innvandrere og norskfødte med innvandrerforeldre  i valgt område. Dersom det er mindre enn fire personer fra et land vil  disse samles i  kategorien \"Andre\". Figuren viser antall personer.",
+    "description": "Her ser du opprinnelseslandene til innvandrere og norskfødte med innvandrerforeldre  i valgt område. Dersom det er mindre enn fire personer fra et land vil  disse samles i  kategorien \"Andre\". Figuren viser antall personer. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -68,7 +68,7 @@
   },
   {
     "cardName": "befolkning_alder",
-    "description": "Her ser du aldersinndeling for innvandrere og befolkningen unntatt innvandrere i  valgt område etter funksjonell aldersinndeling og kjønn. Funksjonell aldersinndeling er 0-5 år (barnehagealder), 6-15 år (grunnskolealder), 16-19 år (videregående skole-alder), 20-29  år (høyere utdanning/arbeid), 30-54  år(arbeidsfør alder), 55-66 år (arbeidsfør alder), 67 år + (pensjonsalder). ",
+    "description": "Her ser du aldersinndeling for innvandrere og befolkningen unntatt innvandrere i  valgt område etter funksjonell aldersinndeling og kjønn. Funksjonell aldersinndeling er 0-5 år (barnehagealder), 6-15 år (grunnskolealder), 16-19 år (videregående skole-alder), 20-29  år (høyere utdanning/arbeid), 30-54  år(arbeidsfør alder), 55-66 år (arbeidsfør alder), 67 år + (pensjonsalder). Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -79,7 +79,7 @@
   },
   {
     "cardName": "befolkning_innvandringsgrunn",
-    "description": "Her ser du innvandrere fordelt på innvandringsgrunn og kjønn. Innvandringsgrunn er fordelt på arbeid, familie, flukt, utdanning og andre.",
+    "description": "Her ser du innvandrere fordelt på innvandringsgrunn og kjønn. Innvandringsgrunn er fordelt på arbeid, familie, flukt, utdanning og andre. Statistikk over innvandringsgrunn fordeler alle personer som innvandret til Norge for første gang, og som ble registrert bosatt i løpet av året, etter grunn til innvandring. Personen behøver ikke å være bosatt i Norge lenger. Samme person vil ikke være med i statistikken for to ulike årganger. Nordiske borgere trenger verken å søke eller registrere seg for å kunne oppholde seg i Norge. De er derfor ikke med i statistikken. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -90,7 +90,7 @@
   },
   {
     "cardName": "befolkning_botid",
-    "description": "Her ser du hvor lenge innvandrere har bodd i valgt område. Botiden er delt i tre kategorier, og innvandrernes bakgrunn er delt inn i to verdensregioner. ",
+    "description": "Her ser du hvor lenge innvandrere har bodd i valgt område. Botiden er delt i tre kategorier, og innvandrernes bakgrunn er delt inn i to verdensregioner. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -101,7 +101,7 @@
   },
   {
     "cardName": "flyktning_botid_flytting",
-    "description": "Her ser du antall flyktninger som bor i valgt område og antall flyktninger som flyttet hit. Det skilles mellom kort botid (0-4 år) og lang botid (5 år eller mer). ",
+    "description": "Her ser du antall og andel flyktninger som bor i valgt område og antall flyktninger som flyttet hit. Det skilles mellom hvorvidt personer har nåværende bosted som sin første bostedskommune, eller ikke. Det skilles mellom kort botid (0 til 4 år) og lang botid (5 år eller mer). Andeler er beregnet som antall flyktninger i en botidsgruppe og hvorvidt det er første bostedskommune eller ikke, over totalt antall flyktninger. Eksempelvis: Antall flyktninger med botid 0-4 år som har nåværende kommune som første bostedskommune, delt på totalt antall flyktninger. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -113,7 +113,7 @@
   },
   {
     "cardName": "flytting",
-    "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område.  Det skilles mellom flytting fra/til utlandet (innvandring/utvandring) og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for innvandrere og befolkningen unntatt innvandrere. ",
+    "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område. Det skilles mellom flytting fra/til utlandet innvandring/utvandring og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for innvandrere, og for befolkningen unntatt innvandrere. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommuner eller til utlandet. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Nettoflytting/nettoinnvandring: Nettoinnvandring er differansen mellom innvandring og utvandring. Nettoinnflytting er differansen mellom innflyttinger og utflyttinger. Netto innvandring og netto innflytting er differansen mellom innvandring og innflytting, og utvandring og utflytting. ",
     "source": "SSB",
     "measuredAt": "1.1.2014",
@@ -123,10 +123,10 @@
     }
   },
   {
-    "cardName": "flytting",
+    "cardName": "flytting-verdensregion",
     "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område.  Det skilles mellom flytting fra/til utlandet (innvandring/utvandring) og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for personer fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og personer fra Øst-Europa utenom EU, Asia (inkl. Tyrkia), Afrika, Sør- og Mellom-Amerika, og Oseania utenom Australia og New Zealand. ",
     "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommuner eller til utlandet. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Nettoflytting/nettoinnvandring: Nettoinnvandring er differansen mellom innvandring og utvandring. Nettoinnflytting er differansen mellom innflyttinger og utflyttinger. Netto innvandring og netto innflytting er differansen mellom innvandring og innflytting, og utvandring og utflytting. ",
-    "source": "IMDi",
+    "source": "SSB",
     "measuredAt": "2014: 11.mars ",
     "updatedAt": "",
     "unitDescriptions": {
@@ -135,7 +135,7 @@
   },
   {
     "cardName": "bosatt_anmodede",
-    "description": "Her ser du antall personer IMDi har anmodet kommunen om å bosette, hvor mange kommunen har vedtatt å bosette, og hvor mange som faktisk ble bosatt siste år. Du kan også se hvor stor andel av IMDis anmodning kommunen har vedtatt å bosette og faktisk bosatt. ",
+    "description": "Her ser du antall personer IMDi har anmodet valgt område om å bosette, hvor mange personer valgt område har vedtatt å bosette, og hvor mange som faktisk ble bosatt siste år. Du kan også se hvor stor andel av IMDis anmodning valgt område har vedtatt å bosette og faktisk bosatt. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Anmodet bosatt: Anmodningen er det antallet flyktninger staten ber en kommune om å bosette. Kommunene vedtar selv hvor mange flyktninger de skal bosette i løpet av året. Vedtatt bosatt: Antall flyktninger kommunen har vedtatt å bosette i løpet av året. Bosatte: En flyktning er bosatt når han eller hun ankommer kommunen som har vedtatt å bosette han eller henne.",
     "source": "IMDi",
     "measuredAt": "2014: 11.mars ",
@@ -147,7 +147,7 @@
   },
   {
     "cardName": "bosatt_vedtak",
-    "description": "Her ser du antall personer som kommuene har vedtatt å bosette siste år, antall personer som er bosatt siste år og antall bosatte delt på antall vedtatt bosatte. Tall er tilgjengelig for kommuner, næringsregioner, fylker og hele landet.",
+    "description": "Her ser du antall personer som valgt område har vedtatt å bosette siste år, antall personer som er bosatt siste år og antall bosatte delt på antall vedtatt bosatte. Tall er tilgjengelig for kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Vedtatt bosatt: Antall flyktninger kommunen har vedtatt å bosette i løpet av året. Bosatte: En flyktning er bosatt når han eller hun ankommer kommunen som har vedtatt å bosette han eller henne.",
     "source": "IMDi",
     "measuredAt": "",
@@ -159,8 +159,8 @@
   },
   {
     "cardName": "barnehage-forholde-minoriteter",
-    "description": "Her ser du antall og andel barn i barnehagealder i valgt område. Det skilles mellom barn med og uten innvandrerbakgrunn, fordelt på aldersgrupper fra 1 til 5 år. ",
-    "terminology": "",
+    "description": "Her ser du antall og andel barn i barnehagealder i valgt område. Det skilles mellom barn med og uten innvandrerbakgrunn, fordelt på aldersgrupper fra 1 til 5 år. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Barn med innvandrerbakgrunn: Omfatter barn som har innvandret, og norskfødte med innvandrerforeldre.",
     "source": "SSB",
     "measuredAt": "15.12.2013",
     "updatedAt": "",
@@ -171,7 +171,8 @@
   },
   {
     "cardName": "barnehage-alder-minoriteter",
-    "description": "Her ser du antall og andel barn i valgt område som går i barnehage. FIguren viser tall for alle barn, minoritetsspråklige barn og ikke-minoritetsspråklige barn. ",
+    "description": "Her ser du antall og andel barn i valgt område som går i barnehage. Figuren viser tall for minoritetsspråklige barn og ikke-minoritetsspråklige barn. 
+Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Minoritetsspråklige barn er barn med annet morsmål (førstespråk) enn norsk, samisk, svensk, dansk eller engelsk. Morsmål er det språket som brukes i dagligtale i hjemmet. ",
     "source": "SSB",
     "measuredAt": "15.12.2013",
@@ -183,8 +184,8 @@
   },
   {
     "cardName": "gjennomsnittlige-grunnskolepoeng",
-    "description": "Her ser du hvor mange elever som avsluttet tiende klasse i valgt år, og deres gjennomsnittlige grunnskolepoeng. Det finnes tall for alle elever, elever utenom innvandrere og norskfødte med innvandrerforeldre, innvandrere , og norskfødte med innvandrerforeldre. ",
-    "terminology": "Grunnskole: Første til tiende klasse",
+    "description": "Her ser du hvor mange elever som avsluttet tiende klasse i valgt år, og deres gjennomsnittlige grunnskolepoeng. Det finnes tall for alle elever, elever unntatt innvandrere og norskfødte med innvandrerforeldre, innvandrere , og norskfødte med innvandrerforeldre. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Grunnskole: Første til tiende klasse. Gjennomsnittlige grunnskolepoeng: Grunnskolepoengene kan ses på som et samlemål for alle karakterene. De oppsummerer alle elevens resultater i forskjellige fag, og er med på å danne grunnlaget for opptak til videregående skole. Poengene blir regnet ut på følgende måte: Hver tallkarakter (standpunkt eller eksamenskarakter) får tilsvarende poengverdi som karakteren. Poengsummen får en ved å summere alle tallkarakterene, og deretter dele på antall karakterer. Dette gjennomsnittet, med to desimaler, multipliseres med 10.",
     "source": "SSB",
     "measuredAt": "",
     "updatedAt": "",
@@ -195,7 +196,7 @@
   },
   {
     "cardName": "voksne-i-grunnskolen",
-    "description": "Her ser du antall og andel voksne i grunnskolen, etter minoritetsspråklig bakgrunn, og antall elever etter undervisningstype.",
+    "description": "Her ser du antall og andel voksne i grunnskolen, etter minoritetsspråklig bakgrunn, og antall elever etter undervisningstype. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Grunnskole: Første til tiende klasse. Språklige minoriteter: personer med andre morsmål (førstespråk) enn norsk og samisk. Morsmål er det språket som brukes i dagligtale i hjemmet. ",
     "source": "SSB",
     "measuredAt": "",
@@ -206,9 +207,9 @@
     }
   },
   {
-    "cardName": "",
-    "description": "Her ser du antall og andel elever i videregående skole i valgt område.  Figuren viser data for årene 2011 til 2013 slått sammen, og viser dermed total deltakelse i videregående skole i valgt område i denne perioden. Det finnes tall for innvandrere, befolkningen utenom innvandrere og norskfødte med innvandrerforeldre, og norskfødte med innvandrerforeldre. Andel elver viser her til hvor stor andel som for eksempel er norskfødte med innvandrerforeldre og kvinner av dem som var elever i videregående skole i valgt område i perioden. ",
-    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. ",
+    "cardName": "elever-i-videregaaende",
+    "description": "Her ser du antall elever (i valgt område) som gikk på videregående skole i perioden 2011-2013 (i valgt område). Det skilles mellom kvinner og menn, og mellom innvandrere, befolkningen utenom innvandrere og norskfødte med innvandrerforeldre, og norskfødte med innvandrerforeldre. Figuren viser også hvor stor andel av alle elever i valgt område de ulike kategoriene utgjør. Data for årene 2011, 2012 og 2013 er slått sammen - det vil si at den enkelte elev kan være omfattet av statistikken én eller flere ganger. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Det er elevens bosted som registreres. ",
     "source": "SSB",
     "measuredAt": "1.10.2014",
     "updatedAt": "",
@@ -218,9 +219,9 @@
     }
   },
   {
-    "cardName": "",
-    "description": "Her ser du antall og andel elever som har fullført videregående skole innen fem år etter påbegynt opplæring i valgt område. Det finnes tall for innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen utenom innvandrere og norskfødte med innvandrerforeldre.",
-    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. ",
+    "cardName": "ferdig-med-videregaaende",
+    "description": "Her ser du antall og andel elever (i valgt område) som har fullført videregående skole innen fem år etter påbegynt opplæring (i valgt område). Det skilles mellom kvinner og menn, og mellom innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen utenom innvandrere og norskfødte med innvandrerforeldre. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner og fylker.",
+    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Det er elevens bosted som registreres. ",
     "source": "SSB",
     "measuredAt": "",
     "updatedAt": "",
@@ -230,9 +231,9 @@
     }
   },
   {
-    "cardName": "",
-    "description": "Her ser du antall og andel personer mellom 16 og 25 år som ikke er i opplæring eller har fullført/bestått videregående i valgt område. Det finnes tall for innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen utenom innvandrere og norskfødte med innvandrerforeldre. ",
-    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs.\nFullføring av videregående skole: Å ha fullført videregående skole betyr at  eleven har fått vitnemål. Vitnemål er dokumentasjon for bestått opplæringsløp som enten gir studie eller yrkeskompetanse. For folkehøgskoler og annen utdanning på videregående nivå betyr fullført at kurset eller utdanningen er gjennomført. ",
+    "cardName": "ungdom-ikke-fullfoert",
+    "description": "Her ser du antall og andel personer mellom 16 og 25 år som ikke er i opplæring eller har fullført/bestått videregående i valgt område. Det finnes tall for innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen utenom innvandrere og norskfødte med innvandrerforeldre.Andel i denne figuren viser til for eksempel andelen kvinner mellom 16 og 25 år som er norskfødte med innvandrerforeldre og som ikke er i opplæring eller har fullført/bestått videregående opplæring det valgte året. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. For fylkestall: Andelene er beregnet ut fra folkemengden i aktuelle stratum (undergrupper). Andelene summerer seg derfor ikke opp til 100 prosent. ",
+    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Fullføring av videregående skole: Å ha fullført videregående skole betyr at  eleven har fått vitnemål. Vitnemål er dokumentasjon for bestått opplæringsløp som enten gir studie eller yrkeskompetanse. For folkehøgskoler og annen utdanning på videregående nivå betyr fullført at kurset eller utdanningen er gjennomført. ",
     "source": "SSB",
     "measuredAt": "?",
     "updatedAt": "",
@@ -243,8 +244,8 @@
   },
   {
     "cardName": "voksne-i-videregaaende",
-    "description": "Her ser du antall og andel voksne elever i videregående skole i valgt område. Det finnes tall for minoritetsspråklige og ikke-minoritetsspråklige. Enkelte kommuner mangler i tabellen. Dette er kommuner uten voksne elever.",
-    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs.",
+    "description": "Her ser du antall voksne i valgt område som er elever i videregående skole, fordelt på minoritetsspråklige og ikke-minoritetsspråklige. Minoritetsspråklige er de som har et annet morsmål enn norsk, samisk, svensk, dansk og engelsk. Figuren viser også hvor stor andel av alle voksne elever i valgt område hver av disse kategoriene utgjør. Enkelte kommuner mangler i tabellen. Dette er kommuner uten voksne elever. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Voksne elever i videregående opplæring: Voksne elever i ordinære løp og i opplæringstilbud tilpasset voksne. Det er elevens bosted som registreres.",
     "source": "SSB",
     "measuredAt": "",
     "updatedAt": "",
@@ -255,7 +256,7 @@
   },
   {
     "cardName": "utdanningsniva-grunnskole",
-    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område som har grunnskole som høyeste utdanningsnivå.  Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn. ",
+    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område som har grunnskole som høyeste utdanningsnivå.  Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn. Aldersgruppen mellom 30 og 49 år er valgt ettersom disse personene med høy sannsynlighet vil være ferdige med sine utdanningsløp. Å inkludere en bredere aldersgruppe ville mest sannsynlig gitt andre resultater enn det som fremkommer her. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Grunnskole: første til tiende klasse.",
     "source": "SSB",
     "measuredAt": "1.10.2013",
@@ -267,7 +268,7 @@
   },
   {
     "cardName": "utdanningsniva-videregaaende",
-    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område som har videregående skole som høyeste utdanningsnivå. Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn.",
+    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område som har videregående skole som høyeste utdanningsnivå. Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn. Aldersgruppen mellom 30 og 49 år er valgt ettersom disse personene med høy sannsynlighet vil være ferdige med sine utdanningsløp. Å inkludere en bredere aldersgruppe ville mest sannsynlig gitt andre resultater enn det som fremkommer her. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Fullføring av videregående skole: Å ha fullført videregående skole betyr at  eleven har fått vitnemål. Vitnemål er dokumentasjon for bestått opplæringsløp som enten gir studie eller yrkeskompetanse. For folkehøgskoler og annen utdanning på videregående nivå betyr fullført at kurset eller utdanningen er gjennomført. ",
     "source": "SSB",
     "measuredAt": "1.10.2013",
@@ -279,7 +280,7 @@
   },
   {
     "cardName": "utdanningsniva-universitet-og-hoyskole",
-    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område som har universitet eller høyskole som høyeste utdanningsnivå. Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn.",
+    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område som har universitet eller høyskole som høyeste utdanningsnivå. Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn. Aldersgruppen mellom 30 og 49 år er valgt ettersom disse personene med høy sannsynlighet vil være ferdige med sine utdanningsløp. Å inkludere en bredere aldersgruppe ville mest sannsynlig gitt andre resultater enn det som fremkommer her. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.10.2013",
@@ -291,7 +292,7 @@
   },
   {
     "cardName": "utdanningsniva-uoppgitt-ingen",
-    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område hvor høyeste utdanningsnivå er uoppgitt. Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn.",
+    "description": "Her ser du antall og andel personer mellom 30-49 år i valgt område hvor høyeste utdanningsnivå er uoppgitt. Figuren viser tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere, samt for kvinner og menn. Aldersgruppen mellom 30 og 49 år er valgt ettersom disse personene med høy sannsynlighet vil være ferdige med sine utdanningsløp. Å inkludere en bredere aldersgruppe ville mest sannsynlig gitt andre resultater enn det som fremkommer her. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "",
     "source": "SSB",
     "measuredAt": "1.10.2013",
@@ -303,7 +304,7 @@
   },
   {
     "cardName": "norskopplaering-antall-deltagere",
-    "description": "Her ser du antall deltakere i norskopplæring i valgt område. Deltakerne er fordelt basert på sine rettigheter til norskopplæring etter introduksjonsloven; rett og/eller plikt, plikt, rett, og rett og plikt. ",
+    "description": "Her ser du antall personer i valgt område som deltar i norskopplæring.  Deltakerne er fordelt basert på sine rettigheter til norskopplæring etter introduksjonsloven; rett og/eller plikt, plikt, rett, og rett og plikt. Figuren viser alle som har rett/plikt, de som har kun plikt, de som har kun rett, og de som har både rett og plikt til norskopplæring. Tall er tilgjenglig for kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Introduksjonsloven:\nIntroduksjonsloven regulerer enkeltpersoners rettigheter til introduksjonsprogram og opplæring i norsk og samfunnskunnskap for voksne innvandrere. Formålet med loven er å styrke innvandreres mulighet for å delta i yrkes- og samfunnslivet. \n\nRett og plikt til opplæring i norsk og samfunnskunnskap:\n-Å ha rett og plikt til norskopplæring betyr at personen har krav på gratis norskopplæring fra kommunen den er bosatt i, og at lovpålagt norskopplæring må være gjennomført før det søkes om permanent oppholdstillatelse og norsk statsborgerskap.\n-Å ha rett til norskopplæring betyr at personen har krav på gratis opplæring i norsk og samfunnskunnskap fra kommunen den er bosatt i.\n-Å ha plikt til norskopplæring betyr at personen må ha gjennomført lovpålagt opplæring i norsk og samfunnskunnskap for å kunne søke om permanent oppholdstillatelse eller statsborgerskap i Norge. De som bare har plikt til opplæring må betale for undervisningen selv.\n\nIntroduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger.  I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige. \nOpplæring i norsk og samfunnskunnskap: inngår som en del av introduksjonsprogrammet, og består av 600 timer opplæring i norsk og 50 timer opplæring i samfunnskunnskap. ",
     "source": "IMDi",
     "measuredAt": "",
@@ -334,9 +335,9 @@
     "unitDescriptions": {}
   },
   {
-    "cardName": "deltakere-introprogram",
-    "description": "Her ser du antall deltakere i introduksjonsprogrammet i valgt enkeltår og område. Tallene er hentet fra Nasjonalt Introduksjonsregister.",
-    "terminology": "Introduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger. I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige.",
+    "cardName": "deltagere-introprogram",
+    "description": "Her ser du antall personer som har deltatt i introduksjonsprogrammet i valgt enkeltår og område. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Introduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger. I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige. ",
     "source": "IMDi",
     "measuredAt": "17. mars 2015",
     "updatedAt": "",
@@ -346,7 +347,7 @@
   },
   {
     "cardName": "etter-intro",
-    "description": "Her ser du antall deltakere som har avsluttet introduksjonsprogrammet siste kalenderår for valgt område. Avslutningsårsak er delt i to; arbeid og utdanning utover grunnskole, og annet. ",
+    "description": "Her ser du antall deltakere som har avsluttet introduksjonsprogrammet siste kalenderår for valgt område. Avslutningsårsak er delt i to; arbeid og utdanning utover grunnskole, og annet. Figuren viser tall for kvinner og menn. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Introduksjonsloven: Introduksjonsloven regulerer enkeltpersoners rettigheter til introduksjonsprogram og opplæring i norsk og samfunnskunnskap for voksne innvandrere. Formålet med loven er å styrke innvandreres mulighet for å delta i yrkes- og samfunnslivet. Introduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger. I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige. Avsluttet introprogram og status: viser hva de som avsluttet introduksjonsprogrammet gjør etter at de har forlatt programmet.",
     "source": "IMDi",
     "measuredAt": "20. okt 2014 for 2011-2013, 27. februar for 2014",
@@ -357,8 +358,8 @@
     }
   },
   {
-    "cardName": "etter-intro",
-    "description": "Her ser du tidligere deltakere i introduksjonsprogrammet som har avsluttet eller avbrutt programmet, i valgt år og område. Avslutningsårsaker er fordelt på kvalifiseringstiltak i offentlig regi, grunnskole, videregående skole og høyere utdanning, arbeid, sosialstønad, andre trygdeytelser, og annet. ",
+    "cardName": "etter-intro-finmasket",
+    "description": "Her ser du tidligere deltakere i introduksjonsprogrammet som har avsluttet eller avbrutt programmet, i valgt år og område. Avslutningsårsaker er fordelt på kvalifiseringstiltak i offentlig regi, grunnskole, videregående skole og høyere utdanning, arbeid, sosialstønad, andre trygdeytelser, og annet. Figuren viser hvor mange som gikk direkte over i hver av disse kategoriene, og hvor stor andel av alle som avsluttet programmet i valgt område og år hver enkelt kategori utgjør. Det finnes tall for alle deltakere,  og for kvinner og menn. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Introduksjonsloven: Introduksjonsloven regulerer enkeltpersoners rettigheter til introduksjonsprogram og opplæring i norsk og samfunnskunnskap for voksne innvandrere. Formålet med loven er å styrke innvandreres mulighet for å delta i yrkes- og samfunnslivet. Introduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger. I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige. Avsluttet introprogram og status: viser hva de som avsluttet introduksjonsprogrammet gjør etter at de har forlatt programmet.",
     "source": "IMDi",
     "measuredAt": "",
@@ -369,7 +370,7 @@
     }
   },
   {
-    "cardName": "",
+    "cardName": "status-etter-intro",
     "description": "Her ser du tidligere deltakere i introduksjonsprogrammet som har avsluttet eller avbrutt programmet,  i valgt område, og deres status på arbeidsmarkedet etter henholdsvis ett, to, tre, fire eller fem år. Det skilles mellom hvorvidt personen er sysselsatt eller under utdanning, registrert ledig eller på tiltak, eller har en annen eller ukjent status. \n\nGrafen kan lese på følgende måte: i valgt år var x antall/prosent av dem som avsluttet introduksjonsprogrammet for x antall år siden i arbeid eller utdanning. ",
     "terminology": "Introduksjonsloven: Introduksjonsloven regulerer enkeltpersoners rettigheter til introduksjonsprogram og opplæring i norsk og samfunnskunnskap for voksne innvandrere. Formålet med loven er å styrke innvandreres mulighet for å delta i yrkes- og samfunnslivet. Introduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger. I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige. Avsluttet introprogram og status: viser hva de som avsluttet introduksjonsprogrammet gjør etter at de har forlatt programmet.",
     "source": "SSB",
@@ -381,8 +382,8 @@
   },
   {
     "cardName": "sysselsetting-etter-innvandringsgrunn",
-    "description": "Antall og andel sysselsatte innvandrere etter femdelt innvandringsgrunn og kjønn. Andel er antall sysselsatte i gruppa over antall arbeidsføre i gruppa (eks. antall sysselsatte mannlige flyktninger av alle arbeidsføre mannlige flyktninger). Tallene er tilgjengelige for bydeler, kommuner, fylker, og næringsregioner.",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. )",
+    "description": "Her ser du sysselsettingen blant ulike innvandrergrupper i valgt område. Innvandere er delt etter fire innvandringsgrunner: arbeidsinnvandrere, familieinnvandrede (ekslusiv familieinnvandrede til flyktninger), flyktninger og deres familieinnvandrede, samt utdanning (inklusiv au-pair), uoppgitt innvandringsgrunn og andre grunner. Figuren viser antall som er sysselsatt i hver av gruppene, og hvor stor andel av alle arbeidsføre i den enkelte gruppen de utgjør. Det finnes tall for alle, menn og kvinner. Tallene er tilgjengelige for bydeler, kommuner, fylker, og næringsregioner.",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.)",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -392,9 +393,9 @@
     }
   },
   {
-    "cardName": "sysselsetting-etter-innvandringsgrunn",
-    "description": "Her ser du antall personer sysselsatt etter innvandringskategori og andel personer sysselsatt av alle personer i arbeidsstyrken. Andel personer sysselsatt er sysselsatte personer av alle personer i arbeidsstyrken. Tallene er tilgjenglig for",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. )",
+    "cardName": "sysselsatte-innvkat",
+    "description": "Her ser du antall og andel sysselsatte personer fordelt på innvandrere og befolkningen unntatt innvandrere. Andel sysselsatte personer er sysselsatte personer av alle personer i arbeidsstyrken. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.)",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -405,8 +406,8 @@
   },
   {
     "cardName": "sysselsetting-alder-innvkat",
-    "description": "Her ser du hvor mange personer  som bor i valgt område, som er sysselsatt. Grafen viser også hvor stor andel av alle i arbeidsstyrken som er sysselsatt. Befolkningen er delt i tre ulike aldersgrupper. Det skilles mellom tall for hele befolkningen, innvandrere og befolkningen unntatt innvandrere. ",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. ). Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
+    "description": "Her ser du hvor mange personer  som bor i valgt område, som er sysselsatt. Grafen viser også hvor stor andel av alle i arbeidsstyrken som er sysselsatt. Befolkningen er delt i tre ulike aldersgrupper: 18-29 år, 30-54 år og 55-69 år. Det skilles mellom tall for innvandrere og befolkningen unntatt innvandrere. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.). Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet. Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -417,8 +418,8 @@
   },
   {
     "cardName": "sysselsatte-innvandrere-botid",
-    "description": "Her ser du antall og andel personer med innvandrerbakgrunn som er sysselsatt, i valgt område. Tallene er delt inn i tre kategorier av botid i Norge. ",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. )",
+    "description": "Her ser du innvandrere i valgt område som er sysselsatt, delt etter tre kategorier av botid i Norge. Figuren viser både antall som er sysslesatt i hver av kategoriene , og hvor stor andel de sysselsatte utgjør av alle personer i arbeidsstyrken i hver av kategoriene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.) Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -429,19 +430,20 @@
   },
   {
     "cardName": "sysselsatte-innvandrere-botid-landbakgrunn",
-    "description": "Her ser du antall og andel innvandrere som er sysselsatt, fordelt på todelt verdensregion, i valgt område. Tallene er delt inn i to kategorier av botid i Norge.",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. )",
+    "description": "Her ser du innvandrere i valgt område som er sysselsatt, delt etter landbakgrunn og botid i Norge under eller over fem år. Landbakgrunnen er todelt: Det skilles mellom personer fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og personer fra Øst-Europa utenom EU, Asia (inkl. Tyrkia), Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand. Figuren viser både antall som er sysslesatt i hver av kategoriene , og hvor stor andel de sysselsatte utgjør av alle personer i arbeidsstyrken i hver av kategoriene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.) Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
     "unitDescriptions": {
-      "personer": "antall sysselsatte innvandrere"
+      "personer": "antall sysselsatte innvandrere",
+      "prosent": "andel sysselsatte innvandrere"
     }
   },
   {
     "cardName": "sysselsatte-innvandrere-kjonn-landbakgrunn",
-    "description": "Her ser du antall og andel innvandrere som er sysselsatt, fordelt på todelt verdensregion, i valgt område.",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. )",
+    "description": "Her ser du innvandrere i valgt område som er sysselsatt, delt etter kjønn og landbakgrunn. Landbakgrunnen er todelt: Det skilles mellom kvinner/menn fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og kvinner/menn fra Øst-Europa utenom EU, Asia (inkl. Tyrkia), Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand. Figuren viser både antall sysselsatte kvinner/menn etter landbakgrunn, og hvor stor andel de sysselsatte kvinnene/mennene utgjør av alle kvinnene/mennene i arbeidsstyrken. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.) Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -452,8 +454,8 @@
   },
   {
     "cardName": "sysselsatte-innvandrere-landbakgrunn",
-    "description": "Her ser du antall og andel innvandrere som er sysselsatt etter landbakgrunn, i valgt område. Tallene er tilgjengelig for åtte  verdensregioner samt for kategorien \"alle\". ",
-    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste. )",
+    "description": "Her ser du innvandrere med ulik landbakgrunn i valgt område som er sysselsatt - både hele gruppen og delt etter bakgrunn fra åtte verdensregioner: Norden, Vest-Europa utenom Norden, EU-land i Øst-Europa, Øst-Europa utenom EU, Nord-Amerika og Oseania, Asia (inkl. Tyrkia), Afrika, og Sør- og Mellom-Amerika. Figuren viser både antall sysselsatte i hver av gruppene, og hvor stor andel de sysselsatte utgjør av alle i arbeidsstyrken i hver av gruppene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Men sysselsatte menes personer som hadde inntektsgivende arbeid i minst én time i den uken målingen ble foretatt, samt de som har inntektsgivende arbeid men som var midlertidig fraværende pga. sykdom, ferie, lønnet permisjon eller lignende. Personer som er inne til førstegangs militærtjeneste eller personer i sysselsettingstiltak som får lønn fra arbeidsgiver regnes også som sysselsatte.  (For sysselsatte med flere arbeidsforhold, fastsettes ett som det viktigste.) Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -464,8 +466,8 @@
   },
   {
     "cardName": "ledige-innvkat-land",
-    "description": "Her ser du antall og andel personer som er ledige og på tiltak, i valgt område. Det skilles mellom tall for hele befolkningen, befolkningen unntatt innvandrere, og innvandrere. For innvandrere er landbakgrunn delt i to kategorier.",
-    "terminology": "Personer som ikke har jobb med inntekt. For å regnes som arbeidsledig må du ha vært uten arbeid i to uker og være registrert som arbeidssøker hos NAV. ",
+    "description": "Her ser du hvor mange personer i valgt område som er ledige eller på tiltak. Det skilles mellom tall for hele befolkningen, befolkningen unntatt innvandrere, og innvandrere. For innvandrere er landbakgrunn delt i to kategorier: den ene omfatter EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og den andre omfatter Øst-Europa utenom EU, Asia (inkl. Tyrkia), Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand. Figuren viser både antall personer i hver av gruppene, og hvor stor andel de utgjør av arbeidsstyrken i hver av gruppene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -476,8 +478,8 @@
   },
   {
     "cardName": "ikke-arbeid-innvkat-land",
-    "description": "Her ser du antall og andel personer som ikke er i arbeid eller utdanning, i valgt område. Det skilles mellom tall for hele befolkningen, befolkningen unntatt innvandrere, og innvandrere. For innvandrere er landbakgrunn delt i to kategorier.  ",
-    "terminology": "",
+    "description": "Her ser du hvor mange personer i valgt område som er verken i arbeid eller utdanning. Det skilles mellom tall for hele befolkningen, befolkningen unntatt innvandrere, og innvandrere. For innvandrere er landbakgrunn delt i to kategorier: den ene omfatter EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og den andre omfatter Øst-Europa utenom EU, Asia (inkl. Tyrkia), Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand. Figuren viser både antall personer i hver av gruppene, og hvor stor andel de utgjør av arbeidsstyrken i hver av gruppene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.  ",
+    "terminology": "Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -488,8 +490,8 @@
   },
   {
     "cardName": "ikke-arbeid-innvkat-alder",
-    "description": "Her ser du antall og andel personer som ikke er i arbeid eller utdanning, i valgt område. Det skilles mellom tall for hele befolkningen, befolkningen unntatt innvandrere, og innvandrere. Tallene er delt opp i to alderskategorier: 16 til 25 år og 26 til 66 år.\n",
-    "terminology": "",
+    "description": "Her ser du hvor mange personer i valgt område som er verken i arbeid eller utdanning. Det skilles mellom befolkningen unntatt innvander og innvandrere i to aldersgrupper: 16-25 år og 26-66 år. Figuren viser både antall personer i hver av gruppene, og hvor stor andel de utgjør av arbeidsstyrken i hver av gruppene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Arbeidsstyrken er er summen av de sysselsatte og de arbeidsledige, det vil si personer med tilknytning til arbeidsmarkedet.",
     "source": "SSB",
     "measuredAt": "4. kvartal 2013",
     "updatedAt": "",
@@ -500,7 +502,7 @@
   },
   {
     "cardName": "gjennomsnittsinntekt",
-    "description": "Her ser du median gjennomsnittsinntekt etter skatt per år, i valgt område.  Det skilles mellom tall for innvandrere og befolkningen unntatt innvandrere. For innvandrere er landbakgrunn delt i to kategorier. Studenter er ikke inkludert i tallene.\n",
+    "description": "Her ser du median inntekt for innvandere og befolkningen unntatt innvandrere i valgt område. For innvandrere er landbakgrunn delt i to kategorier: den ene omfatter EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og den andre omfatter Øst-Europa utenom EU, Asia (inkl. Tyrkia), Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand. Studenter er ikke inkludert i tallene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Medianinntekt er det inntektsbeløpet som deler den gruppen som måles i to like store grupper, etter at alle inntektene er sortert stigende (eller synkende). Det vil da være like mange personer med inntekt over som under medianinntekten.",
     "source": "SSB",
     "measuredAt": "",
@@ -511,7 +513,7 @@
   },
   {
     "cardName": "vedvarende-lavinntekt",
-    "description": "Her ser du andel personer som bor i husholdninger med vedvarende lavinntekt. Det skilles mellom tall for innvandrere og befolkningen unntatt innvandrere. For innvandrere er landbakgrunn delt i to kategorier. ",
+    "description": "Her ser du innvandrere og befolkningen unntatt innvandrere som bor i husholdninger med vedvarende lavinntekt. Tall for innvandrere er videre delt i to kategorier: den ene omfatter personer fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og den andre omfatter personer Øst-Europa utenom EU, Asia (inkl. Tyrkia), Sør- og Mellom-Amerika og Oseania utenom Australia og New Zealand. Figuren viser hvor stor andel personer i husholdninger med vedvarende lavinntekt utgjør av alle personer i hver av gruppene. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Vedvarende lavinntekt:\nFor å ha vedvarende lavinntekt må husholdningen ha lav inntekt i en treårsperiode. Lavinntekt måles som gjennomsnittlig inntekt for hele husholdningen etter skatt på 60 prosent av (median)gjennomsnittet over en treårsperiode.",
     "source": "SSB",
     "measuredAt": "",
@@ -522,7 +524,7 @@
   },
   {
     "cardName": "sosialhjelp",
-    "description": "Her ser du antall og andel personer som har mottatt sosialhjelp, i valgt område. Det skilles mellom tall for innvandrere, befolkningen unntatt innvandrere, og norskfødte med innvandrerforeldre. \nAndel gjelder innad i gruppen av sosialhjelpsmottakere, slik at en kan se hvor mange av sosialhjelpsmottakerne som har de ulike egenskapene. For eksempel:antall sosialhjelpsmottakere som er kvinner og tilhører befolkningen ellers delt på totalt antall sosialhjelpsmottakere gir oss andelen kvinnelige sosialhjelpsmottakere i befolkningen ellers.",
+    "description": "Her ser du antall og andel innvandrere, befolkningen unnttatt innvandrere og norskfødte med innvandrerforeldre i valgt område som mottar sosialhjelp. Det skilles mellom tall for kvinner og menn. Andel gjelder innad i gruppen av sosialhjelpsmottakere, slik at en kan se hvor mange av sosialhjelpsmottakerne som har de ulike egenskapene. For eksempel:antall sosialhjelpsmottakere som er kvinner og tilhører befolkningen ellers delt på totalt antall sosialhjelpsmottakere gir oss andelen kvinnelige sosialhjelpsmottakere i befolkningen ellers. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Sosialhjelp:\nFor å bli registrert som mottaker av sosialhjelp må man ha mottatt sosialhjelp en gang i løpet av en bestemt periode.",
     "source": "SSB",
     "measuredAt": "",
@@ -534,8 +536,8 @@
   },
   {
     "cardName": "tilskudd",
-    "description": "Her ser du utbetalt tilskudd til valgt område, fordelt på tilskuddstype.\n\nIntegreringstilskudd:\nKommuner får integreringstilskudd ved bosetting av flyktninger. Tilskuddet utbetaltes per person og over fem år. Integreringstilskuddet skal bidra til at kommunene gjennomfører et planmessig og aktivt bosettings- og integreringsarbeid, med sikte på at de bosatte skal komme i jobb og greie seg selv. Tilskuddet skal dekke kommunenes gjennomsnittlige utgifter ved bosetting og integrering i bosettingsåret og de fire neste årene.\n\nTilskudd til bosetting av personer med alvorlige funksjonshemminger eller atferdsvansker:\nOrdningen skal dekke ekstraordinære kommunale utgifter som følger av bosetting av flyktninger med nedsatt fysisk og/eller psykiske funksjonsevne, samt personer med voldelig adferd og rusproblemer eller alvorlige atferdsproblemer. Det er kommunen som søker om og mottar tilskuddet.\n\nTilskudd til bosetting av enslig mindreårige flyktninger:\nKommuner som bosetter enslige mindreårige flyktninger, asylsøkere og/eller enslige mindreårige personer med opphold på humanitært grunnlag, mottar et særskilt tilskudd. Dette tilskuddet utbetales i tillegg til det ordinære integreringstilskuddet, til og med året personen fyller 20 år.\n\nBarnehagetilskudd:\nVed bosetting av barn i barnehagealder (0 til 5 år) får kommunene et engangstilskudd til særskilt tilrettelegging for barn av nyankomne flyktninger, for eksempel til tosspråklige assistenter. \n\nTilskudd til bosetting av personer over 60 år:\nVed bosetting av personer som har fylt 60 år, får kommunen et ekstra engangstilskudd.\n\nSkoletilskudd:\nFrem til 31.12.2013 fikk kommunen et engangs skoletilskudd ved bosetting av barn mellom 6 og 15 år. ",
-    "terminology": "",
+    "description": "Her ser du hvor mye IMDi har utbetalt i ulike tilskudd i valgt område. Det er kommunene som mottar disse tilskuddene. Det vil si at tall for større geografiske områder er sum av tilskuddene utbetalt til kommunene i disse områdene. Det skilles mellom integreringstilskudd for år 1 og for år 2-5, tilskudd til bosetting av personer med alvorlige funksjonshemminger og adferdsvansker, tillskudd til opplæring i norsk og samfunnskunnskap, særskilt tilskudd til bosetting av enslige mindreårige flyktninger, barnehagetilskudd, tilskudd til bosetting av personer over 60 år, og skoletilskudd. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Integreringstilskudd: Kommuner får integreringstilskudd ved bosetting av flyktninger. Tilskuddet utbetaltes per person og over fem år. Integreringstilskuddet skal bidra til at kommunene gjennomfører et planmessig og aktivt bosettings- og integreringsarbeid, med sikte på at de bosatte skal komme i jobb og greie seg selv. Tilskuddet skal dekke kommunenes gjennomsnittlige utgifter ved bosetting og integrering i bosettingsåret og de fire neste årene. Tilskudd til bosetting av personer med alvorlige funksjonshemminger eller atferdsvansker: Ordningen skal dekke ekstraordinære kommunale utgifter som følger av bosetting av flyktninger med nedsatt fysisk og/eller psykiske funksjonsevne, samt personer med voldelig adferd og rusproblemer eller alvorlige atferdsproblemer. Det er kommunen som søker om og mottar tilskuddet. Tilskudd til bosetting av enslig mindreårige flyktninger: Kommuner som bosetter enslige mindreårige flyktninger, asylsøkere og/eller enslige mindreårige personer med opphold på humanitært grunnlag, mottar et særskilt tilskudd. Dette tilskuddet utbetales i tillegg til det ordinære integreringstilskuddet, til og med året personen fyller 20 år. Barnehagetilskudd: Ved bosetting av barn i barnehagealder (0 til 5 år) får kommunene et engangstilskudd til særskilt tilrettelegging for barn av nyankomne flyktninger, for eksempel til tospråklige assistenter. Tilskudd til bosetting av personer over 60 år: Ved bosetting av personer som har fylt 60 år, får kommunen et ekstra engangstilskudd. Skoletilskudd: Frem til 31.12.2013 fikk kommunen et engangs skoletilskudd ved bosetting av barn mellom 6 og 15 år.",
     "source": "IMDi",
     "measuredAt": "",
     "updatedAt": "",

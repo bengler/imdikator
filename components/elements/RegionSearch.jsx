@@ -5,9 +5,6 @@ import cx from 'classnames'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 function shouldItemRender(region, value) {
-  if (region.prefixedCode == 'F00') {
-    return false
-  }
   return region.name.toLowerCase().includes(value.toLowerCase())
 }
 
@@ -40,7 +37,7 @@ export default class RegionSearch extends Component {
       'search-result__result': true,
       'search-result__result--selected': isHighlighted
     })
-    const itemDescription = _t(item.type) ? item.name + ', ' + _t(item.type) : item.name
+    const itemDescription = (_t(item.type) && item.prefixedCode != 'F00') ? `${item.name}, ${_t(item.type)}` : item.name
     return (
       <li>
         <a

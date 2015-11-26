@@ -147,7 +147,7 @@
   },
   {
     "cardName": "bosatt_vedtak",
-    "description": "Her ser du antall personer som valgt område har vedtatt å bosette siste år, antall personer som er bosatt siste år og antall bosatte delt på antall vedtatt bosatte. Tall er tilgjengelig for kommuner, næringsregioner, fylker og hele landet. ",
+    "description": "Her ser du antall personer som valgt område har vedtatt å bosette siste år, antall personer som er bosatt siste år og antall bosatte delt på antall vedtatt bosatte. Tall er tilgjengelig for kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Vedtatt bosatt: Antall flyktninger kommunen har vedtatt å bosette i løpet av året. Bosatte: En flyktning er bosatt når han eller hun ankommer kommunen som har vedtatt å bosette han eller henne.",
     "source": "IMDi",
     "measuredAt": "",
@@ -171,8 +171,7 @@
   },
   {
     "cardName": "barnehage-alder-minoriteter",
-    "description": "Her ser du antall og andel barn i valgt område som går i barnehage. Figuren viser tall for minoritetsspråklige barn og ikke-minoritetsspråklige barn. 
-Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "description": "Her ser du antall og andel barn i valgt område som går i barnehage. Figuren viser tall for minoritetsspråklige barn og ikke-minoritetsspråklige barn. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet.",
     "terminology": "Minoritetsspråklige barn er barn med annet morsmål (førstespråk) enn norsk, samisk, svensk, dansk eller engelsk. Morsmål er det språket som brukes i dagligtale i hjemmet. ",
     "source": "SSB",
     "measuredAt": "15.12.2013",

@@ -21,10 +21,10 @@ describe('UrlQuery', () => {
       const actulParts = UrlQuery.stringify(query).split(';')
 
       ;[
-        '$cmp:K0104,K0105,K0106,K0219,K0220,K0228,K0230,K0231,K0235,K0602,K1001,K1102,K1103,K1201,K1601',
-        'kjonn:1',
-        '$u:personer',
-        '$y:2015'
+        '$cmp=K0104,K0105,K0106,K0219,K0220,K0228,K0230,K0231,K0235,K0602,K1001,K1102,K1103,K1201,K1601',
+        'kjonn=1',
+        '$u=personer',
+        '$y=2015'
       ].forEach(expectedPart => assert.include(actulParts, expectedPart))
 
     })
@@ -40,7 +40,7 @@ describe('UrlQuery', () => {
       }
       assert.equal(
         UrlQuery.stringify(query),
-        '$u:personer;$y:2015;kjonn:1'
+        '$u=personer;$y=2015;kjonn=1'
       )
     })
 
@@ -49,7 +49,7 @@ describe('UrlQuery', () => {
   describe('#parse', () => {
 
     it('parses a stringified query', () => {
-      const query = '$cmp:K0104,K0105,K0106,K0219,K0220,K0228,K0230,K0231,K0235,K0602,K1001,K1102,K1103,K1201,K1601;$u:personer;$y:2015;kjonn:1'
+      const query = '$cmp=K0104,K0105,K0106,K0219,K0220,K0228,K0230,K0231,K0235,K0602,K1001,K1102,K1103,K1201,K1601;$u=personer;$y=2015;kjonn=1'
 
       assert.deepEqual(UrlQuery.parse(query), {
         unit: ['personer'],
@@ -62,7 +62,7 @@ describe('UrlQuery', () => {
       })
     })
     it('parses a query with no comparisonRegions to an empty array', () => {
-      const query = '$u:personer;$y:2015;kjonn:1'
+      const query = '$u=personer;$y=2015;kjonn=1'
 
       assert.deepEqual(UrlQuery.parse(query), {
         unit: ['personer'],

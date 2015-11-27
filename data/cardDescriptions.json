@@ -113,8 +113,8 @@
   },
   {
     "cardName": "flytting",
-    "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område. Det skilles mellom flytting fra/til utlandet innvandring/utvandring og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for innvandrere, og for befolkningen unntatt innvandrere. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
-    "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommuner eller til utlandet. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Nettoflytting/nettoinnvandring: Nettoinnvandring er differansen mellom innvandring og utvandring. Nettoinnflytting er differansen mellom innflyttinger og utflyttinger. Netto innvandring og netto innflytting er differansen mellom innvandring og innflytting, og utvandring og utflytting. ",
+    "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område. Det skilles mellom flytting fra/til utlandet (innvandring/utvandring) og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for innvandrere, og for befolkningen unntatt innvandrere. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommune. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Inn- og utvandring: Inn- eller utvandring er når en person melder flytting til eller fra Norge. Samlet innstrømming/samlet utstrømming: Samlet innstrømming er summen av innvandring og innflytting til valgt område, samlet utstrømming er summen av utvandring og utflytting fra valgt område. Netto til- og utstrømming er differansen mellom samlet tilstrømming og samlet utstrømming i valgt område. ",
     "source": "SSB",
     "measuredAt": "1.1.2014",
     "updatedAt": "",
@@ -124,8 +124,8 @@
   },
   {
     "cardName": "flytting_verdensregion",
-    "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område.  Det skilles mellom flytting fra/til utlandet (innvandring/utvandring) og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for personer fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og personer fra Øst-Europa utenom EU, Asia (inkl. Tyrkia), Afrika, Sør- og Mellom-Amerika, og Oseania utenom Australia og New Zealand. ",
-    "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommuner eller til utlandet. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Nettoflytting/nettoinnvandring: Nettoinnvandring er differansen mellom innvandring og utvandring. Nettoinnflytting er differansen mellom innflyttinger og utflyttinger. Netto innvandring og netto innflytting er differansen mellom innvandring og innflytting, og utvandring og utflytting. ",
+    "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område.  Det skilles mellom flytting fra/til utlandet (innvandring/utvandring) og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for personer fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og personer fra Øst-Europa utenom EU, Asia (inkl. Tyrkia), Afrika, Sør- og Mellom-Amerika, og Oseania utenom Australia og New Zealand. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommune. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Inn- og utvandring: Inn- eller utvandring er når en person melder flytting til eller fra Norge. Samlet innstrømming/samlet utstrømming: Samlet innstrømming er summen av innvandring og innflytting til valgt område, samlet utstrømming er summen av utvandring og utflytting fra valgt område. Netto til- og utstrømming er differansen mellom samlet tilstrømming og samlet utstrømming i valgt område. ",
     "source": "SSB",
     "measuredAt": "2014: 11.mars ",
     "updatedAt": "",
@@ -207,7 +207,7 @@
   },
   {
     "cardName": "elever-i-videregaaende",
-    "description": "Her ser du antall elever (i valgt område) som gikk på videregående skole i perioden 2011-2013 (i valgt område). Det skilles mellom kvinner og menn, og mellom innvandrere, befolkningen utenom innvandrere og norskfødte med innvandrerforeldre, og norskfødte med innvandrerforeldre. Figuren viser også hvor stor andel av alle elever i valgt område de ulike kategoriene utgjør. Data for årene 2011, 2012 og 2013 er slått sammen - det vil si at den enkelte elev kan være omfattet av statistikken én eller flere ganger. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
+    "description": "Her ser du antall elever i valgt område som gikk på videregående skole i perioden 2011-2013 i valgt område. Det skilles mellom kvinner og menn, og mellom innvandrere, befolkningen utenom innvandrere og norskfødte med innvandrerforeldre, og norskfødte med innvandrerforeldre. Figuren viser også hvor stor andel av alle elever i valgt område de ulike kategoriene utgjør. Data for årene 2011, 2012 og 2013 er slått sammen - det vil si at den enkelte elev kan være omfattet av statistikken én eller flere ganger. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner, fylker og hele landet. ",
     "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Det er elevens bosted som registreres. ",
     "source": "SSB",
     "measuredAt": "1.10.2014",
@@ -219,7 +219,7 @@
   },
   {
     "cardName": "ferdig-med-videregaaende",
-    "description": "Her ser du antall og andel elever (i valgt område) som har fullført videregående skole innen fem år etter påbegynt opplæring (i valgt område). Det skilles mellom kvinner og menn, og mellom innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen utenom innvandrere og norskfødte med innvandrerforeldre. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner og fylker.",
+    "description": "Her ser du antall og andel elever i valgt område som har fullført videregående skole innen fem år etter påbegynt opplæring i valgt område. Det skilles mellom kvinner og menn, og mellom innvandrere, befolkningen unntatt innvandrere, norskfødte med innvandrerforeldre, og befolkningen utenom innvandrere og norskfødte med innvandrerforeldre. Tall er tilgjenglig for bydeler i Oslo, kommuner, næringsregioner og fylker.",
     "terminology": "Deltagelse i videregående skole er en samlebetegnelse for antall elever i videregående skole, lærlinger, lærerkandidater, elever på folkehøyskoler, og elever på arbeidsmarkedskurs. Det er elevens bosted som registreres. ",
     "source": "SSB",
     "measuredAt": "",
@@ -314,14 +314,14 @@
   },
   {
     "cardName": "norskopplaering-resultater",
-    "description": "Her ser du antall og andel prøvedeltakere i valgt område. Deltakerne er fordelt på prøveresultatene alle, nivå B1, nivå A2, nivå A1, under nivå A1 og ikke vurdert.  Prøvene er delt i følgende delprøver: muntlig, lytteforståelse, leseforståelse og skriftlig. ",
-    "terminology": "Prøver i norsk og samfunnskunnskap: ",
+    "description": "Her ser du antall og andel prøvedeltakere i valgt område. Deltakerne er fordelt på prøveresultatene nivå B1, nivå A2, nivå A1, under nivå A1 og ikke vurdert.  Prøvene er delt i følgende delprøver: muntlig, lytteforståelse, leseforståelse og skriftlig. Grafen viser hvor stor andel av alle som tok hver delprøve som oppnådde de ulike nivåene. For eksempel har 35 % av alle dem som gikk opp til muntlig prøve oppnådd nivå B1. For 2014: tall for første halvår. Tall er tilgjenglig for kommuner, næringsregioner, fylker og hele landet.",
+    "terminology": "Prøver i norsk og samfunnskunnskap: Personer som har fått vedtak om opphold, som gir rett og plikt til opplæring etter 1. september 2013, har plikt til å avslutte opplæringen med en prøve i norsk og en prøve i samfunnskunnskap. For andre (for eksempel personer med rett, men ikke plikt, eller arbeidsinnvandrere) er det frivillig å ta prøvene. Tallene gjelder for begge grupper. ",
     "source": "Vox",
     "measuredAt": "juli 2014",
     "updatedAt": "",
     "unitDescriptions": {
-      "personer": "antall prøvedeltakere i norsk og samfunnskunnskap",
-      "prosent": "andel prøvedeltakere i norsk og samfunnskunnskap av prøveresultatet"
+      "personer": "antall personer som tok prøve i norsk og samfunnskunnskap",
+      "prosent": "andel personer som tok prøve i norsk og samfunnskunnskap"
     }
   },
   {
@@ -370,14 +370,14 @@
   },
   {
     "cardName": "status-etter-intro",
-    "description": "Her ser du tidligere deltakere i introduksjonsprogrammet som har avsluttet eller avbrutt programmet,  i valgt område, og deres status på arbeidsmarkedet etter henholdsvis ett, to, tre, fire eller fem år. Det skilles mellom hvorvidt personen er sysselsatt eller under utdanning, registrert ledig eller på tiltak, eller har en annen eller ukjent status. \n\nGrafen kan lese på følgende måte: i valgt år var x antall/prosent av dem som avsluttet introduksjonsprogrammet for x antall år siden i arbeid eller utdanning. ",
+    "description": "Her ser du tidligere deltakere i introduksjonsprogrammet som har avsluttet eller avbrutt programmet,  i valgt område, og deres status på arbeidsmarkedet etter henholdsvis ett, to, tre, fire eller fem år. Det skilles mellom hvorvidt personen er sysselsatt eller under utdanning, registrert ledig eller på tiltak, eller har en annen eller ukjent status. \n\nGrafen kan lese på følgende måte: i valgt år var x antall/prosent av dem som avsluttet introduksjonsprogrammet for x antall år siden i arbeid eller utdanning. For eksempel var 65 % av dem som avsluttet eller avbrøt introduksjonsprogrammet for fem år siden i arbeid eller utdanning i 2013. ",
     "terminology": "Introduksjonsloven: Introduksjonsloven regulerer enkeltpersoners rettigheter til introduksjonsprogram og opplæring i norsk og samfunnskunnskap for voksne innvandrere. Formålet med loven er å styrke innvandreres mulighet for å delta i yrkes- og samfunnslivet. Introduksjonsprogrammet: Introduksjonsprogrammet er et opplæringsprogram for flyktninger og familiegjenforente med flyktninger. I hovedsak består programmet av fagene norsk og samfunnskunnskap, samt yrkesrettet språkpraksis eller andre tiltak som forbereder til videre opplæring eller tilknytning til arbeidslivet. Målet er at deltakerne skal delta i arbeids- og samfunnslivet, og hjelpe dem til å bli økonomisk selvstendige. Avsluttet introprogram og status: viser hva de som avsluttet introduksjonsprogrammet gjør etter at de har forlatt programmet.",
     "source": "SSB",
     "measuredAt": "",
     "updatedAt": "",
     "unitDescriptions": {
-      "personer": "antall tidligere deltakere i introduksjonsprogrammet som avsluttet eller avbrøt ett gitt år",
-      "prosent": "andel tidligere deltakere i introduksjonsprogrammet som avsluttet eller avbrøt ett gitt år"
+      "personer": "antall tidligere deltakere som avsluttet eller avbrøt introduksjonsprogrammet for ett til fem år siden",
+      "prosent": "andel tidligere deltakere som avsluttet eller avbrøt introduksjonsprogrammet for ett til fem år siden"
     }
   },
   {

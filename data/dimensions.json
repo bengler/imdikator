@@ -1077,19 +1077,19 @@
     "variables": [
       {
         "title": "Alle avslutningsstatuser",
-        "label": "avslutning_status_4.alle"
+        "label": "alle"
       },
       {
         "title": "Avslutningsstatus arbeid eller utdanning",
-        "label": "avslutning_status_4.arbutd"
+        "label": "arbutd"
       },
       {
         "title": "Avslutningsstatus arbeidsledig eller på tiltak",
-        "label": "avslutning_status_4.ledig_tiltak"
+        "label": "ledig_tiltak"
       },
       {
         "title": "Avslutningsstatus annen",
-        "label": "avslutning_status_4.annet"
+        "label": "annet"
       }
     ]
   },
@@ -1098,24 +1098,24 @@
     "title": "Avsluttet",
     "variables": [
       {
-        "title": "Avsluttet eller avbrutt intro etter ett år",
-        "label": "avslutta_ettaar"
+        "title": "Avsluttet eller avbrutt intro for ett år siden",
+        "label": "ettaar"
       },
       {
-        "title": "Avsluttet eller avbrutt intro etter to år",
-        "label": "avslutta_toaar"
+        "title": "Avsluttet eller avbrutt intro for to år siden",
+        "label": "toaar"
       },
       {
-        "title": "Avsluttet eller avbrutt intro etter tre år",
-        "label": "avslutta_treaar"
+        "title": "Avsluttet eller avbrutt intro for tre år siden",
+        "label": "treaar"
       },
       {
-        "title": "Avsluttet eller avbrutt intro etter fire år",
-        "label": "avslutta_fireaar"
+        "title": "Avsluttet eller avbrutt intro for fire år siden",
+        "label": "fireaar"
       },
       {
-        "title": "Avsluttet eller avbrutt intro etter fem år",
-        "label": "avslutta_femaar"
+        "title": "Avsluttet eller avbrutt intro for fem år siden",
+        "label": "femaar"
       }
     ]
   },

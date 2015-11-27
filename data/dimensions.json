@@ -1073,7 +1073,7 @@
   },
   {
     "name": "avslstat4",
-    "title": "Avslutningsstatus",
+    "title": "Status",
     "variables": [
       {
         "title": "Alle avslutningsstatuser",

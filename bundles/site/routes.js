@@ -14,33 +14,33 @@ import {loadFactsPageData} from '../../actions/factsPage'
 
 const routes = routeBuilder()
 
-routes.add('/indikator/', (dispatch, match) => {
+routes.add('/tall-og-statistikk/', (dispatch, match) => {
   dispatch(setCurrentRegionByCode('F00'))
   return RegionPage
 })
 
-routes.add('/indikator/steder/:region', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region', (dispatch, match) => {
   dispatch(setCurrentRegionByCode(match.params.region))
   return RegionPage
 })
 
-routes.add('/indikator/steder/:region/lignende', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region/lignende', (dispatch, match) => {
   dispatch(setCurrentRegionByCode(match.params.region))
   return SimilarRegionsPage
 })
 
-routes.add('/indikator/steder/:region/fakta', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region/fakta', (dispatch, match) => {
   dispatch(loadFactsPageData(match.params.region))
   return FactsPage
 })
 
-routes.add('/indikator/steder/:region/:cardsPageName', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region/:cardsPageName', (dispatch, match) => {
   const {params} = match
   dispatch(loadCardsPage(params.region, params.cardsPageName))
   return CardsPage
 })
 
-routes.add('/indikator/steder/:region/:cardsPageName/:cardName', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', (dispatch, match) => {
   const {params} = match
   dispatch(
     loadCardsPage(params.region, params.cardsPageName, {
@@ -51,7 +51,7 @@ routes.add('/indikator/steder/:region/:cardsPageName/:cardName', (dispatch, matc
   return CardsPage
 })
 
-routes.add('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName', (dispatch, match) => {
   const {params} = match
   dispatch(
     loadCardsPage(params.region, params.cardsPageName, {
@@ -63,7 +63,7 @@ routes.add('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', (dispa
   return CardsPage
 })
 
-routes.add('/indikator/steder/:region/:cardsPageName/:cardName/:tabName/:query', (dispatch, match) => {
+routes.add('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName/:query', (dispatch, match) => {
   const {params} = match
 
   let query = null

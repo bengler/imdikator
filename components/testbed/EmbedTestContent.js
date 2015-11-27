@@ -5,18 +5,18 @@ import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/htmlmixed/htmlmixed'
 
-const DEFAULT_URL = '/indikator/steder/K1235/befolkning/befolkning_hovedgruppe/sammenliknet'
+const DEFAULT_URL = '/tall-og-statistikk/steder/K1235/befolkning/befolkning_hovedgruppe/sammenliknet'
 
 //const OTHER_EXAMPLES = [
 //  {
 //    title: 'Sysselsetting etter innvandringsgrunn, sammenlignet',
-//    url: '/indikator/steder/K0301/arbeid/sysselsetting-etter-innvandringsgrunn/enkeltaar/'
+//    url: '/tall-og-statistikk/steder/K0301/arbeid/sysselsetting-etter-innvandringsgrunn/enkeltaar/'
 //    + '@$cmp:K0104,K0231,K1103;$u:prosent;$y:2013;innvgrunn5:arbeid,familie,flukt,annet_uoppgitt;kjonn:0'
 //  },
 //
 //  {
 //    title: 'Befolkning verdensregion, åttedelt, sammenlignet',
-//    url: '/indikator/steder/K1235/befolkning/befolkning_verdensregion_aattedelt/enkeltaar/@$u:personer;'
+//    url: '/tall-og-statistikk/steder/K1235/befolkning/befolkning_verdensregion_aattedelt/enkeltaar/@$u:personer;'
 //    + '$y:2014;$cmp:K0528,K0543;vreg9:asia,afrika,vest_europa,eu_ost_europa,nord_amerika_oseania,sor_og_mellom_amerika,ost_europa_ellers,norden'
 //  }
 //]

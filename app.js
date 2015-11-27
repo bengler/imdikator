@@ -41,10 +41,10 @@ app.get('/debug/embeds', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.redirect('/indikator')
+  res.redirect('/tall-og-statistikk')
 })
 
-app.get('/indikator*', (req, res) => {
+app.get('/tall-og-statistikk*', (req, res) => {
   res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest/>))
 })
 

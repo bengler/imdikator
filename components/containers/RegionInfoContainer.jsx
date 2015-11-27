@@ -17,11 +17,11 @@ class RegionInfoContainer extends Component {
   }
 
   createLinkToRegion(region) {
-    return this.context.linkTo('/indikator/steder/:region', {region: region.prefixedCode})
+    return this.context.linkTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
   createLinkToSimilarRegion(region) {
-    return this.context.linkTo('/indikator/steder/:region/lignende', {region: region.prefixedCode})
+    return this.context.linkTo('/tall-og-statistikk/steder/:region/lignende', {region: region.prefixedCode})
   }
 
   render() {

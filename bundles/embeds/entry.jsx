@@ -12,9 +12,9 @@ import UrlQuery from '../../lib/UrlQuery'
 import apiClient from '../../config/apiClient'
 
 const routes = compileRoutes({
-  '/indikator/steder/:regionCode/:cardsPageName/:cardName'() {},
-  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName'() {},
-  '/indikator/steder/:regionCode/:cardsPageName/:cardName/:tabName/:query'() {}
+  '/tall-og-statistikk/steder/:regionCode/:cardsPageName/:cardName'() {},
+  '/tall-og-statistikk/steder/:regionCode/:cardsPageName/:cardName/:tabName'() {},
+  '/tall-og-statistikk/steder/:regionCode/:cardsPageName/:cardName/:tabName/:query'() {}
 })
 
 function parseEmbedUrl(url) {

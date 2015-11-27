@@ -46,7 +46,7 @@ class Card extends Component {
 
 
   getUrlToTab(tab) {
-    return this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName', {
+    return this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName', {
       cardName: this.props.card.name,
       cardsPageName: this.props.cardsPageName,
       tabName: tab.urlName
@@ -78,7 +78,7 @@ class Card extends Component {
       tabName: activeTab.urlName,
       query: `@${UrlQuery.stringify(query)}`
     }
-    return this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName/:tabName/:query', params)
+    return this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName/:query', params)
   }
 
   getShareUrl() {

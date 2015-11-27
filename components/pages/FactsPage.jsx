@@ -19,7 +19,7 @@ class FactsPage extends Component {
   render() {
     const {region, cardsPages} = this.props
 
-    const regionPageLink = this.context.linkTo('/indikator/steder/:region/', {region: region.prefixedCode})
+    const regionPageLink = this.context.linkTo('/tall-og-statistikk/steder/:region/', {region: region.prefixedCode})
 
     return (
       <div>

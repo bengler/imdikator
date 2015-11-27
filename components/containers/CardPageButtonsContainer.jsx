@@ -29,7 +29,7 @@ class CardPageButtons extends Component {
       name: 'summary',
       title: 'Oppsummert',
       selected: !currentCardsPage,
-      url: linkTo('/indikator/steder/:region', {region: currentRegion.prefixedCode})
+      url: linkTo('/tall-og-statistikk/steder/:region', {region: currentRegion.prefixedCode})
     }
 
     const otherPages = allCardsPages.map(cardsPage => {
@@ -38,7 +38,7 @@ class CardPageButtons extends Component {
         name: cardsPage.name,
         title: cardsPage.title,
         selected: cardsPage == currentCardsPage,
-        url: linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {
+        url: linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {
           region: currentRegion.prefixedCode,
           cardsPageName: cardsPage.name,
           cardName: firstCard.name

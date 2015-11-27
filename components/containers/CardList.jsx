@@ -59,8 +59,8 @@ class CardList extends Component {
       event.preventDefault()
       event.nativeEvent.stopImmediatePropagation()
       const link = isOpen
-        ? linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: prevCard || ''})
-        : linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: card.name})
+        ? linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {cardName: prevCard || ''})
+        : linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {cardName: card.name})
 
       navigate(link, {keepScrollPosition: true})
 
@@ -71,7 +71,7 @@ class CardList extends Component {
       }
     }
     return (
-      <a href={this.context.linkTo('/indikator/steder/:region/:cardsPageName/:cardName', {cardName: card.name})}
+      <a href={this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {cardName: card.name})}
         onClick={handleClick}
         className={`toggle-list__button ${card.noValues ? 'toggle-list__button--disablet' : ''} ${isOpen ? 'toggle-list__button--expanded' : ''}`}
         aria-expanded="true"

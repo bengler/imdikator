@@ -26,7 +26,7 @@ class CardsPage extends Component {
   }
 
   handleSwitchRegion(region) {
-    this.context.goTo('/indikator/steder/:region', {region: region.prefixedCode})
+    this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
   renderCardList() {

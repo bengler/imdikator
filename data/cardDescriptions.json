@@ -123,7 +123,7 @@
     }
   },
   {
-    "cardName": "flytting-verdensregion",
+    "cardName": "flytting_verdensregion",
     "description": "Her ser du antall personer som har flyttet inn til eller ut fra valgt område.  Det skilles mellom flytting fra/til utlandet (innvandring/utvandring) og flytting til/fra annen kommune i Norge (innflytting/utflytting). Tallene vises for personer fra EU/EFTA-land, Nord-Amerika, Australia og New Zealand, og personer fra Øst-Europa utenom EU, Asia (inkl. Tyrkia), Afrika, Sør- og Mellom-Amerika, og Oseania utenom Australia og New Zealand. ",
     "terminology": "Flytting: Flytting er når en person melder flytting til en annen norske kommuner eller til utlandet. Dersom en person flytter flere ganger i det samme kalenderåret, teller hver gang som en flytting. I flyttetallene for fylker og landsdeler er flyttinger mellom kommunene i fylket/landsdelen ikke regnet med. Nettoflytting/nettoinnvandring: Nettoinnvandring er differansen mellom innvandring og utvandring. Nettoinnflytting er differansen mellom innflyttinger og utflyttinger. Netto innvandring og netto innflytting er differansen mellom innvandring og innflytting, og utvandring og utflytting. ",
     "source": "SSB",
@@ -376,7 +376,8 @@
     "measuredAt": "",
     "updatedAt": "",
     "unitDescriptions": {
-      "personer": "antall tidligere deltakere i introduksjonsprogrammet som avsluttet eller avbrøt ett gitt år"
+      "personer": "antall tidligere deltakere i introduksjonsprogrammet som avsluttet eller avbrøt ett gitt år",
+      "prosent": "andel tidligere deltakere i introduksjonsprogrammet som avsluttet eller avbrøt ett gitt år"
     }
   },
   {

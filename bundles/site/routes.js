@@ -86,7 +86,7 @@ routes.add('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName
   return CardsPage
 })
 
-routes.add('*', (dispatch, route) => {
+routes.add('/tall-og-statistikk/*', (dispatch, route) => {
   return NotFoundPage
 })
 

@@ -53,8 +53,12 @@ class EmbeddedChartContainer extends Component {
 
     if (!ChartComponent) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded">
-          Error: No chart component for {JSON.stringify(chartKind)}
+        <div className="image-block">
+          <div className="col-block-bleed">
+            <div className="image-block__image image-block__image--figure">
+              <p>Feil ved lasting av figur: {JSON.stringify(chartKind)}</p>
+            </div>
+          </div>
         </div>
       )
     }
@@ -75,7 +79,8 @@ class EmbeddedChartContainer extends Component {
     return (
       <figure className="image-block">
         <div className="col-block-bleed">
-          <div className="image-block__image">
+          <div className="image-block__image image-block__image--figure">
+            <h3 className="h4"><a href="#_TODO_urltilgrafeniløsningenfiltrert">{card.name}</a></h3>
             <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})}/>
             {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
           </div>

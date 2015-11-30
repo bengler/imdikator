@@ -1,17 +1,18 @@
 import {assert} from 'chai'
 import {getQuerySpec} from '../../../lib/querySpec'
 import {CHARTS} from '../../../config/chartTypes'
+import allRegions from '../../fixtures/mockRegions'
+
+
+const REGION_PREFIXES = allRegions.map(reg => reg.prefixedCode)
 
 const HEADER_GROUP = {
   aar: ['2010', '2012'],
   enhet: ['prosent', 'personer'],
   kjonn: ['alle', '0', '1'],
-  innvkat5: ['alle', 'innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf'],
-  kommuneNr: ['0511', '0428'],
-  bydelNr: ['030102', '030104'],
-  fylkeNr: ['02', '03'],
-  naringsregionNr: ['05', '07'],
+  innvkat5: ['alle', 'innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']
 }
+
 
 const QUERY = {
   table: 'befolkninghovedgruppe',
@@ -50,7 +51,8 @@ describe('getQuerySpec', () => {
         headerGroup: Object.assign({}, HEADER_GROUP, {
           innvkat5: ['innvandrere', 'befolkningen_ellers', 'norskfodte_m_innvf', 'bef_u_innv_og_norskf']
         }),
-        chart: CHARTS.bar
+        chart: CHARTS.bar,
+        allRegions: allRegions
       }
 
       const actual = getQuerySpec(query, viewOpts)
@@ -60,7 +62,7 @@ describe('getQuerySpec', () => {
           fixed: true,
           locked: false,
           hidden: false,
-          choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
+          choices: REGION_PREFIXES
         },
         {
           name: 'year',
@@ -105,7 +107,8 @@ describe('getQuerySpec', () => {
         const viewOpts = {
           tab: {name: 'latest'},
           headerGroup: HEADER_GROUP,
-          chart: CHARTS.bar
+          chart: CHARTS.bar,
+          allRegions: allRegions
         }
 
         const actual = getQuerySpec(query, viewOpts)
@@ -115,7 +118,7 @@ describe('getQuerySpec', () => {
             fixed: true,
             hidden: false,
             locked: false,
-            choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
+            choices: REGION_PREFIXES
           },
           {
             name: 'year',
@@ -158,7 +161,8 @@ describe('getQuerySpec', () => {
         const viewOpts = {
           tab: {name: 'latest'},
           headerGroup: HEADER_GROUP,
-          chart: CHARTS.bar
+          chart: CHARTS.bar,
+          allRegions: allRegions
         }
 
         const actual = getQuerySpec(query, viewOpts)
@@ -168,7 +172,7 @@ describe('getQuerySpec', () => {
             fixed: true,
             hidden: false,
             locked: false,
-            choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
+            choices: REGION_PREFIXES
           },
           {
             name: 'year',
@@ -212,7 +216,8 @@ describe('getQuerySpec', () => {
         const viewOpts = {
           tab: {name: 'chronological'},
           headerGroup: HEADER_GROUP,
-          chart: CHARTS.bar
+          chart: CHARTS.bar,
+          allRegions: allRegions
         }
 
         const actual = getQuerySpec(query, viewOpts)
@@ -222,7 +227,7 @@ describe('getQuerySpec', () => {
             fixed: true,
             hidden: false,
             locked: false,
-            choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
+            choices: REGION_PREFIXES
           },
           {
             name: 'year',
@@ -266,7 +271,8 @@ describe('getQuerySpec', () => {
         const viewOpts = {
           tab: {name: 'chronological'},
           headerGroup: HEADER_GROUP,
-          chart: CHARTS.bar
+          chart: CHARTS.bar,
+          allRegions: allRegions
         }
         const actual = getQuerySpec(query, viewOpts)
         assert.deepEqual(actual, [
@@ -275,7 +281,7 @@ describe('getQuerySpec', () => {
             fixed: true,
             hidden: false,
             locked: false,
-            choices: ['K0511', 'K0428', 'F02', 'F03', 'B030102', 'B030104', 'N05', 'N07']
+            choices: REGION_PREFIXES
           },
           {
             name: 'year',

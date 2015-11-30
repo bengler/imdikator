@@ -87,7 +87,7 @@
     "rx-node": "^1.0.1",
     "smoothscroll": "^0.2.2",
     "spawn-stream": "^1.0.2",
-    "staticr": "^3.0.1",
+    "staticr": "^3.1.1",
     "textures": "^1.0.3",
     "topojson": "^1.6.19",
     "uglify-js": "^2.4.24"

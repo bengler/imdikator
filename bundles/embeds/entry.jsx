@@ -5,7 +5,7 @@ import createImdiAppStore from '../../lib/redux-utils/createImdiAppStore'
 import {Provider} from 'react-redux'
 import compileRoutes from '../../lib/compileRoutes'
 import {loadEmbedData} from '../../actions/embeds'
-import {API_GLOBAL, SELECTOR_EMBED} from '../common'
+import {API_GLOBAL, SELECTOR_EMBED} from '../constants'
 import UrlQuery from '../../lib/UrlQuery'
 
 import apiClient from '../../config/apiClient'

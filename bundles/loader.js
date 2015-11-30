@@ -3,13 +3,18 @@ import loadScript from 'load-script'
 import url from 'url'
 import domready from 'domready'
 
-import {API_GLOBAL, SELECTOR_EMBED, SELECTOR_SITE} from './common'
+import {API_GLOBAL, SELECTOR_EMBED, SELECTOR_SITE} from './constants'
 
 const scriptEl = document.getElementById('imdikator-loader')
 
+let loaded = false
 function scan() {
+  if (loaded) {
+    return
+  }
+
   if (!scriptEl) {
-    throw new Error('Imdikator was included on page, but the script tag is missing required attribute id="imdikator-loader"')
+    throw new Error('The imdikator loader was included on page, but the script tag is missing required attribute id="imdikator-loader"')
   }
 
   const hasEmbed = document.querySelector(SELECTOR_EMBED)
@@ -24,13 +29,16 @@ function scan() {
     throw new Error('Having both embeds and the full imdikator site on the same page is not supported')
   }
 
-  const scriptFile = hasEmbed ? 'embeds.js' : 'site.js'
+  const scriptFile = url.resolve(scriptEl.src, hasEmbed ? 'embeds.js' : 'site.js')
 
-  loadScript(url.resolve(scriptEl.src, scriptFile))
+  loaded = true
+  loadScript(scriptFile, err => {
+    if (err) {
+      console.error(`Could not load ${scriptFile}: ${err.stack}`) // eslint-disable-line no-console
+      loaded = false
+    }
+  })
 }
-
-domready(scan)
-
 
 const apiHost = scriptEl.getAttribute('data-api-host')
 
@@ -51,3 +59,6 @@ const API = {
 
 
 window[API_GLOBAL] = API
+
+domready(scan)
+scan()

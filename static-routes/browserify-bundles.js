@@ -2,7 +2,7 @@ import browserify from 'browserify'
 import rebundler from 'rebundler'
 import SpawnStream from 'spawn-stream'
 
-import {env} from '../config'
+import config from '../config'
 import collapser from 'bundle-collapser/plugin'
 
 import babelify from 'babelify'
@@ -10,13 +10,13 @@ import envify from 'envify'
 
 function createBundle(entries) {
 
-  return rebundler({noop: env !== 'development'}, (cache, pkgCache) => {
+  return rebundler({noop: config.env !== 'development'}, (cache, pkgCache) => {
     return browserify(entries, {
       cache: cache,
       packageCache: pkgCache,
       extensions: ['.jsx'],
-      debug: env == 'development',
-      fullPaths: env == 'development'
+      debug: config.env == 'development',
+      fullPaths: config.env == 'development'
     })
   })
 }
@@ -32,7 +32,7 @@ function uglify() {
 }
 
 const site = createBundle([
-  //env === 'development' && require.resolve('../lib/react-a11y'),
+  //config.env === 'development' && require.resolve('../lib/react-a11y'),
   require.resolve('../bundles/site/entry.jsx')
 ].filter(Boolean))
 
@@ -56,15 +56,15 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = loader()
       .transform(babelify)
-      .transform(envify, {global: env !== 'development'})
+      .transform(envify, {global: config.env !== 'development'})
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       return stream.pipe(uglify())
     }
 
@@ -77,15 +77,15 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = embeds()
       .transform(babelify)
-      .transform(envify, {global: env !== 'development'})
+      .transform(envify, {global: config.env !== 'development'})
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       return stream.pipe(uglify())
     }
 
@@ -98,15 +98,15 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = embedsDebug()
       .transform(babelify)
-      .transform(envify, {global: env !== 'development'})
+      .transform(envify, {global: config.env !== 'development'})
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       return stream.pipe(uglify())
     }
 
@@ -119,15 +119,15 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = site()
       .transform(babelify)
-      .transform(envify, {global: env !== 'development'})
+      .transform(envify, {global: config.env !== 'development'})
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       //bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
 
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       return stream.pipe(uglify())
     }
 
@@ -137,13 +137,13 @@ export default {
     return stream
   },
   '/build/js/test.js'() {
-    if (env !== 'development') {
+    if (config.env !== 'development') {
       return '// only development'
     }
     return test()
       .transform('redocify')
       .transform(babelify)
-      .transform(envify, {global: env !== 'development'})
+      .transform(envify, {global: config.env !== 'development'})
       .bundle()
   }
 }

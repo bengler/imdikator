@@ -80,8 +80,8 @@
               "dependencies": {
                 "left-pad": {
                   "version": "0.0.3",
-                  "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                  "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                  "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                  "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                 }
               }
             },
@@ -612,8 +612,8 @@
               "dependencies": {
                 "left-pad": {
                   "version": "0.0.3",
-                  "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                  "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                  "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                  "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                 }
               }
             },
@@ -1666,8 +1666,8 @@
                   "dependencies": {
                     "left-pad": {
                       "version": "0.0.3",
-                      "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                      "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                      "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                      "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                     }
                   }
                 }
@@ -1891,8 +1891,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -2055,8 +2055,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -2282,8 +2282,8 @@
                       "dependencies": {
                         "left-pad": {
                           "version": "0.0.3",
-                          "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                          "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                          "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                          "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                         }
                       }
                     }
@@ -2478,8 +2478,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -2671,8 +2671,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -2845,8 +2845,8 @@
                               "dependencies": {
                                 "left-pad": {
                                   "version": "0.0.3",
-                                  "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                                  "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                                  "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                                  "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                                 }
                               }
                             }
@@ -2997,8 +2997,8 @@
                               "dependencies": {
                                 "left-pad": {
                                   "version": "0.0.3",
-                                  "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                                  "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                                  "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                                  "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                                 }
                               }
                             }
@@ -3151,8 +3151,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -3341,8 +3341,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -3515,8 +3515,8 @@
                               "dependencies": {
                                 "left-pad": {
                                   "version": "0.0.3",
-                                  "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                                  "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                                  "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                                  "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                                 }
                               }
                             }
@@ -3761,8 +3761,8 @@
                       "dependencies": {
                         "left-pad": {
                           "version": "0.0.3",
-                          "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                          "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                          "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                          "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                         }
                       }
                     }
@@ -3981,8 +3981,8 @@
                       "dependencies": {
                         "left-pad": {
                           "version": "0.0.3",
-                          "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                          "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                          "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                          "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                         }
                       }
                     }
@@ -4174,8 +4174,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -4341,8 +4341,8 @@
                           "dependencies": {
                             "left-pad": {
                               "version": "0.0.3",
-                              "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                              "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                              "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                              "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                             }
                           }
                         }
@@ -4555,8 +4555,8 @@
                               "dependencies": {
                                 "left-pad": {
                                   "version": "0.0.3",
-                                  "from": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz",
-                                  "resolved": "http://lazy.npm.api.no:80/left-pad/-/left-pad-0.0.3.tgz"
+                                  "from": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz",
+                                  "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
                                 }
                               }
                             }

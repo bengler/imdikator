@@ -3,7 +3,7 @@ import rebundler from 'rebundler'
 import SpawnStream from 'spawn-stream'
 
 import {env} from '../config'
-//import collapser from 'bundle-collapser/plugin'
+import collapser from 'bundle-collapser/plugin'
 
 import babelify from 'babelify'
 import envify from 'envify'
@@ -59,7 +59,7 @@ export default {
       .transform(envify, {global: env !== 'development'})
 
     if (env !== 'development') {
-      //bundle.plugin(collapser)
+      bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
@@ -80,7 +80,7 @@ export default {
       .transform(envify, {global: env !== 'development'})
 
     if (env !== 'development') {
-      //bundle.plugin(collapser)
+      bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
@@ -101,7 +101,7 @@ export default {
       .transform(envify, {global: env !== 'development'})
 
     if (env !== 'development') {
-      //bundle.plugin(collapser)
+      bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()

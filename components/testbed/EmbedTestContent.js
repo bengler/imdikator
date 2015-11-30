@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {API_GLOBAL} from '../../bundles/common'
+import {API_GLOBAL} from '../../bundles/constants'
 
 import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/javascript/javascript'

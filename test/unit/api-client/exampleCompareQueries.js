@@ -1,11 +1,11 @@
 export default [
   {
-    test: 'A query with time "latest"',
+    test: 'A query with regions to compare with',
     query: {
       tableName: 'befolkninghovedgruppe',
       region: 'K0101',
       unit: ['personer'],
-      comparisonRegions: [],
+      comparisonRegions: ['B000301', 'B030101', 'K0102', 'K0103'],
       dimensions: [
         {
           name: 'innvkat5',
@@ -37,10 +37,12 @@ export default [
         aar: ['2015'],
         innvkat5: ['alle', 'innvandrere', 'bef_u_innv_og_norskf', 'norskfodte_m_innvf'],
         kjonn: ['0', '1'],
-        enhet: ['personer'],
-        kommuneNr: ['0101']
+        enhet: ['personer']
       },
-      include: ['innvkat5', 'kjonn', 'aar', 'kommuneNr', 'enhet']
+      compare: {
+        bydelNr: ['000301', '030101'],
+        kommuneNr: ['0101', '0102', '0103']
+      }
     }
   }
 ]

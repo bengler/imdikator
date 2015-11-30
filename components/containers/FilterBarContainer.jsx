@@ -87,11 +87,12 @@ class FilterBarContainer extends Component {
   }
 
   getQuerySpec(query) {
-    const {tab, chart, config} = this.props
+    const {tab, chart, config, allRegions} = this.props
     return getQuerySpec(query, {
       tab: tab,
       chart: chart,
       headerGroup: this.getHeaderGroupForQuery(query),
+      allRegions: allRegions,
       config: config
     })
   }
@@ -104,31 +105,11 @@ class FilterBarContainer extends Component {
     })
   }
 
-  getValidComparisonRegions(comparisonRegionSpec) {
-    const {allRegions} = this.props
-    const invalid = []
-    const regions = comparisonRegionSpec.choices.map(prefixedCode => {
-      const found = allRegions.find(reg => reg.prefixedCode === prefixedCode)
-      if (!found) {
-        invalid.push(prefixedCode)
-      }
-      return found
-    }).filter(Boolean)
-
-    if (invalid.length > 0) {
-      //const message = 'Warning: Query spec said the following region codes were valid comparison regions, '
-      //                 + `but none of them was found in list of known regions: ${invalid.join(', ')}`
-      //console.warn(new Error(message))
-    }
-    return regions
-  }
-
   createRegionFilterFromSpec(spec) {
 
-    const {region, tab} = this.props
+    const {region, tab, allRegions} = this.props
 
-    const validRegions = this.getValidComparisonRegions(spec)
-    const similarRegions = validRegions.filter(isSimilarRegion(region))
+    const similarRegions = allRegions.filter(isSimilarRegion(region))
 
     const renderChoice = (choice, i, choices) => {
       if (tab.name == 'benchmark') {

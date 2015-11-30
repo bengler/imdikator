@@ -258,6 +258,7 @@ export function loadTab({region, cardsPage, card, tab, query}) {
           tab: tabWithConfig,
           chart,
           headerGroup,
+          allRegions,
           config: card.config
         })
 

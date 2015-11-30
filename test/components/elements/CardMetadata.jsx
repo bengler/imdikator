@@ -13,7 +13,7 @@ describe('CardMetadata', () => {
 
   const renderer = TestUtils.createRenderer()
 
-  it('doesnt render metadata', () => {
+  it("doesn't render metadata when not expanded", () => {
     const element = (
       <CardMetadata
         description="Some description"

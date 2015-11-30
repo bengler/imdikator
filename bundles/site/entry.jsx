@@ -1,4 +1,3 @@
-import 'babel/polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
@@ -26,8 +25,8 @@ function loadInitialState() {
   })
 }
 
-async function bootstrap() {
-  const store = createImdiAppStore(await loadInitialState())
+function bootstrap(initialState) {
+  const store = createImdiAppStore(initialState)
   const router = Router(compileRoutes(routes), match => {
     const Component = match.handler(store.dispatch, match)
     store.dispatch(navigate(Component, match))
@@ -108,4 +107,4 @@ async function bootstrap() {
   }
 }
 
-bootstrap()
+loadInitialState().then(bootstrap)

@@ -1,4 +1,3 @@
-import 'babel/polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import EmbeddedChartContainer from '../../components/containers/EmbeddedChartContainer'
@@ -55,8 +54,8 @@ function loadInitialState() {
 }
 
 
-async function bootstrap() {
-  const store = createImdiAppStore(await loadInitialState())
+function bootstrap(initialState) {
+  const store = createImdiAppStore(initialState)
 
   const API = window[API_GLOBAL] = window[API_GLOBAL] || {}
 
@@ -103,5 +102,4 @@ async function bootstrap() {
   }
 }
 
-
-bootstrap()
+loadInitialState().then(bootstrap)

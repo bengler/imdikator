@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import loadScript from 'load-script'
 import url from 'url'
 import domready from 'domready'

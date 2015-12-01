@@ -1,12 +1,12 @@
 import {assert} from 'chai'
-import * as APIClient from '../../lib/api-client'
-import {adapter, API_URL} from './config'
+import * as APIClient from '../../lib/api-client/visma'
+import {connector, API_URL} from './config'
 
 describe('Fetching tables using API client', () => {
   it('can retrieve all tables', async () => {
     const client = APIClient.create({
       baseUrl: API_URL,
-      adapter: adapter
+      connector: connector
     })
 
     const tables = await client._getTables()
@@ -17,7 +17,7 @@ describe('Fetching tables using API client', () => {
   it('can retrieve headers for a given table', async () => {
     const client = APIClient.create({
       baseUrl: API_URL,
-      adapter: adapter
+      connector: connector
     })
 
     const tables = await client._getTables()
@@ -31,7 +31,7 @@ describe('Fetching tables using API client', () => {
   it('can do a basic query', async () => {
     const client = APIClient.create({
       baseUrl: API_URL,
-      adapter: adapter
+      connector: connector
     })
 
     const result = await client.query({
@@ -54,7 +54,7 @@ describe('Fetching tables using API client', () => {
     xit('fails with 400 if we query a nonexistent table', async () => {
       const client = APIClient.create({
         baseUrl: API_URL,
-        adapter: adapter
+        connector: connector
       })
 
       const query = client.query({
@@ -77,7 +77,7 @@ describe('Fetching tables using API client', () => {
     it('fails with 400 if an invalid query is passed', async () => {
       const client = APIClient.create({
         baseUrl: API_URL,
-        adapter: adapter
+        connector: connector
       })
 
       const query = client.query({

@@ -32,7 +32,7 @@ function mapStateToProps(state, ownProps) {
     return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
   })
 
-  const graphDescription = describeChart(queryToOptions(query, card.name, headerGroup, allRegions))
+  const graphDescription = describeChart(queryToOptions(query, card, headerGroup, allRegions))
 
   return {
     description: graphDescription

@@ -1,15 +1,32 @@
+import * as VismaAPIClient from '../lib/api-client/visma'
+import * as EpinovaAPIClient from '../lib/api-client/epinova'
+import * as FileAPIClient from '../lib/api-client/files'
 import * as APIClient from '../lib/api-client'
-import {defaults} from '../lib/http/json'
+import * as JSONConnector from '../lib/http/json'
 import config from './index'
 
-export const adapter = defaults({
+export const connector = JSONConnector.defaults({
   headers: {
     'user-agent': 'imdikator:api-client',
     accept: 'application/json,text/plain,* / *'
   }
 })
 
-export default APIClient.create({
+const vismaAPI = VismaAPIClient.create({
   baseUrl: `http://${config.apiHost}/api/v1/`,
-  adapter: adapter
+  connector: connector
+})
+
+const epinovaAPI = EpinovaAPIClient.create({
+  //baseUrl: `http://imdi.epinova.no/api`,
+  baseUrl: `/api/`,
+  connector: connector
+})
+
+const fileAPI = FileAPIClient.create()
+
+export default APIClient.create({
+  vismaAPI: vismaAPI,
+  epinovaAPI: epinovaAPI,
+  fileAPI: fileAPI
 })

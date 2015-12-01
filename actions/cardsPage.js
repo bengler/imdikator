@@ -139,7 +139,6 @@ export function loadCardsPage(regionCode, cardsPageName, {cardName, tabName, que
     const {allCardsPages, headerGroups} = getState()
 
     const foundCardsPage = allCardsPages.find(cardsPage => cardsPage.name.toLowerCase() === cardsPageName.toLowerCase())
-
     if (!foundCardsPage) {
       dispatch(cardsPageNotFound(foundCardsPage))
       return

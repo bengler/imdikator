@@ -1,7 +1,42 @@
 import {assert} from 'chai'
 import {queryToOptions, describeChart} from '../../../lib/chartDescriber'
 import allRegions from '../../fixtures/mockRegions'
-import mockCardDescriptions from '../../fixtures/mockCardDescriptions'
+
+const CARDS = [
+  {
+    name: 'befolkning_innvandringsgrunn',
+    metadata: {
+      description: 'Her ser du innvandrere fordelt på femdelt innvandringsgrunn og kjønn. Innvandringsgrunn er fordelt '
+                    + 'på arbeid, familie, flukt, utdanning og andre.',
+      terminology: '',
+      source: 'SSB',
+      measuredAt: '1.1.2014',
+      updatedAt: '',
+      unitDescriptions: {
+        personer: 'antall innvandrere'
+      }
+    },
+  },
+  {
+    name: 'befolkning_innvandringsgrunn',
+    metadata: {
+      cardName: '',
+      description: 'Her ser du innvandrere fordelt på femdelt innvandringsgrunn og kjønn. Innvandringsgrunn er fordelt '
+                    + 'på arbeid, familie, flukt, utdanning og andre.',
+      terminology: '',
+      source: 'SSB',
+      measuredAt: '1.1.2014',
+      updatedAt: '',
+      unitDescriptions: {
+        personer: 'antall innvandrere'
+      }
+    }
+  }
+]
+
+function findMockCardByName(name) {
+  return CARDS.find(card => card.name === name)
+}
 
 describe('queryToOptions', () => {
   // nedbrytning vs avgrensning:
@@ -37,7 +72,7 @@ describe('queryToOptions', () => {
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
-    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions, mockCardDescriptions)
+    const result = queryToOptions(query, findMockCardByName('befolkning_innvandringsgrunn'), {}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -68,7 +103,7 @@ describe('queryToOptions', () => {
       timePeriod: ['2014'],
       regions: ['Oslo', 'Fredrikstad', 'Bærum', 'Rælingen']
     }
-    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions, mockCardDescriptions)
+    const result = queryToOptions(query, findMockCardByName('befolkning_innvandringsgrunn'), {}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -98,9 +133,9 @@ describe('queryToOptions', () => {
       timePeriod: ['2011', '2012', '2013', '2014'],
       regions: ['Oslo']
     }
-    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {
+    const result = queryToOptions(query, findMockCardByName('befolkning_innvandringsgrunn'), {
       aar: ['2012', '2011', '2013', '2014']
-    }, allRegions, mockCardDescriptions)
+    }, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -134,7 +169,7 @@ describe('queryToOptions', () => {
       timePeriod: ['2014'],
       regions: ['Oslo']
     }
-    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions, mockCardDescriptions)
+    const result = queryToOptions(query, findMockCardByName('befolkning_innvandringsgrunn'), {}, allRegions)
     assert.deepEqual(result, expected)
   })
 
@@ -160,7 +195,7 @@ describe('queryToOptions', () => {
       bounds: [],
       groupedBy: ['bakgrunn']
     }
-    const result = queryToOptions(query, 'befolkning_innvandringsgrunn', {}, allRegions, mockCardDescriptions)
+    const result = queryToOptions(query, findMockCardByName('befolkning_innvandringsgrunn'), {}, allRegions)
     assert.deepEqual(result, expected)
   })
 

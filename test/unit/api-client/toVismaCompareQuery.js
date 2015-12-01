@@ -1,5 +1,5 @@
 import {assert} from 'chai'
-import toVismaQuery from '../../../lib/api-client/toVismaCompareQuery'
+import toVismaQuery from '../../../lib/api-client/utils/toVismaCompareQuery'
 import examples from './exampleCompareQueries'
 
 describe('Translating to Visma compare query', () => {

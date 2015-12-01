@@ -6,10 +6,13 @@ import RegionFilterSelect from '../elements/filter/RegionFilterSelect'
 import FilterSelect from '../elements/filter/FilterSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
 import {getQuerySpec, constrainQuery} from '../../lib/querySpec'
+import indexBy from 'lodash.indexby'
 import arrayEqual from 'array-equal'
 import {comparisonDescription, isSimilarRegion} from '../../lib/regionUtil'
 import humanizeList from 'humanize-list'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+
+let didWarnAboutMissingCodes = false
 
 class FilterBarContainer extends Component {
   static propTypes = {
@@ -71,6 +74,13 @@ class FilterBarContainer extends Component {
     this.props.onChange(constrainedQuery.query)
   }
 
+  getIndexedRegions() {
+    if (!this._indexedRegions) {
+      this._indexedRegions = indexBy(this.props.allRegions, 'prefixedCode')
+    }
+    return this._indexedRegions
+  }
+
   getDimensionValueFromQuery(dimensionName) {
     const {query} = this.props
 
@@ -82,8 +92,7 @@ class FilterBarContainer extends Component {
   }
 
   getRegionByPrefixedCode(prefixedCode) {
-    // ugh
-    return this.props.allRegions.find(reg => reg.prefixedCode === prefixedCode)
+    return this.getIndexedRegions()[prefixedCode]
   }
 
   getQuerySpec(query) {
@@ -96,21 +105,21 @@ class FilterBarContainer extends Component {
     })
   }
 
-  getValidComparisonRegions(comparisonRegionSpec) {
-    const {allRegions} = this.props
-    const invalid = []
-    const regions = comparisonRegionSpec.choices.map(prefixedCode => {
-      const found = allRegions.find(reg => reg.prefixedCode === prefixedCode)
-      if (!found) {
-        invalid.push(prefixedCode)
+  findRegionsByPrefixes(prefixedCodes, warnMissing = true) {
+    const missing = []
+    const regions = prefixedCodes.map(prefixedCode => {
+      const found = this.getRegionByPrefixedCode(prefixedCode)
+      if (!found && warnMissing) {
+        missing.push(prefixedCode)
       }
       return found
     }).filter(Boolean)
 
-    if (invalid.length > 0) {
-      //const message = 'Warning: Query spec said the following region codes were valid comparison regions, '
-      //                 + `but none of them was found in list of known regions: ${invalid.join(', ')}`
-      //console.warn(new Error(message))
+    if (!didWarnAboutMissingCodes && missing.length > 0) {
+      const message = `[Warning]: Some region codes could not be mapped correctly. `
+                      + `These may be may be old codes not in use anymore: ${missing.join(', ')}`
+      console.warn(new Error(message)) // eslint-disable-line no-console
+      didWarnAboutMissingCodes = true
     }
     return regions
   }
@@ -119,7 +128,7 @@ class FilterBarContainer extends Component {
 
     const {region, tab} = this.props
 
-    const validRegions = this.getValidComparisonRegions(spec)
+    const validRegions = this.findRegionsByPrefixes(spec.choices, true)
     const similarRegions = validRegions.filter(isSimilarRegion(region))
 
     const renderChoice = (choice, i, choices) => {
@@ -139,6 +148,7 @@ class FilterBarContainer extends Component {
       // todo: {name: 'recommended' ...}
     ]
 
+
     return {
       name: spec.name,
       component: RegionFilterSelect,
@@ -147,7 +157,7 @@ class FilterBarContainer extends Component {
         locked: tab.name == 'benchmark',
         value: this.getDimensionValueFromQuery(spec.name).map(this.getRegionByPrefixedCode.bind(this)),
         groups: groups,
-        choices: spec.choices.map(this.getRegionByPrefixedCode.bind(this)).filter(Boolean),
+        choices: validRegions,
         renderChoice
       }
     }

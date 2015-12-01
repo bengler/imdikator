@@ -1,0 +1,68 @@
+[
+  {
+    "name": "kjonn",
+    "title": "Kjønn",
+    "variables": [
+      {
+        "title": "Menn",
+        "label": "1"
+      },
+      {
+        "title": "Kvinner",
+        "label": "0"
+      }
+    ]
+  },
+  {
+    "name": "innvkat3",
+    "title": "Bakgrunn",
+    "variables": [
+      {
+        "title": "Hele befolkningen",
+        "label": "alle"
+      },
+      {
+        "title": "Innvandrere",
+        "label": "innvandrere"
+      },
+      {
+        "title": "Befolkningen unntatt innvandrere",
+        "label": "befolkningen_ellers"
+      },
+      {
+        "title": "Norskfødte med innvandrerforeldre",
+        "label": "norskfodte_m_innvf"
+      },
+      {
+        "title": "Befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
+        "label": "bef_u_innv_og_norskf"
+      }
+    ]
+  },
+  {
+    "name": "innvkat5",
+    "title": "Bakgrunn",
+    "variables": [
+      {
+        "title": "Hele befolkningen",
+        "label": "alle"
+      },
+      {
+        "title": "Innvandrere",
+        "label": "innvandrere"
+      },
+      {
+        "title": "Befolkningen unntatt innvandrere",
+        "label": "befolkningen_ellers"
+      },
+      {
+        "title": "Norskfødte med innvandrerforeldre",
+        "label": "norskfodte_m_innvf"
+      },
+      {
+        "title": "Befolkningen utenom innvandrere og norskfødte med innvandrerforeldre",
+        "label": "bef_u_innv_og_norskf"
+      }
+    ]
+  }
+]

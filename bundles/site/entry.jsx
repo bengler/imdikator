@@ -6,6 +6,7 @@ import {navigate} from '../../actions/navigate'
 import App from '../../components/containers/App'
 import config from '../../config'
 import createImdiAppStore from '../../lib/redux-utils/createImdiAppStore'
+import {setDimensionLabels} from '../../lib/labels'
 import routes from './routes'
 import Router from '../../lib/Router'
 import compileRoutes from '../../lib/compileRoutes'
@@ -107,4 +108,8 @@ function bootstrap(initialState) {
   }
 }
 
-loadInitialState().then(bootstrap)
+const didSetDimensionLabels = apiClient.getDimensionLabels().then(dimensionLabels => {
+  setDimensionLabels(dimensionLabels)
+})
+
+Promise.all([loadInitialState(), didSetDimensionLabels]).then(([initialState]) => bootstrap(initialState))

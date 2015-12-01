@@ -1,6 +1,10 @@
 import {assert} from 'chai'
 import {queryToOptions, describeChart} from '../../../lib/chartDescriber'
+import exampleDimensionLabels from './exampleDimensionLabels'
+import {setDimensionLabels} from '../../../lib/labels'
 import allRegions from '../../fixtures/mockRegions'
+
+setDimensionLabels(exampleDimensionLabels)
 
 const CARDS = [
   {

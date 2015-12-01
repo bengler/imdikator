@@ -1,1 +1,0 @@
-- Expects a query for a non-existant table to fail with 400 and a descriptive error message

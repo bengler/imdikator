@@ -194,7 +194,7 @@ class Card extends Component {
             description={card.metadata.description}
             terminology={card.metadata.terminology}
             source={card.metadata.source}
-            measuredAt={card.metadata.source}
+            measuredAt={card.metadata.measuredAt}
           />
         )}
       </div>

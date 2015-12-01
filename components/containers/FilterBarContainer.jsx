@@ -7,7 +7,7 @@ import FilterSelect from '../elements/filter/FilterSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
 import {getQuerySpec, constrainQuery} from '../../lib/querySpec'
 import arrayEqual from 'array-equal'
-import {getHeaderKey, comparisonDescription, isSimilarRegion} from '../../lib/regionUtil'
+import {comparisonDescription, isSimilarRegion} from '../../lib/regionUtil'
 import humanizeList from 'humanize-list'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
@@ -87,29 +87,40 @@ class FilterBarContainer extends Component {
   }
 
   getQuerySpec(query) {
-    const {tab, chart, config, allRegions} = this.props
+    const {tab, chart, config, headerGroups} = this.props
     return getQuerySpec(query, {
       tab: tab,
       chart: chart,
-      headerGroup: this.getHeaderGroupForQuery(query),
-      allRegions: allRegions,
+      headerGroups: headerGroups,
       config: config
     })
   }
 
-  getHeaderGroupForQuery(query) {
-    const {region, headerGroups} = this.props
-    const regionHeaderKey = getHeaderKey(region)
-    return headerGroups.find(group => {
-      return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
-    })
+  getValidComparisonRegions(comparisonRegionSpec) {
+    const {allRegions} = this.props
+    const invalid = []
+    const regions = comparisonRegionSpec.choices.map(prefixedCode => {
+      const found = allRegions.find(reg => reg.prefixedCode === prefixedCode)
+      if (!found) {
+        invalid.push(prefixedCode)
+      }
+      return found
+    }).filter(Boolean)
+
+    if (invalid.length > 0) {
+      //const message = 'Warning: Query spec said the following region codes were valid comparison regions, '
+      //                 + `but none of them was found in list of known regions: ${invalid.join(', ')}`
+      //console.warn(new Error(message))
+    }
+    return regions
   }
 
   createRegionFilterFromSpec(spec) {
 
-    const {region, tab, allRegions} = this.props
+    const {region, tab} = this.props
 
-    const similarRegions = allRegions.filter(isSimilarRegion(region))
+    const validRegions = this.getValidComparisonRegions(spec)
+    const similarRegions = validRegions.filter(isSimilarRegion(region))
 
     const renderChoice = (choice, i, choices) => {
       if (tab.name == 'benchmark') {
@@ -136,7 +147,7 @@ class FilterBarContainer extends Component {
         locked: tab.name == 'benchmark',
         value: this.getDimensionValueFromQuery(spec.name).map(this.getRegionByPrefixedCode.bind(this)),
         groups: groups,
-        choices: spec.choices.map(this.getRegionByPrefixedCode.bind(this)),
+        choices: spec.choices.map(this.getRegionByPrefixedCode.bind(this)).filter(Boolean),
         renderChoice
       }
     }

@@ -116,7 +116,7 @@ export function loadTab({region, cardsPage, card, tab, query}) {
         const querySpec = getQuerySpec(resolvedQuery, {
           tab: tabWithConfig,
           chart,
-          headerGroup,
+          headerGroups,
           config: card.config
         })
 

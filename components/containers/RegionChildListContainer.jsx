@@ -20,6 +20,10 @@ class RegionChildListContainer extends Component {
     const {linkTo} = this.context
 
     const createLinkToRegion = reg => linkTo('/tall-og-statistikk/steder/:region', {region: reg.prefixedCode})
+
+    if (childRegions.length == 0) {
+      return null
+    }
     return <RegionChildList region={region} childRegions={childRegions} createLinkToRegion={createLinkToRegion}/>
   }
 }

@@ -100,17 +100,19 @@ class RegionPage extends Component {
             </div>
           </div>
         </div>
-        <div className="page__footer t-hide-on-print">
-          <div className="wrapper">
-            <div className="row">
-              <div className="col--main">
-                <section className="feature feature--white">
-                  <RegionChildListContainer region={currentRegion}/>
-                </section>
+        {
+          <div className="page__footer t-hide-on-print">
+            <div className="wrapper">
+              <div className="row">
+                <div className="col--main">
+                  <section className="feature feature--white">
+                    <RegionChildListContainer region={currentRegion}/>
+                  </section>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        }
       </main>
     )
   }

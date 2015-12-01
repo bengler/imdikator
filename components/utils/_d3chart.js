@@ -293,12 +293,11 @@ class Chart {
           .append('text')
           .text(dataItem => dataItem)
           .attr('y', () => (attr.height() - attr.fontSize()) / 2)
-          .attr('dy', () => 0)
+          .attr('dy', () => '0.75ex')
           .attr('x', 0)
           .attr('dx', textX)
           .attr('text-anchor', 'start')
           .attr('font-size', () => attr.fontSize())
-          .attr('dominant-baseline', 'text-before-edge')
 
         // Wrap lines
         legend.selectAll('text').call(wrapper, maxWidth)

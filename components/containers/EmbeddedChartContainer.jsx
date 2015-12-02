@@ -35,7 +35,7 @@ class EmbeddedChartContainer extends Component {
   }
 
   render() {
-    const {card, activeTab, query, queryResult, region, headerGroups} = this.props
+    const {cardsPage, card, activeTab, query, queryResult, region, headerGroups} = this.props
     const {chartViewMode} = this.state
 
     if (!activeTab) {
@@ -75,12 +75,13 @@ class EmbeddedChartContainer extends Component {
       }
     }
 
+    const chartUrl = `/tall-og-statistikk/steder/${region.prefixedCode}/${cardsPage.name}/${card.name}/${activeTab.name}`
 
     return (
       <figure className="image-block">
         <div className="col-block-bleed">
           <div className="image-block__image image-block__image--figure">
-            <h3 className="h4"><a href="#_TODO_urltilgrafeniløsningenfiltrert">{card.name}</a></h3>
+            <h3 className="h4"><a href={chartUrl}>{card.title}</a></h3>
             <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})}/>
             {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
           </div>

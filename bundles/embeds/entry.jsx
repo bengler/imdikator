@@ -5,6 +5,7 @@ import createImdiAppStore from '../../lib/redux-utils/createImdiAppStore'
 import {Provider} from 'react-redux'
 import compileRoutes from '../../lib/compileRoutes'
 import {loadEmbedData} from '../../actions/embeds'
+import {setDimensionLabels} from '../../lib/labels'
 import {API_GLOBAL, SELECTOR_EMBED} from '../constants'
 import UrlQuery from '../../lib/UrlQuery'
 
@@ -102,4 +103,9 @@ function bootstrap(initialState) {
   }
 }
 
-loadInitialState().then(bootstrap)
+
+const didSetDimensionLabels = apiClient.getDimensionLabels().then(dimensionLabels => {
+  setDimensionLabels(dimensionLabels)
+})
+
+Promise.all([loadInitialState(), didSetDimensionLabels]).then(([initialState]) => bootstrap(initialState))

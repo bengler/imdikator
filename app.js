@@ -4,6 +4,7 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import SiteTest from './components/testbed/SiteTest'
 import EmbedTest from './components/testbed/EmbedTest'
+import RenderTest from './components/testbed/RenderTest'
 import config from './config'
 import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
@@ -38,6 +39,10 @@ if (config.env === 'development') {
 
 app.get('/debug/embeds', (req, res) => {
   res.status(200).send(ReactDOMServer.renderToStaticMarkup(<EmbedTest/>))
+})
+
+app.get('/debug/render', (req, res) => {
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<RenderTest/>))
 })
 
 app.get('/', (req, res) => {

@@ -1,6 +1,10 @@
 import {assert} from 'chai'
 import {queryResultPresenter as originalQueryResultPresenter} from '../../../lib/queryResultPresenter'
 
+function dim(name) {
+  return {name, variables: []}
+}
+
 const QUERY = {
   tableName: 'befolkninghovedgruppe',
   year: ['2012', '2013', '2014'],
@@ -22,6 +26,7 @@ describe('queryResultPresenter', () => {
       return result
     }
   })
+
   it('does not collect invisible dimensions specified in the query', () => {
     const query = {
       table: 'befolkninghovedgruppe',
@@ -31,7 +36,8 @@ describe('queryResultPresenter', () => {
           name: 'innvkat5'
         },
         {
-          name: 'kjonn'
+          name: 'kjonn',
+          variables: []
         }
       ]
     }
@@ -44,7 +50,7 @@ describe('queryResultPresenter', () => {
         }
       }
     })
-    assert.deepEqual(pres.dimensions, ['kjonn'])
+    assert.deepEqual(pres.dimensions, [{name: 'kjonn', variables: []}])
   })
 
   it('collects dimensions specified in the query', () => {
@@ -53,16 +59,18 @@ describe('queryResultPresenter', () => {
       unit: ['personer'],
       dimensions: [
         {
-          name: 'innvkat5'
+          name: 'innvkat5',
+          variables: []
         },
         {
-          name: 'kjonn'
+          name: 'kjonn',
+          variables: ['0', '1']
         }
       ]
     }
 
     const pres = queryResultPresenter(query, [], {chartKind: 'bar'})
-    assert.deepEqual(pres.dimensions, ['innvkat5', 'kjonn'])
+    assert.deepEqual(pres.dimensions, [{name: 'innvkat5', variables: []}, {name: 'kjonn', variables: ['0', '1']}])
   })
 
   it('removes time dimension if the query only has one distinct year', () => {
@@ -85,7 +93,7 @@ describe('queryResultPresenter', () => {
       ]
     }
     const pres = queryResultPresenter(query, [], {chartKind: 'pyramid'})
-    assert.deepEqual(pres.dimensions, ['region', 'innvkat5', 'kjonn'])
+    assert.deepEqual(pres.dimensions, [{name: 'region', variables: []}, {name: 'innvkat5', variables: ['innvandrere']}, {name: 'kjonn', variables: ['0', '1']}])
   })
 
   ;['bar', 'stackedBar', 'pyramid'].forEach(chartKind => {
@@ -96,7 +104,7 @@ describe('queryResultPresenter', () => {
         ]
       })
       const pres = queryResultPresenter(query, [], {chartKind: chartKind})
-      assert.equal(pres.dimensions.slice(-1)[0], 'aar')
+      assert.deepEqual(pres.dimensions.slice(-1)[0], {name: 'aar', variables: []})
     })
   })
 
@@ -108,7 +116,7 @@ describe('queryResultPresenter', () => {
         ]
       })
       const pres = queryResultPresenter(query, [], {chartKind: chartKind})
-      assert.equal(pres.dimensions.slice(-1)[0], 'aar')
+      assert.deepEqual(pres.dimensions.slice(-1)[0], {name: 'aar', variables: []})
     })
   })
 

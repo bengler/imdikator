@@ -10,7 +10,7 @@ describe('queryResultNester', () => {
     const nested = queryResultNester([
       {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
       {aar: '2014', tabellvariabel: '29', enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
-    ], ['aar', 'innvkat5', 'kjonn'])
+    ], [{name: 'aar', variables: []}, {name: 'innvkat5', variables: []}, {name: 'kjonn', variables: []}])
 
     //console.log(util.inspect(nested, {showHidden: false, depth: null}))
 
@@ -26,7 +26,7 @@ describe('queryResultNester', () => {
       // This dataset has gone through queryResultPresenter and has 'value' set
       {aar: '2014', value: 119, enhet: 'personer', kjonn: '0', innvkat5: 'alle', region: 'F01'},
       {aar: '2014', value: 29, enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
-    ], ['aar', 'innvkat5', 'kjonn'])
+    ], [{name: 'aar', variables: []}, {name: 'innvkat5', variables: []}, {name: 'kjonn', variables: []}])
 
     assert.equal(nested.maxValue, 119)
 
@@ -36,7 +36,7 @@ describe('queryResultNester', () => {
       {aar: '2014', value: 100, enhet: 'personer', kjonn: '1', innvkat5: 'alle', region: 'F01'},
       {aar: '2014', value: 50, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F01'},
       {aar: '2014', value: 50, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
-    ], ['aar', 'innvkat5'])
+    ], [{name: 'aar', variables: []}, {name: 'innvkat5', variables: []}])
 
     assert.equal(nested.maxValue, 200)
 
@@ -48,7 +48,7 @@ describe('queryResultNester', () => {
       {aar: '2014', value: 50, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
       {aar: '2014', value: 500, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F02'},
       {aar: '2014', value: 500, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F02'},
-    ], ['aar', 'region'])
+    ], [{name: 'aar', variables: []}, {name: 'region', variables: []}])
 
     assert.equal(nested.maxValue, 1000)
 
@@ -60,7 +60,7 @@ describe('queryResultNester', () => {
       {aar: '2014', value: 50, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F01'},
       {aar: '2014', value: 500, enhet: 'personer', kjonn: '0', innvkat5: 'ingen', region: 'F02'},
       {aar: '2014', value: 500, enhet: 'personer', kjonn: '1', innvkat5: 'ingen', region: 'F02'},
-    ], ['aar', 'innvkat5'])
+    ], [{name: 'aar', variables: []}, {name: 'innvkat5', variables: []}])
 
     assert.equal(nested.maxValue, 50 + 50 + 500 + 500)
   })
@@ -81,13 +81,13 @@ describe('nestedQueryResultLabelizer', () => {
   })
 
   it('knows about cities', () => {
-    const nested = queryResultNester([{region: 'K1505'}], ['region'])
+    const nested = queryResultNester([{region: 'K1505'}], [{name: 'region', variables: []}])
     const labelized = nestedQueryResultLabelizer(nested, ['region'])
     assert.equal(labelized[0].title, 'Kristiansund')
   })
 
   it('knows about state names', () => {
-    const nested = queryResultNester([{region: 'F03'}], ['region'])
+    const nested = queryResultNester([{region: 'F03'}], [{name: 'region', variables: []}])
     const labelized = nestedQueryResultLabelizer(nested, ['region'])
     assert.equal(labelized[0].title, 'Oslo')
   })
@@ -95,7 +95,7 @@ describe('nestedQueryResultLabelizer', () => {
   it('knows about boroughs', () => {
     const nested = queryResultNester([
       {region: 'B030102'}
-    ], ['region'])
+    ], [{name: 'region', variables: []}])
 
     const labelized = nestedQueryResultLabelizer(
       nested
@@ -107,7 +107,7 @@ describe('nestedQueryResultLabelizer', () => {
   it('it labels business areas', () => {
     const nested = queryResultNester([
       {region: 'N03'}
-    ], ['region'])
+    ], [{name: 'region', variables: []}])
 
     const labelized = nestedQueryResultLabelizer(
       nested

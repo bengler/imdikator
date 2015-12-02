@@ -28,8 +28,8 @@ export default class BenchmarkChart extends React.Component {
   /* eslint-enable react/forbid-prop-types */
 
   prepareData(data) {
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    const dimensionLabels = data.dimensions.map(item => item.name)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, data.dimensions), dimensionLabels)
     preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
     if (data.rows.length > 1) {
       // Want the max value to be the end of the domain here

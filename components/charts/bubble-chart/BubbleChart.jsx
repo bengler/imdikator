@@ -25,14 +25,16 @@ export default class BubbleChart extends React.Component {
     }
 
     const diameter = [this.size.width, this.size.height]
-    if (data.dimensions.indexOf('region') == -1) {
-      data.dimensions.unshift('region')
+    const dimensions = data.dimensions.slice()
+    if (!dimensions.find(item => item.name === 'region')) {
+      const regionDim = {name: 'region', variables: []}
+      dimensions.unshift(regionDim)
     }
 
-    const dimensionLabels = data.dimensions
+    const dimensionLabels = dimensions.map(item => item.name)
 
     const filteredData = queryResultFilter(data.rows, 'bubble')
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensionLabels), dimensionLabels)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(filteredData, dimensions), dimensionLabels)
 
     const multipleRegions = preparedData.length > 1
     // Prepare needed data

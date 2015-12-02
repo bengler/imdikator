@@ -13,8 +13,8 @@ export default class StackedBarChart extends Component {
   /* eslint-enable react/forbid-prop-types */
 
   prepareData(data) {
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    const dimensionLabels = data.dimensions.map(item => item.name)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, data.dimensions), dimensionLabels)
 
     const values = []
     preparedData.forEach(item => {

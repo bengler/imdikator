@@ -18,8 +18,7 @@ const vismaAPI = VismaAPIClient.create({
 })
 
 const epinovaAPI = EpinovaAPIClient.create({
-  //baseUrl: `http://imdi.epinova.no/api`,
-  baseUrl: `/api/`,
+  baseUrl: `http://imdi.epinova.no/api/`,
   connector: connector
 })
 

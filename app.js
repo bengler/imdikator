@@ -12,23 +12,7 @@ import docsite from './docsite/handler'
 import devErrorHandler from 'dev-error-handler'
 import serve from 'staticr/serve'
 
-// TODO: REMOVE
-import httpProxy from 'http-proxy'
-
 const app = express()
-
-// Todo: remove
-const apiProxy = httpProxy.createProxyServer({
-  //prependPath: true,
-  //ignorePath: true,
-  //hostRewrite: true,
-  changeOrigin: true
-})
-app.use('/api', (req, res) => {
-  apiProxy.web(req, res, {
-    target: 'http://imdi.epinova.no/api'
-  })
-})
 
 if (config.env === 'development') {
   app.use(quickreload())

@@ -317,8 +317,8 @@ export default class PyramidChart extends React.Component {
   }
 
   prepareData(data) {
-    const dimensionLabels = data.dimensions
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    const dimensionLabels = data.dimensions.map(item => item.name)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, data.dimensions), dimensionLabels)
 
     return {
       unit: data.unit,

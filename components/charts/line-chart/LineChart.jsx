@@ -13,19 +13,15 @@ export default class LineChart extends React.Component {
   /* eslint-enable react/forbid-prop-types */
 
   prepareData(data) {
-    let dimensionLabels = data.dimensions
-    if (dimensionLabels.length > 2) {
+    let dimensions = data.dimensions
+    if (dimensions.length > 2) {
       // Need to reduce dimensions
-      // The first dimension is allowed in
-      dimensionLabels = [data.dimensions[0]]
-      // Next and last need to be 'aar'
-      const yearDimension = data.dimensions.find(item => item === 'aar')
-      if (yearDimension) {
-        dimensionLabels.push(yearDimension)
-      }
-    }
+      // The first dimension is allowed in, the next and last need to be 'aar'
+      dimensions = [dimensions[0], {name: 'aar', variables: []}]
+    } 
 
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    let dimensionLabels = dimensions.map(item => item.name)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensions), dimensionLabels)
     preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
 
     return {

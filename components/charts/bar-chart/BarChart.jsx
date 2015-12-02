@@ -15,13 +15,14 @@ export default class BarChart extends React.Component {
   /* eslint-enable react/forbid-prop-types */
 
   prepareData(data) {
-    const dimensionLabels = data.dimensions
-    if (dimensionLabels.length == 1) {
+    const dimensions = data.dimensions.slice()
+    if (dimensions.length == 1) {
       // Add a needed second dimension
-      dimensionLabels.unshift('region')
+      dimensions.unshift({name: 'region', variables: []})
     }
 
-    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensionLabels), dimensionLabels)
+    const dimensionLabels = dimensions.map(item => item.name)
+    const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensions), dimensionLabels)
     preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
 
     return {

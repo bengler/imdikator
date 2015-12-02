@@ -48,10 +48,6 @@ const embedsDebug = createBundle([
   require.resolve('../bundles/debug/embeds.jsx')
 ].filter(Boolean))
 
-const renderDebug = createBundle([
-  require.resolve('../bundles/debug/render.jsx')
-].filter(Boolean))
-
 const test = createBundle(require.resolve('../docsite/bundle.jsx'))
 
 export default {
@@ -77,7 +73,6 @@ export default {
     })
     return stream
   },
-
   '/build/js/embeds.js'() {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = embeds()
@@ -99,40 +94,6 @@ export default {
     })
     return stream
   },
-
-  '/build/js/site.js'() {
-    console.time(';// Bundle') // eslint-disable-line no-console
-    const bundle = site()
-      .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
-
-    if (config.env !== 'development') {
-      //bundle.plugin(collapser)
-    }
-
-    const stream = bundle.bundle()
-
-    if (config.env !== 'development') {
-      return stream.pipe(uglify())
-    }
-
-    stream.on('end', () => {
-      console.timeEnd(';// Bundle') // eslint-disable-line no-console
-    })
-    return stream
-  },
-
-  '/build/js/test.js'() {
-    if (config.env !== 'development') {
-      return '// only development'
-    }
-    return test()
-      .transform('redocify')
-      .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
-      .bundle()
-  },
-
   '/build/js/embeds-debug.js'() {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = embedsDebug()
@@ -154,15 +115,14 @@ export default {
     })
     return stream
   },
-
-  '/build/js/render-debug.js'() {
+  '/build/js/site.js'() {
     console.time(';// Bundle') // eslint-disable-line no-console
-    const bundle = renderDebug()
+    const bundle = site()
       .transform(babelify)
       .transform(envify, {global: config.env !== 'development'})
 
     if (config.env !== 'development') {
-      bundle.plugin(collapser)
+      //bundle.plugin(collapser)
     }
 
     const stream = bundle.bundle()
@@ -175,6 +135,15 @@ export default {
       console.timeEnd(';// Bundle') // eslint-disable-line no-console
     })
     return stream
+  },
+  '/build/js/test.js'() {
+    if (config.env !== 'development') {
+      return '// only development'
+    }
+    return test()
+      .transform('redocify')
+      .transform(babelify)
+      .transform(envify, {global: config.env !== 'development'})
+      .bundle()
   }
-
 }

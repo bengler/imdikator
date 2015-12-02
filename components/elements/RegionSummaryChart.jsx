@@ -64,7 +64,8 @@ export default class RegionSummaryChart extends Component {
 
     const Chart = config.chartKind == 'benchmark' ? BenchmarkChart : BarChart
     // BenchmarkChart can only handle one dimension
-    const dimensions = config.chartKind == 'benchmark' ? [{name: 'region', variables: []}] : [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
+    const dimensions = config.chartKind == 'benchmark' ? [{name: 'region', variables: []}]
+    : [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
 
     const modifiedData = update(data, {
       dimensions: {$set: dimensions},

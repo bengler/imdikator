@@ -18,9 +18,9 @@ export default class LineChart extends React.Component {
       // Need to reduce dimensions
       // The first dimension is allowed in, the next and last need to be 'aar'
       dimensions = [dimensions[0], {name: 'aar', variables: []}]
-    } 
+    }
 
-    let dimensionLabels = dimensions.map(item => item.name)
+    const dimensionLabels = dimensions.map(item => item.name)
     const preparedData = nestedQueryResultLabelizer(queryResultNester(data.rows, dimensions), dimensionLabels)
     preparedData.extent = d3.extent(data.rows, item => parseFloat(item.value))
 

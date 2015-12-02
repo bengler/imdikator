@@ -1,10 +1,6 @@
 import {assert} from 'chai'
 import {queryResultPresenter as originalQueryResultPresenter} from '../../../lib/queryResultPresenter'
 
-function dim(name) {
-  return {name, variables: []}
-}
-
 const QUERY = {
   tableName: 'befolkninghovedgruppe',
   year: ['2012', '2013', '2014'],
@@ -93,7 +89,11 @@ describe('queryResultPresenter', () => {
       ]
     }
     const pres = queryResultPresenter(query, [], {chartKind: 'pyramid'})
-    assert.deepEqual(pres.dimensions, [{name: 'region', variables: []}, {name: 'innvkat5', variables: ['innvandrere']}, {name: 'kjonn', variables: ['0', '1']}])
+    assert.deepEqual(pres.dimensions, [
+      {name: 'region', variables: []},
+      {name: 'innvkat5', variables: ['innvandrere']},
+      {name: 'kjonn', variables: ['0', '1']}
+    ])
   })
 
   ;['bar', 'stackedBar', 'pyramid'].forEach(chartKind => {

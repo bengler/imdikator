@@ -142,7 +142,7 @@ class FilterBarContainer extends Component {
       {
         name: 'similar',
         title: 'Anbefalte regioner',
-        description: <span>TODO</span>,
+        description: <span></span>,
         items: similarRegions
       },
       // todo: {name: 'recommended' ...}

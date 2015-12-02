@@ -15,6 +15,7 @@ export default defaults({
   env,
   port: process.env.PORT,
   apiHost: globalConfig.apiHost,
+  contentApiHost: globalConfig.contentApiHost,
   reduxDevTools: env == 'development' && !['0', 'false'].includes(process.env.REDUX_DEVTOOLS),
   showDebug: process.env.DEBUG
 }, DEFAULTS)

@@ -5,7 +5,12 @@ class RenderTestPage extends Component {
   render() {
 
     const extraHead = (
-      <script id="imdikator-loader" data-api-host="imdikator-st.azurewebsites.net" src="/build/js/loader.js" async defer/>
+      <script
+        id="imdikator-loader"
+        data-api-host="imdikator-st.azurewebsites.net"
+        data-content-api-host="imdi.epinova.no"
+        src="/build/js/loader.js" async defer
+      />
     )
 
     return (

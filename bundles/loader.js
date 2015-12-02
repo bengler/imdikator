@@ -51,10 +51,10 @@ if (API_GLOBAL in window) {
   throw new Error('Multiple instances of imdikator loaded in page')
 }
 
-
 const API = {
   scan: scan,
-  apiHost: scriptEl.getAttribute('data-api-host')
+  apiHost: scriptEl.getAttribute('data-api-host'),
+  contentApiHost: scriptEl.getAttribute('data-content-api-host')
 }
 
 

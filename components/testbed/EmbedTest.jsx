@@ -6,7 +6,12 @@ class RenderTestPage extends Component {
 
     const extraHead = [
       <script src="/build/js/embeds-debug.js" async defer/>,
-      <script id="imdikator-loader" data-api-host="imdikator-st.azurewebsites.net" src="/build/js/loader.js" async defer/>,
+      <script
+        id="imdikator-loader"
+        data-api-host="imdikator-st.azurewebsites.net"
+        data-content-api-host="imdi.epinova.no"
+        src="/build/js/loader.js" async defer
+      />,
       <link rel="stylesheet" href="/build/stylesheets/codemirror.css"/>,
       (<style type="text/css" dangerouslySetInnerHTML={{__html: `
         .CodeMirror {

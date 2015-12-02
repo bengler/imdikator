@@ -31,6 +31,7 @@ function makeEmbedConfig(url) {
 const SCRIPT_TAG = `<script
   id="imdikator-loader"
   data-api-host="imdikator-st.azurewebsites.net"
+  data-content-api-host="imdi.epinova.no"
   src="http://imdikator.staging.o5.no/build/js/loader.js"
   async
   defer

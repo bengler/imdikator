@@ -15,7 +15,6 @@ import serve from 'staticr/serve'
 
 const app = express()
 
-
 if (config.env === 'development') {
   app.use(quickreload())
 }

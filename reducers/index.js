@@ -10,11 +10,13 @@ import currentCard from './currentCard'
 import breadCrumbs from './breadCrumbs'
 import currentTab from './currentTab'
 import regionSummaries from './regionSummaries'
+import variableDefinitions from './variableDefinitions'
 
 export default combineReducers({
   page: page,
   allRegions: (state = []) => state,
   allCardsPages: (state = []) => state,
+  variableDefinitions,
   currentRegion,
   breadCrumbs,
   headerGroups,

@@ -1,13 +1,13 @@
 //import {assert} from 'chai'
 import sinon, {assert} from 'sinon'
-import * as APIClient from '../../../lib/api-client'
+import * as APIClient from '../../../lib/api-client/visma'
 
 describe('Fetching tables using API client', () => {
   it('can retrieve headers for a given table', () => {
     const stub = sinon.stub().returns(Promise.resolve({json: []}))
     const client = APIClient.create({
       baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
-      adapter: {get: stub}
+      connector: {get: stub}
     })
 
     return client.getHeaderGroups('sometable').then(() => {
@@ -20,7 +20,7 @@ describe('Fetching tables using API client', () => {
 
     const client = APIClient.create({
       baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
-      adapter: {post: stub}
+      connector: {post: stub}
     })
 
     const query = {

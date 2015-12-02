@@ -4,7 +4,7 @@ import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
 import TabBar from '../elements/TabBar'
 import FilterBarContainer from './FilterBarContainer'
-import CardMetadata from '../elements/CardMetadata'
+import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
 import ChartViewModeSelect from '../elements/ChartViewModeSelect'
@@ -190,12 +190,7 @@ class Card extends Component {
         )}
 
         {!printable && (
-          <CardMetadata
-            description={card.metadata.description}
-            terminology={card.metadata.terminology}
-            source={card.metadata.source}
-            measuredAt={card.metadata.measuredAt}
-          />
+          <CardMetadata dimensions={query.dimensions} metadata={card.metadata}/>
         )}
       </div>
     )

@@ -1,5 +1,5 @@
 import {defaults} from '../../lib/http/json'
-export const adapter = defaults({
+export const connector = defaults({
   headers: {
     'user-agent': 'imdikator:integration-test',
     accept: 'application/json,text/plain,* / *'

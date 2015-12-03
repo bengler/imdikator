@@ -79,18 +79,18 @@ class CardMetadata extends Component {
             </a>
           </div>
 
-          {this.state.expanded
-            && <div className={sectionClases}>
-            <h4 className="h2">Veiledning og kilder</h4>
-            <h5 className="h3">Sammendrag</h5>
-            <p>{metadata.description}</p>
-            <h5 className="h3">Begrepsforklaring</h5>
-            {metadata.terminology && <p>{metadata.terminology}</p>}
-            {this.renderVariableDefinitions()}
-            <h5 className="h3">Kilder</h5>
-            <p>{metadata.source}, målt: {metadata.measuredAt}</p>
-          </div>
-            }
+          {this.state.expanded && (
+            <div className={sectionClases}>
+              <h4 className="h2">Veiledning og kilder</h4>
+              <h5 className="h3">Sammendrag</h5>
+              <div dangerouslySetInnerHTML={{__html: metadata.description}}/>
+              <h5 className="h3">Begrepsforklaring</h5>
+              {metadata.terminology && <div dangerouslySetInnerHTML={{__html: metadata.terminology}}/>}
+              {this.renderVariableDefinitions()}
+              <h5 className="h3">Kilder</h5>
+              <p>{metadata.source}, målt: {metadata.measuredAt}</p>
+            </div>
+          )}
         </div>
       </div>
     )

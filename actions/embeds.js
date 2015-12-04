@@ -121,9 +121,12 @@ export function loadTab({region, cardsPage, card, tab, query}) {
         })
 
         const constrained = constrainQuery(resolvedQuery, querySpec, card.config)
-        constrained.operations.forEach(op => {
-          console.log('[debug] %s: %s ', op.dimension, op.description) // eslint-disable-line no-console
-        })
+        if (process.env.NODE_ENV !== 'production') {
+          constrained.operations.forEach(op => {
+            console.log('[debug] %s: %s ', op.dimension, op.description) // eslint-disable-line no-console
+          })
+        }
+
         return constrained.query
       })
       .then(initialQuery => {

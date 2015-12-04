@@ -68,9 +68,11 @@ class FilterBarContainer extends Component {
     }
 
     const constrainedQuery = constrainQuery(newQuery, this.getQuerySpec(newQuery), config)
-    constrainedQuery.operations.forEach(op => {
-      console.log('%s: %s', op.dimension, op.description) // eslint-disable-line no-console
-    })
+    if (process.env.NODE_ENV !== 'production') {
+      constrainedQuery.operations.forEach(op => {
+        console.log('[debug] %s: %s', op.dimension, op.description) // eslint-disable-line no-console
+      })
+    }
     this.props.onChange(constrainedQuery.query)
   }
 
@@ -115,7 +117,7 @@ class FilterBarContainer extends Component {
       return found
     }).filter(Boolean)
 
-    if (!shouldWarnAboutMissingCodes && missing.length > 0) {
+    if (shouldWarnAboutMissingCodes && missing.length > 0) {
       const message = `[Warning]: Some region codes could not be mapped correctly. `
                       + `These may be may be old codes not in use anymore: ${missing.join(', ')}`
       console.warn(new Error(message)) // eslint-disable-line no-console

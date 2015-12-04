@@ -6,7 +6,6 @@ import config from '../config'
 import collapser from 'bundle-collapser/plugin'
 
 import babelify from 'babelify'
-import envify from 'envify'
 
 function createBundle(entries) {
 
@@ -60,7 +59,6 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = loader()
       .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
 
     if (config.env !== 'development') {
       bundle.plugin(collapser)
@@ -82,7 +80,6 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = embeds()
       .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
 
     if (config.env !== 'development') {
       bundle.plugin(collapser)
@@ -104,7 +101,6 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = site()
       .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
 
     if (config.env !== 'development') {
       //bundle.plugin(collapser)
@@ -129,7 +125,6 @@ export default {
     return test()
       .transform('redocify')
       .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
       .bundle()
   },
 
@@ -137,7 +132,6 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = embedsDebug()
       .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
 
     if (config.env !== 'development') {
       bundle.plugin(collapser)
@@ -159,7 +153,6 @@ export default {
     console.time(';// Bundle') // eslint-disable-line no-console
     const bundle = renderDebug()
       .transform(babelify)
-      .transform(envify, {global: config.env !== 'development'})
 
     if (config.env !== 'development') {
       bundle.plugin(collapser)

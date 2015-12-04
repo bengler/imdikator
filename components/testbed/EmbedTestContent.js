@@ -46,7 +46,8 @@ const SCRIPT_TAG = `<script
   src="${getScriptBaseUrl(process.env.NODE_ENV)}/build/js/loader.js"
   async
   defer
-/>`
+>
+</script>`
 
 
 function getCode(url) {

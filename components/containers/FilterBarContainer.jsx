@@ -12,7 +12,7 @@ import {comparisonDescription, isSimilarRegion} from '../../lib/regionUtil'
 import humanizeList from 'humanize-list'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
-let didWarnAboutMissingCodes = false
+let shouldWarnAboutMissingCodes = process.env.NODE_ENV !== 'production'
 
 class FilterBarContainer extends Component {
   static propTypes = {
@@ -115,11 +115,11 @@ class FilterBarContainer extends Component {
       return found
     }).filter(Boolean)
 
-    if (!didWarnAboutMissingCodes && missing.length > 0) {
+    if (!shouldWarnAboutMissingCodes && missing.length > 0) {
       const message = `[Warning]: Some region codes could not be mapped correctly. `
                       + `These may be may be old codes not in use anymore: ${missing.join(', ')}`
       console.warn(new Error(message)) // eslint-disable-line no-console
-      didWarnAboutMissingCodes = true
+      shouldWarnAboutMissingCodes = false
     }
     return regions
   }

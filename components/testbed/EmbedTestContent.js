@@ -28,11 +28,22 @@ function makeEmbedConfig(url) {
   }, null, 2)
 }
 
+function getScriptBaseUrl(env) {
+  switch (env) {
+    case 'production':
+      return '//imdikator.o5.no'
+    case 'staging':
+      return '//imdikator.o5.no'
+    default:
+      return ''
+  }
+}
+
 const SCRIPT_TAG = `<script
   id="imdikator-loader"
   data-api-host="imdikator-st.azurewebsites.net"
   data-content-api-host="imdi.epinova.no"
-  src="http://imdikator.staging.o5.no/build/js/loader.js"
+  src="${getScriptBaseUrl(process.env.NODE_ENV)}/build/js/loader.js"
   async
   defer
 />`

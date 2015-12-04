@@ -6447,8 +6447,8 @@
             },
             "readable-stream": {
               "version": "2.0.4",
-              "from": "http://lazy.npm.api.no:80/readable-stream/-/readable-stream-2.0.4.tgz",
-              "resolved": "http://lazy.npm.api.no:80/readable-stream/-/readable-stream-2.0.4.tgz",
+              "from": "https://registry.npmjs.org/readable-stream/-/readable-stream-2.0.4.tgz",
+              "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-2.0.4.tgz",
               "dependencies": {
                 "core-util-is": {
                   "version": "1.0.2",
@@ -6472,8 +6472,8 @@
                 },
                 "util-deprecate": {
                   "version": "1.0.2",
-                  "from": "http://lazy.npm.api.no:80/util-deprecate/-/util-deprecate-1.0.2.tgz",
-                  "resolved": "http://lazy.npm.api.no:80/util-deprecate/-/util-deprecate-1.0.2.tgz"
+                  "from": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+                  "resolved": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
                 }
               }
             }
@@ -6758,8 +6758,8 @@
           "dependencies": {
             "async": {
               "version": "1.5.0",
-              "from": "http://lazy.npm.api.no:80/async/-/async-1.5.0.tgz",
-              "resolved": "http://lazy.npm.api.no:80/async/-/async-1.5.0.tgz"
+              "from": "https://registry.npmjs.org/async/-/async-1.5.0.tgz",
+              "resolved": "https://registry.npmjs.org/async/-/async-1.5.0.tgz"
             },
             "optimist": {
               "version": "0.6.1",
@@ -6933,8 +6933,8 @@
             },
             "xtend": {
               "version": "4.0.1",
-              "from": "http://lazy.npm.api.no:80/xtend/-/xtend-4.0.1.tgz",
-              "resolved": "http://lazy.npm.api.no:80/xtend/-/xtend-4.0.1.tgz"
+              "from": "https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz",
+              "resolved": "https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz"
             }
           }
         },
@@ -10889,15 +10889,15 @@
                 },
                 "wordwrap": {
                   "version": "0.0.2",
-                  "from": "http://lazy.npm.api.no:80/wordwrap/-/wordwrap-0.0.2.tgz",
-                  "resolved": "http://lazy.npm.api.no:80/wordwrap/-/wordwrap-0.0.2.tgz"
+                  "from": "https://registry.npmjs.org/wordwrap/-/wordwrap-0.0.2.tgz",
+                  "resolved": "https://registry.npmjs.org/wordwrap/-/wordwrap-0.0.2.tgz"
                 }
               }
             },
             "decamelize": {
               "version": "1.1.1",
-              "from": "http://lazy.npm.api.no:80/decamelize/-/decamelize-1.1.1.tgz",
-              "resolved": "http://lazy.npm.api.no:80/decamelize/-/decamelize-1.1.1.tgz"
+              "from": "https://registry.npmjs.org/decamelize/-/decamelize-1.1.1.tgz",
+              "resolved": "https://registry.npmjs.org/decamelize/-/decamelize-1.1.1.tgz"
             },
             "window-size": {
               "version": "0.1.0",

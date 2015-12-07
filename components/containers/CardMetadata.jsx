@@ -15,10 +15,13 @@ class CardMetadata extends Component {
       name: PropTypes.string,
       variables: PropTypes.arrayOf(PropTypes.string)
     })),
-    variableDefinitions: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
-      variables: PropTypes.arrayOf(PropTypes.string)
-    })),
+    variableDefinitions: PropTypes.shape({
+      items: PropTypes.arrayOf(PropTypes.shape({
+        dimension: PropTypes.string,
+        dimensionDescription: PropTypes.string,
+        variableDescription: PropTypes.string
+      }))
+    }),
     dispatch: PropTypes.func
   }
 

@@ -26,18 +26,22 @@ export default class ChartModeSelect extends Component {
           {
             CHART_MODES.map(mode => {
               if (mode.name === selectedMode) {
-                return <span className="tabs-mini__link tabs-mini__link--current">{mode.title}</span>
+                return <span key={mode.name} className="tabs-mini__link tabs-mini__link--current">{mode.title}</span>
               }
               return (
-              <a href=""
-                className="tabs-mini__link tabs-mini__link--current"
-                onClick={preventDefault(() => onChange(mode.name))}
-              >
-                {mode.title}
-              </a>
-                )
+                <a href=""
+                  key={mode.name}
+                  className="tabs-mini__link tabs-mini__link--current"
+                  onClick={preventDefault(() => onChange(mode.name))}
+                >
+                  {mode.title}
+                </a>
+              )
             })
-              .map(content => <li className="tabs-mini__item">{content}</li>)
+              .map(content => {
+                return <li key={content.key} className="tabs-mini__item">{content}</li>
+              }
+            )
             }
         </ul>
       </div>

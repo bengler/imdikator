@@ -975,7 +975,7 @@
       },
       {
         "name": "status-etter-intro",
-        "title": "Status etter introprogram",
+        "title": "Status etter introduksjonsprogram",
         "config": {},
         "query": {
           "tableName": "intro_status_arbutd",
@@ -998,7 +998,7 @@
       },
       {
         "name": "etter-intro",
-        "title": "Introprogram: avslutningsårsaker",
+        "title": "Introduksjonsprogram: avslutningsårsaker",
         "config": {
           "dimensions": {
             "avslutningArsak3": {
@@ -1032,7 +1032,7 @@
       },
       {
         "name": "etter-intro-finmasket",
-        "title": "Introprogram: avslutningsårsaker finmasket",
+        "title": "Introduksjonsprogram: avslutningsårsaker finmasket",
         "config": {
           "dimensions": {
             "avslutningArsak8": {
@@ -1171,11 +1171,11 @@
           ],
           "dimensions": [
             {
-              "name": "innvkat3",
-              "variables": "all"
+              "name": "arbeidsalder1869"
             },
             {
-              "name": "arbeidsalder1869"
+              "name": "innvkat3",
+              "variables": "all"
             }
           ]
         },
@@ -1335,7 +1335,7 @@
       },
       {
         "name": "ledige-innvkat-land",
-        "title": "Arbeidsledige eller på tiltak etter landbakgrunn",
+        "title": "Arbeidsledige etter landbakgrunn",
         "config": {
           "isLopsided": true,
           "dimensions": {
@@ -1375,7 +1375,7 @@
       },
       {
         "name": "ikke-arbeid-innvkat-land",
-        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og landbakgrunn",
+        "title": "Ikke i arbeid eller utdanning etter landbakgrunn",
         "config": {
           "isLopsided": true,
           "dimensions": {
@@ -1415,7 +1415,7 @@
       },
       {
         "name": "ikke-arbeid-innvkat-alder",
-        "title": "Ikke i arbeid eller utdanning etter innvandringskategori og alder",
+        "title": "Ikke i arbeid eller utdanning etter alder",
         "config": {
           "dimensions": {
             "aldersinndelingEtterGrskole": {
@@ -1452,7 +1452,7 @@
       },
       {
         "name": "gjennomsnittsinntekt",
-        "title": "Inntektsnivå – gjennomsnittsinntekt",
+        "title": "Inntektsnivå – medianinntekt",
         "config": {
           "isLopsided": true,
           "dimensions": {

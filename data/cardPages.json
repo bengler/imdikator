@@ -987,7 +987,12 @@
               "name": "avslutta"
             },
             {
-              "name": "avslstat4"
+              "name": "avslstat4",
+              "variables":[ 
+                "arbutd",
+                "ledig_tiltak",
+                "annet"
+                ]
             },
             {
               "name": "kjonn"

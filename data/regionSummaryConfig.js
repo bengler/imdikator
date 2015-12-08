@@ -84,7 +84,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Mottok ${options.share} i tilskudd fra IMDi i år ${options.aar}`
+      return `Mottok ${options.share} i tilskudd fra IMDi i ${options.aar}`
     },
     subTitle: options => {
       return null

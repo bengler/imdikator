@@ -55,7 +55,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Bosatte ${options.share} flyktninger per tusen innbygger i år ${options.aar}`
+      return `Bosatte ${options.share} flyktninger per innbygger i ${options.aar}`
     },
     subTitle: options => {
       return `For hele landet er tallet ${options.share}`
@@ -117,7 +117,7 @@ export default [
     additionalTitleParams: [],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `${options.share} av innvandrerne går direkte fra introprogram til arbeid/utdanning`
+      return `${options.share} av deltakerne går direkte fra introprogram til arbeid`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}`

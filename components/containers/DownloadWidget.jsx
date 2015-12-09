@@ -44,7 +44,7 @@ class DownloadWidget extends Component {
         }
         return {name: headerKey}
       }).filter(Boolean),
-      year: query.year,
+      year: 'all',
       unit: query.unit,
       comparisonRegions: comparisonRegions
     }
@@ -55,6 +55,7 @@ class DownloadWidget extends Component {
       csvQuery.region = arbitraryRegion
       csvQuery.comparisonRegions = csvQuery.comparisonRegions.filter(prefixedCode => prefixedCode !== arbitraryRegion)
     }
+
     return csvQuery
   }
 
@@ -71,12 +72,34 @@ class DownloadWidget extends Component {
 
         // Make sure the data looks smart in a table
         const dimensions = data.dimensions.slice()
-        if (!dimensions.includes('region')) {
-          dimensions.unshift('region')
+        if (!dimensions.map(e => e.name).includes('region')) {
+          dimensions.unshift({
+            name:'region',
+            variables: []
+          })
         }
-        if (!dimensions.includes('enhet')) {
-          dimensions.push('enhet')
+        if (!dimensions.map(e => e.name).includes('enhet')) {
+          dimensions.push({
+            name:'enhet',
+            variables: []
+          })
         }
+
+        if (!dimensions.map(e => e.name).includes('enhet')) {
+          dimensions.push({
+            name:'enhet',
+            variables: []
+          })
+        }
+
+        if (!dimensions.map(e => e.name).includes('aar')) {
+          dimensions.push({
+            name:'aar',
+            variables: []
+          })
+        }
+
+
         data = Object.assign({}, data, {dimensions: dimensions})
 
         // Bake CSV and trigger client download

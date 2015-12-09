@@ -74,27 +74,20 @@ class DownloadWidget extends Component {
         const dimensions = data.dimensions.slice()
         if (!dimensions.map(e => e.name).includes('region')) {
           dimensions.unshift({
-            name:'region',
+            name: 'region',
             variables: []
           })
         }
         if (!dimensions.map(e => e.name).includes('enhet')) {
           dimensions.push({
-            name:'enhet',
-            variables: []
-          })
-        }
-
-        if (!dimensions.map(e => e.name).includes('enhet')) {
-          dimensions.push({
-            name:'enhet',
+            name: 'enhet',
             variables: []
           })
         }
 
         if (!dimensions.map(e => e.name).includes('aar')) {
           dimensions.push({
-            name:'aar',
+            name: 'aar',
             variables: []
           })
         }

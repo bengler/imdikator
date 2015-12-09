@@ -908,7 +908,7 @@
       },
       {
         "name": "norskopplaering-antall-deltagere",
-        "title": "Norskopplæring - antall deltagere",
+        "title": "Målgruppa for opplæring i norsk og samfunnskunnskap",
         "config": {},
         "query": {
           "tableName": "norsk_deltakere",

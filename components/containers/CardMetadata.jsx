@@ -92,6 +92,11 @@ class CardMetadata extends Component {
               {this.renderVariableDefinitions()}
               <h5 className="h3">Kilder</h5>
               <p>{metadata.source}, målt: {metadata.measuredAt}</p>
+              {
+                metadata.updatedAt && metadata.updatedAt !== ''
+                && <p>Oppdateres neste gang: {metadata.updatedAt}</p>
+              }
+
             </div>
           )}
         </div>

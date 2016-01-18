@@ -1,12 +1,48 @@
 import React, {Component, PropTypes} from 'react'
 
+/* global document */
+
+const ReactDOM = require('react-dom')
+
+function isDescendant(parent, child) {
+  let node = child.parentNode
+  while (node !== null) {
+    if (node == parent) {
+      return true
+    }
+    node = node.parentNode
+  }
+  return false
+}
+
 export default class Lightbox extends Component {
   static propTypes = {
     children: PropTypes.node,
     title: PropTypes.string,
     onClose: PropTypes.func,
+    onClickOutside: PropTypes.func,
     style: PropTypes.object,
     className: PropTypes.string
+  }
+
+  static defaultProps = {
+    onClose() {},
+    onClickOutside() {}
+  }
+
+  componentDidMount() {
+    this.handleClickOutside = this.handleClickOutside.bind(this)
+    document.body.addEventListener('click', this.handleClickOutside)
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.handleClickOutside)
+  }
+
+  handleClickOutside(e) {
+    if (!isDescendant(ReactDOM.findDOMNode(this), e.target)) {
+      this.props.onClickOutside()
+    }
   }
 
   render() {

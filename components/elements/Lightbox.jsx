@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 
 /* global document */
 
-const ReactDOM = require('react-dom')
+import ReactDOM from 'react-dom'
 
 function isDescendant(parent, child) {
   let node = child.parentNode

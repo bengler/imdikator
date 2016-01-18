@@ -60,13 +60,20 @@ export default class BubbleChart extends React.Component {
           textFill = 'black'
         }
         const anon = item.values[0].anonymized
+
         const value = anon ? 4 : item.values[0].value
+        // console.info(value)
         if (value > maxVal) {
           maxVal = value
         }
         if (value < minVal) {
           minVal = value
         }
+
+        if (item.values[0].missingData) {
+          return null
+        }
+
         return {
           title: item.title,
           formattedValue: item.values[0].formattedValue || item.values[0].value,
@@ -76,7 +83,7 @@ export default class BubbleChart extends React.Component {
           strokeWidth: anon ? 1 : 0,
           textFill: textFill
         }
-      })
+      }).filter(Boolean)
       row.opacityScale = d3.scale.linear().range([0.5, 1.0]).domain([minVal, maxVal])
     })
 

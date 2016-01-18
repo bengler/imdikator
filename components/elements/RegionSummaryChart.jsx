@@ -46,7 +46,7 @@ export default class RegionSummaryChart extends Component {
     })
 
     const title = config.title(titleParams)
-    const subtitle = comparisonData && config.subTitle({share: formatter.format(comparisonData[0].tabellvariabel)})
+    const subtitle = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[0].tabellvariabel)})
 
     // secondary titles, atm only used in barchart
     let titleTwo = null
@@ -59,7 +59,7 @@ export default class RegionSummaryChart extends Component {
         titleParams[param] = data.rows[1][param]
       })
       titleTwo = config.title(titleParams)
-      subtitleTwo = comparisonData && config.subTitle({share: formatter.format(comparisonData[1].tabellvariabel)})
+      subtitleTwo = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[1].tabellvariabel)})
     }
 
     const Chart = config.chartKind == 'benchmark' ? BenchmarkChart : BarChart

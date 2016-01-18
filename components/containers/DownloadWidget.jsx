@@ -45,7 +45,7 @@ class DownloadWidget extends Component {
         return {name: headerKey}
       }).filter(Boolean),
       year: 'all',
-      unit: query.unit,
+      unit: headerGroup.enhet,
       comparisonRegions: comparisonRegions
     }
 

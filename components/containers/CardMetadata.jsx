@@ -39,6 +39,7 @@ class CardMetadata extends Component {
   handleClick(e) {
     e.preventDefault()
     this.setState({expanded: !this.state.expanded})
+    return false
   }
 
   renderVariableDefinitions() {
@@ -73,7 +74,8 @@ class CardMetadata extends Component {
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
           <div className="toggle toggle--light t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="" className={buttonClasses}>
+            <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses}>{// eslint-disable-line no-script-url
+}
               <span className="toggle__caption--contracted">
                 Veiledning og kilder
               </span>

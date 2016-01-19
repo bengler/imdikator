@@ -658,7 +658,7 @@
       },
       {
         "name": "barnehage-forholde-minoriteter",
-        "title": "Barn i kommunen",
+        "title": "Barn etter alder",
         "config": {
           "dimensions": {
             "barnikommune": {

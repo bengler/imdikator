@@ -658,7 +658,7 @@
       },
       {
         "name": "barnehage-forholde-minoriteter",
-        "title": "Barn: forholdet mellom alle og minoriteter",
+        "title": "Barn i kommunen",
         "config": {
           "dimensions": {
             "barnikommune": {
@@ -809,7 +809,7 @@
       },
       {
         "name": "ferdig-med-videregaaende",
-        "title": "Fullført videregående innen fem år, etter kjønn",
+        "title": "Personer mellom 16 og 24 år som fullførte videregående innen fem år fra oppstart, etter kjønn",
         "config": {
           "dimensions": {
             "innvkat5": {

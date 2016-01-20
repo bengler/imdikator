@@ -1585,11 +1585,10 @@
         "title": "Personer som mottar sosialhjelp",
         "config": {
           "dimensions": {
-            "innvkat5": {
+            "innvkat3": {
               "include": [
                 "innvandrere",
-                "befolkningen_ellers",
-                "norskfodte_m_innvf"
+                "befolkningen_ellers"
               ]
             }
           }
@@ -1601,7 +1600,7 @@
           ],
           "dimensions": [
             {
-              "name": "innvkat5",
+              "name": "innvkat3",
               "variables": "all"
             },
             {
@@ -1621,9 +1620,35 @@
     "name": "tilskudd",
     "title": "Tilskudd",
     "cards": [
+            {
+        "name": "tilskudd",
+        "title": "Tilskudd fra IMDi - totalt",
+        "config": {
+          "dimensions": {
+            "tilskuddTilKommuner": {
+              "include": [
+                "totalt"
+              ]
+            }
+          }
+        },
+        "query": {
+          "tableName": "tilskudd",
+          "unit": [
+            "kroner"
+          ],
+          "dimensions": [
+            {
+              "name": "tilskuddTilKommuner",
+              "variables": "all"
+            }
+          ]
+        },
+        "tabs": []
+      },
       {
         "name": "tilskudd",
-        "title": "Tilskudd",
+        "title": "Tilskudd fra IMDi - per tilskuddsordning",
         "config": {
           "dimensions": {
             "tilskuddTilKommuner": {

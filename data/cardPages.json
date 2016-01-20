@@ -851,7 +851,6 @@
             "innvkat5": {
               "include": [
                 "innvandrere",
-                "befolkningen_ellers",
                 "norskfodte_m_innvf",
                 "bef_u_innv_og_norskf"
               ]

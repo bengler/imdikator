@@ -101,12 +101,13 @@
         "title": "Innvandringsgrunn og kjønn",
         "config": {
           "dimensions": {
-            "innvgrunn5": {
+            "innvgrunn6": {
               "include": [
                 "arbeid",
                 "flukt",
                 "familie",
-                "annet_uoppgitt"
+                "annet",
+                "uoppgitt"
               ]
             }
           }
@@ -118,7 +119,7 @@
           ],
           "dimensions": [
             {
-              "name": "innvgrunn5",
+              "name": "innvgrunn6",
               "variables": "all"
             },
             {

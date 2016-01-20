@@ -432,7 +432,7 @@
       },
       {
         "name": "bosatt_anmodede",
-        "title": "Flyktninger kommunen ble bedt om å bosette",
+        "title": "Anmodnings-, vedtaks- og bosettingstall",
         "config": {
           "dimensions": {
             "bosetting": {

@@ -775,7 +775,7 @@
       },
       {
         "name": "elever-i-videregaaende",
-        "title": "Elever i videregående skole (siste 3 år)",
+        "title": "Elever i videregående skole (gjennomsnitt siste 3 år)",
         "config": {
           "dimensions": {
             "innvkat4": {

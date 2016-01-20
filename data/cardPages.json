@@ -744,7 +744,7 @@
         "title": "Gjennomsnittlige grunnskolepoeng",
         "config": {
           "dimensions": {
-            "innvkat4": {
+            "innvkat5": {
               "include": [
                 "innvandrere",
                 "bef_u_innv_og_norskf",
@@ -756,11 +756,11 @@
         "query": {
           "tableName": "grunnskolepoeng",
           "unit": [
-            "gjennomsnitt"
+            "grunnskolepoeng"
           ],
           "dimensions": [
             {
-              "name": "innvkat4",
+              "name": "innvkat5",
               "variables": "all"
             },
             {

@@ -523,6 +523,54 @@
     "title": "Skole og utdanning",
     "cards": [
       {
+        "name": "utdanningsniva_samlet",
+        "title": "Høyeste utdanningsnivå",
+        "config": {
+          "dimensions": {
+            "utd4": {
+              "include": [
+                "grunnskole",
+                "vgs",
+                "universitet_og_hogskole",
+                "uoppgitt_ingen"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
+          }
+        },
+        "query": {
+          "tableName": "utdanningsniva",
+          "unit": [
+            "prosent"
+          ],
+          "dimensions": [
+            {
+              "name": "innvkat3"
+            },
+            {
+              "name": "utd4"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": [
+          {
+            "name": "latest",
+            "chartKind": "stackedBar"
+          }
+        ]
+      },
+      {
         "name": "utdanningsniva-grunnskole",
         "title": "Grunnskole som høyeste utdanningsnivå",
         "config": {

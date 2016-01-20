@@ -96,6 +96,47 @@
           }
         ]
       },
+           {
+        "name": "barnehage-forholde-minoriteter",
+        "title": "Barn etter alder",
+        "config": {
+          "dimensions": {
+            "barnikommune": {
+              "include": [
+                "innvandrerbakgr",
+                "barn_ellers"
+              ]
+            },
+            "bhgalder": {
+              "include": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            }
+          }
+        },
+        "query": {
+          "tableName": "barnehagedeltakelse",
+          "unit": [
+            "personer"
+          ],
+          "dimensions": [
+            {
+              "name": "barnikommune",
+              "variables": "all"
+            },
+            {
+              "name": "bhgalder",
+              "variables": "all"
+            }
+          ]
+        },
+        "tabs": [
+        ]
+      },
       {
         "name": "befolkning_innvandringsgrunn",
         "title": "Innvandringsgrunn og kjønn",
@@ -656,47 +697,6 @@
           ]
         },
         "tabs": []
-      },
-      {
-        "name": "barnehage-forholde-minoriteter",
-        "title": "Barn etter alder",
-        "config": {
-          "dimensions": {
-            "barnikommune": {
-              "include": [
-                "innvandrerbakgr",
-                "barn_ellers"
-              ]
-            },
-            "bhgalder": {
-              "include": [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5"
-              ]
-            }
-          }
-        },
-        "query": {
-          "tableName": "barnehagedeltakelse",
-          "unit": [
-            "personer"
-          ],
-          "dimensions": [
-            {
-              "name": "barnikommune",
-              "variables": "all"
-            },
-            {
-              "name": "bhgalder",
-              "variables": "all"
-            }
-          ]
-        },
-        "tabs": [
-        ]
       },
       {
         "name": "barnehage-alder-minoriteter",

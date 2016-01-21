@@ -893,7 +893,7 @@
       },
       {
         "name": "ungdom-ikke-fullfoert",
-        "title": "Ungdom 16-25 som verken er i opplæring eller har fullført og bestått videregående opplæring",
+        "title": "Personer mellom 16-25 år som verken er i opplæring eller har fullført og bestått videregående opplæring",
         "config": {
           "dimensions": {
             "innvkat5": {

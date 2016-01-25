@@ -1621,7 +1621,7 @@
     "title": "Tilskudd",
     "cards": [
             {
-        "name": "tilskudd",
+        "name": "tilskudd_totalt",
         "title": "Tilskudd fra IMDi - totalt",
         "config": {
           "dimensions": {

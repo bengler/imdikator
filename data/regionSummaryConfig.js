@@ -23,13 +23,13 @@ export default [
     },
     chartKind: 'benchmark',
     compareWithSimilarRegions: true,
-    additionalTitleParams: [],
+    additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Innvandrere utgjør ${options.share} av befolkningen`
+      return `Innvandrere utgjorde i ${options.aar} ${options.share} av befolkningen`
     },
     subTitle: options => {
-      return `For Norge er tallet ${options.share}`
+      return `For Norge var tallet ${options.share}`
     }
   },
   {
@@ -62,6 +62,35 @@ export default [
     },
   },
   {
+    name: 'anmodning_vedtak',
+    query: {
+      year: 'all',
+      tableName: 'bosatt_anmodede',
+      unit: ['personer'],
+      dimensions: [
+        {
+          name: 'bosetting',
+          variables: ['anmodning','vedtak']
+        }
+      ]
+    },
+    drillDown: {
+      page: 'befolkning',
+      card: 'bosatt_anmodede',
+      buttonTitle: 'Gå til bosettingsstatistikk'
+    },
+    chartKind: 'line',
+    compareWithSimilarRegions: false,
+    additionalTitleParams: [],
+    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
+    title: options => {
+      return `Anmodning og vedtak om bosetting over tid`
+    },
+    subTitle: options => {
+      return null
+    },
+  },
+  {
     name: 'tilskudd',
     query: {
       year: 'latest',
@@ -84,22 +113,26 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Mottok ${options.share} i tilskudd fra IMDi i ${options.aar}`
+      return `IMDi utbetalte ${options.share} i tilskudd i ${options.aar}`
     },
     subTitle: options => {
       return null
     },
   },
   {
-    name: 'innvandrere_intro_arbied',
+    name: 'innvandrere_intro_arbeid',
     query: {
       year: 'latest',
-      tableName: 'intro_avslutning_direkte',
+      tableName: 'intro_status_arbutd',
       unit: ['prosent'],
       dimensions: [
         {
-          name: 'avslutningArsak8',
-          variables: ['arbeid']
+          name: 'avslutta',
+          variables: ['ettaar']
+        },
+        {
+          name: 'avslstat4',
+          variables: ['arbutd']
         },
         {
           name: 'kjonn',
@@ -109,15 +142,15 @@ export default [
     },
     drillDown: {
       page: 'kvalifisering',
-      card: 'etter-intro',
+      card: 'status-etter-intro',
       buttonTitle: 'Gå til resultater fra introprogrammet'
     },
     chartKind: 'benchmark',
     compareWithSimilarRegions: true,
-    additionalTitleParams: [],
+    additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `${options.share} av deltakerne går direkte fra introprogram til arbeid`
+      return `I ${options.aar} var ${options.share} av deltakerne som avsluttet intro året før i arbeid eller utdanning`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}`
@@ -143,10 +176,10 @@ export default [
     },
     chartKind: 'bar',
     compareWithSimilarRegions: false,
-    additionalTitleParams: ['innvkat3'],
+    additionalTitleParams: ['innvkat3','aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `${options.share} av ${options.innvkat3.replace('_', ' ')} er i arbeid`
+      return `${options.share} av ${options.innvkat3.replace('_', ' ')} var i arbeid i ${options.aar}`
     },
     subTitle: options => {
       return `For hele landet er tallet ${options.share}`

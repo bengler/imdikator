@@ -64,7 +64,7 @@ export default [
   {
     name: 'anmodning_vedtak',
     query: {
-      year: 'all',
+      year: ['2012', '2013', '2014']
       tableName: 'bosatt_anmodede',
       unit: ['personer'],
       dimensions: [
@@ -82,7 +82,7 @@ export default [
     chartKind: 'line',
     compareWithSimilarRegions: false,
     additionalTitleParams: [],
-    relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
+    relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: options => {
       return `Anmodning og vedtak om bosetting over tid`
     },

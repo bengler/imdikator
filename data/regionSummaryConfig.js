@@ -70,7 +70,7 @@ export default [
       dimensions: [
         {
           name: 'bosetting',
-          variables: ['anmodning','vedtak']
+          variables: ['anmodning', 'vedtak']
         }
       ]
     },
@@ -176,7 +176,7 @@ export default [
     },
     chartKind: 'bar',
     compareWithSimilarRegions: false,
-    additionalTitleParams: ['innvkat3','aar'],
+    additionalTitleParams: ['innvkat3', 'aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
       return `${options.share} av ${options.innvkat3.replace('_', ' ')} var i arbeid i ${options.aar}`

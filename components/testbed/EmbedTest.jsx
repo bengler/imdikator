@@ -9,7 +9,7 @@ class RenderTestPage extends Component {
       <script
         id="imdikator-loader"
         data-api-host="imdikator-st.azurewebsites.net"
-        data-content-api-host="imdi.epinova.no"
+        data-content-api-host="prodimdino.azurewebsites.net/"
         src="/build/js/loader.js" async defer
       />,
       <link rel="stylesheet" href="/build/stylesheets/codemirror.css"/>,

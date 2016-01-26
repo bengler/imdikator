@@ -11,7 +11,7 @@ export default class PopupShareBox extends Component {
   static propTypes = {
     onCancel: PropTypes.func,
     chartUrl: PropTypes.string.isRequired
-  }
+  };
 
   constructor(props) {
     super()

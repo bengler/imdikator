@@ -6,11 +6,9 @@ import CHARTS_CONFIG from '../../../config/chartsConfigs'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class LineChart extends React.Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
-  }
-  /* eslint-enable react/forbid-prop-types */
+  };
 
   prepareData(data) {
     let dimensions = data.dimensions

@@ -7,13 +7,10 @@ import CHARTS_CONFIG from '../../../config/chartsConfigs'
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class BarChart extends React.Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string
-  }
-  /* eslint-enable react/forbid-prop-types */
-
+  };
   prepareData(data) {
     const dimensions = data.dimensions.slice()
     if (dimensions.length == 1) {

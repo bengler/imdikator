@@ -10,11 +10,11 @@ class RegionSearchContainer extends Component {
     allRegions: PropTypes.arrayOf(ImdiPropTypes.region),
     onSelect: PropTypes.func,
     placeholder: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     onSelect() {}
-  }
+  };
 
   render() {
     const {allRegions, placeholder, onSelect} = this.props

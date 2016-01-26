@@ -21,12 +21,12 @@ export default class RegionSearch extends Component {
     regions: PropTypes.arrayOf(ImdiPropTypes.region),
     onSelect: PropTypes.func,
     placeholder: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     onSelect() {
     }
-  }
+  };
 
   handleSelectRegion(region) {
     this.props.onSelect(region)

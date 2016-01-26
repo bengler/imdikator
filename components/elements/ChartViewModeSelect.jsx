@@ -16,7 +16,7 @@ export default class ChartModeSelect extends Component {
   static propTypes = {
     onChange: PropTypes.func,
     mode: PropTypes.string
-  }
+  };
 
   render() {
     const {onChange, mode: selectedMode} = this.props

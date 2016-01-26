@@ -24,12 +24,12 @@ export default class FilterSelect extends Component {
     constrained: PropTypes.bool,
     renderChoice: PropTypes.func.isRequired,
     onChange: PropTypes.func
-  }
+  };
   static defaultProps = {
     choices: [],
     onChange() {},
     renderChoice(choice, i, choices) {}
-  }
+  };
 
   constructor(props) {
     super()

@@ -15,7 +15,7 @@ export default class RegionPicker extends Component {
     onApply: PropTypes.func,
     onApplyAll: PropTypes.func,
     onCancel: PropTypes.func
-  }
+  };
   static defaultProps = {
     value: [],
     groups: [],
@@ -26,7 +26,7 @@ export default class RegionPicker extends Component {
     },
     onApply() {},
     onCancel() {}
-  }
+  };
 
   constructor(props) {
     super()

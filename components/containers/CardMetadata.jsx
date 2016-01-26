@@ -23,7 +23,7 @@ class CardMetadata extends Component {
       }))
     }),
     dispatch: PropTypes.func
-  }
+  };
 
   constructor() {
     super()

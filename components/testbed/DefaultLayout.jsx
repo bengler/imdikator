@@ -7,7 +7,8 @@ export default class DefaultLayout extends Component {
   static propTypes = {
     children: PropTypes.node,
     extraHead: PropTypes.node
-  }
+  };
+
   render() {
     const {children, extraHead} = this.props
     return (

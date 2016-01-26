@@ -5,7 +5,7 @@ import RegionSearch from './RegionSearchContainer'
 export default class RegionQuickSwitch extends Component {
   static contextTypes = {
     goTo: PropTypes.func
-  }
+  };
 
   handleSelectRegion(region) {
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: prefixifyRegion(region)})

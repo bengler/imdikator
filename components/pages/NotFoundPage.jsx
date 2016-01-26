@@ -5,7 +5,7 @@ import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 export default class NotFoundPage extends Component {
   static propTypes = {
     route: ImdiPropTypes.route
-  }
+  };
 
   render() {
     return (

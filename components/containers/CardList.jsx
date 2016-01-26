@@ -17,13 +17,13 @@ class CardList extends Component {
     cardsPage: ImdiPropTypes.cardsPage,
     region: ImdiPropTypes.region,
     openCards: PropTypes.arrayOf(PropTypes.string)
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func,
     navigate: PropTypes.func
-  }
+  };
 
   componentDidMount() {
     this.maybeScrollToOpenCard()

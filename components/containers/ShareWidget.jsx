@@ -6,7 +6,7 @@ import PopupShareBox from './PopupShareBox'
 class ShareWidget extends Component {
   static propTypes = {
     chartUrl: PropTypes.string
-  }
+  };
 
   constructor(props) {
     super()

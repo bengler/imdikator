@@ -9,7 +9,7 @@ export default class RegionChildrenList extends Component {
     region: ImdiPropTypes.region,
     childRegions: PropTypes.arrayOf(ImdiPropTypes.region),
     createLinkToRegion: PropTypes.func.isRequired
-  }
+  };
 
   renderTitle(region) {
     if (region.prefixedCode == 'F00') {

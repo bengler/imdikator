@@ -16,7 +16,7 @@ class DownloadWidget extends Component {
     query: ImdiPropTypes.query.isRequired,
     headerGroups: PropTypes.array,
     dispatch: PropTypes.func
-  }
+  };
 
   constructor(props) {
     super()

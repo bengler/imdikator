@@ -11,7 +11,7 @@ export default class PopupChoicesBox extends Component {
     description: PropTypes.string,
     choiceLabel: PropTypes.string,
     applyButtonText: PropTypes.string
-  }
+  };
 
   constructor(props) {
     super()

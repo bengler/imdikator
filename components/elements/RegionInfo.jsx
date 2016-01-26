@@ -12,7 +12,7 @@ export default class RegionInfo extends Component {
     commerceRegion: ImdiPropTypes.region,
     createLinkToRegion: PropTypes.func.isRequired,
     createLinkToSimilarRegion: PropTypes.func.isRequired
-  }
+  };
 
   render() {
     const {region, municipality, county, commerceRegion, createLinkToRegion, createLinkToSimilarRegion} = this.props

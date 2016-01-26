@@ -30,13 +30,13 @@ class FilterBarContainer extends Component {
     config: PropTypes.object,
     region: ImdiPropTypes.region.isRequired,
     onChange: PropTypes.func.isRequired
-  }
+  };
 
   static defaultProps = {
     config: {
       dimensions: {}
     }
-  }
+  };
 
   handleFilterChange(dimension, newValue) {
     if (dimension === 'comparisonRegions') {

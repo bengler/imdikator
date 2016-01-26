@@ -10,11 +10,11 @@ class RegionInfoContainer extends Component {
     municipality: ImdiPropTypes.region,
     county: ImdiPropTypes.region,
     commerceRegion: ImdiPropTypes.region
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func
-  }
+  };
 
   createLinkToRegion(region) {
     return this.context.linkTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})

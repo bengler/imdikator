@@ -9,11 +9,11 @@ class RegionChildListContainer extends Component {
   static propTypes = {
     region: ImdiPropTypes.region,
     childRegions: PropTypes.arrayOf(ImdiPropTypes.region)
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func
-  }
+  };
 
   render() {
     const {region, childRegions} = this.props

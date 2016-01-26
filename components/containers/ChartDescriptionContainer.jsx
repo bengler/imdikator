@@ -11,7 +11,7 @@ class ChartDescriptionContainer extends Component {
     region: ImdiPropTypes.region.isRequired,
     headerGroups: PropTypes.array,
     description: PropTypes.string
-  }
+  };
 
   render() {
     return (

@@ -25,7 +25,7 @@ const CHARTS = {
 export default class ChartsPage extends Component {
   static propTypes = {
     route: PropTypes.object
-  }
+  };
 
   render() {
     const {route} = this.props

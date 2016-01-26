@@ -29,13 +29,13 @@ class Card extends Component {
     cardsPageName: PropTypes.string.isRequired,
     activeTab: PropTypes.object,
     printable: PropTypes.bool,
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func,
     navigate: PropTypes.func
-  }
+  };
 
   constructor(props) {
     super()

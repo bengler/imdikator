@@ -8,11 +8,11 @@ export default class FilterBar extends Component {
       component: PropTypes.func
     })),
     onChange: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     filters: []
-  }
+  };
 
   handleFilterChange(filter, newValue) {
     const {onChange} = this.props

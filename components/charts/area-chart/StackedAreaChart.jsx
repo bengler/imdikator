@@ -9,11 +9,9 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
  * Only for development
  */
 export default class StackedAreaChart extends React.Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
-  }
-  /* eslint-enable react/forbid-prop-types */
+  };
 
   prepareData(data) {
     const dimensionLabels = data.dimensions.map(item => item.name)

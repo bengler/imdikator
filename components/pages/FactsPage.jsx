@@ -9,12 +9,12 @@ class FactsPage extends Component {
     region: PropTypes.object,
     cardsPages: PropTypes.object,
     cardPagesData: PropTypes.object
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  }
+  };
 
   render() {
     const {region, cardsPages} = this.props

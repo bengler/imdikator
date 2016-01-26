@@ -36,12 +36,12 @@ class RegionSummaryChartsContainer extends Component {
       })
     })),
     dispatch: PropTypes.func
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  }
+  };
 
   componentWillMount() {
     dispatchLoadChartsData(this.props)

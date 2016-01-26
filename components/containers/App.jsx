@@ -7,16 +7,16 @@ class App extends Component {
   static propTypes = {
     component: PropTypes.func.isRequired,
     router: ImdiPropTypes.router.isRequired
-  }
+  };
 
   static childContextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func,
     navigate: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
-  }
+  };
 
   getChildContext() {
     const {router} = this.props

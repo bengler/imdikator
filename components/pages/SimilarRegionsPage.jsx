@@ -13,12 +13,12 @@ class SimilarRegionsPage extends Component {
     similarRegions: PropTypes.arrayOf(ImdiPropTypes.region),
     parentRegion: ImdiPropTypes.region,
     dispatch: PropTypes.func
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  }
+  };
 
   renderHeader() {
     const {currentRegion} = this.props

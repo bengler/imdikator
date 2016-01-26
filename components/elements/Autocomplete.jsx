@@ -26,7 +26,7 @@ export default class Autocomplete extends Component {
     getItemValue: PropTypes.func,
     style: PropTypes.object,
     className: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     inputProps: {},
@@ -51,7 +51,7 @@ export default class Autocomplete extends Component {
       overflow: 'auto',
       maxHeight: '50%', // TODO: don't cheat, let it flow to the bottom
     }
-  }
+  };
 
   constructor(props) {
     super()
@@ -148,7 +148,7 @@ export default class Autocomplete extends Component {
         isOpen: false
       })
     }
-  }
+  };
 
   maybeScrollItemIntoView() {
     if (this.state.isOpen === true && this.state.highlightedIndex !== null) {

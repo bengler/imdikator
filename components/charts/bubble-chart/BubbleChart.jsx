@@ -9,11 +9,9 @@ import {colorLabels} from '../../../data/colorPalette'
 const INT_MAX = 9007199254740991
 
 export default class BubbleChart extends React.Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
-  }
-  /* eslint-enable react/forbid-prop-types */
+  };
 
   calculateHeight(el) {
     return el.getBoundingClientRect().width

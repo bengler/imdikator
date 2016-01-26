@@ -15,7 +15,7 @@ export default class TabBar extends Component {
     tabs: PropTypes.array.isRequired,
     disabledTabs: PropTypes.arrayOf(PropTypes.string),
     makeLinkToTab: PropTypes.func.isRequired
-  }
+  };
 
   render() {
     const {tabs, activeTab, makeLinkToTab, disabledTabs} = this.props

@@ -8,11 +8,11 @@ export default class ToggleButtonList extends Component {
     onAdd: PropTypes.func,
     onRemove: PropTypes.func,
     renderButton: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     renderButton: button => button
-  }
+  };
 
   toggle(option) {
     const {value} = this.props

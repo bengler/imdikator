@@ -17,12 +17,12 @@ export default class RegionSummaryChart extends Component {
     compareWith: PropTypes.shape({
       queryResult: PropTypes.array
     })
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  }
+  };
 
   render() {
 

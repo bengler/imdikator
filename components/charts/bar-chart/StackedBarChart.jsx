@@ -6,11 +6,9 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 import CHARTS_CONFIG from '../../../config/chartsConfigs'
 
 export default class StackedBarChart extends Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: PropTypes.object
-  }
-  /* eslint-enable react/forbid-prop-types */
+  };
 
   prepareData(data) {
     const dimensionLabels = data.dimensions.map(item => item.name)

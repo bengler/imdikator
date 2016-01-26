@@ -17,12 +17,12 @@ class RegionPage extends Component {
   static propTypes = {
     currentRegion: ImdiPropTypes.region,
     comparableRegions: PropTypes.arrayOf(ImdiPropTypes.region)
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  }
+  };
 
   handleSelectRegion(region) {
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})

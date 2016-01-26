@@ -12,7 +12,7 @@ import testData from './testPageData'
 class RenderTestPage extends Component {
   static propTypes = {
     data: PropTypes.object
-  }
+  };
 
   componentWillMount() {
   }

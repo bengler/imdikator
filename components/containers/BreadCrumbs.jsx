@@ -43,7 +43,7 @@ class BreadCrumbs extends Component {
     page: PropTypes.object,
     card: PropTypes.object,
     tab: PropTypes.object
-  }
+  };
 
   render() {
     const {crumbs, region, page, card, tab} = this.props

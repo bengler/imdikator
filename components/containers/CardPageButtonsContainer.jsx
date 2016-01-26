@@ -9,11 +9,11 @@ class CardPageButtons extends Component {
     currentCardsPage: ImdiPropTypes.cardsPage,
     allCardsPages: PropTypes.arrayOf(ImdiPropTypes.cardsPage),
     currentRegion: ImdiPropTypes.region
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func
-  }
+  };
 
 
   render() {

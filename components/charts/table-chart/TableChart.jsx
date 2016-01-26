@@ -5,12 +5,9 @@ import {generateCSV} from '../../../lib/csvWrangler'
 
 
 export default class TableChart extends React.Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object
-  }
-  /* eslint-enable react/forbid-prop-types */
-
+  };
 
   componentWillMount() {
     this.setState(generateCSV(this.props.data))

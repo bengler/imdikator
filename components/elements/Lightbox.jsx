@@ -23,12 +23,12 @@ export default class Lightbox extends Component {
     onClickOutside: PropTypes.func,
     style: PropTypes.object,
     className: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     onClose() {},
     onClickOutside() {}
-  }
+  };
 
   componentDidMount() {
     this.handleClickOutside = this.handleClickOutside.bind(this)

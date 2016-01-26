@@ -19,11 +19,11 @@ class CardsPage extends Component {
     cardsPage: ImdiPropTypes.cardsPage,
     openCards: PropTypes.arrayOf(PropTypes.string),
     region: ImdiPropTypes.region,
-  }
+  };
 
   static contextTypes = {
     goTo: PropTypes.func,
-  }
+  };
 
   handleSwitchRegion(region) {
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})

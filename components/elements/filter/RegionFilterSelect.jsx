@@ -12,14 +12,14 @@ export default class RegionFilterSelect extends Component {
     locked: PropTypes.bool,
     renderChoice: PropTypes.func,
     onChange: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     value: [],
     choices: [],
     groups: [],
     onChange() {}
-  }
+  };
 
   constructor(props) {
     super()

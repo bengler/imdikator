@@ -19,7 +19,7 @@ class EmbeddedChartContainer extends Component {
     queryResult: PropTypes.array,
     headerGroups: PropTypes.array,
     activeTab: PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props)

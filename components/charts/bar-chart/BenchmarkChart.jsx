@@ -19,13 +19,11 @@ function sortData(data, direction) {
 }
 
 export default class BenchmarkChart extends React.Component {
-  /* eslint-disable react/forbid-prop-types */
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
     sortDirection: React.PropTypes.string
-  }
-  /* eslint-enable react/forbid-prop-types */
+  };
 
   prepareData(data) {
     const dimensionLabels = data.dimensions.map(item => item.name)

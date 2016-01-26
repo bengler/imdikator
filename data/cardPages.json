@@ -487,6 +487,7 @@
         },
         "query": {
           "tableName": "bosatt_anmodede",
+          "year": "2016",
           "unit": [
             "personer"
           ],
@@ -527,12 +528,13 @@
         "title": "Høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd4": {
+            "utd5": {
               "include": [
+                "uoppgitt",
+                "ingen",
                 "grunnskole",
                 "vgs",
-                "universitet_og_hogskole",
-                "uoppgitt_ingen"
+                "universitet_og_hogskole"
               ]
             },
             "innvkat3": {
@@ -553,7 +555,7 @@
               "name": "innvkat3"
             },
             {
-              "name": "utd4"
+              "name": "utd5"
             },
             {
               "name": "kjonn",
@@ -575,7 +577,7 @@
         "title": "Grunnskole som høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd4": {
+            "utd5": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -597,7 +599,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd4"
+              "name": "utd5"
             },
             {
               "name": "innvkat3"
@@ -618,7 +620,7 @@
         "title": "Videregående som høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd4": {
+            "utd5": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -640,7 +642,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd4"
+              "name": "utd5"
             },
             {
               "name": "innvkat3"
@@ -661,7 +663,7 @@
         "title": "Universitet og høyskole som høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd4": {
+            "utd5": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -683,7 +685,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd4",
+              "name": "utd5",
               "variables": "all"
             },
             {
@@ -703,15 +705,15 @@
         "issue": "should not be stacked (why art thou stacked?)"
       },
       {
-        "name": "utdanningsniva-uoppgitt-ingen",
-        "title": "Utdanningsnivå  - Uoppgitt / ingen",
+        "name": "utdanningsniva -ingen",
+        "title": "Utdanningsnivå - ingen utdanning",
         "config": {
           "dimensions": {
-            "utd4": {
+            "utd5": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
-                "uoppgitt_ingen"
+                "ingen"
               ]
             },
             "innvkat3": {
@@ -729,7 +731,51 @@
           ],
           "dimensions": [
             {
-              "name": "utd4",
+              "name": "utd5",
+              "variables": "all"
+            },
+            {
+              "name": "innvkat3",
+              "variables": "all"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "0", "1"
+              ]
+            }
+          ]
+        },
+        "tabs": []
+      },
+          {
+        "name": "utdanningsniva-uoppgitt",
+        "title": "Utdanningsnivå - Uoppgitt",
+        "config": {
+          "dimensions": {
+            "utd5": {
+              "hidden": true,
+              "excludeFromChart": true,
+              "include": [
+                "uoppgitt"
+              ]
+            },
+            "innvkat3": {
+              "include": [
+                "innvandrere",
+                "befolkningen_ellers"
+              ]
+            }
+          }
+        },
+        "query": {
+          "tableName": "utdanningsniva",
+          "unit": [
+            "prosent"
+          ],
+          "dimensions": [
+            {
+              "name": "utd5",
               "variables": "all"
             },
             {
@@ -893,7 +939,7 @@
       },
       {
         "name": "ungdom-ikke-fullfoert",
-        "title": "Personer mellom 16-25 år som verken er i opplæring eller har fullført og bestått videregående opplæring",
+        "title": "Personer mellom 16 og 25 år som verken er i opplæring eller har fullført og bestått videregående opplæring",
         "config": {
           "dimensions": {
             "innvkat5": {

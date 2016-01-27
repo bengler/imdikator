@@ -25,6 +25,24 @@ export default class RegionSummaryChart extends Component {
     goTo: PropTypes.func
   };
 
+  getChart(chartKind) {
+    if (chartKind == 'benchmark') {
+      return BenchmarkChart
+    } else if (chartKind == 'line') {
+      return LineChart
+    }
+    return BarChart
+  }
+
+  getDimensions(chartKind) {
+    if (chartKind == 'benchmark') {
+      return [{name: 'region', variables: []}]
+    } else if (chartKind == 'line') {
+      return [{name: 'bosetting', variables: []}, {name: 'region', variables: []}, {name: 'year', variables: []}]
+    }
+    return [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
+  }
+
   render() {
 
     const {region, queryResult, query, config, compareWith} = this.props
@@ -33,6 +51,7 @@ export default class RegionSummaryChart extends Component {
     const comparisonData = compareWith && compareWith.queryResult
 
     const isNorway = region.prefixedCode === norway.prefixedCode
+    const isBenchmark = config.chartKind == 'benchmark'
 
     const formatter = unitFormatter(query.unit[0])
 
@@ -63,18 +82,10 @@ export default class RegionSummaryChart extends Component {
       subtitleTwo = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[1].tabellvariabel)})
     }
 
-    const Chart = config.chartKind == 'benchmark'
-                  ? BenchmarkChart
-                  : config.chartKind == 'line'
-                  ? LineChart
-                  : BarChart
+    const Chart = this.getChart(config.chartKind)
 
     // BenchmarkChart can only handle one dimension
-    const dimensions = config.chartKind == 'benchmark'
-                        ? [{name: 'region', variables: []}]
-                        : config.chartKind == 'line'
-                        ? [{name: 'bosetting', variables: []}, {name: 'region', variables: []}, {name: 'year', variables: []}]
-                        : [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
+    const dimensions = this.getDimensions(config.chartKind)
 
     const modifiedData = update(data, {
       dimensions: {$set: dimensions},
@@ -107,7 +118,7 @@ export default class RegionSummaryChart extends Component {
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
           </div>
-          {!isNorway && (
+          {!isNorway && isBenchmark && (
           <p className="indicator__subtext">
             {region.name} og <a href={similarUrl}>{comparison}</a>
           </p>

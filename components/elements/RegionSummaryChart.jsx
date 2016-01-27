@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import update from 'react-addons-update'
 import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
 import BarChart from '../charts/bar-chart/BarChart'
+import LineChart from '../charts/line-chart/LineChart'
 import {norway, comparisonDescription} from '../../lib/regionUtil'
 import {unitFormatter} from '../../lib/unitFormatter'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
@@ -62,10 +63,18 @@ export default class RegionSummaryChart extends Component {
       subtitleTwo = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[1].tabellvariabel)})
     }
 
-    const Chart = config.chartKind == 'benchmark' ? BenchmarkChart : BarChart
+    const Chart = config.chartKind == 'benchmark'
+                  ? BenchmarkChart
+                  : config.chartKind == 'line'
+                  ? LineChart
+                  : BarChart
+
     // BenchmarkChart can only handle one dimension
-    const dimensions = config.chartKind == 'benchmark' ? [{name: 'region', variables: []}]
-    : [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
+    const dimensions = config.chartKind == 'benchmark'
+                        ? [{name: 'region', variables: []}]
+                        : config.chartKind == 'line'
+                        ? [{name: 'bosetting', variables: []}, {name: 'region', variables: []}, {name: 'year', variables: []}]
+                        : [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
 
     const modifiedData = update(data, {
       dimensions: {$set: dimensions},
@@ -77,6 +86,7 @@ export default class RegionSummaryChart extends Component {
         }
       }
     })
+
 
     const drillDownUrl = this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {
       region: region.prefixedCode,

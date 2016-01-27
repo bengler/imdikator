@@ -7,7 +7,8 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class LineChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    minimalHeight: React.PropTypes.bool
   };
 
   prepareData(data) {
@@ -26,6 +27,14 @@ export default class LineChart extends React.Component {
       unit: data.unit,
       preparedData
     }
+  }
+
+  calculateHeightLarge(el) {
+    return 400
+  }
+
+  calculateHeightSmall(el) {
+    return 250
   }
 
   drawPoints(el, data) {
@@ -267,6 +276,7 @@ export default class LineChart extends React.Component {
     const functions = {
       drawPoints: this.drawPoints,
       calculateMargins: this.calculateMargins,
+      calculateHeight: this.props.minimalHeight ? this.calculateHeightSmall : this.calculateHeightLarge
     }
 
     const data = this.prepareData(this.props.data)

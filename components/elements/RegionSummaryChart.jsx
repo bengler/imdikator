@@ -125,7 +125,7 @@ export default class RegionSummaryChart extends Component {
           {titleTwo && <h3 className="indicator__primary">{titleTwo}</h3>}
           {subtitleTwo && <p className="indicator__secondary">{subtitleTwo}</p>}
           <div className="indicator__graph">
-            <Chart data={modifiedData} className="summaryChart" sortDirection="ascending"/>
+            <Chart data={modifiedData} className="summaryChart" sortDirection="ascending" minimalHeight />
           </div>
           {!isNorway && isBenchmark && (
           <p className="indicator__subtext">

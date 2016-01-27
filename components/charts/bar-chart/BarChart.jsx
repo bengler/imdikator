@@ -9,7 +9,8 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 export default class BarChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    minimalHeight: React.PropTypes.bool
   };
   prepareData(data) {
     const dimensions = data.dimensions.slice()
@@ -26,6 +27,14 @@ export default class BarChart extends React.Component {
       unit: data.unit,
       preparedData
     }
+  }
+
+  calculateHeightLarge(el) {
+    return 400
+  }
+
+  calculateHeightSmall(el) {
+    return 250
   }
 
   calculateWidth(el, data) {
@@ -232,7 +241,8 @@ export default class BarChart extends React.Component {
   render() {
     const functions = {
       drawPoints: this.drawPoints,
-      calculateWidth: this.calculateWidth
+      calculateWidth: this.calculateWidth,
+      calculateHeight: this.props.minimalHeight ? this.calculateHeightSmall : this.calculateHeightLarge
     }
 
     const data = this.prepareData(this.props.data)

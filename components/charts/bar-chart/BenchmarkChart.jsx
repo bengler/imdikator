@@ -22,7 +22,8 @@ export default class BenchmarkChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
-    sortDirection: React.PropTypes.string
+    sortDirection: React.PropTypes.string,
+    minimalHeight: React.PropTypes.bool
   };
 
   prepareData(data) {
@@ -40,9 +41,12 @@ export default class BenchmarkChart extends React.Component {
     }
   }
 
-  calculateHeight(el) {
+  calculateHeightLarge(el) {
+    return 400
+  }
+
+  calculateHeightSmall(el) {
     return 300
-    // return el.getBoundingClientRect().width
   }
 
   drawPoints(el, data) {
@@ -177,7 +181,7 @@ export default class BenchmarkChart extends React.Component {
     const sortDirection = this.props.sortDirection
     const functions = {
       drawPoints: this.drawPoints,
-      calculateHeight: this.calculateHeight
+      calculateHeight: this.props.minimalHeight ? this.calculateHeightSmall : this.calculateHeightLarge
     }
     const config = {
       shouldCalculateMargins: true

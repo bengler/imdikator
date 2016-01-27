@@ -113,9 +113,7 @@ export default class RegionSummaryChart extends Component {
 
     if (isBorough && cardName == 'bosatt_anmodede') {
       return (
-        <div>
-          {cardName}Bydel
-        </div>
+        <div></div>
       )
     }
 

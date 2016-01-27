@@ -199,8 +199,8 @@ class Card extends Component {
             <div className="cta cta--simple">
               <h4 className="cta__title">Se også</h4>
               <ul>
-                <li><a href="http://www.imdi.no/planlegging-og-bosetting/bosettingstall/anmodning-og-vedtak/">
-                Oversikt over anmodnings- og vedtakstall</a></li>
+                <li><a href="/planlegging-og-bosetting/anmodning-og-vedtak/">
+                Anmodnings- og vedtakstall for bosetting av flyktninger</a></li>
               </ul>
             </div>
           </div>

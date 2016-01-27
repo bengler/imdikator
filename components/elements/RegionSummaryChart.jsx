@@ -52,6 +52,9 @@ export default class RegionSummaryChart extends Component {
 
     const isNorway = region.prefixedCode === norway.prefixedCode
     const isBenchmark = config.chartKind == 'benchmark'
+    const isBorough = region.type == 'borough'
+
+    const cardName = config.drillDown.card
 
     const formatter = unitFormatter(query.unit[0])
 
@@ -107,6 +110,14 @@ export default class RegionSummaryChart extends Component {
 
     const similarUrl = this.context.linkTo('/tall-og-statistikk/steder/:region/lignende', {region: region.prefixedCode})
     const comparison = comparisonDescription(region).toLowerCase()
+
+    if (isBorough && cardName == 'bosatt_anmodede') {
+      return (
+        <div>
+          {cardName}Bydel
+        </div>
+      )
+    }
 
     return (
       <div className="col--third col--flow">

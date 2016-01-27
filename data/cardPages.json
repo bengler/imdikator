@@ -705,7 +705,7 @@
         "issue": "should not be stacked (why art thou stacked?)"
       },
       {
-        "name": "utdanningsniva -ingen",
+        "name": "utdanningsniva_ingen",
         "title": "Utdanningsnivå - ingen utdanning",
         "config": {
           "dimensions": {

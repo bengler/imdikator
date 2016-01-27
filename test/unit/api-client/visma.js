@@ -11,7 +11,7 @@ describe('Creating a client', () => {
   it('does not throw an error if required options are given', () => {
     assert.doesNotThrow(() => {
       APIClient.create({
-        baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
+        baseUrl: 'http://imdifakta.azurewebsites.net/api/v1/',
         connector: json
       })
     })

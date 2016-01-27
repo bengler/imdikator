@@ -7,7 +7,7 @@ class RenderTestPage extends Component {
     const extraHead = (
       <script
         id="imdikator-loader"
-        data-api-host="atindikator.azurewebsites.net"
+        data-api-host="imdifakta.azurewebsites.net"
         data-content-api-host="prodimdino.azurewebsites.net/"
         src="/build/js/loader.js" async defer
       />

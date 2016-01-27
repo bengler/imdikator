@@ -6,4 +6,4 @@ export const connector = defaults({
   }
 })
 
-export const API_URL = 'http://imdikator-st.azurewebsites.net/api/v1/'
+export const API_URL = 'http://imdifakta.azurewebsites.net/api/v1/'

@@ -1,6 +1,6 @@
 
 # Tables
-`$ ab -n 100 -c 10 http://imdikator-st.azurewebsites.net/api/v1/metadata/tables`
+`$ ab -n 100 -c 10 http://imdifakta.azurewebsites.net/api/v1/metadata/tables`
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1663405 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -49,7 +49,7 @@ Percentage of the requests served within a certain time (ms)
 # Header groups
 
 ## For table: arbledige_innvkat_land
-`$ ab -n 100 -c 10 http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/arbledige_innvkat_land`
+`$ ab -n 100 -c 10 http://imdifakta.azurewebsites.net/api/v1/metadata/headergroups/arbledige_innvkat_land`
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1663405 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -96,7 +96,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 
 ## For table: befolkning_botid
-`$ ab -n 100 -c 10 http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/befolkning_botid`
+`$ ab -n 100 -c 10 http://imdifakta.azurewebsites.net/api/v1/metadata/headergroups/befolkning_botid`
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1663405 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -143,7 +143,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 
 ## For table: barnehagedeltakelse
-`$ ab -n 100 -c 10 http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/barnehagedeltakelse`
+`$ ab -n 100 -c 10 http://imdifakta.azurewebsites.net/api/v1/metadata/headergroups/barnehagedeltakelse`
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1663405 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -190,7 +190,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 
 ## For table: befolkning_innvandringsgrunn
-`$ ab -n 100 -c 10 http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/befolkning_innvandringsgrunn`
+`$ ab -n 100 -c 10 http://imdifakta.azurewebsites.net/api/v1/metadata/headergroups/befolkning_innvandringsgrunn`
 ```
 This is ApacheBench, Version 2.3 <$Revision: 1663405 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -238,7 +238,7 @@ Percentage of the requests served within a certain time (ms)
 
 # Queries
 ## Request payload (simple)
-`$ ab -n 200 -c 10 -p test/benchmarks/queries/simple.json -T 'application/json' http://imdikator-st.azurewebsites.net/api/v1/query`
+`$ ab -n 200 -c 10 -p test/benchmarks/queries/simple.json -T 'application/json' http://imdifakta.azurewebsites.net/api/v1/query`
 ```json
 {
   "TableName": "befolkning_hovedgruppe",
@@ -319,7 +319,7 @@ Percentage of the requests served within a certain time (ms)
  100%    319 (longest request)
 ```
 ## Request payload (timeseries)
-`$ ab -n 200 -c 10 -p test/benchmarks/queries/timeseries.json -T 'application/json' http://imdikator-st.azurewebsites.net/api/v1/query`
+`$ ab -n 200 -c 10 -p test/benchmarks/queries/timeseries.json -T 'application/json' http://imdifakta.azurewebsites.net/api/v1/query`
 ```json
 {
   "TableName": "befolkning_hovedgruppe",
@@ -397,7 +397,7 @@ Percentage of the requests served within a certain time (ms)
  100%    208 (longest request)
 ```
 ## Request payload (timeseries-multi-region)
-`$ ab -n 200 -c 10 -p test/benchmarks/queries/timeseries-multi-region.json -T 'application/json' http://imdikator-st.azurewebsites.net/api/v1/query`
+`$ ab -n 200 -c 10 -p test/benchmarks/queries/timeseries-multi-region.json -T 'application/json' http://imdifakta.azurewebsites.net/api/v1/query`
 ```json
 {
   "TableName": "befolkning_hovedgruppe",

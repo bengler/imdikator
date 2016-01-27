@@ -41,7 +41,7 @@ function getScriptBaseUrl(env) {
 
 const SCRIPT_TAG = `<script
   id="imdikator-loader"
-  data-api-host="atindikator.azurewebsites.net"
+  data-api-host="imdifakta.azurewebsites.net"
   data-content-api-host="prodimdino.azurewebsites.net/"
   src="${getScriptBaseUrl(process.env.NODE_ENV)}/build/js/loader.js"
   async

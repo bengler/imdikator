@@ -6,12 +6,12 @@ describe('Fetching tables using API client', () => {
   it('can retrieve headers for a given table', () => {
     const stub = sinon.stub().returns(Promise.resolve({json: []}))
     const client = APIClient.create({
-      baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
+      baseUrl: 'http://imdifakta.azurewebsites.net/api/v1/',
       connector: {get: stub}
     })
 
     return client.getHeaderGroups('sometable').then(() => {
-      assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/metadata/headergroups/sometable')
+      assert.calledWith(stub, 'http://imdifakta.azurewebsites.net/api/v1/metadata/headergroups/sometable')
     })
   })
 
@@ -19,7 +19,7 @@ describe('Fetching tables using API client', () => {
     const stub = sinon.stub().returns(Promise.resolve({json: []}))
 
     const client = APIClient.create({
-      baseUrl: 'http://imdikator-st.azurewebsites.net/api/v1/',
+      baseUrl: 'http://imdifakta.azurewebsites.net/api/v1/',
       connector: {post: stub}
     })
 
@@ -35,7 +35,7 @@ describe('Fetching tables using API client', () => {
 
     return client.query(query)
       .then(() => {
-        assert.calledWith(stub, 'http://imdikator-st.azurewebsites.net/api/v1/data/query', {
+        assert.calledWith(stub, 'http://imdifakta.azurewebsites.net/api/v1/data/query', {
           TableName: query.tableName,
           Conditions: {
             aar: ['2015'],

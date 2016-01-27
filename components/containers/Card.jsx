@@ -112,6 +112,8 @@ class Card extends Component {
     const chart = CHARTS[chartKind]
     const ChartComponent = chart.component
 
+    const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede' // TODO: Needs to be dynamic
+
     if (!ChartComponent) {
       return (
         <div className="toggle-list__section toggle-list__section--expanded">
@@ -192,6 +194,17 @@ class Card extends Component {
         {!printable && (
           <CardMetadata dimensions={query.dimensions} metadata={card.metadata}/>
         )}
+        {showExternalLinkBosatte && (
+          <div className="graph__related">
+            <div className="cta cta--simple">
+              <h4 className="cta__title">Se også</h4>
+              <ul>
+                <li><a href="http://www.imdi.no/planlegging-og-bosetting/bosettingstall/anmodning-og-vedtak/">
+                Oversikt over anmodnings- og vedtakstall</a></li>
+              </ul>
+            </div>
+          </div>
+          )}
       </div>
     )
   }

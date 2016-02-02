@@ -4,7 +4,8 @@ import React, {PropTypes} from 'react'
 export default class Index {
   static propTypes = {
     registry: PropTypes.array
-  }
+  };
+
   render() {
     const {registry} = this.props
     return (

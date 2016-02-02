@@ -42,7 +42,7 @@ export default class PropForm extends React.Component {
     componentPropTypes: PropTypes.object,
     propValues: PropTypes.object,
     onPropChange: PropTypes.func
-  }
+  };
 
   emitPropValueChange(prop) {
     return event => {

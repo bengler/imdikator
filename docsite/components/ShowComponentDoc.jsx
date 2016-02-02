@@ -37,7 +37,7 @@ export default class ShowComponentDoc extends React.Component {
   static propTypes = {
     component: PropTypes.func.isRequired,
     componentProps: PropTypes.any
-  }
+  };
 
   constructor(props) {
     super()

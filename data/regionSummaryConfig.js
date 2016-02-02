@@ -26,7 +26,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Innvandrerandel i befolkningen i ${options.aar}`
+      return `Innvandrere som andel av befolkningen i ${options.aar}`
     },
     subTitle: options => {
       return `For Norge var tallet ${options.share}`
@@ -147,10 +147,10 @@ export default [
     },
     chartKind: 'benchmark',
     compareWithSimilarRegions: true,
-    additionalTitleParams: ['aar'],
+    additionalTitleParams: [],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Andel  av deltakerne som avsluttet intro året før i arbeid eller utdanning i ${options.aar}`
+      return `Deltakere som avsluttet introprogram i 2013 - andel i arbeid og utdanning i 2014`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}`
@@ -176,10 +176,10 @@ export default [
     },
     chartKind: 'bar',
     compareWithSimilarRegions: false,
-    additionalTitleParams: ['aar'],
+    additionalTitleParams: [],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Andel av innvandrere og befolkningen ellers i arbeid i ${options.aar}`
+      return `Andel av innvandrere og befolkningen ellers i arbeid i 2013`
     },
     subTitle: options => {
       return null

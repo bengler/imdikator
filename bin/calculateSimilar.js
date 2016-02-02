@@ -2,8 +2,10 @@
 //
 // Normalisation is an attempt to make dimension count
 //
+import * as VismaAPIClient from '../lib/api-client/visma'
+import * as FileClient from '../lib/api-client/files'
+import * as JSONConnector from '../lib/http/json'
 
-import apiClient from '../config/apiClient'
 import debug from '../lib/debug'
 
 const populationQuery = {
@@ -59,7 +61,19 @@ const refugeeQuery = {
   ]
 }
 
-apiClient.getAllRegions().then(getData)
+const connector = JSONConnector.defaults({
+  headers: {
+    'user-agent': 'imdikator:api-client',
+    accept: 'application/json,text/plain,* / *'
+  }
+})
+
+const apiClient = VismaAPIClient.create({
+  baseUrl: `http://imdifakta.azurewebsites.net/api/v1/`,
+  connector: connector
+})
+
+FileClient.create().getAllRegions().then(getData)
 
 function getData(allRegions) {
 
@@ -74,11 +88,16 @@ function getData(allRegions) {
   const populationQueryPromise = apiClient.query(populationQuery)
   const refugeeQueryPromise = apiClient.query(refugeeQuery)
   Promise.all([populationQueryPromise, refugeeQueryPromise]).then(result => {
+    debug('All promises completed')
     findSimilarities(result, municipalityCodeToNameKeys)
   }).catch(debug)
 }
 
 function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
+
+  population = population.filter(muni => muni.enhet == 'personer')
+
+  debug(`Got ${population.length} population rows and ${refugees.length} refugee rows`)
 
   let set = flattenLists(population, refugees)
 
@@ -97,7 +116,7 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   set = set.map(asQuotientOf('refugees', 'totalPopulation'))
 
   // Normalize dimension. And add weights.
-  normalize(set, 'totalPopulation', 1)
+  normalize(set, 'totalPopulation', 3)
   normalize(set, 'immigrants', 1)
   normalize(set, 'refugees', 1)
 
@@ -108,13 +127,32 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
 
   // Find similar
   const similarities = calculateProximity(set, ['immigrants', 'refugees', 'totalPopulation'])
+  const strippedSet = strip(similarities)
+
+  // Purely for debug
+  const debugSet = annotate(strippedSet, municipalityCodeToNameKeys)
 
   // STATUS HERE
-  debug(JSON.stringify(stripDebug(similarities), 0, 2))
+  debug(JSON.stringify(debugSet, 0, 2))
 
 }
 
-function stripDebug(set) {
+function annotate(stripped, municipalityCodeToNameKeys) {
+  return stripped.map(municipality => {
+
+    const similarAsNameList = municipality.similar.map(code => {
+      return municipalityCodeToNameKeys[code]
+    })
+
+    return {
+      name: municipalityCodeToNameKeys[municipality.code],
+      similar: similarAsNameList
+    }
+
+  })
+}
+
+function strip(set) {
   return set.map(municipality => {
     const similar = municipality.similar.map(sim => {
       return sim.kommuneNr

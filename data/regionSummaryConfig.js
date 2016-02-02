@@ -26,7 +26,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Innvandrere som andel av befolkningen i ${options.aar}`
+      return `Innvandrere utgjorde i ${options.aar} ${options.share} av befolkningen`
     },
     subTitle: options => {
       return `For Norge var tallet ${options.share}`
@@ -113,7 +113,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Utbetalt tilskudd i ${options.aar}`
+      return `IMDi utbetalte ${options.share} i tilskudd i ${options.aar}`
     },
     subTitle: options => {
       return null
@@ -176,13 +176,13 @@ export default [
     },
     chartKind: 'bar',
     compareWithSimilarRegions: false,
-    additionalTitleParams: [],
+    additionalTitleParams: ['innvkat3', 'aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Andel av innvandrere og befolkningen ellers i arbeid i 2013`
+      return `${options.share} av ${options.innvkat3.replace('_', ' ')} var i arbeid i ${options.aar}`
     },
     subTitle: options => {
-      return null
+      return `For hele landet er tallet ${options.share}`
     },
   }
 ]

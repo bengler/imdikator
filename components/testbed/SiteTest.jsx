@@ -8,7 +8,7 @@ class RenderTestPage extends Component {
       <script
         id="imdikator-loader"
         data-api-host="imdifakta.azurewebsites.net"
-        data-content-api-host="prodimdino.azurewebsites.net/"
+        data-content-api-host="imdi.no/"
         src="/build/js/loader.js" async defer
       />
     )

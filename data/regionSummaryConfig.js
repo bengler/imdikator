@@ -26,7 +26,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Innvandrere utgjorde i ${options.aar} ${options.share} av befolkningen`
+      return `Innvandrerandel i befolkningen i ${options.aar}`
     },
     subTitle: options => {
       return `For Norge var tallet ${options.share}`
@@ -55,7 +55,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `Bosatte ${options.share} flyktninger per innbygger i ${options.aar}`
+      return `Bosatte flyktninger per innbygger i ${options.aar}`
     },
     subTitle: options => {
       return `For hele landet er tallet ${options.share}`
@@ -64,7 +64,7 @@ export default [
   {
     name: 'anmodning_vedtak',
     query: {
-      year: ['2012', '2013', '2014'],
+      year: ['2012', '2013', '2014', '2015', '2016'],
       tableName: 'bosatt_anmodede',
       unit: ['personer'],
       dimensions: [
@@ -113,7 +113,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `IMDi utbetalte ${options.share} i tilskudd i ${options.aar}`
+      return `Utbetalt tilskudd i ${options.aar}`
     },
     subTitle: options => {
       return null
@@ -150,7 +150,7 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `I ${options.aar} var ${options.share} av deltakerne som avsluttet intro året før i arbeid eller utdanning`
+      return `Andel  av deltakerne som avsluttet intro året før i arbeid eller utdanning i ${options.aar}`
     },
     subTitle: options => {
       return `Gjennomsnittet i Norge er ${options.share}`
@@ -176,13 +176,13 @@ export default [
     },
     chartKind: 'bar',
     compareWithSimilarRegions: false,
-    additionalTitleParams: ['innvkat3', 'aar'],
+    additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: options => {
-      return `${options.share} av ${options.innvkat3.replace('_', ' ')} var i arbeid i ${options.aar}`
+      return `Andel av innvandrere og befolkningen ellers i arbeid i ${options.aar}`
     },
     subTitle: options => {
-      return `For hele landet er tallet ${options.share}`
+      return null
     },
   }
 ]

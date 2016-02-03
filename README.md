@@ -3,6 +3,9 @@ Imdikator frontend [![Build Status](https://travis-ci.org/bengler/imdikator.svg?
 
 The entire stand alone front-end application for [IMDi - Tall og Statistikk](http://www.imdi.no/tall-og-statistikk/). Contains chart drawing library that supports Norwegian Central Bureau of Statistics convenstions for missing and suppressed data.
 
+Todo:
+* Completely modularize chart library
+
 # Prerequisites
 
 - Node.js (v0.10 or later)

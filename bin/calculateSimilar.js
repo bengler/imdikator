@@ -116,7 +116,7 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   set = set.map(asQuotientOf('refugees', 'totalPopulation'))
 
   // Normalize dimension. And add weights.
-  normalize(set, 'totalPopulation', 3)
+  normalize(set, 'totalPopulation', 2)
   normalize(set, 'immigrants', 1)
   normalize(set, 'refugees', 1)
 
@@ -129,11 +129,15 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   const similarities = calculateProximity(set, ['immigrants', 'refugees', 'totalPopulation'])
   const strippedSet = strip(similarities)
 
-  // Purely for debug
-  const debugSet = annotate(strippedSet, municipalityCodeToNameKeys)
+
 
   // STATUS HERE
-  debug(JSON.stringify(debugSet, 0, 2))
+  debug(JSON.stringify(strippedSet, 0, 2))
+
+  // Purely for debug
+  // const debugSet = annotate(strippedSet, municipalityCodeToNameKeys)
+  // debug(JSON.stringify(debugSet, 0, 2))
+
 
 }
 

@@ -129,15 +129,12 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   const similarities = calculateProximity(set, ['immigrants', 'refugees', 'totalPopulation'])
   const strippedSet = strip(similarities)
 
-
-
   // STATUS HERE
   debug(JSON.stringify(strippedSet, 0, 2))
 
   // Purely for debug
-  // const debugSet = annotate(strippedSet, municipalityCodeToNameKeys)
-  // debug(JSON.stringify(debugSet, 0, 2))
-
+  const debugSet = annotate(strippedSet, municipalityCodeToNameKeys)
+  debug(JSON.stringify(debugSet, 0, 2))
 
 }
 

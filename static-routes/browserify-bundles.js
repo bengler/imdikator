@@ -1,5 +1,5 @@
 import browserify from 'browserify'
-import envify from 'envify'
+import envify from 'loose-envify'
 import rebundler from 'rebundler'
 import SpawnStream from 'spawn-stream'
 

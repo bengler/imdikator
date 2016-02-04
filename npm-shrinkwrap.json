@@ -1363,7 +1363,7 @@
     },
     "envify": {
       "version": "3.4.0",
-      "from": "envify@>=3.0.0 <4.0.0",
+      "from": "envify@>=3.4.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/envify/-/envify-3.4.0.tgz"
     },
     "errno": {

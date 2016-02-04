@@ -5,8 +5,6 @@
     "transform-class-properties",
 
     "syntax-object-rest-spread",
-    "transform-object-rest-spread",
-
-    "babel-plugin-transform-inline-environment-variables"
+    "transform-object-rest-spread"
   ]
 }

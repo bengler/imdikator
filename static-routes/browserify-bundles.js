@@ -1,4 +1,5 @@
 import browserify from 'browserify'
+import envify from 'envify'
 import rebundler from 'rebundler'
 import SpawnStream from 'spawn-stream'
 
@@ -31,6 +32,7 @@ function createBundle(entries, addTransforms) {
       fullPaths: config.env == 'development'
     })
       .transform(babelify)
+      .transform(envify, {global: true})
 
     if (addTransforms) {
       addTransforms(bundle)

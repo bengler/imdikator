@@ -4,9 +4,16 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
-import {generateCSV, downloadCSV} from '../../lib/csvWrangler'
+import {generateCSV} from '../../lib/csvWrangler'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import apiClient from '../../config/apiClient'
+
+import {saveAs} from 'browser-filesaver'
+
+function downloadCSV(content, fileName) {
+  const blob = new Blob([content], {type: 'text/csv;charset=utf-8'})
+  saveAs(blob, fileName)
+}
 
 
 class DownloadWidget extends Component {

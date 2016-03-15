@@ -2,16 +2,6 @@
   "name": "imdikator",
   "version": "0.0.0",
   "dependencies": {
-    "Base64": {
-      "version": "0.2.1",
-      "from": "Base64@>=0.2.0 <0.3.0",
-      "resolved": "https://registry.npmjs.org/Base64/-/Base64-0.2.1.tgz"
-    },
-    "JSONStream": {
-      "version": "1.0.7",
-      "from": "JSONStream@>=1.0.3 <2.0.0",
-      "resolved": "https://registry.npmjs.org/JSONStream/-/JSONStream-1.0.7.tgz"
-    },
     "abbrev": {
       "version": "1.0.7",
       "from": "abbrev@>=1.0.0 <1.1.0",
@@ -655,6 +645,11 @@
       "from": "base62@0.1.1",
       "resolved": "https://registry.npmjs.org/base62/-/base62-0.1.1.tgz"
     },
+    "Base64": {
+      "version": "0.2.1",
+      "from": "Base64@>=0.2.0 <0.3.0",
+      "resolved": "https://registry.npmjs.org/Base64/-/Base64-0.2.1.tgz"
+    },
     "base64-js": {
       "version": "0.0.8",
       "from": "base64-js@0.0.8",
@@ -711,6 +706,11 @@
       "version": "1.0.5",
       "from": "brorand@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/brorand/-/brorand-1.0.5.tgz"
+    },
+    "browser-filesaver": {
+      "version": "1.1.0",
+      "from": "browser-filesaver@latest",
+      "resolved": "https://registry.npmjs.org/browser-filesaver/-/browser-filesaver-1.1.0.tgz"
     },
     "browser-pack": {
       "version": "6.0.1",
@@ -2227,6 +2227,11 @@
       "from": "jsonpointer@2.0.0",
       "resolved": "https://registry.npmjs.org/jsonpointer/-/jsonpointer-2.0.0.tgz"
     },
+    "JSONStream": {
+      "version": "1.0.7",
+      "from": "JSONStream@>=1.0.3 <2.0.0",
+      "resolved": "https://registry.npmjs.org/JSONStream/-/JSONStream-1.0.7.tgz"
+    },
     "jsprim": {
       "version": "1.2.2",
       "from": "jsprim@>=1.2.2 <2.0.0",
@@ -3570,15 +3575,15 @@
       "from": "stream-splicer@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/stream-splicer/-/stream-splicer-2.0.0.tgz"
     },
-    "string-width": {
-      "version": "1.0.1",
-      "from": "string-width@>=1.0.1 <2.0.0",
-      "resolved": "https://registry.npmjs.org/string-width/-/string-width-1.0.1.tgz"
-    },
     "string_decoder": {
       "version": "0.10.31",
       "from": "string_decoder@>=0.10.0 <0.11.0",
       "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz"
+    },
+    "string-width": {
+      "version": "1.0.1",
+      "from": "string-width@>=1.0.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/string-width/-/string-width-1.0.1.tgz"
     },
     "stringmap": {
       "version": "0.2.2",

@@ -60,9 +60,10 @@ export default class RegionSummaryChart extends Component {
 
     const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
 
-    let titleParams = {
-      share: formatter.format(regionDataRow.value)
-    }
+    let titleParams = {}
+    titleParams.anonymizedData = !!regionDataRow.anonymized
+    titleParams.missingData = !!regionDataRow.missingData
+    titleParams.share = formatter.format(regionDataRow.value)
 
     config.additionalTitleParams.map(param => {
       titleParams[param] = regionDataRow[param]

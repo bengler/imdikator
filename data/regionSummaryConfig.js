@@ -25,11 +25,11 @@ export default [
     compareWithSimilarRegions: true,
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
-    title: options => {
-      return `Innvandrere utgjorde i ${options.aar} ${options.share} av befolkningen`
+    title: params => {
+      return `Innvandrere utgjorde i ${params.aar} ${params.share} av befolkningen`
     },
-    subTitle: options => {
-      return `For Norge var tallet ${options.share}`
+    subTitle: params => {
+      return `For Norge var tallet ${params.share}`
     }
   },
   {
@@ -54,11 +54,11 @@ export default [
     compareWithSimilarRegions: true,
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
-    title: options => {
-      return `Bosatte flyktninger per innbygger i ${options.aar}`
+    title: params => {
+      return `Bosatte flyktninger per innbygger i ${params.aar}`
     },
-    subTitle: options => {
-      return `For hele landet er tallet ${options.share}`
+    subTitle: params => {
+      return `For hele landet er tallet ${params.share}`
     },
   },
   {
@@ -83,10 +83,10 @@ export default [
     compareWithSimilarRegions: false,
     additionalTitleParams: [],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
-    title: options => {
+    title: params => {
       return `Anmodning og vedtak om bosetting over tid`
     },
-    subTitle: options => {
+    subTitle: params => {
       return null
     },
   },
@@ -112,10 +112,10 @@ export default [
     compareWithSimilarRegions: true,
     additionalTitleParams: ['aar'],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
-    title: options => {
-      return `IMDi utbetalte ${options.share} i tilskudd i ${options.aar}`
+    title: params => {
+      return `IMDi utbetalte ${params.share} i tilskudd i ${params.aar}`
     },
-    subTitle: options => {
+    subTitle: params => {
       return null
     },
   },
@@ -149,11 +149,11 @@ export default [
     compareWithSimilarRegions: true,
     additionalTitleParams: [],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
-    title: options => {
+    title: params => {
       return `Deltakere som avsluttet introprogram i 2013 - andel i arbeid og utdanning i 2014`
     },
-    subTitle: options => {
-      return `Gjennomsnittet i Norge er ${options.share}`
+    subTitle: params => {
+      return `Gjennomsnittet i Norge er ${params.share}`
     },
   },
   {
@@ -178,11 +178,11 @@ export default [
     compareWithSimilarRegions: false,
     additionalTitleParams: ['innvkat3', 'aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
-    title: options => {
-      return `${options.share} av ${options.innvkat3.replace('_', ' ')} var i arbeid i ${options.aar}`
+    title: params => {
+      return `${params.share} av ${params.innvkat3.replace('_', ' ')} var i arbeid i ${params.aar}`
     },
-    subTitle: options => {
-      return `For hele landet er tallet ${options.share}`
+    subTitle: params => {
+      return `For hele landet er tallet ${params.share}`
     },
   }
 ]

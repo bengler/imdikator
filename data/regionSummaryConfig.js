@@ -55,6 +55,9 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: params => {
+      if (params.share) {
+        return `Bosatte ${params.share} flyktninger per innbygger i ${params.aar}`
+      }
       return `Bosatte flyktninger per innbygger i ${params.aar}`
     },
     subTitle: params => {
@@ -147,10 +150,14 @@ export default [
     },
     chartKind: 'benchmark',
     compareWithSimilarRegions: true,
-    additionalTitleParams: [],
+    additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: params => {
-      return `Deltakere som avsluttet introprogram i 2013 - andel i arbeid og utdanning i 2014`
+      if (params.share) {
+        return `${params.share} av deltakerne går direkte fra introprogram til arbeid`
+      }
+      const previousYear = Number(params.aar) - 1
+      return `Deltakere som avsluttet introprogram i ${previousYear} - andel i arbeid og utdanning i ${params.aar}`
     },
     subTitle: params => {
       return `Gjennomsnittet i Norge er ${params.share}`

@@ -55,10 +55,13 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: params => {
-      if (params.share) {
-        return `Bosatte ${params.share} flyktninger per innbygger i ${params.aar}`
+      if (params.missingData) {
+        return `Bosatte flyktninger per innbygger i ${params.aar} er ikke kjent`
       }
-      return `Bosatte flyktninger per innbygger i ${params.aar}`
+      if (params.anonymizedData) {
+        return `Bosatte flyktninger per innbygger i ${params.aar} er anonymisert`
+      }
+      return `Bosatte ${params.share} flyktninger per innbygger i ${params.aar}`
     },
     subTitle: params => {
       return `For hele landet er tallet ${params.share}`
@@ -153,11 +156,13 @@ export default [
     additionalTitleParams: ['aar'],
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: params => {
-      if (params.share) {
-        return `${params.share} av deltakerne går direkte fra introprogram til arbeid`
+      if (params.missingData) {
+        return `Antall deltakere som gikk fra introprogram til arbeid er ikke kjent`
       }
-      const previousYear = Number(params.aar) - 1
-      return `Deltakere som avsluttet introprogram i ${previousYear} - andel i arbeid og utdanning i ${params.aar}`
+      if (params.anonymizedData) {
+        return `Antall deltakere som gikk fra introprogram til arbeid er anonymisert`
+      }
+      return `${params.share} av deltakerne gikk direkte fra introprogram til arbeid`
     },
     subTitle: params => {
       return `Gjennomsnittet i Norge er ${params.share}`

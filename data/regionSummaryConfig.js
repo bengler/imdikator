@@ -162,10 +162,10 @@ export default [
       if (params.anonymizedData) {
         return `Antall deltakere som gikk fra introprogram til arbeid er anonymisert`
       }
-      return `${params.share} av deltakerne gikk direkte fra introprogram til arbeid`
+      return `${params.share} av deltakerne som avsluttet introprogram i ${params.aar} var i arbeid eller utdanning året etter.`
     },
     subTitle: params => {
-      return `Gjennomsnittet i Norge er ${params.share}`
+      return `For Norge er tallet ${params.share}`
     },
   },
   {

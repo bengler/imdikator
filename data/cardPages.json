@@ -64,6 +64,12 @@
                 "55_66",
                 "67+"
               ]
+            },
+            "kjonn": {
+              "include": [
+                "0",
+                "1"
+                ]
             }
           }
         },
@@ -448,7 +454,8 @@
             "forsteBosettingskommune": {
               "include": [
                 "ja",
-                "nei"
+                "nei",
+                "uoppgitt"
               ]
             }
           }
@@ -867,6 +874,46 @@
         },
         "tabs": []
       },
+      {  
+    "name": "gjennomsnittlige-grunnskolepoeng-alder-innvandring",
+		"title": "Gjennomsnittlige grunnskolepoeng etter alder ved innvandring",
+		"config": {
+			"dimensions": {
+				"vreg3": {
+					"include": [
+						"alle"
+					]
+				}
+			}
+		},
+		"query": {
+			"tableName": "grunnskolepoeng_innvandrere",
+			"unit": [
+				"grunnskolepoeng"
+			],
+			"dimensions": [{
+			     "name": "invalder3",
+           "variables": [ 
+             "0_6",
+             "7+",
+             "alle"
+             ]
+      },
+      {
+				"name": "kjonn",
+				"variables": [
+					"0",
+					"1"
+				]
+			},
+			  {
+				"name": "vreg3",
+				"variables": "all"
+			} 
+      ]
+		},
+		"tabs": []
+	},
       {
         "name": "elever-i-videregaaende",
         "title": "Elever i videregående skole (gjennomsnitt siste 3 år)",
@@ -1284,12 +1331,14 @@
         "title": "Sysselsetting etter innvandringsgrunn",
         "config": {
           "dimensions": {
-            "innvgrunn5": {
+            "innvgrunn7": {
               "include": [
                 "arbeid",
                 "familie",
                 "flukt",
-                "annet_uoppgitt"
+                "utdanning",
+                "uoppgitt",
+                "annet"
               ]
             }
           }
@@ -1301,7 +1350,7 @@
           ],
           "dimensions": [
             {
-              "name": "innvgrunn5",
+              "name": "innvgrunn7",
               "variables": "all"
             },
             {
@@ -1348,10 +1397,11 @@
         "title": "Sysselsatte innvandrere etter botid og landbakgrunn",
         "config": {
           "dimensions": {
-            "botid3": {
+            "botid4": {
               "include": [
-                "0-4",
-                "5+"
+                "0_4",
+                "5_9",
+                "10+"
               ]
             },
             "vreg3": {
@@ -1369,7 +1419,7 @@
           ],
           "dimensions": [
             {
-              "name": "botid3",
+              "name": "botid4",
               "variables": "all"
             },
             {
@@ -1417,7 +1467,23 @@
       {
         "name": "sysselsatte-innvandrere-landbakgrunn",
         "title": "Sysselsatte innvandrere etter landbakgrunn",
-        "config": {},
+        "config": {
+			"dimensions":{
+				"vreg9":{
+					"include":[
+                    "norden",
+                    "vest_europa",
+                    "eu_ost_europa",
+                    "ost_europa_ellers",
+                    "nord_amerika_oseania",
+                    "asia",
+                    "afrika",
+                    "sor_og_mellom_amerika",
+                    "alle"
+                    ]
+				}
+			}
+		},
         "query": {
           "tableName": "sysselsatte_land",
           "unit": [
@@ -1701,6 +1767,7 @@
               "include": [
                 "inttilsk_1",
                 "inttilsk_2_5",
+                "ekstra_bosetting_tilsk",
                 "funkhem",
                 "norsk_samf_tilsk",
                 "em_tilsk",

@@ -36,12 +36,13 @@ export default class TableChart extends React.Component {
 
     const parser = d3.dsv(data.separator, 'text/plain')
     const parsedData = parser.parseRows(data.csv)
+    const transposedData = d3.transpose(parsedData)
 
 
     table.append('thead')
     .append('tr')
     .selectAll('th')
-    .data(parsedData[0])
+    .data(transposedData[0])
     .enter()
     .append('th')
     .text(dataItem => dataItem)
@@ -49,7 +50,7 @@ export default class TableChart extends React.Component {
     const tableBody = table.append('tbody')
 
     const rows = tableBody.selectAll('tr')
-    .data(parsedData.slice(1))
+    .data(transposedData.slice(1))
     .enter()
     .append('tr')
 

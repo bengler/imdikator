@@ -42,7 +42,7 @@ export default class TableChart extends React.Component {
     table.append('thead')
     .append('tr')
     .selectAll('th')
-    .data(transposedData[0])
+    .data(transposedData[1])
     .enter()
     .append('th')
     .text(dataItem => dataItem)
@@ -50,7 +50,7 @@ export default class TableChart extends React.Component {
     const tableBody = table.append('tbody')
 
     const rows = tableBody.selectAll('tr')
-    .data(transposedData.slice(1))
+    .data(transposedData.slice(2))
     .enter()
     .append('tr')
 

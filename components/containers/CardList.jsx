@@ -94,7 +94,7 @@ class CardList extends Component {
           const isOpen = openCards.includes(card.name)
           return (
             <li ref={`card-${card.name}`} key={card.name}>
-              <section className="toggle-list">
+              <div className="toggle-list">
                 {this.renderToggleCardLink(card)}
                 {isOpen && !card.noValucontextes && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
                 {isOpen && card.noValues && (
@@ -105,7 +105,7 @@ class CardList extends Component {
                   </p>
                 </div>
                   )}
-              </section>
+              </div>
             </li>
           )
         })}

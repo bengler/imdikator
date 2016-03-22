@@ -58,7 +58,7 @@ class RegionPage extends Component {
             </div>
           </div>
         </div>
-        <section className="page__section page__section--grey">
+        <div className="page__section page__section--grey">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
@@ -70,7 +70,7 @@ class RegionPage extends Component {
                   </div>
                 </div>
 
-                <section className="feature t-hide-on-print">
+                <div className="feature t-hide-on-print">
                   <h2 className="feature__title">Faktaark</h2>
                   <p>
                     Et dokument hvor alle nøkkeltallene fra {currentRegion.name} {_t(currentRegion.type)} er gjengitt.
@@ -80,22 +80,22 @@ class RegionPage extends Component {
                       <i className="icon__download icon--white"/> Utskriftsvennlig faktaark
                     </a>
                   </p>
-                </section>
+                </div>
 
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
         <div className="page__footer">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-                <section className="feature feature--white">
+                <div className="feature feature--white">
                   <h2 className="feature__title">{currentRegion.name}</h2>
                   <RegionInfoContainer region={currentRegion}/>
                   <RegionQuickSwitch/>
-                </section>
+                </div>
               </div>
             </div>
           </div>
@@ -105,9 +105,9 @@ class RegionPage extends Component {
             <div className="wrapper">
               <div className="row">
                 <div className="col--main">
-                  <section className="feature feature--white">
+                  <div className="feature feature--white">
                     <RegionChildListContainer region={currentRegion}/>
-                  </section>
+                  </div>
                 </div>
               </div>
             </div>

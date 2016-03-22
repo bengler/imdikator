@@ -23,8 +23,8 @@ export default class FilterBar extends Component {
   render() {
     const {filters} = this.props
     return (
-      <section className="graph__filter">
-        <h5 className="t-only-screenreaders">Filter</h5>
+      <div className="graph__filter">
+        <h4 className="t-only-screenreaders">Filter</h4>
         <div className="row t-position">
           {filters.filter(f => !f.props.hidden).map(filter => (
             <div key={filter.name} className="col--fifth" style={{position: 'static'}}>
@@ -32,7 +32,7 @@ export default class FilterBar extends Component {
             </div>
           ))}
         </div>
-      </section>
+      </div>
     )
   }
 }

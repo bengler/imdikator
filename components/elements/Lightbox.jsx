@@ -56,7 +56,7 @@ export default class Lightbox extends Component {
             <i className="icon__close icon--red lightbox__close-button-icon"/>
             <span className="t-only-screenreaders">Lukk</span>
           </button>
-          <h6 className="lightbox__title">{title}</h6>
+          <h4 className="lightbox__title">{title}</h4>
           {children}
         </dialog>
       </div>

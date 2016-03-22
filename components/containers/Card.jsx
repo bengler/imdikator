@@ -135,7 +135,7 @@ class Card extends Component {
     }
 
     return (
-      <div
+      <section
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
@@ -205,7 +205,7 @@ class Card extends Component {
             </div>
           </div>
           )}
-      </div>
+      </section>
     )
   }
 }

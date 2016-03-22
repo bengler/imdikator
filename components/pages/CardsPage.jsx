@@ -90,11 +90,11 @@ class CardsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-                <section className="feature feature--white">
+                <div className="feature feature--white">
                   <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
                   <RegionInfoContainer region={region}/>
                   <RegionQuickSwitch/>
-                </section>
+                </div>
               </div>
             </div>
           </div>

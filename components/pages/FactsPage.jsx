@@ -53,7 +53,7 @@ class FactsPage extends Component {
                         {cardsPage.cards.map(card => {
                           return (
                             <li key={card.name}>
-                              <section className="toggle-list">
+                              <div className="toggle-list">
                                 <h3 className="toggle-list__button-title">{card.title}</h3>
                                 <Card
                                   region={region}
@@ -61,7 +61,7 @@ class FactsPage extends Component {
                                   cardsPageName={cardsPage.name}
                                   printable
                                 />
-                              </section>
+                              </div>
                             </li>
                           )
                         })}

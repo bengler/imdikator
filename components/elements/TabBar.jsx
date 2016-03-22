@@ -30,6 +30,11 @@ export default class TabBar extends Component {
         'tabs-menu__link--disabled': disabled
       })
 
+      const tabState = cx({
+        'true': activeTab.name === tab.name,
+        'false': activeTab.name !== tab.name
+      })
+
       const iconClassName = cx({
         'tabs-menu__icon ': true,
         [ICON_CLASS_NAMES[tab.name]]: true
@@ -37,7 +42,7 @@ export default class TabBar extends Component {
 
       if (disabledTabs.includes(tab.name)) {
         return (
-          <li key={tab.name} className="tabs-menu__list-item">
+          <li key={tab.name} className="tabs-menu__list-item" role="tab">
             <span className={linkClassName}>
             <i className={iconClassName}/>
             {tab.title}
@@ -47,7 +52,7 @@ export default class TabBar extends Component {
       }
 
       return (
-        <li title={tab.title} key={tab.name} className="tabs-menu__list-item">
+        <li title={tab.title} key={tab.name} className="tabs-menu__list-item" role="tab" aria-selected={tabState}>
           <a href={makeLinkToTab(tab)} className={linkClassName} data-keep-scroll-position>
             <i className={iconClassName}/>
             {tab.title}
@@ -59,7 +64,7 @@ export default class TabBar extends Component {
     return (
       <div className="toggle-list__section-header">
         <nav className="tabs-menu tabs-menu--compact-mobile">
-          <ul className="t-no-list-styles tabs-menu__list">
+          <ul className="t-no-list-styles tabs-menu__list" role="tablist">
             {links}
           </ul>
         </nav>

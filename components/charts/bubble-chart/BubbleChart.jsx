@@ -154,7 +154,8 @@ export default class BubbleChart extends React.Component {
 
     node.append('text')
     .attr('dy', '.3em')
-    .style('text-anchor', 'middle')
+    .attr('fill','white')
+    .attr('text-anchor','middle')
     .style('font-size', '13px')
     .style('fill', item => item.textFill)
     .style('pointer-events', 'none')

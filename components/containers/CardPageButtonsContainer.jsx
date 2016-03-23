@@ -48,8 +48,8 @@ class CardPageButtons extends Component {
     const pages = [summaryPage, ...otherPages]
     return (
       <nav className="tabs-button-menu">
-        <h2 className="tabs-button-menu__title t-only-screenreaders">Tema:</h2>
-        <ul className="t-no-list-styles tabs-button-menu__list">
+        <h2 className="tabs-button-menu__title t-only-screenreaders">Velg tema</h2>
+        <ul className="t-no-list-styles tabs-button-menu__list" role="tablist">
           {pages.map(page => {
             if (page.selected) {
               return wrap(
@@ -62,7 +62,7 @@ class CardPageButtons extends Component {
             )
 
             function wrap(node) {
-              return <li key={page.name} className="tabs-button-menu__list-item">{node}</li>
+              return <li key={page.name} className="tabs-button-menu__list-item" role="tab" aria-selected={page.selected}>{node}</li>
             }
           })}
         </ul>

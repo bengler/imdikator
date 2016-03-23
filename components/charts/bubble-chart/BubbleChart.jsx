@@ -161,15 +161,14 @@ export default class BubbleChart extends React.Component {
     .style('font-size', item => {
       if (item.r <= 40) {
         return '13px'
-      } else {
-        return '18px'
       }
-    }) 
+      return '18px'
+    })
     .style('display', item => {
       if (item.r <= 8) {
         return 'none'
       }
-    })      
+    })
     .text(item => {
       if (item.depth <= 1 || !item.title) {
         return null

@@ -26,7 +26,7 @@ export default class ChartModeSelect extends Component {
           {
             CHART_MODES.map(mode => {
               if (mode.name === selectedMode) {
-                return <span key={mode.name} className="tabs-mini__link tabs-mini__link--current">{mode.title}</span>
+                return <a href="" key={mode.name} className="tabs-mini__link tabs-mini__link--current">{mode.title}</a>
               }
               return (
                 <a href=""

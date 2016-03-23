@@ -51,12 +51,12 @@ export default class PopupShareBox extends Component {
           <p>
             Lenken vil vise til valgt figur med den samme filtreringen som nå er valgt.
           </p>
-          <label style={{display: 'inline-block'}}>
+          <label>
             <span className="label">Lenke til figuren</span>
             <input
               type="text"
               id="popupsharebox-input"
-              className="input form--small form--inline" readOnly value={chartUrl}
+              className="input" readOnly value={chartUrl}
               onFocus={e => e.target.select()}
             />
           </label>
@@ -67,7 +67,7 @@ export default class PopupShareBox extends Component {
             data-clipboard-text={chartUrl}
             onClick={() => this.setState({copied: true})}
           >
-            {copied ? '✓ Kopiert' : 'Kopier'}
+            {copied ? '✓ Kopiert' : 'Kopier til utklippstavlen'}
           </button>
         </div>
       </Lightbox>

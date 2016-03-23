@@ -31,7 +31,7 @@ export default class ChartModeSelect extends Component {
               return (
                 <a href=""
                   key={mode.name}
-                  className="tabs-mini__link tabs-mini__link--current"
+                  className="tabs-mini__link"
                   onClick={preventDefault(() => onChange(mode.name))}
                 >
                   {mode.title}

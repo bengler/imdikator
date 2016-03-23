@@ -45,7 +45,6 @@ class CardList extends Component {
     }
 
     const container = ReactDOM.findDOMNode(this.refs[`card-${lastCard}`])
-    console.log(lastCard)
     smoothscroll(container, 500)
     container.focus()
   }

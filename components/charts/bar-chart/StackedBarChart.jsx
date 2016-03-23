@@ -102,11 +102,11 @@ export default class StackedBarChart extends Component {
     category.selectAll('rect')
     .data(cat => cat.values)
     .enter()
-    .append('svg:a')
-    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-    .on('click', () => d3.event.stopPropagation())
-    .on('focus', item => open(item))
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('rect')
     .attr('width', item => xScales[item.category].rangeBand())
     .attr('x', item => xScales[item.category]('stack'))

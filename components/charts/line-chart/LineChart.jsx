@@ -162,11 +162,11 @@ export default class LineChart extends React.Component {
     sc.selectAll('circle')
     .data(dataItem => dataItem.values.filter(item => !item.anonymized))
     .enter()
-    .append('svg:a')
-    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    .attr('aria-label', item => 'År: ' + item.title + ', Verdi: ' + item.formattedValue) // For screenreaders
-    .on('click', () => d3.event.stopPropagation())
-    .on('focus', item => open(item))
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => 'År: ' + item.title + ', Verdi: ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('circle')
     .attr('cx', dataItem => x(dataItem.date))
     .attr('cy', dataItem => dataItem.y)

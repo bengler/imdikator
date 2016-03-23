@@ -122,11 +122,11 @@ export default class BubbleChart extends React.Component {
     }
 
     node
-    .append('svg:a')
-    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-    .on('click', () => d3.event.stopPropagation())
-    .on('focus', item => open(item))
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('circle')
     .attr('r', item => item.r)
     .style('fill', item => item.fill)
@@ -154,8 +154,8 @@ export default class BubbleChart extends React.Component {
 
     node.append('text')
     .attr('dy', '.3em')
-    .attr('fill','white')
-    .attr('text-anchor','middle')
+    .attr('fill', 'white')
+    .attr('text-anchor', 'middle')
     .style('font-size', '13px')
     .style('fill', item => item.textFill)
     .style('pointer-events', 'none')

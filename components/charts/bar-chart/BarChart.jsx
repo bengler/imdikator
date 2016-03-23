@@ -168,11 +168,11 @@ export default class BarChart extends React.Component {
     category.selectAll('rect.chart__bar-hover')
     .data(dataItem => dataItem.values)
     .enter()
-    .append('svg:a')
-    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-    .on('click', () => d3.event.stopPropagation())
-    .on('focus', item => open(item))
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
     .attr('width', item => item.scale.rangeBand())

@@ -45,7 +45,9 @@ class CardList extends Component {
     }
 
     const container = ReactDOM.findDOMNode(this.refs[`card-${lastCard}`])
+    console.log(lastCard)
     smoothscroll(container, 500)
+    container.focus()
   }
 
   renderToggleCardLink(card) {
@@ -93,7 +95,7 @@ class CardList extends Component {
         {cards.map(card => {
           const isOpen = openCards.includes(card.name)
           return (
-            <li ref={`card-${card.name}`} key={card.name}>
+            <li ref={`card-${card.name}`} key={card.name} tabIndex="-1" className="t-no-focus">
               <div className="toggle-list">
                 {this.renderToggleCardLink(card)}
                 {isOpen && !card.noValucontextes && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}

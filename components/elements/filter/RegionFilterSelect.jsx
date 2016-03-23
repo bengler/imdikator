@@ -44,8 +44,8 @@ export default class RegionFilterSelect extends Component {
 
     const buttonClasses = cx({
       'subtle-select__button': true,
-      'subtle-select__button--expanded': value.length > 0,
-      'subtle-select__button--add': value.length > 0
+      'subtle-select__button--add': true,
+      'subtle-select__button--expanded': this.state.isRegionPickerOpen
     })
 
     return (

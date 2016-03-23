@@ -81,12 +81,14 @@ const Hoverbox = React.createClass({
     }
 
     return (
-      <div className={styleClasses.join(' ')} style={style}>
-      <dl>
-      <dt className="hover-box__title">{title}</dt>
-      <dd>{body}</dd>
-      </dl>
-      <i className="hover-box__point"></i>
+      <div role="alert">
+        <div className={styleClasses.join(' ')} style={style}>
+          <dl>
+          <dt className="hover-box__title">{title}</dt>
+          <dd>{body}</dd>
+          </dl>
+          <i className="hover-box__point"></i>
+        </div>
       </div>
     )
   }

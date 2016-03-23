@@ -111,12 +111,19 @@ class Chart {
       .attr('height', this.fullHeight)
       .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + this.fullHeight)
       .attr('preserveAspectRatio', 'xMinYMin meet')
+      .attr('role', 'img')
+      .attr('aria-labelledby', 'title')
+
+    // Accessibility text alternative
+    this._svg.append('title')
+    .text('Figur (se tabell for tallmateriale)')
 
     if (showMargins) {
       // Visualize SVG
       this._svg.append('rect')
       .attr('x', 0)
       .attr('y', 0)
+      .attr('role', 'presentation')
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
       .style('fill', '#ccc')

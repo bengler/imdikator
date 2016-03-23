@@ -75,7 +75,7 @@ class CardList extends Component {
       <a href={this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {cardName: card.name})}
         onClick={handleClick}
         className={`toggle-list__button ${card.noValues ? 'toggle-list__button--disablet' : ''} ${isOpen ? 'toggle-list__button--expanded' : ''}`}
-        aria-expanded="true"
+        aria-expanded={isOpen ? 'true' : 'false'}
         aria-controls="befolkning"
         role="button"
       >

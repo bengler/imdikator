@@ -40,7 +40,8 @@ export default class ChartModeSelect extends Component {
             })
               .map(content => {
                 return <li key={content.key} className="tabs-mini__item" role="tab">{content}</li>
-                /* TODO: Should have correct aria-selected={tabState} on each li. Now a screenreader can not infer the state. Does not work on the child element. */
+                /* TODO: Should have correct aria-selected={tabState} on each li.
+                  Now a screenreader can not infer the state. Does not work on the child element. */
               }
             )
             }

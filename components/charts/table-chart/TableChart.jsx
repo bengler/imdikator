@@ -45,6 +45,7 @@ export default class TableChart extends React.Component {
     .data(transposedData[1])
     .enter()
     .append('th')
+    .attr('scope', 'col')
     .text(dataItem => dataItem)
 
     const tableBody = table.append('tbody')

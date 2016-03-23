@@ -156,9 +156,20 @@ export default class BubbleChart extends React.Component {
     .attr('dy', '.3em')
     .attr('fill', 'white')
     .attr('text-anchor', 'middle')
-    .style('font-size', '13px')
     .style('fill', item => item.textFill)
     .style('pointer-events', 'none')
+    .style('font-size', item => {
+      if (item.r <= 40) {
+        return '13px'
+      } else {
+        return '18px'
+      }
+    }) 
+    .style('display', item => {
+      if (item.r <= 8) {
+        return 'none'
+      }
+    })      
     .text(item => {
       if (item.depth <= 1 || !item.title) {
         return null

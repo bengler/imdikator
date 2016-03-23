@@ -22,7 +22,7 @@ export default class ChartModeSelect extends Component {
     const {onChange, mode: selectedMode} = this.props
     return (
       <div className="graph__types">
-        <ul className="tabs-mini">
+        <ul className="tabs-mini" role="tablist">
           {
             CHART_MODES.map(mode => {
               if (mode.name === selectedMode) {
@@ -39,7 +39,8 @@ export default class ChartModeSelect extends Component {
               )
             })
               .map(content => {
-                return <li key={content.key} className="tabs-mini__item">{content}</li>
+                return <li key={content.key} className="tabs-mini__item" role="tab">{content}</li>
+                /* TODO: Should have correct aria-selected={tabState} on each li. Now a screenreader can not infer the state. Does not work on the child element. */
               }
             )
             }

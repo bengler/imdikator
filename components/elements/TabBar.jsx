@@ -30,10 +30,7 @@ export default class TabBar extends Component {
         'tabs-menu__link--disabled': disabled
       })
 
-      const tabState = cx({
-        'true': activeTab.name === tab.name,
-        'false': activeTab.name !== tab.name
-      })
+      const tabState = activeTab.name === tab.name
 
       const iconClassName = cx({
         'tabs-menu__icon ': true,

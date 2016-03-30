@@ -284,6 +284,8 @@ export default class Autocomplete extends Component {
         onMouseDown: () => this.setIgnoreBlur(true),
         onMouseEnter: () => this.highlightItemFromMouse(index),
         onClick: () => this.selectItemFromMouse(item),
+        id: `item-${index}`,
+        role: 'option',
         ref: `item-${index}`,
       })
     })
@@ -295,6 +297,7 @@ export default class Autocomplete extends Component {
     const menu = this.props.renderMenu(items, this.state.value, style)
     return React.cloneElement(menu, {
       ref: 'menu',
+      role: 'listbox',
       onClick(e) {
         e.preventDefault()
       }
@@ -328,13 +331,17 @@ export default class Autocomplete extends Component {
 
   render() {
     const {style, className, inputProps} = this.props
-    const {isOpen, value} = this.state
+    const {isOpen, value, highlightedIndex} = this.state
+    const selectedText = document.getElementById(`item-${highlightedIndex}`)
+        ? document.getElementById(`item-${highlightedIndex}`).innerText : ''
     return (
       <div style={style} className={className}>
         <input
           {...inputProps}
           role="combobox"
           aria-autocomplete="both"
+          aria-haspopup={isOpen}
+          aria-activedescendant={highlightedIndex !== null ? `item-${highlightedIndex}` : ''}
           ref="input"
           onFocus={this.handleInputFocus.bind(this)}
           onBlur={this.handleInputBlur.bind(this)}
@@ -342,7 +349,7 @@ export default class Autocomplete extends Component {
           onKeyDown={event => this.handleKeyDown(event)}
           onKeyUp={event => this.handleKeyUp(event)}
           onClick={this.handleInputClick.bind(this)}
-          value={value}
+          value={selectedText || value}
         />
         {isOpen && this.renderMenu()}
       </div>

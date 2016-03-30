@@ -43,7 +43,6 @@ export default class RegionSearch extends Component {
         <a
           key={item.name + item.type}
           className={classes}
-          role="option"
         >
         {itemDescription}
         <i className="icon__arrow-right icon--red search-result__icon"/>
@@ -57,7 +56,7 @@ export default class RegionSearch extends Component {
     if (items.length === 0) {
       return wrap(
         <li>
-          <div className="search-result__result search-result__result--message" role="option">
+          <div className="search-result__result search-result__result--message">
             Ingen treff - prøv et annet stedsnavn i Norge
           </div>
         </li>

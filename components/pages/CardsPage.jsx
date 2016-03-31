@@ -59,7 +59,7 @@ class CardsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide">
-                <header>
+                <header id="page-header" className="t-no-focus" tabindex="-1">
                   <h1>{getPageTitle(region)}</h1>
                   <p className="ingress">{getPageIngress(region)}</p>
                   <div className="t-margin-bottom--large t-hide-on-print">

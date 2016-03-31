@@ -59,7 +59,7 @@ class SimilarRegionsPage extends Component {
     }
 
     return (
-      <main className="page">
+      <main className="page t-no-focus" id="page-header" tabindex="-1">
         <div className="page__content page__content--section">
           <div className="wrapper">
             <div className="row">

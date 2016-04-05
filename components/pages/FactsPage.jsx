@@ -27,7 +27,7 @@ class FactsPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main-wide">
-                <header id="page-header" className="t-no-focus" tabindex="-1">
+                <header id="page-header" className="t-no-focus" tabIndex="-1">
                   <h1>{getPageTitle(region, 'Faktaark for')}</h1>
                   <p className="ingress">{getPageIngress(region)}</p>
                   <p className="t-margin-bottom--large t-hide-on-print">

@@ -14,7 +14,7 @@ export default class NotFoundPage extends Component {
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
-                <header id="page-header" className="t-no-focus" tabindex="-1">
+                <header id="page-header" className="t-no-focus" tabIndex="-1">
                   <h1>Siden ble ikke funnet</h1>
                 </header>
                 <div className="ingress">Kanskje den har flyttet til Norge og fått seg et bedre hjem i en kommune?</div>

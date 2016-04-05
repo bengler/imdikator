@@ -63,9 +63,16 @@ export default class TableChart extends React.Component {
 
     table.selectAll('tr').each(function (d, i) {
       if (this.firstChild.tagName == 'TH') {
-        const headerEl = d3.select(this.firstChild)
-        headerEl.attr('scope', 'row')
-        headerEl.classed('table__th—row', true)
+        const firstchild = d3.select(this.firstChild)
+        firstchild.text('')
+      } else {
+        const row = d3.select(this)
+        const firstchild = d3.select(this.firstChild)
+        row.insert('th', ':first-child')
+        .text(firstchild.text())
+        .attr('scope', 'row')
+        .classed('table__th table__th--row', true)
+        firstchild.remove()
       }
     })
 

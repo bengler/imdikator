@@ -74,7 +74,7 @@ class RegionPage extends Component {
                   <h2 className="feature__title">Faktaark</h2>
                   <p>
                     Et dokument hvor alle nøkkeltallene fra {currentRegion.name}
-                    {currentRegion.name != 'Norge' ? _t(currentRegion.type) : ''} er gjengitt.
+                    {currentRegion.name != 'Norge' ? ` ${_t(currentRegion.type)}` : ''} er gjengitt.
                   </p>
                   <p>
                     <a href={factSheetLink} className="button button-">

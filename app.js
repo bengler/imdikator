@@ -10,7 +10,6 @@ import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
 import docsite from './docsite/handler'
-import devErrorHandler from 'dev-error-handler'
 import serve from 'staticr/serve'
 
 const app = express()
@@ -52,6 +51,8 @@ app.get('/tall-og-statistikk*', (req, res) => {
   res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest/>))
 })
 
-app.use(devErrorHandler)
+if (config.env === 'development') {
+  app.use(require('dev-error-handler')) // eslint-disable-line import/no-require
+}
 
 export default app

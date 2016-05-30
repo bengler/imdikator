@@ -87,7 +87,7 @@
     "staticr": "^4.0.1",
     "textures": "^1.0.3",
     "topojson": "^1.6.19",
-    "uglify-js": "^2.4.24"
+    "uglify-js": "^2.6.2"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",

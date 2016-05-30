@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react'
 import {Provider} from 'react-redux'
 import {navigate} from '../../actions/navigate'
 import App from '../../components/containers/App'
-import config from '../../config'
 import createImdiAppStore from '../../lib/redux-utils/createImdiAppStore'
 import {setDimensionLabels} from '../../lib/labels'
 import routes from './routes'
@@ -41,15 +39,6 @@ function bootstrap(initialState) {
 
   router.navigate(document.location.pathname)
 
-  function isDevToolsVisible() {
-    return window.localStorage.getItem('reduxDevToolsEnabled') !== 'false'
-  }
-
-  function toggleDevToolsVisibility() {
-    window.localStorage.setItem('reduxDevToolsEnabled', isDevToolsVisible() ? 'false' : 'true')
-    render()
-  }
-
   render()
 
   setTimeout(() => {
@@ -59,39 +48,6 @@ function bootstrap(initialState) {
     router.bind(document)
   }, 0)
 
-  function ReduxDevToolsPanel() {
-    if (!config.reduxDevTools) {
-      return <span />
-    }
-    const devToolsIsVisible = isDevToolsVisible()
-
-    if (!devToolsIsVisible) {
-      const buttonStyle = {fontSize: 10, width: 150, position: 'fixed', top: 0, right: 0}
-      return (
-        <button style={buttonStyle} onClick={toggleDevToolsVisibility}>
-          Show Redux Devtools
-        </button>
-      )
-    }
-    return (
-      <DebugPanel style={{backgroundColor: '#444'}} top right bottom>
-        <div style={{padding: 4}}>
-          Pro tip: Turn off redux devtools with:
-          <input
-            type="text" readOnly
-            onFocus={e => (target => setTimeout(() => target.select(), 0))(e.target)}
-            style={{margin: 0, lineHeight: 1, color: 'inherit', backgroundColor: 'inherit', padding: 2, border: '1px solid #aaa'}}
-            value="REDUX_DEVTOOLS=0 npm start"
-          />
-          <div style={{marginTop: 5}}>
-            You can also <a href="#" style={{color: 'lightblue', padding: 2}} onClick={toggleDevToolsVisibility}>
-            Hide this panel &raquo;</a>
-          </div>
-        </div>
-        <DevTools store={store} monitor={LogMonitor} />
-      </DebugPanel>
-    )
-  }
 
   function render() {
     ReactDOM.render(
@@ -101,7 +57,6 @@ function bootstrap(initialState) {
         <Provider store={store}>
           <App router={router} />
         </Provider>
-        <ReduxDevToolsPanel />
       </div>,
       containers[0]
     )

@@ -1,12 +1,12 @@
-import Bluebird from 'bluebird'
 import fs from 'fs'
 import RxNode from 'rx-node'
 import pick from 'lodash.pick'
 import csv from 'csv-parse'
 import assert from 'assert'
+import pify from 'pify'
 import {prefixify} from '../lib/regionUtil'
 
-const writeFile = Bluebird.promisify(fs.writeFile)
+const writeFile = pify(fs.writeFile)
 
 const log = console.log.bind(console) // eslint-disable-line
 

@@ -169,11 +169,6 @@
       "from": "babel@>=6.1.0 <6.2.0",
       "resolved": "https://registry.npmjs.org/babel/-/babel-6.1.18.tgz"
     },
-    "babel-code-frame": {
-      "version": "6.3.13",
-      "from": "babel-code-frame@>=6.3.13 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-code-frame/-/babel-code-frame-6.3.13.tgz"
-    },
     "babel-core": {
       "version": "6.9.1",
       "from": "babel-core@6.9.1",
@@ -235,6 +230,11 @@
           "version": "5.8.38",
           "from": "babylon@>=5.8.38 <6.0.0",
           "resolved": "https://registry.npmjs.org/babylon/-/babylon-5.8.38.tgz"
+        },
+        "bluebird": {
+          "version": "2.10.2",
+          "from": "bluebird@>=2.9.33 <3.0.0",
+          "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.10.2.tgz"
         },
         "fs-readdir-recursive": {
           "version": "0.1.2",
@@ -788,11 +788,6 @@
           "resolved": "https://registry.npmjs.org/wordwrap/-/wordwrap-1.0.0.tgz"
         }
       }
-    },
-    "babel-messages": {
-      "version": "6.3.18",
-      "from": "babel-messages@>=6.3.13 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-messages/-/babel-messages-6.3.18.tgz"
     },
     "babel-plugin-check-es2015-constants": {
       "version": "6.8.0",
@@ -1865,25 +1860,10 @@
         }
       }
     },
-    "babel-traverse": {
-      "version": "6.4.5",
-      "from": "babel-traverse@>=6.4.5 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.4.5.tgz"
-    },
-    "babel-types": {
-      "version": "6.4.5",
-      "from": "babel-types@>=6.4.5 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-types/-/babel-types-6.4.5.tgz"
-    },
     "babelify": {
       "version": "7.3.0",
       "from": "babelify@7.3.0",
       "resolved": "https://registry.npmjs.org/babelify/-/babelify-7.3.0.tgz"
-    },
-    "babylon": {
-      "version": "6.4.5",
-      "from": "babylon@>=6.4.5 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babylon/-/babylon-6.4.5.tgz"
     },
     "balanced-match": {
       "version": "0.3.0",
@@ -1904,11 +1884,6 @@
       "version": "0.0.8",
       "from": "base64-js@0.0.8",
       "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-0.0.8.tgz"
-    },
-    "bluebird": {
-      "version": "2.10.2",
-      "from": "bluebird@>=2.9.33 <3.0.0",
-      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.10.2.tgz"
     },
     "bn.js": {
       "version": "4.8.1",
@@ -3139,8 +3114,8 @@
     },
     "imdi-styles": {
       "version": "0.0.0",
-      "from": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#master",
-      "resolved": "git+ssh://git@github.com/netliferesearch/imdi-styles.git#7a7a7dfc1d73f1b88b89c1ab149a5ab179cda1ec"
+      "from": "netliferesearch/imdi-styles",
+      "resolved": "git://github.com/netliferesearch/imdi-styles.git#7a7a7dfc1d73f1b88b89c1ab149a5ab179cda1ec"
     },
     "indexof": {
       "version": "0.0.1",
@@ -3385,11 +3360,6 @@
       "from": "lcid@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/lcid/-/lcid-1.0.0.tgz"
     },
-    "left-pad": {
-      "version": "0.0.3",
-      "from": "left-pad@0.0.3",
-      "resolved": "https://registry.npmjs.org/left-pad/-/left-pad-0.0.3.tgz"
-    },
     "less": {
       "version": "2.7.1",
       "from": "less@2.7.1",
@@ -3409,11 +3379,6 @@
       "version": "1.2.0",
       "from": "lexical-scope@>=1.2.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/lexical-scope/-/lexical-scope-1.2.0.tgz"
-    },
-    "line-numbers": {
-      "version": "0.2.0",
-      "from": "line-numbers@>=0.2.0 <0.3.0",
-      "resolved": "https://registry.npmjs.org/line-numbers/-/line-numbers-0.2.0.tgz"
     },
     "load-script": {
       "version": "1.0.0",

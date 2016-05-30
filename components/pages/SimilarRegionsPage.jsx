@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {isSimilarRegion, parentRegionByType} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
-import capitalize from 'lodash.capitalize'
+import {capitalize} from 'lodash'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 

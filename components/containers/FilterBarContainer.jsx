@@ -6,7 +6,7 @@ import RegionFilterSelect from '../elements/filter/RegionFilterSelect'
 import FilterSelect from '../elements/filter/FilterSelect'
 import {dimensionLabelTitle} from '../../lib/labels'
 import {getQuerySpec, constrainQuery} from '../../lib/querySpec'
-import indexBy from 'lodash.indexby'
+import {keyBy} from 'lodash'
 import arrayEqual from 'array-equal'
 import {comparisonDescription, isSimilarRegion} from '../../lib/regionUtil'
 import humanizeList from 'humanize-list'
@@ -78,7 +78,7 @@ class FilterBarContainer extends Component {
 
   getIndexedRegions() {
     if (!this._indexedRegions) {
-      this._indexedRegions = indexBy(this.props.allRegions, 'prefixedCode')
+      this._indexedRegions = keyBy(this.props.allRegions, 'prefixedCode')
     }
     return this._indexedRegions
   }

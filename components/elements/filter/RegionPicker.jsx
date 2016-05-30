@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import ToggleButtonList from '../ToggleButtonList'
 import RegionSearch from '../RegionSearch'
-import difference from 'lodash.difference'
-import union from 'lodash.union'
+import {difference, union} from 'lodash'
 
 import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 

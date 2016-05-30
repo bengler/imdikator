@@ -7,7 +7,7 @@ import BubbleChart from '../components/charts/bubble-chart/BubbleChart'
 //import MapChart from '../components/charts/map-chart/MapChart'
 import PyramidChart from '../components/charts/pyramid-chart/PyramidChart'
 import TableChart from '../components/charts/table-chart/TableChart'
-import indexBy from 'lodash.indexby'
+import {keyBy} from 'lodash'
 
 const CHART_TYPES = [
   {
@@ -75,4 +75,4 @@ const CHART_TYPES = [
   }
 ]
 
-export const CHARTS = indexBy(CHART_TYPES, 'name')
+export const CHARTS = keyBy(CHART_TYPES, 'name')

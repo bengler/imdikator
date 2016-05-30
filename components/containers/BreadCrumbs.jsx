@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import capitalize from 'lodash.capitalize'
+import {capitalize} from 'lodash'
 //import util from 'util'
 
 function translateCrumbs(crumbs, region, page, card, tab) {

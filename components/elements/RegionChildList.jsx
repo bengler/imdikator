@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import capitalize from 'lodash.capitalize'
+import {capitalize} from 'lodash'
 
 export default class RegionChildrenList extends Component {
 

@@ -43,7 +43,7 @@ export default class PopupChoicesBox extends Component {
           <i className="lightbox__point" style={{left: '9.5em'}}></i>
           <div role="document">
             <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>
-              <i className="icon__close icon--red lightbox__close-button-icon"/>
+              <i className="icon__close icon--red lightbox__close-button-icon" />
               <span className="t-only-screenreaders">Lukk</span>
             </button>
             <h6 className="lightbox__title">{this.props.title}</h6>

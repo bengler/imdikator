@@ -43,14 +43,14 @@ class CardsPage extends Component {
       )
     }
 
-    return <CardList region={region} cardsPage={cardsPage} openCards={openCards} cards={cards}/>
+    return <CardList region={region} cardsPage={cardsPage} openCards={openCards} cards={cards} />
   }
 
   render() {
     const {cardsPage, region} = this.props
 
     if (!cardsPage || !region) {
-      return <div className="page__content page__content--section"><i className="loading-indicator"/> Laster...</div>
+      return <div className="page__content page__content--section"><i className="loading-indicator" /> Laster...</div>
     }
 
     return (
@@ -92,8 +92,8 @@ class CardsPage extends Component {
               <div className="col--main">
                 <div className="feature feature--white">
                   <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
-                  <RegionInfoContainer region={region}/>
-                  <RegionQuickSwitch/>
+                  <RegionInfoContainer region={region} />
+                  <RegionQuickSwitch />
                 </div>
               </div>
             </div>

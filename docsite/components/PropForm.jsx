@@ -1,11 +1,19 @@
 import React, {PropTypes} from 'react'
 
 const valueParsers = {
-  string: val => val.trim() ? val : void 0,
+  string: val => {
+    return val.trim() ? val : void 0
+  },
   bool: val => val.trim() == 'true',
-  func: val => val.trim() ? Function(`return ${val}`)() : void 0, // eslint-disable-line no-new-func
-  number: val => val.trim() ? Number(val) : void 0,
-  object: val => val.trim() ? JSON.parse(val) : void 0,
+  func: val => {
+    return val.trim() ? Function(`return ${val}`)() : void 0 // eslint-disable-line no-new-func
+  },
+  number: val => {
+    return val.trim() ? Number(val) : void 0
+  },
+  object: val => {
+    return val.trim() ? JSON.parse(val) : void 0
+  },
   any: val => valueParsers.object(val),
   shape: val => valueParsers.object(val),
   arrayOf: val => valueParsers.object(val)
@@ -62,7 +70,7 @@ export default class PropForm extends React.Component {
       case 'string':
         return (
           <div>
-            <input type="text" value={propValues[prop.name]} onChange={this.emitPropValueChange(prop)}/>
+            <input type="text" value={propValues[prop.name]} onChange={this.emitPropValueChange(prop)} />
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value})</span>}
           </div>
         )
@@ -79,7 +87,7 @@ export default class PropForm extends React.Component {
       case 'number':
         return (
           <div>
-            <input type="number" value={propValues[prop.name]} onChange={this.emitPropValueChange(prop)}/>
+            <input type="number" value={propValues[prop.name]} onChange={this.emitPropValueChange(prop)} />
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value})</span>}
           </div>
 
@@ -87,7 +95,7 @@ export default class PropForm extends React.Component {
       case 'object':
         return (
           <div>
-            <textarea type="text" value={JSON.stringify(propValues[prop.name])} onChange={this.emitPropValueChange(prop)}/>
+            <textarea type="text" value={JSON.stringify(propValues[prop.name])} onChange={this.emitPropValueChange(prop)} />
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value})</span>}
           </div>
 
@@ -97,14 +105,14 @@ export default class PropForm extends React.Component {
         const fn = value && value.toString()
         return (
           <div>
-            <textarea value={fn} onChange={this.emitPropValueChange(prop)}/>
+            <textarea value={fn} onChange={this.emitPropValueChange(prop)} />
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value.toString()})</span>}
           </div>
         )
       default:
         return (
           <div>
-            <input type="text" value={value} onChange={this.emitPropValueChange(prop)}/>
+            <input type="text" value={value} onChange={this.emitPropValueChange(prop)} />
             {prop.defaultValue && <span>(Default: {prop.defaultValue.value})</span>}
           </div>
 

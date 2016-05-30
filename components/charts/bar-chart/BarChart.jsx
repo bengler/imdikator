@@ -194,11 +194,15 @@ export default class BarChart extends React.Component {
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend
-    const xAxis = d3.svg.axis().scale(x0).orient('bottom').innerTickSize(10)
+    const xAxis = d3.svg.axis()
+      .scale(x0)
+      .orient('bottom')
+      .innerTickSize(10)
+
     const xAxisEl = svg.append('g')
-    .attr('class', 'chart__axis chart__axis--category')
-    .attr('transform', this.translation(0, this.size.height))
-    .call(xAxis)
+      .attr('class', 'chart__axis chart__axis--category')
+      .attr('transform', this.translation(0, this.size.height))
+      .call(xAxis)
 
     // Remove default X axis line (in case we translated up to make room
     // for negative values)
@@ -226,7 +230,7 @@ export default class BarChart extends React.Component {
     const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
     this._svg
     .attr('height', expandedHeight)
-    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
     // Add zero-line
     this.svg
@@ -258,7 +262,7 @@ export default class BarChart extends React.Component {
 
     return (
       <div>
-      <D3Chart data={data} config={config} functions={functions} className={this.props.className}/>
+        <D3Chart data={data} config={config} functions={functions} className={this.props.className} />
       </div>
     )
   }

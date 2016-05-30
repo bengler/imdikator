@@ -19,19 +19,19 @@ class RenderTestPage extends Component {
           <script type="application/json"
             dangerouslySetInnerHTML={{__html: '{"some": {"config": "here"}}'}}
           />
-            <div className="page">
-              <div className="page__content">
-                <div className="wrapper">
-                  <div className="row">
-                    <div className="col--main">
-                      <h1 className="h2 t-margin-top--large">Vennligst vent</h1>
-                      <div className="ingress"><i className="loading-indicator"/> Laster tall og statistikk over integrering ...</div>
-                    </div>
+          <div className="page">
+            <div className="page__content">
+              <div className="wrapper">
+                <div className="row">
+                  <div className="col--main">
+                    <h1 className="h2 t-margin-top--large">Vennligst vent</h1>
+                    <div className="ingress"><i className="loading-indicator" /> Laster tall og statistikk over integrering ...</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
       </DefaultLayout>
     )
   }

@@ -5,7 +5,7 @@ import domready from 'domready'
 
 function bootstrap() {
   const container = document.getElementById('content')
-  ReactDOM.render(<EmbedTestContent/>, container)
+  ReactDOM.render(<EmbedTestContent />, container)
 }
 
 domready(bootstrap)

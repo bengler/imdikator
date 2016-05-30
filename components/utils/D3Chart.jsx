@@ -98,7 +98,7 @@ export default class D3Chart extends React.Component {
     const classes = ['chart', this.props.className].join(' ')
     return (
       <div className={classes}>
-        <Hoverbox ref="focus"/>
+        <Hoverbox ref="focus" />
       </div>
     )
   }

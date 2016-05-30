@@ -65,7 +65,7 @@ export default class RegionSummaryChart extends Component {
     titleParams.missingData = !!regionDataRow.missingData
     titleParams.share = formatter.format(regionDataRow.value)
 
-    config.additionalTitleParams.map(param => {
+    config.additionalTitleParams.forEach(param => {
       titleParams[param] = regionDataRow[param]
     })
 
@@ -79,7 +79,7 @@ export default class RegionSummaryChart extends Component {
       titleParams = {
         share: formatter.format(data.rows[1].value)
       }
-      config.additionalTitleParams.map(param => {
+      config.additionalTitleParams.forEach(param => {
         titleParams[param] = data.rows[1][param]
       })
       titleTwo = config.title(titleParams)
@@ -129,10 +129,10 @@ export default class RegionSummaryChart extends Component {
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending" minimalHeight />
           </div>
           {!isNorway && isBenchmark && (
-          <p className="indicator__subtext">
-            {region.name} og <a href={similarUrl}>{comparison}</a>
-          </p>
-            )}
+            <p className="indicator__subtext">
+              {region.name} og <a href={similarUrl}>{comparison}</a>
+            </p>
+          )}
           <a href={drillDownUrl} className="button button--secondary indicator__cta">{config.drillDown.buttonTitle}</a>
         </section>
       </div>

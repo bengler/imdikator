@@ -214,7 +214,7 @@ export default class Autocomplete extends Component {
     if (items.length === 0) {
       return
     }
-    const matchedItem = highlightedIndex !== null ? items[highlightedIndex] : items[0]
+    const matchedItem = highlightedIndex === null ? items[0] : items[highlightedIndex]
     const itemValue = this.props.getItemValue(matchedItem)
     const itemValueDoesMatch = itemValue.toLowerCase().indexOf(this.state.value.toLowerCase()) === 0
     if (itemValueDoesMatch) {
@@ -341,7 +341,7 @@ export default class Autocomplete extends Component {
           role="combobox"
           aria-autocomplete="both"
           aria-haspopup={isOpen}
-          aria-activedescendant={highlightedIndex !== null ? `item-${highlightedIndex}` : ''}
+          aria-activedescendant={highlightedIndex === null ? '' : `item-${highlightedIndex}`}
           ref="input"
           onFocus={this.handleInputFocus.bind(this)}
           onBlur={this.handleInputBlur.bind(this)}

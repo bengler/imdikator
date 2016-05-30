@@ -13,12 +13,12 @@ export default class Index {
         <h2>Components documentation</h2>
         {registry.map(group => {
           return (
-            <div>
+            <div key={group.name}>
               <h3>{group.name}</h3>
               <ul>
                 {group.components.map(Component => {
                   return (
-                    <li><a href={routeComponentInGroup(Component, group)}>{Component.name || Component.displayName}</a></li>
+                    <li key={Component.name}><a href={routeComponentInGroup(Component, group)}>{Component.name || Component.displayName}</a></li>
                   )
                 })}
               </ul>

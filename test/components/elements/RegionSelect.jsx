@@ -12,7 +12,7 @@ describe('RegionSelect', () => {
 
   it('renders without any props', () => {
     const element = (
-      <RegionFilterSelect/>
+      <RegionFilterSelect />
     )
     renderer.render(element)
 
@@ -22,8 +22,7 @@ describe('RegionSelect', () => {
 
   it('opens region picker in a lightbox when clicked', () => {
     const element = (
-      <RegionFilterSelect renderChoice={item => item.name}
-      />
+      <RegionFilterSelect renderChoice={item => item.name} />
     )
 
     renderer.render(element)
@@ -36,7 +35,7 @@ describe('RegionSelect', () => {
     renderer.render(element)
 
     const renderTreeAfter = renderer.getRenderOutput()
-    assert(renderTreeAfter::someInTree(el => el.type == Lightbox), `Expected a Lightbox element to be in render tree`)
-    assert(renderTreeAfter::someInTree(el => el.type == RegionPicker), `Expected a RegionPicker element to be in render tree`)
+    assert(renderTreeAfter::someInTree(el => el.type == Lightbox), 'Expected a Lightbox element to be in render tree')
+    assert(renderTreeAfter::someInTree(el => el.type == RegionPicker), 'Expected a RegionPicker element to be in render tree')
   })
 })

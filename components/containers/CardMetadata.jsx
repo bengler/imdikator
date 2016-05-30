@@ -45,10 +45,10 @@ class CardMetadata extends Component {
   renderVariableDefinitions() {
     const {dimensions, variableDefinitions} = this.props
 
-    return dimensions.map(findDimensionDefinition).map(definition => (
-      <div>
+    return dimensions.map(findDimensionDefinition).map((definition, i) => (
+      <div key={i}>
         <h4>{definition.variableDescription}</h4>
-        <p dangerouslySetInnerHTML={{__html: definition.dimensionDescription}}/>
+        <p dangerouslySetInnerHTML={{__html: definition.dimensionDescription}} />
       </div>
     ))
 
@@ -61,12 +61,12 @@ class CardMetadata extends Component {
     const {metadata} = this.props
 
     const buttonClasses = cx({
-      toggle__button: true, // eslint-disable-line camelcase
+      'toggle__button': true, // eslint-disable-line camelcase
       'toggle__button--expanded': this.state.expanded
     })
 
     const sectionClases = cx({
-      toggle__section: true, // eslint-disable-line camelcase
+      'toggle__section': true, // eslint-disable-line camelcase
       'toggle__section--expanded': this.state.expanded
     })
 
@@ -80,7 +80,7 @@ class CardMetadata extends Component {
                 Veiledning og kilder
               </span>
               <span className="toggle__caption--expanded">Skjul veiledning og kilder</span>
-              <i className="icon__arrow-down toggle__icon"/>
+              <i className="icon__arrow-down toggle__icon" />
             </a>
           </div>
 
@@ -88,9 +88,9 @@ class CardMetadata extends Component {
             <div className={sectionClases}>
               <h4 className="h2">Veiledning og kilder</h4>
               <h5 className="h3">Sammendrag</h5>
-              <div dangerouslySetInnerHTML={{__html: metadata.description}}/>
+              <div dangerouslySetInnerHTML={{__html: metadata.description}} />
               <h5 className="h3">Begrepsforklaring</h5>
-              {metadata.terminology && <div dangerouslySetInnerHTML={{__html: metadata.terminology}}/>}
+              {metadata.terminology && <div dangerouslySetInnerHTML={{__html: metadata.terminology}} />}
               {this.renderVariableDefinitions()}
               <h5 className="h3">Kilder</h5>
               <p>{metadata.source}, målt: {metadata.measuredAt}</p>

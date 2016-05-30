@@ -98,10 +98,10 @@ export default class BenchmarkChart extends React.Component {
         if (val && data.highlight.value.indexOf(val) != -1) {
           const color = this.textures.domain().includes(benchmarkHighLightColor)
           ? this.textures(benchmarkHighLightColor) : benchmarkHighLightColor
-          if (!dataItem.values[0].anonymized) {
-            dataItem.fill = color
-          } else {
+          if (dataItem.values[0].anonymized) {
             dataItem.stroke = color
+          } else {
+            dataItem.fill = color
           }
         }
       }
@@ -189,7 +189,7 @@ export default class BenchmarkChart extends React.Component {
     const sortedData = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
     const data = this.prepareData(sortedData)
     return (
-      <D3Chart data={data} functions={functions} config={config} className={this.props.className}/>
+      <D3Chart data={data} functions={functions} config={config} className={this.props.className} />
     )
   }
 }

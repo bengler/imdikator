@@ -95,7 +95,7 @@ class Card extends Component {
 
     if (!activeTab) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"/>
+        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
           Laster…
         </div>
       )
@@ -164,7 +164,7 @@ class Card extends Component {
           />
         )}
 
-        {loading && <span><i className="loading-indicator"/> Laster…</span>}
+        {loading && <span><i className="loading-indicator" /> Laster…</span>}
 
         {!printable && (
           <ChartViewModeSelect
@@ -174,7 +174,7 @@ class Card extends Component {
         )}
 
         <div className="graph">
-          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
+          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
         </div>
 
         <ChartDescriptionContainer
@@ -186,13 +186,13 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
-            <ShareWidget chartUrl={this.getShareUrl()}/>
-            <DownloadWidget region={region} query={query} headerGroups={headerGroups}/>
+            <ShareWidget chartUrl={this.getShareUrl()} />
+            <DownloadWidget region={region} query={query} headerGroups={headerGroups} />
           </div>
         )}
 
         {!printable && (
-          <CardMetadata dimensions={query.dimensions} metadata={card.metadata}/>
+          <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
         )}
         {showExternalLinkBosatte && (
           <div className="graph__related">

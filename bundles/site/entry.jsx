@@ -61,7 +61,7 @@ function bootstrap(initialState) {
 
   function ReduxDevToolsPanel() {
     if (!config.reduxDevTools) {
-      return <span/>
+      return <span />
     }
     const devToolsIsVisible = isDevToolsVisible()
 
@@ -85,10 +85,10 @@ function bootstrap(initialState) {
           />
           <div style={{marginTop: 5}}>
             You can also <a href="#" style={{color: 'lightblue', padding: 2}} onClick={toggleDevToolsVisibility}>
-            Hide this panel &raquo;
-          </a></div>
+            Hide this panel &raquo;</a>
+          </div>
         </div>
-        <DevTools store={store} monitor={LogMonitor}/>
+        <DevTools store={store} monitor={LogMonitor} />
       </DebugPanel>
     )
   }
@@ -99,9 +99,9 @@ function bootstrap(initialState) {
       // to work around an issue in React 0.13.
       <div>
         <Provider store={store}>
-          <App router={router}/>
+          <App router={router} />
         </Provider>
-        <ReduxDevToolsPanel/>
+        <ReduxDevToolsPanel />
       </div>,
       containers[0]
     )

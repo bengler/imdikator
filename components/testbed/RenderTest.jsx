@@ -5,12 +5,12 @@ class RenderTestPage extends Component {
   render() {
 
     const extraHead = [
-      <script src="/build/js/render-debug.js" async defer/>
+      <script key="render-debug" src="/build/js/render-debug.js" async defer />
     ]
 
     return (
       <DefaultLayout extraHead={extraHead}>
-        <div id="content"/>
+        <div id="content" />
       </DefaultLayout>
     )
   }

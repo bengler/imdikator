@@ -36,11 +36,11 @@ if (config.env === 'development') {
 }
 
 app.get('/debug/embeds', (req, res) => {
-  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<EmbedTest/>))
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<EmbedTest />))
 })
 
 app.get('/debug/render', (req, res) => {
-  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<RenderTest/>))
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<RenderTest />))
 })
 
 app.get('/', (req, res) => {
@@ -48,11 +48,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/tall-og-statistikk*', (req, res) => {
-  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest/>))
+  res.status(200).send(ReactDOMServer.renderToStaticMarkup(<SiteTest />))
 })
 
 if (config.env === 'development') {
-  app.use(require('dev-error-handler')) // eslint-disable-line import/no-require
+  app.use(require('dev-error-handler')) // eslint-disable-line import/no-commonjs
 }
 
 export default app

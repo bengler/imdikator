@@ -58,7 +58,7 @@ class RegionSummaryChartsContainer extends Component {
     const {summaries, region, loading} = this.props
 
     if (loading || !summaries || summaries.some(summary => summary.loading)) {
-      return <div><i className="loading-indicator"/> Henter data...</div>
+      return <div><i className="loading-indicator" /> Henter data...</div>
     }
 
     return (

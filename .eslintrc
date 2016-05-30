@@ -9,17 +9,15 @@
   ],
   "extends": [
     "bengler",
-    "bengler/react"
+    "bengler/react",
+    "bengler/import"
   ],
   "rules": {
-    "prefer-template": 1, // todo: remove this eventually
-    "import/no-unresolved": 2,
-    "import/named": 1,
-    "import/default": 0,
-    "import/namespace": 2,
-    "import/no-require": 2,
-    "import/no-named-as-default": 2,
-    "import/export": 2
+    "no-case-declarations": 1,
+    // pending https://github.com/benmosher/eslint-plugin-import/issues/333
+    "import/no-named-as-default": 1,
+    "import/default": 1,
+    "import/namespace": 1
   },
   "settings": {
     "import/parser": "babel-eslint",

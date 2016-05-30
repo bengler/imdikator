@@ -80,7 +80,7 @@ class CardList extends Component {
         role="button"
       >
         <h3 className="toggle-list__button-title">{card.title}
-          <i className="icon__arrow-down toggle-list__button-icon"/>
+          <i className="icon__arrow-down toggle-list__button-icon" />
         </h3>
       </a>
     )
@@ -97,15 +97,15 @@ class CardList extends Component {
             <li ref={`card-${card.name}`} key={card.name} tabIndex="-1" className="t-no-focus">
               <div className="toggle-list">
                 {this.renderToggleCardLink(card)}
-                {isOpen && !card.noValucontextes && <Card region={region} card={card} cardsPageName={cardsPage.name}/>}
+                {isOpen && !card.noValucontextes && <Card region={region} card={card} cardsPageName={cardsPage.name} />}
                 {isOpen && card.noValues && (
-                <div className="toggle-list__section toggle-list__section--expanded">
-                  <p>
-                    Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn
-                    eller ikke tilgjengelig for denne regionen.
-                  </p>
-                </div>
-                  )}
+                  <div className="toggle-list__section toggle-list__section--expanded">
+                    <p>
+                      Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av personvernhensyn
+                      eller ikke tilgjengelig for denne regionen.
+                    </p>
+                  </div>
+                )}
               </div>
             </li>
           )

@@ -63,7 +63,10 @@ export default class StackedBarChart extends Component {
     .domain(data.preparedData.map(item => item.title))
     .rangeRoundBands([0, this.size.width], 0.1)
 
-    const xAxis = d3.svg.axis().scale(x0).orient('bottom').innerTickSize(10)
+    const xAxis = d3.svg.axis()
+      .scale(x0)
+      .orient('bottom')
+      .innerTickSize(10)
 
     const xScales = {}
     const innerPaddingFactor = 0.2
@@ -81,10 +84,11 @@ export default class StackedBarChart extends Component {
     })
 
     const category = svg.selectAll('.chart__category')
-    .data(data.preparedData)
-    .enter().append('g')
-    .attr('class', 'chart__category')
-    .attr('transform', cat => this.translation(x0(cat.title), 0))
+      .data(data.preparedData)
+      .enter()
+      .append('g')
+      .attr('class', 'chart__category')
+      .attr('transform', cat => this.translation(x0(cat.title), 0))
 
     let hoveropen = false
     const open = item => {
@@ -128,7 +132,6 @@ export default class StackedBarChart extends Component {
     .on('mouseout', () => close())
 
     // Add X axis
-    /* eslint-disable prefer-reflect */
     const xAxisEl = this.svg.append('g')
     .attr('class', 'chart__axis')
     .attr('transform', this.translation(0, this.size.height))
@@ -139,21 +142,18 @@ export default class StackedBarChart extends Component {
     // Wrap the labels on the X axis
     const txts = xAxisEl.selectAll('.tick text')
     txts.call(this.wrapTextNode, x0.rangeBand())
-    /* eslint-enable prefer-reflect */
 
 
     // Legend
     const leg = this.legend().color(colors)
 
 
-    /* eslint-disable prefer-reflect */
     const legendWrapper = this._svg.append('g')
     .attr('class', 'chart__legend-wrapper')
     .attr('width', this.fullWidth)
     // Place it at the very bottom
     .datum(seriesNames.values())
     .call(leg)
-    /* eslint-enable prefer-reflect */
 
     // Add some space between the x axis labels and the legends
     const xAxisHeight = xAxisEl.node().getBBox().height + 21
@@ -164,7 +164,7 @@ export default class StackedBarChart extends Component {
     const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
     this._svg
     .attr('height', expandedHeight)
-    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
   }
 
@@ -184,7 +184,7 @@ export default class StackedBarChart extends Component {
     }
 
     return (
-      <D3Chart data={data} functions={functions} config={config}/>
+      <D3Chart data={data} functions={functions} config={config} />
     )
   }
 }

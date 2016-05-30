@@ -21,6 +21,7 @@ export function findInTree(testFn) {
       found = _current
       return true
     }
+    return false
   })
   return found
 }

@@ -32,7 +32,7 @@ class FactsPage extends Component {
                   <p className="ingress">{getPageIngress(region)}</p>
                   <p className="t-margin-bottom--large t-hide-on-print">
                     <a href={regionPageLink} className="button button--secondary">
-                      <i className="icon__arrow-left"/> Tilbake til oppsummering
+                      <i className="icon__arrow-left" /> Tilbake til oppsummering
                     </a>
                   </p>
                 </header>

@@ -10,7 +10,7 @@ function wrapInDocumenter(Component, props = {}) {
   return React.createClass({
     displayName: Component.name,
     render() {
-      return <ShowComponentDoc componentProps={props} component={Component}/>
+      return <ShowComponentDoc componentProps={props} component={Component} />
     }
   })
 }
@@ -22,7 +22,7 @@ const REGIONS = []
   .concat(require('../data/naeringsregioner'))
 
 
-/* eslint import/no-require: 1 */
+/* eslint import/no-commonjs: 1 */
 export default [
   {
     name: 'examples',

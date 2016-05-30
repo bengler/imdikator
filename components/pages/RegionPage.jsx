@@ -49,7 +49,7 @@ class RegionPage extends Component {
                   <div className="t-margin-bottom--large t-hide-on-print">
                     <label><span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">
-                          <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
                       </div>
                     </label>
                   </div>
@@ -66,7 +66,7 @@ class RegionPage extends Component {
                 <h2 className="page__section-title">Oppsummering</h2>
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
-                    <RegionSummaryChartsContainer region={currentRegion}/>
+                    <RegionSummaryChartsContainer region={currentRegion} />
                   </div>
                 </div>
 
@@ -74,11 +74,11 @@ class RegionPage extends Component {
                   <h2 className="feature__title">Faktaark</h2>
                   <p>
                     Et dokument hvor alle nøkkeltallene fra {currentRegion.name}
-                    {currentRegion.name != 'Norge' ? ` ${_t(currentRegion.type)}` : ''} er gjengitt.
+                    {currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`} er gjengitt.
                   </p>
                   <p>
                     <a href={factSheetLink} className="button button-">
-                      <i className="icon__download icon--white"/> Utskriftsvennlig faktaark
+                      <i className="icon__download icon--white" /> Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </div>
@@ -94,8 +94,8 @@ class RegionPage extends Component {
               <div className="col--main">
                 <div className="feature feature--white">
                   <h2 className="feature__title">{currentRegion.name}</h2>
-                  <RegionInfoContainer region={currentRegion}/>
-                  <RegionQuickSwitch/>
+                  <RegionInfoContainer region={currentRegion} />
+                  <RegionQuickSwitch />
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ class RegionPage extends Component {
               <div className="row">
                 <div className="col--main">
                   <div className="feature feature--white">
-                    <RegionChildListContainer region={currentRegion}/>
+                    <RegionChildListContainer region={currentRegion} />
                   </div>
                 </div>
               </div>

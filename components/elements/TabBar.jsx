@@ -41,8 +41,8 @@ export default class TabBar extends Component {
         return (
           <li key={tab.name} className="tabs-menu__list-item" role="tab">
             <span className={linkClassName}>
-            <i className={iconClassName}/>
-            {tab.title}
+              <i className={iconClassName} />
+              {tab.title}
             </span>
           </li>
         )
@@ -51,7 +51,7 @@ export default class TabBar extends Component {
       return (
         <li title={tab.title} key={tab.name} className="tabs-menu__list-item" role="tab" aria-selected={tabState}>
           <a href={makeLinkToTab(tab)} className={linkClassName} data-keep-scroll-position>
-            <i className={iconClassName}/>
+            <i className={iconClassName} />
             {tab.title}
           </a>
         </li>

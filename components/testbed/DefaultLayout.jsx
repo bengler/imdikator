@@ -11,15 +11,16 @@ export default class DefaultLayout extends Component {
 
   render() {
     const {children, extraHead} = this.props
+    /* eslint-disable react/jsx-indent */
     return (
       <html>
       <head>
-        <meta charSet="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta httpEquiv="X-UA-Compatible" content="IE=Edge"/>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
         <title>IMDI Testbed</title>
-        <link rel="stylesheet" href="/build/stylesheets/main.css"/>
-        <link rel="icon" type="image/x-icon" href="/_themes/design/img/favicon.ico"/>
+        <link rel="stylesheet" href="/build/stylesheets/main.css" />
+        <link rel="icon" type="image/x-icon" href="/_themes/design/img/favicon.ico" />
         {extraHead}
       </head>
       <body>
@@ -117,9 +118,9 @@ export default class DefaultLayout extends Component {
                           <label htmlFor="footer-search" className="t-only-screenreaders">Søk nettstedet</label>
 
                           <div className="search search--footer">
-                            <input className="input search__input" type="text" name="query" placeholder="Søk nettstedet"/>
+                            <input className="input search__input" type="text" name="query" placeholder="Søk nettstedet" />
                             <button type="submit" className="button search__button"><i
-                              className="icon__search icon--white"/><span className="t-only-screenreaders">Søk</span>
+                              className="icon__search icon--white" /><span className="t-only-screenreaders">Søk</span>
                             </button>
                           </div>
                         </form>

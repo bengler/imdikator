@@ -26,14 +26,21 @@ export const colorTextures = {
     .background('#15c2e8')
   },
   '#418541': () => {
-    return textures.lines().orientation('horizontal').size(5).shapeRendering('crispEdges')
-    .stroke('#679d67')
-    .background('#418541')
+    return textures.lines()
+      .orientation('horizontal')
+      .size(5)
+      .shapeRendering('crispEdges')
+      .stroke('#679d67')
+      .background('#418541')
   },
   '#5abb5b': () => {
-    return textures.lines().orientation('vertical').size(8).strokeWidth(1).shapeRendering('crispEdges')
-    .stroke('#7bc97c')
-    .background('#5abb5b')
+    return textures.lines()
+      .orientation('vertical')
+      .size(8)
+      .strokeWidth(1)
+      .shapeRendering('crispEdges')
+      .stroke('#7bc97c')
+      .background('#5abb5b')
   },
   '#f56d00': () => {
     return textures.lines().thicker()
@@ -46,14 +53,21 @@ export const colorTextures = {
     .background('#ffd300')
   },
   '#c792ca': () => {
-    return textures.lines().orientation('vertical').size(5).shapeRendering('crispEdges')
-    .stroke('#d2a8d5')
-    .background('#c792ca')
+    return textures.lines()
+      .orientation('vertical')
+      .size(5)
+      .shapeRendering('crispEdges')
+      .stroke('#d2a8d5')
+      .background('#c792ca')
   },
   '#ba4b7a': () => {
-    return textures.lines().orientation('horizontal').size(8).strokeWidth(1).shapeRendering('crispEdges')
-    .stroke('#c86f95')
-    .background('#ba4b7a')
+    return textures.lines()
+      .orientation('horizontal')
+      .size(8)
+      .strokeWidth(1)
+      .shapeRendering('crispEdges')
+      .stroke('#c86f95')
+      .background('#ba4b7a')
   },
   '#f15540': () => {
     return textures.lines()

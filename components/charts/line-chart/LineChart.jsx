@@ -50,7 +50,11 @@ export default class LineChart extends React.Component {
     const x = d3.time.scale().range([0, this.size.width])
     const y = yc.scale
 
-    const xAxis = d3.svg.axis().scale(x).orient('bottom').innerTickSize(10)
+    const xAxis = d3.svg.axis()
+      .scale(x)
+      .orient('bottom')
+      .innerTickSize(10)
+
     const yAxis = d3.svg.axis().scale(y).orient('left')
     yAxis.tickFormat(yc.axisFormat)
     yAxis.scale().nice()
@@ -225,7 +229,8 @@ export default class LineChart extends React.Component {
 
     voronoiGroup.selectAll('path')
     .data(voronoi(voronoiData))
-    .enter().append('path')
+    .enter()
+    .append('path')
     .attr('d', item => `M${item.join('L')}Z`)
     .datum(dataItem => dataItem.point)
     .style('fill', 'none')
@@ -268,7 +273,7 @@ export default class LineChart extends React.Component {
     const expandedHeight = this.fullHeight + xAxisMargin + leg.height()
     this._svg
     .attr('height', expandedHeight)
-    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
   }
 
@@ -290,7 +295,7 @@ export default class LineChart extends React.Component {
     }
 
     return (
-      <D3Chart data={data} functions={functions} config={config}/>
+      <D3Chart data={data} functions={functions} config={config} />
     )
   }
 

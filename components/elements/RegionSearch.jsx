@@ -44,8 +44,8 @@ export default class RegionSearch extends Component {
           key={item.name + item.type}
           className={classes}
         >
-        {itemDescription}
-        <i className="icon__arrow-right icon--red search-result__icon"/>
+          {itemDescription}
+          <i className="icon__arrow-right icon--red search-result__icon" />
         </a>
       </li>
     )

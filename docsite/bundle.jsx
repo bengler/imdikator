@@ -25,7 +25,7 @@ const routes = compileRoutes(routeMappings)
 const container = document.getElementById('main')
 const router = Router(routes, match => {
   const Component = match.handler
-  ReactDOM.render(<Component registry={registry}/>, container)
+  ReactDOM.render(<Component registry={registry} />, container)
 })
 
 router.navigate(document.location.pathname)

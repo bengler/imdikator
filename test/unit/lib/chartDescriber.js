@@ -1,6 +1,6 @@
 import {assert} from 'chai'
 import {queryToOptions, describeChart} from '../../../lib/chartDescriber'
-import exampleDimensionLabels from './exampleDimensionLabels'
+import exampleDimensionLabels from './exampleDimensionLabels.json'
 import {setDimensionLabels} from '../../../lib/labels'
 import allRegions from '../../fixtures/mockRegions'
 

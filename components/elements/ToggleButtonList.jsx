@@ -47,11 +47,11 @@ export default class ToggleButtonList extends Component {
     return (
       <ul className="t-no-list-styles">
         {options.map((opt, i) => (
-          <li className="col--flow">
+          <li key={i} className="col--flow">
             <label className="filter-choice">
-              <input type="checkbox" name="_filter-place" onChange={() => this.toggle(opt)} checked={value.includes(opt)}/>
+              <input type="checkbox" name="_filter-place" onChange={() => this.toggle(opt)} checked={value.includes(opt)} />
               <span className="filter-choice__control">
-                <i className="filter-choice__indicator"/>
+                <i className="filter-choice__indicator" />
                 {renderButton(opt, i)}
               </span>
             </label>

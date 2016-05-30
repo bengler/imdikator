@@ -43,7 +43,10 @@ class Chart {
     const yc = this.configureYscale(data.preparedData.extent, data.unit, 100)
     yc.scale.nice()
     const testSVG = d3.select('body').append('svg').style('display', 'hidden')
-    const yAxis = d3.svg.axis().scale(yc.scale).orient('left').tickFormat(yc.axisFormat)
+    const yAxis = d3.svg.axis()
+      .scale(yc.scale)
+      .orient('left')
+      .tickFormat(yc.axisFormat)
     testSVG.append('g')
     .attr('class', 'chart__axis')
     .call(yAxis)
@@ -109,7 +112,7 @@ class Chart {
       .attr('class', 'chart__svg')
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
-      .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + this.fullHeight)
+      .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('role', 'img')
       .attr('aria-labelledby', 'title')
@@ -225,21 +228,20 @@ class Chart {
     const yAxis = d3.svg.axis().scale(scale).orient('left')
     yAxis.tickFormat(format)
 
-    /* eslint-disable prefer-reflect */
     this.svg.append('g')
-    .attr('class', 'chart__axis')
-    .call(yAxis)
-    .select('path').remove()
-    /* eslint-enable prefer-reflect */
+      .attr('class', 'chart__axis')
+      .call(yAxis)
+      .select('path')
+      .remove()
 
     // Draw horizontal background lines where the tick marks are
     this.svg.selectAll('.chart__axis .tick')
-    .append('line')
-    .attr('class', 'chart__line--benchmark')
-    .attr('x1', -this.margins.left)
-    .attr('x2', this.fullWidth)
-    .attr('y1', 0)
-    .attr('y2', 0)
+      .append('line')
+      .attr('class', 'chart__line--benchmark')
+      .attr('x1', -this.margins.left)
+      .attr('x2', this.fullWidth)
+      .attr('y1', 0)
+      .attr('y2', 0)
 
     // Translate the text up by half font size to make the text rest on top
     // of the background lines
@@ -272,7 +274,7 @@ class Chart {
         let legend = null
         legend = wrap.enter()
           .append('g').attr('class', 'chart__legend')
-          .attr('transform', `translate(0,0)`)
+          .attr('transform', 'translate(0,0)')
           .append('g')
           .on('click', (item, index) => {
             dispatch.legendClick(item, index)
@@ -339,19 +341,17 @@ class Chart {
       return height
     }
 
-    chart.color = function (newColor) {
-      if (!arguments.length) {
-        return color
-      }
+    chart.color = function (newColor = color) {
       color = newColor
       return chart
     }
 
-    chart.attr = function (key, newValue) {
-      if (!arguments.length) {
+    chart.attr = function (...args) {
+      const [key, newValue] = args
+      if (args.length == 0) {
         return attr
       }
-      if (arguments.length == 1) {
+      if (args.length == 1) {
         const value = attr[key]
         if (typeof value === 'function') {
           return value()

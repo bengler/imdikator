@@ -54,7 +54,7 @@ export default class FilterSelect extends Component {
     const disabled = locked || choices.length == 1
 
     const selectContainerClasses = cx({
-      select: true,
+      'select': true,
       'subtle-select__select': true,
       'subtle-select__select--disabled': disabled
     })
@@ -69,7 +69,7 @@ export default class FilterSelect extends Component {
       return (
         <div className={classes}>
           <p className="field-notification__caption">
-            <i className="icon__arrow-right"/>
+            <i className="icon__arrow-right" />
             Avgrenset
           </p>
           {children}
@@ -87,7 +87,8 @@ export default class FilterSelect extends Component {
             <select
               value={selectedIndex}
               disabled={disabled}
-              onChange={this.handleChange.bind(this)}>
+              onChange={this.handleChange.bind(this)}
+            >
               {choices.map((choice, i) => (
                 <option key={i} value={i}>
                   {renderChoice(choice, i, choices)}

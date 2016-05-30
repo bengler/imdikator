@@ -6,7 +6,7 @@ import domready from 'domready'
 
 function bootstrap() {
   const container = document.getElementById('content')
-  ReactDOM.render(<RenderTestContent/>, container)
+  ReactDOM.render(<RenderTestContent />, container)
 }
 
 domready(bootstrap)

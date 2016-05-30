@@ -90,7 +90,7 @@ export default [
     additionalTitleParams: [],
     relevantFor: ['municipality', 'county', 'commerceRegion'],
     title: params => {
-      return `Anmodning og vedtak om bosetting over tid`
+      return 'Anmodning og vedtak om bosetting over tid'
     },
     subTitle: params => {
       return null
@@ -157,10 +157,10 @@ export default [
     relevantFor: ['borough', 'municipality', 'county', 'commerceRegion'],
     title: params => {
       if (params.missingData) {
-        return `Antall deltakere som gikk fra introprogram til arbeid er ikke kjent`
+        return 'Antall deltakere som gikk fra introprogram til arbeid er ikke kjent'
       }
       if (params.anonymizedData) {
-        return `Antall deltakere som gikk fra introprogram til arbeid er anonymisert`
+        return 'Antall deltakere som gikk fra introprogram til arbeid er anonymisert'
       }
       return `${params.share} av deltakerne som avsluttet introprogram i ${params.aar} var i arbeid eller utdanning året etter.`
     },

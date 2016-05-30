@@ -8,7 +8,7 @@ import config from './index'
 export const connector = JSONConnector.defaults({
   headers: {
     'user-agent': 'imdikator:api-client',
-    accept: 'application/json,text/plain,* / *'
+    'accept': 'application/json,text/plain,* / *'
   }
 })
 

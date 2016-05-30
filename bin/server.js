@@ -1,6 +1,6 @@
 import app from '../app'
 import config from '../config'
-import pkg from '../package' // eslint-disable-line import/default
+import pkg from '../package.json' // eslint-disable-line import/default
 
 const server = app.listen(config.port, function () { // eslint-disable-line prefer-arrow-callback
   const host = server.address().address

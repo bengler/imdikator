@@ -51,9 +51,9 @@ export default class Lightbox extends Component {
       <div className={`lightbox ${className}`} style={style}>
         <div className="lightbox__backdrop"></div>
         <dialog open="open" className="lightbox__box">
-          <i className="lightbox__point"/>
+          <i className="lightbox__point" />
           <button type="button" className="lightbox__close-button" onClick={onClose}>
-            <i className="icon__close icon--red lightbox__close-button-icon"/>
+            <i className="icon__close icon--red lightbox__close-button-icon" />
             <span className="t-only-screenreaders">Lukk</span>
           </button>
           <h4 className="lightbox__title">{title}</h4>

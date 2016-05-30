@@ -93,10 +93,11 @@ export default class BubbleChart extends React.Component {
     const nodes = bubble.nodes({fill: 'white', children: preparedData}).filter(item => !item.children)
 
     const node = this.svg.selectAll('.chart__node')
-    .data(nodes)
-    .enter().append('g')
-    .attr('class', 'chart__node')
-    .attr('transform', item => this.translation(item.x, item.y))
+      .data(nodes)
+      .enter()
+      .append('g')
+      .attr('class', 'chart__node')
+      .attr('transform', item => this.translation(item.x, item.y))
 
     let hoveropen = false
     const open = item => {
@@ -168,6 +169,7 @@ export default class BubbleChart extends React.Component {
       if (item.r <= 8) {
         return 'none'
       }
+      return ''
     })
     .text(item => {
       if (item.depth <= 1 || !item.title) {
@@ -193,7 +195,7 @@ export default class BubbleChart extends React.Component {
     const expandedHeight = this.fullHeight + leg.height()
     this._svg
     .attr('height', expandedHeight)
-    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
   }
 
   render() {

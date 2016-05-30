@@ -18,6 +18,7 @@ function attributize(value) {
   if (typeof value === 'function') {
     return `{${value}}`
   }
+  return ''
 }
 
 function toAttrs(props) {
@@ -68,7 +69,8 @@ export default class ShowComponentDoc extends React.Component {
     }
     return (
       <PropForm propTypes={Component.doc.props} propValues={componentProps}
-        onPropChange={this.handlePropChange.bind(this)}/>
+        onPropChange={this.handlePropChange.bind(this)}
+      />
     )
   }
 
@@ -115,7 +117,7 @@ export default class ShowComponentDoc extends React.Component {
 
                 <h3 className="feature-small__title">Live example</h3>
                 <div className="feature-small__meta">
-                  <Component {...componentProps}/>
+                  <Component {...componentProps} />
                 </div>
               </div>
             </div>

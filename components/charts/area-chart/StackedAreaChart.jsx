@@ -63,14 +63,19 @@ export default class StackedAreaChart extends React.Component {
     const yc = this.configureYscale(data.preparedData.extent, data.unit)
     const y = yc.scale
 
-    const xAxis = d3.svg.axis().scale(x).orient('bottom').innerTickSize(10)
+    const xAxis = d3.svg.axis()
+      .scale(x)
+      .orient('bottom')
+      .innerTickSize(10)
+
     const yAxis = d3.svg.axis().scale(y).orient('left')
+
     yAxis.tickFormat(yc.axisFormat)
 
     const area = d3.svg.area()
-    .x(dataItem => x(dataItem.date))
-    .y0(dataItem => y(dataItem.y0))
-    .y1(dataItem => y(dataItem.y0 + dataItem.y))
+      .x(dataItem => x(dataItem.date))
+      .y0(dataItem => y(dataItem.y0))
+      .y1(dataItem => y(dataItem.y0 + dataItem.y))
 
     const dates = []
     data.preparedData.forEach(item => {
@@ -235,7 +240,7 @@ export default class StackedAreaChart extends React.Component {
     const expandedHeight = this.fullHeight + xAxisMargin + leg.height()
     this._svg
     .attr('height', expandedHeight)
-    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
   }
 
@@ -255,7 +260,7 @@ export default class StackedAreaChart extends React.Component {
     }
 
     return (
-      <D3Chart data={data} functions={functions} config={config}/>
+      <D3Chart data={data} functions={functions} config={config} />
     )
   }
 

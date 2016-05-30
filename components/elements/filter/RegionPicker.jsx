@@ -140,7 +140,7 @@ export default class RegionPicker extends Component {
               className="button button--small button--secondary button__sidekick"
               onClick={this.applyAll.bind(this)}
             >
-              <i className="icon__apply"/> Oppdater alle figurer
+              <i className="icon__apply" /> Oppdater alle figurer
             </button>
           )}
 
@@ -149,7 +149,7 @@ export default class RegionPicker extends Component {
             className="button button--small button--secondary button__sidekick"
             onClick={this.clear.bind(this)}
           >
-            <i className="icon__close"/> Fjern sammenlikninger
+            <i className="icon__close" /> Fjern sammenlikninger
           </button>
         </div>
       </div>

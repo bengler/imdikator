@@ -136,9 +136,9 @@ class RenderTestPage extends Component {
             options={Object.assign({}, CODEMIRROR_OPTS, {readOnly: true})}
           />
         </div>
-        <br/>
+        <br />
         <div className="row">
-          <br/>
+          <br />
           <form onSubmit={this.commit.bind(this)}>
             <h2>Embed code</h2>
             <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'baseline'}}>
@@ -166,12 +166,12 @@ class RenderTestPage extends Component {
             */}
           </form>
         </div>
-        <br/>
+        <br />
         <div className="row">
-          <br/>
+          <br />
           <h2>Rendered chart</h2>
           <div className="col--main">
-            <div ref="container" dangerouslySetInnerHTML={{__html: code}}/>
+            <div ref="container" dangerouslySetInnerHTML={{__html: code}} />
           </div>
         </div>
       </div>

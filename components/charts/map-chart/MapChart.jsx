@@ -2,12 +2,12 @@ import React from 'react'
 import d3 from 'd3'
 import topojson from 'topojson'
 import D3Chart from '../../utils/D3Chart'
+import topology from './../../../data/norge.json'
 
 const sampleData = [
   {category: '3', series: '0301', value: 29}
 ]
 
-const topology = require('./../../../data/norge.json')
 
 export default class MapChart extends React.Component {
   drawPoints(el, data) {
@@ -43,19 +43,23 @@ export default class MapChart extends React.Component {
 
     // All municipalities
     svg.selectAll('.chart__municipality')
-    .data(topojson.feature(topology, topology.objects.kommuner).features)
-    .enter().append('path')
-    .attr('class', dataItem => 'chart__municipality' + dataItem.id)
-    .attr('d', path)
-    .style('fill', (dataItem, index) => dataItem.id == municipality.id ? 'rgb(78, 200, 34)' : 'rgb(186, 195, 204)')
+      .data(topojson.feature(topology, topology.objects.kommuner).features)
+      .enter()
+      .append('path')
+      .attr('class', dataItem => `chart__municipality${dataItem.id}`)
+      .attr('d', path)
+      .style('fill', dataItem => {
+        return dataItem.id == municipality.id ? 'rgb(78, 200, 34)' : 'rgb(186, 195, 204)'
+      })
 
     svg.selectAll('.chart__subunit-label')
-    .data(topojson.feature(topology, topology.objects.kommuner).features)
-    .enter().append('text')
-    .attr('class', dataItem => 'chart__municipality-label ' + dataItem.id)
-    .attr('transform', dataItem => 'translate(' + path.centroid(dataItem) + ')')
-    .attr('dy', '.35em')
-    .text(dataItem => dataItem.properties.name)
+      .data(topojson.feature(topology, topology.objects.kommuner).features)
+      .enter()
+        .append('text')
+      .attr('class', dataItem => `chart__municipality-label ${dataItem.id}`)
+      .attr('transform', dataItem => `translate(${path.centroid(dataItem)})`)
+      .attr('dy', '.35em')
+      .text(dataItem => dataItem.properties.name)
 
     // Draw borders
     svg.append('path')
@@ -75,7 +79,7 @@ export default class MapChart extends React.Component {
 
   render() {
     return (
-      <D3Chart data={sampleData} drawPoints={this.drawPoints}/>
+      <D3Chart data={sampleData} drawPoints={this.drawPoints} />
     )
   }
 }

@@ -24,7 +24,7 @@ class RegionChildListContainer extends Component {
     if (childRegions.length == 0) {
       return null
     }
-    return <RegionChildList region={region} childRegions={childRegions} createLinkToRegion={createLinkToRegion}/>
+    return <RegionChildList region={region} childRegions={childRegions} createLinkToRegion={createLinkToRegion} />
   }
 }
 

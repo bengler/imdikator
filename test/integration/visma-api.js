@@ -24,7 +24,7 @@ describe('Fetching tables using API client', () => {
 
     return Promise.all(tables.map(async tableName => {
       const headerGroups = await client.getHeaderGroups(tableName)
-      assert(Object.keys(headerGroups).length > 0, 'Got empty header groups for table ${tableName}')
+      return assert(Object.keys(headerGroups).length > 0, 'Got empty header groups for table ${tableName}')
     }))
   })
 

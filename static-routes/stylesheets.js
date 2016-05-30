@@ -19,7 +19,7 @@ export default {
 
     return Promise.resolve(
       imdiStylesImports
-        .concat(`@import "./stylesheets/bundles/main.less";`)
+        .concat('@import "./stylesheets/bundles/main.less";')
         .join('\n')
       )
       .then(buffer => {
@@ -35,7 +35,7 @@ export default {
   '/build/stylesheets/docsite.css'() {
     return Promise.resolve(
       imdiStylesImports
-        .concat(`@import "./stylesheets/bundles/docsite.less";`)
+        .concat('@import "./stylesheets/bundles/docsite.less";')
         .join('\n')
       )
       .then(buffer => {

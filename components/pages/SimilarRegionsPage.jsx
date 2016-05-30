@@ -31,8 +31,8 @@ class SimilarRegionsPage extends Component {
 
       case 'municipality':
         return [
-          (<h1>{several} som ligner på {currentRegion.name}</h1>),
-          (<div className="ingress">
+          (<h1 key="heading">{several} som ligner på {currentRegion.name}</h1>),
+          (<div key="ingress" className="ingress">
             De {_t('those-${currentRegion.type}')} som ligner mest på {currentRegion.name} når det kommer til
             befolkningsstørrelse, innvandrerandel og flyktningsandel.
           </div>)
@@ -67,7 +67,7 @@ class SimilarRegionsPage extends Component {
                 {this.renderHeader()}
                 <p className="t-margin-bottom--large t-hide-on-print">
                   <a href={linkTo('/tall-og-statistikk/steder/:region', {region: currentRegion.prefixedCode})} className="button button--secondary">
-                    <i className="icon__arrow-left"/> Tilbake til {currentRegion.name}
+                    <i className="icon__arrow-left" /> Tilbake til {currentRegion.name}
                   </a>
                 </p>
               </div>

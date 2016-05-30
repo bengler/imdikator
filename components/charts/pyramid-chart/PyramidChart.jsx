@@ -164,21 +164,22 @@ export default class PyramidChart extends React.Component {
     .attr('transform', `${this.translation(pointA, 0)}scale(-1,1)`)
 
     leftBarGroup.selectAll('.chart__bar.chart__bar--left')
-    .data(item => {
-      return item.values[0].values
-    })
-    .enter().append('rect')
-    .each(function (item) {
-      item.el = this
-    })
-    .attr('class', 'chart__bar chart__bar--left')
-    .attr('x', 0)
-    .attr('y', dataItem => yScale(dataItem.title))
-    .attr('width', dataItem => xScale(dataItem.value))
-    .attr('height', yScale.rangeBand())
-    .attr('fill', dataItem => dataItem.fill)
-    .attr('stroke', dataItem => dataItem.stroke)
-    .attr('stroke-width', dataItem => dataItem.strokeWidth)
+      .data(item => {
+        return item.values[0].values
+      })
+      .enter()
+      .append('rect')
+      .each(function (item) {
+        item.el = this
+      })
+      .attr('class', 'chart__bar chart__bar--left')
+      .attr('x', 0)
+      .attr('y', dataItem => yScale(dataItem.title))
+      .attr('width', dataItem => xScale(dataItem.value))
+      .attr('height', yScale.rangeBand())
+      .attr('fill', dataItem => dataItem.fill)
+      .attr('stroke', dataItem => dataItem.stroke)
+      .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
     leftBarGroup.selectAll('rect.chart__bar-hover')
     .data(item => {
@@ -216,7 +217,8 @@ export default class PyramidChart extends React.Component {
     .data(item => {
       return item.values[1].values
     })
-    .enter().append('rect')
+    .enter()
+    .append('rect')
     .each(function (item) {
       item.el = this
     })
@@ -310,7 +312,7 @@ export default class PyramidChart extends React.Component {
     const expandedHeight = this.fullHeight + outerXAxisMargin + xAxisLabelHeight + xAxisMargin + leg.height()
     this._svg
     .attr('height', expandedHeight)
-    .attr('viewBox', '0 0 ' + this.fullWidth + ' ' + expandedHeight)
+    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
   }
 
@@ -335,7 +337,7 @@ export default class PyramidChart extends React.Component {
       config.minimumWidth = numCategories * CHARTS_CONFIG.pyramid.minWidthPerCategory
     }
     return (
-      <D3Chart data={data} config={config} functions={functions}/>
+      <D3Chart data={data} config={config} functions={functions} />
     )
   }
 }

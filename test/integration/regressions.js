@@ -10,7 +10,7 @@ describe('Issue with cors headers', () => {
       headers: {
         'Access-Control-Request-Method': 'POST',
         'Access-Control-Request-Headers': 'accept, origin, content-type',
-        Origin: 'http://some.domain'
+        'Origin': 'http://some.domain'
       }
     })
 

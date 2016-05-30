@@ -64,12 +64,12 @@ const refugeeQuery = {
 const connector = JSONConnector.defaults({
   headers: {
     'user-agent': 'imdikator:api-client',
-    accept: 'application/json,text/plain,* / *'
+    'accept': 'application/json,text/plain,* / *'
   }
 })
 
 const apiClient = VismaAPIClient.create({
-  baseUrl: `http://imdifakta.azurewebsites.net/api/v1/`,
+  baseUrl: 'http://imdifakta.azurewebsites.net/api/v1/',
   connector: connector
 })
 

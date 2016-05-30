@@ -87,17 +87,15 @@ function bootstrap(initialState) {
   function render(params, element) {
 
     const {regionCode, cardsPageName, cardName, tabName} = params
-    ReactDOM.render(
-      (
-        <Provider store={store}>
-          <EmbeddedChartContainer
-            regionCode={regionCode}
-            cardsPageName={cardsPageName}
-            cardName={cardName}
-            tabName={tabName}
-          />
-        </Provider>
-      ),
+    ReactDOM.render((
+      <Provider store={store}>
+        <EmbeddedChartContainer
+          regionCode={regionCode}
+          cardsPageName={cardsPageName}
+          cardName={cardName}
+          tabName={tabName}
+        />
+      </Provider>),
       element
     )
   }

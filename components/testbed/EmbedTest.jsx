@@ -5,15 +5,16 @@ class RenderTestPage extends Component {
   render() {
 
     const extraHead = [
-      <script src="/build/js/embeds-debug.js" async defer/>,
+      <script key="embeds-debug" src="/build/js/embeds-debug.js" async defer />,
       <script
+        key="imdikator-loader"
         id="imdikator-loader"
         data-api-host="imdikator-st.azurewebsites.net"
         data-content-api-host="www.imdi.no"
         src="/build/js/loader.js" async defer
       />,
-      <link rel="stylesheet" href="/build/stylesheets/codemirror.css"/>,
-      (<style type="text/css" dangerouslySetInnerHTML={{__html: `
+      <link key="codemirror" rel="stylesheet" href="/build/stylesheets/codemirror.css" />,
+      (<style key="codemirror-extra" type="text/css" dangerouslySetInnerHTML={{__html: `
         .CodeMirror {
           font-size: 0.8em;
           height: auto;
@@ -21,14 +22,12 @@ class RenderTestPage extends Component {
         }
         .CodeMirror-scroll {
           height: auto;
-        }
-      `}}>
-      </style>)
+        }`}} />)
     ]
 
     return (
       <DefaultLayout extraHead={extraHead}>
-        <div id="content"/>
+        <div id="content" />
       </DefaultLayout>
     )
   }

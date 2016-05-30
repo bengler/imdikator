@@ -40,6 +40,7 @@ export default class RegionFilterSelect extends Component {
       if (!locked) {
         return 'Legg til sted'
       }
+      return null
     }
 
     const buttonClasses = cx({
@@ -49,14 +50,14 @@ export default class RegionFilterSelect extends Component {
     })
 
     return (
-        <button
-          type="button"
-          disabled={disabled}
-          className={buttonClasses}
-          onClick={this.toggleRegionPickerLightBox.bind(this)}
-        >
-          {getButtonText()}
-        </button>
+      <button
+        type="button"
+        disabled={disabled}
+        className={buttonClasses}
+        onClick={this.toggleRegionPickerLightBox.bind(this)}
+      >
+        {getButtonText()}
+      </button>
     )
   }
 

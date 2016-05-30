@@ -34,7 +34,8 @@ class ShareWidget extends Component {
     return (
       <span className="graph__functions-item">
         <button type="button" className="button button--secondary button--small"
-          onClick={this.handleOpenDialog.bind(this)}>
+          onClick={this.handleOpenDialog.bind(this)}
+        >
           <i className="icon__export"></i> Lenke til figuren
         </button>
         {isDialogOpen && this.renderDialog()}

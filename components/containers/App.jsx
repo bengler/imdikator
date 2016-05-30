@@ -42,7 +42,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        {this.props.component && <this.props.component/>}
+        {this.props.component && <this.props.component />}
       </div>
     )
   }

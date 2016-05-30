@@ -40,7 +40,7 @@ class EmbeddedChartContainer extends Component {
 
     if (!activeTab) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator"/>
+        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
           Laster…
         </div>
       )
@@ -82,8 +82,8 @@ class EmbeddedChartContainer extends Component {
         <div className="col-block-bleed">
           <div className="image-block__image image-block__image--figure">
             <h3 className="h4"><a href={chartUrl}>{card.title}</a></h3>
-            <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})}/>
-            {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'}/>}
+            <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})} />
+            {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
           </div>
         </div>
         <figcaption className="image-block__caption">

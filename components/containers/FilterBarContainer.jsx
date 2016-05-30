@@ -118,7 +118,7 @@ class FilterBarContainer extends Component {
     }).filter(Boolean)
 
     if (shouldWarnAboutMissingCodes && missing.length > 0) {
-      const message = `[Warning]: Some region codes could not be mapped correctly. `
+      const message = '[Warning]: Some region codes could not be mapped correctly. '
                       + `These may be may be old codes not in use anymore: ${missing.join(', ')}`
       console.warn(new Error(message)) // eslint-disable-line no-console
       shouldWarnAboutMissingCodes = false
@@ -206,7 +206,7 @@ class FilterBarContainer extends Component {
     })
 
     return (
-      <FilterBar filters={filters} onChange={this.handleFilterChange.bind(this)}/>
+      <FilterBar filters={filters} onChange={this.handleFilterChange.bind(this)} />
     )
   }
 }

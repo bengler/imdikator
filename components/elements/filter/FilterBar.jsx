@@ -27,7 +27,7 @@ export default class FilterBar extends Component {
         <div className="row t-position">
           {filters.filter(f => !f.props.hidden).map(filter => (
             <div key={filter.name} className="col--fifth" style={{position: 'static'}}>
-              <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)}/>
+              <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)} />
             </div>
           ))}
         </div>

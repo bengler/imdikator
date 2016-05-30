@@ -41,7 +41,7 @@ export default class ChartsPage extends Component {
       <div>
         <p><a href="/">Go home!</a></p>
         <p>{chartsLinks}</p>
-        <ChartComponent/>
+        <ChartComponent />
       </div>
     )
   }

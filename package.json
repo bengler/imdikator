@@ -49,7 +49,7 @@
     "dasherize": "^2.0.0",
     "debug": "^2.2.0",
     "defaults": "^1.0.2",
-    "dev-error-handler": "^0.1.4",
+    "dev-error-handler": "^1.2.0",
     "dom-scroll-into-view": "^1.0.1",
     "domready": "^1.0.8",
     "duplexify": "^3.4.2",

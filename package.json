@@ -99,6 +99,7 @@
     "uglify-js": "^2.4.24"
   },
   "devDependencies": {
+    "babel-cli": "^6.9.0",
     "babel-eslint": "^4.1.6",
     "babel-istanbul": "^0.5.9",
     "babel-plugin-syntax-async-functions": "^6.1.18",

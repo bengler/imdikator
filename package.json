@@ -81,7 +81,6 @@
     "redux": "^3.0.4",
     "redux-devtools": "^2.1.5",
     "redux-thunk": "^1.0.0",
-    "remon": "^1.0.1",
     "rx": "^4.0.0",
     "rx-node": "^1.0.1",
     "smoothscroll": "^0.2.2",

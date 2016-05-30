@@ -76,7 +76,7 @@
     "react-docgen": "^2.1.2",
     "react-dom": "^0.14.1",
     "react-redux": "^3.1.0",
-    "rebundler": "^0.2.0",
+    "rebundler": "^0.3.0",
     "redocify": "^1.0.1",
     "redux": "^3.0.4",
     "redux-devtools": "^2.1.5",
@@ -93,7 +93,7 @@
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-eslint": "^6.0.4",
-    "babel-istanbul": "^0.5.9",
+    "babel-istanbul": "^0.8.0",
     "babel-plugin-syntax-async-functions": "^6.1.18",
     "babel-plugin-syntax-function-bind": "^6.1.18",
     "babel-plugin-transform-function-bind": "^6.1.18",
@@ -107,7 +107,7 @@
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-react": "^5.1.1",
     "mocha": "^2.2.5",
-    "quickreload": "^1.0.9",
+    "quickreload": "^2.0.0",
     "react-addons-test-utils": "^0.14.1",
     "remon": "^1.0.2",
     "sinon": "^1.16.1"

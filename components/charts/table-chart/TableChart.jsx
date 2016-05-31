@@ -4,18 +4,33 @@ import D3Chart from '../../utils/D3Chart'
 import {generateCSV} from '../../../lib/csvWrangler'
 
 
+// TableChart always needs year as a dimension. Add it if missing.
+function ensureDataHasYearDimension(data) {
+  const dimensions = data.dimensions
+  dimensions.forEach(dim => {
+    if (dim.name == 'aar') {
+      return data
+    }
+  })
+  dimensions.push({name: 'aar', variables: []})
+  return Object.assign({}, data, {dimensions: dimensions})
+}
+
+
 export default class TableChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object
   };
 
   componentWillMount() {
-    this.setState(generateCSV(this.props.data))
+    const data = ensureDataHasYearDimension(this.props.data)
+    this.setState(generateCSV(data))
   }
 
 
   componentWillReceiveProps(props) {
-    this.setState(generateCSV(props.data))
+    const data = ensureDataHasYearDimension(props.data)
+    this.setState(generateCSV(data))
   }
 
 

@@ -7,11 +7,12 @@ import {generateCSV} from '../../../lib/csvWrangler'
 // TableChart always needs year as a dimension. Add it if missing.
 function ensureDataHasYearDimension(data) {
   const dimensions = data.dimensions
-  dimensions.forEach(dim => {
-    if (dim.name == 'aar') {
-      return data
-    }
+  const gotYear = dimensions.find(dimension => {
+    return dimension.name == 'aar'
   })
+  if (gotYear) {
+    return data
+  }
   dimensions.push({name: 'aar', variables: []})
   return Object.assign({}, data, {dimensions: dimensions})
 }

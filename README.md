@@ -8,8 +8,8 @@ Todo:
 
 # Prerequisites
 
-- Node.js (v0.10 or later)
-- npm (v2.x or later)
+- Node.js (v6.x or later)
+- npm (v3.x or later)
 
 # Getting started
 

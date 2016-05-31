@@ -13,12 +13,12 @@ export const connector = JSONConnector.defaults({
 })
 
 const vismaAPI = VismaAPIClient.create({
-  baseUrl: `http://${config.apiHost}/api/v1/`,
+  baseUrl: `//${config.apiHost}/api/v1/`,
   connector: connector
 })
 
 const epinovaAPI = EpinovaAPIClient.create({
-  baseUrl: `http://${config.contentApiHost}/api/`,
+  baseUrl: `//${config.contentApiHost}/api/`,
   connector: connector
 })
 

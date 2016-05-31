@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import preventDefault from 'prevent-default'
 
+const defaultPrevented = preventDefault(() => false)
+
 const CHART_MODES = [
   {
     name: 'chart',
@@ -26,7 +28,7 @@ export default class ChartModeSelect extends Component {
           {
             CHART_MODES.map(mode => {
               if (mode.name === selectedMode) {
-                return <a href="" key={mode.name} className="tabs-mini__link tabs-mini__link--current">{mode.title}</a>
+                return <a href="" key={mode.name} onClick={defaultPrevented} className="tabs-mini__link tabs-mini__link--current">{mode.title}</a>
               }
               return (
                 <a href=""

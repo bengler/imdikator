@@ -165,15 +165,13 @@ export default class BarChart extends React.Component {
       this.eventDispatcher.emit('datapoint:hover-out')
       hoveropen = false
     }
+
     category.selectAll('rect.chart__bar-hover')
     .data(dataItem => dataItem.values)
     .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
     .append('rect')
+    .attr('tabindex', '0')
+    .attr('focusable', true)
     .attr('class', 'chart__bar-hover')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
@@ -182,6 +180,8 @@ export default class BarChart extends React.Component {
     .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
     .attr('pointer-events', 'all')
     .style('fill', 'none')
+    .on('focus', open)
+    .on('blur', () => close())
     .on('touchend', item => {
       if (hoveropen) {
         close()
@@ -189,7 +189,7 @@ export default class BarChart extends React.Component {
         open(item)
       }
     })
-    .on('mouseover', item => open(item))
+    .on('mouseover', open)
     .on('mouseout', () => close())
 
     /* eslint-disable prefer-reflect */

@@ -97,7 +97,7 @@ class CardList extends Component {
             <li ref={`card-${card.name}`} key={card.name} tabIndex="-1" className="t-no-focus">
               <div className="toggle-list">
                 {this.renderToggleCardLink(card)}
-                {isOpen && !card.noValucontextes && <Card region={region} card={card} cardsPageName={cardsPage.name} />}
+                {isOpen && !card.noValues && <Card region={region} card={card} cardsPageName={cardsPage.name} />}
                 {isOpen && card.noValues && (
                   <div className="toggle-list__section toggle-list__section--expanded">
                     <p>

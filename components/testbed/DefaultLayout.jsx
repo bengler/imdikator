@@ -24,6 +24,19 @@ export default class DefaultLayout extends Component {
         {extraHead}
       </head>
       <body>
+
+      <!-- Google Analytics will filter out all visits from hosts other than www.imdi.no. Use on localhost will not affect the numbers. -->
+      <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXBVWX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+      <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NXBVWX');
+      </script>
+
         <svg height="0" width="0" className="t-only-screenreaders">
           <defs>
             <clipPath id="clip-diamond" clipPathUnits="objectBoundingBox">

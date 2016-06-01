@@ -9,6 +9,17 @@ export default class DefaultLayout extends Component {
     extraHead: PropTypes.node
   };
 
+  getGaCode() {
+    return {
+      __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NXBVWX');`
+    }
+  }
+
   render() {
     const {children, extraHead} = this.props
     /* eslint-disable react/jsx-indent */
@@ -25,17 +36,16 @@ export default class DefaultLayout extends Component {
       </head>
       <body>
 
-      <!-- Google Analytics will filter out all visits from hosts other than www.imdi.no. Use on localhost will not affect the numbers. -->
+      {/* Google Analytics will filter out all visits from hosts other than www.imdi.no. Use on localhost will not affect the numbers. */}
       <noscript>
-        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NXBVWX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        <iframe
+          src="//www.googletagmanager.com/ns.html?id=GTM-NXBVWX"
+          height="0"
+          width="0"
+          style={{display: 'none', visibility: 'hidden'}}
+        />
       </noscript>
-      <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window, document, 'script', 'dataLayer', 'GTM-NXBVWX');
-      </script>
+      <script dangerouslySetInnerHTML={this.getGaCode()} />
 
         <svg height="0" width="0" className="t-only-screenreaders">
           <defs>

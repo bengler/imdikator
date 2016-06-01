@@ -106,21 +106,20 @@ export default class StackedBarChart extends Component {
     category.selectAll('rect')
     .data(cat => cat.values)
     .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
     .append('rect')
     .attr('width', item => xScales[item.category].rangeBand())
     .attr('x', item => xScales[item.category]('stack'))
     .attr('y', dataItem => y(dataItem.y1))
     .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
+    .attr('tabindex', '0')
+    .attr('focusable', true)
     .style('fill', dataItem => colors(dataItem.title))
     .each(function (item) {
       item.el = this
     })
     .attr('pointer-events', 'all')
+    .on('focus', open)
+    .on('blur', () => close())
     .on('touchend', item => {
       if (hoveropen) {
         close()
@@ -128,7 +127,7 @@ export default class StackedBarChart extends Component {
         open(item)
       }
     })
-    .on('mouseover', item => open(item))
+    .on('mouseover', open)
     .on('mouseout', () => close())
 
     // Add X axis

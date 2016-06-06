@@ -7,9 +7,9 @@ export default class DefaultLayout extends Component {
   static propTypes = {
     children: PropTypes.node,
     extraHead: PropTypes.node
-  };
+  }
 
-  getGaCode() {
+  getGoogleTagManagerCode() {
     return {
       __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -23,6 +23,7 @@ export default class DefaultLayout extends Component {
   render() {
     const {children, extraHead} = this.props
     /* eslint-disable react/jsx-indent */
+
     return (
       <html>
       <head>
@@ -36,16 +37,16 @@ export default class DefaultLayout extends Component {
       </head>
       <body>
 
-      {/* Google Analytics will filter out all visits from hosts other than www.imdi.no. Use on localhost will not affect the numbers. */}
-      <noscript>
-        <iframe
-          src="//www.googletagmanager.com/ns.html?id=GTM-NXBVWX"
-          height="0"
-          width="0"
-          style={{display: 'none', visibility: 'hidden'}}
-        />
-      </noscript>
-      <script dangerouslySetInnerHTML={this.getGaCode()} />
+        {/* Google Analytics will filter out all visits from hosts other than www.imdi.no. Use on localhost will not affect the numbers. */}
+        <noscript>
+          <iframe
+            src="//www.googletagmanager.com/ns.html?id=GTM-NXBVWX"
+            height="0"
+            width="0"
+            style={{display: 'none', visibility: 'hidden'}}
+          />
+        </noscript>
+        <script dangerouslySetInnerHTML={this.getGoogleTagManagerCode()} />
 
         <svg height="0" width="0" className="t-only-screenreaders">
           <defs>

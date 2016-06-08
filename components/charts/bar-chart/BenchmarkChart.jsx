@@ -153,6 +153,11 @@ export default class BenchmarkChart extends React.Component {
     svg.selectAll('rect.chart__bar-hover')
     .data(data.preparedData)
     .enter()
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
     .attr('x', dataItem => x(dataItem.title))
@@ -160,11 +165,7 @@ export default class BenchmarkChart extends React.Component {
     .attr('width', dataItem => x.rangeBand())
     .attr('height', dataItem => this.size.height)
     .attr('pointer-events', 'all')
-    .attr('tabindex', '0')
-    .attr('focusable', true)
     .style('fill', 'none')
-    .on('focus', open)
-    .on('blur', () => close())
     .on('touchend', item => {
       if (hoveropen) {
         close()
@@ -172,7 +173,7 @@ export default class BenchmarkChart extends React.Component {
         open(item)
       }
     })
-    .on('mouseover', open)
+    .on('mouseover', item => open(item))
     .on('mouseout', () => close())
   }
 

@@ -123,10 +123,13 @@ export default class BubbleChart extends React.Component {
     }
 
     node
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('circle')
     .attr('r', item => item.r)
-    .attr('tabindex', '0')
-    .attr('focusable', true)
     .style('fill', item => item.fill)
     /* Fjernet til vi får fikset kontrastproblemene ved bruk av lys farge
     .style('fill-opacity', item => {
@@ -140,8 +143,6 @@ export default class BubbleChart extends React.Component {
     .each(function (dataItem) {
       dataItem.el = this
     })
-    .on('focus', open)
-    .on('blur', close)
     .on('touchend', item => {
       if (hoveropen) {
         close(item)

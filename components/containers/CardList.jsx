@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Card from '../containers/Card'
 import smoothscroll from 'smoothscroll'
 import {connect} from 'react-redux'
-import {openCard, closeCard} from '../../actions/cards'
+import {closeCard} from '../../actions/cards'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 function last(arr) {

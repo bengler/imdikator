@@ -82,9 +82,8 @@ export default class RegionPicker extends Component {
       />
     )
     const description = group.description && (<p className="t-margin-top text--small">{group.description}</p>)
-
     return (
-      <fieldset>
+      <fieldset key={group.name}>
         <legend>{group.title}</legend>
         {buttons}
         {description}

@@ -10,7 +10,7 @@ describe('RegionSelect', () => {
 
   const renderer = TestUtils.createRenderer()
 
-  it('renders without any props', () => {
+  xit('renders without any props', () => {
     const element = (
       <RegionFilterSelect />
     )
@@ -20,7 +20,7 @@ describe('RegionSelect', () => {
     assert(renderTree)
   })
 
-  it('opens region picker in a lightbox when clicked', () => {
+  xit('opens region picker in a lightbox when clicked', () => {
     const element = (
       <RegionFilterSelect renderChoice={item => item.name} />
     )

@@ -33,8 +33,7 @@ class SimilarRegionsPage extends Component {
         return [
           (<h1 key="heading">{several} som ligner på {currentRegion.name}</h1>),
           (<div key="ingress" className="ingress">
-            De {_t('those-${currentRegion.type}')} som ligner mest på {currentRegion.name} når det kommer til
-            befolkningsstørrelse, innvandrerandel og flyktningsandel.
+            Det er ikke alltid mest hensiktsmessig å sammenlikne seg med naboene. Dette er de kommunene som ligner mest på {currentRegion.name} når det kommer til befolkningsstørrelse, innvandrerandel og flyktningsandel. De er valgt ut for å ha liknende rammebetingelser uavhengig av hvor de ligger i landet. Utvalget er ment å være veiledende.
           </div>)
         ]
 
@@ -42,7 +41,12 @@ class SimilarRegionsPage extends Component {
         return <h1>Fylker å sammenligne {currentRegion.name} med</h1>
 
       case 'commerceRegion':
-        return <h1>{several} i samme fylke som {currentRegion.name}</h1>
+        return [
+            (<h1>{several} i samme fylke som {currentRegion.name}</h1>),
+            (<div key="ingress" className="ingress">
+              Kommuner i en næringsregion har en interkommunal avtale om å samarbeide.
+            </div>)
+          ]
 
       default:
         throw new Error(`Invalid region type ${currentRegion.type}`)

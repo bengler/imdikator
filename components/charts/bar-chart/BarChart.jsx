@@ -174,6 +174,8 @@ export default class BarChart extends React.Component {
 //     .on('click', () => d3.event.stopPropagation())
 //     .on('focus', item => open(item))
     .append('rect')
+    .attr('tabindex', '0')
+    .attr('focusable', true)
     .attr('class', 'chart__bar-hover')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
@@ -181,8 +183,6 @@ export default class BarChart extends React.Component {
     .attr('y', 0)
     .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
     .attr('pointer-events', 'all')
-    .attr('tabindex', '0')
-    .attr('focusable', true)
     .style('fill', 'none')
     .on('touchend', item => {
       if (hoveropen) {

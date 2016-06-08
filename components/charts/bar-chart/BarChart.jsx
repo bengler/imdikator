@@ -170,6 +170,8 @@ export default class BarChart extends React.Component {
     .data(dataItem => dataItem.values)
     .enter()
     .append('rect')
+    .attr('tabindex', '0')
+    .attr('focusable', true)
     .attr('class', 'chart__bar-hover')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))

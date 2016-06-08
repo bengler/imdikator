@@ -68,7 +68,7 @@ class CardList extends Component {
       if (isOpen) {
         dispatch(closeCard(card.name))
       } else {
-        this.props.dispatch(openCard(card.name))
+        // This is taken care of by the router which will dispatch an open card action
       }
     }
     return (

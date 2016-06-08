@@ -92,7 +92,7 @@ class RegionFilterSelect extends Component {
     const handleCancelRegionFilter = () => this.closeRegionPickerLightBox()
 
     return (
-      <Lightbox title="Legg til sammenlikning" onClose={handleCancelRegionFilter} onClickOutside={handleCancelRegionFilter}>
+      <Lightbox title="Sammenliknet med" onClose={handleCancelRegionFilter} onClickOutside={handleCancelRegionFilter}>
         <RegionPicker
           onCancel={handleCancelRegionFilter}
           onApply={handleApplyRegionFilter}

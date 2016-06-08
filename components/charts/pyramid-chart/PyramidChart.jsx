@@ -186,6 +186,11 @@ export default class PyramidChart extends React.Component {
       return item.values[0].values
     })
     .enter()
+//     .append('svg:a')
+//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+//     .on('click', () => d3.event.stopPropagation())
+//     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
     .attr('width', xScale(xScale.domain()[1]))
@@ -193,11 +198,7 @@ export default class PyramidChart extends React.Component {
     .attr('x', 0)
     .attr('y', dataItem => yScale(dataItem.title))
     .attr('pointer-events', 'all')
-    .attr('tabindex', '0')
-    .attr('focusable', true)
     .style('fill', 'none')
-    .on('focus', open)
-    .on('blur', () => close())
     .on('touchend', item => {
       if (hoveropen) {
         close()
@@ -205,7 +206,7 @@ export default class PyramidChart extends React.Component {
         open(item)
       }
     })
-    .on('mouseover', open)
+    .on('mouseover', item => open(item))
     .on('mouseout', () => close())
 
     // Right side

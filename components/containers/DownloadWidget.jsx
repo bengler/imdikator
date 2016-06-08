@@ -7,6 +7,7 @@ import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import {generateCSV} from '../../lib/csvWrangler'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import apiClient from '../../config/apiClient'
+import {trackDownloadCompareAll, trackDownloadCompareSimilar} from '../../actions/tracking'
 
 import {saveAs} from 'browser-filesaver'
 
@@ -70,8 +71,9 @@ class DownloadWidget extends Component {
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
 
     const handApplyChoice = newValue => {
-      const csvQuery = this.buildCsvQuery(choices[newValue])
+      this.props.dispatch(newValue == 0 ? trackDownloadCompareSimilar() : trackDownloadCompareAll())
 
+      const csvQuery = this.buildCsvQuery(choices[newValue])
       apiClient.query(csvQuery).then(queryResult => {
         let data = queryResultPresenter(this.props.query, queryResult, {
           chartKind: 'table'

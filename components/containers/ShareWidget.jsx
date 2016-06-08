@@ -1,10 +1,12 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import PopupShareBox from './PopupShareBox'
+import {trackChartLinkOpen} from '../../actions/tracking'
 
 
 class ShareWidget extends Component {
   static propTypes = {
+    dispatch: PropTypes.func,
     chartUrl: PropTypes.string
   };
 
@@ -15,6 +17,9 @@ class ShareWidget extends Component {
 
   handleOpenDialog(event) {
     event.preventDefault()
+    if (!this.state.isDialogOpen) {
+      this.props.dispatch(trackChartLinkOpen())
+    }
     this.setState({isDialogOpen: !this.state.isDialogOpen})
   }
 

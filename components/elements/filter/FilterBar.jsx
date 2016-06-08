@@ -17,7 +17,6 @@ export default class FilterBar extends Component {
   handleFilterChange(filter, newValue) {
     const {onChange} = this.props
     onChange(filter.name, newValue)
-
   }
 
   render() {

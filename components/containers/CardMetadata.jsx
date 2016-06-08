@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {fetchVariableDefinitions} from '../../actions/variableDefinitions'
 import cx from 'classnames'
 import {connect} from 'react-redux'
+import {trackHelpOpen} from '../../actions/tracking'
 
 class CardMetadata extends Component {
   static propTypes = {
@@ -38,6 +39,9 @@ class CardMetadata extends Component {
 
   handleClick(e) {
     e.preventDefault()
+    if (!this.state.expanded) {
+      this.props.dispatch(trackHelpOpen())
+    }
     this.setState({expanded: !this.state.expanded})
     return false
   }

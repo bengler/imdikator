@@ -1,11 +1,14 @@
 import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
 import RegionPicker from './RegionPicker'
 import Lightbox from '../Lightbox'
 import cx from 'classnames'
+import {trackRegionCompareOpen} from '../../../actions/tracking'
 import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 
-export default class RegionFilterSelect extends Component {
+class RegionFilterSelect extends Component {
   static propTypes = {
+    dispatch: PropTypes.func,
     value: PropTypes.arrayOf(ImdiPropTypes.region),
     groups: PropTypes.arrayOf(ImdiPropTypes.regionPickerGroup),
     choices: PropTypes.arrayOf(ImdiPropTypes.region),
@@ -72,6 +75,9 @@ export default class RegionFilterSelect extends Component {
   }
 
   toggleRegionPickerLightBox() {
+    if (!this.state.isRegionPickerOpen) {
+      this.props.dispatch(trackRegionCompareOpen())
+    }
     this.setRegionPickerOpen(!this.state.isRegionPickerOpen)
   }
 
@@ -123,3 +129,9 @@ export default class RegionFilterSelect extends Component {
     )
   }
 }
+
+function mapStateToProps() {
+  return {}
+}
+
+export default connect(mapStateToProps)(RegionFilterSelect)

@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
 import cx from 'classnames'
+import {trackYearOpen} from '../../../actions/tracking'
 
 // Compares contents of two arrays and returns true if values + indexes match
 function valuesEqual(value) {
@@ -14,8 +16,9 @@ function valuesEqual(value) {
   }
 }
 
-export default class FilterSelect extends Component {
+class FilterSelect extends Component {
   static propTypes = {
+    dispatch: PropTypes.func,
     label: PropTypes.string,
     choices: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.array, PropTypes.string])),
     value: PropTypes.any,
@@ -25,6 +28,7 @@ export default class FilterSelect extends Component {
     renderChoice: PropTypes.func.isRequired,
     onChange: PropTypes.func
   };
+
   static defaultProps = {
     choices: [],
     onChange() {},
@@ -46,6 +50,12 @@ export default class FilterSelect extends Component {
     const {choices} = this.props
     const value = choices[event.target.value]
     this.props.onChange(value)
+  }
+
+  handleClick() {
+    if (this.props.label == 'År') {
+      this.props.dispatch(trackYearOpen())
+    }
   }
 
   render() {
@@ -88,6 +98,7 @@ export default class FilterSelect extends Component {
               value={selectedIndex}
               disabled={disabled}
               onChange={this.handleChange.bind(this)}
+              onClick={this.handleClick.bind(this)}
             >
               {choices.map((choice, i) => (
                 <option key={i} value={i}>
@@ -103,3 +114,9 @@ export default class FilterSelect extends Component {
     return constrained ? wrapInConstrained(filter) : filter
   }
 }
+
+function mapStateToProps() {
+  return {}
+}
+
+export default connect(mapStateToProps)(FilterSelect)

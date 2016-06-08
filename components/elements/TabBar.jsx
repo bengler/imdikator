@@ -14,12 +14,12 @@ export default class TabBar extends Component {
     activeTab: PropTypes.object,
     tabs: PropTypes.array.isRequired,
     disabledTabs: PropTypes.arrayOf(PropTypes.string),
-    makeLinkToTab: PropTypes.func.isRequired
+    makeLinkToTab: PropTypes.func.isRequired,
+    handleTabLinkClick: PropTypes.func
   };
 
   render() {
-    const {tabs, activeTab, makeLinkToTab, disabledTabs} = this.props
-
+    const {tabs, activeTab, makeLinkToTab, handleTabLinkClick, disabledTabs} = this.props
     const links = tabs.map(tab => {
 
       const disabled = disabledTabs.includes(tab.name)
@@ -37,6 +37,10 @@ export default class TabBar extends Component {
         [ICON_CLASS_NAMES[tab.name]]: true
       })
 
+      const handleLinkClick = () => {
+        return handleTabLinkClick(tab)
+      }
+
       if (disabledTabs.includes(tab.name)) {
         return (
           <li key={tab.name} className="tabs-menu__list-item" role="tab">
@@ -50,7 +54,7 @@ export default class TabBar extends Component {
 
       return (
         <li title={tab.title} key={tab.name} className="tabs-menu__list-item" role="tab" aria-selected={tabState}>
-          <a href={makeLinkToTab(tab)} className={linkClassName} data-keep-scroll-position>
+          <a href={makeLinkToTab(tab)} className={linkClassName} onClick={handleLinkClick} data-keep-scroll-position>
             <i className={iconClassName} />
             {tab.title}
           </a>

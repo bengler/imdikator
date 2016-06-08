@@ -166,11 +166,6 @@ export default class LineChart extends React.Component {
     sc.selectAll('circle')
     .data(dataItem => dataItem.values.filter(item => !item.anonymized))
     .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => 'År: ' + item.title + ', Verdi: ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
     .append('circle')
     .attr('cx', dataItem => x(dataItem.date))
     .attr('cy', dataItem => dataItem.y)
@@ -232,10 +227,14 @@ export default class LineChart extends React.Component {
     .enter()
     .append('path')
     .attr('d', item => `M${item.join('L')}Z`)
+    .attr('tabindex', '0')
+    .attr('focusable', true)
     .datum(dataItem => dataItem.point)
     .style('fill', 'none')
     .style('stroke', 'none')
     .style('pointer-events', 'all')
+    .on('focus', open)
+    .on('blur', () => close())
     .on('touchend', item => {
       if (hoveropen) {
         close()
@@ -243,7 +242,7 @@ export default class LineChart extends React.Component {
         open(item)
       }
     })
-    .on('mouseover', item => open(item))
+    .on('mouseover', open)
     .on('mouseout', () => close())
 
     /* eslint-disable prefer-reflect */

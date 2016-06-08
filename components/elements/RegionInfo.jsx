@@ -19,7 +19,15 @@ export default class RegionInfo extends Component {
     return (
       <div>
         <p>
-          <span>Dette er tall og statistikk fra <a href={createLinkToRegion(region)}>{region.name}</a>. </span>
+          <span>Dette er tall og statistikk fra <a href={createLinkToRegion(region)}>{region.name}
+            {region.name == 'Norge' ? '' : ` ${_t(region.type)}`}</a>. </span>
+
+          {region.type == 'commerceRegion' && (
+            <span>
+            Kommuner i en næringsregion har en interkommunal avtale om å samarbeide.
+            </span>
+          )}
+
           {region.type == 'borough' && (
             <span>
               {capitalize(_t(`the-${region.type}`))} {' ligger i '}

@@ -129,7 +129,8 @@ export default class RegionPicker extends Component {
               />
               <p className="t-margin-top text--small">Du kan sammenlikne på tvers av
                 kommuner, fylker, næringsregioner og bydeler. Velg prosent som enhet for å
-                enklere kunne sammenlikne steder med store forskjeller i befolkningstall.</p>
+                enklere kunne sammenlikne steder med store forskjeller i befolkningstall.
+              </p>
             </div>
           </div>
         </div>

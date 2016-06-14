@@ -2,6 +2,7 @@ import {
   TRACK_EVENT_CHRONOLOGICAL_TAB_OPEN,
   TRACK_EVENT_BENCHMARK_TAB_OPEN,
   TRACK_EVENT_REGION_COMPARE_OPEN,
+  TRACK_EVENT_REGION_COMPARE_COUNT,
   TRACK_EVENT_YEAR_CHANGED,
   TRACK_EVENT_BACKGROUND_CHANGED,
   TRACK_EVENT_GENDER_CHANGED,
@@ -17,6 +18,15 @@ import {
 export function trackRegionCompareOpen() {
   return dispatch => {
     dispatch({type: TRACK_EVENT_REGION_COMPARE_OPEN})
+  }
+}
+
+export function trackRegionCompareCount(regionCount) {
+  return dispatch => {
+    dispatch({
+      type: TRACK_EVENT_REGION_COMPARE_COUNT,
+      count: regionCount
+    })
   }
 }
 

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import RegionPicker from './RegionPicker'
 import Lightbox from '../Lightbox'
 import cx from 'classnames'
-import {trackRegionCompareOpen} from '../../../actions/tracking'
+import {trackRegionCompareOpen, trackRegionCompareCount} from '../../../actions/tracking'
 import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 
 class RegionFilterSelect extends Component {
@@ -87,6 +87,10 @@ class RegionFilterSelect extends Component {
     const handleApplyRegionFilter = newValue => {
       onChange(newValue)
       this.closeRegionPickerLightBox()
+      const countOfRegions = newValue.length
+      if (countOfRegions > 0) {
+        this.props.dispatch(trackRegionCompareCount(countOfRegions))
+      }
     }
 
     const handleCancelRegionFilter = () => this.closeRegionPickerLightBox()

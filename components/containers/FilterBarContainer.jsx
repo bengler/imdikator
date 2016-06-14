@@ -38,6 +38,10 @@ class FilterBarContainer extends Component {
     }
   };
 
+  static contextTypes = {
+    linkTo: PropTypes.func
+  };
+
   handleFilterChange(dimension, newValue) {
     if (dimension === 'comparisonRegions') {
       newValue = newValue.map(val => val.prefixedCode)
@@ -126,6 +130,56 @@ class FilterBarContainer extends Component {
     return regions
   }
 
+  createLinkToSimilarRegion(region) {
+    return this.context.linkTo('/tall-og-statistikk/steder/:region/lignende', {region: region.prefixedCode})
+  }
+
+  createRegionFilterTitle() {
+    const {region} = this.props
+    switch (region.type) {
+      case 'borough':
+        return 'Andre bydeler i samme by'
+
+      case 'municipality':
+        return 'Lignende kommuner'
+
+      case 'county':
+        return 'Andre fylker i Norge'
+
+      case 'commerceRegion':
+        return 'Andre næringsregioner i samme fylke'
+
+      default:
+        throw new Error(`Invalid region type ${region.type}`)
+    }
+  }
+
+  createRegionFilterDescription() {
+    const {region} = this.props
+    const linkToSimilarRegion = this.createLinkToSimilarRegion(region)
+    switch (region.type) {
+      case 'borough':
+        return <span></span>
+
+      case 'municipality':
+        return (
+          <span>Dette er de kommunene som <a href={linkToSimilarRegion}>ligner mest på {region.name}</a> når
+            det gjelder befolkningsstørrelse, innvandrerandel og flyktningsandel. De er valgt ut for å ha
+          liknende rammebetingelser uavhengig av hvor de ligger i landet.</span>
+          )
+
+      case 'county':
+        return <span></span>
+
+      case 'commerceRegion':
+        return <span></span>
+
+      default:
+        throw new Error(`Invalid region type ${region.type}`)
+    }
+
+  }
+
   createRegionFilterFromSpec(spec) {
 
     const {region, tab} = this.props
@@ -143,8 +197,8 @@ class FilterBarContainer extends Component {
     const groups = [
       {
         name: 'similar',
-        title: 'Anbefalte regioner',
-        description: <span></span>,
+        title: this.createRegionFilterTitle(),
+        description: this.createRegionFilterDescription(),
         items: similarRegions
       },
       // todo: {name: 'recommended' ...}

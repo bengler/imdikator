@@ -2,10 +2,11 @@ import {
   TRACK_EVENT_CHRONOLOGICAL_TAB_OPEN,
   TRACK_EVENT_BENCHMARK_TAB_OPEN,
   TRACK_EVENT_REGION_COMPARE_OPEN,
-  TRACK_EVENT_YEAR_OPEN,
-  TRACK_EVENT_BACKGROUND_OPEN,
-  TRACK_EVENT_GENDER_OPEN,
-  TRACK_EVENT_UNIT_OPEN,
+  TRACK_EVENT_YEAR_CHANGED,
+  TRACK_EVENT_BACKGROUND_CHANGED,
+  TRACK_EVENT_GENDER_CHANGED,
+  TRACK_EVENT_UNIT_CHANGED,
+  TRACK_EVENT_OTHER_FILTERS_CHANGED,
   TRACK_EVENT_HELP_OPEN,
   TRACK_EVENT_CHART_LINK_OPEN,
   TRACK_EVENT_DOWNLOAD_COMPARE_SIMILAR,
@@ -31,27 +32,33 @@ export function trackBenchmarkTabOpen() {
   }
 }
 
-export function trackYearOpen() {
+export function trackYearChanged() {
   return dispatch => {
-    dispatch({type: TRACK_EVENT_YEAR_OPEN})
+    dispatch({type: TRACK_EVENT_YEAR_CHANGED})
   }
 }
 
-export function trackBackgroundOpen() {
+export function trackBackgroundChanged() {
   return dispatch => {
-    dispatch({type: TRACK_EVENT_BACKGROUND_OPEN})
+    dispatch({type: TRACK_EVENT_BACKGROUND_CHANGED})
   }
 }
 
-export function trackGenderOpen() {
+export function trackGenderChanged() {
   return dispatch => {
-    dispatch({type: TRACK_EVENT_GENDER_OPEN})
+    dispatch({type: TRACK_EVENT_GENDER_CHANGED})
   }
 }
 
-export function trackUnitOpen() {
+export function trackUnitChanged() {
   return dispatch => {
-    dispatch({type: TRACK_EVENT_UNIT_OPEN})
+    dispatch({type: TRACK_EVENT_UNIT_CHANGED})
+  }
+}
+
+export function trackOtherFiltersChanged() {
+  return dispatch => {
+    dispatch({type: TRACK_EVENT_OTHER_FILTERS_CHANGED})
   }
 }
 

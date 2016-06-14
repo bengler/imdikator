@@ -1,5 +1,6 @@
 import {
   TRACK_EVENT_CHRONOLOGICAL_TAB_OPEN,
+  TRACK_EVENT_BENCHMARK_TAB_OPEN,
   TRACK_EVENT_REGION_COMPARE_OPEN,
   TRACK_EVENT_YEAR_OPEN,
   TRACK_EVENT_HELP_OPEN,
@@ -18,6 +19,12 @@ export function trackRegionCompareOpen() {
 export function trackCronologicalTabOpen() {
   return dispatch => {
     dispatch({type: TRACK_EVENT_CHRONOLOGICAL_TAB_OPEN})
+  }
+}
+
+export function trackBenchmarkTabOpen() {
+  return dispatch => {
+    dispatch({type: TRACK_EVENT_BENCHMARK_TAB_OPEN})
   }
 }
 

@@ -12,7 +12,7 @@ import DownloadWidget from './DownloadWidget'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
-import {trackCronologicalTabOpen} from '../../actions/tracking'
+import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class Card extends Component {
@@ -55,8 +55,15 @@ class Card extends Component {
   }
 
   onTabLinkClick(tab) {
-    if (tab.name == 'chronological') {
-      this.props.dispatch(trackCronologicalTabOpen())
+    switch (tab.name) {
+      case 'chronological':
+        this.props.dispatch(trackCronologicalTabOpen())
+        break
+      case 'benchmark':
+        this.props.dispatch(trackBenchmarkTabOpen())
+        break
+      default:
+        break
     }
   }
 

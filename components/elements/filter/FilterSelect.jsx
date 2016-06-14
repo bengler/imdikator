@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import cx from 'classnames'
-import {trackYearOpen, trackBackgroundOpen, trackGenderOpen, trackUnitOpen} from '../../../actions/tracking'
+import {trackYearChanged, trackBackgroundChanged, trackGenderChanged, trackUnitChanged, trackOtherFiltersChanged} from '../../../actions/tracking'
 
 // Compares contents of two arrays and returns true if values + indexes match
 function valuesEqual(value) {
@@ -50,23 +50,22 @@ class FilterSelect extends Component {
     const {choices} = this.props
     const value = choices[event.target.value]
     this.props.onChange(value)
-  }
 
-  handleClick() {
     switch (this.props.label) {
       case 'År':
-        this.props.dispatch(trackYearOpen())
+        this.props.dispatch(trackYearChanged())
         break
       case 'Bakgrunn':
-        this.props.dispatch(trackBackgroundOpen())
+        this.props.dispatch(trackBackgroundChanged())
         break
       case 'Kjønn':
-        this.props.dispatch(trackGenderOpen())
+        this.props.dispatch(trackGenderChanged())
         break
       case 'Enhet':
-        this.props.dispatch(trackUnitOpen())
+        this.props.dispatch(trackUnitChanged())
         break
       default:
+        this.props.dispatch(trackOtherFiltersChanged())
         break
     }
   }
@@ -111,7 +110,6 @@ class FilterSelect extends Component {
               value={selectedIndex}
               disabled={disabled}
               onChange={this.handleChange.bind(this)}
-              onClick={this.handleClick.bind(this)}
             >
               {choices.map((choice, i) => (
                 <option key={i} value={i}>

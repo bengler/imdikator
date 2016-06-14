@@ -2,11 +2,12 @@ import React, {Component, PropTypes} from 'react'
 import ToggleButtonList from '../ToggleButtonList'
 import RegionSearch from '../RegionSearch'
 import {difference, union} from 'lodash'
-
+import {trackRegionCompareAdd} from '../../../actions/tracking'
 import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 
 export default class RegionPicker extends Component {
   static propTypes = {
+    dispatch: PropTypes.func,
     groups: PropTypes.arrayOf(ImdiPropTypes.regionPickerGroup),
     value: PropTypes.arrayOf(ImdiPropTypes.region),
     choices: PropTypes.arrayOf(ImdiPropTypes.region),
@@ -58,6 +59,7 @@ export default class RegionPicker extends Component {
       return
     }
     this.setState({value: value.concat(region)})
+    this.props.dispatch(trackRegionCompareAdd(region))
   }
 
   renderButton(value) {

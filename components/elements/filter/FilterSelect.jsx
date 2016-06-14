@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import cx from 'classnames'
-import {trackYearOpen} from '../../../actions/tracking'
+import {trackYearOpen, trackBackgroundOpen, trackGenderOpen, trackUnitOpen} from '../../../actions/tracking'
 
 // Compares contents of two arrays and returns true if values + indexes match
 function valuesEqual(value) {
@@ -53,8 +53,21 @@ class FilterSelect extends Component {
   }
 
   handleClick() {
-    if (this.props.label == 'År') {
-      this.props.dispatch(trackYearOpen())
+    switch (this.props.label) {
+      case 'År':
+        this.props.dispatch(trackYearOpen())
+        break
+      case 'Bakgrunn':
+        this.props.dispatch(trackBackgroundOpen())
+        break
+      case 'Kjønn':
+        this.props.dispatch(trackGenderOpen())
+        break
+      case 'Enhet':
+        this.props.dispatch(trackUnitOpen())
+        break
+      default:
+        break
     }
   }
 

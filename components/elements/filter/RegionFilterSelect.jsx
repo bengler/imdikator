@@ -82,7 +82,7 @@ class RegionFilterSelect extends Component {
   }
 
   renderRegionPickerLightbox() {
-    const {value, choices, groups, renderChoice, onChange} = this.props
+    const {value, choices, groups, renderChoice, onChange, dispatch} = this.props
 
     const handleApplyRegionFilter = newValue => {
       onChange(newValue)
@@ -98,6 +98,7 @@ class RegionFilterSelect extends Component {
     return (
       <Lightbox title="Sammenliknet med" onClose={handleCancelRegionFilter} onClickOutside={handleCancelRegionFilter}>
         <RegionPicker
+          dispatch={dispatch}
           onCancel={handleCancelRegionFilter}
           onApply={handleApplyRegionFilter}
           groups={groups}

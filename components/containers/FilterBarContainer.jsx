@@ -144,6 +144,9 @@ class FilterBarContainer extends Component {
         return 'Lignende kommuner'
 
       case 'county':
+        if (region.prefixedCode == 'F00') {
+          return 'Fylkene i Norge'
+        }
         return 'Andre fylker i Norge'
 
       case 'commerceRegion':

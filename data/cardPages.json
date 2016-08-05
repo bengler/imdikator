@@ -965,7 +965,10 @@
 				"prosent"
 			],
 			"dimensions": [{
-				"name": "avslutta"
+				"name": "kohort",
+				"variables": [
+				    "all"
+				  ]
 			}, {
 				"name": "avslstat4",
 				"variables": [

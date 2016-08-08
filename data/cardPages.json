@@ -965,7 +965,7 @@
 				"prosent"
 			],
 			"dimensions": [{
-				"name": "avslutta",
+				"name": "kohort",
 				"variables": [
 				    "all"
 				  ]

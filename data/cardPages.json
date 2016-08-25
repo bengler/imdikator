@@ -444,6 +444,31 @@
 		},
 		"tabs": []
 	}, {
+		"name": "bosatt_enslige_mindrearige",
+		"title": "Bosetting av enslige mindreårige flyktninger",
+		"config": {
+			"dimensions": {
+				"bosetting": {
+					"include": [
+						"anmodning",
+						"vedtak",
+						"bosatt"
+					]
+				}
+			}
+		},
+		"query": {
+			"tableName": "enslige_mindrearige",
+			"unit": [
+				"personer"
+			],
+			"dimensions": [{
+				"name": "bosetting",
+				"variables": "all"
+			}]
+		},
+		"tabs": []
+	}, {
 		"name": "flyktninger_befolkningsandel",
 		"title": "Bosatte flyktninger som andel av befolkningen",
 		"config": {},

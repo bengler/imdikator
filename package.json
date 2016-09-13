@@ -102,6 +102,7 @@
     "eslint-config-bengler": "^1.0.7",
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-react": "^5.1.1",
+    "imdi-styles": "github:netliferesearch/imdi-styles",
     "mocha": "^2.2.5",
     "quickreload": "^2.0.0",
     "react-addons-test-utils": "^15.1.0",

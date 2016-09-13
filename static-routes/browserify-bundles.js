@@ -73,7 +73,6 @@ export default ([
     //config.env === 'development' && '../lib/react-a11y',
     '../bundles/site/entry.jsx'
   ])),
-  config.env !== 'production' && define('/build/js/test.js', createBundle('../docsite/bundle.jsx', bundle => bundle.transform('redocify'))),
   config.env !== 'production' && define('/build/js/embeds-debug.js', createBundle('../bundles/debug/embeds.jsx')),
   config.env !== 'production' && define('/build/js/render-debug.js', createBundle('../bundles/debug/render.jsx'))
 ])

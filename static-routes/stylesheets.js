@@ -16,7 +16,6 @@ const imdiStylesImports = readdir(path.join(imdiStylesRoot, stylesRelPath))
 
 export default {
   '/build/stylesheets/main.css'() {
-
     return Promise.resolve(
       imdiStylesImports
         .concat('@import "./stylesheets/bundles/main.less";')
@@ -25,22 +24,6 @@ export default {
       .then(buffer => {
         return less.render(buffer, {
           outFile: '/stylesheets/main.css',
-          paths: [path.join(__dirname, '../node_modules')],
-          sourceMap: development ? {sourceMapFileInline: true} : false,
-          compress: !development
-        })
-      })
-      .then(output => output.css)
-  },
-  '/build/stylesheets/docsite.css'() {
-    return Promise.resolve(
-      imdiStylesImports
-        .concat('@import "./stylesheets/bundles/docsite.less";')
-        .join('\n')
-      )
-      .then(buffer => {
-        return less.render(buffer, {
-          outFile: '/stylesheets/docsite.css',
           paths: [path.join(__dirname, '../node_modules')],
           sourceMap: development ? {sourceMapFileInline: true} : false,
           compress: !development

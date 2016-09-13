@@ -9,7 +9,6 @@ import config from './config'
 import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
-import docsite from './docsite/handler'
 import serve from 'staticr/serve'
 
 const app = express()
@@ -29,10 +28,6 @@ if (config.env === 'development') {
 
 if (config.env === 'development') {
   app.use(express.static(path.join(__dirname, 'public')))
-}
-
-if (config.env === 'development') {
-  app.get('/docs*', docsite)
 }
 
 app.get('/debug/embeds', (req, res) => {

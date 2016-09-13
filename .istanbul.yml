@@ -3,7 +3,6 @@ instrumentation:
     excludes:
       - '**/public/**'
       - '**/static-routes/**'
-      - '**/docsite/**'
       - '**/coverage/**'
     extensions:
       - .js

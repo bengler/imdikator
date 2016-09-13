@@ -5,7 +5,6 @@ import StackedBarChart from '../charts/bar-chart/StackedBarChart'
 import StackedAreaChart from '../charts/area-chart/StackedAreaChart'
 import LineChart from '../charts/line-chart/LineChart'
 import BubbleChart from '../charts/bubble-chart/BubbleChart'
-import MapChart from '../charts/map-chart/MapChart'
 import PyramidChart from '../charts/pyramid-chart/PyramidChart'
 import TableChart from '../charts/table-chart/TableChart'
 
@@ -17,7 +16,6 @@ const CHARTS = {
   pyramid: PyramidChart,
   benchmark: BenchmarkChart,
   bubble: BubbleChart,
-  map: MapChart,
   table: TableChart,
 }
 

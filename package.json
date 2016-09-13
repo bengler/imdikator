@@ -19,10 +19,7 @@
     "lint": "eslint --quiet --ext .jsx,.js .",
     "compile-assets": "staticr --require ./.init.js --out-dir public ./static-routes",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
-    "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar",
-    "import-chart-description-labels": "DEBUG=imdikator* babel-node ./bin/importChartDescriptionLabels",
-    "import-dimensions": "DEBUG=imdikator* babel-node ./bin/importDimensions",
-    "find-unused-tables": "DEBUG=imdikator* babel-node ./bin/findUnusedTables"
+    "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar"
   },
   "dependencies": {
     "array-equal": "^1.0.0",

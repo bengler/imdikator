@@ -49,7 +49,7 @@
     "dev-error-handler": "^1.2.0",
     "dom-scroll-into-view": "^1.0.1",
     "domready": "^1.0.8",
-    "duplexify": "^3.4.2",
+    "duplexify": "^3.4.5",
     "express": "^4.13.3",
     "fs-readdir-recursive": "^1.0.0",
     "http-browserify": "git://github.com/bjoerge/http-browserify.git#fix-withcredentials-bug",

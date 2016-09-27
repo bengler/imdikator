@@ -73,6 +73,9 @@ class DownloadWidget extends Component {
     const handApplyChoice = newValue => {
       this.props.dispatch(newValue == 0 ? trackDownloadCompareSimilar() : trackDownloadCompareAll())
 
+      // Show loading overlay while downloading
+      this.setState({isLoading: true})
+
       const csvQuery = this.buildCsvQuery(choices[newValue])
       apiClient.query(csvQuery).then(queryResult => {
         let data = queryResultPresenter(this.props.query, queryResult, {
@@ -104,18 +107,23 @@ class DownloadWidget extends Component {
 
         data = Object.assign({}, data, {dimensions: dimensions})
 
-        // Bake CSV and trigger client download
+        // Bake CSV and trigger client download (and hide loading overlay)
         const csvData = generateCSV(data).csv
         downloadCSV(csvData, 'tabell.csv')
-        this.setState({isDownloadSelectOpen: false})
+        this.setState({
+          isDownloadSelectOpen: false,
+          isLoading: false
+        })
       })
     }
 
     const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
+
     return (
       <PopupChoicesBox
         onCancel={handleCancelDownloadSelect}
         onApply={handApplyChoice}
+        isLoading={this.state.isLoading}
         choices={choices}
         applyButtonText="Last ned"
         title="Last ned tallgrunnlag"

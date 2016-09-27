@@ -10,7 +10,8 @@ export default class PopupChoicesBox extends Component {
     title: PropTypes.string,
     description: PropTypes.string,
     choiceLabel: PropTypes.string,
-    applyButtonText: PropTypes.string
+    applyButtonText: PropTypes.string,
+    isLoading: PropTypes.bool
   };
 
   constructor(props) {
@@ -60,7 +61,9 @@ export default class PopupChoicesBox extends Component {
                 </select>
               </div>
             </label>
-            <button type="button" className="button" onClick={this.onApply.bind(this)}>{this.props.applyButtonText}</button>
+            <button type="button" disabled={this.props.isLoading} className="button" onClick={this.onApply.bind(this)}>
+              {this.props.isLoading ? <span><i className="loading-indicator" /> Laster…</span> : this.props.applyButtonText}
+            </button>
 
           </div>
         </dialog>

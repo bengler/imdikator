@@ -1078,48 +1078,6 @@
         "tabs": []
       },
       {
-        "name": "norskopplaering-resultater",
-        "title": "Norskopplæring - prøvedeltakelse og prøveresultater",
-        "config": {
-          "dimensions": {
-            "provetype": {
-              "include": [
-                "muntlig",
-                "skriftlig",
-                "lytting",
-                "lese"
-              ]
-            },
-            "spraaknivaa": {
-              "include": [
-                "b1",
-                "a2",
-                "a1",
-                "under_a1",
-                "ikke_vurdert"
-              ]
-            }
-          }
-        },
-        "query": {
-          "tableName": "norsk_prover",
-          "unit": [
-            "prosent"
-          ],
-          "dimensions": [
-            {
-              "name": "provetype",
-              "variables": "all"
-            },
-            {
-              "name": "spraaknivaa",
-              "variables": "all"
-            }
-          ]
-        },
-        "tabs": []
-      },
-      {
         "name": "status-etter-intro",
         "title": "Status ett til fem år etter avsluttet introduksjonsprogram",
         "config": {},

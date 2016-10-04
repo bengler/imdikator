@@ -8,6 +8,8 @@ import RegionInfoContainer from '../containers/RegionInfoContainer'
 import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 
+import {showOverlay} from '../../actions/overlay'
+
 import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
@@ -15,6 +17,7 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 class RegionPage extends Component {
 
   static propTypes = {
+    dispatch: PropTypes.func,
     currentRegion: ImdiPropTypes.region,
     comparableRegions: PropTypes.arrayOf(ImdiPropTypes.region)
   };
@@ -23,6 +26,12 @@ class RegionPage extends Component {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
   };
+
+  handleClickFactSheet() {
+    // Show full-page loading overlay
+    this.props.dispatch(showOverlay())
+    this.context.goTo('/tall-og-statistikk/steder/:region/fakta', {region: this.props.currentRegion.prefixedCode})
+  }
 
   handleSelectRegion(region) {
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
@@ -34,8 +43,6 @@ class RegionPage extends Component {
     if (!currentRegion) {
       return null
     }
-
-    const factSheetLink = this.context.linkTo('/tall-og-statistikk/steder/:region/fakta', {region: currentRegion.prefixedCode})
 
     return (
       <main className="page">
@@ -77,7 +84,7 @@ class RegionPage extends Component {
                     {currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`} er gjengitt.
                   </p>
                   <p>
-                    <a href={factSheetLink} className="button button-">
+                    <a href="#" onClick={this.handleClickFactSheet.bind(this)} className="button button-">
                       <i className="icon__download icon--white" /> Utskriftsvennlig faktaark
                     </a>
                   </p>

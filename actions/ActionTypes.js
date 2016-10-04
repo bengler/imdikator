@@ -6,6 +6,8 @@ export const CLOSE_CARD = 'CLOSE_CARD'
 export const LOAD_CARD_PAGE = 'LOAD_CARD_PAGE'
 export const NAVIGATE = 'NAVIGATE'
 
+export const SHOW_OVERLAY = 'SHOW_OVERLAY'
+
 export const SET_CURRENT_REGION = 'SET_CURRENT_REGION'
 export const REGION_NOT_FOUND = 'REGION_NOT_FOUND'
 

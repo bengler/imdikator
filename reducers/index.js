@@ -11,6 +11,7 @@ import breadCrumbs from './breadCrumbs'
 import currentTab from './currentTab'
 import regionSummaries from './regionSummaries'
 import variableDefinitions from './variableDefinitions'
+import loadingState from './loadingState'
 
 export default combineReducers({
   page: page,
@@ -26,5 +27,6 @@ export default combineReducers({
   openCards,
   cardState,
   route,
-  regionSummaries
+  regionSummaries,
+  loadingState
 })

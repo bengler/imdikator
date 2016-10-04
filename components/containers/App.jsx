@@ -2,11 +2,13 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import BreadCrumbs from './BreadCrumbs'
+import LoadingOverlay from '../elements/LoadingOverlay'
 
 class App extends Component {
   static propTypes = {
     component: PropTypes.func.isRequired,
-    router: ImdiPropTypes.router.isRequired
+    router: ImdiPropTypes.router.isRequired,
+    showLoadingOverlay: PropTypes.bool
   };
 
   static childContextTypes = {
@@ -33,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        {this.props.showLoadingOverlay && <LoadingOverlay />}
         <div className="page__content page__content--section">
           <div className="wrapper">
             <div className="row">
@@ -53,7 +56,8 @@ class App extends Component {
 function select(state) {
   return {
     route: state.route,
-    component: state.page
+    component: state.page,
+    showLoadingOverlay: state.loadingState.isLoading
   }
 }
 

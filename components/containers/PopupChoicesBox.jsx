@@ -51,6 +51,10 @@ export default class PopupChoicesBox extends Component {
 
             <p>{this.props.description}</p>
 
+            {Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0
+              && <p><strong>Safari brukere:</strong> Hvis CSV filen åpnes i nettleseren kan du trykke "Arkiv > arkiver som". Kall filen data.csv. og velg "Kildeinnhold" som type.</p>
+            }
+
             <label style={{display: 'inline-block'}}>
               <span className="label">{this.props.choiceLabel}</span>
               <div className="select t-margin-bottom">

@@ -70,7 +70,7 @@ export default [
   {
     name: 'anmodning_vedtak',
     query: {
-      year: ['2012', '2013', '2014', '2015', '2016'],
+      year: ['2012', '2013', '2014', '2015', '2016', '2017'],
       tableName: 'bosatt_anmodede',
       unit: ['personer'],
       dimensions: [

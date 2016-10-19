@@ -7,7 +7,7 @@ import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 class FactsPage extends Component {
   static propTypes = {
     region: PropTypes.object,
-    cardsPages: PropTypes.object,
+    cardsPages: PropTypes.array,
     cardPagesData: PropTypes.object
   };
 

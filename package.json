@@ -110,5 +110,8 @@
   },
   "browser": {
     "http": "http-browserify"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   }
 }

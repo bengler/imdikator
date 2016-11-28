@@ -322,7 +322,7 @@
         "title": "Innvandrernes botid",
         "config": {
           "dimensions": {
-            "botid5": {
+            "botid4": {
               "include": [
                 "0_4",
                 "5_9",
@@ -344,7 +344,7 @@
           ],
           "dimensions": [
             {
-              "name": "botid5",
+              "name": "botid4",
               "variables": "all"
             },
             {
@@ -511,11 +511,11 @@
         "title": "Bosetting av enslige mindreårige flyktninger",
         "config": {
           "dimensions": {
-            "bosetting": {
+            "bosettingEm": {
               "include": [
-                "anmodning",
-                "vedtak",
-                "bosatt"
+                "anmodning_em",
+                "vedtak_em",
+                "bosatt_em"
               ]
             }
           }
@@ -527,7 +527,7 @@
           ],
           "dimensions": [
             {
-              "name": "bosetting",
+              "name": "bosettingEm",
               "variables": "all"
             }
           ]
@@ -559,10 +559,10 @@
     "cards": [
       {
         "name": "utdanningsniva_samlet",
-        "title": "Høyeste utdanningsnivå for personer fra 30 til 49 år",
+        "title": "Høyeste utdanningsnivå for personer fra 30 til 66 år",
         "config": {
           "dimensions": {
-            "utd5": {
+            "utd6": {
               "include": [
                 "uoppgitt",
                 "ingen",
@@ -589,7 +589,7 @@
               "name": "innvkat3"
             },
             {
-              "name": "utd5"
+              "name": "utd6"
             },
             {
               "name": "kjonn",
@@ -608,10 +608,10 @@
       },
       {
         "name": "utdanningsniva-grunnskole",
-        "title": "Personer fra 30 til 49 år med grunnskole som høyeste utdanningsnivå",
+        "title": "Personer fra 30 til 66 år med grunnskole som høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd5": {
+            "utd6": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -633,7 +633,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd5"
+              "name": "utd6"
             },
             {
               "name": "innvkat3"
@@ -651,10 +651,10 @@
       },
       {
         "name": "utdanningsniva-videregaaende",
-        "title": "Personer fra 30 til 49 år med videregående som høyeste utdanningsnivå",
+        "title": "Personer fra 30 til 66 år med videregående som høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd5": {
+            "utd6": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -676,7 +676,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd5"
+              "name": "utd6"
             },
             {
               "name": "innvkat3"
@@ -694,10 +694,10 @@
       },
       {
         "name": "utdanningsniva-universitet-og-hoyskole",
-        "title": "Personer fra 30 til 49 år med universitet og høyskole som høyeste utdanningsnivå",
+        "title": "Personer fra 30 til 66 år med universitet og høyskole som høyeste utdanningsnivå",
         "config": {
           "dimensions": {
-            "utd5": {
+            "utd6": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -719,7 +719,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd5",
+              "name": "utd6",
               "variables": "all"
             },
             {
@@ -740,10 +740,10 @@
       },
       {
         "name": "utdanningsniva_ingen",
-        "title": "Personer fra 30 til 49 år med ingen registrert utdanning",
+        "title": "Personer fra 30 til 66 år med ingen registrert utdanning",
         "config": {
           "dimensions": {
-            "utd5": {
+            "utd6": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -765,7 +765,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd5",
+              "name": "utd6",
               "variables": "all"
             },
             {
@@ -785,10 +785,10 @@
       },
       {
         "name": "utdanningsniva-uoppgitt",
-        "title": "Personer fra 30 til 49 år med uoppgitt utdanning",
+        "title": "Personer fra 30 til 66 år med uoppgitt utdanning",
         "config": {
           "dimensions": {
-            "utd5": {
+            "utd6": {
               "hidden": true,
               "excludeFromChart": true,
               "include": [
@@ -810,7 +810,7 @@
           ],
           "dimensions": [
             {
-              "name": "utd5",
+              "name": "utd6",
               "variables": "all"
             },
             {
@@ -1351,7 +1351,7 @@
         "title": "Sysselsatte innvandrere etter botid",
         "config": {
           "dimensions": {
-            "botid5": {
+            "botid4": {
               "include": [
                 "0_4",
                 "5_9",
@@ -1367,7 +1367,7 @@
           ],
           "dimensions": [
             {
-              "name": "botid5",
+              "name": "botid4",
               "variables": "all"
             }
           ]

@@ -14,7 +14,7 @@ const populationQuery = {
   dimensions: [
     {
       name: 'aar',
-      variables: ['2014']
+      variables: ['2016']
     },
     {
       name: 'kommuneNr'
@@ -126,28 +126,46 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   })
 
   // Find similar
-  const similarities = calculateProximity(set, ['immigrants', 'refugees', 'totalPopulation'])
+  const similarities = calculateProximity(set, ['totalPopulation'])
+  //
+  // TEMPORARY CHANGES
+  //
+  // Earlier this script made comparisons based on three dimensions:
+  // imigrants, refugees and population. This has now been changed
+  // to only one dimension: population, by the fix in the previous line.
+  // The rest of the code is kept as it was to make it easier to go back,
+  // which I think we will. Sorry, if you - future guy - have to clean it up.
+  // Owe you one..
+  //
+  // const similarities = calculateProximity(set, ['immigrants', 'refugees', 'totalPopulation'])
+  //
   const strippedSet = strip(similarities)
 
   // STATUS HERE
   debug(JSON.stringify(strippedSet, 0, 2))
 
   // Purely for debug
-  const debugSet = annotate(strippedSet, municipalityCodeToNameKeys)
+  const debugSet = annotate(strippedSet, municipalityCodeToNameKeys, set)
   debug(JSON.stringify(debugSet, 0, 2))
 
 }
 
-function annotate(stripped, municipalityCodeToNameKeys) {
+function annotate(stripped, municipalityCodeToNameKeys, set) {
   return stripped.map(municipality => {
 
     const similarAsNameList = municipality.similar.map(code => {
       return municipalityCodeToNameKeys[code]
     })
 
+    const similarAsSizeList = municipality.similar.map(code => {
+      return set.find(set2 => set2.kommuneNr == code).totalPopulation
+    })
+
     return {
       name: municipalityCodeToNameKeys[municipality.code],
-      similar: similarAsNameList
+      size: set.find(set2 => set2.kommuneNr == municipality.code).totalPopulation,
+      similar: similarAsNameList,
+      sizes: similarAsSizeList,
     }
 
   })

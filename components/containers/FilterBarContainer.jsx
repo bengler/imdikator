@@ -167,8 +167,7 @@ class FilterBarContainer extends Component {
       case 'municipality':
         return (
           <span>Dette er de kommunene som <a href={linkToSimilarRegion}>ligner mest på {region.name}</a> når
-            det gjelder befolkningsstørrelse, innvandrerandel og flyktningsandel. De er valgt ut for å ha
-          liknende rammebetingelser uavhengig av hvor de ligger i landet.</span>
+          det gjelder befolkningsstørrelse.</span>
           )
 
       case 'county':

@@ -60,7 +60,7 @@ export default class RegionInfo extends Component {
               <a href={createLinkToSimilarRegion(region)}>
                 andre {_t(`several-${region.type}`)} som ligner på {region.name}
               </a>
-              {' når det kommer til folketall, innvandrerandel og flyktningsandel.'}
+              {' når det kommer til befolkningsstørrelse.'}
             </span>
             )}
         </p>

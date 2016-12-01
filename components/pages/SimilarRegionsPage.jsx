@@ -34,9 +34,8 @@ class SimilarRegionsPage extends Component {
           (<h1 key="heading">{several} som ligner på {currentRegion.name}</h1>),
           (<div key="ingress" className="ingress">
             Det er ikke alltid mest hensiktsmessig å sammenlikne seg med naboene.
-              Dette er de kommunene som ligner mest på {currentRegion.name} når det kommer til befolkningsstørrelse,
-              innvandrerandel og flyktningsandel.
-              De er valgt ut for å ha liknende rammebetingelser uavhengig av hvor de ligger i landet. Utvalget er ment å være veiledende.
+              Dette er de kommunene som ligner mest på {currentRegion.name} når det kommer til befolkningsstørrelse.
+              Utvalget er ment å være veiledende.
           </div>)
         ]
 

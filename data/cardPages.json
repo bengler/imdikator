@@ -187,18 +187,7 @@
       {
         "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
-        "config": {
-          "dimensions": {
-            "innvgrunn5": {
-              "include": [
-                "arbeid",
-                "flukt",
-                "familie",
-                "annet_uoppgitt"
-              ]
-            }
-          }
-        },
+        "config": {},
         "query": {
           "tableName": "befolkning_opprinnelsesland",
           "unit": [
@@ -210,6 +199,42 @@
             }
           ]
         },
+        "tabs": [
+          {
+            "name": "latest",
+            "chartKind": "bubble"
+          }
+        ]
+      },
+      {
+        "name": "befolkning_opprinnelsesland_botid",
+        "title": "Opprinnelse - landbakgrunn for innvandrere med 0-4 års botid i Norge",
+        "config": {
+			    "dimensions": {
+				    "botid3": {
+					    "hidden": true,
+					    "excludeFromChart": true,
+					    "include": [
+						    "0_4"
+					      ]
+				      }
+			      }
+		      },
+          "query": {
+          "tableName": "befolkning_opprinnelsesland_botid",
+          "unit": [
+            "personer"
+            ],
+          "dimensions": [
+              {
+              "name": "landbakgrunn",
+			        "variables": "all"
+             },
+		        	{
+				      "name": "botid3"
+			        }
+            ]
+          },
         "tabs": [
           {
             "name": "latest",

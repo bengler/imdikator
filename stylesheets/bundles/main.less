@@ -9,3 +9,26 @@ button.chart {
   white-space: nowrap;
   margin: 0px 0px 0px 3px;
 }
+
+.sticky-header {
+  background: white;
+  z-index: 3;
+  padding: 1rem;
+  padding-bottom: 0;
+  border-bottom: 3px solid #f2efed;
+  .sticky-header__title {
+    display: none;
+  }
+  .sticky-header__hide {
+    display: none;
+  }
+  .sticky-header__search {
+    margin: 0;
+    .label {
+      display: inline-block;
+      position: absolute;
+      left: -75px;
+      top: 10px;
+    }
+  }
+}

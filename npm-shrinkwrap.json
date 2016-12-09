@@ -2804,7 +2804,7 @@
     "imdi-styles": {
       "version": "0.0.0",
       "from": "netliferesearch/imdi-styles",
-      "resolved": "git://github.com/netliferesearch/imdi-styles.git#049c942a888f3d400f05821e4ce43188c016e8ff"
+      "resolved": "git://github.com/netliferesearch/imdi-styles.git#bebb25750fa6090fdf67024a845e7dfe45587b9d"
     },
     "immutable": {
       "version": "3.8.1",
@@ -4069,6 +4069,11 @@
       "version": "4.4.5",
       "from": "react-redux@>=4.4.5 <5.0.0",
       "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.4.5.tgz"
+    },
+    "react-sticky": {
+      "version": "5.0.5",
+      "from": "react-sticky@latest",
+      "resolved": "https://registry.npmjs.org/react-sticky/-/react-sticky-5.0.5.tgz"
     },
     "read-json-sync": {
       "version": "1.1.1",

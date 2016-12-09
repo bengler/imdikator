@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import {StickyContainer, Sticky} from 'react-sticky'
 import CardList from '../containers/CardList'
 import {connect} from 'react-redux'
 import {getHeaderKey, getPageTitle, getPageIngress} from '../../lib/regionUtil'
@@ -8,7 +9,6 @@ import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-
 
 class CardsPage extends Component {
   static propTypes = {
@@ -55,37 +55,40 @@ class CardsPage extends Component {
 
     return (
       <div>
-        <div className="page__content page__content--section">
-          <div className="wrapper">
-            <div className="row">
-              <div className="col--main-wide">
-                <header id="page-header" className="t-no-focus" tabIndex="-1">
-                  <h1>{getPageTitle(region)}</h1>
-                  <p className="ingress">{getPageIngress(region)}</p>
-                  <div className="t-margin-bottom--large t-hide-on-print">
-                    <label><span className="label">Gå til sted</span>
-                      <div className="search search--autocomplete">
-                        <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+        <StickyContainer>
+          <Sticky stickyClassName={'sticky-header'} topOffset={270}>
+            <div className="page__content page__content--section">
+              <div className="wrapper">
+                <div className="row">
+                  <div className="col--main-wide">
+                    <header id="page-header" className="t-no-focus" tabIndex="-1">
+                      <h1 className="sticky-header__title">{getPageTitle(region)}</h1>
+                      <p className="ingress sticky-header__hide">{getPageIngress(region)}</p>
+                      <div className="t-margin-bottom--large t-hide-on-print sticky-header__search">
+                        <label><span className="label">Gå til sted</span>
+                          <div className="search search--autocomplete">
+                            <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                          </div>
+                        </label>
                       </div>
-                    </label>
+                    </header>
                   </div>
-                </header>
+                </div>
+              </div>
+            </div>
+          </Sticky>
+          <div className="page__section page__section--grey">
+            <div className="wrapper">
+              <div className="row">
+                <div className="col--main">
+                  <CardPageButtonsContainer />
+                  <h2 className="feature__section-title">{cardsPage.title} i {region.name}</h2>
+                  {this.renderCardList()}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="page__section page__section--grey">
-          <div className="wrapper">
-            <div className="row">
-              <div className="col--main">
-                <CardPageButtonsContainer />
-                <h2 className="feature__section-title">{cardsPage.title} i {region.name}</h2>
-                {this.renderCardList()}
-              </div>
-            </div>
-          </div>
-        </div>
+        </StickyContainer>
         <div className="page__footer">
           <div className="wrapper">
             <div className="row">

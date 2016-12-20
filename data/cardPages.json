@@ -1090,15 +1090,7 @@
           "unit": [
             "personer"
           ],
-          "dimensions": [
-            {
-              "name": "kjonn",
-              "variables": [
-                "0",
-                "1"
-              ]
-            }
-          ]
+          "dimensions": []
         },
         "tabs": []
       },

@@ -162,7 +162,7 @@ export default [
       if (params.anonymizedData) {
         return 'Antall deltakere som gikk fra introprogram til arbeid er anonymisert'
       }
-      return `${params.share} av deltakerne som avsluttet introprogram i ${params.aar} var i arbeid eller utdanning året etter.`
+      return `${params.share} av deltakerne som avsluttet introprogram i ${params.aar - 1} var i arbeid eller utdanning året etter.`
     },
     subTitle: params => {
       return `For Norge er tallet ${params.share}`

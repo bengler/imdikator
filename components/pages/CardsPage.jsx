@@ -26,7 +26,13 @@ class CardsPage extends Component {
   };
 
   handleSwitchRegion(region) {
-    this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
+    const {cardsPage} = this.props
+    const firstCard = cardsPage.cards[0]
+    this.context.goTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {
+      region: region.prefixedCode,
+      cardsPageName: cardsPage.name,
+      cardName: firstCard.name
+    })
   }
 
   renderCardList() {

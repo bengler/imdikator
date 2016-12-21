@@ -68,8 +68,9 @@ class CardsPage extends Component {
                 <div className="row">
                   <div className="col--main-wide">
                     <header id="page-header" className="t-no-focus" tabIndex="-1">
-                      <h1 className="sticky-header__title">{getPageTitle(region)}</h1>
+                      <h1 className="sticky-header__hide">{getPageTitle(region)}</h1>
                       <p className="ingress sticky-header__hide">{getPageIngress(region)}</p>
+                      <span className="sticky-header__title">{cardsPage.title} i {region.name}</span>
                       <div className="t-margin-bottom--large t-hide-on-print sticky-header__search">
                         <label><span className="label">Gå til sted</span>
                           <div className="search search--autocomplete">

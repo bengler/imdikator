@@ -85,13 +85,108 @@ class CardsPage extends Component {
             </div>
           </div>
         </div>
+        <style dangerouslySetInnerHTML={{__html: `
+          .sticky-header {
+            display: none;
+            background: #f2efed;
+            background-image: linear-gradient(0deg,transparent 0px,#f2efed 10px);
+            //background: white;
+            border-bottom: 3px solid white;
+            z-index: 3;
+            padding: 1rem 0;
+            padding-bottom: 0;
+          }
+          .sticky-header__head {
+            display: block;
+            width: 50%;
+            float: left;
+            padding-right: 1rem;
+            padding-bottom: 0.5rem;
+          }
+          .sticky-header__title {
+            font-size: 24px;
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: normal;
+            margin-top: 0px;
+            font-family: "Siri Medium",Tahoma,sans-serif;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 16px;
+            font-size: .8888888888888888rem;
+            line-height: 1.75;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+          }
+          .sticky-header__title a {
+            color: black;
+          }
+          .sticky-header__subtitle {
+            font-size: 0.833rem;
+            font-family: "Siri",Tahoma,sans-serif;
+            display: block;
+          }
+          .sticky-header__search {
+            position: relative;
+            display: block;
+            width: 50%;
+            float: right;
+            margin: 0;
+            padding-right: 1em;
+          }
+          .sticky-header__search-icon {
+            display: none;
+            position: absolute;
+            margin-left: 0.5rem;
+            margin-top: 0.25rem;
+          }
+          .sticky-header__search .search {
+            max-width: none;
+          }
+
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+
+          .sticky-header--fixed {
+            display: block;
+            animation: fadeIn 200ms ease both;
+          }
+
+          @media (max-width: 45em) {
+            .sticky-header {
+              padding-top: 0.5rem;
+            }
+            .sticky-header__search {
+              display: none;
+            }
+            .sticky-header__head {
+              width: 100%;
+              padding-bottom: 0.5rem;
+              padding-right: 1rem;
+            }
+            .sticky-header__subtitle {
+              display: none;
+            }
+            .sticky-header__search-icon {
+              display: inline-block;
+            }
+          }
+        `}} />
         <StickyContainer>
           <Sticky className="sticky-header" stickyClassName={'sticky-header--fixed'} topOffset={230}>
             <div className="wrapper">
               <div className="row">
                 <div className="col--main-wide">
                   <div className="sticky-header__head">
-                    <div className="sticky-header__title">{cardsPage.title} i <a href={this.createLinkToRegion(region)}>{region.name} <i className="icon__search icon--red sticky-header__search-icon"></i></a></div>
+                    <div className="sticky-header__title">{cardsPage.title} i <a href={this.createLinkToRegion(region)}>{region.name}
+                      <i className="icon__search icon--red sticky-header__search-icon"></i></a></div>
                     <div className="sticky-header__subtitle">Tall og statistikk fra IMDi</div>
                   </div>
                   <label className="sticky-header__search">

@@ -23,6 +23,7 @@ class CardsPage extends Component {
 
   static contextTypes = {
     goTo: PropTypes.func,
+    linkTo: PropTypes.func,
   };
 
   handleSwitchRegion(region) {
@@ -33,6 +34,10 @@ class CardsPage extends Component {
       cardsPageName: cardsPage.name,
       cardName: firstCard.name
     })
+  }
+
+  createLinkToRegion(region) {
+    return this.context.linkTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
   renderCardList() {
@@ -61,25 +66,40 @@ class CardsPage extends Component {
 
     return (
       <div>
-        <StickyContainer>
-          <Sticky stickyClassName={'sticky-header'} topOffset={270}>
-            <div className="page__content page__content--section">
-              <div className="wrapper">
-                <div className="row">
-                  <div className="col--main-wide">
-                    <header id="page-header" className="t-no-focus" tabIndex="-1">
-                      <h1 className="sticky-header__hide">{getPageTitle(region)}</h1>
-                      <p className="ingress sticky-header__hide">{getPageIngress(region)}</p>
-                      <span className="sticky-header__title">{cardsPage.title} i {region.name}</span>
-                      <div className="t-margin-bottom--large t-hide-on-print sticky-header__search">
-                        <label><span className="label">Gå til sted</span>
-                          <div className="search search--autocomplete">
-                            <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
-                          </div>
-                        </label>
+        <div className="page__content page__content--section">
+          <div className="wrapper">
+            <div className="row">
+              <div className="col--main">
+                <header id="page-header" className="t-no-focus" tabIndex="-1">
+                  <h1>{getPageTitle(region)}</h1>
+                  <p className="ingress">{getPageIngress(region)}</p>
+                  <div className="t-margin-bottom--large t-hide-on-print">
+                    <label><span className="label">Gå til sted</span>
+                      <div className="search search--autocomplete">
+                        <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
                       </div>
-                    </header>
+                    </label>
                   </div>
+                </header>
+              </div>
+            </div>
+          </div>
+        </div>
+        <StickyContainer>
+          <Sticky className="sticky-header" stickyClassName={'sticky-header--fixed'} topOffset={230}>
+            <div className="wrapper">
+              <div className="row">
+                <div className="col--main-wide">
+                  <div className="sticky-header__head">
+                    <div className="sticky-header__title">{cardsPage.title} i <a href={this.createLinkToRegion(region)}>{region.name} <i className="icon__search icon--red sticky-header__search-icon"></i></a></div>
+                    <div className="sticky-header__subtitle">Tall og statistikk fra IMDi</div>
+                  </div>
+                  <label className="sticky-header__search">
+                    <span className="label t-only-screenreaders">Gå til sted</span>
+                    <div className="search search--autocomplete">
+                      <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                    </div>
+                  </label>
                 </div>
               </div>
             </div>

@@ -30,7 +30,7 @@ export default class BarChart extends React.Component {
   }
 
   calculateHeightLarge(el) {
-    return 400
+    return 350
   }
 
   calculateHeightSmall(el) {

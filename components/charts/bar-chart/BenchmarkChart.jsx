@@ -42,7 +42,7 @@ export default class BenchmarkChart extends React.Component {
   }
 
   calculateHeightLarge(el) {
-    return 400
+    return 350
   }
 
   calculateHeightSmall(el) {

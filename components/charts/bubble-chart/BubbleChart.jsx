@@ -14,7 +14,11 @@ export default class BubbleChart extends React.Component {
   };
 
   calculateHeight(el) {
-    return el.getBoundingClientRect().width
+    const height = el.getBoundingClientRect().width
+    if (height > 400) {
+      return 500
+    }
+    return height
   }
 
   drawPoints(el, data) {

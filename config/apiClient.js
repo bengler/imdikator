@@ -1,5 +1,6 @@
 import * as VismaAPIClient from '../lib/api-client/visma'
 import * as EpinovaAPIClient from '../lib/api-client/epinova'
+import * as nodeAPIClient from '../lib/api-client/node'
 import * as FileAPIClient from '../lib/api-client/files'
 import * as APIClient from '../lib/api-client'
 import * as JSONConnector from '../lib/http/json'
@@ -24,8 +25,14 @@ const epinovaAPI = EpinovaAPIClient.create({
 
 const fileAPI = FileAPIClient.create()
 
+const nodeAPI = nodeAPIClient.create({
+  baseUrl: `//${config.nodeApiHost}/api/`,
+  connector: connector
+})
+
 export default APIClient.create({
   vismaAPI: vismaAPI,
   epinovaAPI: epinovaAPI,
-  fileAPI: fileAPI
+  fileAPI: fileAPI,
+  nodeAPI: nodeAPI,
 })

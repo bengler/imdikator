@@ -77,39 +77,48 @@ class DownloadWidget extends Component {
       this.setState({isLoading: true})
 
       const csvQuery = this.buildCsvQuery(choices[newValue])
-      apiClient.query(csvQuery).then(queryResult => {
-        let data = queryResultPresenter(this.props.query, queryResult, {
-          chartKind: 'table'
-        })
 
-        // Make sure the data looks smart in a table
-        const dimensions = data.dimensions.slice()
-        if (!dimensions.map(e => e.name).includes('region')) {
-          dimensions.unshift({
-            name: 'region',
-            variables: []
-          })
-        }
-        if (!dimensions.map(e => e.name).includes('enhet')) {
-          dimensions.push({
-            name: 'enhet',
-            variables: []
-          })
-        }
+      // Call node server for CSV file
+      
 
-        if (!dimensions.map(e => e.name).includes('aar')) {
-          dimensions.push({
-            name: 'aar',
-            variables: []
-          })
-        }
+      apiClient.getCsvFile(csvQuery).then(queryResult => {
+
+        console.log(queryResult)
+
+      //   let data = queryResultPresenter(this.props.query, queryResult, {
+      //     chartKind: 'table'
+      //   })
+
+      //   // Make sure the data looks smart in a table
+      //   const dimensions = data.dimensions.slice()
+      //   if (!dimensions.map(e => e.name).includes('region')) {
+      //     dimensions.unshift({
+      //       name: 'region',
+      //       variables: []
+      //     })
+      //   }
+      //   if (!dimensions.map(e => e.name).includes('enhet')) {
+      //     dimensions.push({
+      //       name: 'enhet',
+      //       variables: []
+      //     })
+      //   }
+
+      //   if (!dimensions.map(e => e.name).includes('aar')) {
+      //     dimensions.push({
+      //       name: 'aar',
+      //       variables: []
+      //     })
+      //   }
 
 
-        data = Object.assign({}, data, {dimensions: dimensions})
+      //   data = Object.assign({}, data, {dimensions: dimensions})
 
-        // Bake CSV and trigger client download (and hide loading overlay)
-        const csvData = generateCSV(data).csv
-        downloadCSV(csvData, 'tabell.csv')
+      //   // Bake CSV and trigger client download (and hide loading overlay)
+      //   const csvData = generateCSV(data).csv
+      //   downloadCSV(csvData, 'tabell.csv')
+
+
         this.setState({
           isDownloadSelectOpen: false,
           isLoading: false

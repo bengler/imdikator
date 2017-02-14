@@ -8,6 +8,8 @@ import {generateCSV} from '../../lib/csvWrangler'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import apiClient from '../../config/apiClient'
 import {trackDownloadCompareAll, trackDownloadCompareSimilar} from '../../actions/tracking'
+import toVismaQuery from '../../lib/api-client/utils/toVismaQuery'
+import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery'
 
 import {saveAs} from 'browser-filesaver'
 
@@ -76,12 +78,13 @@ class DownloadWidget extends Component {
       // Show loading overlay while downloading
       this.setState({isLoading: true})
 
+      // --- IMDIKATOR intercept ---
       const csvQuery = this.buildCsvQuery(choices[newValue])
+      const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
+      const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
 
       // Call node server for CSV file
-      
-
-      apiClient.getCsvFile(csvQuery).then(queryResult => {
+      apiClient.getCsvFile(modifiedQuery).then(queryResult => {
 
         console.log(queryResult)
 

@@ -10,6 +10,7 @@ import apiClient from '../../config/apiClient'
 import {trackDownloadCompareAll, trackDownloadCompareSimilar} from '../../actions/tracking'
 import toVismaQuery from '../../lib/api-client/utils/toVismaQuery'
 import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery'
+import {toQueryParams} from '../../lib/api-client/visma'
 
 import {saveAs} from 'browser-filesaver'
 
@@ -82,9 +83,10 @@ class DownloadWidget extends Component {
       const csvQuery = this.buildCsvQuery(choices[newValue])
       const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
+      const upCasedQuery = Object.assign({}, toQueryParams(modifiedQuery))
 
       // Call node server for CSV file
-      apiClient.getCsvFile(modifiedQuery).then(queryResult => {
+      apiClient.getCsvFile(upCasedQuery).then(queryResult => {
 
         console.log(queryResult)
 

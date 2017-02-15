@@ -79,7 +79,8 @@ class DownloadWidget extends Component {
       // Show loading overlay while downloading
       this.setState({isLoading: true})
 
-      // --- IMDIKATOR intercept ---
+      // --- IMDIKATOR intercept --- //
+
       const csvQuery = this.buildCsvQuery(choices[newValue])
       const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)

@@ -1797,7 +1797,16 @@
                 "em_tilsk",
                 "barnehage_tilsk",
                 "eldre_tilsk",
-                "skole_tilsk"
+                "skole_tilsk",
+                "persontilsk",
+                "grunn_tilsk",
+                "asylnorsk_tilsk",
+                "gratis_kjernetid",
+                "tøyensatsing",
+                "jobbsjansen",
+                "komm_utv",
+                "forebygging_radikalisering _voldelig ekstremisme"
+                
               ]
             }
           }

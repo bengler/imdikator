@@ -2804,7 +2804,7 @@
     "imdi-styles": {
       "version": "0.0.0",
       "from": "netliferesearch/imdi-styles",
-      "resolved": "git://github.com/netliferesearch/imdi-styles.git#049c942a888f3d400f05821e4ce43188c016e8ff"
+      "resolved": "git://github.com/netliferesearch/imdi-styles.git#b83857cddfef798015b3927fbcbcb094858f9b9f"
     },
     "immutable": {
       "version": "3.8.1",

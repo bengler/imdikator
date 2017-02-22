@@ -4,21 +4,11 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
-import {generateCSV} from '../../lib/csvWrangler'
-import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import apiClient from '../../config/apiClient'
 import {trackDownloadCompareAll, trackDownloadCompareSimilar} from '../../actions/tracking'
 import toVismaQuery from '../../lib/api-client/utils/toVismaQuery'
 import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery'
 import {toQueryParams} from '../../lib/api-client/visma'
-
-import {saveAs} from 'browser-filesaver'
-
-function downloadCSV(content, fileName) {
-  const blob = new Blob([content], {type: 'text/csv;charset=utf-8'})
-  saveAs(blob, fileName)
-}
-
 
 class DownloadWidget extends Component {
   static propTypes = {
@@ -84,41 +74,19 @@ class DownloadWidget extends Component {
       const csvQuery = this.buildCsvQuery(choices[newValue])
       const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
-      const upCasedQuery = Object.assign({}, toQueryParams(modifiedQuery))
+
+      // Build query with required data
+      const query = {
+        csvQuery: Object.assign({}, toQueryParams(modifiedQuery)),
+        chartQuery: this.props.query,
+        dimensionLabels: {},
+      }
 
       // Call node server for CSV file
-      apiClient.getCsvFile(upCasedQuery).then(queryResult => {
+      apiClient.getCsvFile(JSON.stringify(query)).then(queryResult => {
 
         console.log(queryResult)
 
-      //   let data = queryResultPresenter(this.props.query, queryResult, {
-      //     chartKind: 'table'
-      //   })
-
-      //   // Make sure the data looks smart in a table
-      //   const dimensions = data.dimensions.slice()
-      //   if (!dimensions.map(e => e.name).includes('region')) {
-      //     dimensions.unshift({
-      //       name: 'region',
-      //       variables: []
-      //     })
-      //   }
-      //   if (!dimensions.map(e => e.name).includes('enhet')) {
-      //     dimensions.push({
-      //       name: 'enhet',
-      //       variables: []
-      //     })
-      //   }
-
-      //   if (!dimensions.map(e => e.name).includes('aar')) {
-      //     dimensions.push({
-      //       name: 'aar',
-      //       variables: []
-      //     })
-      //   }
-
-
-      //   data = Object.assign({}, data, {dimensions: dimensions})
 
       //   // Bake CSV and trigger client download (and hide loading overlay)
       //   const csvData = generateCSV(data).csv

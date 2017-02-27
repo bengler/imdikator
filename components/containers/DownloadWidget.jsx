@@ -69,29 +69,23 @@ class DownloadWidget extends Component {
       // Show loading overlay while downloading
       this.setState({isLoading: true})
 
-      // --- IMDIKATOR intercept --- //
-
       const csvQuery = this.buildCsvQuery(choices[newValue])
       const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
 
       // Build query with required data
       const query = {
-        csvQuery: Object.assign({}, toQueryParams(modifiedQuery)),
-        chartQuery: this.props.query,
-        dimensionLabels: {},
+        csvQuery: JSON.stringify(Object.assign({}, toQueryParams(modifiedQuery))),
+        chartQuery: JSON.stringify(this.props.query),
+        dimensionLabels: JSON.stringify({}),
       }
 
       // Call node server for CSV file
-      apiClient.getCsvFile(JSON.stringify(query)).then(queryResult => {
+      apiClient.getCsvFile(query).then(response => {
 
-        console.log(queryResult)
-
-
-      //   // Bake CSV and trigger client download (and hide loading overlay)
-      //   const csvData = generateCSV(data).csv
-      //   downloadCSV(csvData, 'tabell.csv')
-
+        // Display CSV in new window/tab
+        const csvContent = `data:text/csv;charset=utf-8,${encodeURI(response.body)}`
+        window.open(csvContent)
 
         this.setState({
           isDownloadSelectOpen: false,

@@ -9,6 +9,7 @@ import {trackDownloadCompareAll, trackDownloadCompareSimilar} from '../../action
 import toVismaQuery from '../../lib/api-client/utils/toVismaQuery'
 import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery'
 import {toQueryParams} from '../../lib/api-client/visma'
+import csvDimensionsBuilder from '../../lib/csvDimensionsBuilder'
 
 class DownloadWidget extends Component {
   static propTypes = {
@@ -77,7 +78,7 @@ class DownloadWidget extends Component {
       const query = {
         csvQuery: JSON.stringify(Object.assign({}, toQueryParams(modifiedQuery))),
         chartQuery: JSON.stringify(this.props.query),
-        dimensionLabels: JSON.stringify({}),
+        dimensionLabels: JSON.stringify(csvDimensionsBuilder(this.props.query.dimensions)),
       }
 
       // Call node server for CSV file

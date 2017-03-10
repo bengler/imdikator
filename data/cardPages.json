@@ -1209,14 +1209,15 @@
         },
         "query": {
           "tableName": "voksne_grunnskole",
-            "dimensions": {
-              "include": [
-                "spraak"
-                         ]
-            }
-        }
-            },            
-       
+          "unit": [
+            "personer"
+          ],
+          "dimensions": [
+            {
+              "name": "spraak"
+            },
+           ]
+        },     
         "tabs": []
       },
       {

@@ -10,6 +10,7 @@ import toVismaQuery from '../../lib/api-client/utils/toVismaQuery'
 import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery'
 import {toQueryParams} from '../../lib/api-client/visma'
 import csvDimensionsBuilder from '../../lib/csvDimensionsBuilder'
+import config from '../../config/index'
 
 class DownloadWidget extends Component {
   static propTypes = {
@@ -22,7 +23,10 @@ class DownloadWidget extends Component {
 
   constructor(props) {
     super()
-    this.state = {}
+    this.state = {
+      isLoading: false,
+      linkUrl: '',
+    }
   }
 
 
@@ -83,14 +87,9 @@ class DownloadWidget extends Component {
 
       // Call node server for CSV file
       apiClient.getCsvFile(query).then(response => {
-
-        // Display CSV in new window/tab
-        const csvContent = `data:text/csv;charset=utf-8,${encodeURI(response.body)}`
-        window.open(csvContent)
-
         this.setState({
-          isDownloadSelectOpen: false,
-          isLoading: false
+          isLoading: false,
+          linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}`)
         })
       })
     }
@@ -102,8 +101,9 @@ class DownloadWidget extends Component {
         onCancel={handleCancelDownloadSelect}
         onApply={handApplyChoice}
         isLoading={this.state.isLoading}
+        linkUrl={this.state.linkUrl}
         choices={choices}
-        applyButtonText="Last ned"
+        applyButtonText="Hent data"
         title="Last ned tallgrunnlag"
         choiceLabel="Velg innhold"
         description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."

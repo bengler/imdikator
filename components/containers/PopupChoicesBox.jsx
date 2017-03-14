@@ -11,6 +11,7 @@ export default class PopupChoicesBox extends Component {
     description: PropTypes.string,
     choiceLabel: PropTypes.string,
     applyButtonText: PropTypes.string,
+    linkUrl: PropTypes.string,
     isLoading: PropTypes.bool
   };
 
@@ -51,11 +52,6 @@ export default class PopupChoicesBox extends Component {
 
             <p>{this.props.description}</p>
 
-            {Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0
-              && <p><strong>Safari brukere:</strong> <br />Hvis CSV filen åpnes i nettleseren kan du lagre filen ved å trykke <em>Arkiv</em> og
-                <em>Arkiver som</em>. Kall filen <em>data.csv</em> og velg <em>Kildeinnhold</em> som type.</p>
-            }
-
             <label style={{display: 'inline-block'}}>
               <span className="label">{this.props.choiceLabel}</span>
               <div className="select t-margin-bottom">
@@ -69,6 +65,13 @@ export default class PopupChoicesBox extends Component {
             <button type="button" disabled={this.props.isLoading} className="button" onClick={this.onApply.bind(this)}>
               {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
             </button>
+
+            {this.props.linkUrl
+              && <div>
+                <p><strong>CSV er klar for nedlastning:</strong></p>
+                <a href={this.props.linkUrl} target="_blank" title="last ned CSV">Last ned CSV</a>
+              </div>
+            }
 
           </div>
         </dialog>

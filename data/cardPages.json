@@ -1205,7 +1205,14 @@
         "name": "voksne-i-grunnskolen",
         "title": "Voksne elever i grunnskolen",
         "config": {
-          "isLopsided": true
+          "isLopsided": true,
+          "dimensions": {
+            "undervisningGrskole": {
+              "include": [
+                "alle"
+              ]
+            }
+          }
         },
         "query": {
           "tableName": "voksne_grunnskole",
@@ -1216,8 +1223,11 @@
             {
               "name": "spraak"
             },
-           ]
-        },     
+            {
+              "name": "undervisningGrskole"
+            }
+          ]
+        },
         "tabs": []
       },
       {
@@ -1803,7 +1813,7 @@
                 "jobbsjansen",
                 "komm_utv",
                 "forebygging_radikalisering _voldelig ekstremisme"
-                
+
               ]
             }
           }

@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import RegionChanger from '../../containers/RegionChanger'
 
 export default class FilterBar extends Component {
   static propTypes = {
@@ -7,6 +8,7 @@ export default class FilterBar extends Component {
       props: PropTypes.any,
       component: PropTypes.func
     })),
+    region: PropTypes.object,
     onChange: PropTypes.func
   };
 
@@ -20,10 +22,13 @@ export default class FilterBar extends Component {
   }
 
   render() {
-    const {filters} = this.props
+    const {filters, region} = this.props
     return (
       <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg">
         <div className="row t-position">
+          <div className="col--fifth" style={{position: 'static'}}>
+            <RegionChanger region={region} />
+          </div>
           {filters.filter(f => !f.props.hidden).map(filter => (
             <div key={filter.name} className="col--fifth" style={{position: 'static'}}>
               <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)} />

@@ -262,7 +262,7 @@ class FilterBarContainer extends Component {
     })
 
     return (
-      <FilterBar filters={filters} onChange={this.handleFilterChange.bind(this)} />
+      <FilterBar region={this.props.region} filters={filters} onChange={this.handleFilterChange.bind(this)} />
     )
   }
 }

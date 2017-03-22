@@ -4,6 +4,7 @@ import {
   TRACK_EVENT_REGION_COMPARE_OPEN,
   TRACK_EVENT_REGION_COMPARE_COUNT,
   TRACK_EVENT_REGION_COMPARE_ADD,
+  TRACK_EVENT_REGION_CHANGED,
   TRACK_EVENT_YEAR_CHANGED,
   TRACK_EVENT_BACKGROUND_CHANGED,
   TRACK_EVENT_GENDER_CHANGED,
@@ -49,6 +50,12 @@ export function trackCronologicalTabOpen() {
 export function trackBenchmarkTabOpen() {
   return dispatch => {
     dispatch({type: TRACK_EVENT_BENCHMARK_TAB_OPEN})
+  }
+}
+
+export function trackRegionChanged() {
+  return dispatch => {
+    dispatch({type: TRACK_EVENT_REGION_CHANGED})
   }
 }
 

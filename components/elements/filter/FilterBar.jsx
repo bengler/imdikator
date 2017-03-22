@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import RegionChanger from './RegionChanger'
 import cx from 'classnames'
 import humanizeList from 'humanize-list'
 
@@ -45,7 +46,7 @@ export default class FilterBar extends Component {
   }
 
   render() {
-    const {filters} = this.props
+    const {filters, region} = this.props
 
     const width = window.innerWidth
 
@@ -71,6 +72,9 @@ export default class FilterBar extends Component {
     return (
       <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg">
         <div className="flex-row t-position">
+          <div className="col--fifth" style={{position: 'static'}}>
+            <RegionChanger region={region} />
+          </div>
           {visibleFilters.map(filter => (
             <div key={filter.name} className="col--fifth" style={{position: 'static'}}>
               <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)} />

@@ -54,43 +54,41 @@ export default class FilterBar extends Component {
     const toggleFilters = visibleFilters.length > filterLimit
 
     const toggleFiltersClasses = cx({
-      'subtle-select__button': true,
-      'subtle-select__button--toggle': true,
-      'subtle-select__select--toggle-hide': this.state.expanded
+      'toggle__button': true, // eslint-disable-line camelcase
+      'toggle__button--expanded': this.state.expanded
     })
 
-    const toggleFilterLabel = this.listify(visibleFilters.slice(filterLimit - 1).map(filter => filter.props.label))
+    const toggleFilterLabel = this.listify(visibleFilters.slice(filterLimit).map(filter => filter.props.label))
 
     if (toggleFilters) {
       if (!this.state.expanded) {
-        visibleFilters = visibleFilters.slice(0, filterLimit - 1)
+        visibleFilters = visibleFilters.slice(0, filterLimit)
       }
     }
 
     return (
       <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg">
-        <div className="row t-position">
+        <div className="flex-row t-position">
           {visibleFilters.map(filter => (
             <div key={filter.name} className="col--fifth" style={{position: 'static'}}>
               <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)} />
             </div>
           ))}
-          {toggleFilters && (
-            <div key="toggleFilters" className="col--fifth" style={{position: 'static'}}>
-              <div className="subtle-select">
-                <label>
-                  <span className="subtle-select__label">
-                    {toggleFilterLabel}:
-                  </span>
-                  <button type="button" className={toggleFiltersClasses} onClick={this.handleClick.bind(this)}>
-                    {this.state.expanded && ('Skjul filtre')}
-                    {!this.state.expanded && ('Vis filtre')}
-                  </button>
-                </label>
-              </div>
-            </div>
-          )}
         </div>
+        {toggleFilters && (
+          <div className="toggle toggle--light t-no-margin">
+            <div className="toggle toggle--light t-no-margin">
+              <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses}>{// eslint-disable-line no-script-url
+  }
+                <span className="toggle__caption--contracted">
+                  Vis flere ({toggleFilterLabel})
+                </span>
+                <span className="toggle__caption--expanded">Færre filtre</span>
+                <i className="icon__arrow-down toggle__icon" />
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     )
   }

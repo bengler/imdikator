@@ -9,3 +9,51 @@ button.chart {
   white-space: nowrap;
   margin: 0px 0px 0px 3px;
 }
+
+.col--fifth {
+  min-width: 20%;
+  flex-basis: 20%;
+}
+@media (min-width: 600px) {
+.flex-row {
+  margin-left: -10.5px;
+  margin-right: -10.5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+}
+.subtle-select__button--toggle {
+  padding-top: 7px;
+  background: #f2efed;
+}
+.subtle-select__button--toggle:after {
+  top: 11px;
+  background-image: url(/UI/icons/icon-arrow-down.svg);
+}
+
+.subtle-select__button--toggle-hide:after {
+  background-image: url(/UI/icons/icon-arrow-up.svg);
+}
+.toggle__button {
+  background: none;
+  padding: 0;
+  color: #d83a36;
+  text-decoration: underline;
+  border: none;
+}
+.toggle__button:hover, .toggle__button:focus {
+  background: none;
+  color: black;
+  text-decoration: underline;
+  border: none;
+}
+.toggle__button--expanded:hover, .toggle__button--expanded:focus {
+  border-top: 2px solid #f2efed;
+}
+.toggle__button:focus {
+  outline: none;
+}
+.toggle__button:focus > span {
+  outline: 1px dotted;
+      outline-offset: 3px;
+}

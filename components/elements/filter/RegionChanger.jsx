@@ -4,12 +4,16 @@ import RegionSearch from '../../containers/RegionSearchContainer'
 import {trackRegionChanged} from '../../../actions/tracking'
 import Lightbox from '../Lightbox'
 import cx from 'classnames'
+import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 
 /* RegionChanger
  * Used in cards to quickly change region viewed to another
  * -> After reload, takes the user back to the same card
 */
 export default class RegionChanger extends Component {
+  static propTypes = {
+    region: ImdiPropTypes.region.isRequired
+  };
   constructor(props) {
     super()
     this.state = {
@@ -55,7 +59,9 @@ export default class RegionChanger extends Component {
               <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
             </div>
           </label>
-          <p className="text--small">Du kan se tall for alle kommuner, fylker, næringsregioner og bydeler. Endring av sted vil gjelde for alle figurer på siden.</p>
+          <p className="text--small">
+            Du kan se tall for alle kommuner, fylker, næringsregioner og bydeler. Endring av sted vil gjelde for alle figurer på siden.
+          </p>
         </div>
       </Lightbox>
     )
@@ -68,11 +74,11 @@ export default class RegionChanger extends Component {
 
     const {
       region,
-    } = this.props;
+    } = this.props
 
     const buttonClasses = cx({
       'subtle-select__button': true,
-      'subtle-select__button--add': true,
+      'subtle-select__button--location': true,
       'subtle-select__button--expanded': isRegionChangerOpen
     })
 
@@ -81,7 +87,7 @@ export default class RegionChanger extends Component {
         <div className="subtle-select">
           <label>
             <span className="subtle-select__label">
-            Valgt sted:
+            Sted:
             </span>
             <button
               type="button"

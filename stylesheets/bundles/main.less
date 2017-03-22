@@ -9,19 +9,31 @@ button.chart {
   white-space: nowrap;
   margin: 0px 0px 0px 3px;
 }
-
-.col--fifth {
-  min-width: 20%;
-  flex-basis: 20%;
-}
-@media (min-width: 600px) {
 .flex-row {
   margin-left: -10.5px;
   margin-right: -10.5px;
   display: flex;
   flex-wrap: wrap;
 }
+.col--fifth {
+  min-width: 100%;
+  flex-basis: 100%;
 }
+
+@media (min-width: 720px) {
+.col--fifth {
+  min-width: 33%;
+  flex-basis: 33%;
+}
+}
+@media (min-width: 912px) {
+.col--fifth {
+  min-width: 20%;
+  flex-basis: 20%;
+}
+}
+
+
 .subtle-select__button--toggle {
   padding-top: 7px;
   background: #f2efed;
@@ -36,7 +48,7 @@ button.chart {
 }
 .toggle__button {
   background: none;
-  padding: 0;
+  padding-left: 0;
   color: #d83a36;
   text-decoration: underline;
   border: none;

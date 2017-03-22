@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import RegionChanger from '../../containers/RegionChanger'
+import RegionChanger from './RegionChanger'
 
 export default class FilterBar extends Component {
   static propTypes = {

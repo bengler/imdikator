@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react'
-import {prefixifyRegion} from '../../lib/regionUtil'
-import RegionSearch from './RegionSearchContainer'
-import Lightbox from '../elements/Lightbox'
+import {prefixifyRegion} from '../../../lib/regionUtil'
+import RegionSearch from '../../containers/RegionSearchContainer'
+import {trackRegionChanged} from '../../../actions/tracking'
+import Lightbox from '../Lightbox'
 import cx from 'classnames'
 
 /* RegionChanger
@@ -32,6 +33,8 @@ export default class RegionChanger extends Component {
     const currentUrl = window.location.href
     const newRegion = prefixifyRegion(region)
     const oldRegion = currentUrl.match('steder/(.+?)/')
+
+    trackRegionChanged()
 
     this.context.navigate(currentUrl.replace(oldRegion[1], newRegion), {
       keepScrollPosition: true,

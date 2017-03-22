@@ -247,7 +247,7 @@ class Chart {
     // of the background lines
     this.svg.selectAll('.chart__axis .tick text')
     .attr('transform', function () {
-      return `translate(0, ${-this.getBBox().height / 2})`
+      return `translate(0, ${this.getBBox().height * 2 / 3})`
     })
     .attr('class', 'chart__text--benchmark')
   }

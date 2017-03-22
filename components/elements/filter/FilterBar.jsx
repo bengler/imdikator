@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import RegionChanger from './RegionChanger'
 import cx from 'classnames'
 import humanizeList from 'humanize-list'
+import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
 
 export default class FilterBar extends Component {
   static propTypes = {
@@ -10,6 +11,7 @@ export default class FilterBar extends Component {
       props: PropTypes.any,
       component: PropTypes.func
     })),
+    region: ImdiPropTypes.region.isRequired,
     onChange: PropTypes.func
   };
 
@@ -82,17 +84,15 @@ export default class FilterBar extends Component {
           ))}
         </div>
         {toggleFilters && (
-          <div className="toggle toggle--light t-no-margin">
-            <div className="toggle toggle--light t-no-margin">
-              <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses}>{// eslint-disable-line no-script-url
+          <div className="toggle toggle--light graph__filter-toggle t-no-margin">
+            <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses}>{// eslint-disable-line no-script-url
   }
-                <span className="toggle__caption--contracted">
-                  Vis flere ({toggleFilterLabel})
-                </span>
-                <span className="toggle__caption--expanded">Færre filtre</span>
-                <i className="icon__arrow-down toggle__icon" />
-              </a>
-            </div>
+              <span className="toggle__caption--contracted">
+                Vis filter: {toggleFilterLabel}
+              </span>
+              <span className="toggle__caption--expanded">Færre filtre</span>
+              <i className="icon__arrow-down toggle__icon" />
+            </a>
           </div>
         )}
       </div>

@@ -22,8 +22,8 @@ button.chart {
 
 @media (min-width: 720px) {
 .col--fifth {
-  min-width: 33%;
-  flex-basis: 33%;
+  min-width: 33.33%;
+  flex-basis: 33.33%;
 }
 }
 @media (min-width: 912px) {
@@ -33,7 +33,34 @@ button.chart {
 }
 }
 
+.lightbox__box {
+  top: 4.5rem;
+  margin-top: 0;
+}
 
+.lightbox--second-column .lightbox__box {
+  top: 8.5rem;
+}
+
+@media (min-width: 720px) {
+.lightbox--second-column .lightbox__box {
+  top: 4.5rem;
+}
+}
+@media (min-width: 720px) {
+.lightbox--second-column .lightbox__point {
+  left: calc(33.33% + 2em);
+}
+}
+
+@media (min-width: 912px) {
+.lightbox--second-column .lightbox__point {
+left: calc(20% + 2em)
+}
+}
+.subtle-select {
+
+}
 .subtle-select__button--toggle {
   padding-top: 7px;
   background: #f2efed;
@@ -46,12 +73,20 @@ button.chart {
 .subtle-select__button--toggle-hide:after {
   background-image: url(/UI/icons/icon-arrow-up.svg);
 }
+
+.subtle-select > label {
+  margin-bottom: 0;
+}
 .toggle__button {
   background: none;
   padding-left: 0;
   color: #d83a36;
   text-decoration: underline;
   border: none;
+  width: 100%;
+}
+.subtle-select__button--location:after {
+  background-image: url(/UI/icons/icon-search.svg);
 }
 .toggle__button:hover, .toggle__button:focus {
   background: none;
@@ -60,12 +95,28 @@ button.chart {
   border: none;
 }
 .toggle__button--expanded:hover, .toggle__button--expanded:focus {
-  border-top: 2px solid #f2efed;
+  border: none;
 }
 .toggle__button:focus {
   outline: none;
 }
 .toggle__button:focus > span {
   outline: 1px dotted;
-      outline-offset: 3px;
+  outline-offset: 3px;
+}
+.toggle--light .toggle__section--expanded {
+  border-top: 2px solid #f2efed;
+}
+.graph__filter {
+  position: relative;
+}
+@media (min-width: 720px) {
+  .graph__filter-toggle {
+    position: absolute;
+  }
+}
+@media (min-width: 720px) {
+  .field-notification {
+    margin-top: -14px;
+  }
 }

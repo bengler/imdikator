@@ -30,9 +30,6 @@ export default class FilterBar extends Component {
 
   handleClick(e) {
     e.preventDefault()
-    //if (!this.state.expanded) {
-      //this.props.dispatch(trackHelpOpen())
-    //}
     this.setState({expanded: !this.state.expanded})
     return false
   }
@@ -59,7 +56,7 @@ export default class FilterBar extends Component {
     const toggleFilters = visibleFilters.length > filterLimit
 
     const toggleFiltersClasses = cx({
-      'toggle__button': true, // eslint-disable-line camelcase
+      'toggle__button': true,
       'toggle__button--expanded': this.state.expanded
     })
 
@@ -85,12 +82,12 @@ export default class FilterBar extends Component {
         </div>
         {toggleFilters && (
           <div className="toggle toggle--light graph__filter-toggle t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses}>{// eslint-disable-line no-script-url
+            <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
   }
               <span className="toggle__caption--contracted">
-                Vis filter: {toggleFilterLabel}
+                {toggleFilterLabel}
               </span>
-              <span className="toggle__caption--expanded">Færre filtre</span>
+              <span className="toggle__caption--expanded">Færre valg</span>
               <i className="icon__arrow-down toggle__icon" />
             </a>
           </div>

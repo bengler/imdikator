@@ -78,8 +78,8 @@ class CardMetadata extends Component {
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
           <div className="toggle toggle--light t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses}>{// eslint-disable-line no-script-url
-}
+            <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
+  }
               <span className="toggle__caption--contracted">
                 Veiledning og kilder
               </span>

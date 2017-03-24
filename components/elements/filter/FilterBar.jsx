@@ -70,7 +70,7 @@ export default class FilterBar extends Component {
 
     return (
       <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg">
-        <div className="flex-row t-position">
+        <div className="flex-row">
           <div className="col--fifth" style={{position: 'static'}}>
             <RegionChanger region={region} />
           </div>

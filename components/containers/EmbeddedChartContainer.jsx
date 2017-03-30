@@ -41,7 +41,7 @@ class EmbeddedChartContainer extends Component {
     if (!activeTab) {
       return (
         <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
-          Laster…
+          Laster figur…
         </div>
       )
     }
@@ -81,19 +81,25 @@ class EmbeddedChartContainer extends Component {
       <figure className="image-block">
         <div className="col-block-bleed">
           <div className="image-block__image image-block__image--figure">
-            <h3 className="h4"><a href={chartUrl}>{card.title}</a></h3>
+            <h3 className="h4">{card.title}</h3>
             <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})} />
             {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
+            <figcaption className="image-block__caption">
+              <ChartDescriptionContainer
+                query={query}
+                region={region}
+                card={card}
+                headerGroups={headerGroups}
+              />
+            </figcaption>
+            <div className="image-block__figure-footer">
+              <a href={chartUrl} className="button button--secondary button--small t-no-margin">
+                <i className="tabs-menu__icon  icon__chart-bars"></i>
+                Finn tall og statistikk for din kommune
+              </a>
+            </div>
           </div>
         </div>
-        <figcaption className="image-block__caption">
-          <ChartDescriptionContainer
-            query={query}
-            region={region}
-            card={card}
-            headerGroups={headerGroups}
-          />
-        </figcaption>
       </figure>
     )
   }

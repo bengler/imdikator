@@ -1205,7 +1205,14 @@
         "name": "voksne-i-grunnskolen",
         "title": "Voksne elever i grunnskolen",
         "config": {
-          "isLopsided": true
+          "isLopsided": true,
+          "dimensions": {
+            "undervisningGrskole": {
+              "include": [
+                "alle"
+              ]
+            }
+          }
         },
         "query": {
           "tableName": "voksne_grunnskole",
@@ -1797,7 +1804,16 @@
                 "em_tilsk",
                 "barnehage_tilsk",
                 "eldre_tilsk",
-                "skole_tilsk"
+                "skole_tilsk",
+                "persontilsk",
+                "grunn_tilsk",
+                "asylnorsk_tilsk",
+                "gratis_kjernetid",
+                "tøyensatsing",
+                "jobbsjansen",
+                "komm_utv",
+                "forebygging_radikalisering _voldelig ekstremisme"
+
               ]
             }
           }

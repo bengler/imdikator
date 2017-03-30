@@ -96,7 +96,12 @@ class RegionFilterSelect extends Component {
     const handleCancelRegionFilter = () => this.closeRegionPickerLightBox()
 
     return (
-      <Lightbox title="Sammenliknet med" onClose={handleCancelRegionFilter} onClickOutside={handleCancelRegionFilter}>
+      <Lightbox
+        title="Sammenliknet med"
+        onClose={handleCancelRegionFilter}
+        onClickOutside={handleCancelRegionFilter}
+        className="lightbox--second-column"
+      >
         <RegionPicker
           dispatch={dispatch}
           onCancel={handleCancelRegionFilter}

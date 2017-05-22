@@ -69,7 +69,7 @@ export default class PopupChoicesBox extends Component {
             {this.props.linkUrl
               && <div>
                 <p><strong>CSV er klar for nedlastning:</strong></p>
-                <a href={this.props.linkUrl} target="_blank" title="last ned CSV">Last ned CSV</a>
+                <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV</a>
               </div>
             }
 

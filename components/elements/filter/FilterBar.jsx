@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import RegionChanger from './RegionChanger'
+import throttle from '../../utils/throttle'
 import cx from 'classnames'
 import humanizeList from 'humanize-list'
 import * as ImdiPropTypes from '../../proptypes/ImdiPropTypes'
@@ -24,12 +25,25 @@ export default class FilterBar extends Component {
   constructor() {
     super()
     this.state = {
-      expanded: false
+      expanded: false,
+      windowWidth: window.innerWidth
     }
   }
 
-  handleClick(e) {
-    e.preventDefault()
+  handleResize = throttle(() => {
+    this.setState({windowWidth: window.innerWidth})
+  }, 200)
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
+  handleClick(event) {
+    event.preventDefault()
     this.setState({expanded: !this.state.expanded})
     return false
   }
@@ -44,12 +58,12 @@ export default class FilterBar extends Component {
     return humanizeList(arr, Object.assign({}, defaults, options))
   }
 
+
+
   render() {
     const {filters, region} = this.props
 
-    const width = window.innerWidth
-
-    const filterLimit = width > 600 ? (width > 912 ? 4 : 2) : 1 // eslint-disable-line no-nested-ternary
+    const filterLimit = this.state.windowWidth > 720 ? (this.state.windowWidth > 912 ? 5 : 3) : 2 // eslint-disable-line no-nested-ternary
 
     let visibleFilters = filters.filter(f => !f.props.hidden)
 
@@ -60,38 +74,40 @@ export default class FilterBar extends Component {
       'toggle__button--expanded': this.state.expanded
     })
 
-    const toggleFilterLabel = this.listify(visibleFilters.slice(filterLimit).map(filter => filter.props.label))
+    const toggleFilterLabel = this.listify(visibleFilters.slice(filterLimit - 1).map(filter => filter.props.label))
 
     if (toggleFilters) {
       if (!this.state.expanded) {
-        visibleFilters = visibleFilters.slice(0, filterLimit)
+        visibleFilters = visibleFilters.slice(0, filterLimit - 1)
       }
     }
 
     return (
       <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg">
         <div className="flex-row">
-          <div className="col--fifth" style={{position: 'static'}}>
+          <div className="col--six" style={{position: 'static'}}>
             <RegionChanger region={region} />
           </div>
           {visibleFilters.map(filter => (
-            <div key={filter.name} className="col--fifth" style={{position: 'static'}}>
+            <div key={filter.name} className="col--six" style={{position: 'static'}}>
               <filter.component {...filter.props} onChange={this.handleFilterChange.bind(this, filter)} />
             </div>
           ))}
+          {toggleFilters && (
+            <div key={toggleFilterLabel} className="col--six col--align-bottom">
+              <div className="toggle toggle--light">
+                <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses} aria-expanded={this.state.expanded} role="button" title={toggleFilterLabel}>{// eslint-disable-line no-script-url, max-len
+            }
+                  <span className="toggle__caption--contracted">
+                    Vis flere filtre
+                  </span>
+                  <span className="toggle__caption--expanded">Vis færre filtre</span>
+                  <i className="icon__arrow-down toggle__icon" />
+                </a>
+              </div>
+            </div>
+          )}
         </div>
-        {toggleFilters && (
-          <div className="toggle toggle--light graph__filter-toggle t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="javascript:" className={toggleFiltersClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
-  }
-              <span className="toggle__caption--contracted">
-                {toggleFilterLabel}
-              </span>
-              <span className="toggle__caption--expanded">Færre valg</span>
-              <i className="icon__arrow-down toggle__icon" />
-            </a>
-          </div>
-        )}
       </div>
     )
   }

@@ -77,16 +77,14 @@ class CardMetadata extends Component {
     return (
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
-          <div className="toggle toggle--light t-no-margin">
-            <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
-  }
-              <span className="toggle__caption--contracted">
-                Veiledning og kilder
-              </span>
-              <span className="toggle__caption--expanded">Skjul veiledning og kilder</span>
-              <i className="icon__arrow-down toggle__icon" />
-            </a>
-          </div>
+          <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
+}
+            <span className="toggle__caption--contracted">
+              Veiledning og kilder
+            </span>
+            <span className="toggle__caption--expanded">Skjul veiledning og kilder</span>
+            <i className="icon__arrow-down toggle__icon" />
+          </a>
 
           {this.state.expanded && (
             <div className={sectionClases}>

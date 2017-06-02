@@ -89,7 +89,7 @@ class DownloadWidget extends Component {
       apiClient.getCsvFile(query).then(response => {
         this.setState({
           isLoading: false,
-          linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}`)
+          linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
         })
       })
     }

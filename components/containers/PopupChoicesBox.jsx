@@ -66,7 +66,7 @@ export default class PopupChoicesBox extends Component {
               {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
             </button>
 
-            {this.props.linkUrl
+            {this.props.linkUrl && !this.props.isLoading
               && <div>
                 <p><strong>CSV er klar for nedlastning:</strong></p>
                 <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV</a>

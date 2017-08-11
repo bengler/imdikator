@@ -25,6 +25,7 @@ class DownloadWidget extends Component {
     super()
     this.state = {
       isLoading: false,
+      isError: false,
       linkUrl: '',
     }
   }
@@ -88,8 +89,14 @@ class DownloadWidget extends Component {
       // Call node server for CSV file
       apiClient.getCsvFile(query).then(response => {
         this.setState({
+          isError: false,
           isLoading: false,
           linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
+        })
+      }).catch(() => {
+        this.setState({
+          isLoading: false,
+          isError: true,
         })
       })
     }
@@ -101,6 +108,7 @@ class DownloadWidget extends Component {
         onCancel={handleCancelDownloadSelect}
         onApply={handApplyChoice}
         isLoading={this.state.isLoading}
+        isError={this.state.isError}
         linkUrl={this.state.linkUrl}
         choices={choices}
         applyButtonText="Hent CSV"

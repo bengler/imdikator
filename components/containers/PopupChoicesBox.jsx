@@ -12,7 +12,8 @@ export default class PopupChoicesBox extends Component {
     choiceLabel: PropTypes.string,
     applyButtonText: PropTypes.string,
     linkUrl: PropTypes.string,
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
+    isError: PropTypes.bool
   };
 
   constructor(props) {
@@ -70,6 +71,13 @@ export default class PopupChoicesBox extends Component {
               && <div>
                 <p><strong>CSV er klar for nedlastning:</strong></p>
                 <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV</a>
+              </div>
+            }
+
+            {this.props.isError && !this.props.isLoading
+              && <div>
+                <p><strong>En feil oppsto</strong></p>
+                <p>Kunne ikke genere CSV-fil</p>
               </div>
             }
 

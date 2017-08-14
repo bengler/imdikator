@@ -66,6 +66,23 @@ class DownloadWidget extends Component {
     return csvQuery
   }
 
+  buildChartQuery(query) {
+    // Ensure variables are all arrays
+    const dimensions = query.dimensions.map(d => {
+      let dimensionVariables = []
+      if (Array.isArray(d.variables)) {
+        dimensionVariables = d.variables
+      } else {
+        dimensionVariables = []
+        dimensionVariables.push(d.variables)
+      }
+      d.variables = dimensionVariables
+      return d
+    })
+    query.dimensions = dimensions
+    return query
+  }
+
   renderDownloadSelect() {
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
 
@@ -76,13 +93,14 @@ class DownloadWidget extends Component {
       this.setState({isLoading: true})
 
       const csvQuery = this.buildCsvQuery(choices[newValue])
+      const chartQuery = this.buildChartQuery(this.props.query)
       const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
 
       // Build query with required data
       const query = {
         csvQuery: JSON.stringify(Object.assign({}, toQueryParams(modifiedQuery))),
-        chartQuery: JSON.stringify(this.props.query),
+        chartQuery: JSON.stringify(chartQuery),
         dimensionLabels: JSON.stringify(csvDimensionsBuilder(this.props.query.dimensions)),
       }
 

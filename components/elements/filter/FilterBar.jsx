@@ -83,7 +83,7 @@ export default class FilterBar extends Component {
     }
 
     return (
-      <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg">
+      <div className="graph__filter" role="toolbar" aria-label="Filtreringsvalg" style={{position: 'relative'}}>
         <div className="flex-row">
           <div className="col--six" style={{position: 'static'}}>
             <RegionChanger region={region} />

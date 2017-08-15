@@ -92,16 +92,19 @@ class DownloadWidget extends Component {
       // Show loading overlay while downloading
       this.setState({isLoading: true})
 
+      // csvQuery is the query needed to ask the DB for data
       const csvQuery = this.buildCsvQuery(choices[newValue])
-      const chartQuery = this.buildChartQuery(this.props.query)
       const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
 
-      // Build query with required data
+      // chartQuery is used by the CSV generator process to build the CSV
+      const chartQuery = this.buildChartQuery(this.props.query)
+
+      // Build data object for API call
       const query = {
         csvQuery: JSON.stringify(Object.assign({}, toQueryParams(modifiedQuery))),
         chartQuery: JSON.stringify(chartQuery),
-        dimensionLabels: JSON.stringify(csvDimensionsBuilder(this.props.query.dimensions)),
+        dimensionLabels: JSON.stringify(csvDimensionsBuilder()),
       }
 
       // Call node server for CSV file

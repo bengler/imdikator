@@ -30,7 +30,6 @@ class DownloadWidget extends Component {
     }
   }
 
-
   handleOpenDownloadSelect(event) {
     event.preventDefault()
     this.setState({isDownloadSelectOpen: !this.state.isDownloadSelectOpen})
@@ -126,6 +125,7 @@ class DownloadWidget extends Component {
 
     return (
       <PopupChoicesBox
+        downloadScreenshot={this.props.downloadScreenshot}
         onCancel={handleCancelDownloadSelect}
         onApply={handApplyChoice}
         isLoading={this.state.isLoading}
@@ -136,6 +136,7 @@ class DownloadWidget extends Component {
         title="Last ned tallgrunnlag"
         choiceLabel="Velg innhold"
         description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."
+        screenShotTitle="Ta skjermbilde av tallgrunnlaget"
       />
     )
   }

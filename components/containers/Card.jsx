@@ -14,6 +14,15 @@ import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import autobind from 'react-autobind'
+import html2canvas from 'html2canvas'
+import { saveAs } from 'browser-filesaver'
+import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
+
+function downloadPNG(content, filename) {
+  const blob = new Blob([content], {type: 'img/png'})
+  saveAs(blob, filename)
+}
 
 class Card extends Component {
   static propTypes = {
@@ -41,10 +50,12 @@ class Card extends Component {
   constructor(props) {
     super()
     this.state = {
-      chartViewMode: 'chart'
+      chartViewMode: 'chart',
+      screenshot: null
     }
-  }
 
+    autobind(this)
+  }
 
   getUrlToTab(tab) {
     return this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName', {
@@ -103,9 +114,38 @@ class Card extends Component {
     return `${protocol}//${host}${path}`
   }
 
+  takeScreenshot () {
+    const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
+    graphNumbers.forEach(number => {
+      number.style.fontSize = '12px'
+    })
+
+    html2canvas(this.toggleList, { allowTaint: true }).then(canvas => {
+      this.downloadCanvas(canvas, "bilde-fra-imdi-no.png")
+    })
+  }
+
+  downloadCanvas (canvas, filename) {
+    /* ... your canvas manipulations ... */
+    if (canvas.toBlob) {
+      canvas.toBlob(
+        function (blob) {
+          // Do something with the blob object,
+          // e.g. creating a multipart form for file uploads:
+          console.log({blob})
+          downloadPNG(blob, filename)
+          var formData = new FormData();
+          formData.append('file', blob, filename);
+          /* ... */
+        },
+        'image/jpeg'
+      );
+    }
+  }
+
   render() {
-    const {loading, card, activeTab, query, queryResult, region, headerGroups, printable} = this.props
-    const {chartViewMode} = this.state
+    const { loading, card, activeTab, query, queryResult, region, headerGroups, printable } = this.props
+    const { chartViewMode } = this.state
 
     if (!activeTab) {
       return (
@@ -153,6 +193,7 @@ class Card extends Component {
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
+        ref={(toggleList) => this.toggleList = toggleList }
       >
 
         {!printable && (
@@ -202,7 +243,7 @@ class Card extends Component {
         {!printable && (
           <div className="graph__functions">
             <ShareWidget chartUrl={this.getShareUrl()} />
-            <DownloadWidget region={region} query={query} headerGroups={headerGroups} />
+            <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} />
           </div>
         )}
 

@@ -17,6 +17,22 @@ The entire stand alone React front-end application for [IMDi - Tall og Statistik
 
 Now the app should be up and running on http://localhost:3000
 
+# Contributing
+#### TL;DR
+Push to feature branch -> review -> merge to develop
+
+/or/
+
+1. `$ git checkout -b feature-name`
+2. write code and commit
+3. `$ git push origin feature-name`
+4. open a pull request  [Pull Requests · bengler/imdikator · GitHub](https://github.com/bengler/imdikator/pulls)
+5. make someone review (or not)
+6. merge feature into branch `develop`
+
+#### Detailed git rules
+https://github.com/wearehive/project-guidelines#1-git
+
 # Important files
 
 ### cardpages.json

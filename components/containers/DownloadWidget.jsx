@@ -136,7 +136,7 @@ class DownloadWidget extends Component {
         title="Last ned tallgrunnlag"
         choiceLabel="Velg innhold"
         description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."
-        screenShotTitle="Ta skjermbilde av tallgrunnlaget"
+        screenShotTitle="Last ned skjermbilde"
       />
     )
   }

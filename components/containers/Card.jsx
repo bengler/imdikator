@@ -20,7 +20,7 @@ import { saveAs } from 'browser-filesaver'
 import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
 
 function downloadPNG(content, filename) {
-  const blob = new Blob([content], {type: 'img/png'})
+  const blob = new Blob([content], { type: 'image/png' })
   saveAs(blob, filename)
 }
 
@@ -120,25 +120,18 @@ class Card extends Component {
       number.style.fontSize = '12px'
     })
 
-    html2canvas(this.toggleList, { allowTaint: true }).then(canvas => {
+    html2canvas(this.toggleList, { useCORS: true }).then(canvas => {
       this.downloadCanvas(canvas, "bilde-fra-imdi-no.png")
     })
   }
 
   downloadCanvas (canvas, filename) {
-    /* ... your canvas manipulations ... */
     if (canvas.toBlob) {
       canvas.toBlob(
         function (blob) {
-          // Do something with the blob object,
-          // e.g. creating a multipart form for file uploads:
-          console.log({blob})
           downloadPNG(blob, filename)
-          var formData = new FormData();
-          formData.append('file', blob, filename);
-          /* ... */
         },
-        'image/jpeg'
+        'image/png'
       );
     }
   }
@@ -194,6 +187,7 @@ class Card extends Component {
         aria-hidden="false"
         style={{display: 'block'}}
         ref={(toggleList) => this.toggleList = toggleList }
+        crossorigin="anonymous"
       >
 
         {!printable && (

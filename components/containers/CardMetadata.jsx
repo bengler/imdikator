@@ -80,18 +80,20 @@ class CardMetadata extends Component {
     return (
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
+          {metadata.source && metadata.measuredAt && <p>{metadata.source}, målt: {metadata.measuredAt}</p>}
+
           <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
 }
             <span className="toggle__caption--contracted">
-              Veiledning og kilder
+              Bakgrunn for tallene
             </span>
-            <span className="toggle__caption--expanded">Skjul veiledning og kilder</span>
+            <span className="toggle__caption--expanded">Skjul bakgrunn for tallene</span>
             <i className="icon__arrow-down toggle__icon" />
           </a>
 
           {this.state.expanded && (
             <div className={sectionClases}>
-              <h4 className="h2">Veiledning og kilder</h4>
+              <h4 className="h2">Bakgrunn for tallene</h4>
               <h5 className="h3">Sammendrag</h5>
               <div dangerouslySetInnerHTML={{__html: metadata.description}} />
               <h5 className="h3">Begrepsforklaring</h5>

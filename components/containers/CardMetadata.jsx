@@ -14,7 +14,10 @@ class CardMetadata extends Component {
     }),
     dimensions: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
-      variables: PropTypes.arrayOf(PropTypes.string)
+      variables: PropTypes.oneOf([
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.string
+      ])
     })),
     variableDefinitions: PropTypes.shape({
       items: PropTypes.arrayOf(PropTypes.shape({

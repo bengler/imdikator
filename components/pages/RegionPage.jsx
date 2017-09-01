@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import Scroll from 'react-scroll'
+import autobind from 'react-autobind'
 
 import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
 import RegionChildListContainer from '../containers/RegionChildListContainer'
@@ -7,12 +9,15 @@ import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
 import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
-
 import {showOverlay} from '../../actions/overlay'
 
 import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+
+const Element    = Scroll.Element;
+const scroll     = Scroll.animateScroll;
+const scroller   = Scroll.scroller;
 
 class RegionPage extends Component {
 
@@ -25,7 +30,13 @@ class RegionPage extends Component {
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  };
+  }
+
+  constructor () {
+    super()
+
+    autobind(this)
+  }
 
   handleClickFactSheet() {
     // Show full-page loading overlay
@@ -34,11 +45,23 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
+    this.gotoElement('searchResult')
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
+  scrollToTop () {
+    scroll.scrollToTop()
+  }
+
+  gotoElement (element) {
+    scroller.scrollTo(element, {
+      duration: 400,
+      smooth: true
+    })
+  }
+
   render() {
-    const {currentRegion} = this.props
+    const { currentRegion } = this.props
 
     if (!currentRegion) {
       return null
@@ -65,7 +88,8 @@ class RegionPage extends Component {
             </div>
           </div>
         </div>
-        <div className="page__section page__section--grey">
+        <div id='pageSection' ref={pageSection => this.pageSection = pageSection } className="page__section page__section--grey">
+          <Element name="searchResult"></Element>
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
@@ -121,6 +145,9 @@ class RegionPage extends Component {
             </div>
           </div>
         }
+        <button className="scroll-to-top" onClick={() => scroll.scrollToTop()}>
+          Gå til toppen!
+        </button>
       </main>
     )
   }

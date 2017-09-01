@@ -77,6 +77,7 @@
     "react-codemirror": "^0.2.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
+    "react-scroll": "^1.5.4",
     "rebundler": "^0.3.0",
     "redocify": "^1.0.1",
     "redux": "^3.0.4",

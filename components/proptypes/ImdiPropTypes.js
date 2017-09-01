@@ -39,7 +39,6 @@ export const chartData = PropTypes.shape({
   rows: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.number
   }))
-  //... add more
 })
 
 export const querySpec = PropTypes.array
@@ -47,10 +46,7 @@ export const querySpec = PropTypes.array
 export const query = PropTypes.shape({
   dimensions: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
-    variables: PropTypes.oneOf([
-      PropTypes.arrayOf(PropTypes.string),
-      PropTypes.string
-    ])
+    variables: PropTypes.arrayOf(PropTypes.string)
   })),
   tableName: PropTypes.string
 })

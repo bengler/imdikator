@@ -140,7 +140,7 @@ class RegionPage extends Component {
                   <div className="feature feature--white">
                     <RegionChildListContainer region={currentRegion} />
                   </div>
-                  <button className="scroll-to-top" onClick={() => scroll.scrollToTop()}>
+                  <button className="button scroll-to-top" onClick={() => scroll.scrollToTop()}>
                     Gå til toppen!
                   </button>
                 </div>

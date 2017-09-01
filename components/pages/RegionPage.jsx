@@ -94,7 +94,7 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <CardPageButtonsContainer />
-                <h2 className="page__section-title">Oppsummering {currentRegion.name && `for ${currentRegion.name}`}</h2>
+                <h2 className="page__section-title">Oppsummering {currentRegion.name && `av ${currentRegion.name}`}</h2>
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     <RegionSummaryChartsContainer region={currentRegion} />

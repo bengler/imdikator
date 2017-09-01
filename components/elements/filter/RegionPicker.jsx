@@ -43,7 +43,6 @@ export default class RegionPicker extends Component {
 
   clear() {
     this.setState({value: []}, () => {
-      console.log('this.props', this.props);
       this.apply()
     })
   }

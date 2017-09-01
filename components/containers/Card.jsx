@@ -115,6 +115,7 @@ class Card extends Component {
   }
 
   takeScreenshot () {
+    // prevent text from overflowing screenshot
     const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
     graphNumbers.forEach(number => {
       number.style.fontSize = '12px'

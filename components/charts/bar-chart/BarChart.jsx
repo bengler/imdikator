@@ -175,6 +175,7 @@ export default class BarChart extends React.Component {
 //     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
+    .attr('tabindex', '0')
     .attr('width', item => item.scale.rangeBand())
     .attr('x', dataItem => dataItem.scale(dataItem.title))
     // Want full height for this one
@@ -191,6 +192,8 @@ export default class BarChart extends React.Component {
     })
     .on('mouseover', item => open(item))
     .on('mouseout', () => close())
+    .on('focus', item => open(item))
+    .on('blur', () => close())
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend

@@ -6,7 +6,7 @@ import FactsPage from '../../components/pages/FactsPage'
 import UrlQuery from '../../lib/UrlQuery'
 
 import {setCurrentRegionByCode} from '../../actions/region'
-import {loadCardsPage, openCard} from '../../actions/cardsPage'
+import {loadCardsPage, openCard} from '../../actions/cardsPage';
 import {loadFactsPageData} from '../../actions/factsPage'
 
 //import ChartsPage from '../../components/pages/ChartsPage'
@@ -44,7 +44,8 @@ routes.add('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', (dispa
   const {params} = match
   dispatch(
     loadCardsPage(params.region, params.cardsPageName, {
-      cardName: params.cardName
+      cardName: params.cardName,
+      tabName: params.tabName
     })
   )
   dispatch(openCard(params.cardName))

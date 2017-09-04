@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import Scroll from 'react-scroll'
+import smoothScroll from 'smoothscroll'
 import autobind from 'react-autobind'
 
 import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
@@ -14,10 +14,6 @@ import {showOverlay} from '../../actions/overlay'
 import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-
-const Element    = Scroll.Element;
-const scroll     = Scroll.animateScroll;
-const scroller   = Scroll.scroller;
 
 class RegionPage extends Component {
 
@@ -45,19 +41,16 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.gotoElement('searchResult')
+    this.gotoElement(this.pageSection)
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
   scrollToTop () {
-    scroll.scrollToTop()
+    smoothScroll(document.querySelector('body'))
   }
 
   gotoElement (element) {
-    scroller.scrollTo(element, {
-      duration: 400,
-      smooth: true
-    })
+    smoothScroll(element)
   }
 
   render() {
@@ -89,7 +82,6 @@ class RegionPage extends Component {
           </div>
         </div>
         <div id='pageSection' ref={pageSection => this.pageSection = pageSection } className="page__section page__section--grey">
-          <Element name="searchResult"></Element>
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
@@ -140,7 +132,7 @@ class RegionPage extends Component {
                   <div className="feature feature--white">
                     <RegionChildListContainer region={currentRegion} />
                   </div>
-                  <button className="button scroll-to-top" onClick={() => scroll.scrollToTop()}>
+                  <button className="button scroll-to-top" onClick={() => this.scrollToTop()}>
                     Gå til toppen!
                   </button>
                 </div>

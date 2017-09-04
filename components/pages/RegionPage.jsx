@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import smoothScroll from 'smoothscroll'
-import autobind from 'react-autobind'
 
 import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
 import RegionChildListContainer from '../containers/RegionChildListContainer'
@@ -31,7 +30,8 @@ class RegionPage extends Component {
   constructor () {
     super()
 
-    autobind(this)
+    this.handleSelectRegion = this.handleSelectRegion.bind(this)
+    this.handleClickFactSheet = this.handleClickFactSheet.bind(this)
   }
 
   handleClickFactSheet() {
@@ -72,7 +72,7 @@ class RegionPage extends Component {
                   <div className="t-margin-bottom--large t-hide-on-print">
                     <label><span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">
-                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                        <RegionSearch onSelect={this.handleSelectRegion} placeholder="Kommune/bydel/fylke/næringsregion" />
                       </div>
                     </label>
                   </div>
@@ -100,7 +100,7 @@ class RegionPage extends Component {
                     {currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`} er gjengitt.
                   </p>
                   <p>
-                    <a href="#" onClick={this.handleClickFactSheet.bind(this)} className="button button-">
+                    <a href="#" onClick={this.handleClickFactSheet} className="button button-">
                       <i className="icon__download icon--white" /> Utskriftsvennlig faktaark
                     </a>
                   </p>

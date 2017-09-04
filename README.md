@@ -83,7 +83,7 @@ https://github.com/wearehive/project-guidelines#1-git
     │
     ├── /reducers
     │   ├── / index.js              - Reducer combiner
-    │   └── / *.js                  - Redux reducers
+    │   └── / *.js                   - Redux reducers
     │
     ├── /static-routes
     │   └── / *.js                  - Defines the different bundles
@@ -95,6 +95,40 @@ https://github.com/wearehive/project-guidelines#1-git
     │   └── /                       - Test specs and runner config
     │
     └── /*                          - Project root
+
+
+
+# App initialisation
+
+Here's how the app starts and hwo the tables are built from load to render, including where the data comes from.
+
+1: loader.js runs and finds the api/data host based on the div with id `#imdikator-loader` in the document in which Imdikator is included.
+
+2: loader.js checks if Imdikator should run in `site` or `embed` mode depending on what data-attribute the root div has ([data-imdikator=site] or [data-imdikator=embed])
+
+3: Finally, loader.js loads the right version of Imdikator into the document. (`site.js` or `embeds.js`).
+
+4: Next, the `site.js` or `embeds.js` file will be loaded through ajax and initialise the Imdikator react app.
+
+5: Now the app can start and will have the URL of the apiHost and the contentApiHost available through the window element.
+
+- apiHost is the database where all table data is fetched from
+- contentApiHost is the episerver endpoint where table variables are gotten from (example: innvkat_4 = "Innvandrere under 16 år")
+
+6: The starting point for each of two versions of Imdikator is the `entry.jsx` file in the `bundles` folder. Here the react app is initialised in the correct div and routing is setup. The file first runs `loadInitialState` which gets region and cardPage data from the api/local files, and then afterwards runs `bootstrap` which starts the react app and initialises the Redux store.
+
+# Data flow
+
+All data is fetched through the `lib/api-client` file, which exposes a set of functions used throughout the app to get data from all available sources.
+
+The data fetching is driven by the URL. Once a user lands on a page, it will be matched in the `bundles/site/routes` file and depending on the route, an action will be dispatched to Redux to fetch the required data. (example: `loadCardsPage` for a card page and `openCard` for a card)
+
+- A cardPage is a main category page, for example "Befolkning og bosetting"
+- A card is a single table/chart within a cardpage, for example "Sammensetning av befolkning"
+- The structure and hirarchy of these are all configured in `cardPages.json`.
+
+
+
 
 
 # TO-DO:

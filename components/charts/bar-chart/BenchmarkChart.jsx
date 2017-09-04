@@ -160,6 +160,7 @@ export default class BenchmarkChart extends React.Component {
 //     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
+    .attr('tabindex', '0')
     .attr('x', dataItem => x(dataItem.title))
     .attr('y', 0)
     .attr('width', dataItem => x.rangeBand())
@@ -175,6 +176,8 @@ export default class BenchmarkChart extends React.Component {
     })
     .on('mouseover', item => open(item))
     .on('mouseout', () => close())
+    .on('focus', item => open(item))
+    .on('blur', () => close())
   }
 
   render() {

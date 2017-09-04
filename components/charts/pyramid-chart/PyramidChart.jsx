@@ -193,6 +193,7 @@ export default class PyramidChart extends React.Component {
 //     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
+    .attr('tabindex', '0')
     .attr('width', xScale(xScale.domain()[1]))
     .attr('height', yScale.rangeBand())
     .attr('x', 0)
@@ -208,6 +209,8 @@ export default class PyramidChart extends React.Component {
     })
     .on('mouseover', item => open(item))
     .on('mouseout', () => close())
+    .on('focus', item => open(item))
+    .on('blur', () => close())
 
     // Right side
     const rightBarGroup = category.append('g')

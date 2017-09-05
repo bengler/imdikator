@@ -17,9 +17,6 @@ class App extends Component {
     navigate: PropTypes.func,
   };
 
-  static defaultProps = {
-  };
-
   getChildContext() {
     const {router} = this.props
     return {
@@ -31,10 +28,9 @@ class App extends Component {
     }
   }
 
-
   render() {
     return (
-      <div>
+      <div onKeyDown={this.giveArrowsAbilityToTab} onClick={this.giveArrowsAbilityToTab}>
         {this.props.showLoadingOverlay && <LoadingOverlay />}
         <div className="page__content page__content--section">
           <div className="wrapper">

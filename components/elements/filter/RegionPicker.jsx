@@ -42,7 +42,9 @@ export default class RegionPicker extends Component {
   }
 
   clear() {
-    this.setState({value: []})
+    this.setState({value: []}, () => {
+      this.apply()
+    })
   }
 
   apply() {

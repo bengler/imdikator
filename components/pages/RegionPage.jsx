@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import Scroll from 'react-scroll'
-import autobind from 'react-autobind'
+import smoothScroll from 'smoothscroll'
 
 import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
 import RegionChildListContainer from '../containers/RegionChildListContainer'
@@ -34,8 +33,8 @@ class RegionPage extends Component {
 
   constructor () {
     super()
-
-    autobind(this)
+    this.handleSelectRegion = this.handleSelectRegion.bind(this)
+    this.handleClickFactSheet = this.handleClickFactSheet.bind(this)
   }
 
   handleClickFactSheet() {
@@ -45,19 +44,16 @@ class RegionPage extends Component {
   }
 
   handleSelectRegion(region) {
-    this.gotoElement('searchResult')
+    this.gotoElement(this.pageSection)
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
   scrollToTop () {
-    scroll.scrollToTop()
+    smoothScroll(document.querySelector('body'))
   }
 
   gotoElement (element) {
-    scroller.scrollTo(element, {
-      duration: 400,
-      smooth: true
-    })
+    smoothScroll(element)
   }
 
   render() {
@@ -79,7 +75,7 @@ class RegionPage extends Component {
                   <div className="t-margin-bottom--large t-hide-on-print">
                     <label><span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">
-                        <RegionSearch onSelect={this.handleSelectRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                        <RegionSearch onSelect={this.handleSelectRegion} placeholder="Kommune/bydel/fylke/næringsregion" />
                       </div>
                     </label>
                   </div>
@@ -89,7 +85,6 @@ class RegionPage extends Component {
           </div>
         </div>
         <div id='pageSection' ref={pageSection => this.pageSection = pageSection } className="page__section page__section--grey">
-          <Element name="searchResult"></Element>
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
@@ -108,7 +103,7 @@ class RegionPage extends Component {
                     {currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`} er gjengitt.
                   </p>
                   <p>
-                    <a href="#" onClick={this.handleClickFactSheet.bind(this)} className="button button-">
+                    <a href="#" onClick={this.handleClickFactSheet} className="button button-">
                       <i className="icon__download icon--white" /> Utskriftsvennlig faktaark
                     </a>
                   </p>
@@ -140,7 +135,7 @@ class RegionPage extends Component {
                   <div className="feature feature--white">
                     <RegionChildListContainer region={currentRegion} />
                   </div>
-                  <button className="button scroll-to-top" onClick={() => scroll.scrollToTop()}>
+                  <button className="button scroll-to-top" onClick={() => this.scrollToTop()}>
                     Gå til toppen!
                   </button>
                 </div>

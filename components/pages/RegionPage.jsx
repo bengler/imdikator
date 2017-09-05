@@ -14,6 +14,10 @@ import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
+const Element    = Scroll.Element;
+const scroll     = Scroll.animateScroll;
+const scroller   = Scroll.scroller;
+
 class RegionPage extends Component {
 
   static propTypes = {
@@ -29,7 +33,6 @@ class RegionPage extends Component {
 
   constructor () {
     super()
-
     this.handleSelectRegion = this.handleSelectRegion.bind(this)
     this.handleClickFactSheet = this.handleClickFactSheet.bind(this)
   }

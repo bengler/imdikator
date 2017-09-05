@@ -66,6 +66,9 @@ export default class PopupChoicesBox extends Component {
             <button type="button" disabled={this.props.isLoading} className="button" onClick={this.onApply.bind(this)}>
               {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
             </button>
+            <button type="button" disabled={this.props.isLoading} className="button" onClick={this.props.downloadScreenshot}>
+              {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.screenShotTitle}
+            </button>
 
             {this.props.linkUrl && !this.props.isLoading
               && <div>

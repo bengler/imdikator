@@ -80,7 +80,7 @@ class CardMetadata extends Component {
     return (
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
-          {metadata.source && metadata.measuredAt && <p>{metadata.source}, målt: {metadata.measuredAt}</p>}
+          {metadata.source && metadata.measuredAt && <p>Kilde: {metadata.source}, målt: {metadata.measuredAt}</p>}
 
           <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
 }

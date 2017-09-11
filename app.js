@@ -10,7 +10,6 @@ import staticRoutes from './static-routes'
 import quickreload from 'quickreload'
 import capture from 'error-capture-middleware'
 import serve from 'staticr/serve'
-import proxy from 'html2canvas-proxy'
 
 const app = express()
 
@@ -30,8 +29,6 @@ if (config.env === 'development') {
 if (config.env === 'development') {
   app.use(express.static(path.join(__dirname, 'public')))
 }
-
-app.use('/', proxy())
 
 app.get('/debug/embeds', (req, res) => {
   res.status(200).send(ReactDOMServer.renderToStaticMarkup(<EmbedTest />))

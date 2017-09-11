@@ -14,10 +14,6 @@ import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import {_t} from '../../lib/translate'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
-const Element    = Scroll.Element;
-const scroll     = Scroll.animateScroll;
-const scroller   = Scroll.scroller;
-
 class RegionPage extends Component {
 
   static propTypes = {

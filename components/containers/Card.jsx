@@ -14,7 +14,6 @@ import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import autobind from 'react-autobind'
 import html2canvas from 'html2canvas'
 import { saveAs } from 'browser-filesaver'
 import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
@@ -25,6 +24,7 @@ function downloadPNG(content, filename) {
 }
 
 class Card extends Component {
+
   static propTypes = {
     dispatch: PropTypes.func,
     loading: PropTypes.bool,
@@ -53,8 +53,8 @@ class Card extends Component {
       chartViewMode: 'chart',
       screenshot: null
     }
-
-    autobind(this)
+    this.getUrlToTab = this.getUrlToTab.bind(this)
+    this.getShareUrl = this.getShareUrl.bind(this)
   }
 
   getUrlToTab(tab) {

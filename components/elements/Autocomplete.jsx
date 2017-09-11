@@ -117,6 +117,7 @@ export default class Autocomplete extends Component {
         // already selected this, do nothing
         return
       }
+
       if (this.state.highlightedIndex === null) {
         // hit enter after focus but before typing anything so no autocomplete attempt yet
         this.setState({
@@ -159,6 +160,7 @@ export default class Autocomplete extends Component {
   }
 
   handleKeyDown(event) {
+
     if (this.keyDownHandlers[event.key]) {
       this.keyDownHandlers[event.key].call(this, event)
     } else {

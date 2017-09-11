@@ -1,8 +1,11 @@
 import React, {Component, PropTypes} from 'react'
-import CardList from '../containers/CardList'
 import {connect} from 'react-redux'
+
+import smoothScroll from 'smoothscroll'
+
 import {getHeaderKey, getPageTitle, getPageIngress} from '../../lib/regionUtil'
 import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
+import CardList from '../containers/CardList'
 import RegionSearch from '../containers/RegionSearchContainer'
 import RegionQuickSwitch from '../containers/RegionQuickSwitch'
 import RegionInfoContainer from '../containers/RegionInfoContainer'
@@ -26,6 +29,7 @@ class CardsPage extends Component {
   };
 
   handleSwitchRegion(region) {
+    smoothScroll(this.pageSection)
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
@@ -75,7 +79,7 @@ class CardsPage extends Component {
           </div>
         </div>
 
-        <div className="page__section page__section--grey">
+        <div className="page__section page__section--grey" ref={(pageSection) => { this.pageSection = pageSection }}>
           <div className="wrapper">
             <div className="row">
               <div className="col--main">

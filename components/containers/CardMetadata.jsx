@@ -85,9 +85,9 @@ class CardMetadata extends Component {
           <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
 }
             <span className="toggle__caption--contracted">
-              Bakgrunn for tallene
+              Om statistikken
             </span>
-            <span className="toggle__caption--expanded">Skjul bakgrunn for tallene</span>
+            <span className="toggle__caption--expanded">Skjul om statistikken</span>
             <i className="icon__arrow-down toggle__icon" />
           </a>
 

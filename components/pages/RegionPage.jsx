@@ -27,7 +27,7 @@ class RegionPage extends Component {
     goTo: PropTypes.func
   }
 
-  constructor () {
+  constructor() {
     super()
     this.handleSelectRegion = this.handleSelectRegion.bind(this)
     this.handleClickFactSheet = this.handleClickFactSheet.bind(this)
@@ -44,16 +44,16 @@ class RegionPage extends Component {
     this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
   }
 
-  scrollToTop () {
+  scrollToTop() {
     smoothScroll(document.querySelector('body'))
   }
 
-  gotoElement (element) {
+  gotoElement(element) {
     smoothScroll(element)
   }
 
   render() {
-    const { currentRegion } = this.props
+    const {currentRegion} = this.props
 
     if (!currentRegion) {
       return null
@@ -80,7 +80,7 @@ class RegionPage extends Component {
             </div>
           </div>
         </div>
-        <div id='pageSection' ref={pageSection => this.pageSection = pageSection } className="page__section page__section--grey">
+        <div id="pageSection" ref={(pageSection) => { this.pageSection = pageSection }} className="page__section page__section--grey">
           <div className="wrapper">
             <div className="row">
               <div className="col--main">

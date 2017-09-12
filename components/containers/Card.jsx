@@ -15,11 +15,11 @@ import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import html2canvas from 'html2canvas'
-import { saveAs } from 'browser-filesaver'
+import {saveAs} from 'browser-filesaver'
 import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
 
 function downloadPNG(content, filename) {
-  const blob = new Blob([content], { type: 'image/png' })
+  const blob = new Blob([content], {type: 'image/png'})
   saveAs(blob, filename)
 }
 
@@ -95,6 +95,7 @@ class Card extends Component {
 
   getUrlForQuery(query) {
     const {card, region, cardsPageName, activeTab} = this.props
+    console.log({query})
 
     const params = {
       region: region.prefixedCode,
@@ -114,32 +115,32 @@ class Card extends Component {
     return `${protocol}//${host}${path}`
   }
 
-  takeScreenshot () {
+  takeScreenshot() {
     // prevent text from overflowing screenshot
     const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
     graphNumbers.forEach(number => {
       number.style.fontSize = '12px'
     })
 
-    html2canvas(this.toggleList, { useCORS: true }).then(canvas => {
-      this.downloadCanvas(canvas, "bilde-fra-imdi-no.png")
+    html2canvas(this.toggleList, {useCORS: true}).then(canvas => {
+      this.downloadCanvas(canvas, 'bilde-fra-imdi-no.png')
     })
   }
 
-  downloadCanvas (canvas, filename) {
+  downloadCanvas(canvas, filename) {
     if (canvas.toBlob) {
       canvas.toBlob(
         function (blob) {
           downloadPNG(blob, filename)
         },
         'image/png'
-      );
+      )
     }
   }
 
   render() {
-    const { loading, card, activeTab, query, queryResult, region, headerGroups, printable } = this.props
-    const { chartViewMode } = this.state
+    const {loading, card, activeTab, query, queryResult, region, headerGroups, printable} = this.props
+    const {chartViewMode} = this.state
 
     if (!activeTab) {
       return (
@@ -187,8 +188,8 @@ class Card extends Component {
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
-        ref={(toggleList) => this.toggleList = toggleList }
-        crossorigin="anonymous"
+        ref={(toggleList) => { this.toggleList = toggleList }}
+        crossOrigin="anonymous"
       >
 
         {!printable && (
@@ -264,7 +265,7 @@ class Card extends Component {
 function mapStateToProps(state, ownProps) {
 
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
-
+  console.log({cardState})
   if (!cardState || cardState.initializing) {
     return {loading: true}
   }

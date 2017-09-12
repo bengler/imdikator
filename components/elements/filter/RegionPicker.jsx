@@ -99,11 +99,8 @@ export default class RegionPicker extends Component {
   render() {
 
     const {groups, choices, onApplyAll} = this.props
-
     const {value} = this.state
-
     const grouped = union(...groups.map(group => group.items))
-
     const other = difference(value, grouped)
 
     return (

@@ -130,6 +130,8 @@ export default class StackedBarChart extends Component {
     })
     .on('mouseover', item => open(item))
     .on('mouseout', () => close())
+    .on('focus', item => open(item))
+    .on('blur', () => close())
 
     // Add X axis
     const xAxisEl = this.svg.append('g')

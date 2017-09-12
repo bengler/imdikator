@@ -70,6 +70,7 @@ class FilterBarContainer extends Component {
         }
       })
     }
+    console.log({query, config})
 
     const constrainedQuery = constrainQuery(newQuery, this.getQuerySpec(newQuery), config)
     if (process.env.NODE_ENV !== 'production') {
@@ -104,10 +105,10 @@ class FilterBarContainer extends Component {
   getQuerySpec(query) {
     const {tab, chart, config, headerGroups} = this.props
     return getQuerySpec(query, {
-      tab: tab,
-      chart: chart,
-      headerGroups: headerGroups,
-      config: config
+      tab,
+      chart,
+      headerGroups,
+      config
     })
   }
 
@@ -260,7 +261,6 @@ class FilterBarContainer extends Component {
       }
 
     })
-
     return (
       <FilterBar region={this.props.region} filters={filters} onChange={this.handleFilterChange.bind(this)} />
     )

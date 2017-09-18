@@ -84,6 +84,8 @@ class Card extends Component {
   }
 
   handleFilterChange(newQuery) {
+    const newQ = this.getUrlForQuery(newQuery)
+    console.log(newQ)
     return this.context.navigate(this.getUrlForQuery(newQuery), {replace: true, keepScrollPosition: true})
   }
 
@@ -95,7 +97,6 @@ class Card extends Component {
 
   getUrlForQuery(query) {
     const {card, region, cardsPageName, activeTab} = this.props
-    console.log({query})
 
     const params = {
       region: region.prefixedCode,
@@ -150,7 +151,9 @@ class Card extends Component {
       )
     }
 
+    // headerGroup links query from cardPages.json to the actual data that will be shown.
     const headerGroup = this.getHeaderGroupForQuery(query)
+
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
       disabledTabs.push('chronological')
@@ -182,7 +185,6 @@ class Card extends Component {
         value: [region.prefixedCode]
       }
     }
-
     return (
       <section
         className="toggle-list__section toggle-list__section--expanded"
@@ -265,7 +267,6 @@ class Card extends Component {
 function mapStateToProps(state, ownProps) {
 
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
-  console.log({cardState})
   if (!cardState || cardState.initializing) {
     return {loading: true}
   }

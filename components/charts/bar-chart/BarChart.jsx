@@ -191,6 +191,8 @@ export default class BarChart extends React.Component {
     })
     .on('mouseover', item => open(item))
     .on('mouseout', () => close())
+    .on('focus', item => open(item))
+    .on('blur', () => close())
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend

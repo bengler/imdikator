@@ -1,9 +1,8 @@
 import React from 'react'
 import d3 from 'd3'
+
 import D3Chart from '../../utils/D3Chart'
-
 import CHARTS_CONFIG from '../../../config/chartsConfigs'
-
 import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
 
 export default class BarChart extends React.Component {
@@ -11,7 +10,8 @@ export default class BarChart extends React.Component {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
     minimalHeight: React.PropTypes.bool
-  };
+  }
+
   prepareData(data) {
     const dimensions = data.dimensions.slice()
     if (dimensions.length == 1) {
@@ -53,6 +53,12 @@ export default class BarChart extends React.Component {
     if (!data) {
       return
     }
+
+    //  d3 doesn't like arrow functions
+    d3.select('.button.download__svg').on('click', function () {
+      const config = {filename: 'imdi-diagram'}
+      d3_save_svg.save(d3.select('svg').node().parentNode.innerHTML, config)
+    })
 
     const svg = this.svg
 
@@ -127,30 +133,30 @@ export default class BarChart extends React.Component {
     this.addYAxis(yc.scale, yc.axisFormat)
 
     const category = svg.selectAll('.chart__category')
-    .data(data.preparedData)
-    .enter()
-    .append('g')
-    .attr('class', 'chart__category')
-    .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
+      .data(data.preparedData)
+      .enter()
+      .append('g')
+      .attr('class', 'chart__category')
+      .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
 
     category.selectAll('rect.chart__bar')
-    .data(dataItem => dataItem.values)
-    .enter()
-    .append('rect')
-    .attr('class', 'chart__bar')
-    .attr('width', item => item.scale.rangeBand())
-    .attr('x', dataItem => dataItem.scale(dataItem.title))
-    .attr('y', dataItem => {
-      const val = Math.max(0, dataItem.value)
-      return yc.scale(val)
-    })
-    .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
-    .style('fill', dataItem => dataItem.fill)
-    .style('stroke', dataItem => dataItem.stroke)
-    .style('stroke-width', dataItem => dataItem.strokeWidth)
-    .each(function (item) {
-      item.el = this
-    })
+      .data(dataItem => dataItem.values)
+      .enter()
+      .append('rect')
+      .attr('class', 'chart__bar')
+      .attr('width', item => item.scale.rangeBand())
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      .attr('y', dataItem => {
+        const val = Math.max(0, dataItem.value)
+        return yc.scale(val)
+      })
+      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+      .style('fill', dataItem => dataItem.fill)
+      .style('stroke', dataItem => dataItem.stroke)
+      .style('stroke-width', dataItem => dataItem.strokeWidth)
+      .each(function (item) {
+        item.el = this
+      })
 
     let hoveropen = false
     const open = item => {
@@ -166,33 +172,33 @@ export default class BarChart extends React.Component {
       hoveropen = false
     }
     category.selectAll('rect.chart__bar-hover')
-    .data(dataItem => dataItem.values)
-    .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
-    .append('rect')
-    .attr('class', 'chart__bar-hover')
-    .attr('width', item => item.scale.rangeBand())
-    .attr('x', dataItem => dataItem.scale(dataItem.title))
-    // Want full height for this one
-    .attr('y', 0)
-    .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
-    .attr('pointer-events', 'all')
-    .style('fill', 'none')
-    .on('touchend', item => {
-      if (hoveropen) {
-        close()
-      } else {
-        open(item)
-      }
-    })
-    .on('mouseover', item => open(item))
-    .on('mouseout', () => close())
-    .on('focus', item => open(item))
-    .on('blur', () => close())
+      .data(dataItem => dataItem.values)
+      .enter()
+  //     .append('svg:a')
+  //     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+  //     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+  //     .on('click', () => d3.event.stopPropagation())
+  //     .on('focus', item => open(item))
+      .append('rect')
+      .attr('class', 'chart__bar-hover')
+      .attr('width', item => item.scale.rangeBand())
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      // Want full height for this one
+      .attr('y', 0)
+      .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
+      .attr('pointer-events', 'all')
+      .style('fill', 'none')
+      .on('touchend', item => {
+        if (hoveropen) {
+          close()
+        } else {
+          open(item)
+        }
+      })
+      .on('mouseover', item => open(item))
+      .on('mouseout', () => close())
+      .on('focus', item => open(item))
+      .on('blur', () => close())
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend
@@ -216,11 +222,11 @@ export default class BarChart extends React.Component {
     const leg = this.legend().color(seriesColor)
     // Add some space between the x axis labels and the legends
     const legendWrapper = this._svg.append('g')
-    .attr('class', 'chart__legend-wrapper')
-    .attr('width', this.fullWidth)
-    // Place it at the very bottom
-    .datum(series)
-    .call(leg)
+      .attr('class', 'chart__legend-wrapper')
+      .attr('width', this.fullWidth)
+      // Place it at the very bottom
+      .datum(series)
+      .call(leg)
     /* eslint-enable prefer-reflect */
 
     // Add some space between the x axis labels and the legends
@@ -231,17 +237,17 @@ export default class BarChart extends React.Component {
     // Expand the height to fit the legend
     const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
     this._svg
-    .attr('height', expandedHeight)
-    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
+      .attr('height', expandedHeight)
+      .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
     // Add zero-line
     this.svg
-    .append('line')
-    .attr('class', 'chart__line chart__line--zero')
-    .attr('x1', -this.margins.left)
-    .attr('x2', this.fullWidth)
-    .attr('y1', yc.scale(0))
-    .attr('y2', yc.scale(0))
+      .append('line')
+      .attr('class', 'chart__line chart__line--zero')
+      .attr('x1', -this.margins.left)
+      .attr('x2', this.fullWidth)
+      .attr('y1', yc.scale(0))
+      .attr('y2', yc.scale(0))
   }
 
   render() {

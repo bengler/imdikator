@@ -1,27 +1,29 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+import html2canvas from 'html2canvas'
+import {saveAs} from 'browser-filesaver'
+import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
+import d3_save_svg from 'd3-save-svg'
+import d3 from 'd3'
+import autobind from 'react-autobind'
+
+import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
+
 import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
-import TabBar from '../elements/TabBar'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import {findHeaderGroupForQuery} from '../../lib/queryUtil'
+import UrlQuery from '../../lib/UrlQuery'
+import {queryResultPresenter} from '../../lib/queryResultPresenter'
+
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
-import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 import DownloadWidget from './DownloadWidget'
-import {findHeaderGroupForQuery} from '../../lib/queryUtil'
-import UrlQuery from '../../lib/UrlQuery'
-import {queryResultPresenter} from '../../lib/queryResultPresenter'
-import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import html2canvas from 'html2canvas'
-import {saveAs} from 'browser-filesaver'
-import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
-
-function downloadPNG(content, filename) {
-  const blob = new Blob([content], {type: 'image/png'})
-  saveAs(blob, filename)
-}
+import ToggleView from '../elements/ToggleView'
+import TabBar from '../elements/TabBar'
+import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 class Card extends Component {
 
@@ -51,10 +53,11 @@ class Card extends Component {
     super()
     this.state = {
       chartViewMode: 'chart',
-      screenshot: null
+      screenshot: null,
+      explicitView: false
     }
-    this.getUrlToTab = this.getUrlToTab.bind(this)
-    this.getShareUrl = this.getShareUrl.bind(this)
+
+    autobind(this)
   }
 
   getUrlToTab(tab) {
@@ -117,14 +120,17 @@ class Card extends Component {
   }
 
   takeScreenshot() {
+    // d3_save_svg.save(d3.select('svg').node()) // save function
+
     // prevent text from overflowing screenshot
-    const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
+    const statSelector = '.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark'
+    const graphNumbers = document.querySelectorAll(statSelector)
     graphNumbers.forEach(number => {
       number.style.fontSize = '12px'
     })
 
     html2canvas(this.toggleList, {useCORS: true}).then(canvas => {
-      this.downloadCanvas(canvas, 'bilde-fra-imdi-no.png')
+      this.downloadCanvas(canvas, 'bilde-fra-imdi-no.svg')
     })
   }
 
@@ -132,16 +138,26 @@ class Card extends Component {
     if (canvas.toBlob) {
       canvas.toBlob(
         function (blob) {
-          downloadPNG(blob, filename)
+          this.downloadSVG(blob, filename)
         },
-        'image/png'
+        'image/svg'
       )
     }
   }
 
+  downloadSVG(content, filename) {
+    const blob = new Blob([content], {type: 'image/svg'})
+    saveAs(blob, filename)
+  }
+
+  setExplicitView(truth) {
+    console.log(truth)
+    this.setState({explicitView: truth})
+  }
+
   render() {
     const {loading, card, activeTab, query, queryResult, region, headerGroups, printable} = this.props
-    const {chartViewMode} = this.state
+    const {chartViewMode, explicitView} = this.state
 
     if (!activeTab) {
       return (
@@ -168,7 +184,7 @@ class Card extends Component {
 
     if (!ChartComponent) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded">
+        <div className="toggle-list__section toggle-list__section--expanded" ref={(toggleList) => { this.toggleList = toggleList }}>
           Error: No chart component for {JSON.stringify(chartKind)}
         </div>
       )
@@ -240,6 +256,7 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
+            <ToggleView explicitView={explicitView} setExplicitView={this.setExplicitView} />
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} />
           </div>

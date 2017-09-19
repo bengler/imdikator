@@ -9,7 +9,7 @@ export default class D3Chart extends React.Component {
     className: React.PropTypes.string,
     data: React.PropTypes.object,
     functions: React.PropTypes.object,
-    config: React.PropTypes.object
+    config: React.PropTypes.object,
   };
 
   componentDidMount() {

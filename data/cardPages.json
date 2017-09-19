@@ -187,7 +187,13 @@
       {
         "name": "befolkning_opprinnelsesland",
         "title": "Opprinnelse - land",
-        "config": {},
+        "config": {
+          "dimensions": {
+            "landbakgrunn": {
+              "include": ["101", "102"]
+            }
+          }
+        },
         "query": {
           "tableName": "befolkning_opprinnelsesland",
           "unit": [

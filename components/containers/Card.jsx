@@ -88,7 +88,6 @@ class Card extends Component {
 
   handleFilterChange(newQuery) {
     const newQ = this.getUrlForQuery(newQuery)
-    console.log(newQ)
     return this.context.navigate(this.getUrlForQuery(newQuery), {replace: true, keepScrollPosition: true})
   }
 
@@ -151,7 +150,6 @@ class Card extends Component {
   }
 
   setExplicitView(truth) {
-    console.log(truth)
     this.setState({explicitView: truth})
   }
 
@@ -243,8 +241,10 @@ class Card extends Component {
           />
         )}
 
+        <ToggleView explicitView={explicitView} setExplicitView={this.setExplicitView} />
+
         <div className="graph">
-          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
+          {data && <ChartComponent ref="chart" data={data} explicitView={explicitView} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
         </div>
 
         <ChartDescriptionContainer
@@ -256,7 +256,6 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
-            <ToggleView explicitView={explicitView} setExplicitView={this.setExplicitView} />
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} />
           </div>

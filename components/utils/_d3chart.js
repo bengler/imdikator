@@ -5,7 +5,7 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, functions, config) {
+  constructor(el, props, state, functions, config, explicitView) {
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
@@ -79,12 +79,14 @@ class Chart {
     return 400
   }
 
-  update(el, state, config) {
+  update(el, state, config, explicitView) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
     if (this._svg) {
       this._svg.remove()
     }
+
+    this.props.explicitView = explicitView
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
     this.margins = defaultMargins

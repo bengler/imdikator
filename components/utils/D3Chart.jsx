@@ -10,7 +10,8 @@ export default class D3Chart extends React.Component {
     data: React.PropTypes.object,
     functions: React.PropTypes.object,
     config: React.PropTypes.object,
-  };
+    explicitView: React.PropTypes.bool
+  }
 
   componentDidMount() {
 
@@ -26,6 +27,7 @@ export default class D3Chart extends React.Component {
         height: boundingRect.height,
         width: boundingRect.width
       }
+
       rect.left += el.scrollLeft
       this.refs.focus.setState({
         title: state.title,
@@ -44,7 +46,8 @@ export default class D3Chart extends React.Component {
     const el = findDOMNode(this)
     this.chart = new Chart(el, {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      explicitView: this.props.explicitView
     }, this.getChartState(), this.props.functions, this.config())
 
     this.resizeFunction = () => {
@@ -55,7 +58,8 @@ export default class D3Chart extends React.Component {
 
   componentDidUpdate() {
     const el = findDOMNode(this)
-    this.chart.update(el, this.getChartState(), this.config())
+    // include explicitView in below statement
+    this.chart.update(el, this.getChartState(), this.config(), this.props.explicitView)
   }
 
   componentWillUnmount() {

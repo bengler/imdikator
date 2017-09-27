@@ -17,6 +17,7 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import html2canvas from 'html2canvas'
 import {saveAs} from 'browser-filesaver'
 import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
+import d3_save_svg from 'd3-save-svg'
 
 function downloadPNG(content, filename) {
   const blob = new Blob([content], {type: 'image/png'})
@@ -117,15 +118,23 @@ class Card extends Component {
   }
 
   takeScreenshot() {
-    // prevent text from overflowing screenshot
-    const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
-    graphNumbers.forEach(number => {
-      number.style.fontSize = '12px'
-    })
 
-    html2canvas(this.toggleList, {useCORS: true}).then(canvas => {
-      this.downloadCanvas(canvas, 'bilde-fra-imdi-no.png')
-    })
+    const config = {
+      filename: 'customFileName',
+    }
+    const svg = document.querySelector('.chart__svg')
+    console.log(svg)
+    d3_save_svg.save(svg, config)
+
+    // prevent text from overflowing screenshot
+    // const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
+    // graphNumbers.forEach(number => {
+    //   number.style.fontSize = '12px'
+    // })
+
+    // html2canvas(this.toggleList, {useCORS: true}).then(canvas => {
+    //   this.downloadCanvas(canvas, 'bilde-fra-imdi-no.png')
+    // })
   }
 
   downloadCanvas(canvas, filename) {

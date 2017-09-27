@@ -54,7 +54,6 @@ export default class TableChart extends React.Component {
     const parsedData = parser.parseRows(data.csv)
     const transposedData = d3.transpose(parsedData)
 
-
     table.append('thead')
     .append('tr')
     .selectAll('th')

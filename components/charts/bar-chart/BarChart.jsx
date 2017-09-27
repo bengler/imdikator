@@ -56,6 +56,8 @@ export default class BarChart extends React.Component {
       return
     }
 
+    const {explicitView} = this.props
+
     //  d3 doesn't like arrow functions
     d3.select('.button.download__svg').on('click', function () {
       const config = { filename: 'imdi-diagram' }
@@ -65,24 +67,35 @@ export default class BarChart extends React.Component {
     const svg = this.svg
 
     const categories = data.preparedData.map(entry => entry.title)
-
     // Set a minimum width
 
     // X axis scale for categories
-    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
+    let x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
-    const innerPaddingFactor = 0.2
-    const outerPaddingFactor = 0
+    let innerPaddingFactor = 0.2
+    let outerPaddingFactor = 0
+
+    // if (explicitView) {
+    //   x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([220, this.size.width * 2], -1)
+    //   innerPaddingFactor = 0.6
+    //   outerPaddingFactor = 0.8
+    // }
 
     const maxWidth = CHARTS_CONFIG.bar.maxBarWidth
 
     data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
 
-      const scale = d3.scale.ordinal()
-        .domain(catSeries)
-        .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+      let scale = d3.scale.ordinal()
+      .domain(catSeries)
+      .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
+      // if (explicitView) {
+      //   scale = d3.scale.ordinal()
+      //   .domain(catSeries)
+      //   .rangeRoundBands([100, x0.rangeBand() - 200], innerPaddingFactor, outerPaddingFactor)
+      // }
 
       this.limitScaleRangeBand(scale, maxWidth)
       xScales[cat.key] = scale
@@ -146,7 +159,9 @@ export default class BarChart extends React.Component {
       .enter()
       .append('rect')
       .attr('class', 'chart__bar')
-      .attr('width', item => item.scale.rangeBand())
+      .attr('width', item => {
+        return (explicitView) ? item.scale.rangeBand(): item.scale.rangeBand()
+      })
       .attr('x', dataItem => dataItem.scale(dataItem.title))
       .attr('y', dataItem => {
         const val = Math.max(0, dataItem.value)
@@ -161,7 +176,6 @@ export default class BarChart extends React.Component {
       })
 
     let hoveropen = false
-    let showValues = false
 
     const open = item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
@@ -178,7 +192,7 @@ export default class BarChart extends React.Component {
     }
 
     // if user has toggled button for showing numbers above graphs
-    if (this.props.explicitView) {
+    if (explicitView) {
 
       // Add text indicators
       category.selectAll('rect.chart__text')
@@ -187,9 +201,7 @@ export default class BarChart extends React.Component {
       .append('text')
       .attr('class', 'chart__text')
       .attr('width', item => item.scale.rangeBand())
-      .attr('x', dataItem => {
-        return dataItem.scale(dataItem.title)
-      })
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
       .attr('y', dataItem => {
         const val = Math.max(0, dataItem.value)
         return yc.scale(val)

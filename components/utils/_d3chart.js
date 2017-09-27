@@ -101,6 +101,13 @@ class Chart {
         this.fullWidth = minimumWidthWithMargins
       }
     }
+
+    // is user wants to see numbers above graphs, there needs to be spacing between
+    // the bars, hence a wider wrapper is needed:
+    // if (explicitView) {
+    //   this.fullWidth *= 2
+    // }
+
     this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
 
     this.size = {

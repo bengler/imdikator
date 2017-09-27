@@ -23,7 +23,8 @@ export default class BenchmarkChart extends React.Component {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
     sortDirection: React.PropTypes.string,
-    minimalHeight: React.PropTypes.bool
+    minimalHeight: React.PropTypes.bool,
+    explicitView: React.PropTypes.bool,
   };
 
   prepareData(data) {
@@ -136,6 +137,27 @@ export default class BenchmarkChart extends React.Component {
       item.el = this
     })
 
+    if (this.props.explicitView) {
+
+      // Add text indicators
+      svg.selectAll('rect.chart__text')
+      .data(dataItem => dataItem.formattedValue)
+      .enter()
+      .append('text')
+      .attr('class', 'chart__text')
+      .attr('width', item => item.scale.rangeBand())
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      .attr('y', dataItem => {
+        const val = Math.max(0, dataItem.value)
+        return yc.scale(val)
+      })
+      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+      .each(function (item) {
+        item.el = this
+      })
+      .text(dataItem => dataItem.formattedValue)
+    }
+
     let hoveropen = false
     const open = item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
@@ -181,18 +203,21 @@ export default class BenchmarkChart extends React.Component {
   }
 
   render() {
+    const {explicitView} = this.props
     const sortDirection = this.props.sortDirection
     const functions = {
       drawPoints: this.drawPoints,
       calculateHeight: this.props.minimalHeight ? this.calculateHeightSmall : this.calculateHeightLarge
     }
+
     const config = {
       shouldCalculateMargins: true
     }
+
     const sortedData = sortDirection ? sortData(this.props.data, sortDirection) : this.props.data
     const data = this.prepareData(sortedData)
     return (
-      <D3Chart data={data} functions={functions} config={config} className={this.props.className} />
+      <D3Chart data={data} functions={functions} explicitView={explicitView} config={config} className={this.props.className} />
     )
   }
 }

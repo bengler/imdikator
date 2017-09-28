@@ -5,7 +5,8 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, functions, config) {
+  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
+
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
@@ -23,8 +24,7 @@ class Chart {
         this._calculateHeight = functions.calculateHeight
       }
     }
-
-    this.update(el, state, config)
+    this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView)
   }
 
   _drawPoints(el, data) {}
@@ -79,12 +79,19 @@ class Chart {
     return 400
   }
 
-  update(el, state, config) {
+  update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
     if (this._svg) {
       this._svg.remove()
     }
+
+    this.props.title = title
+    this.props.source = source
+    this.props.measuredAt = measuredAt
+    this.props.explicitView = explicitView
+    this.props.description = description
+    this.props.printView = printView
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
     this.margins = defaultMargins
@@ -99,6 +106,13 @@ class Chart {
         this.fullWidth = minimumWidthWithMargins
       }
     }
+
+    // is user wants to see numbers above graphs, there needs to be spacing between
+    // the bars, hence a wider wrapper is needed:
+    // if (explicitView) {
+    //   this.fullWidth *= 2
+    // }
+
     this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
 
     this.size = {
@@ -110,16 +124,27 @@ class Chart {
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
       .attr('class', 'chart__svg')
-      .attr('width', this.fullWidth)
-      .attr('height', this.fullHeight)
-      .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('role', 'img')
       .attr('aria-labelledby', 'title')
+      .attr('width', this.fullWidth)
+      .attr('height', this.fullHeight)
+      .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
+      // text above and underneath diagram
+      // .attr('padding-top', 70)
+      // .attr('height', this.fullHeight + 200)
+      // .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
 
     // Accessibility text alternative
-    this._svg.append('title')
-    .text('Figur (se tabell for tallmateriale)')
+    this._svg.append('text')
+      .text(title)
+    //   .attr('class', 'header-text')
+    //   .attr('height', 40)
+    //   .attr('width', 400)
+    //   .attr('x', 0)
+    //   .attr('y', -25)
+    //   .attr('font-size', 16)
+    //   .attr('viewBox', '0 0 400 40')
 
     if (showMargins) {
       // Visualize SVG

@@ -1,22 +1,30 @@
 import React from 'react'
 import d3 from 'd3'
+
 import D3Chart from '../../utils/D3Chart'
-
 import CHARTS_CONFIG from '../../../config/chartsConfigs'
-
-import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryResultNester'
+import { queryResultNester, nestedQueryResultLabelizer } from '../../../lib/queryResultNester'
 
 export default class BarChart extends React.Component {
+
   static propTypes = {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
-    minimalHeight: React.PropTypes.bool
-  };
+    minimalHeight: React.PropTypes.bool,
+    explicitView: React.PropTypes.bool,
+    title: React.PropTypes.string,
+    source: React.PropTypes.string,
+    measuredAt: React.PropTypes.string,
+    description: React.PropTypes.string,
+    printView: React.PropTypes.bool,
+    thisCard: React.PropTypes.any
+  }
+
   prepareData(data) {
     const dimensions = data.dimensions.slice()
     if (dimensions.length == 1) {
       // Add a needed second dimension
-      dimensions.unshift({name: 'region', variables: []})
+      dimensions.unshift({ name: 'region', variables: [] })
     }
 
     const dimensionLabels = dimensions.map(item => item.name)
@@ -41,7 +49,7 @@ export default class BarChart extends React.Component {
     const numCategories = data.preparedData.length
     const minWidth = numCategories * CHARTS_CONFIG.bar.minWidthPerCategory
     d3.select(el)
-    .style('min-width', `${minWidth}px`)
+      .style('min-width', `${minWidth}px`)
 
     if (el.offsetWidth < minWidth) {
       return minWidth
@@ -54,27 +62,48 @@ export default class BarChart extends React.Component {
       return
     }
 
+    const {explicitView, title, source, measuredAt, description, printView} = this.props
+
+    //  d3 doesn't like arrow functions
+    d3.select('.button.download__svg').on('click', function () {
+      const config = { filename: 'imdi-diagram' }
+      d3_save_svg.save(d3.select('svg').node().parentNode.innerHTML, config)
+    })
+
     const svg = this.svg
 
     const categories = data.preparedData.map(entry => entry.title)
-
     // Set a minimum width
 
     // X axis scale for categories
-    const x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
+    let x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
-    const innerPaddingFactor = 0.2
-    const outerPaddingFactor = 0
+    let innerPaddingFactor = 0.2
+    let outerPaddingFactor = 0
+
+    // untoggle below to get more width between bars
+    // if (explicitView) {
+    //   x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([220, this.size.width * 2], -1)
+    //   innerPaddingFactor = 0.6
+    //   outerPaddingFactor = 0.8
+    // }
 
     const maxWidth = CHARTS_CONFIG.bar.maxBarWidth
 
     data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
 
-      const scale = d3.scale.ordinal()
+      let scale = d3.scale.ordinal()
       .domain(catSeries)
       .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
+
+      // untoggle below to get more width between bars
+      // if (explicitView) {
+      //   scale = d3.scale.ordinal()
+      //   .domain(catSeries)
+      //   .rangeRoundBands([100, x0.rangeBand() - 200], innerPaddingFactor, outerPaddingFactor)
+      // }
 
       this.limitScaleRangeBand(scale, maxWidth)
       xScales[cat.key] = scale
@@ -127,32 +156,35 @@ export default class BarChart extends React.Component {
     this.addYAxis(yc.scale, yc.axisFormat)
 
     const category = svg.selectAll('.chart__category')
-    .data(data.preparedData)
-    .enter()
-    .append('g')
-    .attr('class', 'chart__category')
-    .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
+      .data(data.preparedData)
+      .enter()
+      .append('g')
+      .attr('class', 'chart__category')
+      .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
 
     category.selectAll('rect.chart__bar')
-    .data(dataItem => dataItem.values)
-    .enter()
-    .append('rect')
-    .attr('class', 'chart__bar')
-    .attr('width', item => item.scale.rangeBand())
-    .attr('x', dataItem => dataItem.scale(dataItem.title))
-    .attr('y', dataItem => {
-      const val = Math.max(0, dataItem.value)
-      return yc.scale(val)
-    })
-    .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
-    .style('fill', dataItem => dataItem.fill)
-    .style('stroke', dataItem => dataItem.stroke)
-    .style('stroke-width', dataItem => dataItem.strokeWidth)
-    .each(function (item) {
-      item.el = this
-    })
+      .data(dataItem => dataItem.values)
+      .enter()
+      .append('rect')
+      .attr('class', 'chart__bar')
+      .attr('width', item => {
+        return (explicitView) ? item.scale.rangeBand() : item.scale.rangeBand()
+      })
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      .attr('y', dataItem => {
+        const val = Math.max(0, dataItem.value)
+        return yc.scale(val)
+      })
+      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+      .style('fill', dataItem => dataItem.fill)
+      .style('stroke', dataItem => dataItem.stroke)
+      .style('stroke-width', dataItem => dataItem.strokeWidth)
+      .each(function (item) {
+        item.el = this
+      })
 
     let hoveropen = false
+
     const open = item => {
       this.eventDispatcher.emit('datapoint:hover-in', {
         title: item.title,
@@ -161,38 +193,62 @@ export default class BarChart extends React.Component {
       })
       hoveropen = true
     }
+
     const close = () => {
       this.eventDispatcher.emit('datapoint:hover-out')
       hoveropen = false
     }
+
+    // if user has toggled button for showing numbers above graphs
+    if (explicitView, printView) {
+
+      // Add text indicators
+      category.selectAll('rect.chart__text')
+      .data(dataItem => dataItem.values)
+      .enter()
+      .append('text')
+      .attr('class', 'chart__text')
+      .attr('width', item => item.scale.rangeBand())
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      .attr('y', dataItem => {
+        const val = Math.max(0, dataItem.value)
+        return yc.scale(val)
+      })
+      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+      .each(function (item) {
+        item.el = this
+      })
+      .text(dataItem => dataItem.formattedValue)
+    }
+
     category.selectAll('rect.chart__bar-hover')
-    .data(dataItem => dataItem.values)
-    .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
-    .append('rect')
-    .attr('class', 'chart__bar-hover')
-    .attr('width', item => item.scale.rangeBand())
-    .attr('x', dataItem => dataItem.scale(dataItem.title))
-    // Want full height for this one
-    .attr('y', 0)
-    .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
-    .attr('pointer-events', 'all')
-    .style('fill', 'none')
-    .on('touchend', item => {
-      if (hoveropen) {
-        close()
-      } else {
-        open(item)
-      }
-    })
-    .on('mouseover', item => open(item))
-    .on('mouseout', () => close())
-    .on('focus', item => open(item))
-    .on('blur', () => close())
+      .data(dataItem => dataItem.values)
+      .enter()
+      .append('svg:a')
+      .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+      .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+      .on('click', () => d3.event.stopPropagation())
+      .on('focus', item => open(item))
+      .append('rect')
+      .attr('class', 'chart__bar-hover')
+      .attr('width', item => item.scale.rangeBand())
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      // Want full height for this one
+      .attr('y', 0)
+      .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
+      .attr('pointer-events', 'all')
+      .style('fill', 'none')
+      .on('touchend', item => {
+        if (hoveropen) {
+          close()
+        } else {
+          open(item)
+        }
+      })
+      .on('mouseover', item => open(item))
+      .on('mouseout', () => close())
+      .on('focus', item => open(item))
+      .on('blur', () => close())
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend
@@ -216,11 +272,11 @@ export default class BarChart extends React.Component {
     const leg = this.legend().color(seriesColor)
     // Add some space between the x axis labels and the legends
     const legendWrapper = this._svg.append('g')
-    .attr('class', 'chart__legend-wrapper')
-    .attr('width', this.fullWidth)
-    // Place it at the very bottom
-    .datum(series)
-    .call(leg)
+      .attr('class', 'chart__legend-wrapper')
+      .attr('width', this.fullWidth)
+      // Place it at the very bottom
+      .datum(series)
+      .call(leg)
     /* eslint-enable prefer-reflect */
 
     // Add some space between the x axis labels and the legends
@@ -231,20 +287,22 @@ export default class BarChart extends React.Component {
     // Expand the height to fit the legend
     const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
     this._svg
-    .attr('height', expandedHeight)
-    .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
+      .attr('height', expandedHeight)
+      .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
 
     // Add zero-line
     this.svg
-    .append('line')
-    .attr('class', 'chart__line chart__line--zero')
-    .attr('x1', -this.margins.left)
-    .attr('x2', this.fullWidth)
-    .attr('y1', yc.scale(0))
-    .attr('y2', yc.scale(0))
+      .append('line')
+      .attr('class', 'chart__line chart__line--zero')
+      .attr('x1', -this.margins.left)
+      .attr('x2', this.fullWidth)
+      .attr('y1', yc.scale(0))
+      .attr('y2', yc.scale(0))
   }
 
   render() {
+    const {explicitView, title, source, measuredAt, description, thisCard} = this.props
+
     const functions = {
       drawPoints: this.drawPoints,
       calculateWidth: this.calculateWidth,
@@ -264,7 +322,18 @@ export default class BarChart extends React.Component {
 
     return (
       <div>
-        <D3Chart data={data} config={config} functions={functions} className={this.props.className} />
+        <D3Chart
+          data={data}
+          config={config}
+          functions={functions}
+          explicitView={explicitView}
+          title={title}
+          source={source}
+          measuredAt={measuredAt}
+          description={description}
+          thisCard={thisCard}
+          className={this.props.className}
+        />
       </div>
     )
   }

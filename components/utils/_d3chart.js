@@ -5,13 +5,7 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt) {
-
-    this.state = {
-      title,
-      source,
-      measuredAt
-    }
+  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
 
     // _svg is the actual SVG element
     this._svg = null
@@ -30,7 +24,7 @@ class Chart {
         this._calculateHeight = functions.calculateHeight
       }
     }
-    this.update(el, state, config, explicitView)
+    this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView)
   }
 
   _drawPoints(el, data) {}
@@ -85,7 +79,7 @@ class Chart {
     return 400
   }
 
-  update(el, state, config, explicitView, title, source, measuredAt) {
+  update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
     if (this._svg) {
@@ -96,6 +90,8 @@ class Chart {
     this.props.source = source
     this.props.measuredAt = measuredAt
     this.props.explicitView = explicitView
+    this.props.description = description
+    this.props.printView = printView
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
     this.margins = defaultMargins
@@ -137,14 +133,15 @@ class Chart {
       .attr('aria-labelledby', 'title')
 
     // Accessibility text alternative
-    this._svg.append('text')
-      .text(title)
-      .attr('height', 40)
-      .attr('width', 400)
-      .attr('x', 0)
-      .attr('y', -25)
-      .attr('font-size', 16)
-      .attr('viewBox', '0 0 400 40')
+    // this._svg.append('text')
+    //   .text(title)
+    //   .attr('class', 'header-text')
+    //   .attr('height', 40)
+    //   .attr('width', 400)
+    //   .attr('x', 0)
+    //   .attr('y', -25)
+    //   .attr('font-size', 16)
+    //   .attr('viewBox', '0 0 400 40')
 
     if (showMargins) {
       // Visualize SVG

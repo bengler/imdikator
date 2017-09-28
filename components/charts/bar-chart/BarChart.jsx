@@ -14,7 +14,10 @@ export default class BarChart extends React.Component {
     explicitView: React.PropTypes.bool,
     title: React.PropTypes.string,
     source: React.PropTypes.string,
-    measuredAt: React.PropTypes.string
+    measuredAt: React.PropTypes.string,
+    description: React.PropTypes.string,
+    printView: React.PropTypes.bool,
+    thisCard: React.PropTypes.any
   }
 
   prepareData(data) {
@@ -59,7 +62,7 @@ export default class BarChart extends React.Component {
       return
     }
 
-    const {explicitView, title, source, measuredAt} = this.props
+    const {explicitView, title, source, measuredAt, description, printView} = this.props
 
     //  d3 doesn't like arrow functions
     d3.select('.button.download__svg').on('click', function () {
@@ -196,9 +199,8 @@ export default class BarChart extends React.Component {
       hoveropen = false
     }
 
-    console.log(title, source, measuredAt)
     // if user has toggled button for showing numbers above graphs
-    if (explicitView) {
+    if (explicitView, printView) {
 
       // Add text indicators
       category.selectAll('rect.chart__text')
@@ -299,7 +301,7 @@ export default class BarChart extends React.Component {
   }
 
   render() {
-    const {explicitView, title, source, measuredAt} = this.props
+    const {explicitView, title, source, measuredAt, description, thisCard} = this.props
 
     const functions = {
       drawPoints: this.drawPoints,
@@ -328,6 +330,8 @@ export default class BarChart extends React.Component {
           title={title}
           source={source}
           measuredAt={measuredAt}
+          description={description}
+          thisCard={thisCard}
           className={this.props.className}
         />
       </div>

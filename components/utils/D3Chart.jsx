@@ -5,6 +5,7 @@ import EventEmitter from 'events'
 import Hoverbox from '../elements/Hoverbox'
 
 export default class D3Chart extends React.Component {
+
   static propTypes = {
     className: React.PropTypes.string,
     data: React.PropTypes.object,
@@ -13,7 +14,10 @@ export default class D3Chart extends React.Component {
     explicitView: React.PropTypes.bool,
     title: React.PropTypes.string,
     source: React.PropTypes.string,
-    measuredAt: React.PropTypes.string
+    measuredAt: React.PropTypes.string,
+    description: React.PropTypes.string,
+    thisCard: React.PropTypes.any,
+    printView: React.PropTypes.bool
   }
 
   componentDidMount() {
@@ -49,11 +53,7 @@ export default class D3Chart extends React.Component {
     const el = findDOMNode(this)
     this.chart = new Chart(el, {
       width: '100%',
-      height: '100%',
-      explicitView: this.props.explicitView,
-      title: this.props.title,
-      source: this.props.source,
-      measuredAt: this.props.measuredAt
+      height: '100%'
     }, this.getChartState(), this.props.functions, this.config())
 
     this.resizeFunction = () => {
@@ -64,9 +64,9 @@ export default class D3Chart extends React.Component {
 
   componentDidUpdate() {
     const el = findDOMNode(this)
-    const {explicitView, title, source, measuredAt} = this.props
+    const {explicitView, title, source, measuredAt, description, thisCard, printView} = this.props
     // include explicitView in below statement
-    this.chart.update(el, this.getChartState(), this.config(), explicitView, title, source, measuredAt)
+    this.chart.update(el, this.getChartState(), this.config(), explicitView, title, source, measuredAt, description, thisCard, printView)
   }
 
   componentWillUnmount() {

@@ -124,10 +124,10 @@ class Chart {
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
       .attr('class', 'chart__svg')
-      .attr('width', this.fullWidth)
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('role', 'img')
       .attr('aria-labelledby', 'title')
+      .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
       .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
       // text above and underneath diagram
@@ -136,8 +136,8 @@ class Chart {
       // .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
 
     // Accessibility text alternative
-    // this._svg.append('text')
-    //   .text(title)
+    this._svg.append('text')
+      .text(title)
     //   .attr('class', 'header-text')
     //   .attr('height', 40)
     //   .attr('width', 400)
@@ -179,7 +179,6 @@ class Chart {
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest
     // of the code
-    console.log('margins left', this.margins.left)
     this.svg = this._svg.append('g')
       .attr('class', 'chart__d3-points')
       .attr('transform', this.translation(this.margins.left, this.margins.top))

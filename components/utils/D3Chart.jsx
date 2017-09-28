@@ -53,7 +53,8 @@ export default class  D3Chart extends React.Component {
     const el = findDOMNode(this)
     this.chart = new Chart(el, {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      explicitView: this.props.explicitView
     }, this.getChartState(), this.props.functions, this.config())
 
     this.resizeFunction = () => {

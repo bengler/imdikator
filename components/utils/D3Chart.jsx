@@ -4,7 +4,7 @@ import Chart from './_d3chart'
 import EventEmitter from 'events'
 import Hoverbox from '../elements/Hoverbox'
 
-export default class D3Chart extends React.Component {
+export default class  D3Chart extends React.Component {
 
   static propTypes = {
     className: React.PropTypes.string,
@@ -65,6 +65,7 @@ export default class D3Chart extends React.Component {
   componentDidUpdate() {
     const el = findDOMNode(this)
     const {explicitView, title, source, measuredAt, description, thisCard, printView} = this.props
+
     // include explicitView in below statement
     this.chart.update(el, this.getChartState(), this.config(), explicitView, title, source, measuredAt, description, thisCard, printView)
   }

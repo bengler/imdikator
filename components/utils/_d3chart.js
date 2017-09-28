@@ -5,7 +5,14 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, functions, config, explicitView) {
+  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt) {
+
+    this.state = {
+      title,
+      source,
+      measuredAt
+    }
+
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
@@ -23,8 +30,7 @@ class Chart {
         this._calculateHeight = functions.calculateHeight
       }
     }
-
-    this.update(el, state, config)
+    this.update(el, state, config, explicitView)
   }
 
   _drawPoints(el, data) {}
@@ -79,13 +85,16 @@ class Chart {
     return 400
   }
 
-  update(el, state, config, explicitView) {
+  update(el, state, config, explicitView, title, source, measuredAt) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
     if (this._svg) {
       this._svg.remove()
     }
 
+    this.props.title = title
+    this.props.source = source
+    this.props.measuredAt = measuredAt
     this.props.explicitView = explicitView
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
@@ -119,16 +128,23 @@ class Chart {
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
       .attr('class', 'chart__svg')
+      .attr('padding-top', 70)
       .attr('width', this.fullWidth)
-      .attr('height', this.fullHeight)
-      .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
+      .attr('height', this.fullHeight + 200)
+      .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('role', 'img')
       .attr('aria-labelledby', 'title')
 
     // Accessibility text alternative
-    this._svg.append('title')
-    .text('Figur (se tabell for tallmateriale)')
+    this._svg.append('text')
+      .text(title)
+      .attr('height', 40)
+      .attr('width', 400)
+      .attr('x', 0)
+      .attr('y', -25)
+      .attr('font-size', 16)
+      .attr('viewBox', '0 0 400 40')
 
     if (showMargins) {
       // Visualize SVG

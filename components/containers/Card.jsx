@@ -174,8 +174,6 @@ class Card extends Component {
       }
     }
 
-    console.log({card, activeTab, headerGroups })
-
     return (
       <section
         className="toggle-list__section toggle-list__section--expanded"
@@ -221,7 +219,17 @@ class Card extends Component {
         <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
 
         <div className="graph">
-          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} explicitView={explicitView} />}
+          {data && (
+            <ChartComponent
+              ref="chart"
+              data={data}
+              title={card.title}
+              source={card.metadata.source}
+              measuredAt={card.metadata.measuredAt}
+              sortDirection={chartKind === 'benchmark' && 'ascending'}
+              explicitView={explicitView}
+            />
+          )}
         </div>
 
         <ChartDescriptionContainer

@@ -11,7 +11,10 @@ export default class BarChart extends React.Component {
     data: React.PropTypes.object,
     className: React.PropTypes.string,
     minimalHeight: React.PropTypes.bool,
-    explicitView: React.PropTypes.bool
+    explicitView: React.PropTypes.bool,
+    title: React.PropTypes.string,
+    source: React.PropTypes.string,
+    measuredAt: React.PropTypes.string
   }
 
   prepareData(data) {
@@ -56,7 +59,7 @@ export default class BarChart extends React.Component {
       return
     }
 
-    const {explicitView} = this.props
+    const {explicitView, title, source, measuredAt} = this.props
 
     //  d3 doesn't like arrow functions
     d3.select('.button.download__svg').on('click', function () {
@@ -76,6 +79,7 @@ export default class BarChart extends React.Component {
     let innerPaddingFactor = 0.2
     let outerPaddingFactor = 0
 
+    // untoggle below to get more width between bars
     // if (explicitView) {
     //   x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([220, this.size.width * 2], -1)
     //   innerPaddingFactor = 0.6
@@ -91,6 +95,7 @@ export default class BarChart extends React.Component {
       .domain(catSeries)
       .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
 
+      // untoggle below to get more width between bars
       // if (explicitView) {
       //   scale = d3.scale.ordinal()
       //   .domain(catSeries)
@@ -191,6 +196,7 @@ export default class BarChart extends React.Component {
       hoveropen = false
     }
 
+    console.log(title, source, measuredAt)
     // if user has toggled button for showing numbers above graphs
     if (explicitView) {
 
@@ -293,7 +299,7 @@ export default class BarChart extends React.Component {
   }
 
   render() {
-    const { explicitView } = this.props
+    const {explicitView, title, source, measuredAt} = this.props
 
     const functions = {
       drawPoints: this.drawPoints,
@@ -314,7 +320,16 @@ export default class BarChart extends React.Component {
 
     return (
       <div>
-        <D3Chart data={data} config={config} functions={functions} explicitView={explicitView} className={this.props.className} />
+        <D3Chart
+          data={data}
+          config={config}
+          functions={functions}
+          explicitView={explicitView}
+          title={title}
+          source={source}
+          measuredAt={measuredAt}
+          className={this.props.className}
+        />
       </div>
     )
   }

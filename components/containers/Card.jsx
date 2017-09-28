@@ -1,29 +1,24 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import html2canvas from 'html2canvas'
-import {saveAs} from 'browser-filesaver'
-import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
 import d3_save_svg from 'd3-save-svg'
-import d3 from 'd3'
-import autobind from 'react-autobind'
-
-import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 
 import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
+import TabBar from '../elements/TabBar'
+import ToggleView from '../elements/ToggleView'
+import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
 import DownloadWidget from './DownloadWidget'
-import ToggleView from '../elements/ToggleView'
-import TabBar from '../elements/TabBar'
-import ChartViewModeSelect from '../elements/ChartViewModeSelect'
+
+import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class Card extends Component {
 
@@ -56,8 +51,8 @@ class Card extends Component {
       screenshot: null,
       explicitView: false
     }
-
-    autobind(this)
+    this.getUrlToTab = this.getUrlToTab.bind(this)
+    this.getShareUrl = this.getShareUrl.bind(this)
   }
 
   getUrlToTab(tab) {
@@ -119,38 +114,17 @@ class Card extends Component {
   }
 
   takeScreenshot() {
-    // d3_save_svg.save(d3.select('svg').node()) // save function
-
-    // prevent text from overflowing screenshot
-    const statSelector = '.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark'
-    const graphNumbers = document.querySelectorAll(statSelector)
+    const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
     graphNumbers.forEach(number => {
       number.style.fontSize = '12px'
     })
 
-    html2canvas(this.toggleList, {useCORS: true}).then(canvas => {
-      this.downloadCanvas(canvas, 'bilde-fra-imdi-no.svg')
-    })
-  }
-
-  downloadCanvas(canvas, filename) {
-    if (canvas.toBlob) {
-      canvas.toBlob(
-        function (blob) {
-          this.downloadSVG(blob, filename)
-        },
-        'image/svg'
-      )
+    const config = {
+      filename: 'imdi-diagram',
     }
-  }
 
-  downloadSVG(content, filename) {
-    const blob = new Blob([content], {type: 'image/svg'})
-    saveAs(blob, filename)
-  }
-
-  setExplicitView(truth) {
-    this.setState({explicitView: truth})
+    const svg = document.querySelector('.chart__svg')
+    d3_save_svg.save(svg, config) // eslint-disable-line
   }
 
   render() {
@@ -182,7 +156,7 @@ class Card extends Component {
 
     if (!ChartComponent) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded" ref={(toggleList) => { this.toggleList = toggleList }}>
+        <div className="toggle-list__section toggle-list__section--expanded">
           Error: No chart component for {JSON.stringify(chartKind)}
         </div>
       )
@@ -199,6 +173,9 @@ class Card extends Component {
         value: [region.prefixedCode]
       }
     }
+
+    console.log({card, activeTab, headerGroups })
+
     return (
       <section
         className="toggle-list__section toggle-list__section--expanded"
@@ -241,10 +218,10 @@ class Card extends Component {
           />
         )}
 
-        <ToggleView explicitView={explicitView} setExplicitView={this.setExplicitView} />
+        <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
 
         <div className="graph">
-          {data && <ChartComponent ref="chart" data={data} explicitView={explicitView} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
+          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} explicitView={explicitView} />}
         </div>
 
         <ChartDescriptionContainer

@@ -13,7 +13,9 @@ export default class PopupChoicesBox extends Component {
     applyButtonText: PropTypes.string,
     linkUrl: PropTypes.string,
     isLoading: PropTypes.bool,
-    isError: PropTypes.bool
+    isError: PropTypes.bool,
+    downloadScreenshot: PropTypes.func,
+    setExplicitView: PropTypes.func
   };
 
   constructor(props) {
@@ -37,6 +39,12 @@ export default class PopupChoicesBox extends Component {
     this.setState({choiceNumber: choiceNumber})
   }
 
+  handleDownload() {
+    const {downloadScreenshot, setExplicitView} = this.props
+    setExplicitView(true)
+    downloadScreenshot()
+    setExplicitView(false)
+  }
 
   render() {
     return (
@@ -66,7 +74,7 @@ export default class PopupChoicesBox extends Component {
             <button type="button" disabled={this.props.isLoading} className="button" onClick={this.onApply.bind(this)}>
               {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
             </button>
-            <button type="button" disabled={this.props.isLoading} className="button download__svg" onClick={this.props.downloadScreenshot}>
+            <button type="button" disabled={this.props.isLoading} className="button download__svg" onClick={() => { this.handleDownload() }}>
               {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.screenShotTitle}
             </button>
 

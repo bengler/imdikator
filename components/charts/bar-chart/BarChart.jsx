@@ -200,7 +200,7 @@ export default class BarChart extends React.Component {
     }
 
     // if user has toggled button for showing numbers above graphs
-    if (explicitView, printView) {
+    if (explicitView || printView) {
 
       // Add text indicators
       category.selectAll('rect.chart__text')

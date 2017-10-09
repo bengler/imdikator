@@ -46,7 +46,8 @@ class Card extends Component {
     
     // really confusing; thisCard is 'this' for this class (Card).
     // access it by calling this.props.thisCard.
-    // why? Because d3 hijacks this in child scope after mount
+    // why? Because d3 hijacks 'this' in child scope after mount.
+    // so if we want to use 'this' for Card, we must use this.props.thisCard (in child components)
     thisCard: PropTypes.any
   };
 
@@ -258,7 +259,7 @@ class Card extends Component {
           />
         )}
 
-        {/* <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} /> */}
+        <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
 
         <div className="graph">
           {data && (
@@ -284,7 +285,7 @@ class Card extends Component {
         {!printable && (
           <div className="graph__functions">
             <ShareWidget chartUrl={this.getShareUrl()} />
-            <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} />
+            <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
           </div>
         )}
 

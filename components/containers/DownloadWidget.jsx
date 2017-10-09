@@ -18,7 +18,9 @@ class DownloadWidget extends Component {
     allRegions: PropTypes.arrayOf(ImdiPropTypes.region),
     query: ImdiPropTypes.query.isRequired,
     headerGroups: PropTypes.array,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    downloadScreenshot: PropTypes.func,
+    setExplicitView: PropTypes.func
   };
 
   constructor(props) {
@@ -126,6 +128,7 @@ class DownloadWidget extends Component {
     return (
       <PopupChoicesBox
         downloadScreenshot={this.props.downloadScreenshot}
+        setExplicitView={this.props.setExplicitView}
         onCancel={handleCancelDownloadSelect}
         onApply={handApplyChoice}
         isLoading={this.state.isLoading}

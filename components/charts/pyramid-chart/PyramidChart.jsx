@@ -7,7 +7,8 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 
 export default class PyramidChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    explicitView: React.PropTypes.bool
   };
 
   calculateMargins() {
@@ -143,6 +144,28 @@ export default class PyramidChart extends React.Component {
     .append('g')
     .attr('class', 'chart__category')
     .attr('transform', (item, i) => this.translation(outerXScale(item.title), 0))
+
+    // if user has toggled button for showing numbers above graphs
+    // if (this.props.explicitView) {
+    //   // Add text indicators
+    //   category.selectAll('rect.chart__text')
+    //   .data(dataItem => dataItem.values)
+    //   .enter()
+    //   .append('text')
+    //   .attr('class', 'chart__text')
+    //   .attr('width', 300)
+    //   .attr('height', 300)
+    //   .attr('x', 0)
+    //   .attr('y', 0)
+    //   // .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+    //   .each(function (item) {
+    //     console.log({item})
+    //     item.el = this
+    //   })
+    //   .text(dataItem => {
+    //     return dataItem.values[0].values
+    //   })
+    // }
 
     // The bars
     let hoveropen = false
@@ -316,7 +339,6 @@ export default class PyramidChart extends React.Component {
     this._svg
     .attr('height', expandedHeight)
     .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)
-
   }
 
   prepareData(data) {
@@ -339,8 +361,9 @@ export default class PyramidChart extends React.Component {
       const numCategories = data.preparedData.length
       config.minimumWidth = numCategories * CHARTS_CONFIG.pyramid.minWidthPerCategory
     }
+
     return (
-      <D3Chart data={data} config={config} functions={functions} />
+      <D3Chart data={data} config={config} functions={functions} explicitView={this.props.explicitView} />
     )
   }
 }

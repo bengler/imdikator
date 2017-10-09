@@ -7,7 +7,8 @@ import CHARTS_CONFIG from '../../../config/chartsConfigs'
 
 export default class StackedBarChart extends Component {
   static propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    explicitView: React.PropTypes.bool,
   };
 
   prepareData(data) {
@@ -103,6 +104,29 @@ export default class StackedBarChart extends Component {
       this.eventDispatcher.emit('datapoint:hover-out')
       hoveropen = false
     }
+
+    // if user has toggled button for showing numbers above graphs
+    // if (this.props.explicitView) {
+    //   console.log('living')
+    //   // Add text indicators
+    //   category.selectAll('rect.chart__text')
+    //   .data(dataItem => dataItem.values)
+    //   .enter()
+    //   .append('text')
+    //   .attr('class', 'chart__text')
+    //   .attr('width', item => item.scale.rangeBand())
+    //   .attr('x', dataItem => dataItem.scale(dataItem.title))
+    //   .attr('y', dataItem => {
+    //     const val = Math.max(0, dataItem.value)
+    //     return yc.scale(val)
+    //   })
+    //   .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+    //   .each(function (item) {
+    //     item.el = this
+    //   })
+    //   .text(dataItem => dataItem.formattedValue)
+    // }
+
     category.selectAll('rect')
     .data(cat => cat.values)
     .enter()

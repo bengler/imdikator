@@ -119,6 +119,7 @@ export default class Autocomplete extends Component {
       }
 
       if (this.state.highlightedIndex === null) {
+
         // hit enter after focus but before typing anything so no autocomplete attempt yet
         this.setState({
           isOpen: false

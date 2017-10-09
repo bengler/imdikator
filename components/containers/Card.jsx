@@ -194,7 +194,6 @@ class Card extends Component {
 
     const chart = CHARTS[chartKind]
     const ChartComponent = chart.component
-
     const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede' // TODO: Needs to be dynamic
 
     if (!ChartComponent) {
@@ -259,8 +258,6 @@ class Card extends Component {
           />
         )}
 
-        <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
-
         <div className="graph">
           {data && (
             <ChartComponent
@@ -284,6 +281,7 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
+            {chart.name === 'bar' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
           </div>

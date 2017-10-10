@@ -45,7 +45,7 @@ class Card extends Component {
     printView: PropTypes.bool,
     
     // really confusing; thisCard is 'this' for this class (Card).
-    // access it by calling this.props.thisCard.
+    // access it by calling this.props.thisCard (from children)
     // why? Because d3 hijacks 'this' in child scope after mount.
     // so if we want to use 'this' for Card, we must use this.props.thisCard (in child components)
     thisCard: PropTypes.any
@@ -69,6 +69,149 @@ class Card extends Component {
 
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
+    this.moveElementsIntoSVG = this.moveElementsIntoSVG.bind(this)
+    this.addValuesToTransform = this.addValuesToTransform.bind(this)
+    this.addDescriptionAndSourceBelowDiagram = this.addDescriptionAndSourceBelowDiagram.bind(this)
+  }
+
+  componentDidUpdate() {
+    if (this.state.explicitView) {
+      this.moveElementsIntoSVG() // add title and numbers above graph
+    }
+
+    this.addDescriptionAndSourceBelowDiagram()
+  }
+
+  addValuesToTransform(elements, addX, addY) {
+    elements.forEach(element => {
+      const transformValues = element.getAttribute('transform').split(',')
+
+      const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
+
+      if (addX) values[0] = parseInt(values[0], 10) + addX
+      if (addY) values[1] = parseInt(values[1], 10) + addY
+
+      element.setAttribute('transform', `translate(${values[0].toString()}, ${values[1].toString()})`)
+    })
+  }
+
+  //  this function is horrible and could break if some classname or other detail changes (e.g. h3 becomes h4)
+  //  unfortunately the alternative is to refactor the architecture around d3
+  //  (because d3 hijacks the 'this' keyword), which produces a tremendous amount of pains and would take crazy hours to fix.
+  //  if the diagram is buggy or not behaving properly - inspect this function, it's probably the cause.
+  moveElementsIntoSVG() {
+    const svg = Array.prototype.slice.call(document.querySelectorAll('.chart__svg'))
+    if (!svg) return
+
+    //  extra height for the svg diagram
+    const extraHeightDiagram = 80
+
+    //  get all svg elements
+    const chart = Array.prototype.slice.call(document.querySelectorAll('.chart__d3-points')) // converts NodeList to array
+    const colorExplanation = Array.prototype.slice.call(document.querySelectorAll('.chart__legend-wrapper')) // convert NodeList to array
+
+    //  returns the y axis transform value from all charts
+    const currentChartHeight = chart.map(oneChart => {
+      return oneChart.getAttribute('transform').split(',')
+    })
+
+    //  returns the y axis transform value from all color explanations
+    const currentColorExplanationHeight = colorExplanation.map(oneColorExplanation => {
+      return oneColorExplanation.getAttribute('transform').split(',')
+    })
+
+    //  creates an array with x and y axis transform value from chart
+    const chartTransform = currentChartHeight.map(chartHeight => {
+      return [
+        chartHeight[0].split('(')[1],
+        (parseInt(chartHeight[1].split(')')[0], 10) + extraHeightDiagram).toString()
+      ]
+    })
+
+    //  creates an array with x and y axis transform value from color explanation
+    const colorTransform = currentColorExplanationHeight.map(colorHeight => {
+      return [
+        colorHeight[0].split('(')[1],
+        (parseInt(colorHeight[1].split(')')[0], 10) + extraHeightDiagram).toString()
+      ]
+    })
+
+    //  reposition chart inside svg
+    chart.forEach((chartItem, index) => {
+      chartItem.setAttribute('transform', `translate(${chartTransform[index][0]}, ${chartTransform[index][1]})`)
+    })
+
+    //  reposition color explanation inside svg
+    colorExplanation.forEach((colorItem, index) => {
+      colorItem.setAttribute('transform', `translate(${colorTransform[index][0]}, ${colorTransform[index][1]})`)
+    })
+
+    //  add height and title for svg
+    svg.forEach((svgItem, index) => {
+      let title = svgItem.closest('.toggle-list')
+      title = title.querySelector('a h3')
+
+      const height = parseInt(svgItem.getAttribute('height'), 10) + extraHeightDiagram
+      svgItem.setAttribute('height', height)
+
+
+      //  adds title above diagam
+      new SvgText({
+        text: title.textContent,
+        element: svgItem,
+        maxWidth: svgItem.clientWidth || 0,
+        textOverflow: 'ellipsis',
+        className: 'svg-text title'
+      })
+    })
+  }
+
+  addDescriptionAndSourceBelowDiagram() {
+    const svg = Array.prototype.slice.call(document.querySelectorAll('.chart__svg'))
+    if (!svg) return
+
+    //  extra height for the svg diagram
+    const extraHeightSVG = 120
+    const paddingBottom = 50
+    const spaceBetween = 30
+
+    //  add height and title for svg
+    svg.forEach((svgItem, index) => {
+
+      //  add extra height to svg
+      const height = parseInt(svgItem.getAttribute('height'), 10) + extraHeightSVG
+      svgItem.setAttribute('height', height)
+
+      const parent = svgItem.closest('.toggle-list__section.toggle-list__section--expanded')
+      const description = parent.querySelector('.graph__description')
+      const source = parent.querySelector('.graph__about p')
+
+      //  adds description below diagram
+      new SvgText({
+        text: description.textContent,
+        element: svgItem,
+        maxWidth: svgItem.clientWidth || 0,
+        textOverflow: 'ellipsis',
+        className: 'svg-text text__description',
+        verticalAlign: 'bottom'
+      })
+
+      //  adds source below diagram
+      new SvgText({
+        text: source.textContent,
+        element: svgItem,
+        maxWidth: svgItem.clientWidth || 0,
+        textOverflow: 'ellipsis',
+        className: 'svg-text text__source',
+        verticalAlign: 'bottom',
+      })
+
+      const textDescription = document.querySelectorAll('.text__description')
+      const textSource = document.querySelectorAll('.text__source')
+
+      this.addValuesToTransform(textDescription, null, svgItem.clientHeight - (spaceBetween + paddingBottom))
+      this.addValuesToTransform(textSource, null, svgItem.clientHeight - paddingBottom)
+    })
   }
 
   getUrlToTab(tab) {
@@ -138,33 +281,6 @@ class Card extends Component {
     const config = {
       filename: 'imdi-diagram',
     }
-
-    // // SETUP
-    // // insert details into SVG
-    // const text = new SvgText({
-    //   text: 'Figuren viser antall personer fordelt etter bakgrunn i 2017 i Norge.',
-    //   element: document.querySelector('.chart__svg'),
-    //   maxWidth: 100,
-    //   textOverflow: 'ellipsis'
-    // })
-
-    // // STYLE construct
-    // // give some space for the new text and position it at the bottom
-    // const chart = document.querySelector('.chart__svg')
-    // document.querySelector('text.svg-text.svg-text-0').style.transform = 'translateY(500px)'
-    // document.querySelector('.chart__svg').style.margin = '50px 0px 150px 0px'
-    // chart.height = chart.height + 200
-    // console.log(chart.height)
-    // // DESCTRUCT
-    // // remove styling applied above
-    // // let textElement = document.createElement('text')
-    // // textElement.setAttribute('height', 40)
-    // // textElement.setAttribute('width', 400)
-    // // textElement.setAttribute('x', 0)
-    // // textElement.setAttribute('viewBox', '0 0 400 40"')
-    // // textElement.setAttribute('y', -25)
-    // // textElement.innerHTML = 'something'
-    // // chart.insertBefore(textElement, firstChildOfChart)
 
     const svg = document.querySelector('.chart__svg')
     d3_save_svg.save(svg, config) // eslint-disable-line

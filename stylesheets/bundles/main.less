@@ -94,7 +94,7 @@ a.tabs-mini__link.tabs-mini__link--current {
   }
 }
 
-// remove loooong list of "sammenlignet med" on mobile
+// remove long list of "sammenlignet med" on mobile
 @media screen and (max-width: 340px) {
   .lightbox__box .t-no-list-styles .col--flow:nth-last-child(-n+5) {
     display: none;
@@ -103,4 +103,24 @@ a.tabs-mini__link.tabs-mini__link--current {
 
 li.tabs-mini__item {
   margin-top: 20px;
+}
+
+//  large title above diagram
+.svg-text.title {
+  font-size: 25;
+}
+
+//  remove description below diagrams
+.graph__description {
+  display: none;
+}
+
+//  remove source below diagrams
+.toggle.toggle--light.t-no-margin p {
+  display: none;
+}
+
+//  move download buttons below diagram a bit up
+.graph__functions {
+  transform: translateY(-45px);
 }

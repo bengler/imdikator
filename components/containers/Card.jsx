@@ -75,11 +75,11 @@ class Card extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.explicitView) {
-      this.moveElementsIntoSVG() // add title and numbers above graph
-    }
-
+    if (this.state.explicitView) this.moveElementsIntoSVG() // add title and numbers above graph
     this.addDescriptionAndSourceBelowDiagram()
+
+    const svg = document.querySelectorAll('.chart__svg')
+    if (svg) svg.forEach(item => { console.log(item.querySelector('.text__description').textContent, item.clientHeight) })
   }
 
   addValuesToTransform(elements, addX, addY) {

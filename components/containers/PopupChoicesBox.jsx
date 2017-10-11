@@ -41,14 +41,15 @@ export default class PopupChoicesBox extends Component {
 
   handleDownload() {
     const {downloadScreenshot, setExplicitView} = this.props
+    const svg = this.lightbox.closest('.toggle-list__section.toggle-list__section--expanded').querySelector('.chart__svg')
     setExplicitView(true)
-    downloadScreenshot()
+    downloadScreenshot(svg)
     setExplicitView(false)
   }
 
   render() {
     return (
-      <div className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
+      <div ref={lightbox => { this.lightbox = lightbox }} className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
         <div className="lightbox__backdrop"></div>
         <dialog open="open" className="lightbox__box">
           <i className="lightbox__point" style={{left: '9.5em'}}></i>

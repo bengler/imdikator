@@ -1,3 +1,9 @@
+//  addValuesToTransform, moveElementsIntoSVG and addDescriptionAndSourceBelowDiagram
+//  are horrible and could break if some classname or other detail changes (e.g. h3 becomes h4)
+//  unfortunately the alternative is to refactor the architecture around d3
+//  (because d3 hijacks the 'this' keyword), which produces a tremendous amount of pains and would take crazy hours to fix.
+//  if the diagram is buggy or not behaving properly - inspect this function, it's probably the cause.
+
 import React, {Component, PropTypes} from 'react'
 
 import {connect} from 'react-redux'
@@ -64,7 +70,8 @@ class Card extends Component {
       screenshot: null,
       explicitView: false,
       description: null,
-      printView: false
+      printView: false,
+      initialLoadComplete: false
     }
 
     this.getUrlToTab = this.getUrlToTab.bind(this)
@@ -75,143 +82,127 @@ class Card extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.explicitView) this.moveElementsIntoSVG() // add title and numbers above graph
-    this.addDescriptionAndSourceBelowDiagram()
 
-    const svg = document.querySelectorAll('.chart__svg')
-    if (svg) svg.forEach(item => { console.log(item.querySelector('.text__description').textContent, item.clientHeight) })
+    // add title and numbers above graph
+    if (this.state.explicitView) this.moveElementsIntoSVG()
+    if (!this.props.loading) this.addDescriptionAndSourceBelowDiagram()
   }
 
-  addValuesToTransform(elements, addX, addY) {
-    elements.forEach(element => {
-      const transformValues = element.getAttribute('transform').split(',')
+  addValuesToTransform(element, addX, addY) {
 
-      const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
+    const transformValues = element.getAttribute('transform').split(',')
 
-      if (addX) values[0] = parseInt(values[0], 10) + addX
-      if (addY) values[1] = parseInt(values[1], 10) + addY
+    const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
 
-      element.setAttribute('transform', `translate(${values[0].toString()}, ${values[1].toString()})`)
-    })
+    if (addX) values[0] = parseInt(values[0], 10) + addX
+    if (addY) values[1] = parseInt(values[1], 10) + addY
+
+    element.setAttribute('transform', `translate(${values[0].toString()}, ${values[1].toString()})`)
   }
 
-  //  this function is horrible and could break if some classname or other detail changes (e.g. h3 becomes h4)
-  //  unfortunately the alternative is to refactor the architecture around d3
-  //  (because d3 hijacks the 'this' keyword), which produces a tremendous amount of pains and would take crazy hours to fix.
-  //  if the diagram is buggy or not behaving properly - inspect this function, it's probably the cause.
   moveElementsIntoSVG() {
-    const svg = Array.prototype.slice.call(document.querySelectorAll('.chart__svg'))
+    let svg = this.toggleList
     if (!svg) return
+    svg = svg.querySelector('.chart__svg')
 
     //  extra height for the svg diagram
     const extraHeightDiagram = 80
 
     //  get all svg elements
-    const chart = Array.prototype.slice.call(document.querySelectorAll('.chart__d3-points')) // converts NodeList to array
-    const colorExplanation = Array.prototype.slice.call(document.querySelectorAll('.chart__legend-wrapper')) // convert NodeList to array
+    const chart = svg.querySelector('.chart__d3-points') // converts NodeList to array
+    const colorExplanation = svg.querySelector('.chart__legend-wrapper') // convert NodeList to array
 
-    //  returns the y axis transform value from all charts
-    const currentChartHeight = chart.map(oneChart => {
-      return oneChart.getAttribute('transform').split(',')
+    //  move chart and colored squares lower
+    this.addValuesToTransform(chart, null, extraHeightDiagram)
+    this.addValuesToTransform(colorExplanation, null, extraHeightDiagram)
+
+    // console.log(newUnitHeight)
+
+    //  get the title
+    const title = svg.closest('.toggle-list').querySelector('[data-graph-title]')
+
+    //  add height
+    const height = parseInt(svg.getAttribute('height'), 10) + extraHeightDiagram
+    svg.setAttribute('height', height)
+
+    const unit = this.props.query.unit[0]
+
+    //  adds description below diagram
+    new SvgText({
+      text: unit,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text text__unit',
+      verticalAlign: 'bottom'
     })
 
-    //  returns the y axis transform value from all color explanations
-    const currentColorExplanationHeight = colorExplanation.map(oneColorExplanation => {
-      return oneColorExplanation.getAttribute('transform').split(',')
+    //  adds title above diagam
+    new SvgText({
+      text: title.textContent,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text title',
+      style: {
+        fontSize: '12px'
+      }
     })
 
-    //  creates an array with x and y axis transform value from chart
-    const chartTransform = currentChartHeight.map(chartHeight => {
-      return [
-        chartHeight[0].split('(')[1],
-        (parseInt(chartHeight[1].split(')')[0], 10) + extraHeightDiagram).toString()
-      ]
-    })
-
-    //  creates an array with x and y axis transform value from color explanation
-    const colorTransform = currentColorExplanationHeight.map(colorHeight => {
-      return [
-        colorHeight[0].split('(')[1],
-        (parseInt(colorHeight[1].split(')')[0], 10) + extraHeightDiagram).toString()
-      ]
-    })
-
-    //  reposition chart inside svg
-    chart.forEach((chartItem, index) => {
-      chartItem.setAttribute('transform', `translate(${chartTransform[index][0]}, ${chartTransform[index][1]})`)
-    })
-
-    //  reposition color explanation inside svg
-    colorExplanation.forEach((colorItem, index) => {
-      colorItem.setAttribute('transform', `translate(${colorTransform[index][0]}, ${colorTransform[index][1]})`)
-    })
-
-    //  add height and title for svg
-    svg.forEach((svgItem, index) => {
-      let title = svgItem.closest('.toggle-list')
-      title = title.querySelector('a h3')
-
-      const height = parseInt(svgItem.getAttribute('height'), 10) + extraHeightDiagram
-      svgItem.setAttribute('height', height)
-
-
-      //  adds title above diagam
-      new SvgText({
-        text: title.textContent,
-        element: svgItem,
-        maxWidth: svgItem.clientWidth || 0,
-        textOverflow: 'ellipsis',
-        className: 'svg-text title'
-      })
-    })
+    this.addValuesToTransform(svg.querySelector('.text__unit'), null, 80)
   }
 
+  //  use refs from each card component that toggles the height.
+  //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
-    const svg = Array.prototype.slice.call(document.querySelectorAll('.chart__svg'))
+
+    let svg = this.toggleList
     if (!svg) return
+    svg = svg.querySelector('.chart__svg')
 
     //  extra height for the svg diagram
     const extraHeightSVG = 120
     const paddingBottom = 50
     const spaceBetween = 30
 
-    //  add height and title for svg
-    svg.forEach((svgItem, index) => {
+    //  add extra height to svg
+    const height = parseInt(svg.getAttribute('height'), 10) + extraHeightSVG
+    svg.setAttribute('height', height)
 
-      //  add extra height to svg
-      const height = parseInt(svgItem.getAttribute('height'), 10) + extraHeightSVG
-      svgItem.setAttribute('height', height)
+    const parent = svg.closest('.toggle-list__section.toggle-list__section--expanded')
+    const description = parent.querySelector('.graph__description')
+    const source = parent.querySelector('.graph__about p')
+    const chart = svg.querySelector('.chart__d3-points')
 
-      const parent = svgItem.closest('.toggle-list__section.toggle-list__section--expanded')
-      const description = parent.querySelector('.graph__description')
-      const source = parent.querySelector('.graph__about p')
-
-      //  adds description below diagram
-      new SvgText({
-        text: description.textContent,
-        element: svgItem,
-        maxWidth: svgItem.clientWidth || 0,
-        textOverflow: 'ellipsis',
-        className: 'svg-text text__description',
-        verticalAlign: 'bottom'
-      })
-
-      //  adds source below diagram
-      new SvgText({
-        text: source.textContent,
-        element: svgItem,
-        maxWidth: svgItem.clientWidth || 0,
-        textOverflow: 'ellipsis',
-        className: 'svg-text text__source',
-        verticalAlign: 'bottom',
-      })
-
-      const textDescription = document.querySelectorAll('.text__description')
-      const textSource = document.querySelectorAll('.text__source')
-
-      this.addValuesToTransform(textDescription, null, svgItem.clientHeight - (spaceBetween + paddingBottom))
-      this.addValuesToTransform(textSource, null, svgItem.clientHeight - paddingBottom)
+    //  adds description below diagram
+    new SvgText({
+      text: description.textContent,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text text__description',
+      verticalAlign: 'bottom'
     })
+
+    //  adds source below diagram
+    new SvgText({
+      text: source.textContent,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text text__source',
+      verticalAlign: 'bottom',
+    })
+
+    const textDescription = svg.querySelector('.text__description')
+    const textSource = svg.querySelector('.text__source')
+    const textUnit = svg.querySelector('.text__unit')
+
+    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
+    const newSourceHeight = svg.clientHeight - paddingBottom
+
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight)
+    this.addValuesToTransform(textSource, null, newSourceHeight)
   }
 
   getUrlToTab(tab) {
@@ -272,17 +263,11 @@ class Card extends Component {
     return `${protocol}//${host}${path}`
   }
 
-  takeScreenshot() {
-    const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
-    graphNumbers.forEach(number => {
-      number.style.fontSize = '12px'
-    })
-
+  takeScreenshot(svg) {
     const config = {
       filename: 'imdi-diagram',
     }
 
-    const svg = document.querySelector('.chart__svg')
     d3_save_svg.save(svg, config) // eslint-disable-line
   }
 
@@ -334,6 +319,7 @@ class Card extends Component {
 
     return (
       <section
+        data-card
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
@@ -377,7 +363,6 @@ class Card extends Component {
         <div className="graph">
           {data && (
             <ChartComponent
-              ref="chart"
               data={data}
               explicitView={explicitView}
               title={card.title}

@@ -169,10 +169,8 @@ export default class StackedBarChart extends Component {
     const txts = xAxisEl.selectAll('.tick text')
     txts.call(this.wrapTextNode, x0.rangeBand())
 
-
     // Legend
     const leg = this.legend().color(colors)
-
 
     const legendWrapper = this._svg.append('g')
     .attr('class', 'chart__legend-wrapper')

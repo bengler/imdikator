@@ -183,30 +183,9 @@ export default class PyramidChart extends React.Component {
       hoveropen = false
     }
 
-    if (this.props.explicitView) {
-      // Add text indicators
-      category.selectAll('rect.chart__text')
-      .data(dataItem => {
-        console.log(dataItem.values)
-        return dataItem.values
-      })
-      .enter()
-      .append('text')
-      .attr('class', 'chart__text')
-      .attr('width', 200)
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('height', 200)
-      .each(item => {
-        item.el = this
-      })
-      .text(item => {
-        console.log(item.values)
-        return item.values.value
-      })
-    }
-
-    // Left side
+    //=============================================================
+    //  LEFT SIDE
+    //=============================================================
     const leftBarGroup = category.append('g')
     .attr('transform', `${this.translation(pointA, 0)}scale(-1,1)`)
 
@@ -228,16 +207,38 @@ export default class PyramidChart extends React.Component {
       .attr('stroke', dataItem => dataItem.stroke)
       .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
+      //  get width of chart__bar--left
+      //  get width of chart__bar-hover
+      //  set a padding of 50
+      //  const chart__bar-hover - chart__bar--left - padding
+
+    // if (this.props.explicitView) {
+    //   // Add text indicators
+    //   category.selectAll('.chart__text')
+    //   .data(dataItem => dataItem.values[0].values)
+    //   .enter()
+    //   .append('text')
+    //   .attr('class', 'chart__text chart__text--left')
+    //   .attr('width', dataItem => xScale(dataItem.value))
+    //   .attr('height', yScale.rangeBand())
+    //   .attr('y', dataItem => yScale(dataItem.title))
+    //   .attr('x', dataItem => xScale(dataItem.value))
+    //   .each(item => {
+    //     item.el = this
+    //   })
+    //   .text(item => item.value)
+    // }
+
     leftBarGroup.selectAll('rect.chart__bar-hover')
     .data(item => {
       return item.values[0].values
     })
     .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
+    //     .append('svg:a')
+    //     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+    //     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+    //     .on('click', () => d3.event.stopPropagation())
+    //     .on('focus', item => open(item))
     .append('rect')
     .attr('class', 'chart__bar-hover')
     .attr('tabindex', '0')
@@ -310,8 +311,7 @@ export default class PyramidChart extends React.Component {
 
     // The axis
     /* eslint-disable prefer-reflect */
-    category
-    .append('g')
+    category.append('g')
     .attr('class', 'chart__axis chart__axis--y chart__axis--left')
     .attr('transform', this.translation(pointA, 0))
     .call(yAxisLeft)

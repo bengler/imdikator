@@ -99,7 +99,6 @@ https://github.com/wearehive/project-guidelines#1-git
 
 
 # App initialisation
-
 Here's how the app starts and hwo the tables are built from load to render, including where the data comes from.
 
 1: loader.js runs and finds the api/data host based on the div with id `#imdikator-loader` in the document in which Imdikator is included.
@@ -117,8 +116,8 @@ Here's how the app starts and hwo the tables are built from load to render, incl
 
 6: The starting point for each of two versions of Imdikator is the `entry.jsx` file in the `bundles` folder. Here the react app is initialised in the correct div and routing is setup. The file first runs `loadInitialState` which gets region and cardPage data from the api/local files, and then afterwards runs `bootstrap` which starts the react app and initialises the Redux store.
 
-# Data flow
 
+# Data flow
 All data is fetched through the `lib/api-client` file, which exposes a set of functions used throughout the app to get data from all available sources.
 
 The data fetching is driven by the URL. Once a user lands on a page, it will be matched in the `bundles/site/routes` file and depending on the route, an action will be dispatched to Redux to fetch the required data. (example: `loadCardsPage` for a card page and `openCard` for a card)
@@ -129,13 +128,17 @@ The data fetching is driven by the URL. Once a user lands on a page, it will be 
 
 
 # D3.js
-
 The perfect tutorial to learn how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
 
 - Card.jsx === A charts outer wrapper containing filters, print buttons with it's filters. Every chart uses this as a parent
 - BarChart/PyramidChart/BubbleChart/etc.../.jsx === unique d3 configuration for a specific type of chart. This is the unique file for every type of (bubble, stacked, bar) chart
 - D3Chart.jsx AND _d3chart.js === a generic initializer for every d3 instance. All d3 configuration that is applied on all charts goes here. If you want to pass props to a Chart - you have to pass it from Card.jsx to every chart you want to use, e.g BarChart and pass it down to D3Chart's componentDidUpdate() inside the this.chart.update(overload this function with the props) and repass it through _d3chart.js constructor and append it to this.update(). Yikes.
 
+# git
+- Make a local feature branch `$ git checkout -b add-barchart` and `$ git push origin add-barchart`
+- Merge the pull requests into master
+- Place the folder imdikator-deploy (ask tobias or bård) as a sibling to the local imdikator folder and push to test with the test script inside imdikator deploy package.json
+- Make a comment in jira with the commit hash that has been published to test, so when the test is accepted, roll back to this commit and run imdikator deploy's production script.
 
 # TO-DO:
 

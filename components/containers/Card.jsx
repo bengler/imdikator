@@ -105,6 +105,7 @@ class Card extends Component {
     let svg = this.toggleList
     if (!svg) return
     svg = svg.querySelector('.chart__svg')
+    if (!svg) return
 
     //  extra height for the svg diagram
     const extraHeightDiagram = 80
@@ -162,7 +163,7 @@ class Card extends Component {
     svg = svg.querySelector('.chart__svg')
 
     //  extra height for the svg diagram
-    const extraHeightSVG = 120
+    const extraHeightSVG = 140
     const paddingBottom = 50
     const spaceBetween = 30
 
@@ -383,7 +384,7 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
-            {chart.name === 'bar' || chart.name === 'pyramid' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
+            {chart.name === 'bar' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
           </div>

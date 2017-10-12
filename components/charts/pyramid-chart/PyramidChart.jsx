@@ -112,6 +112,7 @@ export default class PyramidChart extends React.Component {
     .innerTickSize(10)
 
     const outerXAxisMargin = 20
+
     /* eslint-disable prefer-reflect */
     const outerXAxisEl = svg.append('g')
     .attr('class', 'chart__axis')
@@ -180,6 +181,29 @@ export default class PyramidChart extends React.Component {
     const close = () => {
       this.eventDispatcher.emit('datapoint:hover-out')
       hoveropen = false
+    }
+
+    if (this.props.explicitView) {
+      // Add text indicators
+      category.selectAll('rect.chart__text')
+      .data(dataItem => {
+        console.log(dataItem.values)
+        return dataItem.values
+      })
+      .enter()
+      .append('text')
+      .attr('class', 'chart__text')
+      .attr('width', 200)
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('height', 200)
+      .each(item => {
+        item.el = this
+      })
+      .text(item => {
+        console.log(item.values)
+        return item.values.value
+      })
     }
 
     // Left side

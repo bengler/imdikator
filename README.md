@@ -128,7 +128,13 @@ The data fetching is driven by the URL. Once a user lands on a page, it will be 
 - The structure and hirarchy of these are all configured in `cardPages.json`.
 
 
+# D3.js
 
+The perfect tutorial to learn how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
+
+- Card.jsx === A charts outer wrapper containing filters, print buttons with it's filters. Every chart uses this as a parent
+- BarChart/PyramidChart/BubbleChart/etc.../.jsx === unique d3 configuration for a specific type of chart. This is the unique file for every type of (bubble, stacked, bar) chart
+- D3Chart.jsx AND _d3chart.js === a generic initializer for every d3 instance. All d3 configuration that is applied on all charts goes here. If you want to pass props to a Chart - you have to pass it from Card.jsx to every chart you want to use, e.g BarChart and pass it down to D3Chart's componentDidUpdate() inside the this.chart.update(overload this function with the props) and repass it through _d3chart.js constructor and append it to this.update(). Yikes.
 
 
 # TO-DO:

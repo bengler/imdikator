@@ -4,6 +4,8 @@
 //  (because d3 hijacks the 'this' keyword), which produces a tremendous amount of pains and would take crazy hours to fix.
 //  if the diagram is buggy or not behaving properly - inspect this function, it's probably the cause.
 
+//  to better understand how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
+
 import React, {Component, PropTypes} from 'react'
 
 import {connect} from 'react-redux'
@@ -82,7 +84,6 @@ class Card extends Component {
   }
 
   componentDidUpdate() {
-
     // add title and numbers above graph
     if (this.state.explicitView) this.moveElementsIntoSVG()
     if (!this.props.loading) this.addDescriptionAndSourceBelowDiagram()
@@ -382,7 +383,7 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
-            {chart.name === 'bar' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
+            {chart.name === 'bar' || chart.name === 'pyramid' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
           </div>

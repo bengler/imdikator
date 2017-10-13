@@ -146,27 +146,6 @@ export default class PyramidChart extends React.Component {
     .attr('class', 'chart__category')
     .attr('transform', (item, i) => this.translation(outerXScale(item.title), 0))
 
-    // if user has toggled button for showing numbers above graphs
-    // if (this.props.explicitView) {
-    //   // Add text indicators
-    //   category.selectAll('rect.chart__text')
-    //   .data(dataItem => dataItem.values)
-    //   .enter()
-    //   .append('text')
-    //   .attr('class', 'chart__text')
-    //   .attr('width', 300)
-    //   .attr('height', 300)
-    //   .attr('x', 0)
-    //   .attr('y', 0)
-    //   // .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
-    //   .each(function (item) {
-    //     console.log({item})
-    //     item.el = this
-    //   })
-    //   .text(dataItem => {
-    //     return dataItem.values[0].values
-    //   })
-    // }
 
     // The bars
     let hoveropen = false
@@ -207,16 +186,13 @@ export default class PyramidChart extends React.Component {
       .attr('stroke', dataItem => dataItem.stroke)
       .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
-      //  get width of chart__bar--left
-      //  get width of chart__bar-hover
-      //  set a padding of 50
-      //  const chart__bar-hover - chart__bar--left - padding
-
     const paddingTop = 38
-    const numberPaddingLeft = 54
-    const numberPaddingRight = 10
 
+    //================================================
+    //  show numbers next to chart if toggled
+    //================================================
     if (this.props.explicitView) {
+      const numberPaddingLeft = 54
 
       // Add text indicators
       category.selectAll('.chart__text--left')
@@ -238,36 +214,36 @@ export default class PyramidChart extends React.Component {
       .text(item => item.value)
     }
 
-    leftBarGroup.selectAll('rect.chart__bar-hover')
-    .data(item => {
-      return item.values[0].values
-    })
-    .enter()
-    //     .append('svg:a')
-    //     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    //     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-    //     .on('click', () => d3.event.stopPropagation())
-    //     .on('focus', item => open(item))
-    .append('rect')
-    .attr('class', 'chart__bar-hover')
-    .attr('tabindex', '0')
-    .attr('width', xScale(xScale.domain()[1]))
-    .attr('height', yScale.rangeBand())
-    .attr('x', 0)
-    .attr('y', dataItem => yScale(dataItem.title))
-    .attr('pointer-events', 'all')
-    .style('fill', 'none')
-    .on('touchend', item => {
-      if (hoveropen) {
-        close()
-      } else {
-        open(item)
-      }
-    })
-    .on('mouseover', item => open(item))
-    .on('mouseout', () => close())
-    .on('focus', item => open(item))
-    .on('blur', () => close())
+    //================================================
+    //  hovered chart bars shows numbers
+    //================================================
+    else {
+      leftBarGroup.selectAll('rect.chart__bar-hover')
+      .data(item => {
+        return item.values[0].values
+      })
+      .enter()
+      .append('rect')
+      .attr('class', 'chart__bar-hover')
+      .attr('tabindex', '0')
+      .attr('width', xScale(xScale.domain()[1]))
+      .attr('height', yScale.rangeBand())
+      .attr('x', 0)
+      .attr('y', dataItem => yScale(dataItem.title))
+      .attr('pointer-events', 'all')
+      .style('fill', 'none')
+      .on('touchend', item => {
+        if (hoveropen) {
+          close()
+        } else {
+          open(item)
+        }
+      })
+      .on('mouseover', item => open(item))
+      .on('mouseout', () => close())
+      .on('focus', item => open(item))
+      .on('blur', () => close())
+    }
 
     // Right side
     const rightBarGroup = category.append('g')
@@ -291,7 +267,11 @@ export default class PyramidChart extends React.Component {
     .attr('stroke', dataItem => dataItem.stroke)
     .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
+    //================================================
+    //  show numbers next to chart if toggled
+    //================================================
     if (this.props.explicitView) {
+      const numberPaddingRight = 5
 
       // Add text indicators
       category.selectAll('.chart__text--right')
@@ -302,7 +282,7 @@ export default class PyramidChart extends React.Component {
       .attr('x', dataItem => {
 
         // places the number next to the bar
-        return pointB + xScale(dataItem.value + numberPaddingRight)
+        return pointB + xScale(dataItem.value) + numberPaddingRight
       })
       .attr('y', dataItem => yScale(dataItem.title) + paddingTop)
       .attr('width', dataItem => xScale(dataItem.value))
@@ -313,32 +293,37 @@ export default class PyramidChart extends React.Component {
       .text(item => item.value)
     }
 
-    rightBarGroup.selectAll('rect.chart__bar-hover')
-    .data(item => {
-      return item.values[1].values
-    })
-    .enter()
-    .append('svg:a')
-    .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    .on('click', () => d3.event.stopPropagation())
-    .on('focus', item => open(item))
-    .append('rect')
-    .attr('class', 'chart__bar-hover')
-    .attr('width', xScale(xScale.domain()[1]))
-    .attr('height', yScale.rangeBand())
-    .attr('x', 0)
-    .attr('y', dataItem => yScale(dataItem.title))
-    .attr('pointer-events', 'all')
-    .style('fill', 'none')
-    .on('touchend', item => {
-      if (hoveropen) {
-        close()
-      } else {
-        open(item)
-      }
-    })
-    .on('mouseover', item => open(item))
-    .on('mouseout', () => close())
+    //================================================
+    //  hovered chart bars shows numbers
+    //================================================
+    else {
+      rightBarGroup.selectAll('rect.chart__bar-hover')
+      .data(item => {
+        return item.values[1].values
+      })
+      .enter()
+      .append('svg:a')
+      .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+      .on('click', () => d3.event.stopPropagation())
+      .on('focus', item => open(item))
+      .append('rect')
+      .attr('class', 'chart__bar-hover')
+      .attr('width', xScale(xScale.domain()[1]))
+      .attr('height', yScale.rangeBand())
+      .attr('x', 0)
+      .attr('y', dataItem => yScale(dataItem.title))
+      .attr('pointer-events', 'all')
+      .style('fill', 'none')
+      .on('touchend', item => {
+        if (hoveropen) {
+          close()
+        } else {
+          open(item)
+        }
+      })
+      .on('mouseover', item => open(item))
+      .on('mouseout', () => close())
+    }
 
     // The axis
     /* eslint-disable prefer-reflect */

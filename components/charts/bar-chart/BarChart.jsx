@@ -167,9 +167,7 @@ export default class BarChart extends React.Component {
       .enter()
       .append('rect')
       .attr('class', 'chart__bar')
-      .attr('width', item => {
-        return (explicitView) ? item.scale.rangeBand() : item.scale.rangeBand()
-      })
+      .attr('width', item => item.scale.rangeBand())
       .attr('x', dataItem => dataItem.scale(dataItem.title))
       .attr('y', dataItem => {
         const val = Math.max(0, dataItem.value)

@@ -145,7 +145,7 @@ class Card extends Component {
 
     let svg = this.toggleList
     if (!svg) return
-    svg = svg.querySelector('.chart__svg')
+    svg = svg.querySelector('[data-chart]')
 
     //  extra height for the svg diagram
     const extraHeightSVG = 140
@@ -156,10 +156,10 @@ class Card extends Component {
     const height = parseInt(svg.getAttribute('height'), 10) + extraHeightSVG
     svg.setAttribute('height', height)
 
-    const parent = svg.closest('.toggle-list__section.toggle-list__section--expanded')
-    const description = parent.querySelector('.graph__description')
-    const source = parent.querySelector('.graph__about p')
-    const chart = svg.querySelector('.chart__d3-points')
+    const parent = svg.closest('[data-card]')
+    const description = parent.querySelector('[data-chart-description]')
+    const source = parent.querySelector('[data-chart-source]')
+    const chart = svg.querySelector('[data-chart]')
 
     //  adds description below diagram
     new SvgText({
@@ -183,7 +183,6 @@ class Card extends Component {
 
     const textDescription = svg.querySelector('.text__description')
     const textSource = svg.querySelector('.text__source')
-    const textUnit = svg.querySelector('.text__unit')
 
     const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
     const newSourceHeight = svg.clientHeight - paddingBottom
@@ -364,7 +363,7 @@ class Card extends Component {
           )}
         </div>
 
-        <div className="graph__description">
+        <div data-chart-description className="graph__description">
           {this.props.description}
         </div>
 

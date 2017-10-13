@@ -212,22 +212,28 @@ export default class PyramidChart extends React.Component {
       //  set a padding of 50
       //  const chart__bar-hover - chart__bar--left - padding
 
-    // if (this.props.explicitView) {
-    //   // Add text indicators
-    //   category.selectAll('.chart__text')
-    //   .data(dataItem => dataItem.values[0].values)
-    //   .enter()
-    //   .append('text')
-    //   .attr('class', 'chart__text chart__text--left')
-    //   .attr('width', dataItem => xScale(dataItem.value))
-    //   .attr('height', yScale.rangeBand())
-    //   .attr('y', dataItem => yScale(dataItem.title))
-    //   .attr('x', dataItem => xScale(dataItem.value))
-    //   .each(item => {
-    //     item.el = this
-    //   })
-    //   .text(item => item.value)
-    // }
+    const paddingTop = 38
+    const numberPadding = 54
+
+    if (this.props.explicitView) {
+      // Add text indicators
+      category.selectAll('.chart__text')
+      .data(dataItem => dataItem.values[0].values)
+      .enter()
+      .append('text')
+      .attr('class', 'chart__text chart__text--left')
+      .attr('width', dataItem => xScale(dataItem.value))
+      .attr('height', yScale.rangeBand())
+      .attr('y', dataItem => yScale(dataItem.title) + paddingTop)
+      .attr('x', dataItem => {
+        console.log(xScale(dataItem.value), xScale(xScale.domain()[1]))
+        return xScale(xScale.domain()[1]) - xScale(dataItem.value) - numberPadding
+      })
+      .each(item => {
+        item.el = this
+      })
+      .text(item => item.value)
+    }
 
     leftBarGroup.selectAll('rect.chart__bar-hover')
     .data(item => {

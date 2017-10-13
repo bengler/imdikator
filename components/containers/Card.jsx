@@ -7,7 +7,6 @@
 //  to better understand how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
 
 import React, {Component, PropTypes} from 'react'
-
 import {connect} from 'react-redux'
 import d3_save_svg from 'd3-save-svg'
 import SvgText from 'svg-text'
@@ -117,8 +116,6 @@ class Card extends Component {
     //  move chart and colored squares lower
     this.addValuesToTransform(chart, null, extraHeightDiagram)
     this.addValuesToTransform(colorExplanation, null, extraHeightDiagram)
-
-    // console.log(newUnitHeight)
 
     //  get the title
     const title = svg.closest('.toggle-list').querySelector('[data-graph-title]')
@@ -384,7 +381,7 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
-            {chart.name === 'bar' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
+            {chart.name === 'bar' || chart.name == 'pyramid' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
           </div>

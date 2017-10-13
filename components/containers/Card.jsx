@@ -274,6 +274,7 @@ class Card extends Component {
     const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
     const {chartViewMode, explicitView} = this.state
 
+    const showToggleNumbersButton = (activeTab) ? activeTab.chartKind === 'bar' || activeTab.chartKind == 'pyramid' : false
     if (!activeTab) {
       return (
         <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
@@ -381,7 +382,7 @@ class Card extends Component {
 
         {!printable && (
           <div className="graph__functions">
-            {chart.name === 'bar' || chart.name == 'pyramid' && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
+            {showToggleNumbersButton && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
             <ShareWidget chartUrl={this.getShareUrl()} />
             <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
           </div>

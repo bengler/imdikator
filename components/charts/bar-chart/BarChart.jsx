@@ -199,8 +199,10 @@ export default class BarChart extends React.Component {
       hoveropen = false
     }
 
-    // if user has toggled button for showing numbers above graphs
-    if (explicitView || printView) {
+    //================================================
+    //  if user has toggled button for showing numbers above graphs
+    //================================================
+    if (explicitView) {
 
       // Add text indicators
       category.selectAll('rect.chart__text')
@@ -221,34 +223,39 @@ export default class BarChart extends React.Component {
       .text(dataItem => dataItem.formattedValue)
     }
 
-    category.selectAll('rect.chart__bar-hover')
-      .data(dataItem => dataItem.values)
-      .enter()
-      .append('svg:a')
-      .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-      .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-      .on('click', () => d3.event.stopPropagation())
-      .on('focus', item => open(item))
-      .append('rect')
-      .attr('class', 'chart__bar-hover')
-      .attr('width', item => item.scale.rangeBand())
-      .attr('x', dataItem => dataItem.scale(dataItem.title))
-      // Want full height for this one
-      .attr('y', 0)
-      .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
-      .attr('pointer-events', 'all')
-      .style('fill', 'none')
-      .on('touchend', item => {
-        if (hoveropen) {
-          close()
-        } else {
-          open(item)
-        }
-      })
-      .on('mouseover', item => open(item))
-      .on('mouseout', () => close())
-      .on('focus', item => open(item))
-      .on('blur', () => close())
+    //================================================
+    //  hovered chart bars shows numbers
+    //================================================
+    else {
+      category.selectAll('rect.chart__bar-hover')
+        .data(dataItem => dataItem.values)
+        .enter()
+        .append('svg:a')
+        .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+        .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+        .on('click', () => d3.event.stopPropagation())
+        .on('focus', item => open(item))
+        .append('rect')
+        .attr('class', 'chart__bar-hover')
+        .attr('width', item => item.scale.rangeBand())
+        .attr('x', dataItem => dataItem.scale(dataItem.title))
+        // Want full height for this one
+        .attr('y', 0)
+        .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
+        .attr('pointer-events', 'all')
+        .style('fill', 'none')
+        .on('touchend', item => {
+          if (hoveropen) {
+            close()
+          } else {
+            open(item)
+          }
+        })
+        .on('mouseover', item => open(item))
+        .on('mouseout', () => close())
+        .on('focus', item => open(item))
+        .on('blur', () => close())
+    }
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend

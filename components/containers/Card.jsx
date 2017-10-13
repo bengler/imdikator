@@ -108,6 +108,10 @@ class Card extends Component {
 
     //  extra height for the svg diagram
     const extraHeightDiagram = 80
+    const extraHeightDiagramPyramid = 20
+
+    //  if this chart is pyramidchart - use different padding for colored boxes below chart
+    const pyramid = this.props.activeTab.chartKind == 'pyramid'
 
     //  get all svg elements
     const chart = svg.querySelector('.chart__d3-points') // converts NodeList to array
@@ -115,7 +119,7 @@ class Card extends Component {
 
     //  move chart and colored squares lower
     this.addValuesToTransform(chart, null, extraHeightDiagram)
-    this.addValuesToTransform(colorExplanation, null, extraHeightDiagram)
+    this.addValuesToTransform(colorExplanation, null, pyramid ? extraHeightDiagramPyramid : extraHeightDiagram)
 
     //  get the title
     const title = svg.closest('.toggle-list').querySelector('[data-graph-title]')
@@ -159,7 +163,6 @@ class Card extends Component {
     const parent = svg.closest('[data-card]')
     const description = parent.querySelector('[data-chart-description]')
     const source = parent.querySelector('[data-chart-source]')
-    const chart = svg.querySelector('[data-chart]')
 
     //  adds description below diagram
     new SvgText({

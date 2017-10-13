@@ -92,11 +92,11 @@ class EmbeddedChartContainer extends Component {
                 headerGroups={headerGroups}
               />
             </figcaption>
+            <a href={chartUrl} className="button button--secondary button--small t-no-margin">
+              <i className="tabs-menu__icon  icon__chart-bars"></i>
+              Finn tall og statistikk for din kommune
+            </a>
             <div className="image-block__figure-footer">
-              <a href={chartUrl} className="button button--secondary button--small t-no-margin">
-                <i className="tabs-menu__icon  icon__chart-bars"></i>
-                Finn tall og statistikk for din kommune
-              </a>
             </div>
           </div>
         </div>

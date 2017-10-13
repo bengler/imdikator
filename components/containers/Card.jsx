@@ -126,19 +126,9 @@ class Card extends Component {
 
     const unit = this.props.query.unit[0]
 
-    //  adds description below diagram
-    new SvgText({
-      text: unit,
-      element: svg,
-      maxWidth: svg.clientWidth || 0,
-      textOverflow: 'ellipsis',
-      className: 'svg-text text__unit',
-      verticalAlign: 'bottom'
-    })
-
     //  adds title above diagam
     new SvgText({
-      text: title.textContent,
+      text: `${title.textContent} (${unit})`,
       element: svg,
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
@@ -147,8 +137,6 @@ class Card extends Component {
         fontSize: '12px'
       }
     })
-
-    this.addValuesToTransform(svg.querySelector('.text__unit'), null, 80)
   }
 
   //  use refs from each card component that toggles the height.

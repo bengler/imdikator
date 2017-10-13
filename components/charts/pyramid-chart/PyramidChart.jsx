@@ -213,11 +213,13 @@ export default class PyramidChart extends React.Component {
       //  const chart__bar-hover - chart__bar--left - padding
 
     const paddingTop = 38
-    const numberPadding = 54
+    const numberPaddingLeft = 54
+    const numberPaddingRight = 10
 
     if (this.props.explicitView) {
+
       // Add text indicators
-      category.selectAll('.chart__text')
+      category.selectAll('.chart__text--left')
       .data(dataItem => dataItem.values[0].values)
       .enter()
       .append('text')
@@ -226,8 +228,9 @@ export default class PyramidChart extends React.Component {
       .attr('height', yScale.rangeBand())
       .attr('y', dataItem => yScale(dataItem.title) + paddingTop)
       .attr('x', dataItem => {
-        console.log(xScale(dataItem.value), xScale(xScale.domain()[1]))
-        return xScale(xScale.domain()[1]) - xScale(dataItem.value) - numberPadding
+
+        // places the number next to the bar
+        return xScale(xScale.domain()[1]) - xScale(dataItem.value) - numberPaddingLeft
       })
       .each(item => {
         item.el = this
@@ -287,6 +290,28 @@ export default class PyramidChart extends React.Component {
     .attr('fill', dataItem => dataItem.fill)
     .attr('stroke', dataItem => dataItem.stroke)
     .attr('stroke-width', dataItem => dataItem.strokeWidth)
+
+    if (this.props.explicitView) {
+
+      // Add text indicators
+      category.selectAll('.chart__text--right')
+      .data(dataItem => dataItem.values[1].values)
+      .enter()
+      .append('text')
+      .attr('class', 'chart__text chart__text--right')
+      .attr('x', dataItem => {
+
+        // places the number next to the bar
+        return pointB + xScale(dataItem.value + numberPaddingRight)
+      })
+      .attr('y', dataItem => yScale(dataItem.title) + paddingTop)
+      .attr('width', dataItem => xScale(dataItem.value))
+      .attr('height', yScale.rangeBand())
+      .each(item => {
+        item.el = this
+      })
+      .text(item => item.value)
+    }
 
     rightBarGroup.selectAll('rect.chart__bar-hover')
     .data(item => {

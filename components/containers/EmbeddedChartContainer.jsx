@@ -94,7 +94,7 @@ class EmbeddedChartContainer extends Component {
             </figcaption>
             <a href={chartUrl} className="button button--secondary button--small t-no-margin">
               <i className="tabs-menu__icon  icon__chart-bars"></i>
-              Finn tall og statistikk for din kommune
+              Finn tall for din kommune
             </a>
             <div className="image-block__figure-footer">
             </div>
@@ -104,7 +104,6 @@ class EmbeddedChartContainer extends Component {
     )
   }
 }
-
 
 function mapStateToProps(state, ownProps) {
 

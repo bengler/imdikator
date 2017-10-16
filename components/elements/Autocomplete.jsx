@@ -57,8 +57,9 @@ export default class Autocomplete extends Component {
     super()
     this.state = {
       value: props.initialValue || '',
-      isOpen: false,
-      highlightedIndex: null
+      isOpen: false, // if the search dropdown is visible
+      highlightedIndex: null, // which item (oslo) is selected in the search dropdown
+      selectedIndex: 0
     }
   }
 
@@ -153,7 +154,12 @@ export default class Autocomplete extends Component {
   };
 
   maybeScrollItemIntoView() {
-    if (this.state.isOpen === true && this.state.highlightedIndex !== null) {
+    const {isOpen, highlightedIndex} = this.state
+
+    // console.log({isOpen, highlightedIndex})
+    // console.log(this.refs[`item-${this.state.highlightedIndex}`])
+
+    if (isOpen === true && highlightedIndex !== null) {
       const itemNode = findDOMNode(this.refs[`item-${this.state.highlightedIndex}`])
       const menuNode = findDOMNode(this.refs.menu)
       scrollIntoView(itemNode, menuNode, {onlyScrollIfNeeded: true})
@@ -161,12 +167,12 @@ export default class Autocomplete extends Component {
   }
 
   handleKeyDown(event) {
-
     if (this.keyDownHandlers[event.key]) {
       this.keyDownHandlers[event.key].call(this, event)
     } else {
       this.setState({
-        highlightedIndex: null,
+        selectedIndex: 0,
+        // highlightedIndex: null,
         isOpen: true
       })
     }
@@ -217,6 +223,7 @@ export default class Autocomplete extends Component {
     if (items.length === 0) {
       return
     }
+
     const matchedItem = highlightedIndex === null ? items[0] : items[highlightedIndex]
     const itemValue = this.props.getItemValue(matchedItem)
     const itemValueDoesMatch = itemValue.toLowerCase().indexOf(this.state.value.toLowerCase()) === 0
@@ -280,7 +287,7 @@ export default class Autocomplete extends Component {
       const element = this.props.renderItem(
         item,
         this.state.highlightedIndex === index,
-        {cursor: 'default'}
+        index
       )
       return React.cloneElement(element, {
         key: item.prefixedCode,
@@ -335,8 +342,10 @@ export default class Autocomplete extends Component {
   render() {
     const {style, className, inputProps} = this.props
     const {isOpen, value, highlightedIndex} = this.state
+
     const selectedText = document.getElementById(`item-${highlightedIndex}`)
         ? document.getElementById(`item-${highlightedIndex}`).innerText : ''
+
     return (
       <div style={style} className={className}>
         <input

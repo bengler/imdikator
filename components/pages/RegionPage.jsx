@@ -85,7 +85,12 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <CardPageButtonsContainer />
-                <h2 className="page__section-title">Oppsummering {currentRegion.name && `av ${currentRegion.name}`}</h2>
+
+                <h2 className="page__section-title">
+                  Oppsummering {currentRegion.name
+                    && `av ${currentRegion.name} ${currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`}`}
+                </h2>
+
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     <RegionSummaryChartsContainer region={currentRegion} />
@@ -94,10 +99,12 @@ class RegionPage extends Component {
 
                 <div className="feature t-hide-on-print">
                   <h2 className="feature__title">Faktaark</h2>
+
                   <p>
                     Et dokument hvor alle nøkkeltallene fra {currentRegion.name}
                     {currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`} er gjengitt.
                   </p>
+
                   <p>
                     <a href="#" onClick={this.handleClickFactSheet} className="button button-">
                       <i className="icon__download icon--white" /> Utskriftsvennlig faktaark

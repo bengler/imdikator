@@ -33,7 +33,6 @@ export default class RegionSearch extends Component {
   }
 
   renderItem(item, isHighlighted) {
-    console.log('item', {item, isHighlighted})
     const classes = cx({
       'search-result__result': true,
       'search-result__result--selected': isHighlighted

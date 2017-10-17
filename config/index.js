@@ -16,8 +16,8 @@ export default defaults({
   port: process.env.PORT,
   // nodeApiHost: 'localhost:8080',
   // nodeApiHost: 'imdikator-node-devtest.azurewebsites.net',
-  // nodeApiHost: 'atindikatornode.azurewebsites.net',
-  nodeApiHost: 'prodindikatornode.azurewebsites.net',
+  nodeApiHost: 'atindikatornode.azurewebsites.net', // TEST URL
+  // nodeApiHost: 'prodindikatornode.azurewebsites.net', // LIVE URL
   apiHost: globalConfig.apiHost,
   contentApiHost: globalConfig.contentApiHost,
   reduxDevTools: env == 'development' && !['0', 'false'].includes(process.env.REDUX_DEVTOOLS),

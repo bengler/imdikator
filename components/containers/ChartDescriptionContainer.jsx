@@ -10,8 +10,9 @@ class ChartDescriptionContainer extends Component {
     card: ImdiPropTypes.card.isRequired,
     region: ImdiPropTypes.region.isRequired,
     headerGroups: PropTypes.array,
-    description: PropTypes.string
-  };
+    description: PropTypes.string,
+    setDescription: PropTypes.function
+  }
 
   render() {
     return (
@@ -33,7 +34,7 @@ function mapStateToProps(state, ownProps) {
   })
 
   const graphDescription = describeChart(queryToOptions(query, card, headerGroup, allRegions))
-
+  
   return {
     description: graphDescription
   }

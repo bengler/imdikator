@@ -63,7 +63,8 @@ export default class FilterBar extends Component {
   render() {
     const {filters, region} = this.props
 
-    const filterLimit = this.state.windowWidth > 720 ? (this.state.windowWidth > 912 ? 5 : 3) : 2 // eslint-disable-line no-nested-ternary
+    // eslint-disable-next-line no-nested-ternary
+    const filterLimit = this.state.windowWidth > 720 ? (this.state.windowWidth > 912 ? 5 : 3) : 2
 
     let visibleFilters = filters.filter(f => !f.props.hidden)
 

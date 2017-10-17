@@ -90,6 +90,7 @@ class FilterBarContainer extends Component {
   getDimensionValueFromQuery(dimensionName) {
     const {query} = this.props
 
+    // e.g: if 'landBakgrunn' exists in the query
     if (query.hasOwnProperty(dimensionName)) {
       return query[dimensionName]
     }
@@ -104,10 +105,10 @@ class FilterBarContainer extends Component {
   getQuerySpec(query) {
     const {tab, chart, config, headerGroups} = this.props
     return getQuerySpec(query, {
-      tab: tab,
-      chart: chart,
-      headerGroups: headerGroups,
-      config: config
+      tab,
+      chart,
+      headerGroups,
+      config
     })
   }
 
@@ -258,9 +259,7 @@ class FilterBarContainer extends Component {
         }
         return humanizeList(dimensionValue.map(val => dimensionLabelTitle(spec.name, val)), {conjunction: 'og'})
       }
-
     })
-
     return (
       <FilterBar region={this.props.region} filters={filters} onChange={this.handleFilterChange.bind(this)} />
     )

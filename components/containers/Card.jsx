@@ -1,27 +1,29 @@
 import React, {Component, PropTypes} from 'react'
+
 import {connect} from 'react-redux'
+import d3_save_svg from 'd3-save-svg'
+import SvgText from 'svg-text'
+
 import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
+import {findHeaderGroupForQuery} from '../../lib/queryUtil'
+import UrlQuery from '../../lib/UrlQuery'
+import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import TabBar from '../elements/TabBar'
+import ToggleView from '../elements/ToggleView'
+import ChartViewModeSelect from '../elements/ChartViewModeSelect'
+
+import {queryToOptions, describeChart} from '../../lib/chartDescriber'
+import {getHeaderKey} from '../../lib/regionUtil'
+
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
-import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 import DownloadWidget from './DownloadWidget'
-import {findHeaderGroupForQuery} from '../../lib/queryUtil'
-import UrlQuery from '../../lib/UrlQuery'
-import {queryResultPresenter} from '../../lib/queryResultPresenter'
+
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import html2canvas from 'html2canvas'
-import { saveAs } from 'browser-filesaver'
-import '../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
-
-function downloadPNG(content, filename) {
-  const blob = new Blob([content], { type: 'image/png' })
-  saveAs(blob, filename)
-}
 
 class Card extends Component {
 
@@ -39,6 +41,13 @@ class Card extends Component {
     cardsPageName: PropTypes.string.isRequired,
     activeTab: PropTypes.object,
     printable: PropTypes.bool,
+    description: PropTypes.string,
+    printView: PropTypes.bool,
+    
+    // really confusing; thisCard is 'this' for this class (Card).
+    // access it by calling this.props.thisCard.
+    // why? Because d3 hijacks this in child scope after mount
+    thisCard: PropTypes.any
   };
 
   static contextTypes = {
@@ -51,8 +60,12 @@ class Card extends Component {
     super()
     this.state = {
       chartViewMode: 'chart',
-      screenshot: null
+      screenshot: null,
+      explicitView: false,
+      description: null,
+      printView: false
     }
+
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
   }
@@ -84,6 +97,7 @@ class Card extends Component {
   }
 
   handleFilterChange(newQuery) {
+    const newQ = this.getUrlForQuery(newQuery)
     return this.context.navigate(this.getUrlForQuery(newQuery), {replace: true, keepScrollPosition: true})
   }
 
@@ -114,32 +128,50 @@ class Card extends Component {
     return `${protocol}//${host}${path}`
   }
 
-  takeScreenshot () {
-    // prevent text from overflowing screenshot
+  takeScreenshot() {
     const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
     graphNumbers.forEach(number => {
       number.style.fontSize = '12px'
     })
 
-    html2canvas(this.toggleList, { useCORS: true }).then(canvas => {
-      this.downloadCanvas(canvas, "bilde-fra-imdi-no.png")
-    })
-  }
-
-  downloadCanvas (canvas, filename) {
-    if (canvas.toBlob) {
-      canvas.toBlob(
-        function (blob) {
-          downloadPNG(blob, filename)
-        },
-        'image/png'
-      );
+    const config = {
+      filename: 'imdi-diagram',
     }
+
+    // // SETUP
+    // // insert details into SVG
+    // const text = new SvgText({
+    //   text: 'Figuren viser antall personer fordelt etter bakgrunn i 2017 i Norge.',
+    //   element: document.querySelector('.chart__svg'),
+    //   maxWidth: 100,
+    //   textOverflow: 'ellipsis'
+    // })
+
+    // // STYLE construct
+    // // give some space for the new text and position it at the bottom
+    // const chart = document.querySelector('.chart__svg')
+    // document.querySelector('text.svg-text.svg-text-0').style.transform = 'translateY(500px)'
+    // document.querySelector('.chart__svg').style.margin = '50px 0px 150px 0px'
+    // chart.height = chart.height + 200
+    // console.log(chart.height)
+    // // DESCTRUCT
+    // // remove styling applied above
+    // // let textElement = document.createElement('text')
+    // // textElement.setAttribute('height', 40)
+    // // textElement.setAttribute('width', 400)
+    // // textElement.setAttribute('x', 0)
+    // // textElement.setAttribute('viewBox', '0 0 400 40"')
+    // // textElement.setAttribute('y', -25)
+    // // textElement.innerHTML = 'something'
+    // // chart.insertBefore(textElement, firstChildOfChart)
+
+    const svg = document.querySelector('.chart__svg')
+    d3_save_svg.save(svg, config) // eslint-disable-line
   }
 
   render() {
-    const { loading, card, activeTab, query, queryResult, region, headerGroups, printable } = this.props
-    const { chartViewMode } = this.state
+    const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
+    const {chartViewMode, explicitView} = this.state
 
     if (!activeTab) {
       return (
@@ -149,7 +181,9 @@ class Card extends Component {
       )
     }
 
+    // headerGroup links query from cardPages.json to the actual data that will be shown.
     const headerGroup = this.getHeaderGroupForQuery(query)
+
     const disabledTabs = []
     if (headerGroup.aar.length < 2) {
       disabledTabs.push('chronological')
@@ -187,8 +221,8 @@ class Card extends Component {
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
-        ref={(toggleList) => this.toggleList = toggleList }
-        crossorigin="anonymous"
+        ref={(toggleList) => { this.toggleList = toggleList }}
+        crossOrigin="anonymous"
       >
 
         {!printable && (
@@ -224,16 +258,28 @@ class Card extends Component {
           />
         )}
 
+        {/* <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} /> */}
+
         <div className="graph">
-          {data && <ChartComponent ref="chart" data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
+          {data && (
+            <ChartComponent
+              ref="chart"
+              data={data}
+              explicitView={explicitView}
+              title={card.title}
+              source={card.metadata.source}
+              measuredAt={card.metadata.measuredAt}
+              printView={this.state.printView}
+              thisCard={this}
+              description={description}
+              sortDirection={chartKind === 'benchmark' && 'ascending'}
+            />
+          )}
         </div>
 
-        <ChartDescriptionContainer
-          query={query}
-          region={region}
-          card={card}
-          headerGroups={headerGroups}
-        />
+        <div className="graph__description">
+          {this.props.description}
+        </div>
 
         {!printable && (
           <div className="graph__functions">
@@ -255,7 +301,7 @@ class Card extends Component {
               </ul>
             </div>
           </div>
-          )}
+        )}
       </section>
     )
   }
@@ -264,11 +310,10 @@ class Card extends Component {
 function mapStateToProps(state, ownProps) {
 
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
-
   if (!cardState || cardState.initializing) {
     return {loading: true}
   }
-
+  const {region, card} = ownProps
   // Find query from cardState.tabs[activeTab.name]
   const {activeTab, tabs} = cardState
 
@@ -281,6 +326,15 @@ function mapStateToProps(state, ownProps) {
   const cardsPage = state.allCardsPages.find(cp => cp.name === ownProps.cardsPageName)
 
   const {loading, query, queryResult, headerGroups} = tabState
+
+  const {allRegions} = state
+  const regionHeaderKey = getHeaderKey(region)
+  const headerGroup = headerGroups.find(group => {
+    return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
+  })
+
+  const graphDescription = describeChart(queryToOptions(query, card, headerGroup, allRegions))
+
   return {
     loading,
     cardsPage,
@@ -289,7 +343,8 @@ function mapStateToProps(state, ownProps) {
     headerGroups,
     allRegions: state.allRegions,
     queryResult: queryResult,
-    query
+    query,
+    description: graphDescription
   }
 }
 

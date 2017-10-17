@@ -32,7 +32,7 @@ export default class DefaultLayout extends Component {
         <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
         <title>IMDI Testbed</title>
         {/* <link rel="stylesheet" href="/build/stylesheets/main.css" /> */}
-        {<link rel="stylesheet" href="https://imdi-styles.firebaseapp.com/styles.min.css" />}
+        <link rel="stylesheet" href="https://imdi-styles.firebaseapp.com/styles-test.css" />
         <link rel="icon" type="image/x-icon" href="/_themes/design/img/favicon.ico" />
         {extraHead}
       </head>

@@ -67,29 +67,25 @@ class CardMetadata extends Component {
 
   render() {
     const {metadata} = this.props
-
-    const buttonClasses = cx({
-      'toggle__button': true, // eslint-disable-line camelcase
-      'toggle__button--expanded': this.state.expanded
-    })
+    const {expanded} = this.state
 
     const sectionClases = cx({
       'toggle__section': true, // eslint-disable-line camelcase
       'toggle__section--expanded': this.state.expanded
     })
 
+    console.log({expanded})
+
     return (
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">
           {metadata.source && metadata.measuredAt && <p data-chart-source>Kilde: {metadata.source}, sist målt: {metadata.measuredAt}</p>}
 
-          <a onClick={this.handleClick.bind(this)} href="javascript:" className={buttonClasses} aria-expanded={this.state.expanded} role="button">{// eslint-disable-line no-script-url, max-len
-}
-            <span className="toggle__caption--contracted">
-              Om statistikken
-            </span>
-            <span className="toggle__caption--expanded">Skjul om statistikken</span>
-            <i className="icon__arrow-down toggle__icon" />
+          <a onClick={this.handleClick.bind(this)} href="javascript:" className="button button--secondary button--small" aria-expanded={this.state.expanded} role="button">
+            {!expanded && <span className="toggle__caption--contracted">
+              Om statistikken <i className="icon__arrow-down toggle__icon" />
+            </span>}
+            {expanded && <span>Skjul om statistikken <i className="icon__arrow-up toggle__icon" /></span>}
           </a>
 
           {this.state.expanded && (

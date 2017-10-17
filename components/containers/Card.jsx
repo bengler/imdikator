@@ -75,6 +75,7 @@ class Card extends Component {
       initialLoadComplete: false
     }
 
+    this.setExplicitView = this.setExplicitView.bind(this)
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
     this.moveElementsIntoSVG = this.moveElementsIntoSVG.bind(this)
@@ -260,6 +261,12 @@ class Card extends Component {
     d3_save_svg.save(svg, config) // eslint-disable-line
   }
 
+  setExplicitView(event) {
+    const truth = Boolean(event.target.checked)
+    console.log(truth)
+    this.setState({explicitView: truth})
+  }
+
   render() {
     const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
     const {chartViewMode, explicitView} = this.state
@@ -345,6 +352,8 @@ class Card extends Component {
 
         {!printable && (
           <ChartViewModeSelect
+            setExplicitView={this.setExplicitView}
+            explicitView={explicitView}
             mode={chartViewMode}
             onChange={newMode => this.setState({chartViewMode: newMode})}
           />
@@ -370,17 +379,18 @@ class Card extends Component {
           {this.props.description}
         </div>
 
-        {!printable && (
-          <div className="graph__functions">
-            {showToggleNumbersButton && <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />}
-            <ShareWidget chartUrl={this.getShareUrl()} />
-            <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
-          </div>
-        )}
+        <div className="graph__actions">
+          {!printable && (
+            <div className="graph__functions">
+              <ShareWidget chartUrl={this.getShareUrl()} />
+              <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
+            </div>
+          )}
 
-        {!printable && (
-          <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
-        )}
+          {!printable && (
+            <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
+          )}
+        </div>
         {showExternalLinkBosatte && (
           <div className="graph__related">
             <div className="cta cta--simple">

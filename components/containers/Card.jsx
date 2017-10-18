@@ -10,6 +10,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import d3_save_svg from 'd3-save-svg'
 import SvgText from 'svg-text'
+import zipcelx from 'zipcelx'
 
 import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
@@ -263,7 +264,6 @@ class Card extends Component {
 
   setExplicitView(event) {
     const truth = Boolean(event.target.checked)
-    console.log(truth)
     this.setState({explicitView: truth})
   }
 

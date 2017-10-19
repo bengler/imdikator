@@ -1253,17 +1253,6 @@
     "type": "municipality",
     "prefixedCode": "K0706"
   },
-  // {
-  //   "code": "0710",
-  //   "name": "Sandefjord",
-  //   "countyCode": "07",
-  //   "imdiRegion": "IMDi Øst",
-  //   "commerceRegionCode": "26",
-  //   "centralityNumber": "3",
-  //   "centralityName": "Sentrale kommuner",
-  //   "type": "municipality",
-  //   "prefixedCode": "K0710"
-  // },
   {
     "code": "0709",
     "name": "Larvik",
@@ -4728,5 +4717,16 @@
     "centralityName": ".",
     "type": "municipality",
     "prefixedCode": "K9999"
+  },
+  {
+    "code": "0000",
+    "name": "Hele landet",
+    "countyCode": "00",
+    "imdiRegion": ".",
+    "commerceRegionCode": "00",
+    "centralityNumber": ".",
+    "centralityName": ".",
+    "type": "municipality",
+    "prefixedCode": "K0000"
   }
 ]

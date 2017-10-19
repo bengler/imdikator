@@ -142,7 +142,7 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   const strippedSet = strip(similarities)
 
   // STATUS HERE
-  debug(JSON.stringify(strippedSet, 0, 2))
+  console.log(JSON.stringify(strippedSet, 0, 2))
 
   // Purely for debug
   const debugSet = annotate(strippedSet, municipalityCodeToNameKeys, set)
@@ -184,9 +184,7 @@ function strip(set) {
   })
 }
 
-
 // We are batching, so just brute force distances
-
 function calculateProximity(set, fields) {
   return set.map(sourceElement => {
     const annotatedMunicipalities = set.map(destinationElement => {

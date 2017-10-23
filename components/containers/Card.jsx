@@ -83,10 +83,18 @@ class Card extends Component {
     this.addDescriptionAndSourceBelowDiagram = this.addDescriptionAndSourceBelowDiagram.bind(this)
   }
 
-  componentDidUpdate() {
-    // add title and numbers above graph
-    if (this.state.explicitView) this.moveElementsIntoSVG()
-    if (!this.props.loading) this.addDescriptionAndSourceBelowDiagram()
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props || prevState !== this.state) {
+      console.log('has new props')
+      
+      // add title and numbers above graph
+      if (this.state.explicitView) {
+        console.log('explicit view')
+        this.moveElementsIntoSVG()
+      }
+      
+      this.addDescriptionAndSourceBelowDiagram()
+    }
   }
 
   addValuesToTransform(element, addX, addY) {
@@ -115,8 +123,8 @@ class Card extends Component {
     const pyramid = this.props.activeTab.chartKind == 'pyramid'
 
     //  get all svg elements
-    const chart = svg.querySelector('.chart__d3-points') // converts NodeList to array
-    const colorExplanation = svg.querySelector('.chart__legend-wrapper') // convert NodeList to array
+    const chart = svg.querySelector('.chart__d3-points')
+    const colorExplanation = svg.querySelector('.chart__legend-wrapper')
 
     //  move chart and colored squares lower
     this.addValuesToTransform(chart, null, extraHeightDiagram)
@@ -131,6 +139,9 @@ class Card extends Component {
 
     const unit = this.props.query.unit[0]
 
+    // Now `svgForAi` can be opened in Illustrator and the text element will render
+    // correctly with Helvetica Bold.
+
     //  adds title above diagam
     new SvgText({
       text: `${title.textContent} (${unit})`,
@@ -139,7 +150,7 @@ class Card extends Component {
       textOverflow: 'ellipsis',
       className: 'svg-text title',
       style: {
-        fontSize: '12px'
+        fontFamily: 'Helvetica'
       }
     })
   }
@@ -169,6 +180,9 @@ class Card extends Component {
     new SvgText({
       text: description.textContent,
       element: svg,
+      style: {
+        fontFamily: 'Helvetica',
+      },
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
       className: 'svg-text text__description',
@@ -179,6 +193,9 @@ class Card extends Component {
     new SvgText({
       text: source.textContent,
       element: svg,
+      style: {
+        fontFamily: 'Helvetica',
+      },
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
       className: 'svg-text text__source',

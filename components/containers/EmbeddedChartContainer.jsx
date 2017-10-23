@@ -92,7 +92,7 @@ class EmbeddedChartContainer extends Component {
                 headerGroups={headerGroups}
               />
             </figcaption>
-            <a href={chartUrl} className="button button--secondary button--small t-no-margin">
+            <a onClick={() => { sessionStorage.setItem('imdi-open-search-box-default', true) }} href={chartUrl} className="button button--secondary button--small t-no-margin">
               <i className="tabs-menu__icon  icon__chart-bars"></i>
               Finn tall for din kommune
             </a>

@@ -328,6 +328,7 @@ export default class OldAutocomplete extends Component {
     if (this._ignoreBlur) {
       return
     }
+
     if (this.props.openOnFocus) {
       this.setState({isOpen: true})
     }

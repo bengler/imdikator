@@ -368,6 +368,7 @@ class Card extends Component {
 
         {!printable && (
           <ChartViewModeSelect
+            embedded={false}
             setExplicitView={this.setExplicitView}
             explicitView={explicitView}
             mode={chartViewMode}

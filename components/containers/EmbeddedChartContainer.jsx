@@ -82,7 +82,7 @@ class EmbeddedChartContainer extends Component {
         <div className="col-block-bleed">
           <div className="image-block__image image-block__image--figure">
             <h3 className="h4">{card.title}</h3>
-            <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})} />
+            <ChartViewModeSelect embedded mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})} />
             {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
             <figcaption className="image-block__caption">
               <ChartDescriptionContainer

@@ -19,7 +19,8 @@ export default class ChartModeSelect extends Component {
     onChange: PropTypes.func,
     mode: PropTypes.string,
     setExplicitView: PropTypes.func,
-    explicitView: PropTypes.bool
+    explicitView: PropTypes.bool,
+    embedded: PropTypes.bool
   };
 
   constructor() {
@@ -31,17 +32,19 @@ export default class ChartModeSelect extends Component {
   }
 
   render() {
-    const {onChange, mode: selectedMode} = this.props
+    const {onChange, mode: selectedMode, embedded = false} = this.props
     return (
       <div className="graph__types">
 
-        <form>
-          <label className="control checkbox">
-            <input type="checkbox" id="check1" checked={this.props.explicitView} onChange={e => { this.props.setExplicitView(e) }} />
-            <i className="control-indicator"></i>
-            Vis tall
-          </label>
-        </form>
+        {embedded &&
+          <form>
+            <label className="control checkbox">
+              <input type="checkbox" id="check1" checked={this.props.explicitView} onChange={e => { this.props.setExplicitView(e) }} />
+              <i className="control-indicator"></i>
+              Vis tall
+            </label>
+          </form>
+        }
 
         <ul className="tabs-mini" role="tablist">
 

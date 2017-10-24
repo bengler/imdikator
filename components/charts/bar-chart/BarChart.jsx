@@ -81,6 +81,7 @@ export default class BarChart extends React.Component {
     const xScales = {}
     let innerPaddingFactor = 0.2
     let outerPaddingFactor = 0
+    const extraPaddingForTextAboveCharts = 50
 
     // untoggle below to get more width between bars
     // if (explicitView) {

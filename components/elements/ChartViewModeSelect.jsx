@@ -36,7 +36,7 @@ export default class ChartModeSelect extends Component {
     return (
       <div className="graph__types">
 
-        {embedded &&
+        {!embedded &&
           <form>
             <label className="control checkbox">
               <input type="checkbox" id="check1" checked={this.props.explicitView} onChange={e => { this.props.setExplicitView(e) }} />

@@ -22,6 +22,7 @@ import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import {getHeaderKey} from '../../lib/regionUtil'
+import '../../lib/element-closest'
 
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from './CardMetadata'
@@ -85,14 +86,10 @@ class Card extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps !== this.props || prevState !== this.state) {
-      console.log('has new props')
-      
       // add title and numbers above graph
       if (this.state.explicitView) {
-        console.log('explicit view')
         this.moveElementsIntoSVG()
       }
-      
       this.addDescriptionAndSourceBelowDiagram()
     }
   }
@@ -143,7 +140,7 @@ class Card extends Component {
     // correctly with Helvetica Bold.
 
     //  adds title above diagam
-    new SvgText({
+    const textContent = new SvgText({
       text: `${title.textContent} (${unit})`,
       element: svg,
       maxWidth: svg.clientWidth || 0,
@@ -177,7 +174,7 @@ class Card extends Component {
     const source = parent.querySelector('[data-chart-source]')
 
     //  adds description below diagram
-    new SvgText({
+    const descriptionSVGText = new SvgText({
       text: description.textContent,
       element: svg,
       style: {
@@ -190,7 +187,7 @@ class Card extends Component {
     })
 
     //  adds source below diagram
-    new SvgText({
+    const sourceSVGText = new SvgText({
       text: source.textContent,
       element: svg,
       style: {

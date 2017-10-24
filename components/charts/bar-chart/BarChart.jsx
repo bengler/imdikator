@@ -79,9 +79,8 @@ export default class BarChart extends React.Component {
     let x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
-    let innerPaddingFactor = 0.2
-    let outerPaddingFactor = 0
-    const extraPaddingForTextAboveCharts = 50
+    let innerPaddingFactor = 0.5
+    let outerPaddingFactor = 0.5
 
     // untoggle below to get more width between bars
     // if (explicitView) {
@@ -95,7 +94,7 @@ export default class BarChart extends React.Component {
     data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
 
-      let scale = d3.scale.ordinal()
+      const scale = d3.scale.ordinal()
       .domain(catSeries)
       .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
 
@@ -161,7 +160,7 @@ export default class BarChart extends React.Component {
       .enter()
       .append('g')
       .attr('class', 'chart__category')
-      .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
+      .attr('transform', dataItem => this.translation(x0(dataItem.title), 0)) // moves each category to the right
 
     category.selectAll('rect.chart__bar')
       .data(dataItem => dataItem.values)
@@ -276,6 +275,7 @@ export default class BarChart extends React.Component {
     txts.call(this.wrapTextNode, x0.rangeBand())
 
     const leg = this.legend().color(seriesColor)
+
     // Add some space between the x axis labels and the legends
     const legendWrapper = this._svg.append('g')
       .attr('class', 'chart__legend-wrapper')
@@ -308,7 +308,7 @@ export default class BarChart extends React.Component {
 
   render() {
     const {explicitView, title, source, measuredAt, description, thisCard} = this.props
-
+    const extraPadding = 70
     const functions = {
       drawPoints: this.drawPoints,
       calculateWidth: this.calculateWidth,
@@ -323,7 +323,7 @@ export default class BarChart extends React.Component {
 
     if (CHARTS_CONFIG.bar.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS_CONFIG.bar.minWidthPerCategory
+      config.minimumWidth = numCategories * (CHARTS_CONFIG.bar.minWidthPerCategory + extraPadding)
     }
 
     return (

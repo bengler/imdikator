@@ -21,6 +21,7 @@ export default class PyramidChart extends React.Component {
     }
 
     // Config
+    const paddingForNumbers = this.props.explicitView ? 0.5 : 1
     const middleMargin = 30
     const svg = this.svg
 
@@ -146,7 +147,6 @@ export default class PyramidChart extends React.Component {
     .attr('class', 'chart__category')
     .attr('transform', (item, i) => this.translation(outerXScale(item.title), 0))
 
-
     // The bars
     let hoveropen = false
     const open = item => {
@@ -180,7 +180,7 @@ export default class PyramidChart extends React.Component {
       .attr('class', 'chart__bar chart__bar--left')
       .attr('x', 0)
       .attr('y', dataItem => yScale(dataItem.title))
-      .attr('width', dataItem => xScale(dataItem.value))
+      .attr('width', dataItem => xScale(dataItem.value) * paddingForNumbers)
       .attr('height', yScale.rangeBand())
       .attr('fill', dataItem => dataItem.fill)
       .attr('stroke', dataItem => dataItem.stroke)
@@ -206,7 +206,7 @@ export default class PyramidChart extends React.Component {
       .attr('x', dataItem => {
 
         // places the number next to the bar
-        return xScale(xScale.domain()[1]) - xScale(dataItem.value) - numberPaddingLeft
+        return xScale(xScale.domain()[1]) - (xScale(dataItem.value) * paddingForNumbers) - numberPaddingLeft
       })
       .each(item => {
         item.el = this
@@ -261,7 +261,7 @@ export default class PyramidChart extends React.Component {
     .attr('class', 'chart__bar chart__bar--right')
     .attr('x', 0)
     .attr('y', dataItem => yScale(dataItem.title))
-    .attr('width', dataItem => xScale(dataItem.value))
+    .attr('width', dataItem => xScale(dataItem.value) * paddingForNumbers)
     .attr('height', yScale.rangeBand())
     .attr('fill', dataItem => dataItem.fill)
     .attr('stroke', dataItem => dataItem.stroke)
@@ -271,7 +271,7 @@ export default class PyramidChart extends React.Component {
     //  show numbers next to chart if toggled
     //================================================
     if (this.props.explicitView) {
-      const numberPaddingRight = 5
+      const numberPaddingRight = 2
 
       // Add text indicators
       category.selectAll('.chart__text--right')
@@ -282,7 +282,7 @@ export default class PyramidChart extends React.Component {
       .attr('x', dataItem => {
 
         // places the number next to the bar
-        return pointB + xScale(dataItem.value) + numberPaddingRight
+        return pointB + (xScale(dataItem.value) * paddingForNumbers) + numberPaddingRight
       })
       .attr('y', dataItem => yScale(dataItem.title) + paddingTop)
       .attr('width', dataItem => xScale(dataItem.value))

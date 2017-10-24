@@ -148,10 +148,7 @@ class Card extends Component {
       element: svg,
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
-      className: 'svg-text title',
-      style: {
-        fontFamily: 'Helvetica'
-      }
+      className: 'svg-text title'
     })
   }
 
@@ -181,9 +178,6 @@ class Card extends Component {
     const descriptionSVGText = new SvgText({
       text: description.textContent,
       element: svg,
-      style: {
-        fontFamily: 'Helvetica',
-      },
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
       className: 'svg-text text__description',
@@ -195,9 +189,6 @@ class Card extends Component {
     const sourceSVGText = new SvgText({
       text: source.textContent,
       element: svg,
-      style: {
-        fontFamily: 'Helvetica',
-      },
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
       className: 'svg-text text__source',

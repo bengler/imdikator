@@ -2130,19 +2130,9 @@
       "integrity": "sha1-6vQ5/U1ISK105cx9vvIAZyueNFs="
     },
     "debounce": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/debounce/-/debounce-1.0.0.tgz",
-      "integrity": "sha1-CUivUT0uTOQHkW+FBqQj0/nPctg=",
-      "requires": {
-        "date-now": "1.0.1"
-      },
-      "dependencies": {
-        "date-now": {
-          "version": "1.0.1",
-          "resolved": "https://registry.npmjs.org/date-now/-/date-now-1.0.1.tgz",
-          "integrity": "sha1-u30IZDjevkGCpIX7PfP7+5nWFTw="
-        }
-      }
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/debounce/-/debounce-1.0.2.tgz",
+      "integrity": "sha1-UDzGdNjX9zcJlmT7dd29NrlibcY="
     },
     "debug": {
       "version": "2.2.0",
@@ -6727,7 +6717,7 @@
       "resolved": "https://registry.npmjs.org/rebundler/-/rebundler-0.3.0.tgz",
       "integrity": "sha1-RBiGZcU4sPS2wUPagFV4S9HYCGA=",
       "requires": {
-        "debounce": "1.0.0",
+        "debounce": "1.0.2",
         "debug": "2.2.0",
         "mkdirp": "0.5.1",
         "xtend": "4.0.1"

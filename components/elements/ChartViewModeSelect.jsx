@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import preventDefault from 'prevent-default'
+import screenSize from '../../lib/screenSizes'
+import debounce from 'debounce'
 
 const defaultPrevented = preventDefault(() => false)
 
@@ -27,16 +29,48 @@ export default class ChartModeSelect extends Component {
     super()
 
     this.state = {
-      isExplicit: false
+      isExplicit: false,
+      toggleNumbersVisible: true
+    }
+
+    this.showToggleNumbers = this.showToggleNumbers.bind(this)
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      debounce(this.showToggleNumbers(), 150)
+    })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize')
+  }
+
+  showToggleNumbers() {
+    const {embedded = false} = this.props
+    const actualWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+
+    if (!embedded && actualWidth > screenSize.largePhone) {
+      this.setState({
+        isExplicit: false,
+        toggleNumbersVisible: true
+      })
+    }
+
+    else {
+      this.setState({
+        isExplicit: true,
+        toggleNumbersVisible: false
+      })
     }
   }
 
   render() {
-    const {onChange, mode: selectedMode, embedded = false} = this.props
+    const {onChange, mode: selectedMode} = this.props
     return (
       <div className="graph__types">
 
-        {!embedded &&
+        {this.state.toggleNumbersVisible &&
           <form>
             <label className="control checkbox">
               <input type="checkbox" id="check1" checked={this.props.explicitView} onChange={e => { this.props.setExplicitView(e) }} />

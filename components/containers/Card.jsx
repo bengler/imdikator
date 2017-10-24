@@ -94,6 +94,9 @@ class Card extends Component {
     }
   }
 
+  // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
+  // element is an element containing a transform attribute.
+  // X and Y are the values you'd want to add to the existing X and Y.
   addValuesToTransform(element, addX, addY) {
 
     const transformValues = element.getAttribute('transform').split(',')
@@ -161,7 +164,7 @@ class Card extends Component {
     svg = svg.querySelector('[data-chart]')
 
     //  extra height for the svg diagram
-    const extraHeightSVG = 140
+    const extraHeightSVG = 150
     const paddingBottom = 50
     const spaceBetween = 30
 
@@ -174,6 +177,7 @@ class Card extends Component {
     const source = parent.querySelector('[data-chart-source]')
 
     //  adds description below diagram
+    // eslint-disable-next-line no-unused-vars
     const descriptionSVGText = new SvgText({
       text: description.textContent,
       element: svg,
@@ -187,6 +191,7 @@ class Card extends Component {
     })
 
     //  adds source below diagram
+    // eslint-disable-next-line no-unused-vars
     const sourceSVGText = new SvgText({
       text: source.textContent,
       element: svg,

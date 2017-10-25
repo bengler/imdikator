@@ -184,9 +184,7 @@ function strip(set) {
   })
 }
 
-
 // We are batching, so just brute force distances
-
 function calculateProximity(set, fields) {
   return set.map(sourceElement => {
     const annotatedMunicipalities = set.map(destinationElement => {

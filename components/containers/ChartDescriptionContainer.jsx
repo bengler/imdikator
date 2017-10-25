@@ -34,7 +34,7 @@ function mapStateToProps(state, ownProps) {
   })
 
   const graphDescription = describeChart(queryToOptions(query, card, headerGroup, allRegions))
-  
+
   return {
     description: graphDescription
   }

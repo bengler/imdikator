@@ -25,6 +25,14 @@ export default class RegionChanger extends Component {
     navigate: PropTypes.func
   };
 
+  // if (most likely) someone clicked a chart link in the embed version (EmbeddedChartContainer),
+  // we want to have the place search open by default- which the following does.
+  componentDidMount() {
+    const shouldBeOpen = sessionStorage.getItem('imdi-open-search-box-default') || false
+    if (shouldBeOpen) sessionStorage.removeItem('imdi-open-search-box-default')
+    this.state.isRegionChangerOpen = shouldBeOpen
+  }
+
   // Go to the same URL, but for the selected region
   toggleLightBox(region) {
     this.setState({

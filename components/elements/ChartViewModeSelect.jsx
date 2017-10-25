@@ -40,6 +40,13 @@ export default class ChartModeSelect extends Component {
     window.addEventListener('resize', () => {
       debounce(this.showToggleNumbers(), 150)
     })
+    this.showToggleNumbers()
+  }
+
+  componentWillUpdate(prevProps, prevState) {
+    if (prevProps !== this.props || prevState !== this.sate) {
+      this.showToggleNumbers()
+    }
   }
 
   componentWillUnmount() {

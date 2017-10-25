@@ -166,7 +166,7 @@ class Card extends Component {
     const spaceBetween = 30
 
     //  add extra height to svg
-    const height = parseInt(svg.getAttribute('height'), 10) + extraHeightSVG
+    const height = parseInt(svg.getAttribute('height') || 0, 10) + extraHeightSVG
     svg.setAttribute('height', height)
 
     const parent = svg.closest('[data-card]')

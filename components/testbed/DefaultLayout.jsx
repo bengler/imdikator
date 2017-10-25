@@ -47,6 +47,7 @@ export default class DefaultLayout extends Component {
             style={{display: 'none', visibility: 'hidden'}}
           />
         </noscript>
+        
         <script dangerouslySetInnerHTML={this.getGoogleTagManagerCode()} />
 
         <svg height="0" width="0" className="t-only-screenreaders">

@@ -93,7 +93,6 @@ export default class BarChart extends React.Component {
 
     data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
-
       const scale = d3.scale.ordinal()
       .domain(catSeries)
       .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)

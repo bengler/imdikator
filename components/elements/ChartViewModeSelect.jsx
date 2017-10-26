@@ -76,8 +76,10 @@ export default class ChartModeSelect extends Component {
 
   render() {
     const {onChange, mode: selectedMode} = this.props
+    const graphClasses = this.state.toggleNumbersVisible ? 'graph__types' : 'graph__types right'
+
     return (
-      <div className="graph__types">
+      <div className={graphClasses}>
 
         {this.state.toggleNumbersVisible &&
           <form>
@@ -121,8 +123,6 @@ export default class ChartModeSelect extends Component {
               }
             )
             }
-
-
         </ul>
       </div>
     )

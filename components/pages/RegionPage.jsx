@@ -52,6 +52,19 @@ class RegionPage extends Component {
     smoothScroll(element)
   }
 
+  regionName() {
+    const {name, type} = this.props.currentRegion
+    const typeOfPlace = _t(type)
+
+    const isNorge = (name === 'Hele landet')
+
+    if (isNorge) {
+      return 'Norge'
+    }
+
+    return `${name} ${typeOfPlace}`
+  }
+
   render() {
     const {currentRegion} = this.props
 
@@ -87,8 +100,7 @@ class RegionPage extends Component {
                 <CardPageButtonsContainer />
 
                 <h2 className="page__section-title">
-                  Oppsummering {currentRegion.name
-                    && `av ${currentRegion.name} ${currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`}`}
+                  Oppsummering av {currentRegion.name && this.regionName()}
                 </h2>
 
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">

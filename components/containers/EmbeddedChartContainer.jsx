@@ -90,6 +90,7 @@ class EmbeddedChartContainer extends Component {
                 region={region}
                 card={card}
                 headerGroups={headerGroups}
+                embed
               />
             </figcaption>
             <a onClick={() => { sessionStorage.setItem('imdi-open-search-box-default', true) }} href={chartUrl} className="button button--primary button--small t-no-margin">

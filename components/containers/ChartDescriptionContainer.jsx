@@ -11,12 +11,14 @@ class ChartDescriptionContainer extends Component {
     region: ImdiPropTypes.region.isRequired,
     headerGroups: PropTypes.array,
     description: PropTypes.string,
-    setDescription: PropTypes.function
+    setDescription: PropTypes.function,
+    embed: PropTypes.bool
   }
 
   render() {
+    const classes = this.props.embed ? 'graph__description embed' : 'graph__description'
     return (
-      <div className="graph__description">
+      <div className={classes}>
         {this.props.description}
       </div>
     )

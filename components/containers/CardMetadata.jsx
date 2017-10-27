@@ -74,8 +74,6 @@ class CardMetadata extends Component {
       'toggle__section--expanded': this.state.expanded
     })
 
-    console.log({expanded})
-
     return (
       <div className="graph__about">
         <div className="toggle toggle--light t-no-margin">

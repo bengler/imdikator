@@ -155,7 +155,6 @@ class Card extends Component {
   //  use refs from each card component that toggles the height.
   //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
-
     let svg = this.toggleList
     if (!svg) return
     svg = svg.querySelector('[data-chart]')

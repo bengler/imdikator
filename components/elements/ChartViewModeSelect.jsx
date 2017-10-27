@@ -60,17 +60,17 @@ export default class ChartModeSelect extends Component {
     const actualWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
     if (!embedded && actualWidth > screenSize.largePhone) {
-      this.setState({
+      this.state = {
         isExplicit: false,
         toggleNumbersVisible: true
-      })
+      }
     }
 
     else {
-      this.setState({
+      this.state = {
         isExplicit: true,
         toggleNumbersVisible: false
-      })
+      }
     }
   }
 

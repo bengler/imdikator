@@ -57,7 +57,6 @@ class RegionPage extends Component {
   }
 
   getRegionNameAndType() {
-
     if (this.getRegionName() == 'Norge') return this.getRegionName()
     const {type} = this.props.currentRegion
     if (!type) return ''
@@ -145,7 +144,7 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <div className="feature feature--white">
-                  <h2 className="feature__title">{this.getRegionName()}</h2>
+                  <h2 className="feature__title">{this.getRegionNameAndType()}</h2>
                   <RegionInfoContainer region={currentRegion} />
                   <RegionQuickSwitch />
                 </div>

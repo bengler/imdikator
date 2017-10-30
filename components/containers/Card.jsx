@@ -22,13 +22,14 @@ import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import {getHeaderKey} from '../../lib/regionUtil'
-import '../../lib/element-closest'
 
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
 import DownloadWidget from './DownloadWidget'
+
+import '../../lib/element-closest.js'
 
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'

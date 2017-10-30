@@ -18,7 +18,7 @@ export default class D3Chart extends React.Component {
     description: React.PropTypes.string,
     thisCard: React.PropTypes.any,
     printView: React.PropTypes.bool,
-    activeTab: React.PropTypes.string
+    activeTab: React.PropTypes.object
   }
 
   componentDidMount() {

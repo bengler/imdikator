@@ -306,7 +306,7 @@ export default class BarChart extends React.Component {
   }
 
   render() {
-    const {explicitView, title, source, measuredAt, description, thisCard} = this.props
+    const {explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
     const extraPadding = 70
     const functions = {
       drawPoints: this.drawPoints,
@@ -332,6 +332,7 @@ export default class BarChart extends React.Component {
           config={config}
           functions={functions}
           explicitView={explicitView}
+          activeTab={activeTab}
           title={title}
           source={source}
           measuredAt={measuredAt}

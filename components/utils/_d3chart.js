@@ -5,7 +5,7 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
+  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView, activeTab) {
 
     // _svg is the actual SVG element
     this._svg = null
@@ -24,7 +24,7 @@ class Chart {
         this._calculateHeight = functions.calculateHeight
       }
     }
-    this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView)
+    this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView, activeTab)
   }
 
   _drawPoints(el, data) {}

@@ -360,6 +360,7 @@ class Card extends Component {
 
         {!printable && (
           <ChartViewModeSelect
+            activeTab={activeTab}
             embedded={false}
             setExplicitView={this.setExplicitView}
             explicitView={explicitView}
@@ -373,6 +374,7 @@ class Card extends Component {
             <ChartComponent
               data={data}
               explicitView={explicitView}
+              activeTab={activeTab}
               title={card.title}
               source={card.metadata.source}
               measuredAt={card.metadata.measuredAt}

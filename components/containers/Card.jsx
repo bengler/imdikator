@@ -105,7 +105,7 @@ class Card extends Component {
     let transformValues
 
     if (!transform.includes(',')) {
-      // IE11 excludes all existing commas from the transform property of obvious reasons.
+      // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
       // So we'll split on space instead
       transformValues = transform.split(' ')
     }
@@ -141,7 +141,6 @@ class Card extends Component {
     //  get all svg elements
     const chart = svg.querySelector('.chart__d3-points')
     const colorExplanation = svg.querySelector('.chart__legend-wrapper')
-
 
     //  move chart and colored squares lower
     this.addValuesToTransform(chart, null, extraHeightDiagram)
@@ -191,8 +190,8 @@ class Card extends Component {
     svg = svg.querySelector('[data-chart]')
 
     //  extra height for the svg diagram
-    const extraHeightSVG = 150
-    const paddingBottom = 50
+    const extraHeightSVG = 180
+    const paddingBottom = 80
     const spaceBetween = 30
 
     //  add extra height to svg
@@ -231,8 +230,8 @@ class Card extends Component {
     const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
     const newSourceHeight = svg.clientHeight - paddingBottom
 
-    this.addValuesToTransform(textDescription, null, newDescriptionHeight)
-    this.addValuesToTransform(textSource, null, newSourceHeight)
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
+    this.addValuesToTransform(textSource, null, newSourceHeight + 60)
   }
 
   getUrlToTab(tab) {

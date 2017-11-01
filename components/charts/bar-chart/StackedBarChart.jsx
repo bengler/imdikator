@@ -110,59 +110,61 @@ export default class StackedBarChart extends Component {
     //==============================================================
     if (this.props.explicitView) {
 
+      const moveNumberToTheRight = 70
+      const moveNumberDown = 25
+      const hideSmallNumbers = 25
+
       // Add text indicators
       category.selectAll('rect.chart__text')
-      .data(dataItem => dataItem.values)
+      .data(item => item.values)
       .enter()
       .append('text')
       .attr('class', 'chart__text')
-      .attr('width', item => item.scale.rangeBand())
-      .attr('x', dataItem => dataItem.scale(dataItem.title))
-      .attr('y', dataItem => {
-        const val = Math.max(0, dataItem.value)
-        return yc.scale(val)
-      })
-      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+      .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
+      .attr('width', item => xScales[item.category].rangeBand())
+      .attr('x', dataItem => xScales[dataItem.category]('stack') + moveNumberToTheRight)
+      .attr('y', dataItem => y(dataItem.y1) + moveNumberDown)
       .each(function (item) {
         item.el = this
       })
-      .text(dataItem => dataItem.formattedValue)
+      .text(dataItem => {
+        if (y(dataItem.y0) - y(dataItem.y1) < hideSmallNumbers) return ''
+        return dataItem.values[0].formattedValue || yc.format(dataItem.values[0].value)
+      })
     }
 
     //===================================
     //  hovered chart bars shows numbers
     //===================================
-    else {
-      category.selectAll('rect')
-      .data(cat => cat.values)
-      .enter()
-    //     .append('svg:a')
-    //     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-    //     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-    //     .on('click', () => d3.event.stopPropagation())
-    //     .on('focus', item => open(item))
-      .append('rect')
-      .attr('width', item => xScales[item.category].rangeBand())
-      .attr('x', item => xScales[item.category]('stack'))
-      .attr('y', dataItem => y(dataItem.y1))
-      .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
-      .style('fill', dataItem => colors(dataItem.title))
-      .each(function (item) {
-        item.el = this
-      })
-      .attr('pointer-events', 'all')
-      .on('touchend', item => {
-        if (hoveropen) {
-          close()
-        } else {
-          open(item)
-        }
-      })
-      .on('mouseover', item => open(item))
-      .on('mouseout', () => close())
-      .on('focus', item => open(item))
-      .on('blur', () => close())
-    }
+    category.selectAll('rect.chart__bar-hover')
+    .data(cat => cat.values)
+    .enter()
+  //     .append('svg:a')
+  //     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+  //     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+  //     .on('click', () => d3.event.stopPropagation())
+  //     .on('focus', item => open(item))
+    .append('rect')
+    .attr('width', item => xScales[item.category].rangeBand())
+    .attr('x', item => xScales[item.category]('stack'))
+    .attr('y', dataItem => y(dataItem.y1))
+    .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
+    .style('fill', dataItem => colors(dataItem.title))
+    .each(function (item) {
+      item.el = this
+    })
+    .attr('pointer-events', 'all')
+    .on('touchend', item => {
+      if (hoveropen) {
+        close()
+      } else {
+        open(item)
+      }
+    })
+    .on('mouseover', item => open(item))
+    .on('mouseout', () => close())
+    .on('focus', item => open(item))
+    .on('blur', () => close())
 
     // Add X axis
     const xAxisEl = this.svg.append('g')
@@ -215,7 +217,12 @@ export default class StackedBarChart extends Component {
     }
 
     return (
-      <D3Chart data={data} functions={functions} config={config} />
+      <D3Chart
+        data={data}
+        functions={functions}
+        config={config}
+        explicitView={this.props.explicitView}
+      />
     )
   }
 }

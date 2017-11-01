@@ -122,8 +122,6 @@ class Card extends Component {
     if (addX) values[0] = parseInt(values[0], 10) + addX
     if (addY) values[1] = parseInt(values[1], 10) + addY
 
-    console.log('new values', values)
-
     element.setAttribute('transform', `translate(${values[0].toString()}, ${values[1].toString()})`)
   }
 

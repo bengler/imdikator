@@ -121,17 +121,16 @@ export default class RegionPicker extends Component {
                   />
                 </div>
               </label>
+              <ToggleButtonList
+                options={other}
+                value={value}
+                renderButton={this.renderButton.bind(this)}
+                onAdd={this.handleAdd.bind(this)}
+                onRemove={this.handleRemove.bind(this)}
+              />
               <div className="lightbox__footer">
+
                 <button type="button" className="button" onClick={this.apply.bind(this)}>Oppdater figur</button>
-
-                <ToggleButtonList
-                  options={other}
-                  value={value}
-                  renderButton={this.renderButton.bind(this)}
-                  onAdd={this.handleAdd.bind(this)}
-                  onRemove={this.handleRemove.bind(this)}
-                />
-
                 {onApplyAll && (
                   <button
                     type="button"

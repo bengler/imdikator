@@ -25,9 +25,9 @@ export default class TableChart extends React.Component {
 
   componentWillMount() {
     const data = ensureDataHasYearDimension(this.props.data)
-    // this.setState(generateCSV(data), () => {
-    //   this.setupToggleRowVisibility()
-    // })
+    this.setState(generateCSV(data), () => {
+      this.setupToggleRowVisibility()
+    })
   }
 
   componentWillReceiveProps(props) {
@@ -35,40 +35,40 @@ export default class TableChart extends React.Component {
     this.setState(generateCSV(data))
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.props !== prevState || prevProps !== this.state) {
-  //     this.setupToggleRowVisibility()
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props !== prevState || prevProps !== this.state) {
+      this.setupToggleRowVisibility()
+    }
+  }
 
-  // toggleRowVisibility() {
+  toggleRowVisibility() {
 
-  //   const trigger = event.target
-  //   const parent = trigger.parentNode
-  //   const isHidden = parent.getAttribute('aria-hidden') === 'true'
+    const trigger = event.target
+    const parent = trigger.parentNode
+    const isHidden = parent.getAttribute('aria-hidden') === 'true'
 
-  //   if (isHidden) {
-  //     trigger.classList.remove('expanded')
-  //     parent.setAttribute('aria-hidden', false)
-  //   } else {
-  //     trigger.classList.add('expanded')
-  //     parent.setAttribute('aria-hidden', true)
-  //   }
-  // }
+    if (isHidden) {
+      trigger.classList.remove('expanded')
+      parent.setAttribute('aria-hidden', false)
+    } else {
+      trigger.classList.add('expanded')
+      parent.setAttribute('aria-hidden', true)
+    }
+  }
 
-  // setupToggleRowVisibility() {
-  //   document.querySelectorAll('[data-table-collapsable]').forEach(table => {
-  //     const tableRows = table.querySelectorAll('tr')
-  //     tableRows.forEach(row => {
+  setupToggleRowVisibility() {
+    document.querySelectorAll('[data-table-collapsable]').forEach(table => {
+      const tableRows = table.querySelectorAll('tr')
+      tableRows.forEach(row => {
 
-  //       const columns = row.children
-  //       const trigger = columns[0]
-  //       trigger.addEventListener('click', () => {
-  //         this.toggleRowVisibility()
-  //       })
-  //     })
-  //   })
-  // }
+        const columns = row.children
+        const trigger = columns[0]
+        trigger.addEventListener('click', () => {
+          this.toggleRowVisibility()
+        })
+      })
+    })
+  }
 
   drawPoints(el, data) {
     if (!data) {
@@ -90,6 +90,8 @@ export default class TableChart extends React.Component {
     const parsedData = parser.parseRows(data.csv)
     const transposedData = d3.transpose(parsedData)
 
+    console.log(transposedData)
+
     // console.log(data.csv)
     const headers = transposedData.map(dataItem => {
       if (dataItem[0].includes(':')) {
@@ -104,7 +106,7 @@ export default class TableChart extends React.Component {
         if (insideValue.includes(':')) {
           return insideValue.split(':')[0]
         }
-        
+
         return insideValue
       }))
     }
@@ -163,6 +165,7 @@ export default class TableChart extends React.Component {
     const functions = {
       drawPoints: this.drawPoints
     }
+
     return (
       <div>
         <D3Chart data={this.state} functions={functions} />

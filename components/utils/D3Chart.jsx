@@ -17,7 +17,8 @@ export default class D3Chart extends React.Component {
     measuredAt: React.PropTypes.string,
     description: React.PropTypes.string,
     thisCard: React.PropTypes.any,
-    printView: React.PropTypes.bool
+    printView: React.PropTypes.bool,
+    activeTab: React.PropTypes.object
   }
 
   componentDidMount() {
@@ -54,7 +55,11 @@ export default class D3Chart extends React.Component {
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%',
-      explicitView: this.props.explicitView
+      explicitView: this.props.explicitView,
+      description: this.props.description,
+      source: this.props.source,
+      measuredAt: this.props.measuredAt,
+      activeTab: this.props.activeTab,
     }, this.getChartState(), this.props.functions, this.config())
 
     // this.resizeFunction = () => {
@@ -64,12 +69,12 @@ export default class D3Chart extends React.Component {
   }
 
   componentDidUpdate() {
-    
+
     const el = findDOMNode(this)
-    const {explicitView, title, source, measuredAt, description, thisCard, printView} = this.props
+    const {explicitView, title, source, measuredAt, description, thisCard, printView, activeTab} = this.props
 
     // include explicitView in below statement
-    this.chart.update(el, this.getChartState(), this.config(), explicitView, title, source, measuredAt, description, thisCard, printView)
+    this.chart.update(el, this.getChartState(), this.config(), explicitView, title, source, measuredAt, description, thisCard, printView, activeTab)
   }
 
   componentWillUnmount() {
@@ -93,7 +98,6 @@ export default class D3Chart extends React.Component {
       }, 66) // 15 fps (1000 / 15)
     }
   }
-
 
   config() {
     return Object.assign({

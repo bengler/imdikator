@@ -8,7 +8,8 @@ import {queryResultNester, nestedQueryResultLabelizer} from '../../../lib/queryR
 export default class PyramidChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
-    explicitView: React.PropTypes.bool
+    explicitView: React.PropTypes.bool,
+    activeTab: React.PropTypes.string
   };
 
   calculateMargins() {
@@ -403,7 +404,7 @@ export default class PyramidChart extends React.Component {
     }
 
     return (
-      <D3Chart data={data} config={config} functions={functions} explicitView={this.props.explicitView} />
+      <D3Chart data={data} config={config} functions={functions} explicitView={this.props.explicitView} activeTab={this.props.activeTab} />
     )
   }
 }

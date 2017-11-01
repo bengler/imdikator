@@ -22,13 +22,14 @@ import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
 import {getHeaderKey} from '../../lib/regionUtil'
-import '../../lib/element-closest'
 
 import FilterBarContainer from './FilterBarContainer'
 import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
 import DownloadWidget from './DownloadWidget'
+
+import '../../lib/element-closest.js'
 
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
@@ -76,6 +77,7 @@ class Card extends Component {
       initialLoadComplete: false
     }
 
+    this.findAncestor = this.findAncestor.bind(this)
     this.setExplicitView = this.setExplicitView.bind(this)
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
@@ -99,10 +101,24 @@ class Card extends Component {
   // X and Y are the values you'd want to add to the existing X and Y.
   addValuesToTransform(element, addX, addY) {
 
-    const transformValues = element.getAttribute('transform').split(',')
+    const transform = element.getAttribute('transform')
+    let transformValues
 
+    if (!transform.includes(',')) {
+      // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
+      // So we'll split on space instead
+      transformValues = transform.split(' ')
+    }
+    else {
+      transformValues = transform.split(',')
+    }
+
+    // before ["translate(0", "-2.34)"]
+    // after ["0", "-2.34"]
     const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
 
+    // before ["0", "-2.34"]
+    // after (if x is 10 and y is 20) [10, 7.66]
     if (addX) values[0] = parseInt(values[0], 10) + addX
     if (addY) values[1] = parseInt(values[1], 10) + addY
 
@@ -131,7 +147,7 @@ class Card extends Component {
     this.addValuesToTransform(colorExplanation, null, pyramid ? extraHeightDiagramPyramid : extraHeightDiagram)
 
     //  get the title
-    const title = svg.closest('.toggle-list').querySelector('[data-graph-title]')
+    const title = this.findAncestor(this.toggleList, '.toggle-list').querySelector('[data-graph-title]')
 
     //  add height
     const height = parseInt(svg.getAttribute('height'), 10) + extraHeightDiagram
@@ -141,7 +157,6 @@ class Card extends Component {
 
     // Now `svgForAi` can be opened in Illustrator and the text element will render
     // correctly with Helvetica Bold.
-
     //  adds title above diagam
     const textContent = new SvgText({
       text: `${title.textContent} (${unit})`,
@@ -152,23 +167,38 @@ class Card extends Component {
     })
   }
 
+  findAncestor(el, sel) {
+    if (typeof el.closest === 'function') {
+      return el.closest(sel) || null
+    }
+    while (el) {
+      if (el.matches(sel)) {
+        return el
+      }
+      el = el.parentElement
+    }
+
+    return null
+  }
+
   //  use refs from each card component that toggles the height.
   //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
+
     let svg = this.toggleList
     if (!svg) return
     svg = svg.querySelector('[data-chart]')
 
     //  extra height for the svg diagram
-    const extraHeightSVG = 150
-    const paddingBottom = 50
+    const extraHeightSVG = 180
+    const paddingBottom = 80
     const spaceBetween = 30
 
     //  add extra height to svg
     const height = parseInt(svg.getAttribute('height') || 0, 10) + extraHeightSVG
     svg.setAttribute('height', height)
 
-    const parent = svg.closest('[data-card]')
+    const parent = this.findAncestor(this.toggleList, '[data-card]')
     const description = parent.querySelector('[data-chart-description]')
     const source = parent.querySelector('[data-chart-source]')
 
@@ -200,8 +230,8 @@ class Card extends Component {
     const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
     const newSourceHeight = svg.clientHeight - paddingBottom
 
-    this.addValuesToTransform(textDescription, null, newDescriptionHeight)
-    this.addValuesToTransform(textSource, null, newSourceHeight)
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
+    this.addValuesToTransform(textSource, null, newSourceHeight + 60)
   }
 
   getUrlToTab(tab) {
@@ -360,6 +390,7 @@ class Card extends Component {
 
         {!printable && (
           <ChartViewModeSelect
+            activeTab={activeTab}
             embedded={false}
             setExplicitView={this.setExplicitView}
             explicitView={explicitView}
@@ -373,6 +404,7 @@ class Card extends Component {
             <ChartComponent
               data={data}
               explicitView={explicitView}
+              activeTab={activeTab}
               title={card.title}
               source={card.metadata.source}
               measuredAt={card.metadata.measuredAt}
@@ -385,7 +417,7 @@ class Card extends Component {
         </div>
 
         <div data-chart-description className="graph__description">
-          {this.props.description}
+          {description}
         </div>
 
         <div className="graph__actions">
@@ -400,17 +432,6 @@ class Card extends Component {
             <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
           )}
         </div>
-        {showExternalLinkBosatte && (
-          <div className="graph__related">
-            <div className="cta cta--simple">
-              <h4 className="cta__title">Se også</h4>
-              <ul>
-                <li><a href="/planlegging-og-bosetting/anmodning-og-vedtak/">
-                Anmodnings- og vedtakstall for bosetting av flyktninger</a></li>
-              </ul>
-            </div>
-          </div>
-        )}
       </section>
     )
   }

@@ -62,11 +62,12 @@ export default class BarChart extends React.Component {
       return
     }
 
-    const {explicitView, title, source, measuredAt, description, printView} = this.props
+    const {explicitView, title, printView, description, source, measuredAt} = this.props
+    // const {description, source, measuredAt} = this.state
 
     //  d3 doesn't like arrow functions
     d3.select('.button.download__svg').on('click', function () {
-      const config = { filename: 'imdi-diagram' }
+      const config = {filename: 'imdi-diagram'}
       d3_save_svg.save(d3.select('svg').node().parentNode.innerHTML, config)
     })
 
@@ -81,6 +82,7 @@ export default class BarChart extends React.Component {
     const xScales = {}
     let innerPaddingFactor = 0.5
     let outerPaddingFactor = 0.5
+    const extraPadding = 80
 
     // untoggle below to get more width between bars
     // if (explicitView) {
@@ -287,6 +289,7 @@ export default class BarChart extends React.Component {
     // Add some space between the x axis labels and the legends
     const xAxisHeight = xAxisEl.node().getBBox().height + 21
     const legendBottom = this.fullHeight + xAxisHeight
+
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
     // Expand the height to fit the legend
@@ -306,7 +309,7 @@ export default class BarChart extends React.Component {
   }
 
   render() {
-    const {explicitView, title, source, measuredAt, description, thisCard} = this.props
+    const {explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
     const extraPadding = 70
     const functions = {
       drawPoints: this.drawPoints,
@@ -332,6 +335,7 @@ export default class BarChart extends React.Component {
           config={config}
           functions={functions}
           explicitView={explicitView}
+          activeTab={activeTab}
           title={title}
           source={source}
           measuredAt={measuredAt}

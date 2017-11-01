@@ -22,7 +22,8 @@ export default class ChartModeSelect extends Component {
     mode: PropTypes.string,
     setExplicitView: PropTypes.func,
     explicitView: PropTypes.bool,
-    embedded: PropTypes.bool
+    embedded: PropTypes.bool,
+    activeTab: PropTypes.object
   };
 
   constructor() {
@@ -43,8 +44,8 @@ export default class ChartModeSelect extends Component {
     this.showToggleNumbers()
   }
 
-  componentWillUpdate(prevProps, prevState) {
-    if (prevProps !== this.props || prevState !== this.sate) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props !== prevProps || this.state !== prevState) {
       this.showToggleNumbers()
     }
   }
@@ -56,21 +57,25 @@ export default class ChartModeSelect extends Component {
   }
 
   showToggleNumbers() {
-    const {embedded = false} = this.props
+    const {embedded = false, activeTab} = this.props
     const actualWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
-    if (!embedded && actualWidth > screenSize.largePhone) {
-      this.setState({
-        isExplicit: false,
-        toggleNumbersVisible: true
-      })
+    if (!embedded && actualWidth > screenSize.largePhone && activeTab.urlName === 'enkeltaar') {
+      if (this.state.isExplicit || !this.state.toggleNumbersVisible) {  // don't rerender if there's no difference
+        this.setState({
+          isExplicit: false,
+          toggleNumbersVisible: true
+        })
+      }
     }
 
     else {
-      this.setState({
-        isExplicit: true,
-        toggleNumbersVisible: false
-      })
+      if (!this.state.isExplicit || this.state.toggleNumbersVisible) {  // don't rerender if there's no difference
+        this.setState({
+          isExplicit: true,
+          toggleNumbersVisible: false
+        })
+      }
     }
   }
 

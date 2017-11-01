@@ -20,30 +20,6 @@ export default class BarChart extends React.Component {
     thisCard: React.PropTypes.any
   }
 
-  constructor() {
-    super()
-
-    this.state = {
-      description: '',
-      source: '',
-      measuredAt: ''
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) { // if there is new props
-
-      const props = {
-        description: this.props.description,
-        source: this.props.source,
-        measuredAt: this.props.measuredAt
-      }
-
-      // set new props if they're different from current state
-      if (props !== this.state) this.setState(props)
-    }
-  }
-
   prepareData(data) {
     const dimensions = data.dimensions.slice()
     if (dimensions.length == 1) {
@@ -310,27 +286,14 @@ export default class BarChart extends React.Component {
       .call(leg)
     /* eslint-enable prefer-reflect */
 
-
-    const descriptionWrapper = this._svg.append('g')
-      .attr('class', 'chart__text--description')
-      .append('text')
-      .text(description)
-
-    const sourceWrapper = this._svg.append('g')
-      .attr('class', 'chart__text--source')
-      .append('text')
-      .text(`Kilde ${source}, sist målt: ${measuredAt}`)
-
     // Add some space between the x axis labels and the legends
     const xAxisHeight = xAxisEl.node().getBBox().height + 21
     const legendBottom = this.fullHeight + xAxisHeight
 
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
-    descriptionWrapper.attr('transform', () => this.translation(0, legendBottom + extraPadding))
-    sourceWrapper.attr('transform', () => this.translation(0, legendBottom + extraPadding + 40))
 
     // Expand the height to fit the legend
-    const expandedHeight = this.fullHeight + xAxisHeight + leg.height() + (extraPadding * 2)
+    const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
     this._svg
       .attr('height', expandedHeight)
       .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)

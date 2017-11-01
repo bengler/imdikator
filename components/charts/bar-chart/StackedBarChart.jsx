@@ -110,7 +110,7 @@ export default class StackedBarChart extends Component {
     //==============================================================
     if (this.props.explicitView) {
 
-      const moveNumberToTheRight = 70
+      const moveNumberToTheRight = 85
       const moveNumberDown = 25
       const hideSmallNumbers = 25
 

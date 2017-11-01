@@ -20,6 +20,30 @@ export default class BarChart extends React.Component {
     thisCard: React.PropTypes.any
   }
 
+  constructor() {
+    super()
+
+    this.state = {
+      description: '',
+      source: '',
+      measuredAt: ''
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) { // if there is new props
+
+      const props = {
+        description: this.props.description,
+        source: this.props.source,
+        measuredAt: this.props.measuredAt
+      }
+
+      // set new props if they're different from current state
+      if (props !== this.state) this.setState(props)
+    }
+  }
+
   prepareData(data) {
     const dimensions = data.dimensions.slice()
     if (dimensions.length == 1) {
@@ -62,11 +86,12 @@ export default class BarChart extends React.Component {
       return
     }
 
-    const {explicitView, title, source, measuredAt, description, printView} = this.props
+    const {explicitView, title, printView, description, source, measuredAt} = this.props
+    // const {description, source, measuredAt} = this.state
 
     //  d3 doesn't like arrow functions
     d3.select('.button.download__svg').on('click', function () {
-      const config = { filename: 'imdi-diagram' }
+      const config = {filename: 'imdi-diagram'}
       d3_save_svg.save(d3.select('svg').node().parentNode.innerHTML, config)
     })
 
@@ -81,6 +106,7 @@ export default class BarChart extends React.Component {
     const xScales = {}
     let innerPaddingFactor = 0.5
     let outerPaddingFactor = 0.5
+    const extraPadding = 80
 
     // untoggle below to get more width between bars
     // if (explicitView) {
@@ -284,13 +310,27 @@ export default class BarChart extends React.Component {
       .call(leg)
     /* eslint-enable prefer-reflect */
 
+
+    const descriptionWrapper = this._svg.append('g')
+      .attr('class', 'chart__text--description')
+      .append('text')
+      .text(description)
+
+    const sourceWrapper = this._svg.append('g')
+      .attr('class', 'chart__text--source')
+      .append('text')
+      .text(`Kilde ${source}, sist målt: ${measuredAt}`)
+
     // Add some space between the x axis labels and the legends
     const xAxisHeight = xAxisEl.node().getBBox().height + 21
     const legendBottom = this.fullHeight + xAxisHeight
+
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
+    descriptionWrapper.attr('transform', () => this.translation(0, legendBottom + extraPadding))
+    sourceWrapper.attr('transform', () => this.translation(0, legendBottom + extraPadding + 40))
 
     // Expand the height to fit the legend
-    const expandedHeight = this.fullHeight + xAxisHeight + leg.height()
+    const expandedHeight = this.fullHeight + xAxisHeight + leg.height() + (extraPadding * 2)
     this._svg
       .attr('height', expandedHeight)
       .attr('viewBox', `0 0 ${this.fullWidth} ${expandedHeight}`)

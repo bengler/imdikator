@@ -24,6 +24,7 @@ class Chart {
         this._calculateHeight = functions.calculateHeight
       }
     }
+
     this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView, activeTab)
   }
 
@@ -89,8 +90,8 @@ class Chart {
     this.props.title = title
     this.props.source = source
     this.props.measuredAt = measuredAt
-    this.props.explicitView = explicitView
     this.props.description = description
+    this.props.explicitView = explicitView
     this.props.printView = printView
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
@@ -186,6 +187,13 @@ class Chart {
       .attr('class', 'chart__d3-points')
       .attr('data-chart', 'true')
       .attr('transform', this.translation(this.margins.left, this.margins.top))
+
+    // this.svg.append('text')
+    //   .attr('data-chart-description', '')
+    //   .attr('class', 'svg-text')
+    //   .attr('class', 'text__description')
+    //   .text(description)
+
 
     // Visualize svg with margins
     if (showMargins) {

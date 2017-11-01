@@ -56,6 +56,9 @@ export default class D3Chart extends React.Component {
       width: '100%',
       height: '100%',
       explicitView: this.props.explicitView,
+      description: this.props.description,
+      source: this.props.source,
+      measuredAt: this.props.measuredAt,
       activeTab: this.props.activeTab,
     }, this.getChartState(), this.props.functions, this.config())
 
@@ -66,7 +69,7 @@ export default class D3Chart extends React.Component {
   }
 
   componentDidUpdate() {
-    
+
     const el = findDOMNode(this)
     const {explicitView, title, source, measuredAt, description, thisCard, printView, activeTab} = this.props
 
@@ -95,7 +98,6 @@ export default class D3Chart extends React.Component {
       }, 66) // 15 fps (1000 / 15)
     }
   }
-
 
   config() {
     return Object.assign({

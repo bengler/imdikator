@@ -90,6 +90,8 @@ export default class TableChart extends React.Component {
     const parsedData = parser.parseRows(data.csv)
     const transposedData = d3.transpose(parsedData)
 
+    console.log(transposedData)
+
     // console.log(data.csv)
     const headers = transposedData.map(dataItem => {
       if (dataItem[0].includes(':')) {
@@ -104,7 +106,7 @@ export default class TableChart extends React.Component {
         if (insideValue.includes(':')) {
           return insideValue.split(':')[0]
         }
-        
+
         return insideValue
       }))
     }
@@ -163,6 +165,7 @@ export default class TableChart extends React.Component {
     const functions = {
       drawPoints: this.drawPoints
     }
+
     return (
       <div>
         <D3Chart data={this.state} functions={functions} />

@@ -91,7 +91,7 @@ class Card extends Component {
       if (this.state.explicitView) {
         this.moveElementsIntoSVG()
       }
-      this.addDescriptionAndSourceBelowDiagram()
+      // this.addDescriptionAndSourceBelowDiagram()
     }
   }
 
@@ -388,7 +388,7 @@ class Card extends Component {
         </div>
 
         <div data-chart-description className="graph__description">
-          {this.props.description}
+          {description}
         </div>
 
         <div className="graph__actions">

@@ -310,7 +310,7 @@ export default class BarChart extends React.Component {
 
   render() {
     const {explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
-    const extraPadding = 70
+    const extraPadding = 80
     const functions = {
       drawPoints: this.drawPoints,
       calculateWidth: this.calculateWidth,

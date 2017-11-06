@@ -82,7 +82,7 @@ export default class ChartModeSelect extends Component {
 
   render() {
     const {onChange, mode: selectedMode} = this.props
-    const graphClasses = this.state.toggleNumbersVisible ? 'graph__types' : 'graph__types right'
+    const graphClasses = this.state.toggleNumbersVisible || this.props.embedded ? 'graph__types' : 'graph__types right'
 
     return (
       <div className={graphClasses}>

@@ -140,6 +140,16 @@ The perfect tutorial to learn how d3 is used throughout this code: http://aligne
 - Place the folder imdikator-deploy (ask tobias or bård) as a sibling to the local imdikator folder and push to test with the test script inside imdikator deploy package.json
 - Make a comment in jira with the commit hash that has been published to test, so when the test is accepted, roll back to this commit and run imdikator deploy's production script.
 
+# URL's
+*Test og prod*
+- Test server med test.css og app.js (publiseres fra `$ npm run deploy_test` fra `../imdikator-deploy`) https://testimdino.azurewebsites.net/
+- Produksjonsserver på https://www.imdi.no/
+
+*Innhold fra episerver*
+- Blokker brukt på navigasjonsside: https://testimdino.azurewebsites.net/testsider/visning-av-blokker-pa-navigasjonsside/ 
+- Blokker brukt i en artikkel: https://testimdino.azurewebsites.net/testsider/visning-av-blokker-pa-artikkelside/ 
+- Innholdssider dratt inn på navigasjonssiden som blokker: https://testimdino.azurewebsites.net/testsider/visning-av-sider-som-blokker/ 
+
 # TO-DO:
 
 - Modularize chart library

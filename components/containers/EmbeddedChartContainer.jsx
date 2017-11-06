@@ -82,7 +82,7 @@ class EmbeddedChartContainer extends Component {
         <div className="col-block-bleed">
           <div className="image-block__image image-block__image--figure">
             <h3 className="h4">{card.title}</h3>
-            <ChartViewModeSelect embedded mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})} />
+            <ChartViewModeSelect embedded mode={chartViewMode} chartUrl={chartUrl} onChange={newMode => this.setState({chartViewMode: newMode})} />
             {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
             <figcaption className="image-block__caption">
               <ChartDescriptionContainer
@@ -90,13 +90,9 @@ class EmbeddedChartContainer extends Component {
                 region={region}
                 card={card}
                 headerGroups={headerGroups}
-                embed
+                embedded
               />
             </figcaption>
-            <a onClick={() => { sessionStorage.setItem('imdi-open-search-box-default', true) }} href={chartUrl} className="button button--primary button--small t-no-margin">
-              <i className="tabs-menu__icon  icon__chart-bars icon--white"></i>
-              Finn tall for din kommune
-            </a>
             <div className="image-block__figure-footer">
             </div>
           </div>

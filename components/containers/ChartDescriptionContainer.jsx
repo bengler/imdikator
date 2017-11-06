@@ -12,11 +12,11 @@ class ChartDescriptionContainer extends Component {
     headerGroups: PropTypes.array,
     description: PropTypes.string,
     setDescription: PropTypes.function,
-    embed: PropTypes.bool
+    embedded: PropTypes.bool
   }
 
   render() {
-    const classes = this.props.embed ? 'graph__description embed' : 'graph__description'
+    const classes = this.props.embedded ? 'graph__description embed' : 'graph__description'
     return (
       <div className={classes}>
         {this.props.description}

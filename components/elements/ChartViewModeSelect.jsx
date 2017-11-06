@@ -23,7 +23,8 @@ export default class ChartModeSelect extends Component {
     setExplicitView: PropTypes.func,
     explicitView: PropTypes.bool,
     embedded: PropTypes.bool,
-    activeTab: PropTypes.object
+    activeTab: PropTypes.object,
+    chartUrl: PropTypes.string
   };
 
   constructor() {
@@ -129,6 +130,15 @@ export default class ChartModeSelect extends Component {
             )
             }
         </ul>
+        {this.props.embedded &&
+          <a
+            onClick={() => { sessionStorage.setItem('imdi-open-search-box-default', true) }}
+            href={this.props.chartUrl}
+            className="button button--primary button--small t-no-margin">
+
+            Finn tall for din kommune
+          </a>
+        }
       </div>
     )
   }

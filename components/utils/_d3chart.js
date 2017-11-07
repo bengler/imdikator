@@ -205,10 +205,12 @@ class Chart {
       .style('fill', '#655959')
     }
 
+    // this._drawPoints(el, dataaa)
     this._drawPoints(el, state.data)
   }
 
   destroy(el) {
+
   }
 
   translation(x, y) {

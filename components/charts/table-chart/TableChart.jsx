@@ -98,6 +98,8 @@ export default class TableChart extends React.Component {
     const functions = {
       drawPoints: this.drawPoints
     }
+
+    console.log(this.state)
     return (
       <div>
         <D3Chart data={this.state} functions={functions} />

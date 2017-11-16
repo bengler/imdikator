@@ -21,6 +21,7 @@ class DownloadWidget extends Component {
     headerGroups: PropTypes.array,
     dispatch: PropTypes.func,
     downloadScreenshot: PropTypes.func,
+    downloadPNG: PropTypes.func,
     setExplicitView: PropTypes.func
   };
 
@@ -136,6 +137,7 @@ class DownloadWidget extends Component {
         isLoading={this.state.isLoading}
         isError={this.state.isError}
         linkUrl={this.state.linkUrl}
+        downloadPNG={this.props.downloadPNG}
         choices={choices}
         applyButtonText="Hent CSV"
         title="Last ned tallgrunnlag"

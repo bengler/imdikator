@@ -4,7 +4,7 @@
   "private": "true",
   "description": "Imdikator",
   "main": "index.js",
-  "author": "Bengler AS",
+  "author": "Bengler AS, Netlife",
   "scripts": {
     "watch-test": "npm run test -- --watch",
     "cover": "babel-istanbul --report=text --report=html cover _mocha -- --reporter=dot",
@@ -83,6 +83,7 @@
     "redux-thunk": "^2.1.0",
     "rx": "^4.0.0",
     "rx-node": "^1.0.1",
+    "save-svg-as-png": "^1.2.0",
     "smoothscroll": "^0.2.2",
     "spawn-stream": "^1.0.2",
     "staticr": "^4.0.1",

@@ -17,7 +17,9 @@ import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import TabBar from '../elements/TabBar'
-import ToggleView from '../elements/ToggleView'
+
+// untoggle to toggle the vis/skjul tall
+// import ToggleView from '../elements/ToggleView'
 import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
@@ -77,10 +79,10 @@ class Card extends Component {
       initialLoadComplete: false
     }
 
-    this.findAncestor = this.findAncestor.bind(this)
-    this.setExplicitView = this.setExplicitView.bind(this)
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
+    this.findAncestor = this.findAncestor.bind(this)
+    this.setExplicitView = this.setExplicitView.bind(this)
     this.moveElementsIntoSVG = this.moveElementsIntoSVG.bind(this)
     this.addValuesToTransform = this.addValuesToTransform.bind(this)
     this.addDescriptionAndSourceBelowDiagram = this.addDescriptionAndSourceBelowDiagram.bind(this)
@@ -198,6 +200,10 @@ class Card extends Component {
     const height = parseInt(svg.getAttribute('height') || 0, 10) + extraHeightSVG
     svg.setAttribute('height', height)
 
+    const viewBox = svg.getAttribute('viewBox').split(' ')
+    const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`
+    svg.setAttribute('viewBox', newViewBox)
+
     const parent = this.findAncestor(this.toggleList, '[data-card]')
     const description = parent.querySelector('[data-chart-description]')
     const source = parent.querySelector('[data-chart-source]')
@@ -294,7 +300,7 @@ class Card extends Component {
 
   takeScreenshot(svg) {
     const config = {
-      filename: 'imdi-diagram',
+      filename: 'imdi-diagram'
     }
 
     d3_save_svg.save(svg, config) // eslint-disable-line
@@ -424,7 +430,7 @@ class Card extends Component {
           {!printable && (
             <div className="graph__functions">
               <ShareWidget chartUrl={this.getShareUrl()} />
-              <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
+              <DownloadWidget downloadScreenshot={this.takeScreenshot} downloadPNG={this.downloadPNG} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
             </div>
           )}
 

@@ -7016,6 +7016,11 @@
       "integrity": "sha1-vsEf3IOp/aBjQBIQ5AF2wwJNFWc=",
       "dev": true
     },
+    "save-svg-as-png": {
+      "version": "1.2.0",
+      "resolved": "https://registry.npmjs.org/save-svg-as-png/-/save-svg-as-png-1.2.0.tgz",
+      "integrity": "sha1-sJpei+pbpXzNjSae+SwA2JTPaxw="
+    },
     "select": {
       "version": "1.0.6",
       "resolved": "https://registry.npmjs.org/select/-/select-1.0.6.tgz",

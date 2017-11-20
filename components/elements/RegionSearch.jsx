@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react'
-import Autocomplete from '../elements/Autocomplete'
+import Autocomplete from './Autocomplete'
 import {_t} from '../../lib/translate'
 import cx from 'classnames'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'

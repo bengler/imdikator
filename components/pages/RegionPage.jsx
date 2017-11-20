@@ -29,6 +29,10 @@ class RegionPage extends Component {
 
   constructor() {
     super()
+
+    this.getRegionNameAndType = this.getRegionNameAndType.bind(this)
+    this.getRegionName = this.getRegionName.bind(this)
+
     this.handleSelectRegion = this.handleSelectRegion.bind(this)
     this.handleClickFactSheet = this.handleClickFactSheet.bind(this)
   }
@@ -50,6 +54,27 @@ class RegionPage extends Component {
 
   gotoElement(element) {
     smoothScroll(element)
+  }
+
+  getRegionNameAndType() {
+    if (this.getRegionName() == 'Norge') return this.getRegionName()
+    const {type} = this.props.currentRegion
+    if (!type) return ''
+
+    const typeOfPlace = _t(type)
+    return `${this.getRegionName()} ${typeOfPlace}`
+  }
+
+  getRegionName() {
+    const {name} = this.props.currentRegion
+    if (!name) return ''
+
+    const isNorge = (name === 'Hele landet')
+
+    if (isNorge) {
+      return 'Norge'
+    }
+    return name
   }
 
   render() {
@@ -85,7 +110,11 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <CardPageButtonsContainer />
-                <h2 className="page__section-title">Oppsummering {currentRegion.name && `av ${currentRegion.name}`}</h2>
+
+                <h2 className="page__section-title">
+                  Oppsummering av {this.getRegionNameAndType()}
+                </h2>
+
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
                     <RegionSummaryChartsContainer region={currentRegion} />
@@ -94,17 +123,17 @@ class RegionPage extends Component {
 
                 <div className="feature t-hide-on-print">
                   <h2 className="feature__title">Faktaark</h2>
+
                   <p>
-                    Et dokument hvor alle nøkkeltallene fra {currentRegion.name}
-                    {currentRegion.name == 'Norge' ? '' : ` ${_t(currentRegion.type)}`} er gjengitt.
+                    Et dokument hvor alle nøkkeltallene fra {this.getRegionNameAndType()} er gjengitt.
                   </p>
+
                   <p>
                     <a href="#" onClick={this.handleClickFactSheet} className="button button-">
                       <i className="icon__download icon--white" /> Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </div>
-
               </div>
             </div>
           </div>
@@ -115,7 +144,7 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <div className="feature feature--white">
-                  <h2 className="feature__title">{currentRegion.name}</h2>
+                  <h2 className="feature__title">{this.getRegionNameAndType()}</h2>
                   <RegionInfoContainer region={currentRegion} />
                   <RegionQuickSwitch />
                 </div>

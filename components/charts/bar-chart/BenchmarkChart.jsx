@@ -137,26 +137,29 @@ export default class BenchmarkChart extends React.Component {
       item.el = this
     })
 
-    if (this.props.explicitView) {
+    // if (this.props.explicitView) {
 
-      // Add text indicators
-      svg.selectAll('rect.chart__text')
-      .data(dataItem => dataItem.formattedValue)
-      .enter()
-      .append('text')
-      .attr('class', 'chart__text')
-      .attr('width', item => item.scale.rangeBand())
-      .attr('x', dataItem => dataItem.scale(dataItem.title))
-      .attr('y', dataItem => {
-        const val = Math.max(0, dataItem.value)
-        return yc.scale(val)
-      })
-      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
-      .each(function (item) {
-        item.el = this
-      })
-      .text(dataItem => dataItem.formattedValue)
-    }
+    //   // Add text indicators
+    //   svg.selectAll('rect.chart__text')
+    //   .data(dataItem => dataItem.formattedValue)
+    //   .enter()
+    //   .append('text')
+    //   .attr('class', 'chart__text')
+    //   .attr('width', item => item.scale.rangeBand())
+    //   .attr('x', dataItem => dataItem.scale(dataItem.title))
+    //   .attr('y', dataItem => {
+    //     const val = Math.max(0, dataItem.value)
+    //     return yc.scale(val)
+    //   })
+    //   .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+    //   .each(function (item) {
+    //     item.el = this
+    //   })
+    //   .text(dataItem => {
+    //     console.log(dataItem)
+    //     return dataItem.formattedValue
+    //   })
+    // }
 
     let hoveropen = false
     const open = item => {

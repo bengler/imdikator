@@ -79,7 +79,7 @@ class CardList extends Component {
         aria-controls="befolkning"
         role="button"
       >
-        <h3 className="toggle-list__button-title">{card.title}
+        <h3 data-graph-title className="toggle-list__button-title">{card.title}
           <i className="icon__arrow-down toggle-list__button-icon" />
         </h3>
       </a>

@@ -72,7 +72,6 @@ class BreadCrumbs extends Component {
   }
 }
 
-
 function mapStateToProps(state) {
   return {
     crumbs: state.breadCrumbs,

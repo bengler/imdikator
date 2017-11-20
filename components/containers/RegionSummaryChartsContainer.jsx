@@ -101,6 +101,7 @@ function mapStateToProps(state, ownProps) {
   const summaries = regionSummaryConfig.map(config => {
     const fromState = summaryFromState[config.name]
     const forNorway = state.regionSummaries[norway.prefixedCode][config.name]
+
     return {
       config: config,
       noData: fromState.noData,

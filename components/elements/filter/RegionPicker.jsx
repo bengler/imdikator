@@ -121,13 +121,20 @@ export default class RegionPicker extends Component {
                   />
                 </div>
               </label>
+              <ToggleButtonList
+                options={other}
+                value={value}
+                renderButton={this.renderButton.bind(this)}
+                onAdd={this.handleAdd.bind(this)}
+                onRemove={this.handleRemove.bind(this)}
+              />
               <div className="lightbox__footer">
-                <button type="button" className="button" onClick={this.apply.bind(this)}>Oppdater figur</button>
 
+                <button type="button" className="button" onClick={this.apply.bind(this)}>Oppdater figur</button>
                 {onApplyAll && (
                   <button
                     type="button"
-                    className="button button--small button--secondary button__sidekick"
+                    className="button button--secondary button__sidekick"
                     onClick={this.applyAll.bind(this)}
                   >
                     <i className="icon__apply" /> Oppdater alle figurer
@@ -136,20 +143,13 @@ export default class RegionPicker extends Component {
 
                 <button
                   type="button"
-                  className="button button--small button--secondary button__sidekick"
+                  className="button button--secondary button__sidekick"
                   onClick={this.clear.bind(this)}
                 >
                   <i className="icon__close" /> Fjern sammenlikninger
                 </button>
               </div>
 
-              <ToggleButtonList
-                options={other}
-                value={value}
-                renderButton={this.renderButton.bind(this)}
-                onAdd={this.handleAdd.bind(this)}
-                onRemove={this.handleRemove.bind(this)}
-              />
               <p className="t-margin-top text--small">Du kan sammenlikne på tvers av
                 kommuner, fylker, næringsregioner og bydeler. Velg prosent som enhet for å
                 enklere kunne sammenlikne steder med store forskjeller i befolkningstall.

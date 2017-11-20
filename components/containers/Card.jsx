@@ -1,5 +1,12 @@
-import React, {Component, PropTypes} from 'react'
+//  addValuesToTransform, moveElementsIntoSVG and addDescriptionAndSourceBelowDiagram
+//  are horrible and could break if some classname or other detail changes (e.g. h3 becomes h4)
+//  unfortunately the alternative is to refactor the architecture around d3
+//  (because d3 hijacks the 'this' keyword), which produces a tremendous amount of pains and would take crazy hours to fix.
+//  if the diagram is buggy or not behaving properly - inspect this function, it's probably the cause.
 
+//  to better understand how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
+
+import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import d3_save_svg from 'd3-save-svg'
 import SvgText from 'svg-text'
@@ -10,7 +17,9 @@ import {findHeaderGroupForQuery} from '../../lib/queryUtil'
 import UrlQuery from '../../lib/UrlQuery'
 import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import TabBar from '../elements/TabBar'
-import ToggleView from '../elements/ToggleView'
+
+// untoggle to toggle the vis/skjul tall
+// import ToggleView from '../elements/ToggleView'
 import ChartViewModeSelect from '../elements/ChartViewModeSelect'
 
 import {queryToOptions, describeChart} from '../../lib/chartDescriber'
@@ -21,6 +30,8 @@ import CardMetadata from './CardMetadata'
 import ChartDescriptionContainer from './ChartDescriptionContainer'
 import ShareWidget from './ShareWidget'
 import DownloadWidget from './DownloadWidget'
+
+import '../../lib/element-closest.js'
 
 import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
@@ -45,8 +56,9 @@ class Card extends Component {
     printView: PropTypes.bool,
     
     // really confusing; thisCard is 'this' for this class (Card).
-    // access it by calling this.props.thisCard.
-    // why? Because d3 hijacks this in child scope after mount
+    // access it by calling this.props.thisCard (from children)
+    // why? Because d3 hijacks 'this' in child scope after mount.
+    // so if we want to use 'this' for Card, we must use this.props.thisCard (in child components)
     thisCard: PropTypes.any
   };
 
@@ -63,11 +75,169 @@ class Card extends Component {
       screenshot: null,
       explicitView: false,
       description: null,
-      printView: false
+      printView: false,
+      initialLoadComplete: false
     }
 
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
+    this.findAncestor = this.findAncestor.bind(this)
+    this.setExplicitView = this.setExplicitView.bind(this)
+    this.moveElementsIntoSVG = this.moveElementsIntoSVG.bind(this)
+    this.addValuesToTransform = this.addValuesToTransform.bind(this)
+    this.addDescriptionAndSourceBelowDiagram = this.addDescriptionAndSourceBelowDiagram.bind(this)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props || prevState !== this.state) {
+      // add title and numbers above graph
+      if (this.state.explicitView) {
+        this.moveElementsIntoSVG()
+      }
+      this.addDescriptionAndSourceBelowDiagram()
+    }
+  }
+
+  // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
+  // element is an element containing a transform attribute.
+  // X and Y are the values you'd want to add to the existing X and Y.
+  addValuesToTransform(element, addX, addY) {
+
+    const transform = element.getAttribute('transform')
+    let transformValues
+
+    if (!transform.includes(',')) {
+      // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
+      // So we'll split on space instead
+      transformValues = transform.split(' ')
+    }
+    else {
+      transformValues = transform.split(',')
+    }
+
+    // before ["translate(0", "-2.34)"]
+    // after ["0", "-2.34"]
+    const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
+
+    // before ["0", "-2.34"]
+    // after (if x is 10 and y is 20) [10, 7.66]
+    if (addX) values[0] = parseInt(values[0], 10) + addX
+    if (addY) values[1] = parseInt(values[1], 10) + addY
+
+    element.setAttribute('transform', `translate(${values[0].toString()}, ${values[1].toString()})`)
+  }
+
+  moveElementsIntoSVG() {
+    let svg = this.toggleList
+    if (!svg) return
+    svg = svg.querySelector('.chart__svg')
+    if (!svg) return
+
+    //  extra height for the svg diagram
+    const extraHeightDiagram = 80
+    const extraHeightDiagramPyramid = 20
+
+    //  if this chart is pyramidchart - use different padding for colored boxes below chart
+    const pyramid = this.props.activeTab.chartKind == 'pyramid'
+
+    //  get all svg elements
+    const chart = svg.querySelector('.chart__d3-points')
+    const colorExplanation = svg.querySelector('.chart__legend-wrapper')
+
+    //  move chart and colored squares lower
+    this.addValuesToTransform(chart, null, extraHeightDiagram)
+    this.addValuesToTransform(colorExplanation, null, pyramid ? extraHeightDiagramPyramid : extraHeightDiagram)
+
+    //  get the title
+    const title = this.findAncestor(this.toggleList, '.toggle-list').querySelector('[data-graph-title]')
+
+    //  add height
+    const height = parseInt(svg.getAttribute('height'), 10) + extraHeightDiagram
+    svg.setAttribute('height', height)
+
+    const unit = this.props.query.unit[0]
+
+    // Now `svgForAi` can be opened in Illustrator and the text element will render
+    // correctly with Helvetica Bold.
+    //  adds title above diagam
+    const textContent = new SvgText({
+      text: `${title.textContent} (${unit})`,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text title'
+    })
+  }
+
+  findAncestor(el, sel) {
+    if (typeof el.closest === 'function') {
+      return el.closest(sel) || null
+    }
+    while (el) {
+      if (el.matches(sel)) {
+        return el
+      }
+      el = el.parentElement
+    }
+
+    return null
+  }
+
+  //  use refs from each card component that toggles the height.
+  //  every class like this is a card. use refs.
+  addDescriptionAndSourceBelowDiagram() {
+
+    let svg = this.toggleList
+    if (!svg) return
+    svg = svg.querySelector('[data-chart]')
+
+    //  extra height for the svg diagram
+    const extraHeightSVG = 180
+    const paddingBottom = 80
+    const spaceBetween = 30
+
+    //  add extra height to svg
+    const height = parseInt(svg.getAttribute('height') || 0, 10) + extraHeightSVG
+    svg.setAttribute('height', height)
+
+    const viewBox = svg.getAttribute('viewBox').split(' ')
+    const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`
+    svg.setAttribute('viewBox', newViewBox)
+
+    const parent = this.findAncestor(this.toggleList, '[data-card]')
+    const description = parent.querySelector('[data-chart-description]')
+    const source = parent.querySelector('[data-chart-source]')
+
+    //  adds description below diagram
+    // eslint-disable-next-line no-unused-vars
+    const descriptionSVGText = new SvgText({
+      text: description.textContent,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text text__description',
+      verticalAlign: 'bottom'
+    })
+
+    //  adds source below diagram
+    // eslint-disable-next-line no-unused-vars
+    const sourceSVGText = new SvgText({
+      text: source.textContent,
+      element: svg,
+      maxWidth: svg.clientWidth || 0,
+      textOverflow: 'ellipsis',
+      className: 'svg-text text__source',
+      verticalAlign: 'bottom',
+    })
+
+    const textDescription = svg.querySelector('.text__description')
+    const textSource = svg.querySelector('.text__source')
+
+    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
+    const newSourceHeight = svg.clientHeight - paddingBottom
+
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
+    this.addValuesToTransform(textSource, null, newSourceHeight + 60)
   }
 
   getUrlToTab(tab) {
@@ -128,51 +298,24 @@ class Card extends Component {
     return `${protocol}//${host}${path}`
   }
 
-  takeScreenshot() {
-    const graphNumbers = document.querySelectorAll('.toggle-list__section.toggle-list__section--expanded .graph .chart .chart__svg .tick .chart__text--benchmark')
-    graphNumbers.forEach(number => {
-      number.style.fontSize = '12px'
-    })
-
+  takeScreenshot(svg) {
     const config = {
-      filename: 'imdi-diagram',
+      filename: 'imdi-diagram'
     }
 
-    // // SETUP
-    // // insert details into SVG
-    // const text = new SvgText({
-    //   text: 'Figuren viser antall personer fordelt etter bakgrunn i 2017 i Norge.',
-    //   element: document.querySelector('.chart__svg'),
-    //   maxWidth: 100,
-    //   textOverflow: 'ellipsis'
-    // })
-
-    // // STYLE construct
-    // // give some space for the new text and position it at the bottom
-    // const chart = document.querySelector('.chart__svg')
-    // document.querySelector('text.svg-text.svg-text-0').style.transform = 'translateY(500px)'
-    // document.querySelector('.chart__svg').style.margin = '50px 0px 150px 0px'
-    // chart.height = chart.height + 200
-    // console.log(chart.height)
-    // // DESCTRUCT
-    // // remove styling applied above
-    // // let textElement = document.createElement('text')
-    // // textElement.setAttribute('height', 40)
-    // // textElement.setAttribute('width', 400)
-    // // textElement.setAttribute('x', 0)
-    // // textElement.setAttribute('viewBox', '0 0 400 40"')
-    // // textElement.setAttribute('y', -25)
-    // // textElement.innerHTML = 'something'
-    // // chart.insertBefore(textElement, firstChildOfChart)
-
-    const svg = document.querySelector('.chart__svg')
     d3_save_svg.save(svg, config) // eslint-disable-line
+  }
+
+  setExplicitView(event) {
+    const truth = Boolean(event.target.checked)
+    this.setState({explicitView: truth})
   }
 
   render() {
     const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
     const {chartViewMode, explicitView} = this.state
 
+    const showToggleNumbersButton = (activeTab) ? activeTab.chartKind === 'bar' || activeTab.chartKind == 'pyramid' : false
     if (!activeTab) {
       return (
         <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
@@ -193,7 +336,6 @@ class Card extends Component {
 
     const chart = CHARTS[chartKind]
     const ChartComponent = chart.component
-
     const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede' // TODO: Needs to be dynamic
 
     if (!ChartComponent) {
@@ -218,6 +360,7 @@ class Card extends Component {
 
     return (
       <section
+        data-card
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
@@ -253,19 +396,21 @@ class Card extends Component {
 
         {!printable && (
           <ChartViewModeSelect
+            activeTab={activeTab}
+            embedded={false}
+            setExplicitView={this.setExplicitView}
+            explicitView={explicitView}
             mode={chartViewMode}
             onChange={newMode => this.setState({chartViewMode: newMode})}
           />
         )}
 
-        {/* <ToggleView explicitView={explicitView} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} /> */}
-
         <div className="graph">
           {data && (
             <ChartComponent
-              ref="chart"
               data={data}
               explicitView={explicitView}
+              activeTab={activeTab}
               title={card.title}
               source={card.metadata.source}
               measuredAt={card.metadata.measuredAt}
@@ -277,31 +422,22 @@ class Card extends Component {
           )}
         </div>
 
-        <div className="graph__description">
-          {this.props.description}
+        <div data-chart-description className="graph__description">
+          {description}
         </div>
 
-        {!printable && (
-          <div className="graph__functions">
-            <ShareWidget chartUrl={this.getShareUrl()} />
-            <DownloadWidget downloadScreenshot={this.takeScreenshot} region={region} query={query} headerGroups={headerGroups} />
-          </div>
-        )}
-
-        {!printable && (
-          <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
-        )}
-        {showExternalLinkBosatte && (
-          <div className="graph__related">
-            <div className="cta cta--simple">
-              <h4 className="cta__title">Se også</h4>
-              <ul>
-                <li><a href="/planlegging-og-bosetting/anmodning-og-vedtak/">
-                Anmodnings- og vedtakstall for bosetting av flyktninger</a></li>
-              </ul>
+        <div className="graph__actions">
+          {!printable && (
+            <div className="graph__functions">
+              <ShareWidget chartUrl={this.getShareUrl()} />
+              <DownloadWidget downloadScreenshot={this.takeScreenshot} downloadPNG={this.downloadPNG} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
             </div>
-          </div>
-        )}
+          )}
+
+          {!printable && (
+            <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
+          )}
+        </div>
       </section>
     )
   }

@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
+
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import PopupChoicesBox from './PopupChoicesBox'
 import {downloadChoicesByRegion} from '../../lib/regionUtil'
@@ -18,7 +19,10 @@ class DownloadWidget extends Component {
     allRegions: PropTypes.arrayOf(ImdiPropTypes.region),
     query: ImdiPropTypes.query.isRequired,
     headerGroups: PropTypes.array,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    downloadScreenshot: PropTypes.func,
+    downloadPNG: PropTypes.func,
+    setExplicitView: PropTypes.func
   };
 
   constructor(props) {
@@ -113,6 +117,7 @@ class DownloadWidget extends Component {
           isLoading: false,
           linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
         })
+
       }).catch(() => {
         this.setState({
           isLoading: false,
@@ -126,11 +131,13 @@ class DownloadWidget extends Component {
     return (
       <PopupChoicesBox
         downloadScreenshot={this.props.downloadScreenshot}
+        setExplicitView={this.props.setExplicitView}
         onCancel={handleCancelDownloadSelect}
         onApply={handApplyChoice}
         isLoading={this.state.isLoading}
         isError={this.state.isError}
         linkUrl={this.state.linkUrl}
+        downloadPNG={this.props.downloadPNG}
         choices={choices}
         applyButtonText="Hent CSV"
         title="Last ned tallgrunnlag"
@@ -140,7 +147,6 @@ class DownloadWidget extends Component {
       />
     )
   }
-
 
   render() {
     const {isDownloadSelectOpen} = this.state

@@ -82,7 +82,7 @@ class EmbeddedChartContainer extends Component {
         <div className="col-block-bleed">
           <div className="image-block__image image-block__image--figure">
             <h3 className="h4">{card.title}</h3>
-            <ChartViewModeSelect mode={chartViewMode} onChange={newMode => this.setState({chartViewMode: newMode})} />
+            <ChartViewModeSelect embedded mode={chartViewMode} chartUrl={chartUrl} onChange={newMode => this.setState({chartViewMode: newMode})} />
             {data && <ChartComponent data={data} sortDirection={chartKind === 'benchmark' && 'ascending'} />}
             <figcaption className="image-block__caption">
               <ChartDescriptionContainer
@@ -90,13 +90,10 @@ class EmbeddedChartContainer extends Component {
                 region={region}
                 card={card}
                 headerGroups={headerGroups}
+                embedded
               />
             </figcaption>
             <div className="image-block__figure-footer">
-              <a href={chartUrl} className="button button--secondary button--small t-no-margin">
-                <i className="tabs-menu__icon  icon__chart-bars"></i>
-                Finn tall og statistikk for din kommune
-              </a>
             </div>
           </div>
         </div>
@@ -104,7 +101,6 @@ class EmbeddedChartContainer extends Component {
     )
   }
 }
-
 
 function mapStateToProps(state, ownProps) {
 

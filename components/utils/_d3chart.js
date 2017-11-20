@@ -5,7 +5,7 @@ import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
 const showMargins = false
 
 class Chart {
-  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
+  constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView, activeTab) {
 
     // _svg is the actual SVG element
     this._svg = null
@@ -24,7 +24,8 @@ class Chart {
         this._calculateHeight = functions.calculateHeight
       }
     }
-    this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView)
+
+    this.update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView, activeTab)
   }
 
   _drawPoints(el, data) {}
@@ -89,8 +90,8 @@ class Chart {
     this.props.title = title
     this.props.source = source
     this.props.measuredAt = measuredAt
-    this.props.explicitView = explicitView
     this.props.description = description
+    this.props.explicitView = explicitView
     this.props.printView = printView
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
@@ -124,6 +125,7 @@ class Chart {
     // http://stackoverflow.com/a/9539361/194404
     this._svg = d3.select(el).append('svg')
       .attr('class', 'chart__svg')
+      .attr('data-chart', 'true')
       .attr('preserveAspectRatio', 'xMinYMin meet')
       .attr('role', 'img')
       .attr('aria-labelledby', 'title')
@@ -136,8 +138,10 @@ class Chart {
       // .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
 
     // Accessibility text alternative
-    this._svg.append('text')
-      .text(title)
+    if (!typeof (printView) === 'undefined' || printView) {
+      this._svg.append('text')
+        .text(title)
+    }
     //   .attr('class', 'header-text')
     //   .attr('height', 40)
     //   .attr('width', 400)
@@ -181,7 +185,15 @@ class Chart {
     // of the code
     this.svg = this._svg.append('g')
       .attr('class', 'chart__d3-points')
+      .attr('data-chart', 'true')
       .attr('transform', this.translation(this.margins.left, this.margins.top))
+
+    // this.svg.append('text')
+    //   .attr('data-chart-description', '')
+    //   .attr('class', 'svg-text')
+    //   .attr('class', 'text__description')
+    //   .text(description)
+
 
     // Visualize svg with margins
     if (showMargins) {
@@ -193,10 +205,12 @@ class Chart {
       .style('fill', '#655959')
     }
 
+    // this._drawPoints(el, dataaa)
     this._drawPoints(el, state.data)
   }
 
   destroy(el) {
+
   }
 
   translation(x, y) {

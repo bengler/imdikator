@@ -62,11 +62,12 @@ export default class BarChart extends React.Component {
       return
     }
 
-    const {explicitView, title, source, measuredAt, description, printView} = this.props
+    const {explicitView, title, printView, description, source, measuredAt} = this.props
+    // const {description, source, measuredAt} = this.state
 
     //  d3 doesn't like arrow functions
     d3.select('.button.download__svg').on('click', function () {
-      const config = { filename: 'imdi-diagram' }
+      const config = {filename: 'imdi-diagram'}
       d3_save_svg.save(d3.select('svg').node().parentNode.innerHTML, config)
     })
 
@@ -79,8 +80,9 @@ export default class BarChart extends React.Component {
     let x0 = d3.scale.ordinal().domain(categories).rangeRoundBands([0, this.size.width], 0.1)
 
     const xScales = {}
-    let innerPaddingFactor = 0.2
-    let outerPaddingFactor = 0
+    let innerPaddingFactor = 0.5
+    let outerPaddingFactor = 0.5
+    const extraPadding = 80
 
     // untoggle below to get more width between bars
     // if (explicitView) {
@@ -93,8 +95,7 @@ export default class BarChart extends React.Component {
 
     data.preparedData.forEach(cat => {
       const catSeries = cat.values.map(val => val.title)
-
-      let scale = d3.scale.ordinal()
+      const scale = d3.scale.ordinal()
       .domain(catSeries)
       .rangeRoundBands([0, x0.rangeBand()], innerPaddingFactor, outerPaddingFactor)
 
@@ -160,16 +161,14 @@ export default class BarChart extends React.Component {
       .enter()
       .append('g')
       .attr('class', 'chart__category')
-      .attr('transform', dataItem => this.translation(x0(dataItem.title), 0))
+      .attr('transform', dataItem => this.translation(x0(dataItem.title), 0)) // moves each category to the right
 
     category.selectAll('rect.chart__bar')
       .data(dataItem => dataItem.values)
       .enter()
       .append('rect')
       .attr('class', 'chart__bar')
-      .attr('width', item => {
-        return (explicitView) ? item.scale.rangeBand() : item.scale.rangeBand()
-      })
+      .attr('width', item => item.scale.rangeBand())
       .attr('x', dataItem => dataItem.scale(dataItem.title))
       .attr('y', dataItem => {
         const val = Math.max(0, dataItem.value)
@@ -199,8 +198,10 @@ export default class BarChart extends React.Component {
       hoveropen = false
     }
 
-    // if user has toggled button for showing numbers above graphs
-    if (explicitView, printView) {
+    //================================================
+    //  if user has toggled button for showing numbers above graphs
+    //================================================
+    if (explicitView) {
 
       // Add text indicators
       category.selectAll('rect.chart__text')
@@ -221,34 +222,39 @@ export default class BarChart extends React.Component {
       .text(dataItem => dataItem.formattedValue)
     }
 
-    category.selectAll('rect.chart__bar-hover')
-      .data(dataItem => dataItem.values)
-      .enter()
-      .append('svg:a')
-      .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-      .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-      .on('click', () => d3.event.stopPropagation())
-      .on('focus', item => open(item))
-      .append('rect')
-      .attr('class', 'chart__bar-hover')
-      .attr('width', item => item.scale.rangeBand())
-      .attr('x', dataItem => dataItem.scale(dataItem.title))
-      // Want full height for this one
-      .attr('y', 0)
-      .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
-      .attr('pointer-events', 'all')
-      .style('fill', 'none')
-      .on('touchend', item => {
-        if (hoveropen) {
-          close()
-        } else {
-          open(item)
-        }
-      })
-      .on('mouseover', item => open(item))
-      .on('mouseout', () => close())
-      .on('focus', item => open(item))
-      .on('blur', () => close())
+    //================================================
+    //  hovered chart bars shows numbers
+    //================================================
+    else {
+      category.selectAll('rect.chart__bar-hover')
+        .data(dataItem => dataItem.values)
+        .enter()
+        .append('svg:a')
+        .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+        .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+        .on('click', () => d3.event.stopPropagation())
+        .on('focus', item => open(item))
+        .append('rect')
+        .attr('class', 'chart__bar-hover')
+        .attr('width', item => item.scale.rangeBand())
+        .attr('x', dataItem => dataItem.scale(dataItem.title))
+        // Want full height for this one
+        .attr('y', 0)
+        .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
+        .attr('pointer-events', 'all')
+        .style('fill', 'none')
+        .on('touchend', item => {
+          if (hoveropen) {
+            close()
+          } else {
+            open(item)
+          }
+        })
+        .on('mouseover', item => open(item))
+        .on('mouseout', () => close())
+        .on('focus', item => open(item))
+        .on('blur', () => close())
+    }
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend
@@ -270,6 +276,7 @@ export default class BarChart extends React.Component {
     txts.call(this.wrapTextNode, x0.rangeBand())
 
     const leg = this.legend().color(seriesColor)
+
     // Add some space between the x axis labels and the legends
     const legendWrapper = this._svg.append('g')
       .attr('class', 'chart__legend-wrapper')
@@ -282,6 +289,7 @@ export default class BarChart extends React.Component {
     // Add some space between the x axis labels and the legends
     const xAxisHeight = xAxisEl.node().getBBox().height + 21
     const legendBottom = this.fullHeight + xAxisHeight
+
     legendWrapper.attr('transform', () => this.translation(0, legendBottom))
 
     // Expand the height to fit the legend
@@ -301,8 +309,8 @@ export default class BarChart extends React.Component {
   }
 
   render() {
-    const {explicitView, title, source, measuredAt, description, thisCard} = this.props
-
+    const {explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
+    const extraPadding = 80
     const functions = {
       drawPoints: this.drawPoints,
       calculateWidth: this.calculateWidth,
@@ -317,7 +325,7 @@ export default class BarChart extends React.Component {
 
     if (CHARTS_CONFIG.bar.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * CHARTS_CONFIG.bar.minWidthPerCategory
+      config.minimumWidth = numCategories * (CHARTS_CONFIG.bar.minWidthPerCategory + extraPadding)
     }
 
     return (
@@ -327,6 +335,7 @@ export default class BarChart extends React.Component {
           config={config}
           functions={functions}
           explicitView={explicitView}
+          activeTab={activeTab}
           title={title}
           source={source}
           measuredAt={measuredAt}

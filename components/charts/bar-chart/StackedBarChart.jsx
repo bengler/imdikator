@@ -7,7 +7,8 @@ import CHARTS_CONFIG from '../../../config/chartsConfigs'
 
 export default class StackedBarChart extends Component {
   static propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    explicitView: React.PropTypes.bool,
   };
 
   prepareData(data) {
@@ -103,14 +104,46 @@ export default class StackedBarChart extends Component {
       this.eventDispatcher.emit('datapoint:hover-out')
       hoveropen = false
     }
-    category.selectAll('rect')
+
+    //==============================================================
+    //  if user has toggled button for showing numbers above graphs
+    //==============================================================
+    if (this.props.explicitView) {
+
+      const moveNumberToTheRight = 85
+      const moveNumberDown = 25
+      const hideSmallNumbers = 25
+
+      // Add text indicators
+      category.selectAll('rect.chart__text')
+      .data(item => item.values)
+      .enter()
+      .append('text')
+      .attr('class', 'chart__text')
+      .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
+      .attr('width', item => xScales[item.category].rangeBand())
+      .attr('x', dataItem => xScales[dataItem.category]('stack') + moveNumberToTheRight)
+      .attr('y', dataItem => y(dataItem.y1) + moveNumberDown)
+      .each(function (item) {
+        item.el = this
+      })
+      .text(dataItem => {
+        if (y(dataItem.y0) - y(dataItem.y1) < hideSmallNumbers) return ''
+        return dataItem.values[0].formattedValue || yc.format(dataItem.values[0].value)
+      })
+    }
+
+    //===================================
+    //  hovered chart bars shows numbers
+    //===================================
+    category.selectAll('rect.chart__bar-hover')
     .data(cat => cat.values)
     .enter()
-//     .append('svg:a')
-//     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-//     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-//     .on('click', () => d3.event.stopPropagation())
-//     .on('focus', item => open(item))
+  //     .append('svg:a')
+  //     .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+  //     .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+  //     .on('click', () => d3.event.stopPropagation())
+  //     .on('focus', item => open(item))
     .append('rect')
     .attr('width', item => xScales[item.category].rangeBand())
     .attr('x', item => xScales[item.category]('stack'))
@@ -145,10 +178,8 @@ export default class StackedBarChart extends Component {
     const txts = xAxisEl.selectAll('.tick text')
     txts.call(this.wrapTextNode, x0.rangeBand())
 
-
     // Legend
     const leg = this.legend().color(colors)
-
 
     const legendWrapper = this._svg.append('g')
     .attr('class', 'chart__legend-wrapper')
@@ -186,7 +217,12 @@ export default class StackedBarChart extends Component {
     }
 
     return (
-      <D3Chart data={data} functions={functions} config={config} />
+      <D3Chart
+        data={data}
+        functions={functions}
+        config={config}
+        explicitView={this.props.explicitView}
+      />
     )
   }
 }

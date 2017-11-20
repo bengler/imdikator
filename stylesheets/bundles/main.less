@@ -22,5 +22,109 @@ button.chart {
 
 text.chart__text {
   font-size: 16px;
-  transform: translateY(-18px, -4px);  
+  transform: translateY(-6px);  
+}
+
+.tabs-mini {
+  margin: 0;
+  padding: @spacing--small 0;
+
+  @media print {
+    display: none;
+  }
+
+  &__item {
+    a {
+      color: #333;
+      padding-bottom: 5px;
+      border-bottom: 2px solid rgba(0,0,0,0);
+    }
+
+    .text--small();
+      margin: 0;
+      padding: 0;
+      list-style: none;        
+      display: inline-block;
+      color: #333;
+
+      &:after {
+          content: '|';  
+          padding: 0 @spacing--small;            
+      }
+
+      &:last-child {
+          &:after {
+              display: none;
+          }
+      }
+  }
+
+  &__link {
+    color: #333;    
+    border-bottom: 2px solid #d83a36;        
+
+    &:hover {
+      color: #d83a36;
+      border-bottom: 2px solid #d83a36;  
+    }
+  }
+}
+
+a.tabs-mini__link.tabs-mini__link--current {
+    border-bottom: 2px solid #d83a36;      
+    color: #333;
+    cursor: default;
+}
+
+.chart {
+  &__svg {
+     padding-top: 2px; // for text above graphs
+  }
+}
+
+.lightbox {
+  &__footer {
+    margin-top: 0;
+
+    button.button,
+    button.button:hover {
+      background-color: white;
+      color: #333;
+    }
+  }
+}
+
+// remove long list of "sammenlignet med" on mobile
+@media screen and (max-width: 340px) {
+  .lightbox__box .t-no-list-styles .col--flow:nth-last-child(-n+5) {
+    display: none;
+  }
+}
+
+li.tabs-mini__item {
+  margin-top: 20px;
+}
+
+//  large title above diagram
+.svg-text.title {
+  font-size: 25;
+}
+
+//  remove description below diagrams
+.graph__description {
+  display: none;
+}
+
+//  move download buttons below diagram a bit up
+.graph__functions {
+  transform: translateY(-45px);
+}
+
+.text__unit {
+  font-size: 14px;
+  color: #333;
+}
+
+.subtle-select select {
+	margin-left: 25px;
 }

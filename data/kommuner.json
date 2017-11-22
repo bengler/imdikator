@@ -7,6 +7,7 @@
     "commerceRegionCode": "01",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0101"
   },
@@ -18,6 +19,7 @@
     "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0104"
   },
@@ -29,6 +31,7 @@
     "commerceRegionCode": "04",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0105"
   },
@@ -40,6 +43,7 @@
     "commerceRegionCode": "04",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0106"
   },
@@ -50,7 +54,8 @@
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "04",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0111"
   },
@@ -61,7 +66,8 @@
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "02",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0118"
   },
@@ -73,6 +79,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0119"
   },
@@ -84,6 +91,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0121"
   },
@@ -95,6 +103,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0122"
   },
@@ -106,6 +115,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0123"
   },
@@ -117,6 +127,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0124"
   },
@@ -128,6 +139,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0125"
   },
@@ -139,6 +151,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0127"
   },
@@ -150,6 +163,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0128"
   },
@@ -161,6 +175,7 @@
     "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0135"
   },
@@ -172,6 +187,7 @@
     "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0136"
   },
@@ -183,6 +199,7 @@
     "commerceRegionCode": "03",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0137"
   },
@@ -194,6 +211,7 @@
     "commerceRegionCode": "02",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0138"
   },
@@ -205,6 +223,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0211"
   },
@@ -216,6 +235,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0213"
   },
@@ -227,6 +247,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0214"
   },
@@ -238,6 +259,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0215"
   },
@@ -249,6 +271,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0216"
   },
@@ -260,6 +283,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0217"
   },
@@ -271,6 +295,7 @@
     "commerceRegionCode": "05",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0219"
   },
@@ -282,6 +307,7 @@
     "commerceRegionCode": "05",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0220"
   },
@@ -293,6 +319,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0221"
   },
@@ -304,6 +331,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0226"
   },
@@ -315,6 +343,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0227"
   },
@@ -326,6 +355,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0228"
   },
@@ -337,6 +367,7 @@
     "commerceRegionCode": "06",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0229"
   },
@@ -348,6 +379,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0230"
   },
@@ -359,6 +391,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0231"
   },
@@ -370,6 +403,7 @@
     "commerceRegionCode": "07",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0233"
   },
@@ -381,6 +415,7 @@
     "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0234"
   },
@@ -392,6 +427,7 @@
     "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0235"
   },
@@ -403,6 +439,7 @@
     "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0236"
   },
@@ -414,6 +451,7 @@
     "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0237"
   },
@@ -425,6 +463,7 @@
     "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0238"
   },
@@ -436,6 +475,7 @@
     "commerceRegionCode": "08",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0239"
   },
@@ -447,6 +487,7 @@
     "commerceRegionCode": "09",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0301"
   },
@@ -458,6 +499,7 @@
     "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0402"
   },
@@ -469,6 +511,7 @@
     "commerceRegionCode": "12",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0403"
   },
@@ -479,7 +522,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "12",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0412"
   },
@@ -491,6 +535,7 @@
     "commerceRegionCode": "12",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0415"
   },
@@ -502,6 +547,7 @@
     "commerceRegionCode": "12",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0417"
   },
@@ -513,6 +559,7 @@
     "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0418"
   },
@@ -524,6 +571,7 @@
     "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0419"
   },
@@ -535,6 +583,7 @@
     "commerceRegionCode": "11",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0420"
   },
@@ -545,7 +594,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "11",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0423"
   },
@@ -556,7 +606,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "11",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0425"
   },
@@ -567,7 +618,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "11",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0426"
   },
@@ -578,7 +630,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "13",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0427"
   },
@@ -589,7 +642,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "13",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0428"
   },
@@ -600,7 +654,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "13",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0429"
   },
@@ -611,7 +666,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "13",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0430"
   },
@@ -622,7 +678,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "10",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0432"
   },
@@ -633,7 +690,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "13",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0434"
   },
@@ -644,7 +702,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "10",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0436"
   },
@@ -655,7 +714,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "10",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0437"
   },
@@ -666,7 +726,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "10",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0438"
   },
@@ -677,7 +738,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "10",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0439"
   },
@@ -688,7 +750,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "10",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0441"
   },
@@ -699,7 +762,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "16",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0501"
   },
@@ -710,7 +774,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "14",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0502"
   },
@@ -721,7 +786,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "18",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0511"
   },
@@ -732,7 +798,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "18",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0512"
   },
@@ -743,7 +810,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "18",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0513"
   },
@@ -754,7 +822,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "18",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0514"
   },
@@ -765,7 +834,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "18",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0515"
   },
@@ -776,7 +846,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "17",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0516"
   },
@@ -787,7 +858,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "18",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0517"
   },
@@ -798,7 +870,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "17",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0519"
   },
@@ -809,7 +882,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "17",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0520"
   },
@@ -820,7 +894,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "16",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0521"
   },
@@ -831,7 +906,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "16",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0522"
   },
@@ -842,7 +918,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "14",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0528"
   },
@@ -853,7 +930,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "14",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0529"
   },
@@ -865,6 +943,7 @@
     "commerceRegionCode": "15",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0532"
   },
@@ -876,6 +955,7 @@
     "commerceRegionCode": "15",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0533"
   },
@@ -887,6 +967,7 @@
     "commerceRegionCode": "15",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0534"
   },
@@ -897,7 +978,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "14",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0536"
   },
@@ -908,7 +990,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "14",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0538"
   },
@@ -919,7 +1002,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "19",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0540"
   },
@@ -930,7 +1014,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "19",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0541"
   },
@@ -941,7 +1026,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "19",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0542"
   },
@@ -952,7 +1038,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "19",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0543"
   },
@@ -963,7 +1050,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "19",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0544"
   },
@@ -974,7 +1062,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "19",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0545"
   },
@@ -986,6 +1075,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0602"
   },
@@ -997,6 +1087,7 @@
     "commerceRegionCode": "22",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0604"
   },
@@ -1008,6 +1099,7 @@
     "commerceRegionCode": "24",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0605"
   },
@@ -1019,6 +1111,7 @@
     "commerceRegionCode": "24",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0612"
   },
@@ -1029,7 +1122,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "21",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0615"
   },
@@ -1040,7 +1134,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "21",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0616"
   },
@@ -1051,7 +1146,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "21",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0617"
   },
@@ -1062,7 +1158,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "21",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0618"
   },
@@ -1073,7 +1170,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "21",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0619"
   },
@@ -1084,7 +1182,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "21",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0620"
   },
@@ -1096,6 +1195,7 @@
     "commerceRegionCode": "23",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0621"
   },
@@ -1107,6 +1207,7 @@
     "commerceRegionCode": "23",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0622"
   },
@@ -1118,6 +1219,7 @@
     "commerceRegionCode": "23",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0623"
   },
@@ -1129,6 +1231,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0624"
   },
@@ -1140,6 +1243,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0625"
   },
@@ -1151,6 +1255,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0626"
   },
@@ -1162,6 +1267,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0627"
   },
@@ -1173,6 +1279,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0628"
   },
@@ -1184,6 +1291,7 @@
     "commerceRegionCode": "22",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0631"
   },
@@ -1194,7 +1302,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "22",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0632"
   },
@@ -1205,7 +1314,8 @@
     "imdiRegion": "IMDi Indre Øst",
     "commerceRegionCode": "22",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0633"
   },
@@ -1217,6 +1327,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0701"
   },
@@ -1228,6 +1339,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0702"
   },
@@ -1239,17 +1351,19 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0704"
   },
   {
     "code": "0706",
-    "name": "Sandefjord (utdatert fra 01.01.2017)",
+    "name": "Sandefjord (gyldig til 31.12.2016)",
     "countyCode": "07",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "26",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "invalid",
     "type": "municipality",
     "prefixedCode": "K0706"
   },
@@ -1260,18 +1374,20 @@
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "26",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0709"
   },
   {
     "code": "0710",
-    "name": "Sandefjord",
+    "name": "Sandefjord (gyldig fra 1.1.2017)",
     "countyCode": "07",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "26",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0710"
   },
@@ -1283,6 +1399,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0711"
   },
@@ -1294,6 +1411,7 @@
     "commerceRegionCode": "20",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0713"
   },
@@ -1305,6 +1423,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0714"
   },
@@ -1316,6 +1435,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0716"
   },
@@ -1327,6 +1447,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0719"
   },
@@ -1338,6 +1459,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0720"
   },
@@ -1349,6 +1471,7 @@
     "commerceRegionCode": "25",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0722"
   },
@@ -1359,7 +1482,8 @@
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "25",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0723"
   },
@@ -1371,6 +1495,7 @@
     "commerceRegionCode": "26",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0728"
   },
@@ -1381,7 +1506,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "27",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0805"
   },
@@ -1392,7 +1518,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "27",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0806"
   },
@@ -1403,7 +1530,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "29",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0807"
   },
@@ -1414,7 +1542,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "27",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0811"
   },
@@ -1425,7 +1554,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "27",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0814"
   },
@@ -1436,7 +1566,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "27",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0815"
   },
@@ -1447,7 +1578,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "27",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0817"
   },
@@ -1458,7 +1590,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "28",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0819"
   },
@@ -1469,7 +1602,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "28",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0821"
   },
@@ -1480,7 +1614,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "28",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0822"
   },
@@ -1491,7 +1626,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "29",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0826"
   },
@@ -1502,7 +1638,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "29",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0827"
   },
@@ -1513,7 +1650,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "30",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0828"
   },
@@ -1524,7 +1662,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "30",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0829"
   },
@@ -1535,7 +1674,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "30",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0830"
   },
@@ -1546,7 +1686,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "30",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0831"
   },
@@ -1557,7 +1698,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "30",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0833"
   },
@@ -1568,7 +1710,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "30",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0834"
   },
@@ -1579,7 +1722,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "32",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0901"
   },
@@ -1591,6 +1735,7 @@
     "commerceRegionCode": "32",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0904"
   },
@@ -1602,6 +1747,7 @@
     "commerceRegionCode": "32",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0906"
   },
@@ -1612,7 +1758,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "32",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0911"
   },
@@ -1623,7 +1770,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "32",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0912"
   },
@@ -1634,7 +1782,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "32",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0914"
   },
@@ -1646,6 +1795,7 @@
     "commerceRegionCode": "32",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0919"
   },
@@ -1657,6 +1807,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0926"
   },
@@ -1668,6 +1819,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0928"
   },
@@ -1678,7 +1830,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "32",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0929"
   },
@@ -1690,6 +1843,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0935"
   },
@@ -1701,6 +1855,7 @@
     "commerceRegionCode": "31",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0937"
   },
@@ -1712,6 +1867,7 @@
     "commerceRegionCode": "31",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0938"
   },
@@ -1722,7 +1878,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "31",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0940"
   },
@@ -1733,7 +1890,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "31",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K0941"
   },
@@ -1745,6 +1903,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1001"
   },
@@ -1756,6 +1915,7 @@
     "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1002"
   },
@@ -1766,7 +1926,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "33",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1003"
   },
@@ -1777,7 +1938,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "33",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1004"
   },
@@ -1789,6 +1951,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1014"
   },
@@ -1800,6 +1963,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1017"
   },
@@ -1811,6 +1975,7 @@
     "commerceRegionCode": "35",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1018"
   },
@@ -1822,6 +1987,7 @@
     "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1021"
   },
@@ -1833,6 +1999,7 @@
     "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1026"
   },
@@ -1844,6 +2011,7 @@
     "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1027"
   },
@@ -1855,6 +2023,7 @@
     "commerceRegionCode": "34",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1029"
   },
@@ -1866,6 +2035,7 @@
     "commerceRegionCode": "33",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1032"
   },
@@ -1877,6 +2047,7 @@
     "commerceRegionCode": "33",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1034"
   },
@@ -1887,7 +2058,8 @@
     "imdiRegion": "IMDi Sør",
     "commerceRegionCode": "33",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1037"
   },
@@ -1898,7 +2070,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "33",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1046"
   },
@@ -1910,6 +2083,7 @@
     "commerceRegionCode": "36",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1101"
   },
@@ -1921,6 +2095,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1102"
   },
@@ -1932,6 +2107,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1103"
   },
@@ -1942,7 +2118,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "37",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1106"
   },
@@ -1954,6 +2131,7 @@
     "commerceRegionCode": "36",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1111"
   },
@@ -1964,7 +2142,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "36",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1112"
   },
@@ -1976,6 +2155,7 @@
     "commerceRegionCode": "36",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1114"
   },
@@ -1987,6 +2167,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1119"
   },
@@ -1998,6 +2179,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1120"
   },
@@ -2009,6 +2191,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1121"
   },
@@ -2020,6 +2203,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1122"
   },
@@ -2031,6 +2215,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1124"
   },
@@ -2042,6 +2227,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1127"
   },
@@ -2053,6 +2239,7 @@
     "commerceRegionCode": "38",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1129"
   },
@@ -2064,6 +2251,7 @@
     "commerceRegionCode": "38",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1130"
   },
@@ -2074,7 +2262,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "38",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1133"
   },
@@ -2085,7 +2274,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "38",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1134"
   },
@@ -2096,7 +2286,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "37",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1135"
   },
@@ -2108,6 +2299,7 @@
     "commerceRegionCode": "38",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1141"
   },
@@ -2119,6 +2311,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1142"
   },
@@ -2130,6 +2323,7 @@
     "commerceRegionCode": "39",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1144"
   },
@@ -2141,6 +2335,7 @@
     "commerceRegionCode": "37",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1145"
   },
@@ -2151,7 +2346,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "37",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1146"
   },
@@ -2162,7 +2358,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "37",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1149"
   },
@@ -2173,7 +2370,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "37",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1151"
   },
@@ -2184,7 +2382,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "37",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1160"
   },
@@ -2196,6 +2395,7 @@
     "commerceRegionCode": "40",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1201"
   },
@@ -2206,7 +2406,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1211"
   },
@@ -2217,7 +2418,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1216"
   },
@@ -2228,7 +2430,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1219"
   },
@@ -2239,7 +2442,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1221"
   },
@@ -2250,7 +2454,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1222"
   },
@@ -2261,7 +2466,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1223"
   },
@@ -2272,7 +2478,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "46",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1224"
   },
@@ -2283,7 +2490,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "42",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1227"
   },
@@ -2294,7 +2502,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "42",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1228"
   },
@@ -2305,7 +2514,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "42",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1231"
   },
@@ -2316,7 +2526,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "42",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1232"
   },
@@ -2327,7 +2538,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "42",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1233"
   },
@@ -2338,7 +2550,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "42",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1234"
   },
@@ -2349,7 +2562,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "43",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1235"
   },
@@ -2361,6 +2575,7 @@
     "commerceRegionCode": "42",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1238"
   },
@@ -2372,6 +2587,7 @@
     "commerceRegionCode": "41",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1241"
   },
@@ -2383,6 +2599,7 @@
     "commerceRegionCode": "41",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1242"
   },
@@ -2394,6 +2611,7 @@
     "commerceRegionCode": "41",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1243"
   },
@@ -2405,6 +2623,7 @@
     "commerceRegionCode": "46",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1244"
   },
@@ -2416,6 +2635,7 @@
     "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1245"
   },
@@ -2427,6 +2647,7 @@
     "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1246"
   },
@@ -2438,6 +2659,7 @@
     "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1247"
   },
@@ -2449,6 +2671,7 @@
     "commerceRegionCode": "45",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1251"
   },
@@ -2460,6 +2683,7 @@
     "commerceRegionCode": "45",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1252"
   },
@@ -2471,6 +2695,7 @@
     "commerceRegionCode": "45",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1253"
   },
@@ -2482,6 +2707,7 @@
     "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1256"
   },
@@ -2493,6 +2719,7 @@
     "commerceRegionCode": "47",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1259"
   },
@@ -2504,6 +2731,7 @@
     "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1260"
   },
@@ -2515,6 +2743,7 @@
     "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1263"
   },
@@ -2526,6 +2755,7 @@
     "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1264"
   },
@@ -2536,7 +2766,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "44",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1265"
   },
@@ -2548,6 +2779,7 @@
     "commerceRegionCode": "44",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1266"
   },
@@ -2558,7 +2790,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "51",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1401"
   },
@@ -2569,7 +2802,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "48",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1411"
   },
@@ -2580,7 +2814,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "48",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1412"
   },
@@ -2591,7 +2826,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "48",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1413"
   },
@@ -2602,7 +2838,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1416"
   },
@@ -2613,7 +2850,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1417"
   },
@@ -2624,7 +2862,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1418"
   },
@@ -2635,7 +2874,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1419"
   },
@@ -2646,7 +2886,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1420"
   },
@@ -2657,7 +2898,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1421"
   },
@@ -2668,7 +2910,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1422"
   },
@@ -2679,7 +2922,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1424"
   },
@@ -2690,7 +2934,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "50",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1426"
   },
@@ -2701,7 +2946,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "48",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1428"
   },
@@ -2712,7 +2958,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "48",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1429"
   },
@@ -2723,7 +2970,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "51",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1430"
   },
@@ -2734,7 +2982,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "51",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1431"
   },
@@ -2745,7 +2994,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "51",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1432"
   },
@@ -2756,7 +3006,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "51",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1433"
   },
@@ -2767,7 +3018,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1438"
   },
@@ -2778,7 +3030,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1439"
   },
@@ -2789,7 +3042,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1441"
   },
@@ -2800,7 +3054,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1443"
   },
@@ -2811,7 +3066,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1444"
   },
@@ -2822,7 +3078,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1445"
   },
@@ -2833,7 +3090,8 @@
     "imdiRegion": "IMDi Vest",
     "commerceRegionCode": "49",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1449"
   },
@@ -2844,7 +3102,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1502"
   },
@@ -2855,7 +3114,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "56",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1504"
   },
@@ -2866,7 +3126,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1505"
   },
@@ -2877,7 +3138,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1511"
   },
@@ -2888,7 +3150,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1514"
   },
@@ -2899,7 +3162,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1515"
   },
@@ -2910,7 +3174,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1516"
   },
@@ -2921,7 +3186,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1517"
   },
@@ -2932,7 +3198,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1519"
   },
@@ -2943,7 +3210,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "55",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1520"
   },
@@ -2954,7 +3222,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "54",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1523"
   },
@@ -2965,7 +3234,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "54",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1524"
   },
@@ -2976,7 +3246,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "54",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1525"
   },
@@ -2987,7 +3258,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "54",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1526"
   },
@@ -2998,7 +3270,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "54",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1528"
   },
@@ -3009,7 +3282,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "56",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1529"
   },
@@ -3020,7 +3294,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "56",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1531"
   },
@@ -3031,7 +3306,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "56",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1532"
   },
@@ -3042,7 +3318,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "56",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1534"
   },
@@ -3053,7 +3330,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1535"
   },
@@ -3064,7 +3342,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1539"
   },
@@ -3075,7 +3354,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1543"
   },
@@ -3086,7 +3366,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1545"
   },
@@ -3097,7 +3378,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "56",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1546"
   },
@@ -3108,7 +3390,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1547"
   },
@@ -3119,7 +3402,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "53",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1548"
   },
@@ -3130,7 +3414,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1551"
   },
@@ -3141,7 +3426,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1554"
   },
@@ -3152,7 +3438,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1557"
   },
@@ -3163,7 +3450,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1560"
   },
@@ -3174,7 +3462,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1563"
   },
@@ -3185,7 +3474,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1566"
   },
@@ -3196,7 +3486,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1567"
   },
@@ -3207,7 +3498,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1571"
   },
@@ -3218,7 +3510,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1573"
   },
@@ -3229,7 +3522,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "52",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1576"
   },
@@ -3241,6 +3535,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1601"
   },
@@ -3251,7 +3546,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "60",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1612"
   },
@@ -3263,6 +3559,7 @@
     "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1613"
   },
@@ -3273,7 +3570,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "58",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1617"
   },
@@ -3284,7 +3582,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "58",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1620"
   },
@@ -3295,7 +3594,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "57",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1621"
   },
@@ -3307,6 +3607,7 @@
     "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1622"
   },
@@ -3318,6 +3619,7 @@
     "commerceRegionCode": "57",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1624"
   },
@@ -3328,7 +3630,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "57",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1627"
   },
@@ -3339,7 +3642,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "57",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1630"
   },
@@ -3350,7 +3654,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "57",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1632"
   },
@@ -3361,7 +3666,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "57",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1633"
   },
@@ -3372,7 +3678,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "59",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1634"
   },
@@ -3384,6 +3691,7 @@
     "commerceRegionCode": "59",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1635"
   },
@@ -3395,6 +3703,7 @@
     "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1636"
   },
@@ -3406,6 +3715,7 @@
     "commerceRegionCode": "60",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1638"
   },
@@ -3416,7 +3726,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "62",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1640"
   },
@@ -3427,7 +3738,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "62",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1644"
   },
@@ -3439,6 +3751,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1648"
   },
@@ -3450,6 +3763,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1653"
   },
@@ -3461,6 +3775,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1657"
   },
@@ -3472,6 +3787,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1662"
   },
@@ -3483,6 +3799,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1663"
   },
@@ -3494,6 +3811,7 @@
     "commerceRegionCode": "61",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1664"
   },
@@ -3504,7 +3822,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "62",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1665"
   },
@@ -3515,7 +3834,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "64",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1702"
   },
@@ -3526,7 +3846,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "67",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1703"
   },
@@ -3538,6 +3859,7 @@
     "commerceRegionCode": "63",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1711"
   },
@@ -3549,6 +3871,7 @@
     "commerceRegionCode": "63",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1714"
   },
@@ -3560,6 +3883,7 @@
     "commerceRegionCode": "63",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1717"
   },
@@ -3571,6 +3895,7 @@
     "commerceRegionCode": "57",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1718"
   },
@@ -3582,6 +3907,7 @@
     "commerceRegionCode": "64",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1719"
   },
@@ -3593,6 +3919,7 @@
     "commerceRegionCode": "64",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1721"
   },
@@ -3603,7 +3930,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "64",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1724"
   },
@@ -3614,7 +3942,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "67",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1725"
   },
@@ -3625,7 +3954,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "65",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1736"
   },
@@ -3636,7 +3966,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "65",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1738"
   },
@@ -3647,7 +3978,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "65",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1739"
   },
@@ -3658,7 +3990,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "65",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1740"
   },
@@ -3669,7 +4002,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "65",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1742"
   },
@@ -3680,7 +4014,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "65",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1743"
   },
@@ -3691,7 +4026,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "67",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1744"
   },
@@ -3702,7 +4038,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "67",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1748"
   },
@@ -3713,7 +4050,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "67",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1749"
   },
@@ -3724,7 +4062,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "66",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1750"
   },
@@ -3735,7 +4074,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "66",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1751"
   },
@@ -3746,7 +4086,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "66",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1755"
   },
@@ -3757,7 +4098,8 @@
     "imdiRegion": "IMDi Midt-Norge",
     "commerceRegionCode": "64",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1756"
   },
@@ -3768,7 +4110,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1804"
   },
@@ -3779,7 +4122,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "74",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1805"
   },
@@ -3790,7 +4134,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "68",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1811"
   },
@@ -3801,7 +4146,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "68",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1812"
   },
@@ -3812,7 +4158,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "68",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1813"
   },
@@ -3823,7 +4170,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "68",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1815"
   },
@@ -3834,7 +4182,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "68",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1816"
   },
@@ -3845,7 +4194,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "69",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1818"
   },
@@ -3856,7 +4206,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "69",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1820"
   },
@@ -3867,7 +4218,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "69",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1822"
   },
@@ -3878,7 +4230,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "71",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1824"
   },
@@ -3889,7 +4242,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "71",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1825"
   },
@@ -3900,7 +4254,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "71",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1826"
   },
@@ -3911,7 +4266,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "69",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1827"
   },
@@ -3922,7 +4278,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "72",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1828"
   },
@@ -3933,7 +4290,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "72",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1832"
   },
@@ -3944,7 +4302,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "72",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1833"
   },
@@ -3955,7 +4314,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "70",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1834"
   },
@@ -3966,7 +4326,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "70",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1835"
   },
@@ -3977,7 +4338,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "70",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1836"
   },
@@ -3988,7 +4350,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1837"
   },
@@ -3999,7 +4362,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1838"
   },
@@ -4010,7 +4374,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1839"
   },
@@ -4021,7 +4386,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1840"
   },
@@ -4032,7 +4398,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1841"
   },
@@ -4043,7 +4410,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1845"
   },
@@ -4054,7 +4422,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1848"
   },
@@ -4065,7 +4434,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "73",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1849"
   },
@@ -4076,7 +4446,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "74",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1850"
   },
@@ -4087,7 +4458,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "76",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1851"
   },
@@ -4098,7 +4470,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "74",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1852"
   },
@@ -4109,7 +4482,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "74",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1853"
   },
@@ -4120,7 +4494,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "74",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1854"
   },
@@ -4131,7 +4506,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "75",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1856"
   },
@@ -4142,7 +4518,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "75",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1857"
   },
@@ -4153,7 +4530,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "75",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1859"
   },
@@ -4164,7 +4542,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "75",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1860"
   },
@@ -4175,7 +4554,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "75",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1865"
   },
@@ -4186,7 +4566,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "76",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1866"
   },
@@ -4197,7 +4578,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "76",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1867"
   },
@@ -4208,7 +4590,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "76",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1868"
   },
@@ -4219,7 +4602,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "76",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1870"
   },
@@ -4230,7 +4614,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "76",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1871"
   },
@@ -4241,7 +4626,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "75",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1874"
   },
@@ -4253,6 +4639,7 @@
     "commerceRegionCode": "79",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1902"
   },
@@ -4263,7 +4650,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1903"
   },
@@ -4274,7 +4662,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1911"
   },
@@ -4285,7 +4674,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1913"
   },
@@ -4296,7 +4686,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1917"
   },
@@ -4307,7 +4698,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "2",
-    "centralityName": "Noe sentrale kommuner",
+    "centralityName": "Noe Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1919"
   },
@@ -4318,7 +4710,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1920"
   },
@@ -4329,7 +4722,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1922"
   },
@@ -4340,7 +4734,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "77",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1923"
   },
@@ -4351,7 +4746,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1924"
   },
@@ -4362,7 +4758,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1925"
   },
@@ -4373,7 +4770,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1926"
   },
@@ -4384,7 +4782,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1927"
   },
@@ -4395,7 +4794,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1928"
   },
@@ -4406,7 +4806,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1929"
   },
@@ -4417,7 +4818,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "78",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1931"
   },
@@ -4429,6 +4831,7 @@
     "commerceRegionCode": "79",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1933"
   },
@@ -4440,6 +4843,7 @@
     "commerceRegionCode": "79",
     "centralityNumber": "3",
     "centralityName": "Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1936"
   },
@@ -4450,7 +4854,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "80",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1938"
   },
@@ -4461,7 +4866,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "80",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1939"
   },
@@ -4472,7 +4878,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "80",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1940"
   },
@@ -4483,7 +4890,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "80",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1941"
   },
@@ -4494,7 +4902,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "80",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1942"
   },
@@ -4505,7 +4914,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "80",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K1943"
   },
@@ -4516,7 +4926,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2002"
   },
@@ -4527,7 +4938,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2003"
   },
@@ -4538,7 +4950,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2004"
   },
@@ -4549,7 +4962,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "82",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2011"
   },
@@ -4560,7 +4974,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2012"
   },
@@ -4571,7 +4986,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2014"
   },
@@ -4582,7 +4998,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2015"
   },
@@ -4593,7 +5010,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2017"
   },
@@ -4604,7 +5022,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2018"
   },
@@ -4615,7 +5034,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "81",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2019"
   },
@@ -4626,7 +5046,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "82",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2020"
   },
@@ -4637,7 +5058,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "82",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2021"
   },
@@ -4648,7 +5070,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "82",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2022"
   },
@@ -4659,7 +5082,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2023"
   },
@@ -4670,7 +5094,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2024"
   },
@@ -4681,7 +5106,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "82",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2025"
   },
@@ -4692,7 +5118,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "1",
-    "centralityName": "Mindre sentrale kommuner",
+    "centralityName": "Mindre Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2027"
   },
@@ -4703,7 +5130,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2028"
   },
@@ -4714,7 +5142,8 @@
     "imdiRegion": "IMDi Nord",
     "commerceRegionCode": "83",
     "centralityNumber": "0",
-    "centralityName": "Minst sentrale kommuner",
+    "centralityName": "Minst Sentrale kommuner",
+    "validity": "valid",
     "type": "municipality",
     "prefixedCode": "K2030"
   },
@@ -4726,6 +5155,7 @@
     "commerceRegionCode": "99",
     "centralityNumber": ".",
     "centralityName": ".",
+    "validity": ".",
     "type": "municipality",
     "prefixedCode": "K9999"
   },
@@ -4737,6 +5167,7 @@
     "commerceRegionCode": "00",
     "centralityNumber": ".",
     "centralityName": ".",
+    "validity": ".",
     "type": "municipality",
     "prefixedCode": "K0000"
   }

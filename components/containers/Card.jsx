@@ -54,7 +54,7 @@ class Card extends Component {
     printable: PropTypes.bool,
     description: PropTypes.string,
     printView: PropTypes.bool,
-    
+
     // really confusing; thisCard is 'this' for this class (Card).
     // access it by calling this.props.thisCard (from children)
     // why? Because d3 hijacks 'this' in child scope after mount.

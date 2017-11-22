@@ -19,7 +19,9 @@ class ChartDescriptionContainer extends Component {
     const classes = this.props.embedded ? 'graph__description embed' : 'graph__description'
     return (
       <div className={classes}>
-        {this.props.description}
+        <p>
+          {this.props.description}
+        </p>
       </div>
     )
   }

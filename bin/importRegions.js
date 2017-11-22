@@ -49,7 +49,7 @@ const fylker = parsedRegions
 
 const kommuner = parsedRegions
   .distinct(region => region.Kommunenr)
-  .map(pickKeys('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008'))
+  .map(pickKeys('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008', 'Validity'))
   .map(renameKeys({
     Kommunenr: 'code',
     Kommunenavn: 'name',
@@ -58,7 +58,8 @@ const kommuner = parsedRegions
     Næringsregionnr: 'commerceRegionCode',
     /* eslint-disable camelcase */
     Sentralitet_nr_2008: 'centralityNumber',
-    Sentralitet_kat_2008: 'centralityName'
+    Sentralitet_kat_2008: 'centralityName',
+    Validity: 'validity'
     /* eslint-enable camelcase */
   }))
   .map(kommune => {
@@ -113,7 +114,6 @@ bydeler.subscribe(res => log('Wrote %s bydeler to %s', res.entries.length, res.f
 fylker.subscribe(res => log('Wrote %s fylker to %s', res.entries.length, res.file))
 
 // A few helper functions
-
 function csvToObjects(file) {
   const rows = RxNode.fromReadableStream(fs.createReadStream(file).pipe(csv()))
   return rows

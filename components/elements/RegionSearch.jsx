@@ -37,13 +37,14 @@ export default class RegionSearch extends Component {
       'search-result__result': true,
       'search-result__result--selected': isHighlighted
     })
+
     const itemDescription = (_t(item.type) && item.prefixedCode != 'F00') ? `${item.name}, ${_t(item.type)}` : item.name
+
     return (
       <li>
         <a
           key={item.name + item.type}
-          className={classes}
-        >
+          className={classes}>
           {itemDescription}
           <i className="icon__arrow-right icon--red search-result__icon" />
         </a>
@@ -52,7 +53,6 @@ export default class RegionSearch extends Component {
   }
 
   renderMenu(items, value, style) {
-
     if (items.length === 0) {
       return wrap(
         <li>

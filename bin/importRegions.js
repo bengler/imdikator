@@ -32,7 +32,7 @@ const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER)
 
 const fylker = parsedRegions
   .distinct(region => region.Fylkenr)
-  .map(pickKeys('Fylkenr', 'Fylkenavn'))
+  .map(pickKeys('Fylkenr', 'Fylkenavn', 'Validity'))
   .map(renameKeys({
     Fylkenr: 'code',
     Fylkenavn: 'name'
@@ -49,7 +49,7 @@ const fylker = parsedRegions
 
 const kommuner = parsedRegions
   .distinct(region => region.Kommunenr)
-  .map(pickKeys('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008', 'Validity'))
+  .map(pickKeys('Kommunenr', 'Kommunenavn', 'Fylkenr', 'IMDiRegion', 'Næringsregionnr', 'Sentralitet_nr_2008', 'Sentralitet_kat_2008'))
   .map(renameKeys({
     Kommunenr: 'code',
     Kommunenavn: 'name',
@@ -58,8 +58,7 @@ const kommuner = parsedRegions
     Næringsregionnr: 'commerceRegionCode',
     /* eslint-disable camelcase */
     Sentralitet_nr_2008: 'centralityNumber',
-    Sentralitet_kat_2008: 'centralityName',
-    Validity: 'validity'
+    Sentralitet_kat_2008: 'centralityName'
     /* eslint-enable camelcase */
   }))
   .map(kommune => {

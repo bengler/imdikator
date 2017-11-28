@@ -127,7 +127,7 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
 
   // Find similar
   const similarities = calculateProximity(set, ['totalPopulation'])
-  //
+
   // TEMPORARY CHANGES
   //
   // Earlier this script made comparisons based on three dimensions:
@@ -136,17 +136,18 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   // The rest of the code is kept as it was to make it easier to go back,
   // which I think we will. Sorry, if you - future guy - have to clean it up.
   // Owe you one..
-  //
+  // ... future guy here. thanks a lot.
+
   // const similarities = calculateProximity(set, ['immigrants', 'refugees', 'totalPopulation'])
   //
   const strippedSet = strip(similarities)
 
   // STATUS HERE
-  console.log(JSON.stringify(strippedSet, 0, 2))
+  // console.log(JSON.stringify(strippedSet, 0, 2))
 
   // Purely for debug
   const debugSet = annotate(strippedSet, municipalityCodeToNameKeys, set)
-  debug(JSON.stringify(debugSet, 0, 2))
+  // debug(JSON.stringify(debugSet, 0, 2))
 
 }
 

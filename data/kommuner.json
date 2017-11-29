@@ -4728,16 +4728,5 @@
     "centralityName": ".",
     "type": "municipality",
     "prefixedCode": "K9999"
-  },
-  {
-    "code": "0000",
-    "name": "Norge",
-    "countyCode": "00",
-    "imdiRegion": ".",
-    "commerceRegionCode": "00",
-    "centralityNumber": ".",
-    "centralityName": ".",
-    "type": "municipality",
-    "prefixedCode": "K0000"
   }
 ]

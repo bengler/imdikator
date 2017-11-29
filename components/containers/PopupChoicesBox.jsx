@@ -91,8 +91,6 @@ export default class PopupChoicesBox extends Component {
       backgroundColor: 'white'
     }
 
-    text.style.fontFamily = 'Avenir'
-
     // chart overflows left side- so nudge it 10px right
     this.addValuesToTransform(d3, moveRight, 0)
 

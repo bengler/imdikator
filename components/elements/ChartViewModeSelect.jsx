@@ -58,10 +58,10 @@ export default class ChartModeSelect extends Component {
   }
 
   showToggleNumbers() {
-    const {embedded = false, activeTab} = this.props
+    const {embedded = false, activeTab, mode: selectedMode} = this.props
     const actualWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
-    if (!embedded && actualWidth > screenSize.largePhone && activeTab.urlName === 'enkeltaar') {
+    if (!embedded && CHART_MODES[0].name === selectedMode && actualWidth > screenSize.largePhone && activeTab.urlName === 'enkeltaar') {
       if (this.state.isExplicit || !this.state.toggleNumbersVisible) {  // don't rerender if there's no difference
         this.setState({
           isExplicit: false,

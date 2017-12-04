@@ -135,14 +135,14 @@ export default class PopupChoicesBox extends Component {
               </button>
 
               {/* download svg button */}
-              <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
+              {/* <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned SVG (vektor)'}
-              </button>
+              </button> */}
 
               {/* download png button */}
-              <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
+              {/* <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned PNG (bilde)'}
-              </a>
+              </a> */}
 
               {/* download svg button */}
               {this.props.linkUrl && !this.props.isLoading

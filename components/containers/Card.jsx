@@ -54,7 +54,7 @@ class Card extends Component {
     printable: PropTypes.bool,
     description: PropTypes.string,
     printView: PropTypes.bool,
-    
+
     // really confusing; thisCard is 'this' for this class (Card).
     // access it by calling this.props.thisCard (from children)
     // why? Because d3 hijacks 'this' in child scope after mount.
@@ -120,7 +120,7 @@ class Card extends Component {
     const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
 
     // before ["0", "-2.34"]
-    // after (if x is 10 and y is 20) [10, 7.66]
+    // after (ie: if x and y has the value 10) [10, 7.66]
     if (addX) values[0] = parseInt(values[0], 10) + addX
     if (addY) values[1] = parseInt(values[1], 10) + addY
 

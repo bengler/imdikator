@@ -37,8 +37,10 @@ export default class RegionChildrenList extends Component {
         <h2 className="feature__section-title">
           {this.renderTitle(region)}
         </h2>
+
         <nav role="navigation" className="navigation">
           <ul className="t-no-list-styles">
+
             {childRegions.map(childRegion => {
               return (
                 <li key={childRegion.prefixedCode} className="col--third col--flow col--right-padding">

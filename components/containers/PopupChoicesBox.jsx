@@ -82,20 +82,23 @@ export default class PopupChoicesBox extends Component {
 
   downloadPNG() {
     const svg = document.querySelector('.chart__svg')
+    const text = document.querySelector('text.svg-text')
     const d3 = document.querySelector('.chart__d3-points')
+
+    const moveRight = 25
 
     svg.style = {
       backgroundColor: 'white'
     }
 
     // chart overflows left side- so nudge it 10px right
-    this.addValuesToTransform(d3, 10, 0)
+    this.addValuesToTransform(d3, moveRight, 0)
 
     // download the png
-    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.png')
+    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg')
 
     // nudge chart back to normal
-    this.addValuesToTransform(d3, -10, 0)
+    this.addValuesToTransform(d3, -moveRight, 0)
   }
 
   render() {
@@ -137,9 +140,9 @@ export default class PopupChoicesBox extends Component {
               </button> */}
 
               {/* download png button */}
-              <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
+              {/* <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned PNG (bilde)'}
-              </a>
+              </a> */}
 
               {/* download svg button */}
               {this.props.linkUrl && !this.props.isLoading

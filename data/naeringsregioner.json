@@ -670,13 +670,5 @@
     "countyCode": "99",
     "type": "commerceRegion",
     "prefixedCode": "N99"
-  },
-  {
-    "code": "00",
-    "name": "Norge",
-    "municipalityCode": "0000",
-    "countyCode": "00",
-    "type": "commerceRegion",
-    "prefixedCode": "N00"
   }
 ]

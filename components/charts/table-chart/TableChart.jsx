@@ -25,6 +25,9 @@ export default class TableChart extends React.Component {
 
   componentWillMount() {
     const data = ensureDataHasYearDimension(this.props.data)
+    console.log({data})
+    const generated = generateCSV(data)
+    console.log({generated})
     this.setState(generateCSV(data))
   }
 

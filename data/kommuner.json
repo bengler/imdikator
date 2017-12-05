@@ -1244,7 +1244,7 @@
   },
   {
     "code": "0706",
-    "name": "Sandefjord (utdatert fra 01.01.2017)",
+    "name": "Sandefjord (gyldig til 31.12.2016)",
     "countyCode": "07",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "26",
@@ -1266,7 +1266,7 @@
   },
   {
     "code": "0710",
-    "name": "Sandefjord",
+    "name": "Sandefjord (gyldig fra 1.1.2017)",
     "countyCode": "07",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "26",
@@ -4728,16 +4728,5 @@
     "centralityName": ".",
     "type": "municipality",
     "prefixedCode": "K9999"
-  },
-  {
-    "code": "0000",
-    "name": "Norge",
-    "countyCode": "00",
-    "imdiRegion": ".",
-    "commerceRegionCode": "00",
-    "centralityNumber": ".",
-    "centralityName": ".",
-    "type": "municipality",
-    "prefixedCode": "K0000"
   }
 ]

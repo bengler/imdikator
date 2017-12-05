@@ -34,7 +34,6 @@ const childTypes = {
   commerceRegion: 'municipality'
 }
 
-
 function mapStateToProps(state, ownProps) {
 
   const {allRegions} = state
@@ -42,9 +41,15 @@ function mapStateToProps(state, ownProps) {
 
   const isTheWholeOfNorway = region.prefixedCode == 'F00'
 
-  const childRegions = isTheWholeOfNorway
-    ? allCounties(allRegions)
-    : childRegionsByParent(childTypes[region.type], region, allRegions)
+  let childRegions
+
+  if (isTheWholeOfNorway) {
+    childRegions = allCounties(allRegions)
+  }
+
+  else {
+    childRegions = childRegionsByParent(childTypes[region.type], region, allRegions)
+  }
 
   return {
     region,

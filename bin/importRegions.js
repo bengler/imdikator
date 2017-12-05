@@ -32,7 +32,7 @@ const parsedRegions = csvToObjects(CSV_FILE_FYLKER_KOMMUNER)
 
 const fylker = parsedRegions
   .distinct(region => region.Fylkenr)
-  .map(pickKeys('Fylkenr', 'Fylkenavn'))
+  .map(pickKeys('Fylkenr', 'Fylkenavn', 'Validity'))
   .map(renameKeys({
     Fylkenr: 'code',
     Fylkenavn: 'name'
@@ -75,10 +75,10 @@ const naeringsregioner = parsedRegions
   .distinct(region => region['Næringsregionnr'])
   .map(pickKeys('Næringsregionnr', 'Næringsregion_ navn', 'Kommunenr', 'Fylkenr'))
   .map(renameKeys({
-    'Næringsregionnr': 'code',
+    Næringsregionnr: 'code',
     'Næringsregion_ navn': 'name',
-    'Kommunenr': 'municipalityCode',
-    'Fylkenr': 'countyCode'
+    Kommunenr: 'municipalityCode',
+    Fylkenr: 'countyCode'
   }))
   .map(naeringsregion => {
     return Object.assign({}, naeringsregion, {
@@ -113,7 +113,6 @@ bydeler.subscribe(res => log('Wrote %s bydeler to %s', res.entries.length, res.f
 fylker.subscribe(res => log('Wrote %s fylker to %s', res.entries.length, res.file))
 
 // A few helper functions
-
 function csvToObjects(file) {
   const rows = RxNode.fromReadableStream(fs.createReadStream(file).pipe(csv()))
   return rows

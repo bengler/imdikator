@@ -3,7 +3,6 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 import {generateCSV} from '../../../lib/csvWrangler'
 
-
 // TableChart always needs year as a dimension. Add it if missing.
 function ensureDataHasYearDimension(data) {
   const dimensions = data.dimensions
@@ -17,7 +16,6 @@ function ensureDataHasYearDimension(data) {
   return Object.assign({}, data, {dimensions: dimensions})
 }
 
-
 export default class TableChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object
@@ -25,18 +23,24 @@ export default class TableChart extends React.Component {
 
   componentWillMount() {
     const data = ensureDataHasYearDimension(this.props.data)
-    console.log({data})
     const generated = generateCSV(data)
-    console.log({generated})
+
+    const other = {
+      csv: `;Bakgrunn;Innvandrere;Norskfødte med innvandrerforeldre;Befolkningen utenom innvandrere og norskfødte med innvandrerforeldre
+            ;Kjønn;Alle;Alle;Alle
+            ;Enheter;Personer;Personer;Personer
+            ;År;2017;2017;2017
+            ;Norge;724987;158764;4374566`,
+      separator: ';'
+    }
+
     this.setState(generateCSV(data))
   }
-
 
   componentWillReceiveProps(props) {
     const data = ensureDataHasYearDimension(props.data)
     this.setState(generateCSV(data))
   }
-
 
   drawPoints(el, data) {
     if (!data) {
@@ -45,11 +49,11 @@ export default class TableChart extends React.Component {
 
     // We don't draw in the SVG in this Component
     d3.select(el).select('svg').remove()
-
     d3.select(el).classed('table__wrapper', true)
-
     d3.select(el).select('table').remove()
+
     const table = d3.select(el).append('table')
+
     table.classed('table', true)
     table.classed('table--fluid', true)
 
@@ -57,15 +61,16 @@ export default class TableChart extends React.Component {
     const parsedData = parser.parseRows(data.csv)
     const transposedData = d3.transpose(parsedData)
 
-
     table.append('thead')
     .append('tr')
     .selectAll('th')
-    .data(transposedData[1])
+    .data(transposedData[1]) // headers
     .enter()
     .append('th')
     .attr('scope', 'col')
-    .text(dataItem => dataItem)
+    .text(dataItem => {
+      return dataItem
+    })
 
     const tableBody = table.append('tbody')
 
@@ -80,10 +85,11 @@ export default class TableChart extends React.Component {
     .append('td')
     .text(dataItem => dataItem)
 
-    table.selectAll('tr').each(function (d, i) {
+    table.selectAll('tr').each(function (element, index) {
+
       if (this.firstChild.tagName == 'TH') {
         const firstchild = d3.select(this.firstChild)
-        firstchild.text('')
+
       } else {
         const row = d3.select(this)
         const firstchild = d3.select(this.firstChild)
@@ -96,13 +102,11 @@ export default class TableChart extends React.Component {
     })
   }
 
-
   render() {
     const functions = {
       drawPoints: this.drawPoints
     }
 
-    console.log(this.state)
     return (
       <div>
         <D3Chart data={this.state} functions={functions} />

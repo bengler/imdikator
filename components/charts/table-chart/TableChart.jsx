@@ -21,25 +21,58 @@ export default class TableChart extends React.Component {
     data: React.PropTypes.object
   };
 
+  constructor() {
+    super()
+
+    this.toggleRowVisibility = this.toggleRowVisibility.bind(this)
+    this.setupToggleRowVisibility = this.setupToggleRowVisibility.bind(this)
+  }
+
   componentWillMount() {
     const data = ensureDataHasYearDimension(this.props.data)
-    const generated = generateCSV(data)
+    this.setState(generateCSV(data), () => {
+      this.setupToggleRowVisibility()
+    })
+  }
 
-    const other = {
-      csv: `;Bakgrunn;Innvandrere;Norskfødte med innvandrerforeldre;Befolkningen utenom innvandrere og norskfødte med innvandrerforeldre
-            ;Kjønn;Alle;Alle;Alle
-            ;Enheter;Personer;Personer;Personer
-            ;År;2017;2017;2017
-            ;Norge;724987;158764;4374566`,
-      separator: ';'
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props !== prevState || prevProps !== this.state) {
+      this.setupToggleRowVisibility()
     }
-
-    this.setState(generateCSV(data))
   }
 
   componentWillReceiveProps(props) {
     const data = ensureDataHasYearDimension(props.data)
     this.setState(generateCSV(data))
+  }
+
+  toggleRowVisibility() {
+
+    const trigger = event.target
+    const parent = trigger.parentNode
+    const isHidden = parent.getAttribute('aria-hidden') === 'true'
+
+    if (isHidden) {
+      trigger.classList.remove('expanded')
+      parent.setAttribute('aria-hidden', false)
+    } else {
+      trigger.classList.add('expanded')
+      parent.setAttribute('aria-hidden', true)
+    }
+  }
+
+  setupToggleRowVisibility() {
+    document.querySelectorAll('[data-table-collapsable]').forEach(table => {
+      const tableRows = table.querySelectorAll('tr')
+      tableRows.forEach(row => {
+
+        const columns = row.children
+        const trigger = columns[0]
+        trigger.addEventListener('click', () => {
+          this.toggleRowVisibility()
+        })
+      })
+    })
   }
 
   drawPoints(el, data) {
@@ -55,6 +88,7 @@ export default class TableChart extends React.Component {
     const table = d3.select(el).append('table')
 
     table.classed('table', true)
+    table.classed('table--collapsable', true)
     table.classed('table--fluid', true)
 
     const parser = d3.dsv(data.separator, 'text/plain')
@@ -72,7 +106,7 @@ export default class TableChart extends React.Component {
       return dataItem
     })
 
-    const tableBody = table.append('tbody')
+    const tableBody = table.append('tbody').attr('data-table-collapsable', '')
 
     const rows = tableBody.selectAll('tr')
     .data(transposedData.slice(2))
@@ -83,23 +117,24 @@ export default class TableChart extends React.Component {
     .data(dataItem => dataItem)
     .enter()
     .append('td')
+    .attr('data-label', (dataItem, index) => dataItem)
     .text(dataItem => dataItem)
 
-    table.selectAll('tr').each(function (element, index) {
+    // table.selectAll('tr').each(function (element, index) {
 
-      if (this.firstChild.tagName == 'TH') {
-        const firstchild = d3.select(this.firstChild)
+    //   if (this.firstChild.tagName == 'TH') {
+    //     const firstchild = d3.select(this.firstChild)
 
-      } else {
-        const row = d3.select(this)
-        const firstchild = d3.select(this.firstChild)
-        row.insert('th', ':first-child')
-        .text(firstchild.text())
-        .attr('scope', 'row')
-        .classed('table__th table__th--row', true)
-        firstchild.remove()
-      }
-    })
+    //   } else {
+    //     const row = d3.select(this)
+    //     const firstchild = d3.select(this.firstChild)
+    //     row.insert('th', ':first-child')
+    //     .text(firstchild.text())
+    //     .attr('scope', 'row')
+    //     .classed('table__th table__th--row', true)
+    //     firstchild.remove()
+    //   }
+    // })
   }
 
   render() {

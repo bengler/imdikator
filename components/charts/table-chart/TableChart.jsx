@@ -117,24 +117,8 @@ export default class TableChart extends React.Component {
     .data(dataItem => dataItem)
     .enter()
     .append('td')
-    .attr('data-label', (dataItem, index) => dataItem)
+    .attr('data-label', (dataItem, index) => transposedData[1][index])
     .text(dataItem => dataItem)
-
-    // table.selectAll('tr').each(function (element, index) {
-
-    //   if (this.firstChild.tagName == 'TH') {
-    //     const firstchild = d3.select(this.firstChild)
-
-    //   } else {
-    //     const row = d3.select(this)
-    //     const firstchild = d3.select(this.firstChild)
-    //     row.insert('th', ':first-child')
-    //     .text(firstchild.text())
-    //     .attr('scope', 'row')
-    //     .classed('table__th table__th--row', true)
-    //     firstchild.remove()
-    //   }
-    // })
   }
 
   render() {

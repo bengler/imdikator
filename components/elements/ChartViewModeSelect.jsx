@@ -31,7 +31,7 @@ export default class ChartModeSelect extends Component {
     super()
 
     this.state = {
-      isExplicit: false,
+      isExplicit: true,
       toggleNumbersVisible: true
     }
 
@@ -64,7 +64,7 @@ export default class ChartModeSelect extends Component {
     if (!embedded && CHART_MODES[0].name === selectedMode && actualWidth > screenSize.largePhone && activeTab.urlName === 'enkeltaar') {
       if (this.state.isExplicit || !this.state.toggleNumbersVisible) {  // don't rerender if there's no difference
         this.setState({
-          isExplicit: false,
+          isExplicit: true, // set to false if 'vis tall' box is present (not commented out)
           toggleNumbersVisible: true
         })
       }
@@ -87,7 +87,7 @@ export default class ChartModeSelect extends Component {
     return (
       <div className={graphClasses}>
 
-        {this.state.toggleNumbersVisible &&
+        {/* {this.state.toggleNumbersVisible &&
           <form>
             <label className="control checkbox">
               <input type="checkbox" id="check1" checked={this.props.explicitView} onChange={e => { this.props.setExplicitView(e) }} />
@@ -95,7 +95,7 @@ export default class ChartModeSelect extends Component {
               Vis tall
             </label>
           </form>
-        }
+        } */}
 
         <ul className="tabs-mini" role="tablist">
 

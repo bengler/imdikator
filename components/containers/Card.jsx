@@ -73,7 +73,7 @@ class Card extends Component {
     this.state = {
       chartViewMode: 'chart',
       screenshot: null,
-      explicitView: false,
+      explicitView: true,
       description: null,
       printView: false,
       initialLoadComplete: false

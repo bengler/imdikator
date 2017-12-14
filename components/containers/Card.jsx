@@ -395,19 +395,19 @@ class Card extends Component {
 
         {loading && <span><i className="loading-indicator" /> Laster…</span>}
 
-        {!printable && (
-          <ChartViewModeSelect
-            activeTab={activeTab}
-            embedded={false}
-            setExplicitView={this.setExplicitView}
-            explicitView={explicitView}
-            mode={chartViewMode}
-            onChange={newMode => this.setState({chartViewMode: newMode})}
-          />
-        )}
+         {!printable && (
+           <ChartViewModeSelect
+             activeTab={activeTab}
+             embedded={false}
+             setExplicitView={this.setExplicitView}
+             explicitView={explicitView}
+             mode={chartViewMode}
+             onChange={newMode => this.setState({chartViewMode: newMode})}
+           />
+         )}
 
         <div className="graph">
-          {/* {data && (
+          {data && (
             <ChartComponent
               data={data}
               explicitView={explicitView}
@@ -420,7 +420,7 @@ class Card extends Component {
               description={description}
               sortDirection={chartKind === 'benchmark' && 'ascending'}
             />
-          )} */}
+          )}
         </div>
 
         <div data-chart-description className="graph__description">

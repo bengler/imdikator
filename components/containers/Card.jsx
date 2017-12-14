@@ -190,6 +190,7 @@ class Card extends Component {
     let svg = this.toggleList
     if (!svg) return
     svg = svg.querySelector('[data-chart]')
+    if (!svg) return
 
     //  extra height for the svg diagram
     const extraHeightSVG = 180
@@ -406,7 +407,7 @@ class Card extends Component {
         )}
 
         <div className="graph">
-          {data && (
+          {/* {data && (
             <ChartComponent
               data={data}
               explicitView={explicitView}
@@ -419,7 +420,7 @@ class Card extends Component {
               description={description}
               sortDirection={chartKind === 'benchmark' && 'ascending'}
             />
-          )}
+          )} */}
         </div>
 
         <div data-chart-description className="graph__description">
@@ -437,7 +438,7 @@ class Card extends Component {
           {!printable && (
             <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
           )}
-        </div>
+        </div> 
       </section>
     )
   }

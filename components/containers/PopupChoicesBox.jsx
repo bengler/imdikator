@@ -92,8 +92,9 @@ export default class PopupChoicesBox extends Component {
     }
 
     // chart overflows left side- so nudge it 10px right
-    this.addValuesToTransform(d3, moveRight, 0)
 
+    this.addValuesToTransform(d3, moveRight, 0)
+    // console.log({text})
     // download the png
     saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg')
 

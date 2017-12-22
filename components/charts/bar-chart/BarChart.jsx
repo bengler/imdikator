@@ -310,7 +310,6 @@ export default class BarChart extends React.Component {
 
   render() {
     const {explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
-    const extraPadding = 80
     const functions = {
       drawPoints: this.drawPoints,
       calculateWidth: this.calculateWidth,
@@ -325,7 +324,7 @@ export default class BarChart extends React.Component {
 
     if (CHARTS_CONFIG.bar.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * (CHARTS_CONFIG.bar.minWidthPerCategory + extraPadding)
+      config.minimumWidth = numCategories * (CHARTS_CONFIG.bar.minWidthPerCategory)
     }
 
     return (

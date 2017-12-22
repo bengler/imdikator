@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import preventDefault from 'prevent-default'
-import screenSize from '../../lib/screenSizes'
-import debounce from 'debounce'
 
 const defaultPrevented = preventDefault(() => false)
 
@@ -36,10 +34,12 @@ export default class ChartModeSelect extends Component {
   }
 
   render() {
-    const {onChange, mode: selectedMode} = this.props
+    const {onChange, mode: selectedMode, embedded} = this.props
+
+    const graphTypeClasses = embedded ? 'graph__types' : 'graph__types right'
 
     return (
-      <div className="graph__types right">
+      <div className={graphTypeClasses}>
         <ul className="tabs-mini" role="tablist">
 
           {

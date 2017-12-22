@@ -24,13 +24,16 @@ export default class PopupChoicesBox extends Component {
     super()
 
     this.state = {
-      choiceNumber: 0
+      choiceNumber: 0,
+      moveRight: 25
     }
 
     this.onCancel = this.onCancel.bind(this)
     this.onApply = this.onApply.bind(this)
     this.onChange = this.onChange.bind(this)
     this.downloadSVG = this.downloadSVG.bind(this)
+
+    this.chartDownloadVersion = this.chartDownloadVersion.bind(this)
   }
 
   onCancel() {
@@ -82,24 +85,52 @@ export default class PopupChoicesBox extends Component {
 
   downloadPNG() {
     const svg = document.querySelector('.chart__svg')
-    const text = document.querySelector('text.svg-text')
+
+    svg.style.background = 'white'
+
+    this.chartDownloadVersion(true) // style chart for download
+    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg') // download the png
+    this.chartDownloadVersion(false) // revert chart to normal
+  }
+
+  // this function ensures proper styling, like font sizes, horisontal lines and text positions.
+  // because fonts and positions defaults to browser (ugly) standards.
+  chartDownloadVersion(chartIsForDownload) {
+    const {moveRight} = this.state
+
     const d3 = document.querySelector('.chart__d3-points')
+    const text = document.querySelector('text.svg-text.title')
+    const numbersAboveGraph = document.querySelectorAll('.chart__text')
+    const horizontalLines = document.querySelectorAll('.chart__line--benchmark')
+    const allText = document.querySelectorAll('text.svg-text:not(.title), .chart__text--benchmark, tspan, .chart__text')
 
-    const moveRight = 25
+    if (chartIsForDownload) {
 
-    svg.style = {
-      backgroundColor: 'white'
+      // make sure font family is consistent with the rest of the site
+      Array.from(allText).forEach(textElement => {
+        textElement.style.setProperty('font-family', '"Siri", Tahoma, sans-serif')
+      })
+
+      // nugde numbers above graph upwards
+      Array.from(numbersAboveGraph).forEach(textElement => {
+        textElement.style.setProperty('transform', 'translate(-6px, -4px)')
+        textElement.style.setProperty('font-size', '12px')
+      })
+
+      Array.from(horizontalLines).forEach(line => {
+        line.style.setProperty('stroke', 'rgb(242, 239, 237)')
+      })
+
+      // chart overflows left side- so nudge it 10px right
+      this.addValuesToTransform(d3, moveRight, 0)
+      text.style.setProperty('display', 'initial')
+      text.style.setProperty('font-size', '25px')
     }
 
-    // chart overflows left side- so nudge it 10px right
-
-    this.addValuesToTransform(d3, moveRight, 0)
-    // console.log({text})
-    // download the png
-    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg')
-
-    // nudge chart back to normal
-    this.addValuesToTransform(d3, -moveRight, 0)
+    else {
+      this.addValuesToTransform(d3, -moveRight, 0)
+      text.style.setProperty('display', 'none')
+    }
   }
 
   render() {
@@ -136,14 +167,14 @@ export default class PopupChoicesBox extends Component {
               </button>
 
               {/* download svg button */}
-              {/* <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
+              <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned SVG (vektor)'}
-              </button> */}
+              </button>
 
               {/* download png button */}
-              {/* <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
+              <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned PNG (bilde)'}
-              </a> */}
+              </a>
 
               {/* download svg button */}
               {this.props.linkUrl && !this.props.isLoading

@@ -79,6 +79,7 @@ class Card extends Component {
       initialLoadComplete: false
     }
 
+    this.offset = this.offset.bind(this)
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
     this.findAncestor = this.findAncestor.bind(this)
@@ -89,13 +90,8 @@ class Card extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps !== this.props || prevState !== this.state) {
-      // add title and numbers above graph
-      if (this.state.explicitView) {
-        this.moveElementsIntoSVG()
-      }
-      this.addDescriptionAndSourceBelowDiagram()
-    }
+    this.moveElementsIntoSVG()
+    this.addDescriptionAndSourceBelowDiagram()
   }
 
   // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
@@ -133,7 +129,7 @@ class Card extends Component {
     svg = svg.querySelector('.chart__svg')
     if (!svg) return
 
-    //  extra height for the svg diagram
+    // extra height for the svg diagram
     const extraHeightDiagram = 80
     const extraHeightDiagramPyramid = 20
 
@@ -183,22 +179,36 @@ class Card extends Component {
     return null
   }
 
+  offset(element) {
+    const rect = element.getBoundingClientRect()
+
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+
+    return {
+      top: rect.top + scrollTop,
+      left: rect.left + scrollLeft
+    }
+  }
+
   //  use refs from each card component that toggles the height.
   //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
 
     let svg = this.toggleList
     if (!svg) return
-    svg = svg.querySelector('[data-chart]')
+    svg = svg.querySelector('.chart__svg')
     if (!svg) return
 
-    //  extra height for the svg diagram
-    const extraHeightSVG = 180
+    // //  extra height for the svg diagram
+    const extraHeightSVG = 240
     const paddingBottom = 80
     const spaceBetween = 30
 
+    const originalHeight = svg.querySelector('.chart__d3-points').getBoundingClientRect().height
+
     //  add extra height to svg
-    const height = parseInt(svg.getAttribute('height') || 0, 10) + extraHeightSVG
+    const height = parseInt(originalHeight || 0, 10) + extraHeightSVG
     svg.setAttribute('height', height)
 
     const viewBox = svg.getAttribute('viewBox').split(' ')

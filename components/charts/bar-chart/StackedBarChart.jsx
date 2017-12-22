@@ -106,32 +106,30 @@ export default class StackedBarChart extends Component {
     }
 
     //==============================================================
-    //  if user has toggled button for showing numbers above graphs
+    //  show numbers on the side of graphs
     //==============================================================
-    if (this.props.explicitView) {
+    const moveNumberToTheRight = 85
+    const moveNumberDown = 25
+    const hideSmallNumbers = 25
 
-      const moveNumberToTheRight = 85
-      const moveNumberDown = 25
-      const hideSmallNumbers = 25
+    // Add text indicators
+    category.selectAll('rect.chart__text')
+    .data(item => item.values)
+    .enter()
+    .append('text')
+    .attr('class', 'chart__text chart__stacked-bar')
+    .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
+    .attr('width', item => xScales[item.category].rangeBand())
+    .attr('x', dataItem => xScales[dataItem.category]('stack') + moveNumberToTheRight)
+    .attr('y', dataItem => y(dataItem.y1) + moveNumberDown)
+    .each(function (item) {
+      item.el = this
+    })
+    .text(dataItem => {
+      if (y(dataItem.y0) - y(dataItem.y1) < hideSmallNumbers) return ''
+      return dataItem.values[0].formattedValue || yc.format(dataItem.values[0].value)
+    })
 
-      // Add text indicators
-      category.selectAll('rect.chart__text')
-      .data(item => item.values)
-      .enter()
-      .append('text')
-      .attr('class', 'chart__text')
-      .attr('height', dataItem => y(dataItem.y0) - y(dataItem.y1))
-      .attr('width', item => xScales[item.category].rangeBand())
-      .attr('x', dataItem => xScales[dataItem.category]('stack') + moveNumberToTheRight)
-      .attr('y', dataItem => y(dataItem.y1) + moveNumberDown)
-      .each(function (item) {
-        item.el = this
-      })
-      .text(dataItem => {
-        if (y(dataItem.y0) - y(dataItem.y1) < hideSmallNumbers) return ''
-        return dataItem.values[0].formattedValue || yc.format(dataItem.values[0].value)
-      })
-    }
 
     //===================================
     //  hovered chart bars shows numbers

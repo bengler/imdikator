@@ -206,7 +206,8 @@ class Card extends Component {
     const paddingBottom = 80
     const spaceBetween = 30
 
-    const originalHeight = svg.querySelector('.chart__d3-points').getBoundingClientRect().height
+    const chart = svg.querySelector('.chart__d3-points')
+    const originalHeight = chart.getBoundingClientRect().height || chart.getAttribute('height')
 
     //  add extra height to svg
     const height = parseInt(originalHeight || 0, 10) + extraHeightSVG
@@ -223,7 +224,7 @@ class Card extends Component {
     if (!description.textContent) return
     //  adds description below diagram
     // eslint-disable-next-line no-unused-vars
-    console.log('will add descriptionSVGText for: ', description.textContent)
+
     const descriptionSVGText = new SvgText({
       text: description.textContent,
       element: svg,

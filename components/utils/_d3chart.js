@@ -83,6 +83,7 @@ class Chart {
   update(el, state, config, explicitView, title, source, measuredAt, description, thisCard, printView) {
     // We don't support redrawing on top of old graphs, so just remove any
     // previous presentation
+
     if (this._svg) {
       this._svg.remove()
     }

@@ -21,11 +21,22 @@ export default class D3Chart extends React.Component {
     activeTab: React.PropTypes.object
   }
 
+  constructor() {
+    super()
+
+    this.state = {
+      el: findDOMNode(this)
+    }
+  }
+
   componentDidMount() {
 
     this.eventEmitter = new EventEmitter()
+
     this.eventEmitter.on('datapoint:hover-in', state => {
       const el = findDOMNode(this)
+
+
       const boundingRect = el.getBoundingClientRect()
       const rect = {
         top: boundingRect.top,
@@ -52,6 +63,7 @@ export default class D3Chart extends React.Component {
     })
 
     const el = findDOMNode(this)
+
     this.chart = new Chart(el, {
       width: '100%',
       height: '100%',
@@ -116,7 +128,7 @@ export default class D3Chart extends React.Component {
     const classes = ['chart', this.props.className].join(' ')
     return (
       <div className={classes}>
-        <Hoverbox ref="focus" />
+        <Hoverbox ref="focus" el={this.state.el} />
       </div>
     )
   }

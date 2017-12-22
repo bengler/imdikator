@@ -98,6 +98,7 @@ export default class PopupChoicesBox extends Component {
   chartDownloadVersion(chartIsForDownload) {
     const {moveRight} = this.state
 
+    const svg = document.querySelector('[data-chart]')
     const d3 = document.querySelector('.chart__d3-points')
     const text = document.querySelector('text.svg-text.title')
     const numbersAboveGraph = document.querySelectorAll('.chart__text')
@@ -113,7 +114,14 @@ export default class PopupChoicesBox extends Component {
 
       // nugde numbers above graph upwards
       Array.from(numbersAboveGraph).forEach(textElement => {
-        textElement.style.setProperty('transform', 'translate(-6px, -4px)')
+        // chart pyramid has different positions
+        if (textElement.getAttribute('class').includes('chart__pyramid')) {
+          textElement.style.setProperty('transform', 'translate(5px, -4px)')
+        }
+
+        else {
+          textElement.style.setProperty('transform', 'translate(-6px, -4px)')
+        }
         textElement.style.setProperty('font-size', '12px')
       })
 

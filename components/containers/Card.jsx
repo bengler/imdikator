@@ -92,6 +92,7 @@ class Card extends Component {
   componentDidUpdate(prevProps, prevState) {
     this.moveElementsIntoSVG()
     this.addDescriptionAndSourceBelowDiagram()
+    console.log('componentDidUpdate')
   }
 
   // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
@@ -219,8 +220,10 @@ class Card extends Component {
     const description = parent.querySelector('[data-chart-description]')
     const source = parent.querySelector('[data-chart-source]')
 
+    if (!description.textContent) return
     //  adds description below diagram
     // eslint-disable-next-line no-unused-vars
+    console.log('will add descriptionSVGText for: ', description.textContent)
     const descriptionSVGText = new SvgText({
       text: description.textContent,
       element: svg,
@@ -230,6 +233,11 @@ class Card extends Component {
       verticalAlign: 'bottom'
     })
 
+    const textDescription = svg.querySelector('.text__description')
+    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
+
+    if (!source.textContent) return
     //  adds source below diagram
     // eslint-disable-next-line no-unused-vars
     const sourceSVGText = new SvgText({
@@ -241,13 +249,8 @@ class Card extends Component {
       verticalAlign: 'bottom',
     })
 
-    const textDescription = svg.querySelector('.text__description')
     const textSource = svg.querySelector('.text__source')
-
-    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
     const newSourceHeight = svg.clientHeight - paddingBottom
-
-    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
     this.addValuesToTransform(textSource, null, newSourceHeight + 60)
   }
 

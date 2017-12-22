@@ -14,8 +14,6 @@ export default class PyramidChart extends React.Component {
     source: React.PropTypes.string,
     measuredAt: React.PropTypes.string,
     description: React.PropTypes.string,
-    thisCard: React.PropTypes.string,
-    className: React.PropTypes.string
   };
 
   calculateMargins() {
@@ -193,11 +191,11 @@ export default class PyramidChart extends React.Component {
       .attr('stroke', dataItem => dataItem.stroke)
       .attr('stroke-width', dataItem => dataItem.strokeWidth)
 
-    const paddingTop = 38
 
     //================================================
     //  show numbers next to chart if toggled
     //================================================
+    const paddingTop = 38
     const numberPaddingLeft = 54
 
     // Add text indicators
@@ -401,7 +399,7 @@ export default class PyramidChart extends React.Component {
       config.minimumWidth = numCategories * CHARTS_CONFIG.pyramid.minWidthPerCategory
     }
 
-    const {title, source, measuredAt, description, explicitView, activeTab, thisCard, className} = this.props
+    const {title, source, measuredAt, description, explicitView, activeTab} = this.props
 
     return (
       <D3Chart
@@ -414,8 +412,6 @@ export default class PyramidChart extends React.Component {
         source={source}
         measuredAt={measuredAt}
         description={description}
-        thisCard={thisCard}
-        className={className}
       />
     )
   }

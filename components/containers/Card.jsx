@@ -92,7 +92,10 @@ class Card extends Component {
   componentDidUpdate(prevProps, prevState) {
     this.moveElementsIntoSVG()
     this.addDescriptionAndSourceBelowDiagram()
-    console.log('componentDidUpdate')
+  }
+
+  componentDidMount() {
+    this.moveElementsIntoSVG()
   }
 
   // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
@@ -133,7 +136,8 @@ class Card extends Component {
     // extra height for the svg diagram
     const extraHeightDiagram = 80
     const extraHeightDiagramPyramid = 20
-
+    const maxNumberOfCharacters = 40
+    
     //  if this chart is pyramidchart - use different padding for colored boxes below chart
     const pyramid = this.props.activeTab.chartKind == 'pyramid'
 
@@ -154,13 +158,15 @@ class Card extends Component {
 
     const unit = this.props.query.unit[0]
 
-    // Now `svgForAi` can be opened in Illustrator and the text element will render
-    // correctly with Helvetica Bold.
     //  adds title above diagam
+    const numberOfCharacters = String(title.textContent).length
+
+    let counter = maxNumberOfCharacters
+
     const textContent = new SvgText({
       text: `${title.textContent} (${unit})`,
       element: svg,
-      maxWidth: svg.clientWidth || 0,
+      maxWidth: 2,
       textOverflow: 'ellipsis',
       className: 'svg-text title'
     })
@@ -222,8 +228,6 @@ class Card extends Component {
     const source = parent.querySelector('[data-chart-source]')
 
     if (!description.textContent) return
-    //  adds description below diagram
-    // eslint-disable-next-line no-unused-vars
 
     const descriptionSVGText = new SvgText({
       text: description.textContent,
@@ -322,15 +326,14 @@ class Card extends Component {
   }
 
   setExplicitView(event) {
-    const truth = Boolean(event.target.checked)
-    this.setState({explicitView: truth})
+    this.moveElementsIntoSVG()
+    this.setState({explicitView: true})
   }
 
   render() {
     const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
-    const {chartViewMode, explicitView} = this.state
-
-    const showToggleNumbersButton = (activeTab) ? activeTab.chartKind === 'bar' || activeTab.chartKind == 'pyramid' : false
+    const {chartViewMode} = this.state
+    const explicitView = true
     if (!activeTab) {
       return (
         <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />

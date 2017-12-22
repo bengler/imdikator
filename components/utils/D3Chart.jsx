@@ -21,14 +21,6 @@ export default class D3Chart extends React.Component {
     activeTab: React.PropTypes.object
   }
 
-  constructor() {
-    super()
-
-    this.state = {
-      el: findDOMNode(this)
-    }
-  }
-
   componentDidMount() {
 
     this.eventEmitter = new EventEmitter()
@@ -128,7 +120,7 @@ export default class D3Chart extends React.Component {
     const classes = ['chart', this.props.className].join(' ')
     return (
       <div className={classes}>
-        <Hoverbox ref="focus" el={this.state.el} />
+        <Hoverbox ref="focus" />
       </div>
     )
   }

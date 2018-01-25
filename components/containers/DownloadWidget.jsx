@@ -143,7 +143,7 @@ class DownloadWidget extends Component {
         linkUrl={this.state.linkUrl}
         downloadPNG={this.props.downloadPNG}
         choices={choices}
-        applyButtonText="Hent CSV"
+        applyButtonText="Last ned tallgrunnlag (.csv)"
         title="Last ned tallgrunnlag"
         choiceLabel="Velg innhold"
         description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."

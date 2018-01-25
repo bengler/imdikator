@@ -207,6 +207,9 @@ class Card extends Component {
     svg = svg.querySelector('.chart__svg')
     if (!svg) return
 
+    // space between the chart and description below
+    const spaceBetweenGraphAndDescription = 75
+
     // //  extra height for the svg diagram
     const extraHeightSVG = 240
     const paddingBottom = 80
@@ -240,7 +243,7 @@ class Card extends Component {
 
     const textDescription = svg.querySelector('.text__description')
     const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
-    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight + spaceBetweenGraphAndDescription)
 
     if (!source.textContent) return
     //  adds source below diagram
@@ -256,7 +259,7 @@ class Card extends Component {
 
     const textSource = svg.querySelector('.text__source')
     const newSourceHeight = svg.clientHeight - paddingBottom
-    this.addValuesToTransform(textSource, null, newSourceHeight + 60)
+    this.addValuesToTransform(textSource, null, newSourceHeight + spaceBetweenGraphAndDescription)
   }
 
   getUrlToTab(tab) {

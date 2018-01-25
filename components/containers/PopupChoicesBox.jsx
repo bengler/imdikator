@@ -176,6 +176,7 @@ export default class PopupChoicesBox extends Component {
     const allText = document.querySelectorAll('text.svg-text:not(.title), .chart__text--benchmark, tspan, .chart__text')
 
     if (chartIsForDownload) {
+      svg.style.setProperty('transform', 'translate(2px, 1px)')
 
       // make sure font family is consistent with the rest of the site
       Array.from(allText).forEach(textElement => {
@@ -190,7 +191,7 @@ export default class PopupChoicesBox extends Component {
         }
 
         else {
-          textElement.style.setProperty('transform', 'translate(-6px, -4px)')
+          textElement.style.setProperty('transform', 'translate(-7px, -4px)')
         }
         textElement.style.setProperty('font-size', '12px')
       })
@@ -256,7 +257,7 @@ export default class PopupChoicesBox extends Component {
 
               {/* download png button */}
               <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
-                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned PNG (bilde)'}
+                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned bilde (.png)'}
               </a>
 
               {/* download svg button */}

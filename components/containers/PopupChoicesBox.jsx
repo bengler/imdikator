@@ -25,7 +25,8 @@ export default class PopupChoicesBox extends Component {
 
     this.state = {
       choiceNumber: 0,
-      moveRight: 25
+      moveRight: 25,
+      moveDown: 5
     }
 
     this.onCancel = this.onCancel.bind(this)
@@ -134,9 +135,11 @@ export default class PopupChoicesBox extends Component {
 
     if (!transform.includes(',')) {
       // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
+
       // So we'll split on space instead
       transformValues = transform.split(' ')
     }
+
     else {
       transformValues = transform.split(',')
     }
@@ -166,7 +169,7 @@ export default class PopupChoicesBox extends Component {
   // this function ensures proper styling, like font sizes, horisontal lines and text positions.
   // because fonts and positions defaults to browser (ugly) standards.
   chartDownloadVersion(chartIsForDownload) {
-    const {moveRight} = this.state
+    const {moveRight, moveDown} = this.state
 
     const svg = document.querySelector('[data-chart]')
     const d3 = document.querySelector('.chart__d3-points')
@@ -176,7 +179,7 @@ export default class PopupChoicesBox extends Component {
     const allText = document.querySelectorAll('text.svg-text:not(.title), .chart__text--benchmark, tspan, .chart__text')
 
     if (chartIsForDownload) {
-      svg.style.setProperty('transform', 'translate(2px, 1px)')
+      svg.style.setProperty('transform', 'translate(2px, 4px)')
 
       // make sure font family is consistent with the rest of the site
       Array.from(allText).forEach(textElement => {
@@ -201,14 +204,16 @@ export default class PopupChoicesBox extends Component {
       })
 
       // chart overflows left side- so nudge it 10px right
-      this.addValuesToTransform(d3, moveRight, 0)
+      this.addValuesToTransform(d3, moveRight, moveDown)
+
       text.style.setProperty('display', 'initial')
       text.style.setProperty('font-size', '25px')
     }
 
     else {
-      this.addValuesToTransform(d3, -moveRight, 0)
+      this.addValuesToTransform(d3, -moveRight, -moveDown)
       text.style.setProperty('display', 'none')
+      svg.style.setProperty('transform', 'translate(0px, 0px)')
     }
   }
 

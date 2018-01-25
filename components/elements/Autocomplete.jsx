@@ -260,6 +260,7 @@ export default class OldAutocomplete extends Component {
   }
 
   selectItem(value, item) {
+    console.log({value, item})
     this.props.onSelect(value, item)
   }
 

@@ -216,8 +216,6 @@ export default class BubbleChart extends React.Component {
       shouldCalculateMargins: false
     }
 
-    console.log({data, explicitView, title, source, measuredAt, description, thisCard, activeTab})
-
     return (
       <D3Chart
         data={data}

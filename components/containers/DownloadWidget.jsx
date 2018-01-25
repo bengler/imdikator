@@ -110,6 +110,8 @@ class DownloadWidget extends Component {
         dimensionLabels: JSON.stringify(csvDimensionsBuilder()),
       }
 
+      console.log({query})
+
       // Call node server for CSV file
       apiClient.getCsvFile(query).then(response => {
         this.setState({
@@ -117,6 +119,8 @@ class DownloadWidget extends Component {
           isLoading: false,
           linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
         })
+
+        console.log({query}, encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`))
 
       }).catch(() => {
         this.setState({

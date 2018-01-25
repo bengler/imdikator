@@ -28,7 +28,6 @@ export default class D3Chart extends React.Component {
     this.eventEmitter.on('datapoint:hover-in', state => {
       const el = findDOMNode(this)
 
-
       const boundingRect = el.getBoundingClientRect()
       const rect = {
         top: boundingRect.top,
@@ -65,11 +64,6 @@ export default class D3Chart extends React.Component {
       measuredAt: this.props.measuredAt,
       activeTab: this.props.activeTab,
     }, this.getChartState(), this.props.functions, this.config())
-
-    // this.resizeFunction = () => {
-    //   this.resizeThrottler()
-    // }
-    // window.addEventListener('resize', this.resizeFunction, false)
   }
 
   componentDidUpdate() {

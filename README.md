@@ -140,6 +140,22 @@ The perfect tutorial to learn how d3 is used throughout this code: http://aligne
 - Place the folder imdikator-deploy (ask tobias or bård) as a sibling to the local imdikator folder and push to test with the test script inside imdikator deploy package.json
 - Make a comment in jira with the commit hash that has been published to test, so when the test is accepted, roll back to this commit and run imdikator deploy's production script.
 
+# Hvordan å legge til nye steder som f.eks kommunenr?
+*Når det må gjøres endringer i kommuner eller fylker må man oppdatere statistikken.*
+Slik gjør du, enkelt oppsummert:
+1. IMDi overleverer et nytt komplett datasett til Netlife, som inneholder de nye stedene. La oss bruke regioninndeling-fylker-kommuner.csv som et eksempel.
+2. Pass på at hver rad holder riktig format:
+0125,Eidsberg,1,Østfold,IMDi Øst,2,Indre Østfold,3,Sentrale kommuner,valid
+3. Feltene betyr:
+Kommunenr,Kommunenavn,Fylkenr,Fylkenavn,IMDiRegion,Næringsregionnr,Næringsregion_ navn,Sentralitet_nr_2008,Sentralitet_kat_2008,Validity
+4. “Validity” er nytt-  hvis et sted har “valid” betyr det at stedet er gjeldende. Hvis det har “invalid” betyr det at stedet ikke lenger eksisterer, men fortsatt vil være en del av statistikken. Eksempelvis; kommunen Sandefjord 0706 er utgått fordi den har blitt større. Da har den nye kommunen Sandefjord 0710 fått feltet “valid” og 0706 har blitt “invalid”. Alle felter må ha enten valid eller invalid. Dette hjelper stedet “Norge” å utregne hva som er nåværende Norge.
+5. Netlife erstatter regioninndeling-fylker-kommuner.csv med det nye.
+6. Netlife kjører kommandoen 
+$ npm run import-regions, deretter 
+$ npm run calculate-similar
+7. That’s it.
+
+
 # URL's
 *Test og prod*
 - Test server med test.css og app.js (publiseres fra `$ npm run deploy_test` fra `../imdikator-deploy`) https://testimdino.azurewebsites.net/

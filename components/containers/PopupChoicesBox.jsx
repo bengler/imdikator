@@ -34,6 +34,8 @@ export default class PopupChoicesBox extends Component {
     this.downloadSVG = this.downloadSVG.bind(this)
 
     this.chartDownloadVersion = this.chartDownloadVersion.bind(this)
+    this.downloadXLS = this.downloadXLS.bind(this)
+    this.createAndFillWorkbook = this.createAndFillWorkbook.bind(this)
   }
 
   onCancel() {
@@ -55,6 +57,74 @@ export default class PopupChoicesBox extends Component {
     setExplicitView(true)
     downloadScreenshot(svg)
     setExplicitView(false)
+  }
+
+  createAndFillWorkbook() {
+    // read from a file
+
+    fetch('//atindikatornode.azurewebsites.net/api/csv/download/1678451967.csv/befolkning_hovedgruppe').then(res => {
+
+    })
+
+    // // read from a stream
+    // var workbook = new Excel.Workbook()
+    // workbook.csv.read(stream)
+    //     .then(function(worksheet) {
+    //         // use workbook or worksheet
+    //     })
+
+    // // pipe from stream
+    // var workbook = new Excel.Workbook()
+    // stream.pipe(workbook.csv.createInputStream())
+
+    // // read from a file with European Dates
+    // var workbook = new Excel.Workbook()
+    // var options = {
+    //     dateFormats: ['DD/MM/YYYY']
+    // }
+    // workbook.csv.readFile(filename, options)
+    //     .then(function(worksheet) {
+    //         // use workbook or worksheet
+    //     })
+
+    // // read from a file with custom value parsing
+    // var workbook = new Excel.Workbook()
+    // var options = {
+    //     map: function(value, index) {
+    //         switch(index) {
+    //             case 0:
+    //                 // column 1 is string
+    //                 return value
+    //             case 1:
+    //                 // column 2 is a date
+    //                 return new Date(value)
+    //             case 2:
+    //                 // column 3 is JSON of a formula value
+    //                 return JSON.parse(value)
+    //             default:
+    //                 // the rest are numbers
+    //                 return parseFloat(value)
+    //         }
+    //     }
+    // }
+    // workbook.csv.readFile(filename, options)
+    //     .then(function(worksheet) {
+    //         // use workbook or worksheet
+    //     })
+  }
+
+  downloadXLS() {
+    const XlsxPopulate = require('xlsx-populate')
+
+    // Load a new blank workbook
+    XlsxPopulate.fromBlankAsync()
+      .then(workbook => {
+        // Modify the workbook.
+        workbook.sheet('Sheet1').cell('A1').value('This is neat!')
+
+        // Write to file.
+        return workbook.toFileAsync('./out.xlsx')
+      })
   }
 
   addValuesToTransform(element, addX, addY) {
@@ -169,6 +239,11 @@ export default class PopupChoicesBox extends Component {
 
             <div className="download-buttons">
 
+              {/* generate xls button */}
+              <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
+                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Excel'}
+              </button>
+
               {/* generate csv button */}
               <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
@@ -188,7 +263,8 @@ export default class PopupChoicesBox extends Component {
               {this.props.linkUrl && !this.props.isLoading
                 && <div>
                   <p><strong>CSV er klar for nedlastning:</strong></p>
-                  <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV</a>
+                  <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV (.csv)</a>
+                  <a href={this.props.linkUrlExcel} onClick={this.downloadXLS} title="last ned XLSX">Last ned Excel (.xlsx)</a>
                 </div>
               }
             </div>

@@ -253,12 +253,14 @@ export function loadTab({region, cardsPage, card, tab, query}) {
 
         const chart = CHARTS[tabWithConfig.chartKind]
 
-        const querySpec = getQuerySpec(resolvedQuery, {
+        const queryConfig = {
           tab: tabWithConfig,
           chart,
           headerGroups,
           config: card.config
-        })
+        }
+
+        const querySpec = getQuerySpec(resolvedQuery, queryConfig)
 
         const constrained = constrainQuery(resolvedQuery, querySpec, card.config)
         if (process.env.NODE_ENV !== 'production') {

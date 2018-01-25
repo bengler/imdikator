@@ -1,17 +1,20 @@
-import React, {Component, PropTypes} from 'react'
-import {connect} from 'react-redux'
+import React, { Component, PropTypes } from "react"
+import { connect } from "react-redux"
 
-import smoothScroll from 'smoothscroll'
+import smoothScroll from "smoothscroll"
 
-import {getHeaderKey, getPageTitle, getPageIngress} from '../../lib/regionUtil'
-import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
-import CardList from '../containers/CardList'
-import RegionSearch from '../containers/RegionSearchContainer'
-import RegionQuickSwitch from '../containers/RegionQuickSwitch'
-import RegionInfoContainer from '../containers/RegionInfoContainer'
-import {_t} from '../../lib/translate'
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-
+import {
+  getHeaderKey,
+  getPageTitle,
+  getPageIngress
+} from "../../lib/regionUtil"
+import CardPageButtonsContainer from "../containers/CardPageButtonsContainer"
+import CardList from "../containers/CardList"
+import RegionSearch from "../containers/RegionSearchContainer"
+import RegionQuickSwitch from "../containers/RegionQuickSwitch"
+import RegionInfoContainer from "../containers/RegionInfoContainer"
+import { _t } from "../../lib/translate"
+import * as ImdiPropTypes from "../proptypes/ImdiPropTypes"
 
 class CardsPage extends Component {
   static propTypes = {
@@ -21,41 +24,59 @@ class CardsPage extends Component {
     cards: PropTypes.arrayOf(ImdiPropTypes.card),
     cardsPage: ImdiPropTypes.cardsPage,
     openCards: PropTypes.arrayOf(PropTypes.string),
-    region: ImdiPropTypes.region,
-  };
+    region: ImdiPropTypes.region
+  }
 
   static contextTypes = {
-    goTo: PropTypes.func,
-  };
+    goTo: PropTypes.func
+  }
 
   handleSwitchRegion(region) {
     smoothScroll(this.pageSection)
-    this.context.goTo('/tall-og-statistikk/steder/:region', {region: region.prefixedCode})
+    this.context.goTo("/tall-og-statistikk/steder/:region", {
+      region: region.prefixedCode
+    })
   }
 
   renderCardList() {
-    const {region, openCards, cards, cardsPage, noValues} = this.props
+    const { region, openCards, cards, cardsPage, noValues } = this.props
 
     if (noValues) {
       return (
         <div className="page__content page__content--section">
           <p className="t-margin-bottom--xlarge">
-            Det finnes ikke noe data for denne visningen. Det kan være at de er skjult av
-            personvernhensyn eller ikke tilgjengelig for denne regionen.
+            Det finnes ikke noe data for denne visningen. Det kan være at de er
+            skjult av personvernhensyn eller ikke tilgjengelig for denne
+            regionen.
           </p>
         </div>
       )
     }
 
-    return <CardList region={region} cardsPage={cardsPage} openCards={openCards} cards={cards} />
+    return (
+      <CardList
+        region={region}
+        cardsPage={cardsPage}
+        openCards={openCards}
+        cards={cards}
+      />
+    )
   }
 
   render() {
-    const {cardsPage, region} = this.props
+    const { cardsPage, region } = this.props
 
     if (!cardsPage || !region) {
-      return <div className="page__content page__content--section"><i className="loading-indicator" /> Laster...</div>
+      return (
+        <div className="page__content page__content--section">
+          <i className="loading-indicator" /> Laster...
+        </div>
+      )
     }
+
+    const nameOfPlace = region.name === 'Norge'
+        ? region.name
+        : `${region.name} ${_t(region.type)}`
 
     return (
       <div>
@@ -67,9 +88,13 @@ class CardsPage extends Component {
                   <h1>{getPageTitle(region)}</h1>
                   <p className="ingress">{getPageIngress(region)}</p>
                   <div className="t-margin-bottom--large t-hide-on-print">
-                    <label><span className="label">Gå til sted</span>
+                    <label>
+                      <span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">
-                        <RegionSearch onSelect={this.handleSwitchRegion.bind(this)} placeholder="Kommune/bydel/fylke/næringsregion" />
+                        <RegionSearch
+                          onSelect={this.handleSwitchRegion.bind(this)}
+                          placeholder="Kommune/bydel/fylke/næringsregion"
+                        />
                       </div>
                     </label>
                   </div>
@@ -79,12 +104,19 @@ class CardsPage extends Component {
           </div>
         </div>
 
-        <div className="page__section page__section--grey" ref={(pageSection) => { this.pageSection = pageSection }}>
+        <div
+          className="page__section page__section--grey"
+          ref={pageSection => {
+            this.pageSection = pageSection
+          }}
+        >
           <div className="wrapper">
             <div className="row">
               <div className="col--main">
                 <CardPageButtonsContainer />
-                <h2 className="feature__section-title">{cardsPage.title} i {region.name}</h2>
+                <h2 className="feature__section-title">
+                  {cardsPage.title} i {region.name}
+                </h2>
                 {this.renderCardList()}
               </div>
             </div>
@@ -95,7 +127,7 @@ class CardsPage extends Component {
             <div className="row">
               <div className="col--main">
                 <div className="feature feature--white">
-                  <h2 className="feature__title">{region.name} {_t(region.type)}</h2>
+                  <h2 className="feature__title">{nameOfPlace}</h2>
                   <RegionInfoContainer region={region} />
                   <RegionQuickSwitch />
                 </div>
@@ -109,7 +141,6 @@ class CardsPage extends Component {
 }
 
 function mapStateToProps(state) {
-
   const currentRegion = state.currentRegion
 
   if (!state.currentCardsPage) {
@@ -128,7 +159,10 @@ function mapStateToProps(state) {
     const headerGroups = state.headerGroups[tableName]
 
     return headerGroups.some(group => {
-      return group[regionHeaderKey] && group[regionHeaderKey].includes(currentRegion.code)
+      return (
+        group[regionHeaderKey] &&
+        group[regionHeaderKey].includes(currentRegion.code)
+      )
     })
   }
 

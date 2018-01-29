@@ -97,6 +97,7 @@ class Chart {
 
     const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
     this.margins = defaultMargins
+
     if (config.shouldCalculateMargins) {
       this.margins = Object.assign(defaultMargins, this._calculateMargins(state.data))
     }
@@ -115,8 +116,10 @@ class Chart {
     //   this.fullWidth *= 2
     // }
 
+    // height of chart
+    // if you increase the height, the chart will span higher.
+    // in other words, you won't create any whitespace by increasing / decreasing
     this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
-
     this.size = {
       width: this.fullWidth - this.margins.left - this.margins.right,
       height: this.fullHeight - this.margins.top - this.margins.bottom
@@ -134,7 +137,7 @@ class Chart {
       .attr('height', this.fullHeight)
       .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
       // text above and underneath diagram
-      // .attr('padding-top', 70)
+      // .attr('padding-top', 700)
       // .attr('height', this.fullHeight + 200)
       // .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
 
@@ -160,6 +163,7 @@ class Chart {
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
       .style('fill', '#ccc')
+
       // TODO: Make vertical space for potential X axis labels (might line break)
       // TODO: Make horizontal space for potential Y axis with formatted labels
     }
@@ -194,7 +198,6 @@ class Chart {
     //   .attr('class', 'svg-text')
     //   .attr('class', 'text__description')
     //   .text(description)
-
 
     // Visualize svg with margins
     if (showMargins) {

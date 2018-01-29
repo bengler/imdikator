@@ -137,7 +137,7 @@ class Card extends Component {
     const extraHeightDiagram = 80
     const extraHeightDiagramPyramid = 20
     const maxNumberOfCharacters = 40
-    
+
     //  if this chart is pyramidchart - use different padding for colored boxes below chart
     const pyramid = this.props.activeTab.chartKind == 'pyramid'
 
@@ -386,8 +386,7 @@ class Card extends Component {
         aria-hidden="false"
         style={{display: 'block'}}
         ref={(toggleList) => { this.toggleList = toggleList }}
-        crossOrigin="anonymous"
-      >
+        crossOrigin="anonymous">
 
         {!printable && (
           <TabBar
@@ -458,7 +457,7 @@ class Card extends Component {
           {!printable && (
             <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
           )}
-        </div> 
+        </div>
       </section>
     )
   }

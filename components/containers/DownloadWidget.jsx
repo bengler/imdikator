@@ -120,8 +120,6 @@ class DownloadWidget extends Component {
           linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
         })
 
-        console.log({query}, encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`))
-
       }).catch(() => {
         this.setState({
           isLoading: false,

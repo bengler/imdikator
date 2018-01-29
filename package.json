@@ -63,6 +63,7 @@
     "http-proxy": "^1.12.0",
     "humanize-list": "^1.0.0",
     "imdi-styles": "github:netliferesearch/imdi-styles",
+    "inline-style-prefixer": "^4.0.0",
     "install": "^0.10.2",
     "less": "^2.5.3",
     "load-script": "^1.0.0",

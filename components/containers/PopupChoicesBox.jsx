@@ -105,6 +105,7 @@ export default class PopupChoicesBox extends Component {
     const d3 = document.querySelector('.chart__d3-points')
     const text = document.querySelector('text.svg-text.title')
     const numbersAboveGraph = document.querySelectorAll('.chart__text')
+    const bubbleText = document.querySelectorAll('.chart__node')
     const horizontalLines = document.querySelectorAll('.chart__line--benchmark')
     const allText = document.querySelectorAll('text.svg-text:not(.title), .chart__text--benchmark, tspan, .chart__text')
 
@@ -114,6 +115,10 @@ export default class PopupChoicesBox extends Component {
       // make sure font family is consistent with the rest of the site
       Array.from(allText).forEach(textElement => {
         textElement.style.setProperty('font-family', '"Siri", Tahoma, sans-serif')
+      })
+
+      Array.from(bubbleText).forEach(bubbleEl => {
+        bubbleEl.style.setProperty('font-family', '"Siri", Tahoma, sans-serif')
       })
 
       // nugde numbers above graph upwards

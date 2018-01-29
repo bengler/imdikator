@@ -62,7 +62,7 @@ export default class TableChart extends React.Component {
   }
 
   setupToggleRowVisibility() {
-    document.querySelectorAll('[data-table-chart]').forEach(table => {
+    document.querySelectorAll('[data-table-collapsable]').forEach(table => {
       const tableRows = table.querySelectorAll('tr')
       tableRows.forEach(row => {
 
@@ -88,7 +88,7 @@ export default class TableChart extends React.Component {
     const table = d3.select(el).append('table')
 
     table.classed('table', true)
-    table.classed('table--chart', true)
+    table.classed('table--collapsable', true)
     table.classed('table--fluid', true)
 
     const parser = d3.dsv(data.separator, 'text/plain')
@@ -106,7 +106,7 @@ export default class TableChart extends React.Component {
       return dataItem
     })
 
-    const tableBody = table.append('tbody').attr('data-table-chart', '')
+    const tableBody = table.append('tbody').attr('data-table-collapsable', '')
 
     const rows = tableBody.selectAll('tr')
     .data(transposedData.slice(2))

@@ -172,6 +172,7 @@ class Card extends Component {
     })
   }
 
+  // kinda polyfill for .closest()
   findAncestor(el, sel) {
     if (typeof el.closest === 'function') {
       return el.closest(sel) || null
@@ -208,7 +209,7 @@ class Card extends Component {
     if (!svg) return
 
     // space between the chart and description below
-    const spaceBetweenGraphAndDescription = 75
+    const spaceBetweenGraphAndDescription = 100
 
     // //  extra height for the svg diagram
     const extraHeightSVG = 240

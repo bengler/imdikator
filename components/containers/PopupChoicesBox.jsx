@@ -139,12 +139,14 @@ export default class PopupChoicesBox extends Component {
 
       text.style.setProperty('display', 'initial')
       text.style.setProperty('font-size', '25px')
+      text.style.setProperty('transform', 'translateY(30px)')
     }
 
     else {
       this.addValuesToTransform(d3, -moveRight, -moveDown)
       text.style.setProperty('display', 'none')
       svg.style.setProperty('transform', 'translate(0px, 0px)')
+      text.style.setProperty('transform', 'translateY(0px)')
     }
   }
 

@@ -158,6 +158,9 @@ export default class PopupChoicesBox extends Component {
 
   render() {
     const {chartKind} = this.props
+
+    let downloadImage = (chartKind === 'bar' || chartKind === 'bubble' || chartKind === 'pyramid')
+
     return (
       <div ref={lightbox => { this.lightbox = lightbox }} className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
         <div className="lightbox__backdrop"></div>
@@ -185,18 +188,12 @@ export default class PopupChoicesBox extends Component {
 
             <div className="download-buttons">
 
-              {/* generate xls button */}
-              {/* <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
-                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Excel'}
-              </button> */}
-
               {/* generate csv button */}
               <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
               </button>
 
-              {chartKind === 'bar' &&
-
+              {downloadImage &&
                 // download svg button
                 // <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
                 //   {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned SVG (vektor)'}

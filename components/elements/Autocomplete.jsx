@@ -1,7 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {_t} from '../../lib/translate'
-import {trackRegionChanged} from '../../actions/tracking'
 
 class Autocomplete extends React.Component {
 
@@ -32,7 +30,6 @@ class Autocomplete extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.findItemsInArrayOfPlaces = this.findItemsInArrayOfPlaces.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
-    // this.handleSelectRegion = this.handleSelectRegion.bind(this)
     this.selectItem = this.selectItem.bind(this)
     this.getFilteredItems = this.getFilteredItems.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -81,7 +78,6 @@ class Autocomplete extends React.Component {
   }
 
   selectItem(value, item) {
-    console.log(value, item)
     this.props.onSelect(value, item)
   }
 
@@ -104,20 +100,9 @@ class Autocomplete extends React.Component {
 
   // finally route user somewhere else
   submitSearch(place) {
-    console.log(107, place)
-    // const itemFound = this.findItemsInArrayOfPlaces(place.name)
-
     const item = this.getFilteredItems()[0]
-    console.log(111, item)
     const value = this.props.getItemValue(item)
-    console.log(113, value)
-
     this.selectItem(value, item)
-
-    //   const region = itemFound[0].prefixedCode
-    //   console.log(114, {region, item, value})
-    // this.handleSelectRegion(region)
-    // }
   }
 
   removeFocus() {
@@ -149,14 +134,14 @@ class Autocomplete extends React.Component {
     else if (key === 40) {
       if (chosenPlace + 1 >= autocompleteSuggestions.length) return // don't select something past the lists length
 
-      this.setState({chosenPlace: this.state.chosenPlace + 1})
+      this.setState({chosenPlace: chosenPlace + 1})
     }
 
     //======= ARROW UP
     else if (key === 38) {
       if (chosenPlace - 1 < 0) return // don't select something before the list begins
 
-      this.setState({chosenPlace: this.state.chosenPlace - 1})
+      this.setState({chosenPlace: chosenPlace - 1})
     }
 
     //======= ESCAPE

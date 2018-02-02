@@ -22,7 +22,8 @@ class DownloadWidget extends Component {
     dispatch: PropTypes.func,
     downloadScreenshot: PropTypes.func,
     downloadPNG: PropTypes.func,
-    setExplicitView: PropTypes.func
+    setExplicitView: PropTypes.func,
+    chartKind: PropTypes.string
   };
 
   constructor(props) {
@@ -87,6 +88,7 @@ class DownloadWidget extends Component {
   }
 
   renderDownloadSelect() {
+    const {chartKind} = this.props
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
 
     const handApplyChoice = newValue => {
@@ -141,6 +143,7 @@ class DownloadWidget extends Component {
         linkUrl={this.state.linkUrl}
         downloadPNG={this.props.downloadPNG}
         choices={choices}
+        chartKind={chartKind}
         applyButtonText="Last ned tallgrunnlag (.csv)"
         title="Last ned tallgrunnlag"
         choiceLabel="Velg innhold"

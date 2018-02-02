@@ -451,7 +451,14 @@ class Card extends Component {
           {!printable && (
             <div className="graph__functions">
               <ShareWidget chartUrl={this.getShareUrl()} />
-              <DownloadWidget downloadScreenshot={this.takeScreenshot} downloadPNG={this.downloadPNG} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
+              <DownloadWidget
+                downloadScreenshot={this.takeScreenshot}
+                downloadPNG={this.downloadPNG}
+                region={region}
+                query={query}
+                headerGroups={headerGroups}
+                chartKind={chartKind}
+                setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
             </div>
           )}
 

@@ -17,7 +17,8 @@ export default class PopupChoicesBox extends Component {
     isError: PropTypes.bool,
     downloadScreenshot: PropTypes.func,
     setExplicitView: PropTypes.func,
-    downloadPNG: PropTypes.func
+    downloadPNG: PropTypes.func,
+    chartKind: PropTypes.string
   };
 
   constructor(props) {
@@ -156,6 +157,7 @@ export default class PopupChoicesBox extends Component {
   }
 
   render() {
+    const {chartKind} = this.props
     return (
       <div ref={lightbox => { this.lightbox = lightbox }} className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
         <div className="lightbox__backdrop"></div>
@@ -184,31 +186,34 @@ export default class PopupChoicesBox extends Component {
             <div className="download-buttons">
 
               {/* generate xls button */}
-              <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
+              {/* <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Excel'}
-              </button>
+              </button> */}
 
               {/* generate csv button */}
               <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
                 {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
               </button>
 
-              {/* download svg button */}
-              <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
-                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned SVG (vektor)'}
-              </button>
+              {chartKind === 'bar' &&
 
-              {/* download png button */}
-              <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
-                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned bilde (.png)'}
-              </a>
+                // download svg button
+                // <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
+                //   {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned SVG (vektor)'}
+                // </button>
+
+                // download png button
+                <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
+                  Last ned bilde (.png)
+                </a>
+              }
 
               {/* download svg button */}
               {this.props.linkUrl && !this.props.isLoading
                 && <div>
                   <p><strong>CSV er klar for nedlastning:</strong></p>
                   <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV (.csv)</a>
-                  <a href={this.props.linkUrlExcel} onClick={this.downloadXLS} title="last ned XLSX">Last ned Excel (.xlsx)</a>
+                  {/* <a href={this.props.linkUrlExcel} onClick={this.downloadXLS} title="last ned XLSX">Last ned Excel (.xlsx)</a> */}
                 </div>
               }
             </div>

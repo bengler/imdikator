@@ -129,7 +129,6 @@ export default class OldAutocomplete extends Component {
         })
       } else {
         const item = this.getFilteredItems()[this.state.highlightedIndex]
-        console.log(132, item)
         const value = this.props.getItemValue(item)
         this.setState({
           value: '',
@@ -205,9 +204,10 @@ export default class OldAutocomplete extends Component {
     }
 
     if (this.props.sortItems) {
-      items = items.slice().sort((item, otherItem) => (
-        this.props.sortItems(item, otherItem, this.state.value)
-      ))
+      items = items.slice().sort((item, otherItem) => {
+        console.log(item, otherItem, this.state.value)
+        return this.props.sortItems(item, otherItem, this.state.value)
+      })
     }
 
     return items
@@ -261,7 +261,6 @@ export default class OldAutocomplete extends Component {
   }
 
   selectItem(value, item) {
-    console.log({value, item})
     this.props.onSelect(value, item)
   }
 

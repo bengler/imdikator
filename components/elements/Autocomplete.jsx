@@ -24,15 +24,16 @@ class Autocomplete extends React.Component {
       chosenPlace: 0
     }
 
-    this.giveFocus = this.giveFocus.bind(this)
-    this.removeFocus = this.removeFocus.bind(this)
-    this.submitSearch = this.submitSearch.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
     this.findItemsInArrayOfPlaces = this.findItemsInArrayOfPlaces.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.selectItem = this.selectItem.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.getFilteredItems = this.getFilteredItems.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.submitSearch = this.submitSearch.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.removeFocus = this.removeFocus.bind(this)
+    this.selectItem = this.selectItem.bind(this)
+    this.giveFocus = this.giveFocus.bind(this)
+    this.sortItems = this.sortItems.bind(this)
   }
 
   componentDidMount() {
@@ -94,8 +95,20 @@ class Autocomplete extends React.Component {
 
     this.setState({
       input: event.target.value || '',
-      autocompleteSuggestions: this.findItemsInArrayOfPlaces(event.target.value)
+      autocompleteSuggestions: this.sortItems(this.findItemsInArrayOfPlaces(event.target.value))
     })
+  }
+
+  sortItems(unsortedItems) {
+    let items = unsortedItems
+
+    if (this.props.sortItems) {
+      items = items.slice().sort((item, otherItem) => {
+        return this.props.sortItems(item, otherItem, this.state.input)
+      })
+    }
+
+    return items
   }
 
   // finally route user somewhere else
@@ -160,7 +173,7 @@ class Autocomplete extends React.Component {
   }
 
   render() {
-    const {autocompleteSuggestions} = this.state
+    const {autocompleteSuggestions, chosenPlace} = this.state
 
     return (
       <div>
@@ -193,7 +206,7 @@ class Autocomplete extends React.Component {
                 role="option"
                 key={item.name.concat(index)}>
 
-                <a className={index === this.state.chosenPlace
+                <a className={index === chosenPlace
                   ? 'search-result__result search-result__result--selected'
                   : 'search-result__result'}>
                   {item.name}

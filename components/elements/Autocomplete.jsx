@@ -62,7 +62,6 @@ class Autocomplete extends React.Component {
   getFilteredItems() {
     let items = this.props.items
     const value = this.state.autocompleteSuggestions[this.state.chosenPlace].value
-
     if (this.props.shouldItemRender) {
       items = items.filter(item => {
         return this.props.shouldItemRender(item, value)
@@ -113,9 +112,9 @@ class Autocomplete extends React.Component {
 
   // finally route user somewhere else
   submitSearch(place) {
-    const item = this.getFilteredItems()[0]
-    const value = this.props.getItemValue(item)
-    this.selectItem(value, item)
+    const item = this.getFilteredItems()[this.state.chosenPlace]
+
+    this.selectItem(place.value, item)
   }
 
   removeFocus() {
@@ -133,8 +132,8 @@ class Autocomplete extends React.Component {
 
   handleKeyPress(event) {
     const key = event.which || event.keyCode
-    if (!key) return
 
+    if (!key) return
     const {autocompleteSuggestions, chosenPlace} = this.state
 
     //======= ENTER

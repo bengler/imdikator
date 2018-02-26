@@ -2,7 +2,6 @@ import React from 'react'
 import {_t} from '../../lib/translate'
 
 class Autocomplete extends React.Component {
-
   static propTypes = {
     items: React.PropTypes.array,
     inputProps: React.PropTypes.object,
@@ -39,11 +38,10 @@ class Autocomplete extends React.Component {
   componentDidMount() {
     // get all names from places
     this.state.places = this.props.items.map(item => {
-
       const {centralityName, centralityNumber, code, commerceRegionCode, countyCode, imdiRegion, prefixedCode, type} = item
 
       const itemDescription = {
-        name: (_t(item.type) && item.prefixedCode != 'F00') ? `${item.name}, ${_t(item.type)}` : item.name,
+        name: _t(item.type) && item.prefixedCode != 'F00' ? `${item.name}, ${_t(item.type)}` : item.name,
         value: item.name,
         prefixedCode,
         centralityName,
@@ -69,9 +67,7 @@ class Autocomplete extends React.Component {
     }
 
     if (this.props.sortItems) {
-      items = items.slice().sort((item, otherItem) => (
-        this.props.sortItems(item, otherItem, value)
-      ))
+      items = items.slice().sort((item, otherItem) => this.props.sortItems(item, otherItem, value))
     }
 
     return items
@@ -91,7 +87,6 @@ class Autocomplete extends React.Component {
   }
 
   handleInputChange(event) {
-
     this.setState({
       input: event.target.value || '',
       autocompleteSuggestions: this.sortItems(this.findItemsInArrayOfPlaces(event.target.value))
@@ -118,7 +113,6 @@ class Autocomplete extends React.Component {
   }
 
   removeFocus() {
-
     this.setState({
       input: '',
       autocompleteSuggestions: [],
@@ -140,24 +134,18 @@ class Autocomplete extends React.Component {
     if (key === 13) {
       this.submitSearch(autocompleteSuggestions[chosenPlace], chosenPlace)
       this.removeFocus()
-    }
-
-    //======= ARROW DOWN
-    else if (key === 40) {
+    } else if (key === 40) {
+      //======= ARROW DOWN
       if (chosenPlace + 1 >= autocompleteSuggestions.length) return // don't select something past the lists length
 
       this.setState({chosenPlace: chosenPlace + 1})
-    }
-
-    //======= ARROW UP
-    else if (key === 38) {
+    } else if (key === 38) {
+      //======= ARROW UP
       if (chosenPlace - 1 < 0) return // don't select something before the list begins
 
       this.setState({chosenPlace: chosenPlace - 1})
-    }
-
-    //======= ESCAPE
-    else if (key === 27) {
+    } else if (key === 27) {
+      //======= ESCAPE
       this.removeFocus()
     }
   }
@@ -179,9 +167,15 @@ class Autocomplete extends React.Component {
         <input
           type="text"
           value={this.state.input}
-          onChange={event => { this.handleInputChange(event) }}
-          onKeyDown={event => { this.handleKeyPress(event) }}
-          onBlur={() => { this.removeFocus() }}
+          onChange={event => {
+            this.handleInputChange(event)
+          }}
+          onKeyDown={event => {
+            this.handleKeyPress(event)
+          }}
+          onBlur={() => {
+            this.removeFocus()
+          }}
           placeholder={this.props.inputProps.placeholder}
           role="combobox"
           aria-autocomplete="both"
@@ -189,32 +183,31 @@ class Autocomplete extends React.Component {
           aria-activedescendant="item-2"
         />
 
-        <ul
-          className="search-result"
-          role="listbox"
-          ref={searchResult => { this.searchResult = searchResult }}>
-
-          {autocompleteSuggestions
-            && autocompleteSuggestions.map((item, index) => (
-
+        {autocompleteSuggestions.length > 0 && (
+          <ul
+            className="search-result"
+            role="listbox"
+            ref={searchResult => {
+              this.searchResult = searchResult
+            }}
+          >
+            {autocompleteSuggestions.map((item, index) => (
               <li
                 id={`search-result--item item-${index}`}
                 onMouseDown={evt => this.handleClick(evt, index)}
                 onBlur={() => this.removeFocus()}
                 onFocus={() => this.giveFocus()}
                 role="option"
-                key={item.name.concat(index)}>
-
-                <a className={index === chosenPlace
-                  ? 'search-result__result search-result__result--selected'
-                  : 'search-result__result'}>
+                key={item.name.concat(index)}
+              >
+                <a className={index === chosenPlace ? 'search-result__result search-result__result--selected' : 'search-result__result'}>
                   {item.name}
-                  <i className="icon__arrow-right icon--red search-result__icon"></i>
+                  <i className="icon__arrow-right icon--red search-result__icon" />
                 </a>
               </li>
-           ))
-          }
-        </ul>
+            ))}
+          </ul>
+        )}
       </div>
     )
   }

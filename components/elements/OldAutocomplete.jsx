@@ -9,7 +9,6 @@ const DISABLE_AUTO_COMPLETE_INPUT_TEXT = true
  * but sadly included here to get more control of styling and custom behavior
  */
 export default class OldAutocomplete extends Component {
-
   static propTypes = {
     initialValue: PropTypes.any,
     onChange: PropTypes.func,
@@ -26,15 +25,13 @@ export default class OldAutocomplete extends Component {
     getItemValue: PropTypes.func,
     style: PropTypes.object,
     className: PropTypes.string
-  };
+  }
 
   static defaultProps = {
     inputProps: {},
     openOnFocus: true,
-    onChange() {
-    },
-    onSelect(value, item) {
-    },
+    onChange() {},
+    onSelect(value, item) {},
     renderMenu(items, value, style) {
       return <div style={{...style, ...this.menuStyle}}>{items}</div>
     },
@@ -49,9 +46,9 @@ export default class OldAutocomplete extends Component {
       fontSize: '90%',
       position: 'fixed',
       overflow: 'auto',
-      maxHeight: '50%', // TODO: don't cheat, let it flow to the bottom
+      maxHeight: '50%' // TODO: don't cheat, let it flow to the bottom
     }
-  };
+  }
 
   constructor(props) {
     super()
@@ -90,9 +87,7 @@ export default class OldAutocomplete extends Component {
     ArrowDown() {
       event.preventDefault()
       const {highlightedIndex} = this.state
-      const index = (
-        highlightedIndex === null || highlightedIndex === this.getFilteredItems().length - 1
-      ) ? 0 : highlightedIndex + 1
+      const index = highlightedIndex === null || highlightedIndex === this.getFilteredItems().length - 1 ? 0 : highlightedIndex + 1
       this._performAutoCompleteOnKeyUp = true
       this.setState({
         highlightedIndex: index,
@@ -103,9 +98,7 @@ export default class OldAutocomplete extends Component {
     ArrowUp(event) {
       event.preventDefault()
       const {highlightedIndex} = this.state
-      const index = (
-        highlightedIndex === 0 || highlightedIndex === null
-      ) ? this.getFilteredItems().length - 1 : highlightedIndex - 1
+      const index = highlightedIndex === 0 || highlightedIndex === null ? this.getFilteredItems().length - 1 : highlightedIndex - 1
       this._performAutoCompleteOnKeyUp = true
       this.setState({
         highlightedIndex: index,
@@ -120,32 +113,34 @@ export default class OldAutocomplete extends Component {
       }
 
       if (this.state.highlightedIndex === null) {
-
         // hit enter after focus but before typing anything so no autocomplete attempt yet
-        this.setState({
-          isOpen: false
-        }, () => {
-          findDOMNode(this.refs.input).select()
-        })
+        this.setState(
+          {
+            isOpen: false
+          },
+          () => {
+            findDOMNode(this.refs.input).select()
+          }
+        )
       } else {
         const item = this.getFilteredItems()[this.state.highlightedIndex]
         const value = this.props.getItemValue(item)
         console.log(value, item)
 
-        this.setState({
-          value: '',
-          isOpen: false,
-          highlightedIndex: null
-        }, () => {
-          //findDOMNode(this.refs.input).focus() // TODO: file issue
-          findDOMNode(this.refs.input).setSelectionRange(
-            this.state.value.length,
-            this.state.value.length
-          )
+        this.setState(
+          {
+            value: '',
+            isOpen: false,
+            highlightedIndex: null
+          },
+          () => {
+            //findDOMNode(this.refs.input).focus() // TODO: file issue
+            findDOMNode(this.refs.input).setSelectionRange(this.state.value.length, this.state.value.length)
 
-          console.log(value, item)
-          this.selectItem(value, item)
-        })
+            console.log(value, item)
+            this.selectItem(value, item)
+          }
+        )
       }
     },
 
@@ -155,7 +150,7 @@ export default class OldAutocomplete extends Component {
         isOpen: false
       })
     }
-  };
+  }
 
   maybeScrollItemIntoView() {
     const {isOpen, highlightedIndex} = this.state
@@ -184,11 +179,14 @@ export default class OldAutocomplete extends Component {
 
   handleChange(event) {
     this._performAutoCompleteOnKeyUp = true
-    this.setState({
-      value: event.target.value,
-    }, () => {
-      this.props.onChange(event, this.state.value)
-    })
+    this.setState(
+      {
+        value: event.target.value
+      },
+      () => {
+        this.props.onChange(event, this.state.value)
+      }
+    )
   }
 
   handleKeyUp() {
@@ -202,9 +200,7 @@ export default class OldAutocomplete extends Component {
     let items = this.props.items
 
     if (this.props.shouldItemRender) {
-      items = items.filter(item => (
-        this.props.shouldItemRender(item, this.state.value)
-      ))
+      items = items.filter(item => this.props.shouldItemRender(item, this.state.value))
     }
 
     if (this.props.sortItems) {
@@ -217,7 +213,6 @@ export default class OldAutocomplete extends Component {
   }
 
   maybeAutoCompleteText() {
-
     if (DISABLE_AUTO_COMPLETE_INPUT_TEXT || this.state.value === '') {
       return
     }
@@ -269,17 +264,20 @@ export default class OldAutocomplete extends Component {
 
   selectItemFromMouse(item) {
     const value = this.props.getItemValue(item)
-    this.setState({
-      value: '',
-      isOpen: false,
-      highlightedIndex: null
-    }, () => {
-      this.selectItem(value, item)
-      if (this.props.focusAfterSelect) {
-        findDOMNode(this.refs.input).focus()
+    this.setState(
+      {
+        value: '',
+        isOpen: false,
+        highlightedIndex: null
+      },
+      () => {
+        this.selectItem(value, item)
+        if (this.props.focusAfterSelect) {
+          findDOMNode(this.refs.input).focus()
+        }
+        this.setIgnoreBlur(false)
       }
-      this.setIgnoreBlur(false)
-    })
+    )
   }
 
   setIgnoreBlur(ignore) {
@@ -288,11 +286,7 @@ export default class OldAutocomplete extends Component {
 
   renderMenu() {
     const items = this.getFilteredItems().map((item, index) => {
-      const element = this.props.renderItem(
-        item,
-        this.state.highlightedIndex === index,
-        index
-      )
+      const element = this.props.renderItem(item, this.state.highlightedIndex === index, index)
       return React.cloneElement(element, {
         key: item.prefixedCode,
         onMouseDown: () => this.setIgnoreBlur(true),
@@ -300,13 +294,13 @@ export default class OldAutocomplete extends Component {
         onClick: () => this.selectItemFromMouse(item),
         id: `item-${index}`,
         role: 'option',
-        ref: `item-${index}`,
+        ref: `item-${index}`
       })
     })
     const style = {
       left: this.state.menuLeft,
       top: this.state.menuTop,
-      minWidth: this.state.menuWidth,
+      minWidth: this.state.menuWidth
     }
     const menu = this.props.renderMenu(items, this.state.value, style)
     return React.cloneElement(menu, {
@@ -348,8 +342,7 @@ export default class OldAutocomplete extends Component {
     const {style, className, inputProps} = this.props
     const {isOpen, value, highlightedIndex} = this.state
 
-    const selectedText = document.getElementById(`item-${highlightedIndex}`)
-        ? document.getElementById(`item-${highlightedIndex}`).innerText : ''
+    const selectedText = document.getElementById(`item-${highlightedIndex}`) ? document.getElementById(`item-${highlightedIndex}`).innerText : ''
 
     return (
       <div style={style} className={className}>

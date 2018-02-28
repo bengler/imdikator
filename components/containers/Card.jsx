@@ -37,7 +37,6 @@ import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tra
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class Card extends Component {
-
   static propTypes = {
     dispatch: PropTypes.func,
     loading: PropTypes.bool,
@@ -60,13 +59,13 @@ class Card extends Component {
     // why? Because d3 hijacks 'this' in child scope after mount.
     // so if we want to use 'this' for Card, we must use this.props.thisCard (in child components)
     thisCard: PropTypes.any
-  };
+  }
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func,
     navigate: PropTypes.func
-  };
+  }
 
   constructor(props) {
     super()
@@ -102,7 +101,6 @@ class Card extends Component {
   // element is an element containing a transform attribute.
   // X and Y are the values you'd want to add to the existing X and Y.
   addValuesToTransform(element, addX, addY) {
-
     const transform = element.getAttribute('transform')
     let transformValues
 
@@ -110,8 +108,7 @@ class Card extends Component {
       // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
       // So we'll split on space instead
       transformValues = transform.split(' ')
-    }
-    else {
+    } else {
       transformValues = transform.split(',')
     }
 
@@ -202,7 +199,6 @@ class Card extends Component {
   //  use refs from each card component that toggles the height.
   //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
-
     let svg = this.toggleList
     if (!svg) return
     svg = svg.querySelector('.chart__svg')
@@ -255,7 +251,7 @@ class Card extends Component {
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
       className: 'svg-text text__source',
-      verticalAlign: 'bottom',
+      verticalAlign: 'bottom'
     })
 
     const textSource = svg.querySelector('.text__source')
@@ -340,7 +336,8 @@ class Card extends Component {
     const explicitView = true
     if (!activeTab) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
+        <div className="toggle-list__section toggle-list__section--expanded">
+          <i className="loading-indicator" />
           Laster…
         </div>
       )
@@ -361,11 +358,7 @@ class Card extends Component {
     const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede' // TODO: Needs to be dynamic
 
     if (!ChartComponent) {
-      return (
-        <div className="toggle-list__section toggle-list__section--expanded">
-          Error: No chart component for {JSON.stringify(chartKind)}
-        </div>
-      )
+      return <div className="toggle-list__section toggle-list__section--expanded">Error: No chart component for {JSON.stringify(chartKind)}</div>
     }
 
     const data = queryResultPresenter(query, queryResult, {
@@ -380,15 +373,24 @@ class Card extends Component {
       }
     }
 
+    // not ideal, but requested. story of this code's life.
+    // if the user is watching the "over tid" tab in the card "befolkning opprinnelsesland", we should by default compare the region to itself.
+    // stupid.
+    if (card.name === 'befolkning_opprinnelsesland' && activeTab.chartKind === 'line' && !query.comparisonRegions.length) {
+      query.comparisonRegions[0] = region.prefixedCode
+    }
+
     return (
       <section
         data-card
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
-        ref={(toggleList) => { this.toggleList = toggleList }}
-        crossOrigin="anonymous">
-
+        ref={toggleList => {
+          this.toggleList = toggleList
+        }}
+        crossOrigin="anonymous"
+      >
         {!printable && (
           <TabBar
             activeTab={activeTab}
@@ -413,18 +415,22 @@ class Card extends Component {
           />
         )}
 
-        {loading && <span><i className="loading-indicator" /> Laster…</span>}
+        {loading && (
+          <span>
+            <i className="loading-indicator" /> Laster…
+          </span>
+        )}
 
-         {!printable && (
-           <ChartViewModeSelect
-             activeTab={activeTab}
-             embedded={false}
-             setExplicitView={this.setExplicitView}
-             explicitView={explicitView}
-             mode={chartViewMode}
-             onChange={newMode => this.setState({chartViewMode: newMode})}
-           />
-         )}
+        {!printable && (
+          <ChartViewModeSelect
+            activeTab={activeTab}
+            embedded={false}
+            setExplicitView={this.setExplicitView}
+            explicitView={explicitView}
+            mode={chartViewMode}
+            onChange={newMode => this.setState({chartViewMode: newMode})}
+          />
+        )}
 
         <div className="graph">
           {data && (
@@ -458,13 +464,12 @@ class Card extends Component {
                 query={query}
                 headerGroups={headerGroups}
                 chartKind={chartKind}
-                setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
+                setExplicitView={isExplicit => this.setState({explicitView: isExplicit})}
+              />
             </div>
           )}
 
-          {!printable && (
-            <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
-          )}
+          {!printable && <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />}
         </div>
       </section>
     )
@@ -472,7 +477,6 @@ class Card extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
   if (!cardState || cardState.initializing) {
     return {loading: true}

@@ -60,6 +60,7 @@ class Autocomplete extends React.Component {
   getFilteredItems() {
     let items = this.props.items
     const value = this.state.autocompleteSuggestions[this.state.chosenPlace].value
+
     if (this.props.shouldItemRender) {
       items = items.filter(item => {
         return this.props.shouldItemRender(item, value)
@@ -109,7 +110,7 @@ class Autocomplete extends React.Component {
   submitSearch(place) {
     const item = this.getFilteredItems()[this.state.chosenPlace]
 
-    this.selectItem(place.value, item)
+    this.selectItem(item.value, item)
   }
 
   removeFocus() {

@@ -10,6 +10,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import d3_save_svg from 'd3-save-svg'
 import SvgText from 'svg-text'
+import includes from 'lodash.includes'
 
 import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
@@ -208,12 +209,35 @@ class Card extends Component {
     const spaceBetweenGraphAndDescription = 100
 
     // //  extra height for the svg diagram
-    const extraHeightSVG = 240
+    let extraHeightSVG = 240
     const paddingBottom = 80
     const spaceBetween = 30
 
+    const parent = this.findAncestor(this.toggleList, '[data-card]')
     const chart = svg.querySelector('.chart__d3-points')
     const originalHeight = chart.getBoundingClientRect().height || chart.getAttribute('height')
+
+    // get number of descriptions below chart
+    const descriptions = Array.prototype.slice.call(parent.querySelectorAll('.chart__legend'))
+
+    // does the description squares below the chart flow horizontally?
+    const descriptionsFlowVertically = descriptions.map((description, i) => {
+      if (i === 0) return false
+      return (
+        Number(
+          description
+            .querySelector('g')
+            .getAttribute('transform')
+            .split(',')[0]
+            .split('translate(')[1]
+        ) === 0
+      )
+    })
+
+    // add extra height to chart if there are many descriptions / squares below chart
+    if (descriptionsFlowVertically.includes(true)) {
+      extraHeightSVG += 21 * descriptions.length - 20
+    }
 
     //  add extra height to svg
     const height = parseInt(originalHeight || 0, 10) + extraHeightSVG
@@ -223,7 +247,6 @@ class Card extends Component {
     const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`
     svg.setAttribute('viewBox', newViewBox)
 
-    const parent = this.findAncestor(this.toggleList, '[data-card]')
     const description = parent.querySelector('[data-chart-description]')
     const source = parent.querySelector('[data-chart-source]')
 

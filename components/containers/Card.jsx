@@ -169,7 +169,7 @@ class Card extends Component {
     })
   }
 
-  // kinda polyfill for .closest()
+  // type of polyfill for .closest()
   findAncestor(el, sel) {
     if (typeof el.closest === 'function') {
       return el.closest(sel) || null
@@ -373,9 +373,7 @@ class Card extends Component {
       }
     }
 
-    // not ideal, but requested. story of this code's life.
     // if the user is watching the "over tid" tab in the card "befolkning opprinnelsesland", we should by default compare the region to itself.
-    // stupid.
     if (card.name === 'befolkning_opprinnelsesland' && activeTab.chartKind === 'line' && !query.comparisonRegions.length) {
       query.comparisonRegions[0] = region.prefixedCode
     }

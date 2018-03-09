@@ -108,7 +108,10 @@ class Autocomplete extends React.Component {
 
   // finally route user somewhere else
   submitSearch(place) {
-    const item = this.getFilteredItems()[this.state.chosenPlace]
+    const filteredItems = this.getFilteredItems()
+    const item = filteredItems.find(listItem => {
+      return listItem.type === place.type
+    })
 
     this.selectItem(item.value, item)
   }
@@ -139,6 +142,7 @@ class Autocomplete extends React.Component {
       //======= ARROW DOWN
       if (chosenPlace + 1 >= autocompleteSuggestions.length) return // don't select something past the lists length
 
+      console.log(autocompleteSuggestions[chosenPlace + 1])
       this.setState({chosenPlace: chosenPlace + 1})
     } else if (key === 38) {
       //======= ARROW UP
@@ -196,6 +200,7 @@ class Autocomplete extends React.Component {
               <li
                 id={`search-result--item item-${index}`}
                 onMouseDown={evt => this.handleClick(evt, index)}
+                onTouchEnd={evt => this.handleClick(evt, index)}
                 onBlur={() => this.removeFocus()}
                 onFocus={() => this.giveFocus()}
                 role="option"

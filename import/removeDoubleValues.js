@@ -15,7 +15,6 @@ let newFileContent
 
 // read the file
 fs.readFile(path, (err, buff) => {
-
   // get all text from the file
   const fileContent = buff.toString()
 
@@ -24,7 +23,6 @@ fs.readFile(path, (err, buff) => {
 
   // handle each line
   arrayOfContent.forEach((item, index) => {
-
     // skip the first and last line
     if (index !== 0 || index != arrayOfContent.length) {
       let values = item.split(',')
@@ -36,7 +34,7 @@ fs.readFile(path, (err, buff) => {
 
   console.log(chalk.cyan('  Successfully parsed script\n'))
 
-  fs.writeFile(path, newFileContent, (error) => {
+  fs.writeFile(path, newFileContent, error => {
     if (error) throw error
     console.log(chalk.cyan('  Successfully overwrote previous script\n'))
   })

@@ -3,7 +3,6 @@ import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import saveSvgAsPng from '../../lib/saveSvgAsPng'
 
 export default class PopupChoicesBox extends Component {
-
   static propTypes = {
     onCancel: PropTypes.func,
     onApply: PropTypes.func,
@@ -19,7 +18,7 @@ export default class PopupChoicesBox extends Component {
     setExplicitView: PropTypes.func,
     downloadPNG: PropTypes.func,
     chartKind: PropTypes.string
-  };
+  }
 
   constructor(props) {
     super()
@@ -60,7 +59,6 @@ export default class PopupChoicesBox extends Component {
   }
 
   addValuesToTransform(element, addX, addY) {
-
     const transform = element.getAttribute('transform')
     let transformValues
 
@@ -69,9 +67,7 @@ export default class PopupChoicesBox extends Component {
 
       // So we'll split on space instead
       transformValues = transform.split(' ')
-    }
-
-    else {
+    } else {
       transformValues = transform.split(',')
     }
 
@@ -93,6 +89,7 @@ export default class PopupChoicesBox extends Component {
     svg.style.background = 'white'
 
     this.chartDownloadVersion(true) // style chart for download
+    console.log(saveSvgAsPng, svg)
     saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg') // download the png
     this.chartDownloadVersion(false) // revert chart to normal
   }
@@ -127,9 +124,7 @@ export default class PopupChoicesBox extends Component {
         // chart pyramid has different positions
         if (textElement.getAttribute('class').includes('chart__pyramid')) {
           textElement.style.setProperty('transform', 'translate(5px, -4px)')
-        }
-
-        else {
+        } else {
           textElement.style.setProperty('transform', 'translate(-7px, -4px)')
         }
         textElement.style.setProperty('font-size', '12px')
@@ -146,9 +141,7 @@ export default class PopupChoicesBox extends Component {
       text.style.setProperty('display', 'initial')
       text.style.setProperty('font-size', '25px')
       text.style.setProperty('transform', 'translateY(30px)')
-    }
-
-    else {
+    } else {
       this.addValuesToTransform(d3, -moveRight, -moveDown)
       text.style.setProperty('display', 'none')
       svg.style.setProperty('transform', 'translate(0px, 0px)')
@@ -159,13 +152,18 @@ export default class PopupChoicesBox extends Component {
   render() {
     const {chartKind} = this.props
 
-    let downloadImage = (chartKind === 'bar' || chartKind === 'bubble' || chartKind === 'pyramid')
+    let downloadImage = chartKind === 'bar' || chartKind === 'bubble' || chartKind === 'pyramid'
 
     return (
-      <div ref={lightbox => { this.lightbox = lightbox }} className="lightbox lightbox--as-popup lightbox--inline lightbox--animate">
-        <div className="lightbox__backdrop"></div>
+      <div
+        ref={lightbox => {
+          this.lightbox = lightbox
+        }}
+        className="lightbox lightbox--as-popup lightbox--inline lightbox--animate"
+      >
+        <div className="lightbox__backdrop" />
         <dialog open="open" className="lightbox__box">
-          <i className="lightbox__point" style={{left: '9.5em'}}></i>
+          <i className="lightbox__point" style={{left: '9.5em'}} />
           <div role="document">
             <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>
               <i className="icon__close icon--red lightbox__close-button-icon" />
@@ -180,49 +178,73 @@ export default class PopupChoicesBox extends Component {
               <div className="select t-margin-bottom">
                 <select id="popupchoicesbox-select" value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
                   {this.props.choices.map(choice => (
-                    <option value={choice.value} key={choice.value}>{choice.description}</option>
+                    <option value={choice.value} key={choice.value}>
+                      {choice.description}
+                    </option>
                   ))}
                 </select>
               </div>
             </label>
 
             <div className="download-buttons">
-
               {/* generate csv button */}
               <button type="button" disabled={this.props.isLoading} className="button download__button" onClick={this.onApply.bind(this)}>
-                {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : this.props.applyButtonText}
+                {this.props.isLoading ? (
+                  <span>
+                    <i className="loading-indicator loading-indicator--white" /> Laster…
+                  </span>
+                ) : (
+                  this.props.applyButtonText
+                )}
               </button>
 
-              {downloadImage &&
+              {downloadImage && (
                 // download svg button
                 // <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
                 //   {this.props.isLoading ? <span><i className="loading-indicator loading-indicator--white" /> Laster…</span> : 'Last ned SVG (vektor)'}
                 // </button>
 
                 // download png button
-                <a type="button" ref={pngButton => { this.pngButton = pngButton }} disabled={this.props.isLoading} className="button download__button" onClick={event => { this.downloadPNG(event) }}>
+                <a
+                  type="button"
+                  ref={pngButton => {
+                    this.pngButton = pngButton
+                  }}
+                  disabled={this.props.isLoading}
+                  className="button download__button"
+                  onClick={event => {
+                    this.downloadPNG(event)
+                  }}
+                >
                   Last ned bilde (.png)
                 </a>
-              }
+              )}
 
               {/* download svg button */}
-              {this.props.linkUrl && !this.props.isLoading
-                && <div>
-                  <p><strong>CSV er klar for nedlastning:</strong></p>
-                  <a href={this.props.linkUrl} title="last ned CSV">Last ned CSV (.csv)</a>
-                  {/* <a href={this.props.linkUrlExcel} onClick={this.downloadXLS} title="last ned XLSX">Last ned Excel (.xlsx)</a> */}
-                </div>
-              }
+              {this.props.linkUrl &&
+                !this.props.isLoading && (
+                  <div>
+                    <p>
+                      <strong>CSV er klar for nedlastning:</strong>
+                    </p>
+                    <a href={this.props.linkUrl} title="last ned CSV">
+                      Last ned CSV (.csv)
+                    </a>
+                    {/* <a href={this.props.linkUrlExcel} onClick={this.downloadXLS} title="last ned XLSX">Last ned Excel (.xlsx)</a> */}
+                  </div>
+                )}
             </div>
 
             {/* error downloading svg message */}
-            {this.props.isError && !this.props.isLoading
-              && <div>
-                <p><strong>En feil oppsto</strong></p>
-                <p>Kunne ikke genere CSV-fil</p>
-              </div>
-            }
-
+            {this.props.isError &&
+              !this.props.isLoading && (
+                <div>
+                  <p>
+                    <strong>En feil oppsto</strong>
+                  </p>
+                  <p>Kunne ikke genere CSV-fil</p>
+                </div>
+              )}
           </div>
         </dialog>
       </div>

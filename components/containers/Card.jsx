@@ -234,9 +234,11 @@ class Card extends Component {
       )
     })
 
-    // add extra height to chart if there are many descriptions / squares below chart
+    // add extra height to chart if there are many descriptions / squares below chart while on mobile
+    const width = window.innerWidth || 650
     if (descriptionsFlowVertically.includes(true)) {
-      extraHeightSVG += 21 * descriptions.length - 20
+      const spacing = width <= 650 ? 40 : 20
+      extraHeightSVG += spacing * descriptions.length - spacing
     }
 
     //  add extra height to svg

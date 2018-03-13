@@ -263,5 +263,4 @@ export default class StackedAreaChart extends React.Component {
       <D3Chart data={data} functions={functions} config={config} />
     )
   }
-
 }

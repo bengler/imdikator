@@ -1,4 +1,3 @@
-
 //
 // Normalisation is an attempt to make dimension count
 //
@@ -21,16 +20,11 @@ const populationQuery = {
     },
     {
       name: 'innvkat5',
-      variables: [
-        'alle',
-        'innvandrere'
-      ]
+      variables: ['alle', 'innvandrere']
     },
     {
       name: 'kjonn',
-      variables: [
-        'alle'
-      ]
+      variables: ['alle']
     }
   ]
 }
@@ -41,9 +35,7 @@ const refugeeQuery = {
   dimensions: [
     {
       name: 'innvgrunn5',
-      variables: [
-        'flukt'
-      ]
+      variables: ['flukt']
     },
     {
       name: 'aar',
@@ -54,9 +46,7 @@ const refugeeQuery = {
     },
     {
       name: 'kjonn',
-      variables: [
-        'alle'
-      ]
+      variables: ['alle']
     }
   ]
 }
@@ -64,7 +54,7 @@ const refugeeQuery = {
 const connector = JSONConnector.defaults({
   headers: {
     'user-agent': 'imdikator:api-client',
-    'accept': 'application/json,text/plain,* / *'
+    accept: 'application/json,text/plain,* / *'
   }
 })
 
@@ -73,28 +63,32 @@ const apiClient = VismaAPIClient.create({
   connector: connector
 })
 
-FileClient.create().getAllRegions().then(getData)
+FileClient.create()
+  .getAllRegions()
+  .then(getData)
 
 function getData(allRegions) {
+  const municipalityCodeToNameKeys = {}
 
-  const municipalityCodeToNameKeys = { }
-
-  allRegions.filter(region => {
-    return region.type == 'municipality'
-  }).forEach(municipality => {
-    municipalityCodeToNameKeys[municipality.code] = municipality.name
-  })
+  allRegions
+    .filter(region => {
+      return region.type == 'municipality'
+    })
+    .forEach(municipality => {
+      municipalityCodeToNameKeys[municipality.code] = municipality.name
+    })
 
   const populationQueryPromise = apiClient.query(populationQuery)
   const refugeeQueryPromise = apiClient.query(refugeeQuery)
-  Promise.all([populationQueryPromise, refugeeQueryPromise]).then(result => {
-    debug('All promises completed')
-    findSimilarities(result, municipalityCodeToNameKeys)
-  }).catch(debug)
+  Promise.all([populationQueryPromise, refugeeQueryPromise])
+    .then(result => {
+      debug('All promises completed')
+      findSimilarities(result, municipalityCodeToNameKeys)
+    })
+    .catch(debug)
 }
 
 function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
-
   population = population.filter(muni => muni.enhet == 'personer')
 
   debug(`Got ${population.length} population rows and ${refugees.length} refugee rows`)
@@ -143,17 +137,15 @@ function findSimilarities([population, refugees], municipalityCodeToNameKeys) {
   const strippedSet = strip(similarities)
 
   // STATUS HERE
-  // console.log(JSON.stringify(strippedSet, 0, 2))
+  console.log(JSON.stringify(strippedSet, 0, 2))
 
   // Purely for debug
   const debugSet = annotate(strippedSet, municipalityCodeToNameKeys, set)
   // debug(JSON.stringify(debugSet, 0, 2))
-
 }
 
 function annotate(stripped, municipalityCodeToNameKeys, set) {
   return stripped.map(municipality => {
-
     const similarAsNameList = municipality.similar.map(code => {
       return municipalityCodeToNameKeys[code]
     })
@@ -166,9 +158,8 @@ function annotate(stripped, municipalityCodeToNameKeys, set) {
       name: municipalityCodeToNameKeys[municipality.code],
       size: set.find(set2 => set2.kommuneNr == municipality.code).totalPopulation,
       similar: similarAsNameList,
-      sizes: similarAsSizeList,
+      sizes: similarAsSizeList
     }
-
   })
 }
 
@@ -208,19 +199,15 @@ function calculateProximity(set, fields) {
   })
 }
 
-
 function findDistance(source, destination, fields) {
-
   let value = 0
 
   fields.forEach(field => {
     value += Math.pow(Math.abs(destination[field] - source[field]), 2)
   })
 
-
   return Math.sqrt(value)
 }
-
 
 // Divide one field by another
 
@@ -256,7 +243,6 @@ function normalize(set, variable, modifier) {
     }
 
     element[variable] = value
-
   })
   debug('Variable max:', variable, max)
 }
@@ -282,7 +268,7 @@ function flattenLists(population, refugees) {
     if (!entry) {
       // debug('Could not find refugee count for municipality',kommuneNr)
       result[kommuneNr] = {
-        kommuneNr: kommuneNr,
+        kommuneNr: kommuneNr
       }
     }
 

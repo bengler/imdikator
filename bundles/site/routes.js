@@ -79,7 +79,6 @@ routes.add('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName
   }
 
   const {region, cardsPageName, cardsName, tabName} = params
-  console.log({region, cardsPageName, cardsName, tabName})
   dispatch(
     loadCardsPage(params.region, params.cardsPageName, {
       cardName: params.cardName,

@@ -201,60 +201,56 @@ export default class BarChart extends React.Component {
     //================================================
     //  if user has toggled button for showing numbers above graphs
     //================================================
-    if (explicitView) {
 
-      // Add text indicators
-      category.selectAll('rect.chart__text')
-      .data(dataItem => dataItem.values)
-      .enter()
-      .append('text')
-      .attr('class', 'chart__text')
-      .attr('width', item => item.scale.rangeBand())
-      .attr('x', dataItem => dataItem.scale(dataItem.title))
-      .attr('y', dataItem => {
-        const val = Math.max(0, dataItem.value)
-        return yc.scale(val)
-      })
-      .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
-      .each(function (item) {
-        item.el = this
-      })
-      .text(dataItem => dataItem.formattedValue)
-    }
+    // Add text indicators
+    category.selectAll('rect.chart__text')
+    .data(dataItem => dataItem.values)
+    .enter()
+    .append('text')
+    .attr('class', 'chart__text')
+    .attr('width', item => item.scale.rangeBand())
+    .attr('x', dataItem => dataItem.scale(dataItem.title))
+    .attr('y', dataItem => {
+      const val = Math.max(0, dataItem.value)
+      return yc.scale(val)
+    })
+    .attr('height', dataItem => Math.abs(yc.scale(0) - yc.scale(dataItem.value)))
+    .each(function (item) {
+      item.el = this
+    })
+    .text(dataItem => dataItem.formattedValue)
 
     //================================================
     //  hovered chart bars shows numbers
     //================================================
-    else {
-      category.selectAll('rect.chart__bar-hover')
-        .data(dataItem => dataItem.values)
-        .enter()
-        .append('svg:a')
-        .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
-        .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
-        .on('click', () => d3.event.stopPropagation())
-        .on('focus', item => open(item))
-        .append('rect')
-        .attr('class', 'chart__bar-hover')
-        .attr('width', item => item.scale.rangeBand())
-        .attr('x', dataItem => dataItem.scale(dataItem.title))
-        // Want full height for this one
-        .attr('y', 0)
-        .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
-        .attr('pointer-events', 'all')
-        .style('fill', 'none')
-        .on('touchend', item => {
-          if (hoveropen) {
-            close()
-          } else {
-            open(item)
-          }
-        })
-        .on('mouseover', item => open(item))
-        .on('mouseout', () => close())
-        .on('focus', item => open(item))
-        .on('blur', () => close())
-    }
+    category.selectAll('rect.chart__bar-hover')
+      .data(dataItem => dataItem.values)
+      .enter()
+      .append('svg:a')
+      .attr('xlink:href', 'javascript://') // eslint-disable-line no-script-url
+      .attr('aria-label', item => item.title + ' ' + item.formattedValue) // For screenreaders
+      .on('click', () => d3.event.stopPropagation())
+      .on('focus', item => open(item))
+      .append('rect')
+      .attr('class', 'chart__bar-hover')
+      .attr('width', item => item.scale.rangeBand())
+      .attr('x', dataItem => dataItem.scale(dataItem.title))
+      // Want full height for this one
+      .attr('y', 0)
+      .attr('height', () => this.size.height - yc.scale(yc.scale.domain()[1]))
+      .attr('pointer-events', 'all')
+      .style('fill', 'none')
+      .on('touchend', item => {
+        if (hoveropen) {
+          close()
+        } else {
+          open(item)
+        }
+      })
+      .on('mouseover', item => open(item))
+      .on('mouseout', () => close())
+      .on('focus', item => open(item))
+      .on('blur', () => close())
 
     /* eslint-disable prefer-reflect */
     // Add the x axis legend
@@ -310,7 +306,6 @@ export default class BarChart extends React.Component {
 
   render() {
     const {explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
-    const extraPadding = 80
     const functions = {
       drawPoints: this.drawPoints,
       calculateWidth: this.calculateWidth,
@@ -325,7 +320,7 @@ export default class BarChart extends React.Component {
 
     if (CHARTS_CONFIG.bar.minWidthPerCategory) {
       const numCategories = data.preparedData.length
-      config.minimumWidth = numCategories * (CHARTS_CONFIG.bar.minWidthPerCategory + extraPadding)
+      config.minimumWidth = numCategories * (CHARTS_CONFIG.bar.minWidthPerCategory)
     }
 
     return (

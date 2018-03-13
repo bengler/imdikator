@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const Hoverbox = React.createClass({
+class Hoverbox extends Component {
 
-  getInitialState() {
-    return {
+  static propTypes = {
+    el: React.PropTypes.object
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
       title: '',
       body: '',
       direction: 'bottom',
-      el: null
+      el: props.el
     }
-  },
+  }
 
   calculatePositionTo(element) {
     const offset = element.getBoundingClientRect()
@@ -18,7 +24,7 @@ const Hoverbox = React.createClass({
     const bottom = this.state.containerRect.height
                  - (offset.top - this.state.containerRect.top)
     return {left, bottom}
-  },
+  }
 
   calculateDirection(element) {
     const horizontalMargin = 150
@@ -42,7 +48,7 @@ const Hoverbox = React.createClass({
       return 'right'
     }
     return 'bottom'
-  },
+  }
 
   render() {
     const {title, body} = this.state
@@ -92,6 +98,6 @@ const Hoverbox = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default Hoverbox

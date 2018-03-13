@@ -10,6 +10,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import d3_save_svg from 'd3-save-svg'
 import SvgText from 'svg-text'
+import includes from 'lodash.includes'
 
 import {CHARTS} from '../../config/chartTypes'
 import {TABS} from '../../config/tabs'
@@ -37,7 +38,6 @@ import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tra
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class Card extends Component {
-
   static propTypes = {
     dispatch: PropTypes.func,
     loading: PropTypes.bool,
@@ -60,25 +60,26 @@ class Card extends Component {
     // why? Because d3 hijacks 'this' in child scope after mount.
     // so if we want to use 'this' for Card, we must use this.props.thisCard (in child components)
     thisCard: PropTypes.any
-  };
+  }
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func,
     navigate: PropTypes.func
-  };
+  }
 
   constructor(props) {
     super()
     this.state = {
       chartViewMode: 'chart',
       screenshot: null,
-      explicitView: false,
+      explicitView: true,
       description: null,
       printView: false,
       initialLoadComplete: false
     }
 
+    this.offset = this.offset.bind(this)
     this.getUrlToTab = this.getUrlToTab.bind(this)
     this.getShareUrl = this.getShareUrl.bind(this)
     this.findAncestor = this.findAncestor.bind(this)
@@ -89,20 +90,18 @@ class Card extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps !== this.props || prevState !== this.state) {
-      // add title and numbers above graph
-      if (this.state.explicitView) {
-        this.moveElementsIntoSVG()
-      }
-      this.addDescriptionAndSourceBelowDiagram()
-    }
+    this.moveElementsIntoSVG()
+    this.addDescriptionAndSourceBelowDiagram()
+  }
+
+  componentDidMount() {
+    this.moveElementsIntoSVG()
   }
 
   // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
   // element is an element containing a transform attribute.
   // X and Y are the values you'd want to add to the existing X and Y.
   addValuesToTransform(element, addX, addY) {
-
     const transform = element.getAttribute('transform')
     let transformValues
 
@@ -110,8 +109,7 @@ class Card extends Component {
       // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
       // So we'll split on space instead
       transformValues = transform.split(' ')
-    }
-    else {
+    } else {
       transformValues = transform.split(',')
     }
 
@@ -133,9 +131,10 @@ class Card extends Component {
     svg = svg.querySelector('.chart__svg')
     if (!svg) return
 
-    //  extra height for the svg diagram
+    // extra height for the svg diagram
     const extraHeightDiagram = 80
     const extraHeightDiagramPyramid = 20
+    const maxNumberOfCharacters = 40
 
     //  if this chart is pyramidchart - use different padding for colored boxes below chart
     const pyramid = this.props.activeTab.chartKind == 'pyramid'
@@ -157,18 +156,21 @@ class Card extends Component {
 
     const unit = this.props.query.unit[0]
 
-    // Now `svgForAi` can be opened in Illustrator and the text element will render
-    // correctly with Helvetica Bold.
     //  adds title above diagam
+    const numberOfCharacters = String(title.textContent).length
+
+    let counter = maxNumberOfCharacters
+
     const textContent = new SvgText({
       text: `${title.textContent} (${unit})`,
       element: svg,
-      maxWidth: svg.clientWidth || 0,
+      maxWidth: 2,
       textOverflow: 'ellipsis',
       className: 'svg-text title'
     })
   }
 
+  // type of polyfill for .closest()
   findAncestor(el, sel) {
     if (typeof el.closest === 'function') {
       return el.closest(sel) || null
@@ -183,33 +185,75 @@ class Card extends Component {
     return null
   }
 
+  offset(element) {
+    const rect = element.getBoundingClientRect()
+
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+
+    return {
+      top: rect.top + scrollTop,
+      left: rect.left + scrollLeft
+    }
+  }
+
   //  use refs from each card component that toggles the height.
   //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
-
     let svg = this.toggleList
     if (!svg) return
-    svg = svg.querySelector('[data-chart]')
+    svg = svg.querySelector('.chart__svg')
+    if (!svg) return
 
-    //  extra height for the svg diagram
-    const extraHeightSVG = 180
+    // space between the chart and description below
+    const spaceBetweenGraphAndDescription = 100
+
+    // //  extra height for the svg diagram
+    let extraHeightSVG = 240
     const paddingBottom = 80
     const spaceBetween = 30
 
+    const parent = this.findAncestor(this.toggleList, '[data-card]')
+    const chart = svg.querySelector('.chart__d3-points')
+    const originalHeight = chart.getBoundingClientRect().height || chart.getAttribute('height')
+
+    // get number of descriptions below chart
+    const descriptions = Array.prototype.slice.call(parent.querySelectorAll('.chart__legend'))
+
+    // does the description squares below the chart flow horizontally?
+    const descriptionsFlowVertically = descriptions.map((description, i) => {
+      if (i === 0) return false
+      return (
+        Number(
+          description
+            .querySelector('g')
+            .getAttribute('transform')
+            .split(',')[0]
+            .split('translate(')[1]
+        ) === 0
+      )
+    })
+
+    // add extra height to chart if there are many descriptions / squares below chart while on mobile
+    const width = window.innerWidth || 650
+    if (descriptionsFlowVertically.includes(true)) {
+      const spacing = width <= 650 ? 40 : 20
+      extraHeightSVG += spacing * descriptions.length - spacing
+    }
+
     //  add extra height to svg
-    const height = parseInt(svg.getAttribute('height') || 0, 10) + extraHeightSVG
+    const height = parseInt(originalHeight || 0, 10) + extraHeightSVG
     svg.setAttribute('height', height)
 
     const viewBox = svg.getAttribute('viewBox').split(' ')
     const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`
     svg.setAttribute('viewBox', newViewBox)
 
-    const parent = this.findAncestor(this.toggleList, '[data-card]')
     const description = parent.querySelector('[data-chart-description]')
     const source = parent.querySelector('[data-chart-source]')
 
-    //  adds description below diagram
-    // eslint-disable-next-line no-unused-vars
+    if (!description.textContent) return
+
     const descriptionSVGText = new SvgText({
       text: description.textContent,
       element: svg,
@@ -219,6 +263,11 @@ class Card extends Component {
       verticalAlign: 'bottom'
     })
 
+    const textDescription = svg.querySelector('.text__description')
+    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
+    this.addValuesToTransform(textDescription, null, newDescriptionHeight + spaceBetweenGraphAndDescription)
+
+    if (!source.textContent) return
     //  adds source below diagram
     // eslint-disable-next-line no-unused-vars
     const sourceSVGText = new SvgText({
@@ -227,17 +276,12 @@ class Card extends Component {
       maxWidth: svg.clientWidth || 0,
       textOverflow: 'ellipsis',
       className: 'svg-text text__source',
-      verticalAlign: 'bottom',
+      verticalAlign: 'bottom'
     })
 
-    const textDescription = svg.querySelector('.text__description')
     const textSource = svg.querySelector('.text__source')
-
-    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
     const newSourceHeight = svg.clientHeight - paddingBottom
-
-    this.addValuesToTransform(textDescription, null, newDescriptionHeight + 60)
-    this.addValuesToTransform(textSource, null, newSourceHeight + 60)
+    this.addValuesToTransform(textSource, null, newSourceHeight + spaceBetweenGraphAndDescription)
   }
 
   getUrlToTab(tab) {
@@ -307,18 +351,18 @@ class Card extends Component {
   }
 
   setExplicitView(event) {
-    const truth = Boolean(event.target.checked)
-    this.setState({explicitView: truth})
+    this.moveElementsIntoSVG()
+    this.setState({explicitView: true})
   }
 
   render() {
     const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
-    const {chartViewMode, explicitView} = this.state
-
-    const showToggleNumbersButton = (activeTab) ? activeTab.chartKind === 'bar' || activeTab.chartKind == 'pyramid' : false
+    const {chartViewMode} = this.state
+    const explicitView = true
     if (!activeTab) {
       return (
-        <div className="toggle-list__section toggle-list__section--expanded"><i className="loading-indicator" />
+        <div className="toggle-list__section toggle-list__section--expanded">
+          <i className="loading-indicator" />
           Laster…
         </div>
       )
@@ -339,11 +383,7 @@ class Card extends Component {
     const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede' // TODO: Needs to be dynamic
 
     if (!ChartComponent) {
-      return (
-        <div className="toggle-list__section toggle-list__section--expanded">
-          Error: No chart component for {JSON.stringify(chartKind)}
-        </div>
-      )
+      return <div className="toggle-list__section toggle-list__section--expanded">Error: No chart component for {JSON.stringify(chartKind)}</div>
     }
 
     const data = queryResultPresenter(query, queryResult, {
@@ -358,16 +398,22 @@ class Card extends Component {
       }
     }
 
+    // if the user is watching the "over tid" tab in the card "befolkning opprinnelsesland", we should by default compare the region to itself.
+    if (card.name === 'befolkning_opprinnelsesland' && activeTab.chartKind === 'line' && !query.comparisonRegions.length) {
+      query.comparisonRegions[0] = region.prefixedCode
+    }
+
     return (
       <section
         data-card
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{display: 'block'}}
-        ref={(toggleList) => { this.toggleList = toggleList }}
+        ref={toggleList => {
+          this.toggleList = toggleList
+        }}
         crossOrigin="anonymous"
       >
-
         {!printable && (
           <TabBar
             activeTab={activeTab}
@@ -392,7 +438,11 @@ class Card extends Component {
           />
         )}
 
-        {loading && <span><i className="loading-indicator" /> Laster…</span>}
+        {loading && (
+          <span>
+            <i className="loading-indicator" /> Laster…
+          </span>
+        )}
 
         {!printable && (
           <ChartViewModeSelect
@@ -430,13 +480,19 @@ class Card extends Component {
           {!printable && (
             <div className="graph__functions">
               <ShareWidget chartUrl={this.getShareUrl()} />
-              <DownloadWidget downloadScreenshot={this.takeScreenshot} downloadPNG={this.downloadPNG} region={region} query={query} headerGroups={headerGroups} setExplicitView={isExplicit => this.setState({explicitView: isExplicit})} />
+              <DownloadWidget
+                downloadScreenshot={this.takeScreenshot}
+                downloadPNG={this.downloadPNG}
+                region={region}
+                query={query}
+                headerGroups={headerGroups}
+                chartKind={chartKind}
+                setExplicitView={isExplicit => this.setState({explicitView: isExplicit})}
+              />
             </div>
           )}
 
-          {!printable && (
-            <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />
-          )}
+          {!printable && <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />}
         </div>
       </section>
     )
@@ -444,7 +500,6 @@ class Card extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-
   const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
   if (!cardState || cardState.initializing) {
     return {loading: true}

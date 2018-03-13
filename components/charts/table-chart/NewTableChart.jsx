@@ -3,7 +3,6 @@ import d3 from 'd3'
 import D3Chart from '../../utils/D3Chart'
 import {generateCSV} from '../../../lib/csvWrangler'
 
-
 // TableChart always needs year as a dimension. Add it if missing.
 function ensureDataHasYearDimension(data) {
   const dimensions = data.dimensions
@@ -17,11 +16,17 @@ function ensureDataHasYearDimension(data) {
   return Object.assign({}, data, {dimensions: dimensions})
 }
 
-
 export default class TableChart extends React.Component {
   static propTypes = {
     data: React.PropTypes.object
   };
+
+  constructor() {
+    super()
+
+    this.toggleRowVisibility = this.toggleRowVisibility.bind(this)
+    this.setupToggleRowVisibility = this.setupToggleRowVisibility.bind(this)
+  }
 
   componentWillMount() {
     const data = ensureDataHasYearDimension(this.props.data)
@@ -30,15 +35,15 @@ export default class TableChart extends React.Component {
     })
   }
 
-  componentWillReceiveProps(props) {
-    const data = ensureDataHasYearDimension(props.data)
-    this.setState(generateCSV(data))
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if (this.props !== prevState || prevProps !== this.state) {
       this.setupToggleRowVisibility()
     }
+  }
+
+  componentWillReceiveProps(props) {
+    const data = ensureDataHasYearDimension(props.data)
+    this.setState(generateCSV(data))
   }
 
   toggleRowVisibility() {
@@ -90,44 +95,16 @@ export default class TableChart extends React.Component {
     const parsedData = parser.parseRows(data.csv)
     const transposedData = d3.transpose(parsedData)
 
-    // console.log(data.csv)
-    const headers = transposedData.map(dataItem => {
-      if (dataItem[0].includes(':')) {
-        return dataItem[0].split(':')[0]
-      }
-
-      return dataItem
-    })
-
-    const getHeadersFromTbody = values => {
-      return values.map(value => value.map(insideValue => {
-        if (insideValue.includes(':')) {
-          return insideValue.split(':')[0]
-        }
-
-        return insideValue
-      }))
-    }
-
-    const excludeHeaderFromTbody = values => {
-      return values.map(value => {
-        if (value.includes(':')) {
-          return value.split(':')[1]
-        }
-        return value
-      })
-    }
-
-    const thead = getHeadersFromTbody(transposedData.slice(2))[0]
-
     table.append('thead')
     .append('tr')
     .selectAll('th')
-    .data(thead)
+    .data(transposedData[1]) // headers
     .enter()
     .append('th')
     .attr('scope', 'col')
-    .text(dataItem => dataItem)
+    .text(dataItem => {
+      return dataItem
+    })
 
     const tableBody = table.append('tbody').attr('data-table-collapsable', '')
 
@@ -137,26 +114,11 @@ export default class TableChart extends React.Component {
     .append('tr')
 
     rows.selectAll('td')
-    .data(dataItem => excludeHeaderFromTbody(dataItem))
+    .data(dataItem => dataItem)
     .enter()
     .append('td')
-    .attr('data-label', (dataItem, index) => thead[index]) // set thead as data-label propery
+    .attr('data-label', (dataItem, index) => transposedData[1][index])
     .text(dataItem => dataItem)
-
-    // table.selectAll('tr').each(function (d, i) {
-    //   if (this.firstChild.tagName == 'TH') {
-    //     const firstchild = d3.select(this.firstChild)
-    //     firstchild.text('')
-    //   } else {
-    //     const row = d3.select(this)
-    //     const firstchild = d3.select(this.firstChild)
-    //     row.insert('th', ':first-child')
-    //     .text(firstchild.text())
-    //     .attr('scope', 'row')
-    //     .classed('table__th table__th--row', true)
-    //     firstchild.remove()
-    //   }
-    // })
   }
 
   render() {

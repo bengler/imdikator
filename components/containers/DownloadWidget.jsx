@@ -22,7 +22,8 @@ class DownloadWidget extends Component {
     dispatch: PropTypes.func,
     downloadScreenshot: PropTypes.func,
     downloadPNG: PropTypes.func,
-    setExplicitView: PropTypes.func
+    setExplicitView: PropTypes.func,
+    chartKind: PropTypes.string
   };
 
   constructor(props) {
@@ -87,6 +88,7 @@ class DownloadWidget extends Component {
   }
 
   renderDownloadSelect() {
+    const {chartKind} = this.props
     const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
 
     const handApplyChoice = newValue => {
@@ -109,6 +111,8 @@ class DownloadWidget extends Component {
         chartQuery: JSON.stringify(chartQuery),
         dimensionLabels: JSON.stringify(csvDimensionsBuilder()),
       }
+
+      console.log({query})
 
       // Call node server for CSV file
       apiClient.getCsvFile(query).then(response => {
@@ -139,7 +143,8 @@ class DownloadWidget extends Component {
         linkUrl={this.state.linkUrl}
         downloadPNG={this.props.downloadPNG}
         choices={choices}
-        applyButtonText="Hent CSV"
+        chartKind={chartKind}
+        applyButtonText="Last ned tallgrunnlag (.csv)"
         title="Last ned tallgrunnlag"
         choiceLabel="Velg innhold"
         description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."

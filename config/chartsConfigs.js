@@ -1,7 +1,8 @@
 export default {
   bar: {
     maxBarWidth: 50,
-    minWidthPerCategory: 120,
+    // minWidthPerCategory: 120,
+    minWidthPerCategory: 260,
   },
   stackedBar: {
     minWidthPerCategory: 120,

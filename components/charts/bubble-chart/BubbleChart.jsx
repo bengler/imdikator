@@ -10,7 +10,14 @@ const INT_MAX = 9007199254740991
 
 export default class BubbleChart extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object
+    data: React.PropTypes.object,
+    description: React.PropTypes.string,
+    title: React.PropTypes.string,
+    source: React.PropTypes.string,
+    measuredAt: React.PropTypes.string,
+    explicitView: React.PropTypes.bool,
+    thisCard: React.PropTypes.bool,
+    activeTab: React.PropTypes.bool
   };
 
   calculateHeight(el) {
@@ -199,6 +206,8 @@ export default class BubbleChart extends React.Component {
   }
 
   render() {
+    const {data, explicitView, title, source, measuredAt, description, thisCard, activeTab} = this.props
+
     const functions = {
       drawPoints: this.drawPoints,
       calculateHeight: this.calculateHeight
@@ -206,11 +215,19 @@ export default class BubbleChart extends React.Component {
     const config = {
       shouldCalculateMargins: false
     }
+
     return (
       <D3Chart
-        data={this.props.data}
-        functions={functions}
+        data={data}
         config={config}
+        functions={functions}
+        explicitView={explicitView}
+        activeTab={activeTab}
+        title={title}
+        source={source}
+        measuredAt={measuredAt}
+        description={description}
+        thisCard={thisCard}
       />
     )
   }

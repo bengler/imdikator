@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import preventDefault from 'prevent-default'
-import screenSize from '../../lib/screenSizes'
-import debounce from 'debounce'
 
 const defaultPrevented = preventDefault(() => false)
 
@@ -31,72 +29,17 @@ export default class ChartModeSelect extends Component {
     super()
 
     this.state = {
-      isExplicit: false,
-      toggleNumbersVisible: true
-    }
-
-    this.showToggleNumbers = this.showToggleNumbers.bind(this)
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', () => {
-      debounce(this.showToggleNumbers(), 150)
-    })
-    this.showToggleNumbers()
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props !== prevProps || this.state !== prevState) {
-      this.showToggleNumbers()
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', () => {
-      debounce(this.showToggleNumbers(), 150)
-    })
-  }
-
-  showToggleNumbers() {
-    const {embedded = false, activeTab, mode: selectedMode} = this.props
-    const actualWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-
-    if (!embedded && CHART_MODES[0].name === selectedMode && actualWidth > screenSize.largePhone && activeTab.urlName === 'enkeltaar') {
-      if (this.state.isExplicit || !this.state.toggleNumbersVisible) {  // don't rerender if there's no difference
-        this.setState({
-          isExplicit: false,
-          toggleNumbersVisible: true
-        })
-      }
-    }
-
-    else {
-      if (!this.state.isExplicit || this.state.toggleNumbersVisible) {  // don't rerender if there's no difference
-        this.setState({
-          isExplicit: true,
-          toggleNumbersVisible: false
-        })
-      }
+      isExplicit: true
     }
   }
 
   render() {
-    const {onChange, mode: selectedMode} = this.props
-    const graphClasses = this.state.toggleNumbersVisible || this.props.embedded ? 'graph__types' : 'graph__types right'
+    const {onChange, mode: selectedMode, embedded} = this.props
+
+    const graphTypeClasses = embedded ? 'graph__types' : 'graph__types right'
 
     return (
-      <div className={graphClasses}>
-
-        {this.state.toggleNumbersVisible &&
-          <form>
-            <label className="control checkbox">
-              <input type="checkbox" id="check1" checked={this.props.explicitView} onChange={e => { this.props.setExplicitView(e) }} />
-              <i className="control-indicator"></i>
-              Vis tall
-            </label>
-          </form>
-        }
-
+      <div className={graphTypeClasses}>
         <ul className="tabs-mini" role="tablist">
 
           {

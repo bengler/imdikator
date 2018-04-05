@@ -25,7 +25,6 @@ class Autocomplete extends React.Component {
 
     this.findItemsInArrayOfPlaces = this.findItemsInArrayOfPlaces.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.getFilteredItems = this.getFilteredItems.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -57,22 +56,6 @@ class Autocomplete extends React.Component {
     })
   }
 
-  getFilteredItems() {
-    let items = this.props.items
-    const value = this.state.autocompleteSuggestions[this.state.chosenPlace].value
-
-    if (this.props.shouldItemRender) {
-      items = items.filter(item => {
-        return this.props.shouldItemRender(item, value)
-      })
-    }
-
-    if (this.props.sortItems) {
-      items = items.slice().sort((item, otherItem) => this.props.sortItems(item, otherItem, value))
-    }
-
-    return items
-  }
 
   selectItem(value, item) {
     this.props.onSelect(value, item)
@@ -97,7 +80,7 @@ class Autocomplete extends React.Component {
   sortItems(unsortedItems) {
     let items = unsortedItems
 
-    if (this.props.sortItems) {
+    if (this.props.sortItems && items.length) {
       items = items.slice().sort((item, otherItem) => {
         return this.props.sortItems(item, otherItem, this.state.input)
       })
@@ -106,22 +89,17 @@ class Autocomplete extends React.Component {
     return items
   }
 
-  // finally route user somewhere else
-  submitSearch(place) {
-    const filteredItems = this.getFilteredItems()
-    const item = filteredItems.find(listItem => {
-      return listItem.type === place.type
-    })
-
-    this.selectItem(item.value, item)
-  }
-
   removeFocus() {
     this.setState({
       input: '',
       autocompleteSuggestions: [],
       chosenPlace: 0
     })
+  }
+
+  submitSearch(place) {
+    this.selectItem(place.value, place)
+    this.removeFocus()
   }
 
   giveFocus() {
@@ -136,13 +114,12 @@ class Autocomplete extends React.Component {
 
     //======= ENTER
     if (key === 13) {
-      this.submitSearch(autocompleteSuggestions[chosenPlace], chosenPlace)
-      this.removeFocus()
+      this.submitSearch(autocompleteSuggestions[chosenPlace])
+
     } else if (key === 40) {
       //======= ARROW DOWN
       if (chosenPlace + 1 >= autocompleteSuggestions.length) return // don't select something past the lists length
 
-      console.log(autocompleteSuggestions[chosenPlace + 1])
       this.setState({chosenPlace: chosenPlace + 1})
     } else if (key === 38) {
       //======= ARROW UP
@@ -156,11 +133,10 @@ class Autocomplete extends React.Component {
   }
 
   handleClick(evt, index) {
-    const {autocompleteSuggestions, chosenPlace} = this.state
+    const {autocompleteSuggestions} = this.state
 
     this.setState({chosenPlace: index}, () => {
-      this.submitSearch(autocompleteSuggestions[chosenPlace])
-      this.removeFocus()
+      this.submitSearch(autocompleteSuggestions[index], index)
     })
   }
 

@@ -210,7 +210,6 @@ function findDistance(source, destination, fields) {
 }
 
 // Divide one field by another
-
 function asQuotientOf(dividend, divisor) {
   return function (element) {
     element[dividend] /= element[divisor]
@@ -219,7 +218,6 @@ function asQuotientOf(dividend, divisor) {
 }
 
 // Find extents of a value across set and divide by max value. Assumes zero thershold
-
 function normalize(set, variable, modifier) {
   let max = 0
   set.forEach(element => {
@@ -248,7 +246,6 @@ function normalize(set, variable, modifier) {
 }
 
 // Massage data result from API. Excluding
-
 function flattenLists(population, refugees) {
   const result = {}
 

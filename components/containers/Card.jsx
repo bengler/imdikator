@@ -210,7 +210,7 @@ class Card extends Component {
 
     // //  extra height for the svg diagram
     let extraHeightSVG = 240
-    const paddingBottom = 80
+    const paddingBottom = 105
     const spaceBetween = 30
 
     const parent = this.findAncestor(this.toggleList, '[data-card]')

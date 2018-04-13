@@ -80,6 +80,15 @@ class DownloadWidget extends Component {
         dimensionVariables = []
         dimensionVariables.push(d.variables)
       }
+
+      // Replace "all" with "alle"
+      dimensionVariables = dimensionVariables.map(i => {
+        if (i === 'all') {
+          return 'alle'
+        }
+        return i
+      })
+
       d.variables = dimensionVariables
       return d
     })

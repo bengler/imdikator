@@ -6,7 +6,6 @@ const showMargins = false
 
 class Chart {
   constructor(el, props, state, functions, config, explicitView, title, source, measuredAt, description, thisCard, printView, activeTab) {
-
     // _svg is the actual SVG element
     this._svg = null
     // svg is a translated 'g' within _svg that all graphs draw to
@@ -43,20 +42,28 @@ class Chart {
     // Need to add a Y axis and see how wide the largest label is
     const yc = this.configureYscale(data.preparedData.extent, data.unit, 100)
     yc.scale.nice()
-    const testSVG = d3.select('body').append('svg').style('display', 'hidden')
-    const yAxis = d3.svg.axis()
+    const testSVG = d3
+      .select('body')
+      .append('svg')
+      .style('display', 'hidden')
+    const yAxis = d3.svg
+      .axis()
       .scale(yc.scale)
       .orient('left')
       .tickFormat(yc.axisFormat)
-    testSVG.append('g')
-    .attr('class', 'chart__axis')
-    .call(yAxis)
+    testSVG
+      .append('g')
+      .attr('class', 'chart__axis')
+      .call(yAxis)
 
     // Find the longest text string on this axis
     let axislabelLength = 0
     let axislabelHeight = 0
     testSVG.selectAll('text').each(function () {
-      const height = d3.select(this).node().getBBox().height
+      const height = d3
+        .select(this)
+        .node()
+        .getBBox().height
       if (height > axislabelHeight) {
         axislabelHeight = height
       }
@@ -127,7 +134,9 @@ class Chart {
 
     // TODO: https://css-tricks.com/scale-svg/
     // http://stackoverflow.com/a/9539361/194404
-    this._svg = d3.select(el).append('svg')
+    this._svg = d3
+      .select(el)
+      .append('svg')
       .attr('class', 'chart__svg')
       .attr('data-chart', 'true')
       .attr('preserveAspectRatio', 'xMinYMin meet')
@@ -136,15 +145,14 @@ class Chart {
       .attr('width', this.fullWidth)
       .attr('height', this.fullHeight)
       .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight}`)
-      // text above and underneath diagram
-      // .attr('padding-top', 700)
-      // .attr('height', this.fullHeight + 200)
-      // .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
+    // text above and underneath diagram
+    // .attr('padding-top', 700)
+    // .attr('height', this.fullHeight + 200)
+    // .attr('viewBox', `0 0 ${this.fullWidth} ${this.fullHeight + 200}`)
 
     // Accessibility text alternative
-    if (!typeof (printView) === 'undefined' || printView) {
-      this._svg.append('text')
-        .text(title)
+    if (!typeof printView === 'undefined' || printView) {
+      this._svg.append('text').text(title)
     }
     //   .attr('class', 'header-text')
     //   .attr('height', 40)
@@ -156,13 +164,14 @@ class Chart {
 
     if (showMargins) {
       // Visualize SVG
-      this._svg.append('rect')
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('role', 'presentation')
-      .attr('width', this.fullWidth)
-      .attr('height', this.fullHeight)
-      .style('fill', '#ccc')
+      this._svg
+        .append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('role', 'presentation')
+        .attr('width', this.fullWidth)
+        .attr('height', this.fullHeight)
+        .style('fill', '#ccc')
 
       // TODO: Make vertical space for potential X axis labels (might line break)
       // TODO: Make horizontal space for potential Y axis with formatted labels
@@ -183,12 +192,16 @@ class Chart {
       }
       textureFills.push(fill)
     })
-    this.textures = d3.scale.ordinal().range(textureFills).domain(textureColors)
+    this.textures = d3.scale
+      .ordinal()
+      .range(textureFills)
+      .domain(textureColors)
 
     // Conventional margins (http://bl.ocks.org/mbostock/3019563)
     // Translating an outer 'g' so we dont have to consider margins in the rest
     // of the code
-    this.svg = this._svg.append('g')
+    this.svg = this._svg
+      .append('g')
       .attr('class', 'chart__d3-points')
       .attr('data-chart', 'true')
       .attr('transform', this.translation(this.margins.left, this.margins.top))
@@ -201,21 +214,20 @@ class Chart {
 
     // Visualize svg with margins
     if (showMargins) {
-      this.svg.append('rect')
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('width', this.size.width)
-      .attr('height', this.size.height)
-      .style('fill', '#655959')
+      this.svg
+        .append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', this.size.width)
+        .attr('height', this.size.height)
+        .style('fill', '#655959')
     }
 
     // this._drawPoints(el, dataaa)
     this._drawPoints(el, state.data)
   }
 
-  destroy(el) {
-
-  }
+  destroy(el) {}
 
   translation(x, y) {
     return `translate(${x},${y})`
@@ -260,25 +272,33 @@ class Chart {
         y.domain([Math.min(0, extent[0]), maxValue])
       }
     }
-    return Object.assign({
-      scale: y
-    }, this.unitFormatter(unit))
+    return Object.assign(
+      {
+        scale: y
+      },
+      this.unitFormatter(unit)
+    )
   }
 
   addYAxis(scale, format) {
     scale.nice()
 
-    const yAxis = d3.svg.axis().scale(scale).orient('left')
+    const yAxis = d3.svg
+      .axis()
+      .scale(scale)
+      .orient('left')
     yAxis.tickFormat(format)
 
-    this.svg.append('g')
+    this.svg
+      .append('g')
       .attr('class', 'chart__axis')
       .call(yAxis)
       .select('path')
       .remove()
 
     // Draw horizontal background lines where the tick marks are
-    this.svg.selectAll('.chart__axis .tick')
+    this.svg
+      .selectAll('.chart__axis .tick')
       .append('line')
       .attr('class', 'chart__line--benchmark')
       .attr('x1', -this.margins.left)
@@ -288,11 +308,12 @@ class Chart {
 
     // Translate the text up by half font size to make the text rest on top
     // of the background lines
-    this.svg.selectAll('.chart__axis .tick text')
-    .attr('transform', function () {
-      return `translate(0, ${this.getBBox().height * 2 / 3})`
-    })
-    .attr('class', 'chart__text--benchmark')
+    this.svg
+      .selectAll('.chart__axis .tick text')
+      .attr('transform', function () {
+        return `translate(0, ${this.getBBox().height * 2 / 3})`
+      })
+      .attr('class', 'chart__text--benchmark')
   }
 
   legend() {
@@ -313,10 +334,15 @@ class Chart {
           return
         }
 
-        const wrap = d3.select(this).selectAll('g.chart__legend').data(data)
+        const wrap = d3
+          .select(this)
+          .selectAll('g.chart__legend')
+          .data(data)
         let legend = null
-        legend = wrap.enter()
-          .append('g').attr('class', 'chart__legend')
+        legend = wrap
+          .enter()
+          .append('g')
+          .attr('class', 'chart__legend')
           .attr('transform', 'translate(0,0)')
           .append('g')
           .on('click', (item, index) => {
@@ -329,7 +355,8 @@ class Chart {
             dispatch.legendMouseout(item, index)
           })
 
-        legend.append('rect')
+        legend
+          .append('rect')
           .attr('x', (dataItem, index) => {
             return 0
           })
@@ -413,9 +440,10 @@ class Chart {
   wrapTextNode(text, width) {
     text.each(function () {
       const txt = d3.select(this)
-      const words = txt.text()
-      .split(/\s+/)
-      .reverse()
+      const words = txt
+        .text()
+        .split(/\s+/)
+        .reverse()
       const lineHeight = 1.1 // ems
       const y = txt.attr('y')
       const x = txt.attr('x')
@@ -427,11 +455,12 @@ class Chart {
       let word = null
       let line = []
       let lineNumber = 0
-      let tspan = txt.text(null)
-      .append('tspan')
-      .attr('x', x)
-      .attr('y', y)
-      .attr('dy', `${dy}em`)
+      let tspan = txt
+        .text(null)
+        .append('tspan')
+        .attr('x', x)
+        .attr('y', y)
+        .attr('dy', `${dy}em`)
       word = words.pop()
       while (word) {
         line.push(word)
@@ -440,12 +469,13 @@ class Chart {
           line.pop()
           tspan.text(line.join(' '))
           line = [word]
-          tspan = txt.append('tspan')
-          .attr('x', 0)
-          .attr('dx', dx)
-          .attr('y', y)
-          .attr('dy', `${++lineNumber * lineHeight + dy}em`)
-          .text(word)
+          tspan = txt
+            .append('tspan')
+            .attr('x', 0)
+            .attr('dx', dx)
+            .attr('y', y)
+            .attr('dy', `${++lineNumber * lineHeight + dy}em`)
+            .text(word)
         }
         word = words.pop()
       }

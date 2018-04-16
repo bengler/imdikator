@@ -19,7 +19,8 @@
     "lint": "eslint --quiet --ext .jsx,.js .",
     "compile-assets": "staticr --require ./.init.js --out-dir public ./static-routes",
     "import-regions": "DEBUG=imdikator* babel-node ./bin/importRegions",
-    "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar > data/new-similarMunicipalities.json && mv data/new-similarMunicipalities.json data/similarMunicipalities.json"
+    "calculate-similar": "DEBUG=imdikator* babel-node ./bin/calculateSimilar > data/new-similarMunicipalities.json && mv data/new-similarMunicipalities.json data/similarMunicipalities.json",
+    "swap-semi": "node ./import/swapSemiWithComma.js"
   },
   "dependencies": {
     "array-equal": "^1.0.0",

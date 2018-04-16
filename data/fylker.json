@@ -114,6 +114,12 @@
     "prefixedCode": "F20"
   },
   {
+    "code": "50",
+    "name": "Trøndelag",
+    "type": "county",
+    "prefixedCode": "F50"
+  },
+  {
     "code": "99",
     "name": "Uoppgitt fylke",
     "type": "county",

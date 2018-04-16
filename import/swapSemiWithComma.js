@@ -11,13 +11,12 @@ var chalk = require('chalk')
 var spinner = ora('working...\n')
 spinner.start()
 
-var importPath = './import/semi.csv'
-var exportPath = './import/comma.csv'
+var path = './import/regioninndeling-fylker-kommuner.csv'
 
 var newFileContent = '' // holds the new content to be exported
 
 // read the file
-fs.readFile(importPath, function(err, buff) {
+fs.readFile(path, function(err, buff) {
   // get all text from the file
   var fileContent = buff.toString()
 
@@ -26,27 +25,24 @@ fs.readFile(importPath, function(err, buff) {
 
   // handle each line
   arrayOfContent.forEach(function(item, index) {
-    // skip the first and last line
-    if (index !== 0 && index != arrayOfContent.length) {
-      
-      // split line into array of chars
-      var values = item.split('')
+    
+    // split line into array of chars
+    var values = item.split('')
 
-      // replace ; with ,
-      for (var v = 0; v < values.length; v++) {
-        if (values[v] === ';') {
-          values[v] = ','
-        }
+    // replace ; with ,
+    for (var v = 0; v < values.length; v++) {
+      if (values[v] === ';') {
+        values[v] = ','
       }
-
-      // add parsed line to newFileContent
-      values = values.join('')
-      newFileContent += `${values}\n`
     }
+
+    // add parsed line to newFileContent
+    values = values.join('')
+    newFileContent += `${values}\n`
   })
 
   // create new file with parsed stuff
-  fs.writeFile(exportPath, newFileContent, function(error) {
+  fs.writeFile(path, newFileContent, function(error) {
   
     if (error) throw error
     console.log(chalk.cyan('  Successfully overwrote previous script\n'))

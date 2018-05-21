@@ -24,14 +24,14 @@ class DownloadWidget extends Component {
     downloadPNG: PropTypes.func,
     setExplicitView: PropTypes.func,
     chartKind: PropTypes.string
-  };
+  }
 
   constructor(props) {
     super()
     this.state = {
       isLoading: false,
       isError: false,
-      linkUrl: '',
+      linkUrl: ''
     }
   }
 
@@ -49,12 +49,14 @@ class DownloadWidget extends Component {
     const csvQuery = {
       tableName: query.tableName,
       region: region.prefixedCode,
-      dimensions: Object.keys(headerGroup).map(headerKey => {
-        if (unwantedDimensions.includes(headerKey)) {
-          return null
-        }
-        return {name: headerKey}
-      }).filter(Boolean),
+      dimensions: Object.keys(headerGroup)
+        .map(headerKey => {
+          if (unwantedDimensions.includes(headerKey)) {
+            return null
+          }
+          return {name: headerKey}
+        })
+        .filter(Boolean),
       year: 'all',
       unit: headerGroup.enhet,
       comparisonRegions: comparisonRegions
@@ -108,7 +110,7 @@ class DownloadWidget extends Component {
 
       // csvQuery is the query needed to ask the DB for data
       const csvQuery = this.buildCsvQuery(choices[newValue])
-      const isComparing = ((csvQuery.comparisonRegions || []).length > 0)
+      const isComparing = (csvQuery.comparisonRegions || []).length > 0
       const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
 
       // chartQuery is used by the CSV generator process to build the CSV
@@ -118,28 +120,32 @@ class DownloadWidget extends Component {
       const query = {
         csvQuery: JSON.stringify(Object.assign({}, toQueryParams(modifiedQuery))),
         chartQuery: JSON.stringify(chartQuery),
-        dimensionLabels: JSON.stringify(csvDimensionsBuilder()),
+        dimensionLabels: JSON.stringify(csvDimensionsBuilder())
       }
 
       console.log({query})
 
       // Call node server for CSV file
-      apiClient.getCsvFile(query).then(response => {
-        this.setState({
-          isError: false,
-          isLoading: false,
-          linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
+      apiClient
+        .getCsvFile(query)
+        .then(response => {
+          this.setState({
+            isError: false,
+            isLoading: false,
+            linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
+          })
         })
-
-      }).catch(() => {
-        this.setState({
-          isLoading: false,
-          isError: true,
+        .catch(() => {
+          this.setState({
+            isLoading: false,
+            isError: true
+          })
         })
-      })
     }
 
     const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
+
+    console.log(choices)
 
     return (
       <PopupChoicesBox
@@ -168,7 +174,7 @@ class DownloadWidget extends Component {
     return (
       <span className="graph__functions-item">
         <button type="button" className="button button--secondary button--small" onClick={this.handleOpenDownloadSelect.bind(this)}>
-          <i className="icon__download"></i> Last ned
+          <i className="icon__download" /> Last ned
         </button>
         {isDownloadSelectOpen && this.renderDownloadSelect()}
       </span>

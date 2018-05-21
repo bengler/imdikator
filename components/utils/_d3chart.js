@@ -244,8 +244,6 @@ class Chart {
   }
 
   unitFormatter(unit) {
-    if (unit === 'prosent')
-      console.log(_unitFormatter(unit).axisFormat())
     return _unitFormatter(unit)
   }
 

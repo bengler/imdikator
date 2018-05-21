@@ -152,16 +152,7 @@ export default class BarChart extends React.Component {
         val.formattedValue = val.values[0].formattedValue
 
         if (!val.formattedValue) {
-
           val.formattedValue = yc.format(val.values[0].value)
-          
-          // the following adds a space between numbers with % or ‰
-          if (val.formattedValue.substr(val.formattedValue.length - 1) === '%') {
-            val.formattedValue = `${val.formattedValue.split('%')[0]} %`
-          }
-          else if (val.formattedValue.substr(val.formattedValue.length - 1) === '‰') {          
-            val.formattedValue = `${val.formattedValue.split('‰')[0]} ‰`
-          }
         }
       })
     })

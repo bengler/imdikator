@@ -1,6 +1,11 @@
 import d3 from 'd3'
-import {colors, colorTextures} from '../../data/colorPalette'
-import {unitFormatter as _unitFormatter} from '../../lib/unitFormatter'
+import {
+  colors,
+  colorTextures
+} from '../../data/colorPalette'
+import {
+  unitFormatter as _unitFormatter
+} from '../../lib/unitFormatter'
 
 const showMargins = false
 
@@ -102,7 +107,12 @@ class Chart {
     this.props.explicitView = explicitView
     this.props.printView = printView
 
-    const defaultMargins = {left: 0, top: 0, right: 0, bottom: 0}
+    const defaultMargins = {
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0
+    }
     this.margins = defaultMargins
 
     if (config.shouldCalculateMargins) {
@@ -124,8 +134,8 @@ class Chart {
     // }
 
     // height of chart
-    // if you increase the height, the chart will span higher.
-    // in other words, you won't create any whitespace by increasing / decreasing
+    // if you increase the height, the chart will move upwards.
+    // in other words, you won't create any actual height by increasing / decreasing
     this.fullHeight = this._calculateHeight(el) + this.margins.top + this.margins.bottom
     this.size = {
       width: this.fullWidth - this.margins.left - this.margins.right,
@@ -234,6 +244,8 @@ class Chart {
   }
 
   unitFormatter(unit) {
+    if (unit === 'prosent')
+      console.log(_unitFormatter(unit).axisFormat())
     return _unitFormatter(unit)
   }
 
@@ -257,23 +269,25 @@ class Chart {
     }
     const y = d3.scale.linear().range([height, 0])
     switch (unit) {
-      case 'prosent': {
-        // Always 0 -> (100% or > 100%)
-        y.domain([0, Math.max(1, maxValue)])
-        break
-      }
-      case 'promille': {
-        // Always 0 -> max
-        y.domain([0, maxValue])
-        break
-      }
-      default: {
-        // Always 0 or < 0 -> max
-        y.domain([Math.min(0, extent[0]), maxValue])
-      }
+      case 'prosent':
+        {
+          // Always 0 -> (100% or > 100%)
+          y.domain([0, Math.max(1, maxValue)])
+          break
+        }
+      case 'promille':
+        {
+          // Always 0 -> max
+          y.domain([0, maxValue])
+          break
+        }
+      default:
+        {
+          // Always 0 or < 0 -> max
+          y.domain([Math.min(0, extent[0]), maxValue])
+        }
     }
-    return Object.assign(
-      {
+    return Object.assign({
         scale: y
       },
       this.unitFormatter(unit)

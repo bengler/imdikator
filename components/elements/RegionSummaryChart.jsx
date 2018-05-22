@@ -9,7 +9,6 @@ import {queryResultPresenter} from '../../lib/queryResultPresenter'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 export default class RegionSummaryChart extends Component {
-
   static propTypes = {
     region: ImdiPropTypes.region.isRequired,
     query: PropTypes.object.isRequired,
@@ -18,12 +17,12 @@ export default class RegionSummaryChart extends Component {
     compareWith: PropTypes.shape({
       queryResult: PropTypes.array
     })
-  };
+  }
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  };
+  }
 
   getChart(chartKind) {
     if (chartKind == 'benchmark') {
@@ -44,7 +43,6 @@ export default class RegionSummaryChart extends Component {
   }
 
   render() {
-
     const {region, queryResult, query, config, compareWith} = this.props
 
     const data = queryResult && queryResultPresenter(query, queryResult, {chartKind: config.chartKind})
@@ -60,6 +58,8 @@ export default class RegionSummaryChart extends Component {
 
     const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
 
+    console.log(regionDataRow)
+
     let titleParams = {}
     titleParams.anonymizedData = !!regionDataRow.anonymized
     titleParams.missingData = !!regionDataRow.missingData
@@ -70,6 +70,7 @@ export default class RegionSummaryChart extends Component {
     })
 
     const title = config.title(titleParams)
+
     const subtitle = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[0].tabellvariabel)})
 
     // secondary titles, atm only used in barchart
@@ -102,7 +103,6 @@ export default class RegionSummaryChart extends Component {
       }
     })
 
-
     const drillDownUrl = this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {
       region: region.prefixedCode,
       cardsPageName: config.drillDown.page,
@@ -113,9 +113,7 @@ export default class RegionSummaryChart extends Component {
     const comparison = comparisonDescription(region).toLowerCase()
 
     if (isBorough && cardName == 'bosatt_anmodede') {
-      return (
-        <div></div>
-      )
+      return <div />
     }
 
     return (
@@ -128,12 +126,15 @@ export default class RegionSummaryChart extends Component {
           <div className="indicator__graph">
             <Chart data={modifiedData} className="summaryChart" sortDirection="ascending" minimalHeight />
           </div>
-          {!isNorway && isBenchmark && (
-            <p className="indicator__subtext">
-              {region.name} og <a href={similarUrl}>{comparison}</a>
-            </p>
-          )}
-          <a href={drillDownUrl} className="button button--secondary indicator__cta">{config.drillDown.buttonTitle}</a>
+          {!isNorway &&
+            isBenchmark && (
+              <p className="indicator__subtext">
+                {region.name} og <a href={similarUrl}>{comparison}</a>
+              </p>
+            )}
+          <a href={drillDownUrl} className="button button--secondary indicator__cta">
+            {config.drillDown.buttonTitle}
+          </a>
         </section>
       </div>
     )

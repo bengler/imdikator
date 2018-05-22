@@ -6,7 +6,6 @@ import regionSummaryConfig from '../../data/regionSummaryConfig'
 import RegionSummaryChart from '../elements/RegionSummaryChart'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
-
 function dispatchLoadChartsData(props) {
   const {region, dispatch} = props
 
@@ -20,28 +19,28 @@ function dispatchLoadChartsData(props) {
   })
 }
 
-
 class RegionSummaryChartsContainer extends Component {
-
   static propTypes = {
     loading: PropTypes.bool,
     region: ImdiPropTypes.region.isRequired,
-    summaries: PropTypes.arrayOf(PropTypes.shape({
-      readyState: PropTypes.oneOf(['loading', 'loaded', 'failed']),
-      error: PropTypes.instanceOf(Error),
-      config: PropTypes.object,
-      data: PropTypes.shape({
-        rows: PropTypes.array,
-        dimensions: PropTypes.array
+    summaries: PropTypes.arrayOf(
+      PropTypes.shape({
+        readyState: PropTypes.oneOf(['loading', 'loaded', 'failed']),
+        error: PropTypes.instanceOf(Error),
+        config: PropTypes.object,
+        data: PropTypes.shape({
+          rows: PropTypes.array,
+          dimensions: PropTypes.array
+        })
       })
-    })),
+    ),
     dispatch: PropTypes.func
-  };
+  }
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  };
+  }
 
   componentWillMount() {
     dispatchLoadChartsData(this.props)
@@ -58,7 +57,11 @@ class RegionSummaryChartsContainer extends Component {
     const {summaries, region, loading} = this.props
 
     if (loading || !summaries || summaries.some(summary => summary.loading)) {
-      return <div><i className="loading-indicator" /> Henter data...</div>
+      return (
+        <div>
+          <i className="loading-indicator" /> Henter data...
+        </div>
+      )
     }
 
     return (
@@ -73,7 +76,7 @@ class RegionSummaryChartsContainer extends Component {
               queryResult={summary.queryResult}
               compareWith={summary.compareWith}
             />
-            )
+          )
         })}
       </div>
     )
@@ -85,9 +88,11 @@ function mapStateToProps(state, ownProps) {
 
   const summaryForNorway = state.regionSummaries[norway.prefixedCode]
 
-  const isNorwayLoading = !summaryForNorway || Object.keys(summaryForNorway).some(summaryName => {
-    return summaryForNorway[summaryName].loading
-  })
+  const isNorwayLoading =
+    !summaryForNorway ||
+    Object.keys(summaryForNorway).some(summaryName => {
+      return summaryForNorway[summaryName].loading
+    })
 
   if (isNorwayLoading) {
     return {}

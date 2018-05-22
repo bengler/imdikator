@@ -1,12 +1,10 @@
-export default [
-  {
+export default [{
     name: 'befolkning_hovedgruppe',
     query: {
       year: 'latest',
       tableName: 'befolkning_hovedgruppe',
       unit: ['prosent'],
-      dimensions: [
-        {
+      dimensions: [{
           name: 'innvkat5',
           variables: ['innvandrere']
         },
@@ -38,12 +36,10 @@ export default [
       year: 'latest',
       tableName: 'bosatt_befolkning',
       unit: ['promille'],
-      dimensions: [
-        {
-          name: 'bosetting',
-          variables: ['bosatt_per_1000']
-        }
-      ]
+      dimensions: [{
+        name: 'bosetting',
+        variables: ['bosatt_per_1000']
+      }]
     },
     drillDown: {
       page: 'befolkning',
@@ -73,12 +69,10 @@ export default [
       year: ['2012', '2013', '2014', '2015', '2016', '2017'],
       tableName: 'bosatt_anmodede',
       unit: ['personer'],
-      dimensions: [
-        {
-          name: 'bosetting',
-          variables: ['anmodning', 'vedtak']
-        }
-      ]
+      dimensions: [{
+        name: 'bosetting',
+        variables: ['anmodning', 'vedtak']
+      }]
     },
     drillDown: {
       page: 'befolkning',
@@ -102,12 +96,10 @@ export default [
       year: 'latest',
       tableName: 'tilskudd',
       unit: ['kroner'],
-      dimensions: [
-        {
-          name: 'tilskuddTilKommuner',
-          variables: ['totalt']
-        }
-      ]
+      dimensions: [{
+        name: 'tilskuddTilKommuner',
+        variables: ['totalt']
+      }]
     },
     drillDown: {
       page: 'tilskudd',
@@ -131,8 +123,7 @@ export default [
       year: 'latest',
       tableName: 'intro_status_arbutd',
       unit: ['prosent'],
-      dimensions: [
-        {
+      dimensions: [{
           name: 'avslutta',
           variables: ['ettaar']
         },
@@ -174,12 +165,10 @@ export default [
       year: 'latest',
       tableName: 'sysselsatte_innvkat',
       unit: ['prosent'],
-      dimensions: [
-        {
-          name: 'innvkat3',
-          variables: ['innvandrere', 'befolkningen_ellers']
-        }
-      ]
+      dimensions: [{
+        name: 'innvkat3',
+        variables: ['innvandrere', 'befolkningen_ellers']
+      }]
     },
     drillDown: {
       page: 'arbeid',

@@ -1,18 +1,18 @@
-import React, { Component, PropTypes } from "react"
-import { connect } from "react-redux"
-import smoothScroll from "smoothscroll"
+import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import smoothScroll from 'smoothscroll'
 
-import RegionSummaryChartsContainer from "../containers/RegionSummaryChartsContainer"
-import RegionChildListContainer from "../containers/RegionChildListContainer"
-import CardPageButtonsContainer from "../containers/CardPageButtonsContainer"
-import RegionInfoContainer from "../containers/RegionInfoContainer"
-import RegionSearch from "../containers/RegionSearchContainer"
-import RegionQuickSwitch from "../containers/RegionQuickSwitch"
-import { showOverlay } from "../../actions/overlay"
+import RegionSummaryChartsContainer from '../containers/RegionSummaryChartsContainer'
+import RegionChildListContainer from '../containers/RegionChildListContainer'
+import CardPageButtonsContainer from '../containers/CardPageButtonsContainer'
+import RegionInfoContainer from '../containers/RegionInfoContainer'
+import RegionSearch from '../containers/RegionSearchContainer'
+import RegionQuickSwitch from '../containers/RegionQuickSwitch'
+import {showOverlay} from '../../actions/overlay'
 
-import { getPageTitle, getPageIngress } from "../../lib/regionUtil"
-import { _t } from "../../lib/translate"
-import * as ImdiPropTypes from "../proptypes/ImdiPropTypes"
+import {getPageTitle, getPageIngress} from '../../lib/regionUtil'
+import {_t} from '../../lib/translate'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 
 class RegionPage extends Component {
   static propTypes = {
@@ -39,20 +39,20 @@ class RegionPage extends Component {
   handleClickFactSheet() {
     // Show full-page loading overlay
     this.props.dispatch(showOverlay())
-    this.context.goTo("/tall-og-statistikk/steder/:region/fakta", {
+    this.context.goTo('/tall-og-statistikk/steder/:region/fakta', {
       region: this.props.currentRegion.prefixedCode
     })
   }
 
   handleSelectRegion(region) {
     this.gotoElement(this.pageSection)
-    this.context.goTo("/tall-og-statistikk/steder/:region", {
+    this.context.goTo('/tall-og-statistikk/steder/:region', {
       region: region.prefixedCode
     })
   }
 
   scrollToTop() {
-    smoothScroll(document.querySelector("body"))
+    smoothScroll(document.querySelector('body'))
   }
 
   gotoElement(element) {
@@ -60,28 +60,28 @@ class RegionPage extends Component {
   }
 
   getRegionNameAndType() {
-    if (this.getRegionName() == "Norge") return this.getRegionName()
-    const { type } = this.props.currentRegion
-    if (!type) return ""
+    if (this.getRegionName() == 'Norge') return this.getRegionName()
+    const {type} = this.props.currentRegion
+    if (!type) return ''
 
     const typeOfPlace = _t(type)
     return `${this.getRegionName()} ${typeOfPlace}`
   }
 
   getRegionName() {
-    const { name } = this.props.currentRegion
-    if (!name) return ""
+    const {name} = this.props.currentRegion
+    if (!name) return ''
 
-    const isNorge = name === "Hele landet"
+    const isNorge = name === 'Hele landet'
 
     if (isNorge) {
-      return "Norge"
+      return 'Norge'
     }
     return name
   }
 
   render() {
-    const { currentRegion } = this.props
+    const {currentRegion} = this.props
 
     if (!currentRegion) {
       return null
@@ -100,10 +100,7 @@ class RegionPage extends Component {
                     <label>
                       <span className="label">Gå til sted</span>
                       <div className="search search--autocomplete">
-                        <RegionSearch
-                          onSelect={this.handleSelectRegion}
-                          placeholder="Kommune/bydel/fylke/næringsregion"
-                        />
+                        <RegionSearch onSelect={this.handleSelectRegion} placeholder="Kommune/bydel/fylke/næringsregion" />
                       </div>
                     </label>
                   </div>
@@ -124,9 +121,7 @@ class RegionPage extends Component {
               <div className="col--main">
                 <CardPageButtonsContainer />
 
-                <h2 className="page__section-title">
-                  Oppsummering av {this.getRegionNameAndType()}
-                </h2>
+                <h2 className="page__section-title">Oppsummering av {this.getRegionNameAndType()}</h2>
 
                 <div className="col-block-bleed--full-right col-block-bleed--inline-mobile">
                   <div className="row">
@@ -137,19 +132,11 @@ class RegionPage extends Component {
                 <div className="feature t-hide-on-print">
                   <h2 className="feature__title">Faktaark</h2>
 
-                  <p>
-                    Et dokument hvor alle nøkkeltallene fra{" "}
-                    {this.getRegionNameAndType()} er gjengitt.
-                  </p>
+                  <p>Et dokument hvor alle nøkkeltallene fra {this.getRegionNameAndType()} er gjengitt.</p>
 
                   <p>
-                    <a
-                      href="#"
-                      onClick={this.handleClickFactSheet}
-                      className="button button-"
-                    >
-                      <i className="icon__download icon--white" />{" "}
-                      Utskriftsvennlig faktaark
+                    <a href="#" onClick={this.handleClickFactSheet} className="button button-">
+                      <i className="icon__download icon--white" /> Utskriftsvennlig faktaark
                     </a>
                   </p>
                 </div>
@@ -163,9 +150,7 @@ class RegionPage extends Component {
             <div className="row">
               <div className="col--main">
                 <div className="feature feature--white">
-                  <h2 className="feature__title">
-                    {this.getRegionNameAndType()}
-                  </h2>
+                  <h2 className="feature__title">{this.getRegionNameAndType()}</h2>
                   <RegionInfoContainer region={currentRegion} />
                   <RegionQuickSwitch />
                 </div>

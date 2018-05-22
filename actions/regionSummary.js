@@ -1,10 +1,21 @@
 import apiClient from '../config/apiClient'
 import resolveQuery from '../lib/resolveQuery'
-import {findHeaderGroupForQuery} from '../lib/queryUtil'
-import {isSimilarRegion} from '../lib/regionUtil'
-import {REQUEST_REGION_SUMMARY_DATA, RECEIVE_REGION_SUMMARY_DATA, NO_SUMMARY_DATA} from './ActionTypes'
+import {
+  findHeaderGroupForQuery
+} from '../lib/queryUtil'
+import {
+  isSimilarRegion
+} from '../lib/regionUtil'
+import {
+  REQUEST_REGION_SUMMARY_DATA,
+  RECEIVE_REGION_SUMMARY_DATA,
+  NO_SUMMARY_DATA
+} from './ActionTypes'
 
-function requestSummaryData({region, summaryConfig}) {
+function requestSummaryData({
+  region,
+  summaryConfig
+}) {
   return {
     type: REQUEST_REGION_SUMMARY_DATA,
     region: region,
@@ -12,7 +23,12 @@ function requestSummaryData({region, summaryConfig}) {
   }
 }
 
-function receiveSummaryData({region, summaryConfig, query, queryResult}) {
+function receiveSummaryData({
+  region,
+  summaryConfig,
+  query,
+  queryResult
+}) {
   return {
     type: RECEIVE_REGION_SUMMARY_DATA,
     region: region,
@@ -22,7 +38,10 @@ function receiveSummaryData({region, summaryConfig, query, queryResult}) {
   }
 }
 
-function noSummaryData({region, summaryConfig}) {
+function noSummaryData({
+  region,
+  summaryConfig
+}) {
   return {
     type: NO_SUMMARY_DATA,
     region: region,
@@ -40,9 +59,14 @@ export function loadRegionSummaryDataForRegion(region, summaryConfig) {
       return
     }
 
-    const {allRegions} = state
+    const {
+      allRegions
+    } = state
 
-    dispatch(requestSummaryData({region, summaryConfig}))
+    dispatch(requestSummaryData({
+      region,
+      summaryConfig
+    }))
 
     apiClient.getHeaderGroups(summaryConfig.query.tableName).then(headerGroups => {
 

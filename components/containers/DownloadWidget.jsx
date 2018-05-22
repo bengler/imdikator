@@ -122,9 +122,6 @@ class DownloadWidget extends Component {
         chartQuery: JSON.stringify(chartQuery),
         dimensionLabels: JSON.stringify(csvDimensionsBuilder())
       }
-
-      console.log({query})
-
       // Call node server for CSV file
       apiClient
         .getCsvFile(query)
@@ -144,8 +141,6 @@ class DownloadWidget extends Component {
     }
 
     const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
-
-    console.log(choices)
 
     return (
       <PopupChoicesBox

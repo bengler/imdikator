@@ -90,7 +90,7 @@ export default class PopupChoicesBox extends Component {
     svg.style.background = 'white'
 
     this.chartDownloadVersion(true) // style chart for download
-    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg') // download the png
+    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg', { canvg: window.canvg }) // download the png
     this.chartDownloadVersion(false) // revert chart to normal
   }
 

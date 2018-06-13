@@ -1,9 +1,8 @@
-import canvg from 'canvg'
 import React, { Component, PropTypes } from 'react'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import saveSvgAsPng from '../../lib/saveSvgAsPng'
 require('../../lib/closestPolyfill')
-require('canvg')
+const canvg = require('canvg')
 
 export default class PopupChoicesBox extends Component {
   static propTypes = {
@@ -92,7 +91,7 @@ export default class PopupChoicesBox extends Component {
     svg.style.background = 'white'
 
     this.chartDownloadVersion(true) // style chart for download
-    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg', { canvg: canvg }) // download the png
+    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg', { canvg }) // download the png
     this.chartDownloadVersion(false) // revert chart to normal
   }
 

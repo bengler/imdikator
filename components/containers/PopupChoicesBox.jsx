@@ -1,7 +1,9 @@
-import React, {Component, PropTypes} from 'react'
+import canvg from 'canvg'
+import React, { Component, PropTypes } from 'react'
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
 import saveSvgAsPng from '../../lib/saveSvgAsPng'
 require('../../lib/closestPolyfill')
+require('canvg')
 
 export default class PopupChoicesBox extends Component {
   static propTypes = {
@@ -48,11 +50,11 @@ export default class PopupChoicesBox extends Component {
 
   onChange(event) {
     const choiceNumber = event.target.value
-    this.setState({choiceNumber: choiceNumber})
+    this.setState({ choiceNumber: choiceNumber })
   }
 
   downloadSVG() {
-    const {downloadScreenshot, setExplicitView} = this.props
+    const { downloadScreenshot, setExplicitView } = this.props
     const svg = this.lightbox.closest('.toggle-list__section.toggle-list__section--expanded').querySelector('.chart__svg')
     setExplicitView(true)
     downloadScreenshot(svg)
@@ -90,14 +92,14 @@ export default class PopupChoicesBox extends Component {
     svg.style.background = 'white'
 
     this.chartDownloadVersion(true) // style chart for download
-    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg', { canvg: window.canvg }) // download the png
+    saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg', { canvg: canvg }) // download the png
     this.chartDownloadVersion(false) // revert chart to normal
   }
 
   // this function ensures proper styling, like font sizes, horisontal lines and text positions.
   // because fonts and positions defaults to browser (ugly) standards.
   chartDownloadVersion(chartIsForDownload) {
-    const {moveRight, moveDown} = this.state
+    const { moveRight, moveDown } = this.state
 
     const svg = document.querySelector('[data-chart]')
     const d3 = document.querySelector('.chart__d3-points')
@@ -150,7 +152,7 @@ export default class PopupChoicesBox extends Component {
   }
 
   render() {
-    const {chartKind} = this.props
+    const { chartKind } = this.props
 
     let downloadImage = chartKind === 'bar' || chartKind === 'bubble' || chartKind === 'pyramid'
 
@@ -163,7 +165,7 @@ export default class PopupChoicesBox extends Component {
       >
         <div className="lightbox__backdrop" />
         <dialog open="open" className="lightbox__box">
-          <i className="lightbox__point" style={{left: '9.5em'}} />
+          <i className="lightbox__point" style={{ left: '9.5em' }} />
           <div role="document">
             <button type="button" className="lightbox__close-button" onClick={this.onCancel.bind(this)}>
               <i className="icon__close icon--red lightbox__close-button-icon" />
@@ -173,7 +175,7 @@ export default class PopupChoicesBox extends Component {
 
             <p>{this.props.description}</p>
 
-            <label style={{display: 'inline-block'}}>
+            <label style={{ display: 'inline-block' }}>
               <span className="label">{this.props.choiceLabel}</span>
               <div className="select t-margin-bottom">
                 <select id="popupchoicesbox-select" value={this.state.choiceNumber} onChange={this.onChange.bind(this)}>
@@ -194,8 +196,8 @@ export default class PopupChoicesBox extends Component {
                     <i className="loading-indicator loading-indicator--white" /> Laster…
                   </span>
                 ) : (
-                  this.props.applyButtonText
-                )}
+                    this.props.applyButtonText
+                  )}
               </button>
 
               {downloadImage && (

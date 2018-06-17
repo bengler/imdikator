@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import canvg from 'canvg-browser';
+
 import * as ImdiPropTypes from '../proptypes/ImdiPropTypes';
 import saveSvgAsPng from '../../lib/saveSvgAsPng';
-import canvg from '../../lib/canvg.min.js';
 
 require('../../lib/closestPolyfill');
 
@@ -126,12 +127,9 @@ export default class PopupChoicesBox extends Component {
 
     let options = {};
     const ieVersion = detectIE();
-    console.log('ieVersion', ieVersion);
     if (ieVersion !== false && ieVersion < 12) {
       options = { canvg: canvg, backgroundColor: '#FFFFFF' };
     }
-    console.log('options', options);
-
     this.chartDownloadVersion(true); // style chart for download
     saveSvgAsPng.saveSvgAsPng(svg, 'imdi-diagram.jpg', options); // download the png
     this.chartDownloadVersion(false); // revert chart to normal
@@ -156,6 +154,7 @@ export default class PopupChoicesBox extends Component {
 
     if (chartIsForDownload) {
       svg.style.setProperty('transform', 'translate(2px, 1px)');
+      text.style.setProperty('transform', 'translate(1px, 18px)');
 
       // make sure font family is consistent with the rest of the site
       Array.from(allText).forEach(textElement => {
@@ -188,6 +187,7 @@ export default class PopupChoicesBox extends Component {
       d3.setAttribute('height', '105%');
       this.addValuesToTransform(d3, moveRight, moveDown);
 
+      text.style.setProperty('display', 'initial');
       text.style.setProperty('display', 'initial');
       text.style.setProperty('font-size', '25px');
       text.style.setProperty('transform', 'translateY(30px)');

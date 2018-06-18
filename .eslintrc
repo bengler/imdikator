@@ -4,20 +4,14 @@
     "browser": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "eslint-plugin-import"
-  ],
-  "extends": [
-    "bengler",
-    "bengler/react",
-    "bengler/import"
-  ],
+  "plugins": ["eslint-plugin-import"],
+  // "extends": ["bengler", "bengler/react", "bengler/import"],
   "rules": {
-    "no-case-declarations": 1,
-    // pending https://github.com/benmosher/eslint-plugin-import/issues/333
-    "import/no-named-as-default": 1,
-    "import/default": 1,
-    "import/namespace": 1
+    // "no-case-declarations": 1,
+    // // pending https://github.com/benmosher/eslint-plugin-import/issues/333
+    // "import/no-named-as-default": 1,
+    // "import/default": 1,
+    // "import/namespace": 1
   },
   "settings": {
     "import/parser": "babel-eslint",

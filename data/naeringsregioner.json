@@ -1,6 +1,7 @@
 [
   {
     "code": "01",
+    "name": "Halden",
     "municipalityCode": "0101",
     "countyCode": "01",
     "type": "commerceRegion",
@@ -8,6 +9,7 @@
   },
   {
     "code": "03",
+    "name": "Mosseregionen",
     "municipalityCode": "0104",
     "countyCode": "01",
     "type": "commerceRegion",
@@ -15,6 +17,7 @@
   },
   {
     "code": "04",
+    "name": "Nedre Glomma",
     "municipalityCode": "0105",
     "countyCode": "01",
     "type": "commerceRegion",
@@ -22,6 +25,7 @@
   },
   {
     "code": "02",
+    "name": "Indre Østfold",
     "municipalityCode": "0118",
     "countyCode": "01",
     "type": "commerceRegion",
@@ -29,6 +33,7 @@
   },
   {
     "code": "07",
+    "name": "Nedre Romerike",
     "municipalityCode": "0121",
     "countyCode": "01",
     "type": "commerceRegion",
@@ -36,6 +41,7 @@
   },
   {
     "code": "06",
+    "name": "Follo",
     "municipalityCode": "0211",
     "countyCode": "02",
     "type": "commerceRegion",
@@ -43,6 +49,7 @@
   },
   {
     "code": "05",
+    "name": "Nye Asker og Bærum",
     "municipalityCode": "0219",
     "countyCode": "02",
     "type": "commerceRegion",
@@ -50,6 +57,7 @@
   },
   {
     "code": "08",
+    "name": "Øvre Romerike",
     "municipalityCode": "0234",
     "countyCode": "02",
     "type": "commerceRegion",
@@ -57,6 +65,7 @@
   },
   {
     "code": "09",
+    "name": "Oslo",
     "municipalityCode": "0301",
     "countyCode": "03",
     "type": "commerceRegion",
@@ -64,6 +73,7 @@
   },
   {
     "code": "11",
+    "name": "Glåmdal",
     "municipalityCode": "0402",
     "countyCode": "04",
     "type": "commerceRegion",
@@ -71,6 +81,7 @@
   },
   {
     "code": "12",
+    "name": "Hamarregionen",
     "municipalityCode": "0403",
     "countyCode": "04",
     "type": "commerceRegion",
@@ -78,6 +89,7 @@
   },
   {
     "code": "13",
+    "name": "Sør Østerdal",
     "municipalityCode": "0427",
     "countyCode": "04",
     "type": "commerceRegion",
@@ -85,6 +97,7 @@
   },
   {
     "code": "10",
+    "name": "Fjellregionen",
     "municipalityCode": "0432",
     "countyCode": "04",
     "type": "commerceRegion",
@@ -92,6 +105,7 @@
   },
   {
     "code": "16",
+    "name": "Lillehammerregionen",
     "municipalityCode": "0501",
     "countyCode": "05",
     "type": "commerceRegion",
@@ -99,6 +113,7 @@
   },
   {
     "code": "14",
+    "name": "Gjøvikregionen",
     "municipalityCode": "0502",
     "countyCode": "05",
     "type": "commerceRegion",
@@ -106,6 +121,7 @@
   },
   {
     "code": "18",
+    "name": "Nord-Gudbrandsdal",
     "municipalityCode": "0511",
     "countyCode": "05",
     "type": "commerceRegion",
@@ -113,6 +129,7 @@
   },
   {
     "code": "17",
+    "name": "Midt-Gudbrandsdal",
     "municipalityCode": "0516",
     "countyCode": "05",
     "type": "commerceRegion",
@@ -120,6 +137,7 @@
   },
   {
     "code": "15",
+    "name": "Hadeland",
     "municipalityCode": "0532",
     "countyCode": "05",
     "type": "commerceRegion",
@@ -127,6 +145,7 @@
   },
   {
     "code": "19",
+    "name": "Valdres",
     "municipalityCode": "0540",
     "countyCode": "05",
     "type": "commerceRegion",
@@ -134,6 +153,7 @@
   },
   {
     "code": "20",
+    "name": "Drammensregionen",
     "municipalityCode": "0602",
     "countyCode": "06",
     "type": "commerceRegion",
@@ -141,6 +161,7 @@
   },
   {
     "code": "22",
+    "name": "Kongsberg/Numedal",
     "municipalityCode": "0604",
     "countyCode": "06",
     "type": "commerceRegion",
@@ -148,6 +169,7 @@
   },
   {
     "code": "24",
+    "name": "Ringerike/Hole",
     "municipalityCode": "0605",
     "countyCode": "06",
     "type": "commerceRegion",
@@ -155,6 +177,7 @@
   },
   {
     "code": "21",
+    "name": "Hallingdal",
     "municipalityCode": "0615",
     "countyCode": "06",
     "type": "commerceRegion",
@@ -162,6 +185,7 @@
   },
   {
     "code": "23",
+    "name": "Midt-Buskerud",
     "municipalityCode": "0621",
     "countyCode": "06",
     "type": "commerceRegion",
@@ -169,6 +193,7 @@
   },
   {
     "code": "26",
+    "name": "Tønsbergregionen",
     "municipalityCode": "0701",
     "countyCode": "07",
     "type": "commerceRegion",
@@ -176,6 +201,7 @@
   },
   {
     "code": "25",
+    "name": "Vestfold Nord",
     "municipalityCode": "0702",
     "countyCode": "07",
     "type": "commerceRegion",
@@ -183,6 +209,7 @@
   },
   {
     "code": "0.",
+    "name": ".",
     "municipalityCode": "0706",
     "countyCode": "07",
     "type": "commerceRegion",
@@ -190,6 +217,7 @@
   },
   {
     "code": "28",
+    "name": "Larvik/Lardal",
     "municipalityCode": "0709",
     "countyCode": "07",
     "type": "commerceRegion",
@@ -197,6 +225,7 @@
   },
   {
     "code": "27",
+    "name": "Sandefjord",
     "municipalityCode": "0710",
     "countyCode": "07",
     "type": "commerceRegion",
@@ -204,6 +233,7 @@
   },
   {
     "code": "29",
+    "name": "Grenland",
     "municipalityCode": "0805",
     "countyCode": "08",
     "type": "commerceRegion",
@@ -211,6 +241,7 @@
   },
   {
     "code": "31",
+    "name": "Øst-Telemark",
     "municipalityCode": "0807",
     "countyCode": "08",
     "type": "commerceRegion",
@@ -218,6 +249,7 @@
   },
   {
     "code": "30",
+    "name": "Midt-Telemark",
     "municipalityCode": "0819",
     "countyCode": "08",
     "type": "commerceRegion",
@@ -225,6 +257,7 @@
   },
   {
     "code": "32",
+    "name": "Vest-Telemark",
     "municipalityCode": "0828",
     "countyCode": "08",
     "type": "commerceRegion",
@@ -232,6 +265,7 @@
   },
   {
     "code": "34",
+    "name": "Arendalregionen",
     "municipalityCode": "0901",
     "countyCode": "09",
     "type": "commerceRegion",
@@ -239,6 +273,7 @@
   },
   {
     "code": "37",
+    "name": "Kristiansandregionen",
     "municipalityCode": "0926",
     "countyCode": "09",
     "type": "commerceRegion",
@@ -246,6 +281,7 @@
   },
   {
     "code": "33",
+    "name": "Setesdal",
     "municipalityCode": "0937",
     "countyCode": "09",
     "type": "commerceRegion",
@@ -253,6 +289,7 @@
   },
   {
     "code": "36",
+    "name": "Mandalsregionen",
     "municipalityCode": "1002",
     "countyCode": "10",
     "type": "commerceRegion",
@@ -260,6 +297,7 @@
   },
   {
     "code": "35",
+    "name": "Lister",
     "municipalityCode": "1003",
     "countyCode": "10",
     "type": "commerceRegion",
@@ -267,6 +305,7 @@
   },
   {
     "code": "38",
+    "name": "Dalane",
     "municipalityCode": "1101",
     "countyCode": "11",
     "type": "commerceRegion",
@@ -274,6 +313,7 @@
   },
   {
     "code": "41",
+    "name": "Stavangerregionen",
     "municipalityCode": "1102",
     "countyCode": "11",
     "type": "commerceRegion",
@@ -281,6 +321,7 @@
   },
   {
     "code": "39",
+    "name": "Haugesundregionen",
     "municipalityCode": "1106",
     "countyCode": "11",
     "type": "commerceRegion",
@@ -288,6 +329,7 @@
   },
   {
     "code": "40",
+    "name": "Ryfylke",
     "municipalityCode": "1130",
     "countyCode": "11",
     "type": "commerceRegion",
@@ -295,6 +337,7 @@
   },
   {
     "code": "42",
+    "name": "Bergen",
     "municipalityCode": "1201",
     "countyCode": "11",
     "type": "commerceRegion",
@@ -302,6 +345,7 @@
   },
   {
     "code": "48",
+    "name": "Sunnhordland",
     "municipalityCode": "1211",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -309,6 +353,7 @@
   },
   {
     "code": "44",
+    "name": "Hardanger",
     "municipalityCode": "1227",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -316,6 +361,7 @@
   },
   {
     "code": "45",
+    "name": "Voss",
     "municipalityCode": "1234",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -323,6 +369,7 @@
   },
   {
     "code": "43",
+    "name": "Bjørnefjorden",
     "municipalityCode": "1241",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -330,6 +377,7 @@
   },
   {
     "code": "49",
+    "name": "Hordaland Vest",
     "municipalityCode": "1245",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -337,6 +385,7 @@
   },
   {
     "code": "47",
+    "name": "Osterfjorden",
     "municipalityCode": "1251",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -344,6 +393,7 @@
   },
   {
     "code": "46",
+    "name": "Nordhordland",
     "municipalityCode": "1260",
     "countyCode": "12",
     "type": "commerceRegion",
@@ -351,6 +401,7 @@
   },
   {
     "code": "53",
+    "name": "Sunnfjord",
     "municipalityCode": "1401",
     "countyCode": "14",
     "type": "commerceRegion",
@@ -358,6 +409,7 @@
   },
   {
     "code": "50",
+    "name": "HAFS",
     "municipalityCode": "1411",
     "countyCode": "14",
     "type": "commerceRegion",
@@ -365,6 +417,7 @@
   },
   {
     "code": "52",
+    "name": "Sogn",
     "municipalityCode": "1416",
     "countyCode": "14",
     "type": "commerceRegion",
@@ -372,6 +425,7 @@
   },
   {
     "code": "51",
+    "name": "Nordfjord",
     "municipalityCode": "1438",
     "countyCode": "14",
     "type": "commerceRegion",
@@ -379,6 +433,7 @@
   },
   {
     "code": "57",
+    "name": "Søre Sunnmøre",
     "municipalityCode": "1444",
     "countyCode": "14",
     "type": "commerceRegion",
@@ -386,6 +441,7 @@
   },
   {
     "code": "55",
+    "name": "Romsdal",
     "municipalityCode": "1502",
     "countyCode": "15",
     "type": "commerceRegion",
@@ -393,6 +449,7 @@
   },
   {
     "code": "54",
+    "name": "Nordmøre",
     "municipalityCode": "1505",
     "countyCode": "15",
     "type": "commerceRegion",
@@ -400,6 +457,7 @@
   },
   {
     "code": "58",
+    "name": "Ålesundregionen",
     "municipalityCode": "1504",
     "countyCode": "15",
     "type": "commerceRegion",
@@ -407,6 +465,7 @@
   },
   {
     "code": "56",
+    "name": "Storfjord",
     "municipalityCode": "1524",
     "countyCode": "15",
     "type": "commerceRegion",
@@ -414,6 +473,7 @@
   },
   {
     "code": "63",
+    "name": "Trondheimsregionen",
     "municipalityCode": "1601",
     "countyCode": "16",
     "type": "commerceRegion",
@@ -421,6 +481,7 @@
   },
   {
     "code": "62",
+    "name": "Orkdalregionen",
     "municipalityCode": "1613",
     "countyCode": "16",
     "type": "commerceRegion",
@@ -428,6 +489,7 @@
   },
   {
     "code": "60",
+    "name": "Hitra/Frøya",
     "municipalityCode": "1617",
     "countyCode": "16",
     "type": "commerceRegion",
@@ -435,6 +497,7 @@
   },
   {
     "code": "59",
+    "name": "Fosen",
     "municipalityCode": "1621",
     "countyCode": "16",
     "type": "commerceRegion",
@@ -442,6 +505,7 @@
   },
   {
     "code": "61",
+    "name": "Oppdal/Rennebu",
     "municipalityCode": "1634",
     "countyCode": "16",
     "type": "commerceRegion",
@@ -449,6 +513,7 @@
   },
   {
     "code": "64",
+    "name": "Rørosregionen",
     "municipalityCode": "1640",
     "countyCode": "16",
     "type": "commerceRegion",
@@ -456,6 +521,7 @@
   },
   {
     "code": "66",
+    "name": "Innherred",
     "municipalityCode": "1702",
     "countyCode": "17",
     "type": "commerceRegion",
@@ -463,6 +529,7 @@
   },
   {
     "code": "69",
+    "name": "Midtre Namdal",
     "municipalityCode": "1703",
     "countyCode": "17",
     "type": "commerceRegion",
@@ -470,6 +537,7 @@
   },
   {
     "code": "65",
+    "name": "Stjørdalsregionen",
     "municipalityCode": "1711",
     "countyCode": "17",
     "type": "commerceRegion",
@@ -477,6 +545,7 @@
   },
   {
     "code": "67",
+    "name": "Indre Namdal",
     "municipalityCode": "1736",
     "countyCode": "17",
     "type": "commerceRegion",
@@ -484,6 +553,7 @@
   },
   {
     "code": "68",
+    "name": "Kystgruppen",
     "municipalityCode": "1750",
     "countyCode": "17",
     "type": "commerceRegion",
@@ -491,6 +561,7 @@
   },
   {
     "code": "75",
+    "name": "Salten",
     "municipalityCode": "1804",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -498,6 +569,7 @@
   },
   {
     "code": "76",
+    "name": "Ofoten",
     "municipalityCode": "1805",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -505,6 +577,7 @@
   },
   {
     "code": "70",
+    "name": "Sør-Helgeland",
     "municipalityCode": "1811",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -512,6 +585,7 @@
   },
   {
     "code": "71",
+    "name": "HALD",
     "municipalityCode": "1818",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -519,6 +593,7 @@
   },
   {
     "code": "73",
+    "name": "Mosjøregionen",
     "municipalityCode": "1824",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -526,6 +601,7 @@
   },
   {
     "code": "74",
+    "name": "Ranaregionen",
     "municipalityCode": "1828",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -533,6 +609,7 @@
   },
   {
     "code": "72",
+    "name": "Ytre Helgeland",
     "municipalityCode": "1834",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -540,6 +617,7 @@
   },
   {
     "code": "78",
+    "name": "Vesterålen",
     "municipalityCode": "1851",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -547,6 +625,7 @@
   },
   {
     "code": "79",
+    "name": "Harstadregionen",
     "municipalityCode": "1852",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -554,6 +633,7 @@
   },
   {
     "code": "77",
+    "name": "Lofoten",
     "municipalityCode": "1874",
     "countyCode": "18",
     "type": "commerceRegion",
@@ -561,6 +641,7 @@
   },
   {
     "code": "81",
+    "name": "Tromsøregionen",
     "municipalityCode": "1902",
     "countyCode": "19",
     "type": "commerceRegion",
@@ -568,6 +649,7 @@
   },
   {
     "code": "80",
+    "name": "Midt-Troms",
     "municipalityCode": "1922",
     "countyCode": "19",
     "type": "commerceRegion",
@@ -575,6 +657,7 @@
   },
   {
     "code": "82",
+    "name": "Nord-Troms",
     "municipalityCode": "1938",
     "countyCode": "19",
     "type": "commerceRegion",
@@ -582,6 +665,7 @@
   },
   {
     "code": "85",
+    "name": "Øst-Finnmark",
     "municipalityCode": "2002",
     "countyCode": "20",
     "type": "commerceRegion",
@@ -589,6 +673,7 @@
   },
   {
     "code": "83",
+    "name": "Vest-Finnmark",
     "municipalityCode": "2004",
     "countyCode": "20",
     "type": "commerceRegion",
@@ -596,6 +681,7 @@
   },
   {
     "code": "84",
+    "name": "Midt-Finnmark",
     "municipalityCode": "2011",
     "countyCode": "20",
     "type": "commerceRegion",
@@ -603,6 +689,7 @@
   },
   {
     "code": "99",
+    "name": "Uoppgitt næringsregion",
     "municipalityCode": "9999",
     "countyCode": "99",
     "type": "commerceRegion",
@@ -610,6 +697,7 @@
   },
   {
     "code": "00",
+    "name": "Norge",
     "municipalityCode": "0000",
     "countyCode": "00",
     "type": "commerceRegion",

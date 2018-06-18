@@ -1,12 +1,12 @@
-import React, {Component, PropTypes} from 'react'
-import update from 'react-addons-update'
-import BenchmarkChart from '../charts/bar-chart/BenchmarkChart'
-import BarChart from '../charts/bar-chart/BarChart'
-import LineChart from '../charts/line-chart/LineChart'
-import {norway, comparisonDescription} from '../../lib/regionUtil'
-import {unitFormatter} from '../../lib/unitFormatter'
-import {queryResultPresenter} from '../../lib/queryResultPresenter'
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import React, { Component, PropTypes } from 'react';
+import update from 'react-addons-update';
+import BenchmarkChart from '../charts/bar-chart/BenchmarkChart';
+import BarChart from '../charts/bar-chart/BarChart';
+import LineChart from '../charts/line-chart/LineChart';
+import { norway, comparisonDescription } from '../../lib/regionUtil';
+import { unitFormatter } from '../../lib/unitFormatter';
+import { queryResultPresenter } from '../../lib/queryResultPresenter';
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes';
 
 export default class RegionSummaryChart extends Component {
   static propTypes = {
@@ -17,83 +17,110 @@ export default class RegionSummaryChart extends Component {
     compareWith: PropTypes.shape({
       queryResult: PropTypes.array
     })
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func
-  }
+  };
 
   getChart(chartKind) {
     if (chartKind == 'benchmark') {
-      return BenchmarkChart
+      return BenchmarkChart;
     } else if (chartKind == 'line') {
-      return LineChart
+      return LineChart;
     }
-    return BarChart
+    return BarChart;
   }
 
   getDimensions(chartKind) {
     if (chartKind == 'benchmark') {
-      return [{name: 'region', variables: []}]
+      return [{ name: 'region', variables: [] }];
     } else if (chartKind == 'line') {
-      return [{name: 'bosetting', variables: []}, {name: 'region', variables: []}, {name: 'year', variables: []}]
+      return [
+        { name: 'bosetting', variables: [] },
+        { name: 'region', variables: [] },
+        { name: 'year', variables: [] }
+      ];
     }
-    return [{name: 'region', variables: []}, {name: 'innvkat3', variables: []}]
+    return [
+      { name: 'region', variables: [] },
+      { name: 'innvkat3', variables: [] }
+    ];
   }
 
   render() {
-    const {region, queryResult, query, config, compareWith} = this.props
+    const { region, queryResult, query, config, compareWith } = this.props;
 
-    const data = queryResult && queryResultPresenter(query, queryResult, {chartKind: config.chartKind})
-    const comparisonData = compareWith && compareWith.queryResult
+    const data =
+      queryResult &&
+      queryResultPresenter(query, queryResult, { chartKind: config.chartKind });
+    const comparisonData = compareWith && compareWith.queryResult;
 
-    const isNorway = region.prefixedCode === norway.prefixedCode
-    const isBenchmark = config.chartKind == 'benchmark'
-    const isBorough = region.type == 'borough'
+    const isNorway = region.prefixedCode === norway.prefixedCode;
+    const isBenchmark = config.chartKind == 'benchmark';
+    const isBorough = region.type == 'borough';
 
-    const cardName = config.drillDown.card
+    const cardName = config.drillDown.card;
 
-    const formatter = unitFormatter(query.unit[0])
+    const formatter = unitFormatter(query.unit[0]);
 
-    const regionDataRow = data.rows.find(row => row.region == region.prefixedCode)
+    const regionDataRow = data.rows.find(
+      row => row.region == region.prefixedCode
+    );
 
-    console.log(regionDataRow)
+    if (!regionDataRow) {
+      return null;
+    }
 
-    let titleParams = {}
-    titleParams.anonymizedData = !!regionDataRow.anonymized
-    titleParams.missingData = !!regionDataRow.missingData
-    titleParams.share = formatter.format(regionDataRow.value)
+    let titleParams = {};
+    titleParams.anonymizedData = regionDataRow
+      ? !!regionDataRow.anonymized
+      : false;
+    titleParams.missingData = regionDataRow
+      ? !!regionDataRow.missingData
+      : false;
+    titleParams.share = formatter.format(regionDataRow.value);
 
     config.additionalTitleParams.forEach(param => {
-      titleParams[param] = regionDataRow[param]
-    })
+      titleParams[param] = regionDataRow[param];
+    });
 
-    const title = config.title(titleParams)
+    const title = config.title(titleParams);
 
-    const subtitle = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[0].tabellvariabel)})
+    const subtitle =
+      comparisonData &&
+      region.prefixedCode !== 'F00' &&
+      config.subTitle({
+        share: formatter.format(comparisonData[0].tabellvariabel)
+      });
 
     // secondary titles, atm only used in barchart
-    let titleTwo = null
-    let subtitleTwo = null
+    let titleTwo = null;
+    let subtitleTwo = null;
     if (config.chartKind == 'bar') {
       titleParams = {
         share: formatter.format(data.rows[1].value)
-      }
+      };
       config.additionalTitleParams.forEach(param => {
-        titleParams[param] = data.rows[1][param]
-      })
-      titleTwo = config.title(titleParams)
-      subtitleTwo = comparisonData && region.prefixedCode !== 'F00' && config.subTitle({share: formatter.format(comparisonData[1].tabellvariabel)})
+        titleParams[param] = data.rows[1][param];
+      });
+      titleTwo = config.title(titleParams);
+      subtitleTwo =
+        comparisonData &&
+        region.prefixedCode !== 'F00' &&
+        config.subTitle({
+          share: formatter.format(comparisonData[1].tabellvariabel)
+        });
     }
 
-    const Chart = this.getChart(config.chartKind)
+    const Chart = this.getChart(config.chartKind);
 
     // BenchmarkChart can only handle one dimension
-    const dimensions = this.getDimensions(config.chartKind)
+    const dimensions = this.getDimensions(config.chartKind);
 
     const modifiedData = update(data, {
-      dimensions: {$set: dimensions},
+      dimensions: { $set: dimensions },
       // highlight our current region
       highlight: {
         $set: {
@@ -101,19 +128,25 @@ export default class RegionSummaryChart extends Component {
           value: [region.prefixedCode]
         }
       }
-    })
+    });
 
-    const drillDownUrl = this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName', {
-      region: region.prefixedCode,
-      cardsPageName: config.drillDown.page,
-      cardName: config.drillDown.card
-    })
+    const drillDownUrl = this.context.linkTo(
+      '/tall-og-statistikk/steder/:region/:cardsPageName/:cardName',
+      {
+        region: region.prefixedCode,
+        cardsPageName: config.drillDown.page,
+        cardName: config.drillDown.card
+      }
+    );
 
-    const similarUrl = this.context.linkTo('/tall-og-statistikk/steder/:region/lignende', {region: region.prefixedCode})
-    const comparison = comparisonDescription(region).toLowerCase()
+    const similarUrl = this.context.linkTo(
+      '/tall-og-statistikk/steder/:region/lignende',
+      { region: region.prefixedCode }
+    );
+    const comparison = comparisonDescription(region).toLowerCase();
 
     if (isBorough && cardName == 'bosatt_anmodede') {
-      return <div />
+      return <div />;
     }
 
     return (
@@ -124,7 +157,12 @@ export default class RegionSummaryChart extends Component {
           {titleTwo && <h3 className="indicator__primary">{titleTwo}</h3>}
           {subtitleTwo && <p className="indicator__secondary">{subtitleTwo}</p>}
           <div className="indicator__graph">
-            <Chart data={modifiedData} className="summaryChart" sortDirection="ascending" minimalHeight />
+            <Chart
+              data={modifiedData}
+              className="summaryChart"
+              sortDirection="ascending"
+              minimalHeight
+            />
           </div>
           {!isNorway &&
             isBenchmark && (
@@ -132,11 +170,14 @@ export default class RegionSummaryChart extends Component {
                 {region.name} og <a href={similarUrl}>{comparison}</a>
               </p>
             )}
-          <a href={drillDownUrl} className="button button--secondary indicator__cta">
+          <a
+            href={drillDownUrl}
+            className="button button--secondary indicator__cta"
+          >
             {config.drillDown.buttonTitle}
           </a>
         </section>
       </div>
-    )
+    );
   }
 }

@@ -70,8 +70,8 @@ export default class PopupChoicesBox extends Component {
     this.props.onCancel();
   }
 
-  onApply() {
-    this.props.onApply(this.state.choiceNumber);
+  onApply(choiceValue) {
+    this.props.onApply(choiceValue);
   }
 
   onChange(event) {
@@ -228,10 +228,21 @@ export default class PopupChoicesBox extends Component {
 
             <p>{this.props.description}</p>
 
-            <label style={{ display: 'inline-block' }}>
-              <span className="label">{this.props.choiceLabel}</span>
-              <div className="select t-margin-bottom">
-                <select
+            <div>
+              {this.props.choices.map(choice => (
+                <div>
+                  <a
+                    type="button"
+                    disabled={this.props.isLoading}
+                    onClick={() => this.onApply(choice.value)}
+                    key={choice.value}
+                  >
+                    {choice.description} (.csv)
+                  </a>
+                </div>
+              ))}
+
+              {/* <select
                   id="popupchoicesbox-select"
                   value={this.state.choiceNumber}
                   onChange={this.onChange.bind(this)}
@@ -241,28 +252,12 @@ export default class PopupChoicesBox extends Component {
                       {choice.description}
                     </option>
                   ))}
-                </select>
-              </div>
-            </label>
-
-            <div className="download-buttons">
+                </select> */}
+            </div>
+            <div className="t-margin-bottom--large" />
+            <div className="">
               {/* generate csv button */}
-              <button
-                type="button"
-                disabled={this.props.isLoading}
-                className="button download__button"
-                onClick={this.onApply.bind(this)}
-              >
-                {this.props.isLoading ? (
-                  <span>
-                    <i className="loading-indicator loading-indicator--white" />{' '}
-                    Laster…
-                  </span>
-                ) : (
-                  this.props.applyButtonText
-                )}
-              </button>
-
+              <h6 className="">Bildeformat</h6>
               {downloadImage && (
                 // download svg button
                 // <button type="button" disabled={this.props.isLoading} className="button download__svg download__button" onClick={() => { this.downloadSVG() }}>
@@ -271,12 +266,10 @@ export default class PopupChoicesBox extends Component {
 
                 // download png button
                 <a
-                  type="button"
                   ref={pngButton => {
                     this.pngButton = pngButton;
                   }}
                   disabled={this.props.isLoading}
-                  className="button download__button"
                   onClick={event => {
                     this.downloadPNG(event);
                   }}
@@ -284,20 +277,6 @@ export default class PopupChoicesBox extends Component {
                   Last ned bilde (.png)
                 </a>
               )}
-
-              {/* download svg button */}
-              {this.props.linkUrl &&
-                !this.props.isLoading && (
-                  <div>
-                    <p>
-                      <strong>CSV er klar for nedlastning:</strong>
-                    </p>
-                    <a href={this.props.linkUrl} title="last ned CSV">
-                      Last ned CSV (.csv)
-                    </a>
-                    {/* <a href={this.props.linkUrlExcel} onClick={this.downloadXLS} title="last ned XLSX">Last ned Excel (.xlsx)</a> */}
-                  </div>
-                )}
             </div>
 
             {/* error downloading svg message */}

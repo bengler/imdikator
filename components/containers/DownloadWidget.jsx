@@ -1,17 +1,20 @@
-import React, {Component, PropTypes} from 'react'
-import {connect} from 'react-redux'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
-import PopupChoicesBox from './PopupChoicesBox'
-import {downloadChoicesByRegion} from '../../lib/regionUtil'
-import {findHeaderGroupForQuery} from '../../lib/queryUtil'
-import apiClient from '../../config/apiClient'
-import {trackDownloadCompareAll, trackDownloadCompareSimilar} from '../../actions/tracking'
-import toVismaQuery from '../../lib/api-client/utils/toVismaQuery'
-import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery'
-import {toQueryParams} from '../../lib/api-client/visma'
-import csvDimensionsBuilder from '../../lib/csvDimensionsBuilder'
-import config from '../../config/index'
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes';
+import PopupChoicesBox from './PopupChoicesBox';
+import { downloadChoicesByRegion } from '../../lib/regionUtil';
+import { findHeaderGroupForQuery } from '../../lib/queryUtil';
+import apiClient from '../../config/apiClient';
+import {
+  trackDownloadCompareAll,
+  trackDownloadCompareSimilar
+} from '../../actions/tracking';
+import toVismaQuery from '../../lib/api-client/utils/toVismaQuery';
+import toVismaCompareQuery from '../../lib/api-client/utils/toVismaCompareQuery';
+import { toQueryParams } from '../../lib/api-client/visma';
+import csvDimensionsBuilder from '../../lib/csvDimensionsBuilder';
+import config from '../../config/index';
 
 class DownloadWidget extends Component {
   static propTypes = {
@@ -24,27 +27,36 @@ class DownloadWidget extends Component {
     downloadPNG: PropTypes.func,
     setExplicitView: PropTypes.func,
     chartKind: PropTypes.string
-  }
+  };
 
   constructor(props) {
-    super()
+    super();
     this.state = {
       isLoading: false,
       isError: false,
       linkUrl: ''
-    }
+    };
   }
 
   handleOpenDownloadSelect(event) {
-    event.preventDefault()
-    this.setState({isDownloadSelectOpen: !this.state.isDownloadSelectOpen})
+    event.preventDefault();
+    this.setState({ isDownloadSelectOpen: !this.state.isDownloadSelectOpen });
   }
 
   buildCsvQuery(choice) {
-    const comparisonRegions = choice.regions.slice().map(reg => reg.prefixedCode)
-    const {region, query, headerGroups} = this.props
-    const headerGroup = findHeaderGroupForQuery(query, headerGroups)
-    const unwantedDimensions = ['aar', 'enhet', 'fylkeNr', 'kommuneNr', 'naringsregionNr', 'bydelNr']
+    const comparisonRegions = choice.regions
+      .slice()
+      .map(reg => reg.prefixedCode);
+    const { region, query, headerGroups } = this.props;
+    const headerGroup = findHeaderGroupForQuery(query, headerGroups);
+    const unwantedDimensions = [
+      'aar',
+      'enhet',
+      'fylkeNr',
+      'kommuneNr',
+      'naringsregionNr',
+      'bydelNr'
+    ];
 
     const csvQuery = {
       tableName: query.tableName,
@@ -52,95 +64,122 @@ class DownloadWidget extends Component {
       dimensions: Object.keys(headerGroup)
         .map(headerKey => {
           if (unwantedDimensions.includes(headerKey)) {
-            return null
+            return null;
           }
-          return {name: headerKey}
+          return { name: headerKey };
         })
         .filter(Boolean),
       year: 'all',
       unit: headerGroup.enhet,
       comparisonRegions: comparisonRegions
-    }
+    };
 
     // Instead of comparing a county with a bunch of municipalities, we want to just look at those municipalities
     if (choice.overrideRegion) {
-      const arbitraryRegion = comparisonRegions[0]
-      csvQuery.region = arbitraryRegion
-      csvQuery.comparisonRegions = csvQuery.comparisonRegions.filter(prefixedCode => prefixedCode !== arbitraryRegion)
+      const arbitraryRegion = comparisonRegions[0];
+      csvQuery.region = arbitraryRegion;
+      csvQuery.comparisonRegions = csvQuery.comparisonRegions.filter(
+        prefixedCode => prefixedCode !== arbitraryRegion
+      );
     }
 
-    return csvQuery
+    return csvQuery;
   }
 
   buildChartQuery(query) {
     // Ensure variables are all arrays
     const dimensions = query.dimensions.map(d => {
-      let dimensionVariables = []
+      let dimensionVariables = [];
       if (Array.isArray(d.variables)) {
-        dimensionVariables = d.variables
+        dimensionVariables = d.variables;
       } else {
-        dimensionVariables = []
-        dimensionVariables.push(d.variables)
+        dimensionVariables = [];
+        dimensionVariables.push(d.variables);
       }
 
       // Replace "all" with "alle"
       dimensionVariables = dimensionVariables.map(i => {
         if (i === 'all') {
-          return 'alle'
+          return 'alle';
         }
-        return i
-      })
+        return i;
+      });
 
-      d.variables = dimensionVariables
-      return d
-    })
-    query.dimensions = dimensions
-    return query
+      d.variables = dimensionVariables;
+      return d;
+    });
+    query.dimensions = dimensions;
+    return query;
   }
 
   renderDownloadSelect() {
-    const {chartKind} = this.props
-    const choices = downloadChoicesByRegion(this.props.region, this.props.allRegions)
+    const { chartKind } = this.props;
+    const choices = downloadChoicesByRegion(
+      this.props.region,
+      this.props.allRegions
+    );
 
     const handApplyChoice = newValue => {
-      this.props.dispatch(newValue == 0 ? trackDownloadCompareSimilar() : trackDownloadCompareAll())
+      this.props.dispatch(
+        newValue == 0
+          ? trackDownloadCompareSimilar()
+          : trackDownloadCompareAll()
+      );
 
       // Show loading overlay while downloading
-      this.setState({isLoading: true})
+      this.setState({ isLoading: true });
 
       // csvQuery is the query needed to ask the DB for data
-      const csvQuery = this.buildCsvQuery(choices[newValue])
-      const isComparing = (csvQuery.comparisonRegions || []).length > 0
-      const modifiedQuery = isComparing ? toVismaCompareQuery(csvQuery) : toVismaQuery(csvQuery)
+      const csvQuery = this.buildCsvQuery(choices[newValue]);
+      const isComparing = (csvQuery.comparisonRegions || []).length > 0;
+      const modifiedQuery = isComparing
+        ? toVismaCompareQuery(csvQuery)
+        : toVismaQuery(csvQuery);
 
       // chartQuery is used by the CSV generator process to build the CSV
-      const chartQuery = this.buildChartQuery(this.props.query)
+      const chartQuery = this.buildChartQuery(this.props.query);
 
       // Build data object for API call
       const query = {
-        csvQuery: JSON.stringify(Object.assign({}, toQueryParams(modifiedQuery))),
+        csvQuery: JSON.stringify(
+          Object.assign({}, toQueryParams(modifiedQuery))
+        ),
         chartQuery: JSON.stringify(chartQuery),
         dimensionLabels: JSON.stringify(csvDimensionsBuilder())
-      }
+      };
       // Call node server for CSV file
       apiClient
         .getCsvFile(query)
         .then(response => {
+          const linkUrl = encodeURI(
+            `//${config.nodeApiHost}/api/csv/download/${response.body}/${
+              this.props.query.tableName
+            }`
+          );
+          console.log('responsebody', response);
+
+          /* require('downloadjs')(
+            'https://prodindikatornode.azurewebsites.net/api/csv/download/1678451967.csv/befolkning_hovedgruppe',
+            this.props.query.tableName,
+            'text/x-csv'
+          ); */
+
+          window.open(linkUrl);
           this.setState({
             isError: false,
-            isLoading: false,
-            linkUrl: encodeURI(`//${config.nodeApiHost}/api/csv/download/${response.body}/${this.props.query.tableName}`)
-          })
+            isLoading: false
+          });
         })
         .catch(() => {
           this.setState({
             isLoading: false,
             isError: true
-          })
-        })
-    }
+          });
+        });
+    };
 
-    const handleCancelDownloadSelect = () => this.setState({isDownloadSelectOpen: false})
+    const handleCancelDownloadSelect = () =>
+      this.setState({ isDownloadSelectOpen: false });
 
     return (
       <PopupChoicesBox
@@ -155,32 +194,36 @@ class DownloadWidget extends Component {
         choices={choices}
         chartKind={chartKind}
         applyButtonText="Last ned tallgrunnlag (.csv)"
-        title="Last ned tallgrunnlag"
+        title="Last ned"
         choiceLabel="Velg innhold"
         description="Tallgrunnlaget kan lastes ned som en CSV fil som kan åpnes i blant annet Microsoft Excel."
         screenShotTitle="Last ned skjermbilde"
       />
-    )
+    );
   }
 
   render() {
-    const {isDownloadSelectOpen} = this.state
+    const { isDownloadSelectOpen } = this.state;
 
     return (
       <span className="graph__functions-item">
-        <button type="button" className="button button--secondary button--small" onClick={this.handleOpenDownloadSelect.bind(this)}>
+        <button
+          type="button"
+          className="button button--secondary button--small"
+          onClick={this.handleOpenDownloadSelect.bind(this)}
+        >
           <i className="icon__download" /> Last ned
         </button>
         {isDownloadSelectOpen && this.renderDownloadSelect()}
       </span>
-    )
+    );
   }
 }
 
 function mapStateToProps(state, ownProps) {
   return {
     allRegions: state.allRegions
-  }
+  };
 }
 
-export default connect(mapStateToProps)(DownloadWidget)
+export default connect(mapStateToProps)(DownloadWidget);

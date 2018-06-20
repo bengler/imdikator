@@ -6,36 +6,37 @@
 
 //  to better understand how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
 
-import React, {Component, PropTypes} from 'react'
-import {connect} from 'react-redux'
-import d3_save_svg from 'd3-save-svg'
-import SvgText from 'svg-text'
-import includes from 'lodash.includes'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import d3_save_svg from 'd3-save-svg';
+import SvgText from 'svg-text';
+import includes from 'lodash.includes';
 
-import {CHARTS} from '../../config/chartTypes'
-import {TABS} from '../../config/tabs'
-import {findHeaderGroupForQuery} from '../../lib/queryUtil'
-import UrlQuery from '../../lib/UrlQuery'
-import {queryResultPresenter} from '../../lib/queryResultPresenter'
-import TabBar from '../elements/TabBar'
+import { CHARTS } from '../../config/chartTypes';
+import { TABS } from '../../config/tabs';
+import { findHeaderGroupForQuery } from '../../lib/queryUtil';
+import UrlQuery from '../../lib/UrlQuery';
+import { queryResultPresenter } from '../../lib/queryResultPresenter';
+import TabBar from '../elements/TabBar';
 
 // untoggle to toggle the vis/skjul tall
 // import ToggleView from '../elements/ToggleView'
-import ChartViewModeSelect from '../elements/ChartViewModeSelect'
+import ChartViewModeSelect from '../elements/ChartViewModeSelect';
 
-import {queryToOptions, describeChart} from '../../lib/chartDescriber'
-import {getHeaderKey} from '../../lib/regionUtil'
+import { queryToOptions, describeChart } from '../../lib/chartDescriber';
+import { getHeaderKey } from '../../lib/regionUtil';
 
-import FilterBarContainer from './FilterBarContainer'
-import CardMetadata from './CardMetadata'
-import ChartDescriptionContainer from './ChartDescriptionContainer'
-import ShareWidget from './ShareWidget'
-import DownloadWidget from './DownloadWidget'
+import FilterBarContainer from './FilterBarContainer';
+import CardMetadata from './CardMetadata';
+import DownloadWidget from './DownloadWidget';
 
-import '../../lib/element-closest.js'
+import '../../lib/element-closest.js';
 
-import {trackCronologicalTabOpen, trackBenchmarkTabOpen} from '../../actions/tracking'
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes'
+import {
+  trackCronologicalTabOpen,
+  trackBenchmarkTabOpen
+} from '../../actions/tracking';
+import * as ImdiPropTypes from '../proptypes/ImdiPropTypes';
 
 class Card extends Component {
   static propTypes = {
@@ -60,16 +61,16 @@ class Card extends Component {
     // why? Because d3 hijacks 'this' in child scope after mount.
     // so if we want to use 'this' for Card, we must use this.props.thisCard (in child components)
     thisCard: PropTypes.any
-  }
+  };
 
   static contextTypes = {
     linkTo: PropTypes.func,
     goTo: PropTypes.func,
     navigate: PropTypes.func
-  }
+  };
 
   constructor(props) {
-    super()
+    super();
     this.state = {
       chartViewMode: 'chart',
       screenshot: null,
@@ -77,89 +78,105 @@ class Card extends Component {
       description: null,
       printView: false,
       initialLoadComplete: false
-    }
+    };
 
-    this.offset = this.offset.bind(this)
-    this.getUrlToTab = this.getUrlToTab.bind(this)
-    this.getShareUrl = this.getShareUrl.bind(this)
-    this.findAncestor = this.findAncestor.bind(this)
-    this.setExplicitView = this.setExplicitView.bind(this)
-    this.moveElementsIntoSVG = this.moveElementsIntoSVG.bind(this)
-    this.addValuesToTransform = this.addValuesToTransform.bind(this)
-    this.addDescriptionAndSourceBelowDiagram = this.addDescriptionAndSourceBelowDiagram.bind(this)
+    this.offset = this.offset.bind(this);
+    this.getUrlToTab = this.getUrlToTab.bind(this);
+    this.getShareUrl = this.getShareUrl.bind(this);
+    this.findAncestor = this.findAncestor.bind(this);
+    this.setExplicitView = this.setExplicitView.bind(this);
+    this.moveElementsIntoSVG = this.moveElementsIntoSVG.bind(this);
+    this.addValuesToTransform = this.addValuesToTransform.bind(this);
+    this.addDescriptionAndSourceBelowDiagram = this.addDescriptionAndSourceBelowDiagram.bind(
+      this
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.moveElementsIntoSVG()
-    this.addDescriptionAndSourceBelowDiagram()
+    this.moveElementsIntoSVG();
+    this.addDescriptionAndSourceBelowDiagram();
   }
 
   componentDidMount() {
-    this.moveElementsIntoSVG()
+    this.moveElementsIntoSVG();
   }
 
   // takes a css transform: translate(500, 250) and adds to the X or/and Y value.
   // element is an element containing a transform attribute.
   // X and Y are the values you'd want to add to the existing X and Y.
   addValuesToTransform(element, addX, addY) {
-    const transform = element.getAttribute('transform')
-    let transformValues
+    const transform = element.getAttribute('transform');
+    let transformValues;
 
     if (!transform.includes(',')) {
       // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
       // So we'll split on space instead
-      transformValues = transform.split(' ')
+      transformValues = transform.split(' ');
     } else {
-      transformValues = transform.split(',')
+      transformValues = transform.split(',');
     }
 
     // before ["translate(0", "-2.34)"]
     // after ["0", "-2.34"]
-    const values = [transformValues[0].split('(')[1], transformValues[1].split(')')[0]]
+    const values = [
+      transformValues[0].split('(')[1],
+      transformValues[1].split(')')[0]
+    ];
 
     // before ["0", "-2.34"]
     // after (ie: if x and y has the value 10) [10, 7.66]
-    if (addX) values[0] = parseInt(values[0], 10) + addX
-    if (addY) values[1] = parseInt(values[1], 10) + addY
+    if (addX) values[0] = parseInt(values[0], 10) + addX;
+    if (addY) values[1] = parseInt(values[1], 10) + addY;
 
-    element.setAttribute('transform', `translate(${values[0].toString()}, ${values[1].toString()})`)
+    element.setAttribute(
+      'transform',
+      `translate(${values[0].toString()}, ${values[1].toString()})`
+    );
   }
 
   moveElementsIntoSVG() {
-    let svg = this.toggleList
-    if (!svg) return
-    svg = svg.querySelector('.chart__svg')
-    if (!svg) return
+    let svg = this.toggleList;
+    if (!svg) return;
+    svg = svg.querySelector('.chart__svg');
+    if (!svg) return;
 
     // extra height for the svg diagram
-    const extraHeightDiagram = 80
-    const extraHeightDiagramPyramid = 20
-    const maxNumberOfCharacters = 40
+    const extraHeightDiagram = 80;
+    const extraHeightDiagramPyramid = 20;
+    const maxNumberOfCharacters = 40;
 
     //  if this chart is pyramidchart - use different padding for colored boxes below chart
-    const pyramid = this.props.activeTab.chartKind == 'pyramid'
+    const pyramid = this.props.activeTab.chartKind == 'pyramid';
 
     //  get all svg elements
-    const chart = svg.querySelector('.chart__d3-points')
-    const colorExplanation = svg.querySelector('.chart__legend-wrapper')
+    const chart = svg.querySelector('.chart__d3-points');
+    const colorExplanation = svg.querySelector('.chart__legend-wrapper');
 
     //  move chart and colored squares lower
-    this.addValuesToTransform(chart, null, extraHeightDiagram)
-    this.addValuesToTransform(colorExplanation, null, pyramid ? extraHeightDiagramPyramid : extraHeightDiagram)
+    this.addValuesToTransform(chart, null, extraHeightDiagram);
+    this.addValuesToTransform(
+      colorExplanation,
+      null,
+      pyramid ? extraHeightDiagramPyramid : extraHeightDiagram
+    );
 
     //  get the title
-    const title = this.findAncestor(this.toggleList, '.toggle-list').querySelector('[data-graph-title]')
+    const title = this.findAncestor(
+      this.toggleList,
+      '.toggle-list'
+    ).querySelector('[data-graph-title]');
 
     //  add height
-    const height = parseInt(svg.getAttribute('height'), 10) + extraHeightDiagram
-    svg.setAttribute('height', height)
+    const height =
+      parseInt(svg.getAttribute('height'), 10) + extraHeightDiagram;
+    svg.setAttribute('height', height);
 
-    const unit = this.props.query.unit[0]
+    const unit = this.props.query.unit[0];
 
     //  adds title above diagam
-    const numberOfCharacters = String(title.textContent).length
+    const numberOfCharacters = String(title.textContent).length;
 
-    let counter = maxNumberOfCharacters
+    let counter = maxNumberOfCharacters;
 
     const textContent = new SvgText({
       text: `${title.textContent} (${unit})`,
@@ -167,62 +184,66 @@ class Card extends Component {
       maxWidth: 2,
       textOverflow: 'ellipsis',
       className: 'svg-text title'
-    })
+    });
   }
 
   // type of polyfill for .closest()
   findAncestor(el, sel) {
     if (typeof el.closest === 'function') {
-      return el.closest(sel) || null
+      return el.closest(sel) || null;
     }
     while (el) {
       if (el.matches(sel)) {
-        return el
+        return el;
       }
-      el = el.parentElement
+      el = el.parentElement;
     }
 
-    return null
+    return null;
   }
 
   offset(element) {
-    const rect = element.getBoundingClientRect()
+    const rect = element.getBoundingClientRect();
 
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    const scrollLeft =
+      window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     return {
       top: rect.top + scrollTop,
       left: rect.left + scrollLeft
-    }
+    };
   }
 
   //  use refs from each card component that toggles the height.
   //  every class like this is a card. use refs.
   addDescriptionAndSourceBelowDiagram() {
-    let svg = this.toggleList
-    if (!svg) return
-    svg = svg.querySelector('.chart__svg')
-    if (!svg) return
+    let svg = this.toggleList;
+    if (!svg) return;
+    svg = svg.querySelector('.chart__svg');
+    if (!svg) return;
 
     // space between the chart and description below
-    const spaceBetweenGraphAndDescription = 100
+    const spaceBetweenGraphAndDescription = 100;
 
     // //  extra height for the svg diagram
-    let extraHeightSVG = 240
-    const paddingBottom = 105
-    const spaceBetween = 30
+    let extraHeightSVG = 240;
+    const paddingBottom = 105;
+    const spaceBetween = 30;
 
-    const parent = this.findAncestor(this.toggleList, '[data-card]')
-    const chart = svg.querySelector('.chart__d3-points')
-    const originalHeight = chart.getBoundingClientRect().height || chart.getAttribute('height')
+    const parent = this.findAncestor(this.toggleList, '[data-card]');
+    const chart = svg.querySelector('.chart__d3-points');
+    const originalHeight =
+      chart.getBoundingClientRect().height || chart.getAttribute('height');
 
     // get number of descriptions below chart
-    const descriptions = Array.prototype.slice.call(parent.querySelectorAll('.chart__legend'))
+    const descriptions = Array.prototype.slice.call(
+      parent.querySelectorAll('.chart__legend')
+    );
 
     // does the description squares below the chart flow horizontally?
     const descriptionsFlowVertically = descriptions.map((description, i) => {
-      if (i === 0) return false
+      if (i === 0) return false;
       return (
         Number(
           description
@@ -231,28 +252,28 @@ class Card extends Component {
             .split(',')[0]
             .split('translate(')[1]
         ) === 0
-      )
-    })
+      );
+    });
 
     // add extra height to chart if there are many descriptions / squares below chart while on mobile
-    const width = window.innerWidth || 650
+    const width = window.innerWidth || 650;
     if (descriptionsFlowVertically.includes(true)) {
-      const spacing = width <= 650 ? 40 : 20
-      extraHeightSVG += spacing * descriptions.length - spacing
+      const spacing = width <= 650 ? 40 : 20;
+      extraHeightSVG += spacing * descriptions.length - spacing;
     }
 
     //  add extra height to svg
-    const height = parseInt(originalHeight || 0, 10) + extraHeightSVG
-    svg.setAttribute('height', height)
+    const height = parseInt(originalHeight || 0, 10) + extraHeightSVG;
+    svg.setAttribute('height', height);
 
-    const viewBox = svg.getAttribute('viewBox').split(' ')
-    const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`
-    svg.setAttribute('viewBox', newViewBox)
+    const viewBox = svg.getAttribute('viewBox').split(' ');
+    const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`;
+    svg.setAttribute('viewBox', newViewBox);
 
-    const description = parent.querySelector('[data-chart-description]')
-    const source = parent.querySelector('[data-chart-source]')
+    const description = parent.querySelector('[data-chart-description]');
+    const source = parent.querySelector('[data-chart-source]');
 
-    if (!description.textContent) return
+    if (!description.textContent) return;
 
     const descriptionSVGText = new SvgText({
       text: description.textContent,
@@ -261,13 +282,18 @@ class Card extends Component {
       textOverflow: 'ellipsis',
       className: 'svg-text text__description',
       verticalAlign: 'bottom'
-    })
+    });
 
-    const textDescription = svg.querySelector('.text__description')
-    const newDescriptionHeight = svg.clientHeight - (spaceBetween + paddingBottom)
-    this.addValuesToTransform(textDescription, null, newDescriptionHeight + spaceBetweenGraphAndDescription)
+    const textDescription = svg.querySelector('.text__description');
+    const newDescriptionHeight =
+      svg.clientHeight - (spaceBetween + paddingBottom);
+    this.addValuesToTransform(
+      textDescription,
+      null,
+      newDescriptionHeight + spaceBetweenGraphAndDescription
+    );
 
-    if (!source.textContent) return
+    if (!source.textContent) return;
     //  adds source below diagram
     // eslint-disable-next-line no-unused-vars
     const sourceSVGText = new SvgText({
@@ -277,52 +303,62 @@ class Card extends Component {
       textOverflow: 'ellipsis',
       className: 'svg-text text__source',
       verticalAlign: 'bottom'
-    })
+    });
 
-    const textSource = svg.querySelector('.text__source')
-    const newSourceHeight = svg.clientHeight - paddingBottom
-    this.addValuesToTransform(textSource, null, newSourceHeight + spaceBetweenGraphAndDescription)
+    const textSource = svg.querySelector('.text__source');
+    const newSourceHeight = svg.clientHeight - paddingBottom;
+    this.addValuesToTransform(
+      textSource,
+      null,
+      newSourceHeight + spaceBetweenGraphAndDescription
+    );
   }
 
   getUrlToTab(tab) {
-    return this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName', {
-      cardName: this.props.card.name,
-      cardsPageName: this.props.cardsPageName,
-      tabName: tab.urlName
-    })
+    return this.context.linkTo(
+      '/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName',
+      {
+        cardName: this.props.card.name,
+        cardsPageName: this.props.cardsPageName,
+        tabName: tab.urlName
+      }
+    );
   }
 
   onTabLinkClick(tab) {
     switch (tab.name) {
       case 'chronological':
-        this.props.dispatch(trackCronologicalTabOpen())
-        break
+        this.props.dispatch(trackCronologicalTabOpen());
+        break;
       case 'benchmark':
-        this.props.dispatch(trackBenchmarkTabOpen())
-        break
+        this.props.dispatch(trackBenchmarkTabOpen());
+        break;
       default:
-        break
+        break;
     }
   }
 
   getHeaderGroupForQuery(query) {
-    const {headerGroups} = this.props
-    return findHeaderGroupForQuery(query, headerGroups)
+    const { headerGroups } = this.props;
+    return findHeaderGroupForQuery(query, headerGroups);
   }
 
   handleFilterChange(newQuery) {
-    const newQ = this.getUrlForQuery(newQuery)
-    return this.context.navigate(this.getUrlForQuery(newQuery), {replace: true, keepScrollPosition: true})
+    const newQ = this.getUrlForQuery(newQuery);
+    return this.context.navigate(this.getUrlForQuery(newQuery), {
+      replace: true,
+      keepScrollPosition: true
+    });
   }
 
   getChartKind() {
-    const {activeTab} = this.props
-    const {chartViewMode} = this.state
-    return chartViewMode === 'table' ? 'table' : activeTab.chartKind
+    const { activeTab } = this.props;
+    const { chartViewMode } = this.state;
+    return chartViewMode === 'table' ? 'table' : activeTab.chartKind;
   }
 
   getUrlForQuery(query) {
-    const {card, region, cardsPageName, activeTab} = this.props
+    const { card, region, cardsPageName, activeTab } = this.props;
 
     const params = {
       region: region.prefixedCode,
@@ -330,77 +366,98 @@ class Card extends Component {
       cardsPageName: cardsPageName,
       tabName: activeTab.urlName,
       query: `@${UrlQuery.stringify(query)}`
-    }
-    return this.context.linkTo('/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName/:query', params)
+    };
+    return this.context.linkTo(
+      '/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName/:query',
+      params
+    );
   }
 
   getShareUrl() {
-    const {query} = this.props
-    const protocol = window.location.protocol
-    const host = window.location.host
-    const path = this.getUrlForQuery(query)
-    return `${protocol}//${host}${path}`
+    const { query } = this.props;
+    const protocol = window.location.protocol;
+    const host = window.location.host;
+    const path = this.getUrlForQuery(query);
+    return `${protocol}//${host}${path}`;
   }
 
   takeScreenshot(svg) {
     const config = {
       filename: 'imdi-diagram'
-    }
+    };
 
-    d3_save_svg.save(svg, config) // eslint-disable-line
+    d3_save_svg.save(svg, config); // eslint-disable-line
   }
 
   setExplicitView(event) {
-    this.moveElementsIntoSVG()
-    this.setState({explicitView: true})
+    this.moveElementsIntoSVG();
+    this.setState({ explicitView: true });
   }
 
   render() {
-    const {loading, card, activeTab, query, queryResult, region, headerGroups, printable, description} = this.props
-    const {chartViewMode} = this.state
-    const explicitView = true
+    const {
+      loading,
+      card,
+      activeTab,
+      query,
+      queryResult,
+      region,
+      headerGroups,
+      printable,
+      description
+    } = this.props;
+    const { chartViewMode } = this.state;
+    const explicitView = true;
     if (!activeTab) {
       return (
         <div className="toggle-list__section toggle-list__section--expanded">
           <i className="loading-indicator" />
           Laster…
         </div>
-      )
+      );
     }
 
     // headerGroup links query from cardPages.json to the actual data that will be shown.
-    const headerGroup = this.getHeaderGroupForQuery(query)
+    const headerGroup = this.getHeaderGroupForQuery(query);
 
-    const disabledTabs = []
+    const disabledTabs = [];
     if (headerGroup.aar.length < 2) {
-      disabledTabs.push('chronological')
+      disabledTabs.push('chronological');
     }
 
-    const chartKind = this.getChartKind()
+    const chartKind = this.getChartKind();
 
-    const chart = CHARTS[chartKind]
-    const ChartComponent = chart.component
-    const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede' // TODO: Needs to be dynamic
+    const chart = CHARTS[chartKind];
+    const ChartComponent = chart.component;
+    const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede'; // TODO: Needs to be dynamic
 
     if (!ChartComponent) {
-      return <div className="toggle-list__section toggle-list__section--expanded">Error: No chart component for {JSON.stringify(chartKind)}</div>
+      return (
+        <div className="toggle-list__section toggle-list__section--expanded">
+          Error: No chart component for {JSON.stringify(chartKind)}
+        </div>
+      );
     }
 
     const data = queryResultPresenter(query, queryResult, {
       chartKind: chartKind,
       dimensions: card.config.dimensions
-    })
+    });
 
     if (chart.name == 'benchmark') {
       data.highlight = {
         dimensionName: 'region',
         value: [region.prefixedCode]
-      }
+      };
     }
 
     // if the user is watching the "over tid" tab in the card "befolkning opprinnelsesland", we should by default compare the region to itself.
-    if (card.name === 'befolkning_opprinnelsesland' && activeTab.chartKind === 'line' && !query.comparisonRegions.length) {
-      query.comparisonRegions[0] = region.prefixedCode
+    if (
+      card.name === 'befolkning_opprinnelsesland' &&
+      activeTab.chartKind === 'line' &&
+      !query.comparisonRegions.length
+    ) {
+      query.comparisonRegions[0] = region.prefixedCode;
     }
 
     return (
@@ -408,9 +465,9 @@ class Card extends Component {
         data-card
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
-        style={{display: 'block'}}
+        style={{ display: 'block' }}
         ref={toggleList => {
-          this.toggleList = toggleList
+          this.toggleList = toggleList;
         }}
         crossOrigin="anonymous"
       >
@@ -451,7 +508,7 @@ class Card extends Component {
             setExplicitView={this.setExplicitView}
             explicitView={explicitView}
             mode={chartViewMode}
-            onChange={newMode => this.setState({chartViewMode: newMode})}
+            onChange={newMode => this.setState({ chartViewMode: newMode })}
           />
         )}
 
@@ -479,7 +536,6 @@ class Card extends Component {
         <div className="graph__actions">
           {!printable && (
             <div className="graph__functions">
-              <ShareWidget chartUrl={this.getShareUrl()} />
               <DownloadWidget
                 downloadScreenshot={this.takeScreenshot}
                 downloadPNG={this.downloadPNG}
@@ -487,44 +543,60 @@ class Card extends Component {
                 query={query}
                 headerGroups={headerGroups}
                 chartKind={chartKind}
-                setExplicitView={isExplicit => this.setState({explicitView: isExplicit})}
+                setExplicitView={isExplicit =>
+                  this.setState({ explicitView: isExplicit })
+                }
               />
             </div>
           )}
 
-          {!printable && <CardMetadata dimensions={query.dimensions} metadata={card.metadata} />}
+          {!printable && (
+            <CardMetadata
+              dimensions={query.dimensions}
+              metadata={card.metadata}
+            />
+          )}
         </div>
       </section>
-    )
+    );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[ownProps.card.name]
+  const cardState = (state.cardState[ownProps.region.prefixedCode] || {})[
+    ownProps.card.name
+  ];
   if (!cardState || cardState.initializing) {
-    return {loading: true}
+    return { loading: true };
   }
-  const {region, card} = ownProps
+  const { region, card } = ownProps;
   // Find query from cardState.tabs[activeTab.name]
-  const {activeTab, tabs} = cardState
+  const { activeTab, tabs } = cardState;
 
-  const tabState = tabs[activeTab.name]
+  const tabState = tabs[activeTab.name];
 
   if (tabState.initializing) {
-    return {loading: true}
+    return { loading: true };
   }
 
-  const cardsPage = state.allCardsPages.find(cp => cp.name === ownProps.cardsPageName)
+  const cardsPage = state.allCardsPages.find(
+    cp => cp.name === ownProps.cardsPageName
+  );
 
-  const {loading, query, queryResult, headerGroups} = tabState
+  const { loading, query, queryResult, headerGroups } = tabState;
 
-  const {allRegions} = state
-  const regionHeaderKey = getHeaderKey(region)
+  const { allRegions } = state;
+  const regionHeaderKey = getHeaderKey(region);
   const headerGroup = headerGroups.find(group => {
-    return group.hasOwnProperty(regionHeaderKey) && query.dimensions.every(dim => group.hasOwnProperty(dim.name))
-  })
+    return (
+      group.hasOwnProperty(regionHeaderKey) &&
+      query.dimensions.every(dim => group.hasOwnProperty(dim.name))
+    );
+  });
 
-  const graphDescription = describeChart(queryToOptions(query, card, headerGroup, allRegions))
+  const graphDescription = describeChart(
+    queryToOptions(query, card, headerGroup, allRegions)
+  );
 
   return {
     loading,
@@ -536,7 +608,7 @@ function mapStateToProps(state, ownProps) {
     queryResult: queryResult,
     query,
     description: graphDescription
-  }
+  };
 }
 
-export default connect(mapStateToProps)(Card)
+export default connect(mapStateToProps)(Card);

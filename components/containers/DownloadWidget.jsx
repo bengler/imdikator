@@ -164,7 +164,7 @@ class DownloadWidget extends Component {
             'text/x-csv'
           ); */
 
-          window.open(linkUrl);
+          window.location.replace(linkUrl);
           this.setState({
             isError: false,
             isLoading: false

@@ -206,7 +206,7 @@ class DownloadWidget extends Component {
     const { isDownloadSelectOpen } = this.state;
 
     return (
-      <span className="graph__functions-item">
+      <span className="">
         <button
           type="button"
           className="button button--secondary button--small"

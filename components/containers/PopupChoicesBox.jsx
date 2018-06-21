@@ -213,7 +213,7 @@ export default class PopupChoicesBox extends Component {
         className="lightbox lightbox--as-popup lightbox--inline lightbox--animate"
       >
         <div className="lightbox__backdrop" />
-        <dialog open="open" className="lightbox__box">
+        <dialog open="open" className="lightbox__box lightbox__narrow">
           <i className="lightbox__point" style={{ left: '9.5em' }} />
           <div role="document">
             <button
@@ -236,6 +236,7 @@ export default class PopupChoicesBox extends Component {
                     disabled={this.props.isLoading}
                     onClick={() => this.onApply(choice.value)}
                     key={choice.value}
+                    style={{ cursor: 'pointer' }}
                   >
                     {choice.description} (.csv)
                   </a>
@@ -273,6 +274,7 @@ export default class PopupChoicesBox extends Component {
                   onClick={event => {
                     this.downloadPNG(event);
                   }}
+                  style={{ cursor: 'pointer' }}
                 >
                   Last ned bilde (.png)
                 </a>

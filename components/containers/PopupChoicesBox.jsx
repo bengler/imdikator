@@ -276,7 +276,7 @@ export default class PopupChoicesBox extends Component {
                   }}
                   style={{ cursor: 'pointer' }}
                 >
-                  Last ned bilde (.png)
+                  Bilde av grafen (.png)
                 </a>
               )}
             </div>

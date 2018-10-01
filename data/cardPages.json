@@ -1202,6 +1202,84 @@
         "tabs": []
       },
       {
+        "name": "tiltak-intro",
+        "title": "Tiltak i introduksjonsprogram",
+        "config": {
+          "dimensions": {
+            "tiltakKategori4": {
+              "include": [
+                "grunnl_norsk_sk",
+                "arbeidsliv",
+                "samfunnsliv",
+                "utd_kurs_godkjkomp"
+              ]
+            }
+          }
+        },
+        "query": {
+          "tableName": "intro_tiltak_4",
+          "unit": [
+            "personer"
+          ],
+          "dimensions": [
+            {
+              "name": "tiltakKategori4",
+              "variables": "all"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": []
+      },
+      {
+        "name": "tiltak-intro-finmasket",
+        "title": "Tiltak i introduksjonsprogram (finmasket)",
+        "config": {
+          "dimensions": {
+            "tiltakKategori12": {
+              "include": [
+                "norskopplaring",
+                "sprakpraksis",
+                "arbeidstrening",
+                "arbeidsmarkedsopp",
+                "arbeid",
+                "grunnskoleopp",
+                "fagivgs",
+                "yrkesrettet_kurs",
+                "vurdering_realkompv_mkomp",
+                "helsefremmende",
+                "sosialt_nettverk",
+                "annet"
+              ]
+            }
+          }
+        },
+        "query": {
+          "tableName": "intro_tiltak_12",
+          "unit": [
+            "personer"
+          ],
+          "dimensions": [
+            {
+              "name": "tiltakKategori12",
+              "variables": "all"
+            },
+            {
+              "name": "kjonn",
+              "variables": [
+                "alle"
+              ]
+            }
+          ]
+        },
+        "tabs": []
+      },
+      {
         "name": "voksne-i-grunnskolen",
         "title": "Voksne elever i grunnskolen",
         "config": {
@@ -1835,3 +1913,4 @@
     ]
   }
 ]
+

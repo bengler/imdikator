@@ -1,519 +1,519 @@
-﻿Kommunenr,Kommunenavn,Fylkenr,Fylkenavn,IMDiRegion,Næringsregionnr,Næringsregion_navn,Sentralitet_nr_2008,Sentralitet_kat_2008
-0101,Halden,01,Østfold,IMDI Øst,3001,Halden (f.o.m. 2018),3,Sentrale kommuner
-0104,Moss,01,Østfold,IMDI Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner
-0105,Sarpsborg,01,Østfold,IMDI Øst,3004,Nedre Glomma (f.o.m. 2018),3,Sentrale kommuner
-0106,Fredrikstad,01,Østfold,IMDI Øst,3004,Nedre Glomma (f.o.m. 2018),3,Sentrale kommuner
-0111,Hvaler,01,Østfold,IMDI Øst,3004,Nedre Glomma (f.o.m. 2018),2,Noe sentrale kommuner
-0118,Aremark,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),2,Noe sentrale kommuner
-0119,Marker,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0121,Rømskog,01,Østfold,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0122,Trøgstad,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0123,Spydeberg,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0124,Askim,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0125,Eidsberg,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0127,Skiptvet,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0128,Rakkestad,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0135,Råde,01,Østfold,IMDI Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner
-0136,Rygge,01,Østfold,IMDI Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner
-0137,Våler (Østfold),01,Østfold,IMDI Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner
-0138,Hobøl,01,Østfold,IMDI Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner
-0211,Vestby,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0213,Ski,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0214,Ås,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0215,Frogn,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0216,Nesodden,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0217,Oppegård,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0219,Bærum,02,Akershus,IMDI Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner
-0220,Asker,02,Akershus,IMDI Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner
-0221,Aurskog-Høland,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0226,Sørum,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0227,Fet,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0228,Rælingen,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0229,Enebakk,02,Akershus,IMDI Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner
-0230,Lørenskog,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0231,Skedsmo,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0233,Nittedal,02,Akershus,IMDI Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0234,Gjerdrum,02,Akershus,IMDI Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0235,Ullensaker,02,Akershus,IMDI Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0236,Nes,02,Akershus,IMDI Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0237,Eidsvoll,02,Akershus,IMDI Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0238,Nannestad,02,Akershus,IMDI Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0239,Hurdal,02,Akershus,IMDI Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner
-0301,Oslo,03,Oslo,IMDI Øst,3009,Oslo (f.o.m. 2018),3,Sentrale kommuner
-0402,Kongsvinger,04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner
-0403,Hamar,04,Hedmark,IMDI Indre Øst,3012,Hamarregionen (f.o.m. 2018),3,Sentrale kommuner
-0412,Ringsaker,04,Hedmark,IMDI Indre Øst,3012,Hamarregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0415,Løten,04,Hedmark,IMDI Indre Øst,3012,Hamarregionen (f.o.m. 2018),3,Sentrale kommuner
-0417,Stange,04,Hedmark,IMDI Indre Øst,3012,Hamarregionen (f.o.m. 2018),3,Sentrale kommuner
-0418,Nord-Odal,04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner
-0419,Sør-Odal,04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner
-0420,Eidskog,04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner
-0423,Grue,04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),1,Mindre sentrale kommuner
-0425,Åsnes,04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),2,Noe sentrale kommuner
-0426,Våler (Hedmark),04,Hedmark,IMDI Indre Øst,3011,Glåmdal (f.o.m. 2018),2,Noe sentrale kommuner
-0427,Elverum,04,Hedmark,IMDI Indre Øst,3013,Sør Østerdal (f.o.m. 2018),2,Noe sentrale kommuner
-0428,Trysil,04,Hedmark,IMDI Indre Øst,3013,Sør Østerdal (f.o.m. 2018),0,Minst sentrale kommuner
-0429,Åmot,04,Hedmark,IMDI Indre Øst,3013,Sør Østerdal (f.o.m. 2018),2,Noe sentrale kommuner
-0430,Stor-Elvdal,04,Hedmark,IMDI Indre Øst,3013,Sør Østerdal (f.o.m. 2018),0,Minst sentrale kommuner
-0432,Rendalen,04,Hedmark,IMDI Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner
-0434,Engerdal,04,Hedmark,IMDI Indre Øst,3011,Sør Østerdal (f.o.m. 2018),0,Minst sentrale kommuner
-0436,Tolga,04,Hedmark,IMDI Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner
-0437,Tynset,04,Hedmark,IMDI Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner
-0438,Alvdal,04,Hedmark,IMDI Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner
-0439,Folldal,04,Hedmark,IMDI Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner
-0441,Os,04,Hedmark,IMDI Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner
-0501,Lillehammer,05,Oppland,IMDI Indre Øst,3016,Lillehammerregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0502,Gjøvik,05,Oppland,IMDI Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0511,Dovre,05,Oppland,IMDI Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0512,Lesja,05,Oppland,IMDI Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0513,Skjåk,05,Oppland,IMDI Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0514,Lom,05,Oppland,IMDI Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0515,Vågå,05,Oppland,IMDI Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0516,Nord-Fron,05,Oppland,IMDI Indre Øst,3017,Midt-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0517,Sel,05,Oppland,IMDI Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner
-0519,Sør-Fron,05,Oppland,IMDI Indre Øst,3017,Midt-Gudbrandsdal (f.o.m. 2018),2,Noe sentrale kommuner
-0520,Ringebu,05,Oppland,IMDI Indre Øst,3017,Midt-Gudbrandsdal (f.o.m. 2018),2,Noe sentrale kommuner
-0521,Øyer,05,Oppland,IMDI Indre Øst,3016,Lillehammerregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0522,Gausdal,05,Oppland,IMDI Indre Øst,3016,Lillehammerregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0528,Østre Toten,05,Oppland,IMDI Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0529,Vestre Toten,05,Oppland,IMDI Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0532,Jevnaker,05,Oppland,IMDI Indre Øst,3015,Hadeland (f.o.m. 2018),3,Sentrale kommuner
-0533,Lunner,05,Oppland,IMDI Indre Øst,3015,Hadeland (f.o.m. 2018),3,Sentrale kommuner
-0534,Gran,05,Oppland,IMDI Indre Øst,3015,Hadeland (f.o.m. 2018),3,Sentrale kommuner
-0536,Søndre Land,05,Oppland,IMDI Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0538,Nordre Land,05,Oppland,IMDI Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0540,Sør-Aurdal,05,Oppland,IMDI Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner
-0541,Etnedal,05,Oppland,IMDI Indre Øst,3019,Valdres (f.o.m. 2018),2,Noe sentrale kommuner
-0542,Nord-Aurdal,05,Oppland,IMDI Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner
-0543,Vestre Slidre,05,Oppland,IMDI Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner
-0544,Øystre Slidre,05,Oppland,IMDI Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner
-0545,Vang,05,Oppland,IMDI Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner
-0602,Drammen,06,Buskerud,IMDI Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner
-0604,Kongsberg,06,Buskerud,IMDI Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),3,Sentrale kommuner
-0605,Ringerike,06,Buskerud,IMDI Indre Øst,3024,Ringerike/Hole (f.o.m. 2018),3,Sentrale kommuner
-0612,Hole,06,Buskerud,IMDI Indre Øst,3024,Ringerike/Hole (f.o.m. 2018),3,Sentrale kommuner
-0615,Flå,06,Buskerud,IMDI Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner
-0616,Nes,06,Buskerud,IMDI Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner
-0617,Gol,06,Buskerud,IMDI Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner
-0618,Hemsedal,06,Buskerud,IMDI Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner
-0619,Ål,06,Buskerud,IMDI Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner
-0620,Hol,06,Buskerud,IMDI Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner
-0621,Sigdal,06,Buskerud,IMDI Indre Øst,3023,Midt-Buskerud (f.o.m. 2018),3,Sentrale kommuner
-0622,Krødsherad,06,Buskerud,IMDI Indre Øst,3023,Midt-Buskerud (f.o.m. 2018),3,Sentrale kommuner
-0623,Modum,06,Buskerud,IMDI Indre Øst,3023,Midt-Buskerud (f.o.m. 2018),3,Sentrale kommuner
-0624,Øvre Eiker,06,Buskerud,IMDI Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner
-0625,Nedre Eiker,06,Buskerud,IMDI Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner
-0626,Lier,06,Buskerud,IMDI Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner
-0627,Røyken,06,Buskerud,IMDI Indre Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner
-0628,Hurum,06,Buskerud,IMDI Indre Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner
-0631,Flesberg,06,Buskerud,IMDI Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),3,Sentrale kommuner
-0632,Rollag,06,Buskerud,IMDI Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),2,Noe sentrale kommuner
-0633,Nore og Uvdal,06,Buskerud,IMDI Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),0,Minst sentrale kommuner
-0701,Horten,07,Vestfold,IMDI Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner
-0702,Holmestrand (t.o.m. 2017),07,Vestfold,IMDI Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner
-0704,Tønsberg,07,Vestfold,IMDI Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner
-0706,Sandefjord (t.o.m. 2016),07,Vestfold,IMDI Øst,26,Sandefjord/Larvik (t.o.m. 2017),3,Sentrale kommuner
-0709,Larvik (t.o.m. 2017),07,Vestfold,IMDI Øst,26,Sandefjord/Larvik (t.o.m. 2017),2,Noe sentrale kommuner
-0710,Sandefjord (f.o.m. 2017),07,Vestfold,IMDI Øst,3027,Sandefjord (f.o.m. 2018),3,Sentrale kommuner
-0711,Svelvik,07,Vestfold,IMDI Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner
-0712,Larvik (f.o.m. 2018),07,Vestfold,IMDI Øst,3028,Larvik/Lardal (f.o.m. 2018),2,Noe sentrale kommuner
-0713,Sande,07,Vestfold,IMDI Øst,3025,Vestfold Nord (f.o.m. 2018),3,Sentrale kommuner
-0714,Hof (t.o.m. 2017),07,Vestfold,IMDI Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner
-0715,Holmestrand (f.o.m. 2018),07,Vestfold,IMDI Øst,3025,Vestfold Nord (f.o.m. 2018),3,Sentrale kommuner
-0716,Re,07,Vestfold,IMDI Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner
-0719,Andebu (t.o.m. 2016),07,Vestfold,IMDI Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner
-0720,Stokke (t.o.m. 2016),07,Vestfold,IMDI Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner
-0722,Nøtterøy (t.o.m. 2017),07,Vestfold,IMDI Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner
-0723,Tjøme (t.o.m. 2017),07,Vestfold,IMDI Øst,25,Tønsbergregionen (t.o.m. 2017),2,Noe sentrale kommuner
-0728,Lardal (t.o.m. 2017),07,Vestfold,IMDI Øst,26,Sandefjord/Larvik (t.o.m. 2017),3,Sentrale kommuner
-0729,Færder (f.o.m. 2018),07,Vestfold,IMDI Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner
-0805,Porsgrunn,08,Telemark,IMDI Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner
-0806,Skien,08,Telemark,IMDI Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner
-0807,Notodden,08,Telemark,IMDI Sør,3031,Øst-Telemark (f.o.m. 2018),2,Noe sentrale kommuner
-0811,Siljan,08,Telemark,IMDI Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner
-0814,Bamble,08,Telemark,IMDI Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner
-0815,Kragerø,08,Telemark,IMDI Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner
-0817,Drangedal,08,Telemark,IMDI Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner
-0819,Nome,08,Telemark,IMDI Sør,3030,Midt-Telemark (f.o.m. 2018),2,Noe sentrale kommuner
-0821,Bø,08,Telemark,IMDI Sør,3030,Midt-Telemark (f.o.m. 2018),2,Noe sentrale kommuner
-0822,Sauherad,08,Telemark,IMDI Sør,3030,Midt-Telemark (f.o.m. 2018),2,Noe sentrale kommuner
-0826,Tinn,08,Telemark,IMDI Sør,3031,Øst-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0827,Hjartdal,08,Telemark,IMDI Sør,3031,Øst-Telemark (f.o.m. 2018),2,Noe sentrale kommuner
-0828,Seljord,08,Telemark,IMDI Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0829,Kviteseid,08,Telemark,IMDI Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0830,Nissedal,08,Telemark,IMDI Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0831,Fyresdal,08,Telemark,IMDI Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0833,Tokke,08,Telemark,IMDI Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0834,Vinje,08,Telemark,IMDI Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner
-0901,Risør,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0904,Grimstad,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),3,Sentrale kommuner
-0906,Arendal,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),3,Sentrale kommuner
-0911,Gjerstad,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0912,Vegårshei,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0914,Tvedestrand,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0919,Froland,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),3,Sentrale kommuner
-0926,Lillesand,09,Aust-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-0928,Birkenes,09,Aust-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-0929,Åmli,09,Aust-Agder,IMDI Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner
-0935,Iveland,09,Aust-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-0937,Evje og Hornnes,09,Aust-Agder,IMDI Sør,3033,Setesdal (f.o.m. 2018),3,Sentrale kommuner
-0938,Bygland,09,Aust-Agder,IMDI Sør,3033,Setesdal (f.o.m. 2018),3,Sentrale kommuner
-0940,Valle,09,Aust-Agder,IMDI Sør,3033,Setesdal (f.o.m. 2018),0,Minst sentrale kommuner
-0941,Bykle,09,Aust-Agder,IMDI Sør,3033,Setesdal (f.o.m. 2018),0,Minst sentrale kommuner
-1001,Kristiansand,10,Vest-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-1002,Mandal,10,Vest-Agder,IMDI Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1003,Farsund,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner
-1004,Flekkefjord,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner
-1014,Vennesla,10,Vest-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-1017,Songdalen,10,Vest-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-1018,Søgne,10,Vest-Agder,IMDI Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner
-1021,Marnardal,10,Vest-Agder,IMDI Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1026,Åseral,10,Vest-Agder,IMDI Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1027,Audnedal,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),3,Sentrale kommuner
-1029,Lindesnes,10,Vest-Agder,IMDI Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1032,Lyngdal,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),3,Sentrale kommuner
-1034,Hægebostad,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),3,Sentrale kommuner
-1037,Kvinesdal,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner
-1046,Sirdal,10,Vest-Agder,IMDI Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner
-1101,Eigersund,11,Rogaland,IMDI Vest,3038,Dalane (f.o.m. 2018),3,Sentrale kommuner
-1102,Sandnes,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1103,Stavanger,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1106,Haugesund,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1111,Sokndal,11,Rogaland,IMDI Vest,3038,Dalane (f.o.m. 2018),3,Sentrale kommuner
-1112,Lund,11,Rogaland,IMDI Vest,3038,Dalane (f.o.m. 2018),1,Mindre sentrale kommuner
-1114,Bjerkreim,11,Rogaland,IMDI Vest,3038,Dalane (f.o.m. 2018),3,Sentrale kommuner
-1119,Hå,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1120,Klepp,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1121,Time,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1122,Gjesdal,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1124,Sola,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1127,Randaberg,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1129,Forsand,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1130,Strand,11,Rogaland,IMDI Vest,3040,Ryfylke (f.o.m. 2018),3,Sentrale kommuner
-1133,Hjelmeland,11,Rogaland,IMDI Vest,3040,Ryfylke (f.o.m. 2018),0,Minst sentrale kommuner
-1134,Suldal,11,Rogaland,IMDI Vest,3040,Ryfylke (f.o.m. 2018),0,Minst sentrale kommuner
-1135,Sauda,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1141,Finnøy,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1142,Rennesøy,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1144,Kvitsøy,11,Rogaland,IMDI Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner
-1145,Bokn,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),3,Sentrale kommuner
-1146,Tysvær,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1149,Karmøy,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1151,Utsira,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1160,Vindafjord,11,Rogaland,IMDI Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1201,Bergen,11,Rogaland,IMDI Vest,3042,Bergen (f.o.m. 2018),3,Sentrale kommuner
-1211,Etne,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),0,Minst sentrale kommuner
-1216,Sveio,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),2,Noe sentrale kommuner
-1219,Bømlo,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner
-1221,Stord,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner
-1222,Fitjar,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner
-1223,Tysnes,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner
-1224,Kvinnherad,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),0,Minst sentrale kommuner
-1227,Jondal,12,Hordaland,IMDI Vest,3044,Hardanger (f.o.m. 2018),0,Minst sentrale kommuner
-1228,Odda,12,Hordaland,IMDI Vest,3044,Hardanger (f.o.m. 2018),1,Mindre sentrale kommuner
-1231,Ullensvang,12,Hordaland,IMDI Vest,3044,Hardanger (f.o.m. 2018),1,Mindre sentrale kommuner
-1232,Eidfjord,12,Hordaland,IMDI Vest,3044,Hardanger (f.o.m. 2018),0,Minst sentrale kommuner
-1233,Ulvik,12,Hordaland,IMDI Vest,3044,Hardanger (f.o.m. 2018),1,Mindre sentrale kommuner
-1234,Granvin,12,Hordaland,IMDI Vest,3045,Voss (f.o.m. 2018),1,Mindre sentrale kommuner
-1235,Voss,12,Hordaland,IMDI Vest,3045,Voss (f.o.m. 2018),1,Mindre sentrale kommuner
-1238,Kvam,12,Hordaland,IMDI Vest,3044,Hardanger (f.o.m. 2018),3,Sentrale kommuner
-1241,Fusa,12,Hordaland,IMDI Vest,3043,Bjørnefjorden (f.o.m. 2018),3,Sentrale kommuner
-1242,Samnanger,12,Hordaland,IMDI Vest,3043,Bjørnefjorden (f.o.m. 2018),3,Sentrale kommuner
-1243,Os,12,Hordaland,IMDI Vest,3043,Bjørnefjorden (f.o.m. 2018),3,Sentrale kommuner
-1244,Austevoll,12,Hordaland,IMDI Vest,3048,Sunnhordland (f.o.m. 2018),3,Sentrale kommuner
-1245,Sund,12,Hordaland,IMDI Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner
-1246,Fjell,12,Hordaland,IMDI Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner
-1247,Askøy,12,Hordaland,IMDI Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner
-1251,Vaksdal,12,Hordaland,IMDI Vest,3047,Osterfjorden (f.o.m. 2018),3,Sentrale kommuner
-1252,Modalen,12,Hordaland,IMDI Vest,3047,Osterfjorden (f.o.m. 2018),3,Sentrale kommuner
-1253,Osterøy,12,Hordaland,IMDI Vest,3047,Osterfjorden (f.o.m. 2018),3,Sentrale kommuner
-1256,Meland,12,Hordaland,IMDI Vest,3047,Nordhordland (f.o.m. 2018),3,Sentrale kommuner
-1259,Øygarden,12,Hordaland,IMDI Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner
-1260,Radøy,12,Hordaland,IMDI Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner
-1263,Lindås,12,Hordaland,IMDI Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner
-1264,Austrheim,12,Hordaland,IMDI Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner
-1265,Fedje,12,Hordaland,IMDI Vest,3046,Nordhordland (f.o.m. 2018),0,Minst sentrale kommuner
-1266,Masfjorden,12,Hordaland,IMDI Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner
-1401,Flora,14,Sogn og Fjordane,IMDI Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner
-1411,Gulen,14,Sogn og Fjordane,IMDI Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner
-1412,Solund,14,Sogn og Fjordane,IMDI Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner
-1413,Hyllestad,14,Sogn og Fjordane,IMDI Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner
-1416,Høyanger,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1417,Vik,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1418,Balestrand,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1419,Leikanger,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1420,Sogndal,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1421,Aurland,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1422,Lærdal,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1424,Årdal,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1426,Luster,14,Sogn og Fjordane,IMDI Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner
-1428,Askvoll,14,Sogn og Fjordane,IMDI Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner
-1429,Fjaler,14,Sogn og Fjordane,IMDI Vest,3050,HAFS (f.o.m. 2018),1,Mindre sentrale kommuner
-1430,Gaular,14,Sogn og Fjordane,IMDI Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner
-1431,Jølster,14,Sogn og Fjordane,IMDI Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner
-1432,Førde,14,Sogn og Fjordane,IMDI Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner
-1433,Naustdal,14,Sogn og Fjordane,IMDI Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner
-1438,Bremanger,14,Sogn og Fjordane,IMDI Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1439,Vågsøy,14,Sogn og Fjordane,IMDI Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1441,Selje,14,Sogn og Fjordane,IMDI Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1443,Eid,14,Sogn og Fjordane,IMDI Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1444,Hornindal,14,Sogn og Fjordane,IMDI Vest,3057,Søre Sunnmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1445,Gloppen,14,Sogn og Fjordane,IMDI Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1449,Stryn,14,Sogn og Fjordane,IMDI Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1502,Molde,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1505,Kristiansund,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner
-1504,Ålesund,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1511,Vanylven,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1514,Sande,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner
-1515,Herøy,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner
-1516,Ulstein,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),2,Noe sentrale kommuner
-1517,Hareid,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),2,Noe sentrale kommuner
-1519,Volda,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner
-1520,Ørsta,15,Møre og Romsdal,IMDI Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner
-1523,Ørskog,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1524,Norddal,15,Møre og Romsdal,IMDI Midt,3056,Storfjord (f.o.m. 2018),0,Minst sentrale kommuner
-1525,Stranda,15,Møre og Romsdal,IMDI Midt,3056,Storfjord (f.o.m. 2018),2,Noe sentrale kommuner
-1526,Stordal,15,Møre og Romsdal,IMDI Midt,3056,Storfjord (f.o.m. 2018),2,Noe sentrale kommuner
-1528,Sykkylven,15,Møre og Romsdal,IMDI Midt,3056,Storfjord (f.o.m. 2018),2,Noe sentrale kommuner
-1529,Skodje,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1531,Sula,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1532,Giske,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1534,Haram,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1535,Vestnes,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1539,Rauma,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1543,Nesset,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1545,Midsund,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1546,Sandøy,15,Møre og Romsdal,IMDI Midt,3058,Ålesundregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1547,Aukra,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1548,Fræna,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1551,Eide,15,Møre og Romsdal,IMDI Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner
-1554,Averøy,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner
-1557,Gjemnes,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner
-1560,Tingvoll,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner
-1563,Sunndal,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1566,Surnadal,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1567,Rindal,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1576,Aure,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1571,Halsa,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1573,Smøla,15,Møre og Romsdal,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1601,Trondheim,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1612,Hemne,50,Trøndelag,IMDI Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner
-1613,Snillfjord,50,Trøndelag,IMDI Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner
-1617,Hitra,50,Trøndelag,IMDI Midt,3060,Hitra/Frøya (f.o.m. 2018),0,Minst sentrale kommuner
-1620,Frøya,50,Trøndelag,IMDI Midt,3060,Hitra/Frøya (f.o.m. 2018),0,Minst sentrale kommuner
-1621,Ørland,50,Trøndelag,IMDI Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner
-1622,Agdenes,50,Trøndelag,IMDI Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner
-1624,Rissa (t.o.m. 2017),16,Sør-Trøndelag (t.o.m. 2017),IMDI Midt,57,Fosen (t.o.m. 2017),3,Sentrale kommuner
-1627,Bjugn,50,Trøndelag,IMDI Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner
-1630,Åfjord,50,Trøndelag,IMDI Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner
-1632,Roan,50,Trøndelag,IMDI Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner
-1633,Osen,50,Trøndelag,IMDI Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner
-1634,Oppdal,50,Trøndelag,IMDI Midt,3061,Oppdal/Rennebu (f.o.m. 2018),0,Minst sentrale kommuner
-1635,Rennebu,50,Trøndelag,IMDI Midt,3061,Oppdal/Rennebu (f.o.m. 2018),3,Sentrale kommuner
-1636,Meldal,50,Trøndelag,IMDI Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner
-1638,Orkdal,50,Trøndelag,IMDI Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner
-1640,Røros,50,Trøndelag,IMDI Midt,3064,Rørosregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1644,Holtålen,50,Trøndelag,IMDI Midt,3064,Rørosregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1648,Midtre Gauldal,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1653,Melhus,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1657,Skaun,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1662,Klæbu,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1663,Malvik,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1664,Selbu,50,Trøndelag,IMDI Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner
-1665,Tydal,50,Trøndelag,IMDI Midt,3064,Rørosregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1702,Steinkjer,50,Trøndelag,IMDI Midt,3066,Innherred (f.o.m. 2018),1,Mindre sentrale kommuner
-1703,Namsos,50,Trøndelag,IMDI Midt,3069,Midtre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner
-1711,Meråker,50,Trøndelag,IMDI Midt,3065,Stjørdalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1714,Stjørdal,50,Trøndelag,IMDI Midt,3065,Stjørdalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1717,Frosta,50,Trøndelag,IMDI Midt,3065,Stjørdalsregionen (f.o.m. 2018),3,Sentrale kommuner
-1718,Leksvik (t.o.m. 2017),17,Nord-Trøndelag (t.o.m. 2017),IMDI Midt,57,Fosen (t.o.m. 2017),3,Sentrale kommuner
-1719,Levanger,50,Trøndelag,IMDI Midt,3066,Innherred (f.o.m. 2018),3,Sentrale kommuner
-1721,Verdal,50,Trøndelag,IMDI Midt,3066,Innherred (f.o.m. 2018),3,Sentrale kommuner
-1756,Inderøy,50,Trøndelag,IMDI Midt,3066,Innherred (f.o.m. 2018),1,Mindre sentrale kommuner
-1724,Verran,50,Trøndelag,IMDI Midt,3066,Innherred (f.o.m. 2018),1,Mindre sentrale kommuner
-1725,Namdalseid,50,Trøndelag,IMDI Midt,3069,Midtre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner
-1736,Snåsa,50,Trøndelag,IMDI Midt,3067,Indre Namdal (f.o.m. 2018),0,Minst sentrale kommuner
-1738,Lierne,50,Trøndelag,IMDI Midt,3067,Indre Namdal (f.o.m. 2018),0,Minst sentrale kommuner
-1739,Røyrvik,50,Trøndelag,IMDI Midt,3067,Indre Namdal (f.o.m. 2018),0,Minst sentrale kommuner
-1740,Namsskogan,50,Trøndelag,IMDI Midt,3067,Indre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner
-1742,Grong,50,Trøndelag,IMDI Midt,3067,Indre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner
-1743,Høylandet,50,Trøndelag,IMDI Midt,3067,Indre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner
-1744,Overhalla,50,Trøndelag,IMDI Midt,3069,Midtre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner
-1748,Fosnes,50,Trøndelag,IMDI Midt,3069,Midtre Namdal (f.o.m. 2018),0,Minst sentrale kommuner
-1749,Flatanger,50,Trøndelag,IMDI Midt,3069,Midtre Namdal (f.o.m. 2018),0,Minst sentrale kommuner
-1750,Vikna,50,Trøndelag,IMDI Midt,3068,Kystgruppen (f.o.m. 2018),0,Minst sentrale kommuner
-1751,Nærøy,50,Trøndelag,IMDI Midt,3068,Kystgruppen (f.o.m. 2018),0,Minst sentrale kommuner
-1755,Leka,50,Trøndelag,IMDI Midt,3068,Kystgruppen (f.o.m. 2018),1,Mindre sentrale kommuner
-1804,Bodø,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),2,Noe sentrale kommuner
-1805,Narvik,18,Nordland,IMDI Nord,3076,Ofoten (f.o.m. 2018),2,Noe sentrale kommuner
-1811,Bindal,18,Nordland,IMDI Nord,3070,Sør-Helgeland (f.o.m. 2018),0,Minst sentrale kommuner
-1812,Sømna,18,Nordland,IMDI Nord,3070,Sør-Helgeland (f.o.m. 2018),1,Mindre sentrale kommuner
-1813,Brønnøy,18,Nordland,IMDI Nord,3070,Sør-Helgeland (f.o.m. 2018),1,Mindre sentrale kommuner
-1815,Vega,18,Nordland,IMDI Nord,3070,Sør-Helgeland (f.o.m. 2018),0,Minst sentrale kommuner
-1816,Vevelstad,18,Nordland,IMDI Nord,3070,Sør-Helgeland (f.o.m. 2018),1,Mindre sentrale kommuner
-1818,Herøy,18,Nordland,IMDI Nord,3071,HALD (f.o.m. 2018),0,Minst sentrale kommuner
-1820,Alstahaug,18,Nordland,IMDI Nord,3071,HALD (f.o.m. 2018),1,Mindre sentrale kommuner
-1822,Leirfjord,18,Nordland,IMDI Nord,3071,HALD (f.o.m. 2018),1,Mindre sentrale kommuner
-1824,Vefsn,18,Nordland,IMDI Nord,3073,Mosjøregionen (f.o.m. 2018),1,Mindre sentrale kommuner
-1825,Grane,18,Nordland,IMDI Nord,3073,Mosjøregionen (f.o.m. 2018),1,Mindre sentrale kommuner
-1826,Hattfjelldal,18,Nordland,IMDI Nord,3073,Mosjøregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1827,Dønna,18,Nordland,IMDI Nord,3071,HALD (f.o.m. 2018),1,Mindre sentrale kommuner
-1828,Nesna,18,Nordland,IMDI Nord,3074,Ranaregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1832,Hemnes,18,Nordland,IMDI Nord,3074,Ranaregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1833,Rana,18,Nordland,IMDI Nord,3074,Ranaregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1834,Lurøy,18,Nordland,IMDI Nord,3072,Ytre Helgeland (f.o.m. 2018),0,Minst sentrale kommuner
-1835,Træna,18,Nordland,IMDI Nord,3072,Ytre Helgeland (f.o.m. 2018),0,Minst sentrale kommuner
-1836,Rødøy,18,Nordland,IMDI Nord,3072,Ytre Helgeland (f.o.m. 2018),0,Minst sentrale kommuner
-1837,Meløy,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner
-1838,Gildeskål,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner
-1839,Beiarn,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner
-1840,Saltdal,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),1,Mindre sentrale kommuner
-1841,Fauske,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),2,Noe sentrale kommuner
-1845,Sørfold,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),1,Mindre sentrale kommuner
-1848,Steigen,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner
-1849,Hamarøy,18,Nordland,IMDI Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner
-1850,Tysfjord,18,Nordland,IMDI Nord,3076,Ofoten (f.o.m. 2018),0,Minst sentrale kommuner
-1851,Lødingen,18,Nordland,IMDI Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner
-1852,Tjeldsund,18,Nordland,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1853,Evenes,18,Nordland,IMDI Nord,3076,Ofoten (f.o.m. 2018),2,Noe sentrale kommuner
-1854,Ballangen,18,Nordland,IMDI Nord,3076,Ofoten (f.o.m. 2018),2,Noe sentrale kommuner
-1856,Røst,18,Nordland,IMDI Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner
-1857,Værøy,18,Nordland,IMDI Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner
-1859,Flakstad,18,Nordland,IMDI Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner
-1860,Vestvågøy,18,Nordland,IMDI Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner
-1865,Vågan,18,Nordland,IMDI Nord,3077,Lofoten (f.o.m. 2018),1,Mindre sentrale kommuner
-1866,Hadsel,18,Nordland,IMDI Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner
-1867,Bø,18,Nordland,IMDI Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner
-1868,Øksnes,18,Nordland,IMDI Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner
-1870,Sortland,18,Nordland,IMDI Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner
-1871,Andøy,18,Nordland,IMDI Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner
-1874,Moskenes,18,Nordland,IMDI Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner
-1902,Tromsø,19,Troms,IMDI Nord,3081,Tromsøregionen (f.o.m. 2018),3,Sentrale kommuner
-1911,Kvæfjord,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1913,Skånland,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1903,Harstad,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1917,Ibestad,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1919,Gratangen,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner
-1920,Lavangen,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1922,Bardu,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1923,Salangen,19,Troms,IMDI Nord,3079,Harstadregionen (f.o.m. 2018),0,Minst sentrale kommuner
-1924,Målselv,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1925,Sørreisa,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1926,Dyrøy,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1927,Tranøy,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1928,Torsken,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1929,Berg,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1931,Lenvik,19,Troms,IMDI Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1933,Balsfjord,19,Troms,IMDI Nord,3081,Tromsøregionen (f.o.m. 2018),3,Sentrale kommuner
-1936,Karlsøy,19,Troms,IMDI Nord,3081,Tromsøregionen (f.o.m. 2018),3,Sentrale kommuner
-1938,Lyngen,19,Troms,IMDI Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1939,Storfjord,19,Troms,IMDI Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1940,Kåfjord,19,Troms,IMDI Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1941,Skjervøy,19,Troms,IMDI Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1942,Nordreisa,19,Troms,IMDI Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-1943,Kvænangen,19,Troms,IMDI Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner
-2002,Vardø,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2003,Vadsø,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner
-2004,Hammerfest,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner
-2011,Kautokeino,20,Finnmark,IMDI Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2012,Alta,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner
-2014,Loppa,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2015,Hasvik,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2017,Kvalsund,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner
-2018,Måsøy,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2019,Nordkapp,20,Finnmark,IMDI Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2020,Porsanger,20,Finnmark,IMDI Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2021,Karasjok,20,Finnmark,IMDI Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2022,Lebesby,20,Finnmark,IMDI Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2023,Gamvik,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2024,Berlevåg,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2025,Tana,20,Finnmark,IMDI Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2027,Nesseby,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner
-2028,Båtsfjord,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-2030,Sør-Varanger,20,Finnmark,IMDI Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner
-5054,Indre Fosen (f.o.m. 2018),50,Trøndelag,IMDI Midt,3059,Fosen (f.o.m. 2018),1,Mindre sentrale kommuner
-9999,Uoppgitt kommune,99,Uoppgitt fylke,Uoppgitt IMDi-region,3099,Uoppgitt næringsregion,.,.
-0000,Norge,00,Norge,.,00,Norge,.,.
-.,.,01,Østfold,IMDi Øst,01,Halden (t.o.m. 2017),.,.
-.,.,01,Østfold,IMDi Øst,02,Indre Østfold (t.o.m. 2017),.,.
-.,.,01,Østfold,IMDi Øst,03,Mosseregionen (t.o.m. 2017),.,.
-.,.,01,Østfold,IMDi Øst,04,Nedre Glomma (t.o.m. 2017),.,.
-.,.,02,Akershus,IMDi Øst,05,Akershus Vest (t.o.m. 2017),.,.
-.,.,02,Akershus,IMDi Øst,06,Follo (t.o.m. 2017),.,.
-.,.,02,Akershus,IMDi Øst,07,Nedre Romerike (t.o.m. 2017),.,.
-.,.,02,Akershus,IMDi Øst,08,Øvre Romerike (t.o.m. 2017),.,.
-.,.,03,Oslo,IMDi Øst,09,Oslo (t.o.m. 2017),.,.
-.,.,04,Hedmark,IMDi Indre Øst,10,Fjellregionen (t.o.m. 2017),.,.
-.,.,04,Hedmark,IMDi Indre Øst,11,Glåmdal (t.o.m. 2017),.,.
-.,.,04,Hedmark,IMDi Indre Øst,12,Hamarregionen (t.o.m. 2017),.,.
-.,.,04,Hedmark,IMDi Indre Øst,13,Sør Østerdal (t.o.m. 2017),.,.
-.,.,05,Oppland,IMDi Indre Øst,14,Gjøvikregionen (t.o.m. 2017),.,.
-.,.,05,Oppland,IMDi Indre Øst,15,Hadeland (t.o.m. 2017),.,.
-.,.,05,Oppland,IMDi Indre Øst,16,Lillehammerregionen (t.o.m. 2017),.,.
-.,.,05,Oppland,IMDi Indre Øst,17,Midt-Gudbrandsdal (t.o.m. 2017),.,.
-.,.,05,Oppland,IMDi Indre Øst,18,Nord-Gudbrandsdal (t.o.m. 2017),.,.
-.,.,05,Oppland,IMDi Indre Øst,19,Valdres (t.o.m. 2017),.,.
-.,.,06,Buskerud,IMDi Indre Øst,20,Drammensregionen (t.o.m. 2017),.,.
-.,.,06,Buskerud,IMDi Indre Øst,21,Hallingdal (t.o.m. 2017),.,.
-.,.,06,Buskerud,IMDi Indre Øst,22,Kongsberg/Numedal (t.o.m. 2017),.,.
-.,.,06,Buskerud,IMDi Indre Øst,23,Midt-Buskerud (t.o.m. 2017),.,.
-.,.,06,Buskerud,IMDi Indre Øst,24,Ringerike/Hole (t.o.m. 2017),.,.
-.,.,07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),.,.
-.,.,07,Vestfold,IMDi Øst,26,Sandefjord/Larvik (t.o.m. 2017),.,.
-.,.,08,Telemark,IMDi Sør,27,Grenland (t.o.m. 2017),.,.
-.,.,08,Telemark,IMDi Sør,28,Midt-Telemark (t.o.m. 2017),.,.
-.,.,08,Telemark,IMDi Sør,29,Øst-Telemark (t.o.m. 2017),.,.
-.,.,08,Telemark,IMDi Sør,30,Vest-Telemark (t.o.m. 2017),.,.
-.,.,09,Aust-Agder,IMDi Sør,31,Setesdal (t.o.m. 2017),.,.
-.,.,09,Aust-Agder,IMDi Sør,32,Arendalregionen (t.o.m. 2017),.,.
-.,.,10,Vest-Agder,IMDi Sør,33,Lister (t.o.m. 2017),.,.
-.,.,10,Vest-Agder,IMDi Sør,34,Mandalsregionen (t.o.m. 2017),.,.
-.,.,09,Aust-Agder,IMDi Sør,35,Kristiansandregionen (t.o.m. 2017),.,.
-.,.,11,Rogaland,IMDi Vest,36,Dalane (t.o.m. 2017),.,.
-.,.,11,Rogaland,IMDi Vest,37,Haugesundregionen (t.o.m. 2017),.,.
-.,.,11,Rogaland,IMDi Vest,38,Ryfylke (t.o.m. 2017),.,.
-.,.,11,Rogaland,IMDi Vest,39,Stavangerregionen (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,40,Bergen (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,41,Bjørnefjorden (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,42,Hardanger (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,43,Voss (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,44,Nordhordland (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,45,Osterfjorden (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,46,Sunnhordland (t.o.m. 2017),.,.
-.,.,12,Hordaland,IMDi Vest,47,Hordaland Vest (t.o.m. 2017),.,.
-.,.,14,Sogn og Fjordane,IMDi Vest,48,HAFS (t.o.m. 2017),.,.
-.,.,14,Sogn og Fjordane,IMDi Vest,49,Nordfjord (t.o.m. 2017),.,.
-.,.,14,Sogn og Fjordane,IMDi Vest,50,Sogn (t.o.m. 2017),.,.
-.,.,14,Sogn og Fjordane,IMDi Vest,51,Sunnfjord (t.o.m. 2017),.,.
-.,.,15,Møre og Romsdal,IMDi Midt-Norge,52,Nordmøre (t.o.m. 2017),.,.
-.,.,15,Møre og Romsdal,IMDi Midt-Norge,53,Romsdal (t.o.m. 2017),.,.
-.,.,15,Møre og Romsdal,IMDi Midt-Norge,54,Storfjord (t.o.m. 2017),.,.
-.,.,15,Møre og Romsdal,IMDi Midt-Norge,55,Søre Sunnmøre (t.o.m. 2017),.,.
-.,.,15,Møre og Romsdal,IMDi Midt-Norge,56,Ålesundregionen (t.o.m. 2017),.,.
-.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,57,Fosen (t.o.m. 2017),.,.
-.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,58,Hitra/Frøya (t.o.m. 2017),.,.
-.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,59,Oppdal/Rennebu (t.o.m. 2017),.,.
-.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,60,Orkdalregionen (t.o.m. 2017),.,.
-.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,61,Trondheimsregionen (t.o.m. 2017),.,.
-.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,62,Rørosregionen (t.o.m. 2017),.,.
-.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,63,Stjørdalsregionen (t.o.m. 2017),.,.
-.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,64,Innherred (t.o.m. 2017),.,.
-.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,65,Indre Namdal (t.o.m. 2017),.,.
-.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,66,Kystgruppen (t.o.m. 2017),.,.
-.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,67,Midtre Namdal (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,68,Sør-Helgeland (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,69,HALD (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,70,Ytre Helgeland (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,71,Mosjøregionen (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,72,Ranaregionen (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,73,Salten (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,74,Ofoten (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,75,Lofoten (t.o.m. 2017),.,.
-.,.,18,Nordland,IMDi Nord,76,Vesterålen (t.o.m. 2017),.,.
-.,.,19,Troms,IMDi Nord,77,Sør-Troms (t.o.m. 2017),.,.
-.,.,19,Troms,IMDi Nord,78,Midt-Troms (t.o.m. 2017),.,.
-.,.,19,Troms,IMDi Nord,79,Tromsøregionen (t.o.m. 2017),.,.
-.,.,19,Troms,IMDi Nord,80,Nord-Troms (t.o.m. 2017),.,.
-.,.,20,Finnmark,IMDi Nord,81,Vest-Finnmark (t.o.m. 2017),.,.
-.,.,20,Finnmark,IMDi Nord,82,Midt-Finnmark (t.o.m. 2017),.,.
-.,.,20,Finnmark,IMDi Nord,83,Øst-Finnmark (t.o.m. 2017),.,.
+﻿Kommunenr,Kommunenavn,Fylkenr,Fylkenavn,IMDiRegion,Næringsregionnr,Næringsregion_navn,Sentralitet_nr_2008,Sentralitet_kat_2008,,,
+0101,Halden,01,Østfold,IMDi Øst,3001,Halden (f.o.m. 2018),3,Sentrale kommuner,,,
+0104,Moss,01,Østfold,IMDi Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0105,Sarpsborg,01,Østfold,IMDi Øst,3004,Nedre Glomma (f.o.m. 2018),3,Sentrale kommuner,,,
+0106,Fredrikstad,01,Østfold,IMDi Øst,3004,Nedre Glomma (f.o.m. 2018),3,Sentrale kommuner,,,
+0111,Hvaler,01,Østfold,IMDi Øst,3004,Nedre Glomma (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0118,Aremark,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0119,Marker,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0121,Rømskog,01,Østfold,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0122,Trøgstad,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0123,Spydeberg,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0124,Askim,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0125,Eidsberg,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0127,Skiptvet,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0128,Rakkestad,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0135,Råde,01,Østfold,IMDi Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0136,Rygge,01,Østfold,IMDi Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0137,Våler (Østfold),01,Østfold,IMDi Øst,3003,Mosseregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0138,Hobøl,01,Østfold,IMDi Øst,3002,Indre Østfold (f.o.m. 2018),3,Sentrale kommuner,,,
+0211,Vestby,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0213,Ski,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0214,Ås,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0215,Frogn,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0216,Nesodden,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0217,Oppegård,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0219,Bærum,02,Akershus,IMDi Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner,,,
+0220,Asker,02,Akershus,IMDi Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner,,,
+0221,Aurskog-Høland,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0226,Sørum,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0227,Fet,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0228,Rælingen,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0229,Enebakk,02,Akershus,IMDi Øst,3006,Follo (f.o.m. 2018),3,Sentrale kommuner,,,
+0230,Lørenskog,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0231,Skedsmo,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0233,Nittedal,02,Akershus,IMDi Øst,3007,Nedre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0234,Gjerdrum,02,Akershus,IMDi Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0235,Ullensaker,02,Akershus,IMDi Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0236,Nes (Akershus),02,Akershus,IMDi Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0237,Eidsvoll,02,Akershus,IMDi Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0238,Nannestad,02,Akershus,IMDi Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0239,Hurdal,02,Akershus,IMDi Øst,3008,Øvre Romerike (f.o.m. 2018),3,Sentrale kommuner,,,
+0301,Oslo,03,Oslo,IMDi Øst,3009,Oslo (f.o.m. 2018),3,Sentrale kommuner,,,
+0402,Kongsvinger,04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner,,,
+0403,Hamar,04,Hedmark,IMDi Indre Øst,3012,Hamarregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0412,Ringsaker,04,Hedmark,IMDi Indre Øst,3012,Hamarregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0415,Løten,04,Hedmark,IMDi Indre Øst,3012,Hamarregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0417,Stange,04,Hedmark,IMDi Indre Øst,3012,Hamarregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0418,Nord-Odal,04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner,,,
+0419,Sør-Odal,04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner,,,
+0420,Eidskog,04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),3,Sentrale kommuner,,,
+0423,Grue,04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+0425,Åsnes,04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0426,Våler (Hedmark),04,Hedmark,IMDi Indre Øst,3011,Glåmdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0427,Elverum,04,Hedmark,IMDi Indre Øst,3013,Sør Østerdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0428,Trysil,04,Hedmark,IMDi Indre Øst,3013,Sør Østerdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0429,Åmot,04,Hedmark,IMDi Indre Øst,3013,Sør Østerdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0430,Stor-Elvdal,04,Hedmark,IMDi Indre Øst,3013,Sør Østerdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0432,Rendalen,04,Hedmark,IMDi Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0434,Engerdal,04,Hedmark,IMDi Indre Øst,3011,Sør Østerdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0436,Tolga,04,Hedmark,IMDi Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0437,Tynset,04,Hedmark,IMDi Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0438,Alvdal,04,Hedmark,IMDi Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0439,Folldal,04,Hedmark,IMDi Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0441,Os (Hedmark),04,Hedmark,IMDi Indre Øst,3010,Fjellregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0501,Lillehammer,05,Oppland,IMDi Indre Øst,3016,Lillehammerregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0502,Gjøvik,05,Oppland,IMDi Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0511,Dovre,05,Oppland,IMDi Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0512,Lesja,05,Oppland,IMDi Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0513,Skjåk,05,Oppland,IMDi Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0514,Lom,05,Oppland,IMDi Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0515,Vågå,05,Oppland,IMDi Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0516,Nord-Fron,05,Oppland,IMDi Indre Øst,3017,Midt-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0517,Sel,05,Oppland,IMDi Indre Øst,3018,Nord-Gudbrandsdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0519,Sør-Fron,05,Oppland,IMDi Indre Øst,3017,Midt-Gudbrandsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0520,Ringebu,05,Oppland,IMDi Indre Øst,3017,Midt-Gudbrandsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0521,Øyer,05,Oppland,IMDi Indre Øst,3016,Lillehammerregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0522,Gausdal,05,Oppland,IMDi Indre Øst,3016,Lillehammerregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0528,Østre Toten,05,Oppland,IMDi Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0529,Vestre Toten,05,Oppland,IMDi Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0532,Jevnaker,05,Oppland,IMDi Indre Øst,3015,Hadeland (f.o.m. 2018),3,Sentrale kommuner,,,
+0533,Lunner,05,Oppland,IMDi Indre Øst,3015,Hadeland (f.o.m. 2018),3,Sentrale kommuner,,,
+0534,Gran,05,Oppland,IMDi Indre Øst,3015,Hadeland (f.o.m. 2018),3,Sentrale kommuner,,,
+0536,Søndre Land,05,Oppland,IMDi Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0538,Nordre Land,05,Oppland,IMDi Indre Øst,3014,Gjøvikregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0540,Sør-Aurdal,05,Oppland,IMDi Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0541,Etnedal,05,Oppland,IMDi Indre Øst,3019,Valdres (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0542,Nord-Aurdal,05,Oppland,IMDi Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0543,Vestre Slidre,05,Oppland,IMDi Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0544,Øystre Slidre,05,Oppland,IMDi Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0545,Vang,05,Oppland,IMDi Indre Øst,3019,Valdres (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0602,Drammen,06,Buskerud,IMDi Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0604,Kongsberg,06,Buskerud,IMDi Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),3,Sentrale kommuner,,,
+0605,Ringerike,06,Buskerud,IMDi Indre Øst,3024,Ringerike/Hole (f.o.m. 2018),3,Sentrale kommuner,,,
+0612,Hole,06,Buskerud,IMDi Indre Øst,3024,Ringerike/Hole (f.o.m. 2018),3,Sentrale kommuner,,,
+0615,Flå,06,Buskerud,IMDi Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0616,Nes (Buskerud),06,Buskerud,IMDi Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0617,Gol,06,Buskerud,IMDi Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0618,Hemsedal,06,Buskerud,IMDi Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0619,Ål,06,Buskerud,IMDi Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0620,Hol,06,Buskerud,IMDi Indre Øst,3021,Hallingdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0621,Sigdal,06,Buskerud,IMDi Indre Øst,3023,Midt-Buskerud (f.o.m. 2018),3,Sentrale kommuner,,,
+0622,Krødsherad,06,Buskerud,IMDi Indre Øst,3023,Midt-Buskerud (f.o.m. 2018),3,Sentrale kommuner,,,
+0623,Modum,06,Buskerud,IMDi Indre Øst,3023,Midt-Buskerud (f.o.m. 2018),3,Sentrale kommuner,,,
+0624,Øvre Eiker,06,Buskerud,IMDi Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0625,Nedre Eiker,06,Buskerud,IMDi Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0626,Lier,06,Buskerud,IMDi Indre Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0627,Røyken,06,Buskerud,IMDi Indre Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner,,,
+0628,Hurum,06,Buskerud,IMDi Indre Øst,3005,Nye Asker og Bærum (f.o.m. 2018),3,Sentrale kommuner,,,
+0631,Flesberg,06,Buskerud,IMDi Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),3,Sentrale kommuner,,,
+0632,Rollag,06,Buskerud,IMDi Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0633,Nore og Uvdal,06,Buskerud,IMDi Indre Øst,3022,Kongsberg/Numedal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0701,Horten,07,Vestfold,IMDi Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0702,Holmestrand (t.o.m. 2017),07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner,,,
+0704,Tønsberg,07,Vestfold,IMDi Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0706,Sandefjord (t.o.m. 2016),07,Vestfold,IMDi Øst,26,Sandefjord/Larvik (t.o.m. 2017),3,Sentrale kommuner,,,
+0709,Larvik (t.o.m. 2017),07,Vestfold,IMDi Øst,26,Sandefjord/Larvik (t.o.m. 2017),2,Noe sentrale kommuner,,,
+0710,Sandefjord (f.o.m. 2017),07,Vestfold,IMDi Øst,3027,Sandefjord (f.o.m. 2018),3,Sentrale kommuner,,,
+0711,Svelvik,07,Vestfold,IMDi Øst,3020,Drammensregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0712,Larvik (f.o.m. 2018),07,Vestfold,IMDi Øst,3028,Larvik/Lardal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0713,Sande (Vestfold),07,Vestfold,IMDi Øst,3025,Vestfold Nord (f.o.m. 2018),3,Sentrale kommuner,,,
+0714,Hof (t.o.m. 2017),07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner,,,
+0715,Holmestrand (f.o.m. 2018),07,Vestfold,IMDi Øst,3025,Vestfold Nord (f.o.m. 2018),3,Sentrale kommuner,,,
+0716,Re,07,Vestfold,IMDi Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0719,Andebu (t.o.m. 2016),07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner,,,
+0720,Stokke (t.o.m. 2016),07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner,,,
+0722,Nøtterøy (t.o.m. 2017),07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),3,Sentrale kommuner,,,
+0723,Tjøme (t.o.m. 2017),07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),2,Noe sentrale kommuner,,,
+0728,Lardal (t.o.m. 2017),07,Vestfold,IMDi Øst,26,Sandefjord/Larvik (t.o.m. 2017),3,Sentrale kommuner,,,
+0729,Færder,07,Vestfold,IMDi Øst,3026,Tønsbergregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0805,Porsgrunn,08,Telemark,IMDi Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0806,Skien,08,Telemark,IMDi Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0807,Notodden,08,Telemark,IMDi Sør,3031,Øst-Telemark (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0811,Siljan,08,Telemark,IMDi Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0814,Bamble,08,Telemark,IMDi Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0815,Kragerø,08,Telemark,IMDi Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0817,Drangedal,08,Telemark,IMDi Sør,3029,Grenland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0819,Nome,08,Telemark,IMDi Sør,3030,Midt-Telemark (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0821,Bø (Telemark),08,Telemark,IMDi Sør,3030,Midt-Telemark (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0822,Sauherad,08,Telemark,IMDi Sør,3030,Midt-Telemark (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0826,Tinn,08,Telemark,IMDi Sør,3031,Øst-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0827,Hjartdal,08,Telemark,IMDi Sør,3031,Øst-Telemark (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0828,Seljord,08,Telemark,IMDi Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0829,Kviteseid,08,Telemark,IMDi Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0830,Nissedal,08,Telemark,IMDi Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0831,Fyresdal,08,Telemark,IMDi Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0833,Tokke,08,Telemark,IMDi Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0834,Vinje,08,Telemark,IMDi Sør,3032,Vest-Telemark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0901,Risør,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0904,Grimstad,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0906,Arendal,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0911,Gjerstad,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0912,Vegårshei,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0914,Tvedestrand,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0919,Froland,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0926,Lillesand,09,Aust-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0928,Birkenes,09,Aust-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0929,Åmli,09,Aust-Agder,IMDi Sør,3034,Arendalregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+0935,Iveland,09,Aust-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+0937,Evje og Hornnes,09,Aust-Agder,IMDi Sør,3033,Setesdal (f.o.m. 2018),3,Sentrale kommuner,,,
+0938,Bygland,09,Aust-Agder,IMDi Sør,3033,Setesdal (f.o.m. 2018),3,Sentrale kommuner,,,
+0940,Valle,09,Aust-Agder,IMDi Sør,3033,Setesdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+0941,Bykle,09,Aust-Agder,IMDi Sør,3033,Setesdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1001,Kristiansand,10,Vest-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1002,Mandal,10,Vest-Agder,IMDi Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1003,Farsund,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1004,Flekkefjord,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1014,Vennesla,10,Vest-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1017,Songdalen,10,Vest-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1018,Søgne,10,Vest-Agder,IMDi Sør,3037,Kristiansandregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1021,Marnardal,10,Vest-Agder,IMDi Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1026,Åseral,10,Vest-Agder,IMDi Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1027,Audnedal,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),3,Sentrale kommuner,,,
+1029,Lindesnes,10,Vest-Agder,IMDi Sør,3036,Mandalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1032,Lyngdal,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),3,Sentrale kommuner,,,
+1034,Hægebostad,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),3,Sentrale kommuner,,,
+1037,Kvinesdal,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1046,Sirdal,10,Vest-Agder,IMDi Sør,3035,Lister (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1101,Eigersund,11,Rogaland,IMDi Vest,3038,Dalane (f.o.m. 2018),3,Sentrale kommuner,,,
+1102,Sandnes,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1103,Stavanger,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1106,Haugesund,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1111,Sokndal,11,Rogaland,IMDi Vest,3038,Dalane (f.o.m. 2018),3,Sentrale kommuner,,,
+1112,Lund,11,Rogaland,IMDi Vest,3038,Dalane (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1114,Bjerkreim,11,Rogaland,IMDi Vest,3038,Dalane (f.o.m. 2018),3,Sentrale kommuner,,,
+1119,Hå,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1120,Klepp,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1121,Time,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1122,Gjesdal,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1124,Sola,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1127,Randaberg,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1129,Forsand,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1130,Strand,11,Rogaland,IMDi Vest,3040,Ryfylke (f.o.m. 2018),3,Sentrale kommuner,,,
+1133,Hjelmeland,11,Rogaland,IMDi Vest,3040,Ryfylke (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1134,Suldal,11,Rogaland,IMDi Vest,3040,Ryfylke (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1135,Sauda,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1141,Finnøy,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1142,Rennesøy,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1144,Kvitsøy,11,Rogaland,IMDi Vest,3041,Stavangerregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1145,Bokn,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1146,Tysvær,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1149,Karmøy,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1151,Utsira,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1160,Vindafjord,11,Rogaland,IMDi Vest,3039,Haugesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1201,Bergen,11,Rogaland,IMDi Vest,3042,Bergen (f.o.m. 2018),3,Sentrale kommuner,,,
+1211,Etne,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1216,Sveio,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1219,Bømlo,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1221,Stord,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1222,Fitjar,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1223,Tysnes,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1224,Kvinnherad,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1227,Jondal,12,Hordaland,IMDi Vest,3044,Hardanger (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1228,Odda,12,Hordaland,IMDi Vest,3044,Hardanger (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1231,Ullensvang,12,Hordaland,IMDi Vest,3044,Hardanger (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1232,Eidfjord,12,Hordaland,IMDi Vest,3044,Hardanger (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1233,Ulvik,12,Hordaland,IMDi Vest,3044,Hardanger (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1234,Granvin,12,Hordaland,IMDi Vest,3045,Voss (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1235,Voss,12,Hordaland,IMDi Vest,3045,Voss (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1238,Kvam,12,Hordaland,IMDi Vest,3044,Hardanger (f.o.m. 2018),3,Sentrale kommuner,,,
+1241,Fusa,12,Hordaland,IMDi Vest,3043,Bjørnefjorden (f.o.m. 2018),3,Sentrale kommuner,,,
+1242,Samnanger,12,Hordaland,IMDi Vest,3043,Bjørnefjorden (f.o.m. 2018),3,Sentrale kommuner,,,
+1243,Os (Hordaland),12,Hordaland,IMDi Vest,3043,Bjørnefjorden (f.o.m. 2018),3,Sentrale kommuner,,,
+1244,Austevoll,12,Hordaland,IMDi Vest,3048,Sunnhordland (f.o.m. 2018),3,Sentrale kommuner,,,
+1245,Sund,12,Hordaland,IMDi Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner,,,
+1246,Fjell,12,Hordaland,IMDi Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner,,,
+1247,Askøy,12,Hordaland,IMDi Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner,,,
+1251,Vaksdal,12,Hordaland,IMDi Vest,3047,Osterfjorden (f.o.m. 2018),3,Sentrale kommuner,,,
+1252,Modalen,12,Hordaland,IMDi Vest,3047,Osterfjorden (f.o.m. 2018),3,Sentrale kommuner,,,
+1253,Osterøy,12,Hordaland,IMDi Vest,3047,Osterfjorden (f.o.m. 2018),3,Sentrale kommuner,,,
+1256,Meland,12,Hordaland,IMDi Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner,,,
+1259,Øygarden,12,Hordaland,IMDi Vest,3049,Hordaland Vest (f.o.m. 2018),3,Sentrale kommuner,,,
+1260,Radøy,12,Hordaland,IMDi Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner,,,
+1263,Lindås,12,Hordaland,IMDi Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner,,,
+1264,Austrheim,12,Hordaland,IMDi Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner,,,
+1265,Fedje,12,Hordaland,IMDi Vest,3046,Nordhordland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1266,Masfjorden,12,Hordaland,IMDi Vest,3046,Nordhordland (f.o.m. 2018),3,Sentrale kommuner,,,
+1401,Flora,14,Sogn og Fjordane,IMDi Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1411,Gulen,14,Sogn og Fjordane,IMDi Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1412,Solund,14,Sogn og Fjordane,IMDi Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1413,Hyllestad,14,Sogn og Fjordane,IMDi Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1416,Høyanger,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1417,Vik,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1418,Balestrand,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1419,Leikanger,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1420,Sogndal,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1421,Aurland,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1422,Lærdal,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1424,Årdal,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1426,Luster,14,Sogn og Fjordane,IMDi Vest,3052,Sogn (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1428,Askvoll,14,Sogn og Fjordane,IMDi Vest,3050,HAFS (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1429,Fjaler,14,Sogn og Fjordane,IMDi Vest,3050,HAFS (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1430,Gaular,14,Sogn og Fjordane,IMDi Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1431,Jølster,14,Sogn og Fjordane,IMDi Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1432,Førde,14,Sogn og Fjordane,IMDi Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1433,Naustdal,14,Sogn og Fjordane,IMDi Vest,3053,Sunnfjord (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1438,Bremanger,14,Sogn og Fjordane,IMDi Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1439,Vågsøy,14,Sogn og Fjordane,IMDi Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1441,Selje,14,Sogn og Fjordane,IMDi Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1443,Eid,14,Sogn og Fjordane,IMDi Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1444,Hornindal,14,Sogn og Fjordane,IMDi Vest,3057,Søre Sunnmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1445,Gloppen,14,Sogn og Fjordane,IMDi Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1449,Stryn,14,Sogn og Fjordane,IMDi Vest,3051,Nordfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1502,Molde,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1505,Kristiansund,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1504,Ålesund,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1511,Vanylven,15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1514,Sande (Møre og Romsdal),15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1515,Herøy (Møre og Romsdal),15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1516,Ulstein,15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1517,Hareid,15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1519,Volda,15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1520,Ørsta,15,Møre og Romsdal,IMDi Midt,3057,Søre Sunnmøre (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1523,Ørskog,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1524,Norddal,15,Møre og Romsdal,IMDi Midt,3056,Storfjord (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1525,Stranda,15,Møre og Romsdal,IMDi Midt,3056,Storfjord (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1526,Stordal,15,Møre og Romsdal,IMDi Midt,3056,Storfjord (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1528,Sykkylven,15,Møre og Romsdal,IMDi Midt,3056,Storfjord (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1529,Skodje,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1531,Sula,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1532,Giske,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1534,Haram,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1535,Vestnes,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1539,Rauma,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1543,Nesset,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1545,Midsund,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1546,Sandøy,15,Møre og Romsdal,IMDi Midt,3058,Ålesundregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1547,Aukra,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1548,Fræna,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1551,Eide,15,Møre og Romsdal,IMDi Midt,3055,Romsdal (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1554,Averøy,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1557,Gjemnes,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1560,Tingvoll,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1563,Sunndal,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1566,Surnadal,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1567,Rindal,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1571,Halsa,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1573,Smøla,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1576,Aure,15,Møre og Romsdal,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1601,Trondheim,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1612,Hemne,50,Trøndelag,IMDi Midt,3054,Nordmøre (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1613,Snillfjord,50,Trøndelag,IMDi Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1617,Hitra,50,Trøndelag,IMDi Midt,3060,Hitra/Frøya (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1620,Frøya,50,Trøndelag,IMDi Midt,3060,Hitra/Frøya (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1621,Ørland,50,Trøndelag,IMDi Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1622,Agdenes,50,Trøndelag,IMDi Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1624,Rissa (t.o.m. 2017),16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt,57,Fosen (t.o.m. 2017),3,Sentrale kommuner,,,
+1627,Bjugn,50,Trøndelag,IMDi Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1630,Åfjord,50,Trøndelag,IMDi Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1632,Roan,50,Trøndelag,IMDi Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1633,Osen,50,Trøndelag,IMDi Midt,3059,Fosen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1634,Oppdal,50,Trøndelag,IMDi Midt,3061,Oppdal/Rennebu (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1635,Rennebu,50,Trøndelag,IMDi Midt,3061,Oppdal/Rennebu (f.o.m. 2018),3,Sentrale kommuner,,,
+1636,Meldal,50,Trøndelag,IMDi Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1638,Orkdal,50,Trøndelag,IMDi Midt,3062,Orkdalregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1640,Røros,50,Trøndelag,IMDi Midt,3064,Rørosregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1644,Holtålen,50,Trøndelag,IMDi Midt,3064,Rørosregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1648,Midtre Gauldal,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1653,Melhus,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1657,Skaun,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1662,Klæbu,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1663,Malvik,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1664,Selbu,50,Trøndelag,IMDi Midt,3063,Trondheimsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1665,Tydal,50,Trøndelag,IMDi Midt,3064,Rørosregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1702,Steinkjer,50,Trøndelag,IMDi Midt,3066,Innherred (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1703,Namsos,50,Trøndelag,IMDi Midt,3069,Midtre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1711,Meråker,50,Trøndelag,IMDi Midt,3065,Stjørdalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1714,Stjørdal,50,Trøndelag,IMDi Midt,3065,Stjørdalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1717,Frosta,50,Trøndelag,IMDi Midt,3065,Stjørdalsregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1718,Leksvik (t.o.m. 2017),17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt,57,Fosen (t.o.m. 2017),3,Sentrale kommuner,,,
+1719,Levanger,50,Trøndelag,IMDi Midt,3066,Innherred (f.o.m. 2018),3,Sentrale kommuner,,,
+1721,Verdal,50,Trøndelag,IMDi Midt,3066,Innherred (f.o.m. 2018),3,Sentrale kommuner,,,
+1756,Inderøy,50,Trøndelag,IMDi Midt,3066,Innherred (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1724,Verran,50,Trøndelag,IMDi Midt,3066,Innherred (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1725,Namdalseid,50,Trøndelag,IMDi Midt,3069,Midtre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1736,Snåsa,50,Trøndelag,IMDi Midt,3067,Indre Namdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1738,Lierne,50,Trøndelag,IMDi Midt,3067,Indre Namdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1739,Røyrvik,50,Trøndelag,IMDi Midt,3067,Indre Namdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1740,Namsskogan,50,Trøndelag,IMDi Midt,3067,Indre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1742,Grong,50,Trøndelag,IMDi Midt,3067,Indre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1743,Høylandet,50,Trøndelag,IMDi Midt,3067,Indre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1744,Overhalla,50,Trøndelag,IMDi Midt,3069,Midtre Namdal (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1748,Fosnes,50,Trøndelag,IMDi Midt,3069,Midtre Namdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1749,Flatanger,50,Trøndelag,IMDi Midt,3069,Midtre Namdal (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1750,Vikna,50,Trøndelag,IMDi Midt,3068,Kystgruppen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1751,Nærøy,50,Trøndelag,IMDi Midt,3068,Kystgruppen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1755,Leka,50,Trøndelag,IMDi Midt,3068,Kystgruppen (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1804,Bodø,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1805,Narvik,18,Nordland,IMDi Nord,3076,Ofoten (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1811,Bindal,18,Nordland,IMDi Nord,3070,Sør-Helgeland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1812,Sømna,18,Nordland,IMDi Nord,3070,Sør-Helgeland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1813,Brønnøy,18,Nordland,IMDi Nord,3070,Sør-Helgeland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1815,Vega,18,Nordland,IMDi Nord,3070,Sør-Helgeland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1816,Vevelstad,18,Nordland,IMDi Nord,3070,Sør-Helgeland (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1818,Herøy (Nordland),18,Nordland,IMDi Nord,3071,HALD (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1820,Alstahaug,18,Nordland,IMDi Nord,3071,HALD (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1822,Leirfjord,18,Nordland,IMDi Nord,3071,HALD (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1824,Vefsn,18,Nordland,IMDi Nord,3073,Mosjøregionen (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1825,Grane,18,Nordland,IMDi Nord,3073,Mosjøregionen (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1826,Hattfjelldal,18,Nordland,IMDi Nord,3073,Mosjøregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1827,Dønna,18,Nordland,IMDi Nord,3071,HALD (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1828,Nesna,18,Nordland,IMDi Nord,3074,Ranaregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1832,Hemnes,18,Nordland,IMDi Nord,3074,Ranaregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1833,Rana,18,Nordland,IMDi Nord,3074,Ranaregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1834,Lurøy,18,Nordland,IMDi Nord,3072,Ytre Helgeland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1835,Træna,18,Nordland,IMDi Nord,3072,Ytre Helgeland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1836,Rødøy,18,Nordland,IMDi Nord,3072,Ytre Helgeland (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1837,Meløy,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1838,Gildeskål,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1839,Beiarn,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1840,Saltdal,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1841,Fauske,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1845,Sørfold,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1848,Steigen,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1849,Hamarøy,18,Nordland,IMDi Nord,3075,Salten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1850,Tysfjord,18,Nordland,IMDi Nord,3076,Ofoten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1851,Lødingen,18,Nordland,IMDi Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1852,Tjeldsund,18,Nordland,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1853,Evenes,18,Nordland,IMDi Nord,3076,Ofoten (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1854,Ballangen,18,Nordland,IMDi Nord,3076,Ofoten (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1856,Røst,18,Nordland,IMDi Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1857,Værøy,18,Nordland,IMDi Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1859,Flakstad,18,Nordland,IMDi Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1860,Vestvågøy,18,Nordland,IMDi Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1865,Vågan,18,Nordland,IMDi Nord,3077,Lofoten (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+1866,Hadsel,18,Nordland,IMDi Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1867,Bø (Nordland),18,Nordland,IMDi Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1868,Øksnes,18,Nordland,IMDi Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1870,Sortland,18,Nordland,IMDi Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1871,Andøy,18,Nordland,IMDi Nord,3078,Vesterålen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1874,Moskenes,18,Nordland,IMDi Nord,3077,Lofoten (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1902,Tromsø,19,Troms,IMDi Nord,3081,Tromsøregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1903,Harstad,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1911,Kvæfjord,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1913,Skånland,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1917,Ibestad,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1919,Gratangen,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),2,Noe sentrale kommuner,,,
+1920,Lavangen,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1922,Bardu,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1923,Salangen,19,Troms,IMDi Nord,3079,Harstadregionen (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1924,Målselv,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1925,Sørreisa,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1926,Dyrøy,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1927,Tranøy,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1928,Torsken,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1929,Berg,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1931,Lenvik,19,Troms,IMDi Nord,3080,Midt-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1933,Balsfjord,19,Troms,IMDi Nord,3081,Tromsøregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1936,Karlsøy,19,Troms,IMDi Nord,3081,Tromsøregionen (f.o.m. 2018),3,Sentrale kommuner,,,
+1938,Lyngen,19,Troms,IMDi Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1939,Storfjord,19,Troms,IMDi Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1940,Kåfjord,19,Troms,IMDi Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1941,Skjervøy,19,Troms,IMDi Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1942,Nordreisa,19,Troms,IMDi Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+1943,Kvænangen,19,Troms,IMDi Nord,3082,Nord-Troms (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2002,Vardø,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2003,Vadsø,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+2004,Hammerfest,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+2011,Kautokeino,20,Finnmark,IMDi Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2012,Alta,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+2014,Loppa,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2015,Hasvik,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2017,Kvalsund,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+2018,Måsøy,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2019,Nordkapp,20,Finnmark,IMDi Nord,3083,Vest-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2020,Porsanger,20,Finnmark,IMDi Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2021,Karasjok,20,Finnmark,IMDi Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2022,Lebesby,20,Finnmark,IMDi Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2023,Gamvik,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2024,Berlevåg,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2025,Tana,20,Finnmark,IMDi Nord,3084,Midt-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2027,Nesseby,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+2028,Båtsfjord,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+2030,Sør-Varanger,20,Finnmark,IMDi Nord,3085,Øst-Finnmark (f.o.m. 2018),0,Minst sentrale kommuner,,,
+5054,Indre Fosen,50,Trøndelag,IMDi Nord,3059,Fosen (f.o.m. 2018),1,Mindre sentrale kommuner,,,
+9999,Uoppgitt kommune,99,Uoppgitt fylke,Uoppgitt IMDi-region,3099,Uoppgitt næringsregion,.,.,,,
+0000,Norge,00,Norge,.,00,Norge,.,.,,,
+.,.,01,Østfold,IMDi Øst,01,Halden (t.o.m. 2017),.,.,,,
+.,.,01,Østfold,IMDi Øst,02,Indre Østfold (t.o.m. 2017),.,.,,,
+.,.,01,Østfold,IMDi Øst,03,Mosseregionen (t.o.m. 2017),.,.,,,
+.,.,01,Østfold,IMDi Øst,04,Nedre Glomma (t.o.m. 2017),.,.,,,
+.,.,02,Akershus,IMDi Øst,05,Akershus Vest (t.o.m. 2017),.,.,,,
+.,.,02,Akershus,IMDi Øst,06,Follo (t.o.m. 2017),.,.,,,
+.,.,02,Akershus,IMDi Øst,07,Nedre Romerike (t.o.m. 2017),.,.,,,
+.,.,02,Akershus,IMDi Øst,08,Øvre Romerike (t.o.m. 2017),.,.,,,
+.,.,03,Oslo,IMDi Øst,09,Oslo (t.o.m. 2017),.,.,,,
+.,.,04,Hedmark,IMDi Indre Øst,10,Fjellregionen (t.o.m. 2017),.,.,,,
+.,.,04,Hedmark,IMDi Indre Øst,11,Glåmdal (t.o.m. 2017),.,.,,,
+.,.,04,Hedmark,IMDi Indre Øst,12,Hamarregionen (t.o.m. 2017),.,.,,,
+.,.,04,Hedmark,IMDi Indre Øst,13,Sør Østerdal (t.o.m. 2017),.,.,,,
+.,.,05,Oppland,IMDi Indre Øst,14,Gjøvikregionen (t.o.m. 2017),.,.,,,
+.,.,05,Oppland,IMDi Indre Øst,15,Hadeland (t.o.m. 2017),.,.,,,
+.,.,05,Oppland,IMDi Indre Øst,16,Lillehammerregionen (t.o.m. 2017),.,.,,,
+.,.,05,Oppland,IMDi Indre Øst,17,Midt-Gudbrandsdal (t.o.m. 2017),.,.,,,
+.,.,05,Oppland,IMDi Indre Øst,18,Nord-Gudbrandsdal (t.o.m. 2017),.,.,,,
+.,.,05,Oppland,IMDi Indre Øst,19,Valdres (t.o.m. 2017),.,.,,,
+.,.,06,Buskerud,IMDi Indre Øst,20,Drammensregionen (t.o.m. 2017),.,.,,,
+.,.,06,Buskerud,IMDi Indre Øst,21,Hallingdal (t.o.m. 2017),.,.,,,
+.,.,06,Buskerud,IMDi Indre Øst,22,Kongsberg/Numedal (t.o.m. 2017),.,.,,,
+.,.,06,Buskerud,IMDi Indre Øst,23,Midt-Buskerud (t.o.m. 2017),.,.,,,
+.,.,06,Buskerud,IMDi Indre Øst,24,Ringerike/Hole (t.o.m. 2017),.,.,,,
+.,.,07,Vestfold,IMDi Øst,25,Tønsbergregionen (t.o.m. 2017),.,.,,,
+.,.,07,Vestfold,IMDi Øst,26,Sandefjord/Larvik (t.o.m. 2017),.,.,,,
+.,.,08,Telemark,IMDi Sør,27,Grenland (t.o.m. 2017),.,.,,,
+.,.,08,Telemark,IMDi Sør,28,Midt-Telemark (t.o.m. 2017),.,.,,,
+.,.,08,Telemark,IMDi Sør,29,Øst-Telemark (t.o.m. 2017),.,.,,,
+.,.,08,Telemark,IMDi Sør,30,Vest-Telemark (t.o.m. 2017),.,.,,,
+.,.,09,Aust-Agder,IMDi Sør,31,Setesdal (t.o.m. 2017),.,.,,,
+.,.,09,Aust-Agder,IMDi Sør,32,Arendalregionen (t.o.m. 2017),.,.,,,
+.,.,10,Vest-Agder,IMDi Sør,33,Lister (t.o.m. 2017),.,.,,,
+.,.,10,Vest-Agder,IMDi Sør,34,Mandalsregionen (t.o.m. 2017),.,.,,,
+.,.,09,Aust-Agder,IMDi Sør,35,Kristiansandregionen (t.o.m. 2017),.,.,,,
+.,.,11,Rogaland,IMDi Vest,36,Dalane (t.o.m. 2017),.,.,,,
+.,.,11,Rogaland,IMDi Vest,37,Haugesundregionen (t.o.m. 2017),.,.,,,
+.,.,11,Rogaland,IMDi Vest,38,Ryfylke (t.o.m. 2017),.,.,,,
+.,.,11,Rogaland,IMDi Vest,39,Stavangerregionen (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,40,Bergen (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,41,Bjørnefjorden (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,42,Hardanger (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,43,Voss (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,44,Nordhordland (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,45,Osterfjorden (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,46,Sunnhordland (t.o.m. 2017),.,.,,,
+.,.,12,Hordaland,IMDi Vest,47,Hordaland Vest (t.o.m. 2017),.,.,,,
+.,.,14,Sogn og Fjordane,IMDi Vest,48,HAFS (t.o.m. 2017),.,.,,,
+.,.,14,Sogn og Fjordane,IMDi Vest,49,Nordfjord (t.o.m. 2017),.,.,,,
+.,.,14,Sogn og Fjordane,IMDi Vest,50,Sogn (t.o.m. 2017),.,.,,,
+.,.,14,Sogn og Fjordane,IMDi Vest,51,Sunnfjord (t.o.m. 2017),.,.,,,
+.,.,15,Møre og Romsdal,IMDi Midt-Norge,52,Nordmøre (t.o.m. 2017),.,.,,,
+.,.,15,Møre og Romsdal,IMDi Midt-Norge,53,Romsdal (t.o.m. 2017),.,.,,,
+.,.,15,Møre og Romsdal,IMDi Midt-Norge,54,Storfjord (t.o.m. 2017),.,.,,,
+.,.,15,Møre og Romsdal,IMDi Midt-Norge,55,Søre Sunnmøre (t.o.m. 2017),.,.,,,
+.,.,15,Møre og Romsdal,IMDi Midt-Norge,56,Ålesundregionen (t.o.m. 2017),.,.,,,
+.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,57,Fosen (t.o.m. 2017),.,.,,,
+.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,58,Hitra/Frøya (t.o.m. 2017),.,.,,,
+.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,59,Oppdal/Rennebu (t.o.m. 2017),.,.,,,
+.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,60,Orkdalregionen (t.o.m. 2017),.,.,,,
+.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,61,Trondheimsregionen (t.o.m. 2017),.,.,,,
+.,.,16,Sør-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,62,Rørosregionen (t.o.m. 2017),.,.,,,
+.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,63,Stjørdalsregionen (t.o.m. 2017),.,.,,,
+.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,64,Innherred (t.o.m. 2017),.,.,,,
+.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,65,Indre Namdal (t.o.m. 2017),.,.,,,
+.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,66,Kystgruppen (t.o.m. 2017),.,.,,,
+.,.,17,Nord-Trøndelag (t.o.m. 2017),IMDi Midt-Norge,67,Midtre Namdal (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,68,Sør-Helgeland (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,69,HALD (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,70,Ytre Helgeland (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,71,Mosjøregionen (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,72,Ranaregionen (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,73,Salten (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,74,Ofoten (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,75,Lofoten (t.o.m. 2017),.,.,,,
+.,.,18,Nordland,IMDi Nord,76,Vesterålen (t.o.m. 2017),.,.,,,
+.,.,19,Troms,IMDi Nord,77,Sør-Troms (t.o.m. 2017),.,.,,,
+.,.,19,Troms,IMDi Nord,78,Midt-Troms (t.o.m. 2017),.,.,,,
+.,.,19,Troms,IMDi Nord,79,Tromsøregionen (t.o.m. 2017),.,.,,,
+.,.,19,Troms,IMDi Nord,80,Nord-Troms (t.o.m. 2017),.,.,,,
+.,.,20,Finnmark,IMDi Nord,81,Vest-Finnmark (t.o.m. 2017),.,.,,,
+.,.,20,Finnmark,IMDi Nord,82,Midt-Finnmark (t.o.m. 2017),.,.,,,
+.,.,20,Finnmark,IMDi Nord,83,Øst-Finnmark (t.o.m. 2017),.,.,,,

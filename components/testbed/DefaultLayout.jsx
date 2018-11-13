@@ -37,7 +37,7 @@ export default class DefaultLayout extends Component {
           {/* <link rel="stylesheet" href="/build/stylesheets/main.css" /> */}
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/imdi-styles@next/main.css"
+            href="https://cdn.jsdelivr.net/npm/imdi-styles@latest/main.css"
           />
           <link
             rel="icon"

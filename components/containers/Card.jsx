@@ -154,11 +154,14 @@ class Card extends Component {
 
     //  move chart and colored squares lower
     this.addValuesToTransform(chart, null, extraHeightDiagram);
+
+    if (colorExplanation) {
     this.addValuesToTransform(
       colorExplanation,
       null,
       pyramid ? extraHeightDiagramPyramid : extraHeightDiagram
-    );
+      );
+    }
 
     //  get the title
     const title = this.findAncestor(

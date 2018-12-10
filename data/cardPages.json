@@ -284,41 +284,6 @@
         ]
       },
       {
-        "name": "befolkning_verdensregion_femdelt",
-        "title": "Opprinnelse - fem verdensregioner",
-        "config": {
-          "dimensions": {
-            "vreg6": {
-              "include": [
-                "asia",
-                "afrika",
-                "europa",
-                "nord_amerika_oseania",
-                "sor_og_mellom_amerika"
-              ]
-            }
-          }
-        },
-        "query": {
-          "tableName": "befolkning_verdensregion_6",
-          "unit": [
-            "personer"
-          ],
-          "dimensions": [
-            {
-              "name": "vreg6",
-              "variables": "all"
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "name": "latest",
-            "chartKind": "bubble"
-          }
-        ]
-      },
-      {
         "name": "befolkning_verdensregion_todelt",
         "title": "Opprinnelse - todelt",
         "config": {},
@@ -1874,23 +1839,16 @@
             "tilskuddTilKommuner": {
               "include": [
                 "inttilsk_1",
-                "inttilsk_2_5",
-                "ekstra_bosetting_tilsk",
-                "funkhem",
-                "norsk_samf_tilsk",
-                "em_tilsk",
-                "barnehage_tilsk",
-                "eldre_tilsk",
-                "skole_tilsk",
-                "persontilsk",
-                "grunn_tilsk",
-                "asylnorsk_tilsk",
-                "gratis_kjernetid",
-                "tøyensatsing",
-                "jobbsjansen",
-                "komm_utv",
-                "forebygging_radikalisering _voldelig ekstremisme"
-
+                "inttilsk_2_5",
+                "ekstra_bosetting_tilsk",
+                "funkhem",
+                "norsk_samf_tilsk",
+                "norsk_samf_tilsk_voksne",
+                "norsk_samf_tilsk_asyls",
+                "em_tilsk",
+                "barnehage_tilsk",
+                "eldre_tilsk",
+                "skole_tilsk"
               ]
             }
           }

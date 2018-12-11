@@ -26,7 +26,8 @@ class DownloadWidget extends Component {
     downloadScreenshot: PropTypes.func,
     downloadPNG: PropTypes.func,
     setExplicitView: PropTypes.func,
-    chartKind: PropTypes.string
+    chartKind: PropTypes.string,
+    chartId: PropTypes.string
   };
 
   constructor(props) {
@@ -193,6 +194,7 @@ class DownloadWidget extends Component {
         downloadPNG={this.props.downloadPNG}
         choices={choices}
         chartKind={chartKind}
+        chartId={this.props.chartId}
         applyButtonText="Last ned tallgrunnlag (.csv)"
         title="Last ned"
         choiceLabel="Velg innhold"

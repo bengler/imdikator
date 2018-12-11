@@ -466,6 +466,7 @@ class Card extends Component {
     return (
       <section
         data-card
+        id={card.name}
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
         style={{ display: 'block' }}
@@ -540,6 +541,7 @@ class Card extends Component {
           {!printable && (
             <div className="graph__functions">
               <DownloadWidget
+                chartId={card.name}
                 downloadScreenshot={this.takeScreenshot}
                 downloadPNG={this.downloadPNG}
                 region={region}

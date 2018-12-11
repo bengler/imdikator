@@ -46,7 +46,8 @@ export default class PopupChoicesBox extends Component {
     downloadScreenshot: PropTypes.func,
     setExplicitView: PropTypes.func,
     downloadPNG: PropTypes.func,
-    chartKind: PropTypes.string
+    chartKind: PropTypes.string,
+    chartId: PropTypes.string
   };
 
   constructor(props) {
@@ -121,7 +122,7 @@ export default class PopupChoicesBox extends Component {
   }
 
   downloadPNG() {
-    const svg = document.querySelector('.chart__svg');
+    const svg = document.querySelector(`#${this.props.chartId} .chart__svg`);
 
     svg.style.background = 'white';
 

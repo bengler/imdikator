@@ -90,16 +90,10 @@
     "prefixedCode": "F50"
   },
   {
-    "code": "16",
-    "name": "Sør-Trøndelag (t.o.m. 2017)",
+    "code": "0.",
+    "name": ".",
     "type": "county",
-    "prefixedCode": "F16"
-  },
-  {
-    "code": "17",
-    "name": "Nord-Trøndelag (t.o.m. 2017)",
-    "type": "county",
-    "prefixedCode": "F17"
+    "prefixedCode": "F0."
   },
   {
     "code": "18",
@@ -130,5 +124,17 @@
     "name": "Norge",
     "type": "county",
     "prefixedCode": "F00"
+  },
+  {
+    "code": "16",
+    "name": "Sør-Trøndelag (t.o.m. 2017)",
+    "type": "county",
+    "prefixedCode": "F16"
+  },
+  {
+    "code": "17",
+    "name": "Nord-Trøndelag (t.o.m. 2017)",
+    "type": "county",
+    "prefixedCode": "F17"
   }
 ]

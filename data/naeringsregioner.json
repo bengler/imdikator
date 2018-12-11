@@ -200,20 +200,12 @@
     "prefixedCode": "N3026"
   },
   {
-    "code": "25",
-    "name": "Tønsbergregionen (t.o.m. 2017)",
+    "code": "0.",
+    "name": ".",
     "municipalityCode": "0702",
     "countyCode": "07",
     "type": "commerceRegion",
-    "prefixedCode": "N25"
-  },
-  {
-    "code": "26",
-    "name": "Sandefjord/Larvik (t.o.m. 2017)",
-    "municipalityCode": "0706",
-    "countyCode": "07",
-    "type": "commerceRegion",
-    "prefixedCode": "N26"
+    "prefixedCode": "N0."
   },
   {
     "code": "3027",
@@ -510,14 +502,6 @@
     "countyCode": "50",
     "type": "commerceRegion",
     "prefixedCode": "N3059"
-  },
-  {
-    "code": "57",
-    "name": "Fosen (t.o.m. 2017)",
-    "municipalityCode": "1624",
-    "countyCode": "16",
-    "type": "commerceRegion",
-    "prefixedCode": "N57"
   },
   {
     "code": "3061",
@@ -912,6 +896,22 @@
     "prefixedCode": "N24"
   },
   {
+    "code": "25",
+    "name": "Tønsbergregionen (t.o.m. 2017)",
+    "municipalityCode": "000.",
+    "countyCode": "07",
+    "type": "commerceRegion",
+    "prefixedCode": "N25"
+  },
+  {
+    "code": "26",
+    "name": "Sandefjord/Larvik (t.o.m. 2017)",
+    "municipalityCode": "000.",
+    "countyCode": "07",
+    "type": "commerceRegion",
+    "prefixedCode": "N26"
+  },
+  {
     "code": "27",
     "name": "Grenland (t.o.m. 2017)",
     "municipalityCode": "000.",
@@ -1150,6 +1150,14 @@
     "countyCode": "15",
     "type": "commerceRegion",
     "prefixedCode": "N56"
+  },
+  {
+    "code": "57",
+    "name": "Fosen (t.o.m. 2017)",
+    "municipalityCode": "000.",
+    "countyCode": "16",
+    "type": "commerceRegion",
+    "prefixedCode": "N57"
   },
   {
     "code": "58",

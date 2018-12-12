@@ -200,14 +200,6 @@
     "prefixedCode": "N3026"
   },
   {
-    "code": "0.",
-    "name": ".",
-    "municipalityCode": "0702",
-    "countyCode": "07",
-    "type": "commerceRegion",
-    "prefixedCode": "N0."
-  },
-  {
     "code": "3027",
     "name": "Sandefjord (f.o.m. 2018)",
     "municipalityCode": "0710",
@@ -339,7 +331,7 @@
     "code": "3042",
     "name": "Bergen (f.o.m. 2018)",
     "municipalityCode": "1201",
-    "countyCode": "11",
+    "countyCode": "12",
     "type": "commerceRegion",
     "prefixedCode": "N3042"
   },

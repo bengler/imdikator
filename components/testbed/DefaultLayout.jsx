@@ -139,7 +139,7 @@ export default class DefaultLayout extends Component {
               </div>
             </div>
           </header>
-          <div className="page__master">
+          <div className="page__master" id="page-content">
             <div className="page">{children}</div>
           </div>
           <footer

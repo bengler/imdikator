@@ -24,6 +24,7 @@ class Autocomplete extends React.Component {
     }
 
     this.findItemsInArrayOfPlaces = this.findItemsInArrayOfPlaces.bind(this)
+    this.handleSetPageStyles = this.handleSetPageStyles.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.submitSearch = this.submitSearch.bind(this)
@@ -75,6 +76,21 @@ class Autocomplete extends React.Component {
       input: event.target.value || '',
       autocompleteSuggestions: this.sortItems(this.findItemsInArrayOfPlaces(event.target.value))
     })
+    this.handleSetPageStyles(true);
+  }
+
+  /*
+    Add layout styles to the main page container
+    -> This needs to happen so that the autocomplete appears over the footer,
+    -> which has a high z-index.
+  */
+  handleSetPageStyles(addFocus = true) {
+    const container = document.getElementById('page-content');
+    if (container) {
+      container.style.position = addFocus ? 'relative' : 'initial';
+      container.style.overflow = addFocus ? 'visible' : 'initial';
+      container.style.zIndex = addFocus ? '6' : 'initial';
+    }
   }
 
   sortItems(unsortedItems) {
@@ -95,6 +111,8 @@ class Autocomplete extends React.Component {
       autocompleteSuggestions: [],
       chosenPlace: 0
     })
+
+    this.handleSetPageStyles(false);
   }
 
   submitSearch(place) {
@@ -167,6 +185,7 @@ class Autocomplete extends React.Component {
         {autocompleteSuggestions.length > 0 && (
           <ul
             className="search-result"
+            style={{ zIndex: 6 }}
             role="listbox"
             ref={searchResult => {
               this.searchResult = searchResult

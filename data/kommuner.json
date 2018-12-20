@@ -1223,7 +1223,7 @@
   {
     "code": "0702",
     "name": "Holmestrand (t.o.m. 2017)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",
@@ -1245,7 +1245,7 @@
   {
     "code": "0706",
     "name": "Sandefjord (t.o.m. 2016)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",
@@ -1256,7 +1256,7 @@
   {
     "code": "0709",
     "name": "Larvik (t.o.m. 2017)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "2",
@@ -1311,7 +1311,7 @@
   {
     "code": "0714",
     "name": "Hof (t.o.m. 2017)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",
@@ -1344,7 +1344,7 @@
   {
     "code": "0719",
     "name": "Andebu (t.o.m. 2016)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",
@@ -1355,7 +1355,7 @@
   {
     "code": "0720",
     "name": "Stokke (t.o.m. 2016)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",
@@ -1366,7 +1366,7 @@
   {
     "code": "0722",
     "name": "Nøtterøy (t.o.m. 2017)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",
@@ -1377,7 +1377,7 @@
   {
     "code": "0723",
     "name": "Tjøme (t.o.m. 2017)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "2",
@@ -1388,7 +1388,7 @@
   {
     "code": "0728",
     "name": "Lardal (t.o.m. 2017)",
-    "countyCode": "07",
+    "countyCode": "0.",
     "imdiRegion": "IMDi Øst",
     "commerceRegionCode": "0.",
     "centralityNumber": "3",

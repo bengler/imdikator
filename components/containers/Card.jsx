@@ -252,7 +252,7 @@ class Card extends Component {
           description
             .querySelector('g')
             .getAttribute('transform')
-            .split(',')[0]
+            .split(/([ ,])/)[0]
             .split('translate(')[1]
         ) === 0
       );

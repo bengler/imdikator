@@ -144,36 +144,32 @@ The perfect tutorial to learn how d3 is used throughout this code: http://aligne
 *Når det må gjøres endringer i kommuner eller fylker må man oppdatere statistikken.*
 Slik gjør du, enkelt oppsummert:
 1. IMDi overleverer et nytt komplett datasett til Netlife, som inneholder de nye stedene. La oss bruke regioninndeling-fylker-kommuner.csv som et eksempel.
-2. Pass på at hver rad holder riktig format:
-0125,Eidsberg,1,Østfold,IMDi Øst,2,Indre Østfold,3,Sentrale kommuner,valid
-3. Feltene betyr:
-Kommunenr,Kommunenavn,Fylkenr,Fylkenavn,IMDiRegion,Næringsregionnr,Næringsregion_ navn,Sentralitet_nr_2008,Sentralitet_kat_2008,Validity
-4. “Validity” er nytt-  hvis et sted har “valid” betyr det at stedet er gjeldende. Hvis det har “invalid” betyr det at stedet ikke lenger eksisterer, men fortsatt vil være en del av statistikken. Eksempelvis; kommunen Sandefjord 0706 er utgått fordi den har blitt større. Da har den nye kommunen Sandefjord 0710 fått feltet “valid” og 0706 har blitt “invalid”. Alle felter må ha enten valid eller invalid. Dette hjelper stedet “Norge” å utregne hva som er nåværende Norge.
-5. Netlife erstatter regioninndeling-fylker-kommuner.csv med det nye.
-6. Netlife kjører kommandoen 
-$ npm run import-regions, deretter 
-$ npm run calculate-similar
+2. Netlife erstatter `/import/regioninndeling-fylker-kommuner.csv` med det nye.
+3. Netlife kjører kommandoen
+`npm run import-regions`
+deretter
+`npm run calculate-similar`
 7. That’s it.
 
+# Deployment
+
+For å deploye til test/prod må du ha prosjektet [Imdikator-deploy](https://github.com/bengler/imdikator-deploy) lokalt, og i samme mappe som `imdikator` (ikke inne i imdikator).
+
+For å deploye til test:
+`npm run deploy_test`
+
+For å deploye til produksjon:
+`npm run deploy`
 
 # URL's
 *Test og prod*
-- Test server med test.css og app.js (publiseres fra `$ npm run deploy_test` fra `../imdikator-deploy`) https://testimdino.azurewebsites.net/
-- Produksjonsserver på https://www.imdi.no/
+- Test server med test.css og app.js: https://testimdino.azurewebsites.net/
+- Produksjon: https://www.imdi.no/
 
 *Innhold fra episerver*
-- Blokker brukt på navigasjonsside: https://testimdino.azurewebsites.net/testsider/visning-av-blokker-pa-navigasjonsside/ 
-- Blokker brukt i en artikkel: https://testimdino.azurewebsites.net/testsider/visning-av-blokker-pa-artikkelside/ 
-- Innholdssider dratt inn på navigasjonssiden som blokker: https://testimdino.azurewebsites.net/testsider/visning-av-sider-som-blokker/ 
-
-# TO-DO:
-
-- Modularize chart library
-- SEO: change page title when tab opens
-- Implement normalize
-- Replace custom http caller with fetch
-- Look at more dynamic abstractions for placenames used throughout app
-- Add docs solution (React storybook)
+- Blokker brukt på navigasjonsside: https://testimdino.azurewebsites.net/testsider/visning-av-blokker-pa-navigasjonsside/
+- Blokker brukt i en artikkel: https://testimdino.azurewebsites.net/testsider/visning-av-blokker-pa-artikkelside/
+- Innholdssider dratt inn på navigasjonssiden som blokker: https://testimdino.azurewebsites.net/testsider/visning-av-sider-som-blokker/
 
 
 # Other notes

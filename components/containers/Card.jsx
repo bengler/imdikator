@@ -6,37 +6,37 @@
 
 //  to better understand how d3 is used throughout this code: http://alignedleft.com/tutorials/d3/binding-data
 
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import d3_save_svg from 'd3-save-svg';
-import SvgText from 'svg-text';
-import includes from 'lodash.includes';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import d3_save_svg from "d3-save-svg";
+import SvgText from "svg-text";
+import includes from "lodash.includes";
 
-import { CHARTS } from '../../config/chartTypes';
-import { TABS } from '../../config/tabs';
-import { findHeaderGroupForQuery } from '../../lib/queryUtil';
-import UrlQuery from '../../lib/UrlQuery';
-import { queryResultPresenter } from '../../lib/queryResultPresenter';
-import TabBar from '../elements/TabBar';
+import { CHARTS } from "../../config/chartTypes";
+import { TABS } from "../../config/tabs";
+import { findHeaderGroupForQuery } from "../../lib/queryUtil";
+import UrlQuery from "../../lib/UrlQuery";
+import { queryResultPresenter } from "../../lib/queryResultPresenter";
+import TabBar from "../elements/TabBar";
 
 // untoggle to toggle the vis/skjul tall
 // import ToggleView from '../elements/ToggleView'
-import ChartViewModeSelect from '../elements/ChartViewModeSelect';
+import ChartViewModeSelect from "../elements/ChartViewModeSelect";
 
-import { queryToOptions, describeChart } from '../../lib/chartDescriber';
-import { getHeaderKey } from '../../lib/regionUtil';
+import { queryToOptions, describeChart } from "../../lib/chartDescriber";
+import { getHeaderKey } from "../../lib/regionUtil";
 
-import FilterBarContainer from './FilterBarContainer';
-import CardMetadata from './CardMetadata';
-import DownloadWidget from './DownloadWidget';
+import FilterBarContainer from "./FilterBarContainer";
+import CardMetadata from "./CardMetadata";
+import DownloadWidget from "./DownloadWidget";
 
-import '../../lib/element-closest.js';
+import "../../lib/element-closest.js";
 
 import {
   trackCronologicalTabOpen,
   trackBenchmarkTabOpen
-} from '../../actions/tracking';
-import * as ImdiPropTypes from '../proptypes/ImdiPropTypes';
+} from "../../actions/tracking";
+import * as ImdiPropTypes from "../proptypes/ImdiPropTypes";
 
 class Card extends Component {
   static propTypes = {
@@ -72,7 +72,7 @@ class Card extends Component {
   constructor(props) {
     super();
     this.state = {
-      chartViewMode: 'chart',
+      chartViewMode: "chart",
       screenshot: null,
       explicitView: true,
       description: null,
@@ -105,22 +105,22 @@ class Card extends Component {
   // element is an element containing a transform attribute.
   // X and Y are the values you'd want to add to the existing X and Y.
   addValuesToTransform(element, addX, addY) {
-    const transform = element.getAttribute('transform');
+    const transform = element.getAttribute("transform");
     let transformValues;
 
-    if (!transform.includes(',')) {
+    if (!transform.includes(",")) {
       // IE11 excludes all existing commas from the transform property of obvious reasons (no reason).
       // So we'll split on space instead
-      transformValues = transform.split(' ');
+      transformValues = transform.split(" ");
     } else {
-      transformValues = transform.split(',');
+      transformValues = transform.split(",");
     }
 
     // before ["translate(0", "-2.34)"]
     // after ["0", "-2.34"]
     const values = [
-      transformValues[0].split('(')[1],
-      transformValues[1].split(')')[0]
+      transformValues[0].split("(")[1],
+      transformValues[1].split(")")[0]
     ];
 
     // before ["0", "-2.34"]
@@ -129,7 +129,7 @@ class Card extends Component {
     if (addY) values[1] = parseInt(values[1], 10) + addY;
 
     element.setAttribute(
-      'transform',
+      "transform",
       `translate(${values[0].toString()}, ${values[1].toString()})`
     );
   }
@@ -137,7 +137,7 @@ class Card extends Component {
   moveElementsIntoSVG() {
     let svg = this.toggleList;
     if (!svg) return;
-    svg = svg.querySelector('.chart__svg');
+    svg = svg.querySelector(".chart__svg");
     if (!svg) return;
 
     // extra height for the svg diagram
@@ -146,33 +146,33 @@ class Card extends Component {
     const maxNumberOfCharacters = 40;
 
     //  if this chart is pyramidchart - use different padding for colored boxes below chart
-    const pyramid = this.props.activeTab.chartKind == 'pyramid';
+    const pyramid = this.props.activeTab.chartKind == "pyramid";
 
     //  get all svg elements
-    const chart = svg.querySelector('.chart__d3-points');
-    const colorExplanation = svg.querySelector('.chart__legend-wrapper');
+    const chart = svg.querySelector(".chart__d3-points");
+    const colorExplanation = svg.querySelector(".chart__legend-wrapper");
 
     //  move chart and colored squares lower
     this.addValuesToTransform(chart, null, extraHeightDiagram);
 
     if (colorExplanation) {
-    this.addValuesToTransform(
-      colorExplanation,
-      null,
-      pyramid ? extraHeightDiagramPyramid : extraHeightDiagram
+      this.addValuesToTransform(
+        colorExplanation,
+        null,
+        pyramid ? extraHeightDiagramPyramid : extraHeightDiagram
       );
     }
 
     //  get the title
     const title = this.findAncestor(
       this.toggleList,
-      '.toggle-list'
-    ).querySelector('[data-graph-title]');
+      ".toggle-list"
+    ).querySelector("[data-graph-title]");
 
     //  add height
     const height =
-      parseInt(svg.getAttribute('height'), 10) + extraHeightDiagram;
-    svg.setAttribute('height', height);
+      parseInt(svg.getAttribute("height"), 10) + extraHeightDiagram;
+    svg.setAttribute("height", height);
 
     const unit = this.props.query.unit[0];
 
@@ -185,14 +185,14 @@ class Card extends Component {
       text: `${title.textContent} (${unit})`,
       element: svg,
       maxWidth: 2,
-      textOverflow: 'ellipsis',
-      className: 'svg-text title'
+      textOverflow: "ellipsis",
+      className: "svg-text title"
     });
   }
 
   // type of polyfill for .closest()
   findAncestor(el, sel) {
-    if (typeof el.closest === 'function') {
+    if (typeof el.closest === "function") {
       return el.closest(sel) || null;
     }
     while (el) {
@@ -223,25 +223,25 @@ class Card extends Component {
   addDescriptionAndSourceBelowDiagram() {
     let svg = this.toggleList;
     if (!svg) return;
-    svg = svg.querySelector('.chart__svg');
+    svg = svg.querySelector(".chart__svg");
     if (!svg) return;
 
     // space between the chart and description below
     const spaceBetweenGraphAndDescription = 100;
 
     // //  extra height for the svg diagram
-    let extraHeightSVG = 240;
+    let extraHeightSVG = window.innerWidth > 600 ? 240 : 200;
     const paddingBottom = 105;
     const spaceBetween = 30;
 
-    const parent = this.findAncestor(this.toggleList, '[data-card]');
-    const chart = svg.querySelector('.chart__d3-points');
+    const parent = this.findAncestor(this.toggleList, "[data-card]");
+    const chart = svg.querySelector(".chart__d3-points");
     const originalHeight =
-      chart.getBoundingClientRect().height || chart.getAttribute('height');
+      chart.getBoundingClientRect().height || chart.getAttribute("height");
 
     // get number of descriptions below chart
     const descriptions = Array.prototype.slice.call(
-      parent.querySelectorAll('.chart__legend')
+      parent.querySelectorAll(".chart__legend")
     );
 
     // does the description squares below the chart flow horizontally?
@@ -250,10 +250,10 @@ class Card extends Component {
       return (
         Number(
           description
-            .querySelector('g')
-            .getAttribute('transform')
+            .querySelector("g")
+            .getAttribute("transform")
             .split(/([ ,])/)[0]
-            .split('translate(')[1]
+            .split("translate(")[1]
         ) === 0
       );
     });
@@ -267,14 +267,15 @@ class Card extends Component {
 
     //  add extra height to svg
     const height = parseInt(originalHeight || 0, 10) + extraHeightSVG;
-    svg.setAttribute('height', height);
+    svg.setAttribute("height", height);
 
-    const viewBox = svg.getAttribute('viewBox').split(' ');
+    const viewBox = svg.getAttribute("viewBox").split(" ");
     const newViewBox = `${viewBox[0]} ${viewBox[1]} ${viewBox[2]} ${height}`;
-    svg.setAttribute('viewBox', newViewBox);
+    svg.setAttribute("viewBox", newViewBox);
 
-    const description = parent.querySelector('[data-chart-description]');
-    const source = parent.querySelector('[data-chart-source]');
+    const description = parent.querySelector("[data-chart-description]");
+    const descriptionHeight = description.clientHeight;
+    const source = parent.querySelector("[data-chart-source]");
 
     if (!description.textContent) return;
 
@@ -282,19 +283,24 @@ class Card extends Component {
       text: description.textContent,
       element: svg,
       maxWidth: svg.clientWidth || 0,
-      textOverflow: 'ellipsis',
-      className: 'svg-text text__description',
-      verticalAlign: 'bottom'
+      textOverflow: "ellipsis",
+      className: "svg-text text__description",
+      verticalAlign: "bottom"
     });
 
-    const textDescription = svg.querySelector('.text__description');
+    const textDescription = svg.querySelector(".text__description");
+    // Get height of text description, to then add it to svg height
+    const textDescriptionHeight = Math.abs(
+      parseInt(textDescription.getAttribute("transform").split(",")[1])
+    );
     const newDescriptionHeight =
-      svg.clientHeight - (spaceBetween + paddingBottom);
+      svg.clientHeight - (spaceBetween + paddingBottom) + textDescriptionHeight;
     this.addValuesToTransform(
       textDescription,
       null,
       newDescriptionHeight + spaceBetweenGraphAndDescription
     );
+    svg.setAttribute("height", height + textDescriptionHeight);
 
     if (!source.textContent) return;
     //  adds source below diagram
@@ -303,12 +309,12 @@ class Card extends Component {
       text: source.textContent,
       element: svg,
       maxWidth: svg.clientWidth || 0,
-      textOverflow: 'ellipsis',
-      className: 'svg-text text__source',
-      verticalAlign: 'bottom'
+      textOverflow: "ellipsis",
+      className: "svg-text text__source",
+      verticalAlign: "bottom"
     });
 
-    const textSource = svg.querySelector('.text__source');
+    const textSource = svg.querySelector(".text__source");
     const newSourceHeight = svg.clientHeight - paddingBottom;
     this.addValuesToTransform(
       textSource,
@@ -319,7 +325,7 @@ class Card extends Component {
 
   getUrlToTab(tab) {
     return this.context.linkTo(
-      '/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName',
+      "/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName",
       {
         cardName: this.props.card.name,
         cardsPageName: this.props.cardsPageName,
@@ -330,10 +336,10 @@ class Card extends Component {
 
   onTabLinkClick(tab) {
     switch (tab.name) {
-      case 'chronological':
+      case "chronological":
         this.props.dispatch(trackCronologicalTabOpen());
         break;
-      case 'benchmark':
+      case "benchmark":
         this.props.dispatch(trackBenchmarkTabOpen());
         break;
       default:
@@ -357,7 +363,7 @@ class Card extends Component {
   getChartKind() {
     const { activeTab } = this.props;
     const { chartViewMode } = this.state;
-    return chartViewMode === 'table' ? 'table' : activeTab.chartKind;
+    return chartViewMode === "table" ? "table" : activeTab.chartKind;
   }
 
   getUrlForQuery(query) {
@@ -371,7 +377,7 @@ class Card extends Component {
       query: `@${UrlQuery.stringify(query)}`
     };
     return this.context.linkTo(
-      '/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName/:query',
+      "/tall-og-statistikk/steder/:region/:cardsPageName/:cardName/:tabName/:query",
       params
     );
   }
@@ -386,7 +392,7 @@ class Card extends Component {
 
   takeScreenshot(svg) {
     const config = {
-      filename: 'imdi-diagram'
+      filename: "imdi-diagram"
     };
 
     d3_save_svg.save(svg, config); // eslint-disable-line
@@ -425,14 +431,14 @@ class Card extends Component {
 
     const disabledTabs = [];
     if (headerGroup.aar.length < 2) {
-      disabledTabs.push('chronological');
+      disabledTabs.push("chronological");
     }
 
     const chartKind = this.getChartKind();
 
     const chart = CHARTS[chartKind];
     const ChartComponent = chart.component;
-    const showExternalLinkBosatte = this.props.card.name == 'bosatt_anmodede'; // TODO: Needs to be dynamic
+    const showExternalLinkBosatte = this.props.card.name == "bosatt_anmodede"; // TODO: Needs to be dynamic
 
     if (!ChartComponent) {
       return (
@@ -447,17 +453,17 @@ class Card extends Component {
       dimensions: card.config.dimensions
     });
 
-    if (chart.name == 'benchmark') {
+    if (chart.name == "benchmark") {
       data.highlight = {
-        dimensionName: 'region',
+        dimensionName: "region",
         value: [region.prefixedCode]
       };
     }
 
     // if the user is watching the "over tid" tab in the card "befolkning opprinnelsesland", we should by default compare the region to itself.
     if (
-      card.name === 'befolkning_opprinnelsesland' &&
-      activeTab.chartKind === 'line' &&
+      card.name === "befolkning_opprinnelsesland" &&
+      activeTab.chartKind === "line" &&
       !query.comparisonRegions.length
     ) {
       query.comparisonRegions[0] = region.prefixedCode;
@@ -469,7 +475,7 @@ class Card extends Component {
         id={card.name}
         className="toggle-list__section toggle-list__section--expanded"
         aria-hidden="false"
-        style={{ display: 'block' }}
+        style={{ display: "block" }}
         ref={toggleList => {
           this.toggleList = toggleList;
         }}
@@ -528,7 +534,7 @@ class Card extends Component {
               printView={this.state.printView}
               thisCard={this}
               description={description}
-              sortDirection={chartKind === 'benchmark' && 'ascending'}
+              sortDirection={chartKind === "benchmark" && "ascending"}
             />
           )}
         </div>
